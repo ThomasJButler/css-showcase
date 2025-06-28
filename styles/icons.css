@@ -1,0 +1,1076 @@
+/* ============================================
+   Pure CSS Icons Styles
+   Author: Thomas Butler
+   ============================================ */
+
+/* Icon Grid Layout */
+.icons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+}
+
+.icon-card {
+    text-align: center;
+    padding: var(--space-6);
+    background: var(--colour-surface);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-base);
+}
+
+.icon-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.icon-wrapper {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+}
+
+.icon-card h3 {
+    margin: 0 0 var(--space-2);
+    color: var(--colour-text);
+    font-size: var(--text-lg);
+}
+
+.icon-card code {
+    font-size: var(--text-sm);
+    color: var(--colour-text-muted);
+    background: var(--colour-surface-alt);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-md);
+}
+
+/* Base Icon Styles */
+.css-icon {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 8px 0;
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu::before + span {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: var(--colour-primary);
+    border-radius: 2px;
+    transition: all var(--transition-base);
+}
+
+.hamburger-menu::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: var(--colour-primary);
+    border-radius: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Close Icon */
+.close-icon::before,
+.close-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: var(--colour-error);
+    top: 50%;
+    left: 0;
+    transform-origin: center;
+}
+
+.close-icon::before {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.close-icon::after {
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+/* Arrow Right */
+.arrow-right {
+    width: 30px;
+    height: 30px;
+}
+
+.arrow-right::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-top: 4px solid var(--colour-primary);
+    border-right: 4px solid var(--colour-primary);
+    transform: rotate(45deg);
+    top: 50%;
+    left: 25%;
+    margin-top: -10px;
+}
+
+/* Heart Icon */
+.heart-icon {
+    width: 36px;
+    height: 32px;
+    transform: rotate(-45deg);
+    background: var(--colour-error);
+    position: relative;
+}
+
+.heart-icon::before,
+.heart-icon::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 40px;
+    background: var(--colour-error);
+    border-radius: 50px 50px 0 0;
+}
+
+.heart-icon::before {
+    left: 18px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart-icon::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* Star Icon */
+.star-icon {
+    position: relative;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 15px solid var(--colour-warning);
+    transform: rotate(35deg);
+}
+
+.star-icon::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: -12px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 15px solid var(--colour-warning);
+    transform: rotate(-70deg);
+}
+
+.star-icon::after {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 3px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 15px solid var(--colour-warning);
+    transform: rotate(70deg);
+}
+
+/* Envelope Icon */
+.envelope-icon {
+    width: 40px;
+    height: 30px;
+    background: var(--colour-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.envelope-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20px 15px 20px;
+    border-color: transparent transparent var(--colour-background) transparent;
+}
+
+.envelope-icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 20px 0 20px;
+    border-color: var(--colour-primary-dark) transparent transparent transparent;
+}
+
+/* Check Icon */
+.check-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.check-icon::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 28px;
+    border: solid var(--colour-success);
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+    left: 14px;
+    top: 2px;
+}
+
+/* Search Icon */
+.search-icon {
+    width: 30px;
+    height: 30px;
+    border: 4px solid var(--colour-primary);
+    border-radius: 50%;
+    position: relative;
+}
+
+.search-icon::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 15px;
+    background: var(--colour-primary);
+    transform: rotate(-45deg);
+    bottom: -10px;
+    right: -2px;
+}
+
+/* Home Icon */
+.home-icon {
+    width: 36px;
+    height: 30px;
+    background: var(--colour-primary);
+    position: relative;
+    margin-top: 15px;
+}
+
+.home-icon::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-bottom: 15px solid var(--colour-primary);
+}
+
+.home-icon::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 20px;
+    background: var(--colour-background);
+}
+
+/* User Icon */
+.user-icon {
+    width: 24px;
+    height: 24px;
+    background: var(--colour-primary);
+    border-radius: 50%;
+    position: relative;
+    top: -8px;
+}
+
+.user-icon::after {
+    content: '';
+    position: absolute;
+    width: 36px;
+    height: 20px;
+    background: var(--colour-primary);
+    border-radius: 50px 50px 0 0;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Settings Icon (Gear) */
+.settings-icon {
+    width: 40px;
+    height: 40px;
+    border: 8px solid var(--colour-primary);
+    border-radius: 50%;
+    position: relative;
+}
+
+.settings-icon::before,
+.settings-icon::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 48px;
+    background: var(--colour-primary);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.settings-icon::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.settings-icon span::before,
+.settings-icon span::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 48px;
+    background: var(--colour-primary);
+    left: 50%;
+    top: 50%;
+}
+
+.settings-icon span::before {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.settings-icon span::after {
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+
+/* Download Icon */
+.download-icon {
+    width: 30px;
+    height: 35px;
+    border: 4px solid var(--colour-primary);
+    border-top: none;
+    position: relative;
+    margin-top: 10px;
+}
+
+.download-icon::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 20px;
+    background: var(--colour-primary);
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.download-icon::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--colour-primary);
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Animated Icons */
+
+/* Spinner */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.spinner-icon {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(37, 99, 235, 0.2);
+    border-top-color: var(--colour-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Pulse Heart */
+@keyframes pulse {
+    0% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.1); }
+    100% { transform: rotate(-45deg) scale(1); }
+}
+
+.pulse-heart {
+    width: 36px;
+    height: 32px;
+    background: var(--colour-error);
+    position: relative;
+    transform: rotate(-45deg);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.pulse-heart::before,
+.pulse-heart::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 40px;
+    background: var(--colour-error);
+    border-radius: 50px 50px 0 0;
+}
+
+.pulse-heart::before {
+    left: 18px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.pulse-heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* Bell Icon */
+@keyframes ring {
+    0%, 100% { transform: rotate(0); }
+    10%, 30% { transform: rotate(-10deg); }
+    20%, 40% { transform: rotate(10deg); }
+}
+
+.bell-icon {
+    width: 35px;
+    height: 35px;
+    background: var(--colour-warning);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: relative;
+    animation: ring 2s ease-in-out infinite;
+}
+
+.bell-icon::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 8px;
+    background: var(--colour-warning);
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bell-icon::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--colour-warning);
+    border-radius: 50%;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Loading Dots */
+@keyframes bounce-delay {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
+.loading-dots {
+    width: 70px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loading-dots::before,
+.loading-dots::after,
+.loading-dots span {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: var(--colour-primary);
+    border-radius: 50%;
+    animation: bounce-delay 1.4s infinite ease-in-out both;
+}
+
+.loading-dots::before {
+    animation-delay: -0.32s;
+}
+
+.loading-dots::after {
+    animation-delay: -0.16s;
+}
+
+/* WiFi Icon */
+@keyframes wifi-wave {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+.wifi-icon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.wifi-icon::before,
+.wifi-icon::after,
+.wifi-icon span {
+    content: '';
+    position: absolute;
+    border: 3px solid var(--colour-primary);
+    border-bottom: none;
+    border-radius: 50% 50% 0 0;
+}
+
+.wifi-icon::before {
+    width: 40px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    animation: wifi-wave 2s infinite;
+}
+
+.wifi-icon::after {
+    width: 26px;
+    height: 13px;
+    top: 7px;
+    left: 7px;
+    animation: wifi-wave 2s 0.3s infinite;
+}
+
+.wifi-icon span {
+    width: 12px;
+    height: 6px;
+    top: 14px;
+    left: 14px;
+    animation: wifi-wave 2s 0.6s infinite;
+}
+
+/* Battery Icon */
+@keyframes charge {
+    0% { width: 0; }
+    100% { width: 26px; }
+}
+
+.battery-icon {
+    width: 35px;
+    height: 20px;
+    border: 3px solid var(--colour-primary);
+    border-radius: 4px;
+    position: relative;
+}
+
+.battery-icon::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 10px;
+    background: var(--colour-primary);
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.battery-icon::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 14px;
+    background: var(--colour-success);
+    left: 0;
+    top: 0;
+    animation: charge 2s infinite;
+}
+
+/* Interactive Icons */
+
+/* Menu to Close */
+.menu-to-close {
+    background: none;
+    border: none;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.menu-to-close::before,
+.menu-to-close::after,
+.menu-to-close span {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: var(--colour-primary);
+    left: 0;
+    transition: all var(--transition-base);
+}
+
+.menu-to-close::before {
+    top: 8px;
+}
+
+.menu-to-close span {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-to-close::after {
+    bottom: 8px;
+}
+
+.menu-to-close.active::before {
+    transform: rotate(45deg);
+    top: 50%;
+    transform-origin: center;
+}
+
+.menu-to-close.active span {
+    opacity: 0;
+}
+
+.menu-to-close.active::after {
+    transform: rotate(-45deg);
+    bottom: 50%;
+    transform-origin: center;
+}
+
+/* Play/Pause */
+.play-pause {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.play-pause::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 20px solid var(--colour-primary);
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all var(--transition-base);
+}
+
+.play-pause.playing::before {
+    width: 8px;
+    height: 24px;
+    border: none;
+    background: var(--colour-primary);
+    left: 10px;
+}
+
+.play-pause.playing::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 24px;
+    background: var(--colour-primary);
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Like Button */
+.like-button {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 36px;
+}
+
+.like-button::before {
+    content: '';
+    position: absolute;
+    width: 36px;
+    height: 32px;
+    background: var(--colour-text-muted);
+    transform: rotate(-45deg);
+    left: 2px;
+    top: 5px;
+    transition: all var(--transition-base);
+}
+
+.like-button::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 40px;
+    background: var(--colour-text-muted);
+    border-radius: 50px 50px 0 0;
+    left: 20px;
+    top: -2px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    transition: all var(--transition-base);
+}
+
+.like-button span {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 40px;
+    background: var(--colour-text-muted);
+    border-radius: 50px 50px 0 0;
+    left: 2px;
+    top: -2px;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+    transition: all var(--transition-base);
+}
+
+.like-button.liked::before,
+.like-button.liked::after,
+.like-button.liked span {
+    background: var(--colour-error);
+}
+
+.like-button.liked {
+    animation: like-bounce 0.5s ease-out;
+}
+
+@keyframes like-bounce {
+    50% { transform: scale(1.2); }
+}
+
+/* Share Icon */
+.share-icon {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.share-icon::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--colour-primary);
+    border-radius: 50%;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.share-icon::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--colour-primary);
+    border-radius: 50%;
+    bottom: 5px;
+    left: 5px;
+}
+
+.share-icon span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--colour-primary);
+    border-radius: 50%;
+    bottom: 5px;
+    right: 5px;
+}
+
+.share-icon i::before,
+.share-icon i::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: var(--colour-primary);
+    top: 12px;
+    left: 50%;
+    transform-origin: top;
+}
+
+.share-icon i::before {
+    transform: translateX(-50%) rotate(-30deg);
+}
+
+.share-icon i::after {
+    transform: translateX(-50%) rotate(30deg);
+}
+
+/* Hover Mail */
+.hover-mail {
+    width: 40px;
+    height: 30px;
+    background: var(--colour-primary);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.hover-mail::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 15px solid var(--colour-background);
+    top: 0;
+    left: 0;
+    transition: all var(--transition-base);
+}
+
+.hover-mail:hover::before {
+    transform: translateY(-15px);
+}
+
+/* Expand Icon */
+.expand-icon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.expand-icon::before,
+.expand-icon::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 3px solid var(--colour-primary);
+}
+
+.expand-icon::before {
+    border-right: none;
+    border-bottom: none;
+    top: 5px;
+    left: 5px;
+}
+
+.expand-icon::after {
+    border-left: none;
+    border-top: none;
+    bottom: 5px;
+    right: 5px;
+}
+
+.expand-icon:hover::before {
+    transform: translate(-3px, -3px);
+}
+
+.expand-icon:hover::after {
+    transform: translate(3px, 3px);
+}
+
+/* British Icons */
+
+/* Tea Cup */
+.tea-cup {
+    width: 30px;
+    height: 25px;
+    background: var(--colour-primary);
+    border-radius: 0 0 15px 15px;
+    position: relative;
+}
+
+.tea-cup::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    border: 3px solid var(--colour-primary);
+    border-left: none;
+    border-radius: 0 20px 20px 0;
+    right: -10px;
+    top: 0;
+}
+
+.tea-cup::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: var(--colour-primary);
+    bottom: -8px;
+    left: -5px;
+}
+
+/* Steam animation for tea */
+@keyframes steam {
+    0% { transform: translateY(0) scaleX(1); opacity: 1; }
+    100% { transform: translateY(-20px) scaleX(1.5); opacity: 0; }
+}
+
+.tea-cup span::before,
+.tea-cup span::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background: var(--colour-text-muted);
+    top: -15px;
+    animation: steam 2s infinite;
+}
+
+.tea-cup span::before {
+    left: 10px;
+    animation-delay: 0.5s;
+}
+
+.tea-cup span::after {
+    left: 18px;
+    animation-delay: 1s;
+}
+
+/* Umbrella */
+.umbrella-icon {
+    width: 40px;
+    height: 20px;
+    background: var(--colour-primary);
+    border-radius: 40px 40px 0 0;
+    position: relative;
+    top: 10px;
+}
+
+.umbrella-icon::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 20px;
+    background: var(--colour-primary);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+}
+
+.umbrella-icon::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 3px solid var(--colour-primary);
+    border-top: none;
+    border-right: none;
+    border-radius: 0 0 0 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+}
+
+/* Crown */
+.crown-icon {
+    width: 40px;
+    height: 25px;
+    background: var(--colour-warning);
+    position: relative;
+    top: 15px;
+}
+
+.crown-icon::before,
+.crown-icon::after,
+.crown-icon span::before,
+.crown-icon span::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 20px solid var(--colour-warning);
+    top: -15px;
+}
+
+.crown-icon::before {
+    left: -4px;
+}
+
+.crown-icon::after {
+    right: -4px;
+}
+
+.crown-icon span::before {
+    left: 12px;
+}
+
+/* Code Showcase Section */
+.code-showcase {
+    background: var(--colour-surface);
+    padding: var(--space-16) 0;
+}
+
+.technique-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+}
+
+.technique-card {
+    background: var(--colour-background);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--colour-border);
+}
+
+.technique-card h3 {
+    margin-bottom: var(--space-4);
+    color: var(--colour-text);
+}
+
+.technique-card pre {
+    margin: 0;
+    background: var(--colour-surface-alt);
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .icon-card {
+    background: var(--colour-surface);
+}
+
+[data-theme="dark"] .technique-card {
+    background: var(--colour-surface);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .icons-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: var(--space-4);
+    }
+    
+    .technique-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master the CSS :has() selector - the parent selector we've all been waiting for. Interactive demos and real-world examples.">
+    <meta name="author" content="Thomas Butler">
+    <title>:has() Selector | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/modern-features.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">:has()</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="playground.html" class="nav-link">Playground</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#examples" class="nav-link">Examples</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#browser-support" class="nav-link">Support</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="feature-hero">
+            <div class="container">
+                <div class="feature-badge">CSS 2024</div>
+                <h1 class="feature-title">The :has() Selector</h1>
+                <p class="feature-subtitle">
+                    Finally, a parent selector in CSS! Style elements based on what they contain. 
+                    It's like magic, but better - it's native CSS.
+                </p>
+                <div class="browser-support-badges">
+                    <span class="support-badge chrome">Chrome 105+</span>
+                    <span class="support-badge firefox">Firefox 121+</span>
+                    <span class="support-badge safari">Safari 15.4+</span>
+                    <span class="support-badge edge">Edge 105+</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <div class="container">
+                <h2 class="section-title">What is :has()?</h2>
+                <p class="section-intro">
+                    The :has() pseudo-class lets you select an element if it contains another element that matches 
+                    a selector. Think of it as "select a parent that has a specific child" - something we've 
+                    been dreaming about for years!
+                </p>
+
+                <div class="feature-comparison">
+                    <div class="comparison-card old-way">
+                        <h3>❌ The Old Way</h3>
+                        <pre><code>// JavaScript required!
+const cards = document.querySelectorAll('.card');
+cards.forEach(card => {
+    if (card.querySelector('.badge')) {
+        card.classList.add('has-badge');
+    }
+});</code></pre>
+                    </div>
+                    <div class="comparison-card new-way">
+                        <h3>✅ The New Way</h3>
+                        <pre><code>/* Pure CSS! */
+.card:has(.badge) {
+    border: 2px solid gold;
+    background: linear-gradient(
+        to right, 
+        rgba(255, 215, 0, 0.1), 
+        transparent
+    );
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Interactive Examples</h2>
+                
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Form Validation Styling</h3>
+                        <div class="demo-example">
+                            <form class="has-demo-form">
+                                <div class="form-field">
+                                    <label for="demo-email">Email</label>
+                                    <input type="email" id="demo-email" placeholder="your@email.com" required>
+                                    <span class="error-message">Please enter a valid email</span>
+                                </div>
+                                <div class="form-field">
+                                    <label for="demo-password">Password</label>
+                                    <input type="password" id="demo-password" placeholder="••••••••" required>
+                                    <span class="error-message">Password is required</span>
+                                </div>
+                                <p class="form-hint">Try typing to see validation in action!</p>
+                            </form>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Show error only when input is invalid */
+.form-field:has(input:invalid:not(:placeholder-shown)) {
+    .error-message {
+        display: block;
+        color: #ef4444;
+    }
+    
+    input {
+        border-color: #ef4444;
+    }
+}
+
+/* Green tick for valid inputs */
+.form-field:has(input:valid:not(:placeholder-shown))::after {
+    content: '✓';
+    color: #10b981;
+    position: absolute;
+    right: 1rem;
+    top: 2.5rem;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Card with Badge</h3>
+                        <div class="demo-example">
+                            <div class="cards-grid">
+                                <div class="product-card">
+                                    <span class="badge new">NEW</span>
+                                    <h4>Premium CSS Course</h4>
+                                    <p>Master modern CSS with this brilliant course</p>
+                                </div>
+                                <div class="product-card">
+                                    <h4>CSS Basics</h4>
+                                    <p>Start your journey with the fundamentals</p>
+                                </div>
+                                <div class="product-card">
+                                    <span class="badge sale">SALE</span>
+                                    <h4>Advanced Techniques</h4>
+                                    <p>Take your skills to the next level</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Style cards that contain badges */
+.product-card:has(.badge) {
+    border: 2px solid var(--badge-colour);
+    position: relative;
+    overflow: visible;
+}
+
+/* Different styles for different badges */
+.product-card:has(.badge.new) {
+    --badge-colour: #10b981;
+    background: linear-gradient(135deg, 
+        rgba(16, 185, 129, 0.1) 0%, 
+        transparent 50%);
+}
+
+.product-card:has(.badge.sale) {
+    --badge-colour: #ef4444;
+    animation: pulse 2s infinite;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Navigation with Dropdown</h3>
+                        <div class="demo-example">
+                            <nav class="has-demo-nav">
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li>
+                                        <a href="#">Products</a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">CSS Course</a></li>
+                                            <li><a href="#">JavaScript Guide</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">About</a></li>
+                                    <li>
+                                        <a href="#">Resources</a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">Blog</a></li>
+                                            <li><a href="#">Tutorials</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Style nav items that have dropdowns */
+nav li:has(.dropdown) {
+    position: relative;
+}
+
+/* Add dropdown arrow to items with submenus */
+nav li:has(.dropdown) > a::after {
+    content: ' ▾';
+    font-size: 0.8em;
+}
+
+/* Show dropdown on hover */
+nav li:has(.dropdown):hover .dropdown {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Image Gallery with Captions</h3>
+                        <div class="demo-example">
+                            <div class="gallery-grid">
+                                <figure class="gallery-item">
+                                    <div class="image-placeholder">🌅</div>
+                                    <figcaption>Sunrise over London</figcaption>
+                                </figure>
+                                <figure class="gallery-item">
+                                    <div class="image-placeholder">🏰</div>
+                                </figure>
+                                <figure class="gallery-item">
+                                    <div class="image-placeholder">☕</div>
+                                    <figcaption>Perfect cup of tea</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Style figures that have captions differently */
+.gallery-item:has(figcaption) {
+    background: var(--colour-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.gallery-item:not(:has(figcaption)) {
+    border-radius: var(--radius-md);
+    opacity: 0.9;
+}
+
+/* Blur images without captions on hover */
+.gallery-grid:hover .gallery-item:not(:has(figcaption)) {
+    filter: blur(2px);
+    opacity: 0.7;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card wide">
+                        <h3 class="demo-title">Article with Media</h3>
+                        <div class="demo-example">
+                            <div class="articles-list">
+                                <article class="blog-article">
+                                    <h4>CSS Grid: The Complete Guide</h4>
+                                    <p>Everything you need to know about CSS Grid in one comprehensive guide.</p>
+                                </article>
+                                <article class="blog-article">
+                                    <video class="article-video" controls>
+                                        <source src="#" type="video/mp4">
+                                    </video>
+                                    <h4>Flexbox in 5 Minutes</h4>
+                                    <p>Quick video tutorial on mastering Flexbox layouts.</p>
+                                </article>
+                                <article class="blog-article">
+                                    <img class="article-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='300' height='200' fill='%2393c5fd'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20'%3ECSS Art%3C/text%3E%3C/svg%3E" alt="CSS Art">
+                                    <h4>Creating Art with Pure CSS</h4>
+                                    <p>Discover how to create stunning visuals using only CSS.</p>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Different layouts for articles with media */
+.blog-article:has(img, video) {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.blog-article:has(video) {
+    background: linear-gradient(
+        135deg, 
+        rgba(147, 51, 234, 0.1) 0%, 
+        transparent 50%
+    );
+    border-left: 4px solid #9333ea;
+}
+
+/* Articles without media stay simple */
+.blog-article:not(:has(img, video)) {
+    padding: 1.5rem;
+    background: var(--colour-surface);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Advanced Patterns</h2>
+                
+                <div class="pattern-grid">
+                    <div class="pattern-card">
+                        <h3>Sibling Combinations</h3>
+                        <pre><code>/* Style when followed by specific element */
+h2:has(+ p) {
+    margin-bottom: 0.5rem;
+}
+
+/* Grid when contains both images and text */
+.container:has(img):has(p) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}</code></pre>
+                    </div>
+                    
+                    <div class="pattern-card">
+                        <h3>Quantity Queries</h3>
+                        <pre><code>/* Different layout based on child count */
+.gallery:has(> :nth-child(5)) {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Single column if only one child */
+.list:has(> :only-child) {
+    max-width: 600px;
+    margin: 0 auto;
+}</code></pre>
+                    </div>
+                    
+                    <div class="pattern-card">
+                        <h3>State-based Styling</h3>
+                        <pre><code>/* Highlight row with checked checkbox */
+tr:has(input:checked) {
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* Disable form if any field is invalid */
+form:has(input:invalid) button[type="submit"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="browser-support" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Browser Support & Fallbacks</h2>
+                
+                <div class="support-table">
+                    <div class="support-row header">
+                        <span>Browser</span>
+                        <span>Version</span>
+                        <span>Status</span>
+                    </div>
+                    <div class="support-row">
+                        <span>Chrome/Edge</span>
+                        <span>105+</span>
+                        <span class="status-supported">✅ Fully Supported</span>
+                    </div>
+                    <div class="support-row">
+                        <span>Firefox</span>
+                        <span>121+</span>
+                        <span class="status-supported">✅ Fully Supported</span>
+                    </div>
+                    <div class="support-row">
+                        <span>Safari</span>
+                        <span>15.4+</span>
+                        <span class="status-supported">✅ Fully Supported</span>
+                    </div>
+                    <div class="support-row">
+                        <span>Mobile Browsers</span>
+                        <span>Latest</span>
+                        <span class="status-supported">✅ Widely Supported</span>
+                    </div>
+                </div>
+
+                <div class="fallback-example">
+                    <h3>Progressive Enhancement</h3>
+                    <pre><code>/* Base styles for all browsers */
+.card {
+    border: 1px solid #e5e7eb;
+}
+
+/* Enhancement for browsers with :has() support */
+@supports selector(:has(*)) {
+    .card:has(.premium-badge) {
+        border-color: gold;
+        background: linear-gradient(
+            135deg, 
+            rgba(255, 215, 0, 0.1) 0%, 
+            transparent 50%
+        );
+    }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Pro Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">⚡</span>
+                        <h3>Performance</h3>
+                        <p>Keep :has() selectors simple. Complex selectors can impact performance, especially with many elements.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎯</span>
+                        <h3>Specificity</h3>
+                        <p>:has() doesn't increase specificity by itself - it's the selectors inside that count.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🔍</span>
+                        <h3>Testing</h3>
+                        <p>Always test in browsers that don't support :has() to ensure graceful degradation.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">☕</span>
+                        <h3>Tea Break Tip</h3>
+                        <p>Like a good cuppa, :has() makes everything better. Use it wisely and your CSS will thank you!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section-title">Ready for More Modern CSS?</h2>
+                <p class="section-subtitle">
+                    The :has() selector is just the beginning. Explore more cutting-edge CSS features!
+                </p>
+                <div class="next-links">
+                    <a href="container-queries.html" class="next-link">
+                        <span class="next-icon">📦</span>
+                        <div>
+                            <h3>Container Queries</h3>
+                            <p>Responsive components based on container size</p>
+                        </div>
+                    </a>
+                    <a href="css-nesting.html" class="next-link">
+                        <span class="next-icon">🪆</span>
+                        <div>
+                            <h3>CSS Nesting</h3>
+                            <p>Native nesting without preprocessors</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All examples use pure CSS - no frameworks were harmed in the making of this showcase</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/code-examples.js"></script>
+</body>
+</html>

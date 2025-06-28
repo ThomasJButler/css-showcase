@@ -1,32 +1,346 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epic CSS Showcase</title>
-    <link rel="stylesheet" href="./styles/main.css">
+    <meta name="description" content="An epic showcase of CSS capabilities - from the fundamentals to mind-blowing effects. Created by Thomas Butler.">
+    <meta name="author" content="Thomas Butler">
+    <title>The Ultimate CSS Showcase | Thomas Butler</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Epic CSS Showcase</h1>
-        <nav>
-            <ul>
-                <li><a href="basic.html">Basic CSS</a></li>
-                <li><a href="layout.html">Layout</a></li>
-                <li><a href="transitions.html">Transitions and Animations</a></li>
-                <li><a href="advanced.html">Advanced CSS</a></li>
-                <li><a href="responsive.html">Responsive Design</a></li>
-            </ul>
-        </nav>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-text">CSS</span>
+                <span class="logo-accent">Showcase</span>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#fundamentals" class="nav-link">Fundamentals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#layout" class="nav-link">Layout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#visual-effects" class="nav-link">Visual Effects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#components" class="nav-link">Components</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#advanced" class="nav-link">Advanced</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="playground.html" class="nav-link">🎮 Playground</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
     <main>
-        <section>
-            <h2>Welcome to the Epic CSS Showcase</h2>
-            <p>Explore the various aspects of CSS, starting from the basics to advanced techniques. Use the navigation above to browse through the different sections.</p>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">The Ultimate</span>
+                    <span class="title-line title-accent">CSS Showcase</span>
+                </h1>
+                <p class="hero-subtitle">
+                    From pixels to perfection - explore the magnificent world of CSS with interactive examples, 
+                    clean code, and a dash of British charm.
+                </p>
+                <div class="hero-cta">
+                    <a href="#fundamentals" class="btn btn-primary">Start Exploring</a>
+                    <a href="playground.html" class="btn btn-secondary">
+                        <span style="margin-right: 0.5rem;">🎮</span> Try Playground
+                    </a>
+                    <a href="#about" class="btn btn-outline">About This Project</a>
+                </div>
+            </div>
+            <div class="hero-decoration" aria-hidden="true">
+                <div class="floating-element element-1"></div>
+                <div class="floating-element element-2"></div>
+                <div class="floating-element element-3"></div>
+            </div>
+        </section>
+
+        <section id="fundamentals" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Fundamentals</h2>
+                <p class="section-subtitle">Master the building blocks of brilliant web design</p>
+                <div class="showcase-grid">
+                    <article class="showcase-card">
+                        <div class="card-icon">📝</div>
+                        <h3 class="card-title">Basic CSS</h3>
+                        <p class="card-description">Selectors, properties, and the cascade - where it all begins</p>
+                        <a href="basic.html" class="card-link">Explore basics</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">📦</div>
+                        <h3 class="card-title">Box Model</h3>
+                        <p class="card-description">Understanding padding, borders, and margins like a proper developer</p>
+                        <a href="box-model.html" class="card-link">Master the box</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">🔤</div>
+                        <h3 class="card-title">Typography</h3>
+                        <p class="card-description">Beautiful type that would make even The Times jealous</p>
+                        <a href="typography.html" class="card-link">Style your text</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="layout" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Layout Mastery</h2>
+                <p class="section-subtitle">Modern techniques for pixel-perfect positioning</p>
+                <div class="showcase-grid">
+                    <article class="showcase-card">
+                        <div class="card-icon">🏗️</div>
+                        <h3 class="card-title">Flexbox</h3>
+                        <p class="card-description">Flexible layouts that bend but never break</p>
+                        <a href="flexbox.html" class="card-link">Get flexible</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">🎯</div>
+                        <h3 class="card-title">CSS Grid</h3>
+                        <p class="card-description">Two-dimensional layouts with surgical precision</p>
+                        <a href="grid.html" class="card-link">Join the grid</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">📱</div>
+                        <h3 class="card-title">Responsive Design</h3>
+                        <p class="card-description">Brilliant on every device, from mobile to cinema display</p>
+                        <a href="responsive.html" class="card-link">Go responsive</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">🎁</div>
+                        <h3 class="card-title">Container Queries</h3>
+                        <p class="card-description">The future of component-based responsive design</p>
+                        <a href="containers.html" class="card-link">Contain yourself</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="visual-effects" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Visual Effects</h2>
+                <p class="section-subtitle">Eye candy that performs as good as it looks</p>
+                <div class="showcase-grid">
+                    <article class="showcase-card">
+                        <div class="card-icon">🎨</div>
+                        <h3 class="card-title">Gradients</h3>
+                        <p class="card-description">Smooth colour transitions that would make a rainbow jealous</p>
+                        <a href="gradients.html" class="card-link">Blend colours</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">✨</div>
+                        <h3 class="card-title">Transitions</h3>
+                        <p class="card-description">Silky smooth state changes that delight users</p>
+                        <a href="transitions.html" class="card-link">Add motion</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">🎬</div>
+                        <h3 class="card-title">Animations</h3>
+                        <p class="card-description">Keyframe magic that brings your designs to life</p>
+                        <a href="animations.html" class="card-link">Start animating</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">🔮</div>
+                        <h3 class="card-title">Filters & Effects</h3>
+                        <p class="card-description">Instagram-worthy effects with pure CSS</p>
+                        <a href="filters.html" class="card-link">Apply filters</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="components" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Components</h2>
+                <p class="section-subtitle">Production-ready elements for real-world projects</p>
+                <div class="showcase-grid">
+                    <article class="showcase-card">
+                        <div class="card-icon">🔘</div>
+                        <h3 class="card-title">Buttons</h3>
+                        <p class="card-description">Click-worthy buttons that beg to be pressed</p>
+                        <a href="buttons.html" class="card-link">Press buttons</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">📋</div>
+                        <h3 class="card-title">Forms</h3>
+                        <p class="card-description">Input fields that are actually pleasant to use</p>
+                        <a href="forms.html" class="card-link">Style forms</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">📊</div>
+                        <h3 class="card-title">Tables</h3>
+                        <p class="card-description">Data presentation that's both functional and beautiful</p>
+                        <a href="tables.html" class="card-link">Organise data</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">🖼️</div>
+                        <h3 class="card-title">Cards</h3>
+                        <p class="card-description">Versatile containers for any type of content</p>
+                        <a href="cards.html" class="card-link">Deal cards</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">✨</div>
+                        <h3 class="card-title">Pure CSS Icons</h3>
+                        <p class="card-description">No fonts needed - icons made entirely with CSS</p>
+                        <a href="icons.html" class="card-link">View icons</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Advanced Techniques</h2>
+                <p class="section-subtitle">Push CSS to its absolute limits</p>
+                <div class="showcase-grid">
+                    <article class="showcase-card">
+                        <div class="card-icon">🎭</div>
+                        <h3 class="card-title">Custom Properties</h3>
+                        <p class="card-description">CSS variables that make theming a doddle</p>
+                        <a href="custom-properties.html" class="card-link">Get variable</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">🌊</div>
+                        <h3 class="card-title">Blend Modes</h3>
+                        <p class="card-description">Photoshop-style effects without leaving CSS</p>
+                        <a href="blend-modes.html" class="card-link">Start blending</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">✂️</div>
+                        <h3 class="card-title">Shapes & Clips</h3>
+                        <p class="card-description">Break free from rectangular tyranny</p>
+                        <a href="shapes.html" class="card-link">Shape up</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">🎪</div>
+                        <h3 class="card-title">3D Transforms</h3>
+                        <p class="card-description">Add depth to your designs with perspective</p>
+                        <a href="transforms-3d.html" class="card-link">Go 3D</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="modern-css" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Modern CSS (2024-2025)</h2>
+                <p class="section-subtitle">The latest and greatest CSS features that are changing the game</p>
+                <div class="showcase-grid">
+                    <article class="showcase-card">
+                        <div class="card-icon">🎯</div>
+                        <h3 class="card-title">:has() Selector</h3>
+                        <p class="card-description">The parent selector we've all been waiting for!</p>
+                        <a href="has-selector.html" class="card-link">Has it all</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">📦</div>
+                        <h3 class="card-title">Container Queries</h3>
+                        <p class="card-description">Responsive components based on container size</p>
+                        <a href="container-queries.html" class="card-link">Get responsive</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">🪆</div>
+                        <h3 class="card-title">CSS Nesting</h3>
+                        <p class="card-description">Native nesting without preprocessors</p>
+                        <a href="css-nesting.html" class="card-link">Nest away</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">⚓</div>
+                        <h3 class="card-title">Anchor Positioning</h3>
+                        <p class="card-description">Position elements relative to others easily</p>
+                        <a href="anchor-positioning.html" class="card-link">Drop anchor</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">🎢</div>
+                        <h3 class="card-title">Scroll Animations</h3>
+                        <p class="card-description">Scroll-driven animations without JavaScript</p>
+                        <a href="scroll-animations.html" class="card-link">Start scrolling</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">🎨</div>
+                        <h3 class="card-title">New Colour Spaces</h3>
+                        <p class="card-description">OKLCH, LAB, and more vibrant colours</p>
+                        <a href="color-spaces.html" class="card-link">Expand palette</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">📐</div>
+                        <h3 class="card-title">Subgrid</h3>
+                        <p class="card-description">Align nested grids with parent grids</p>
+                        <a href="subgrid.html" class="card-link">Align perfectly</a>
+                    </article>
+                    <article class="showcase-card">
+                        <div class="card-icon">📰</div>
+                        <h3 class="card-title">CSS Blog</h3>
+                        <p class="card-description">Latest CSS news and tutorials</p>
+                        <a href="blog.html" class="card-link">Read more</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About This Showcase</h2>
+                <div class="about-content">
+                    <p>
+                        Welcome to my CSS playground! I'm Thomas Butler, and I created this showcase whilst 
+                        learning the ins and outs of CSS. What started as a learning journey has evolved into 
+                        a comprehensive demonstration of CSS's incredible capabilities.
+                    </p>
+                    <p>
+                        Every example here is crafted with care, using clean, semantic HTML and modern CSS 
+                        techniques. No frameworks, no libraries - just pure CSS magic that works brilliantly 
+                        across all modern browsers.
+                    </p>
+                    <p>
+                        Whether you're a fellow developer looking for inspiration or someone curious about 
+                        what CSS can do, I hope you find something here that sparks your creativity. 
+                        Feel free to view source, inspect elements, and use any techniques you find useful 
+                        in your own projects.
+                    </p>
+                    <div class="about-cta">
+                        <a href="https://github.com/ThomasJButler" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                            View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>Epic CSS Showcase by Thomas Butler</p>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All examples use pure CSS - no frameworks were harmed in the making of this showcase</small>
+            </p>
+        </div>
     </footer>
+
+    <script src="scripts/main.js"></script>
 </body>
 </html>

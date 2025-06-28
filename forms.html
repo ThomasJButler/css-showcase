@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beautiful CSS form designs - from elegant inputs to delightful validation. Forms that users actually enjoy filling out!">
+    <meta name="author" content="Thomas Butler">
+    <title>CSS Forms | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/forms.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Forms</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#inputs" class="nav-link">Inputs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#validation" class="nav-link">Validation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#advanced" class="nav-link">Advanced</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#complete" class="nav-link">Complete Forms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="playground.html" class="nav-link">Playground</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Forms Made Beautiful</h1>
+                <p class="hero-subtitle">
+                    Transform boring forms into delightful experiences. No JavaScript required - 
+                    just pure CSS magic that makes users actually want to fill them out!
+                </p>
+            </div>
+        </section>
+
+        <section id="inputs" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Input Fields</h2>
+                <p class="section-subtitle">Elegant input designs that guide users naturally</p>
+                
+                <div class="forms-grid">
+                    <div class="form-card">
+                        <h3>Classic Inputs</h3>
+                        <form class="demo-form">
+                            <div class="form-group">
+                                <label for="classic-text">Name</label>
+                                <input type="text" id="classic-text" class="form-input" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="classic-email">Email</label>
+                                <input type="email" id="classic-email" class="form-input" placeholder="your@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="classic-password">Password</label>
+                                <input type="password" id="classic-password" class="form-input" placeholder="••••••••">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Floating Labels</h3>
+                        <form class="demo-form">
+                            <div class="form-group form-floating">
+                                <input type="text" id="float-name" class="form-input" placeholder=" " required>
+                                <label for="float-name">Full Name</label>
+                            </div>
+                            <div class="form-group form-floating">
+                                <input type="email" id="float-email" class="form-input" placeholder=" " required>
+                                <label for="float-email">Email Address</label>
+                            </div>
+                            <div class="form-group form-floating">
+                                <input type="tel" id="float-phone" class="form-input" placeholder=" ">
+                                <label for="float-phone">Phone Number</label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Underline Style</h3>
+                        <form class="demo-form">
+                            <div class="form-group form-underline">
+                                <input type="text" id="underline-name" class="form-input" placeholder="Your name">
+                                <label for="underline-name">Name</label>
+                                <span class="form-underline-bar"></span>
+                            </div>
+                            <div class="form-group form-underline">
+                                <input type="email" id="underline-email" class="form-input" placeholder="Your email">
+                                <label for="underline-email">Email</label>
+                                <span class="form-underline-bar"></span>
+                            </div>
+                            <div class="form-group form-underline">
+                                <input type="text" id="underline-subject" class="form-input" placeholder="Subject">
+                                <label for="underline-subject">Subject</label>
+                                <span class="form-underline-bar"></span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Icon Inputs</h3>
+                        <form class="demo-form">
+                            <div class="form-group form-icon">
+                                <span class="form-icon-left">👤</span>
+                                <input type="text" class="form-input" placeholder="Username">
+                            </div>
+                            <div class="form-group form-icon">
+                                <span class="form-icon-left">✉️</span>
+                                <input type="email" class="form-input" placeholder="Email address">
+                            </div>
+                            <div class="form-group form-icon">
+                                <span class="form-icon-left">🔒</span>
+                                <input type="password" class="form-input" placeholder="Password">
+                                <button type="button" class="form-icon-right password-toggle">👁️</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Textareas</h3>
+                        <form class="demo-form">
+                            <div class="form-group">
+                                <label for="textarea-basic">Basic Textarea</label>
+                                <textarea id="textarea-basic" class="form-textarea" rows="3" placeholder="Enter your message..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="textarea-auto">Auto-expanding</label>
+                                <textarea id="textarea-auto" class="form-textarea auto-expand" rows="1" placeholder="This grows as you type..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="textarea-char">With Character Count</label>
+                                <textarea id="textarea-char" class="form-textarea" rows="2" maxlength="100" placeholder="Limited to 100 characters..."></textarea>
+                                <span class="char-count">0/100</span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Select & Dropdowns</h3>
+                        <form class="demo-form">
+                            <div class="form-group">
+                                <label for="select-basic">Country</label>
+                                <select id="select-basic" class="form-select">
+                                    <option value="">Choose a country...</option>
+                                    <option value="uk">United Kingdom 🇬🇧</option>
+                                    <option value="us">United States 🇺🇸</option>
+                                    <option value="ca">Canada 🇨🇦</option>
+                                    <option value="au">Australia 🇦🇺</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="select-custom">Custom Styled</label>
+                                <div class="form-select-wrapper">
+                                    <select id="select-custom" class="form-select custom-select">
+                                        <option value="">Select option...</option>
+                                        <option value="tea">Tea Time ☕</option>
+                                        <option value="coffee">Coffee Break ☕</option>
+                                        <option value="biscuits">Biscuits 🍪</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="validation" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Form Validation</h2>
+                <p class="section-subtitle">Beautiful feedback that helps users succeed</p>
+                
+                <div class="forms-grid">
+                    <div class="form-card wide">
+                        <h3>Real-time Validation</h3>
+                        <form class="demo-form validation-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="val-username">Username</label>
+                                    <input type="text" id="val-username" class="form-input" 
+                                           pattern="[a-zA-Z0-9]{3,20}" 
+                                           required
+                                           placeholder="3-20 characters, letters and numbers">
+                                    <span class="form-message"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="val-email">Email</label>
+                                    <input type="email" id="val-email" class="form-input" 
+                                           required
+                                           placeholder="valid@email.com">
+                                    <span class="form-message"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="val-password">Password</label>
+                                    <input type="password" id="val-password" class="form-input" 
+                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                           required
+                                           placeholder="8+ chars, uppercase, lowercase, number">
+                                    <span class="form-message"></span>
+                                    <div class="password-strength">
+                                        <span class="strength-bar"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="val-confirm">Confirm Password</label>
+                                    <input type="password" id="val-confirm" class="form-input" 
+                                           required
+                                           placeholder="Repeat password">
+                                    <span class="form-message"></span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Success States</h3>
+                        <form class="demo-form">
+                            <div class="form-group success">
+                                <label for="success-input">Valid Input</label>
+                                <input type="text" id="success-input" class="form-input" value="Perfect input!" readonly>
+                                <span class="form-message">✓ Looking good!</span>
+                            </div>
+                            <div class="form-group success">
+                                <label for="success-email">Valid Email</label>
+                                <input type="email" id="success-email" class="form-input" value="valid@email.com" readonly>
+                                <span class="form-message">✓ Email verified</span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Error States</h3>
+                        <form class="demo-form">
+                            <div class="form-group error">
+                                <label for="error-input">Invalid Input</label>
+                                <input type="text" id="error-input" class="form-input" value="Bad input!" readonly>
+                                <span class="form-message">✗ Please check this field</span>
+                            </div>
+                            <div class="form-group error">
+                                <label for="error-required">Required Field</label>
+                                <input type="text" id="error-required" class="form-input" placeholder="This field is required" readonly>
+                                <span class="form-message">✗ This field is required</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Advanced Controls</h2>
+                <p class="section-subtitle">Checkboxes, radios, toggles, and more - all styled to perfection</p>
+                
+                <div class="forms-grid">
+                    <div class="form-card">
+                        <h3>Checkboxes</h3>
+                        <form class="demo-form">
+                            <div class="form-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" class="form-checkbox" checked>
+                                    <span class="checkbox-mark"></span>
+                                    <span class="checkbox-label">I agree to the terms</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" class="form-checkbox">
+                                    <span class="checkbox-mark"></span>
+                                    <span class="checkbox-label">Send me newsletters</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-wrapper checkbox-fancy">
+                                    <input type="checkbox" class="form-checkbox">
+                                    <span class="checkbox-mark"></span>
+                                    <span class="checkbox-label">Fancy animated checkbox</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Radio Buttons</h3>
+                        <form class="demo-form">
+                            <div class="form-group">
+                                <div class="radio-group">
+                                    <label class="radio-wrapper">
+                                        <input type="radio" name="plan" class="form-radio" value="basic" checked>
+                                        <span class="radio-mark"></span>
+                                        <span class="radio-label">Basic Plan</span>
+                                    </label>
+                                    <label class="radio-wrapper">
+                                        <input type="radio" name="plan" class="form-radio" value="pro">
+                                        <span class="radio-mark"></span>
+                                        <span class="radio-label">Pro Plan</span>
+                                    </label>
+                                    <label class="radio-wrapper">
+                                        <input type="radio" name="plan" class="form-radio" value="enterprise">
+                                        <span class="radio-mark"></span>
+                                        <span class="radio-label">Enterprise</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Toggle Switches</h3>
+                        <form class="demo-form">
+                            <div class="form-group">
+                                <label class="toggle-wrapper">
+                                    <input type="checkbox" class="form-toggle">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-label">Enable notifications</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="toggle-wrapper">
+                                    <input type="checkbox" class="form-toggle" checked>
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-label">Dark mode</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="toggle-wrapper toggle-fancy">
+                                    <input type="checkbox" class="form-toggle">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-label">Fancy toggle</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Range Sliders</h3>
+                        <form class="demo-form">
+                            <div class="form-group">
+                                <label for="range-basic">Volume</label>
+                                <input type="range" id="range-basic" class="form-range" min="0" max="100" value="70">
+                                <span class="range-value">70</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="range-custom">Brightness</label>
+                                <input type="range" id="range-custom" class="form-range range-custom" min="0" max="100" value="50">
+                                <span class="range-value">50</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="range-gradient">Colour Temperature</label>
+                                <input type="range" id="range-gradient" class="form-range range-gradient" min="0" max="100" value="30">
+                                <span class="range-value">30</span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>File Upload</h3>
+                        <form class="demo-form">
+                            <div class="form-group">
+                                <label class="file-upload">
+                                    <input type="file" class="form-file">
+                                    <span class="file-button">
+                                        <span class="file-icon">📁</span>
+                                        <span class="file-text">Choose File</span>
+                                    </span>
+                                    <span class="file-name">No file chosen</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="file-upload file-drop">
+                                    <input type="file" class="form-file" multiple>
+                                    <div class="file-drop-area">
+                                        <span class="file-drop-icon">📤</span>
+                                        <span class="file-drop-text">Drop files here or click to browse</span>
+                                        <span class="file-drop-hint">Multiple files allowed</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Date & Time</h3>
+                        <form class="demo-form">
+                            <div class="form-group">
+                                <label for="date-input">Date</label>
+                                <input type="date" id="date-input" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="time-input">Time</label>
+                                <input type="time" id="time-input" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="datetime-input">Date & Time</label>
+                                <input type="datetime-local" id="datetime-input" class="form-input">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="complete" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Complete Form Examples</h2>
+                <p class="section-subtitle">Full forms showcasing everything together</p>
+                
+                <div class="forms-grid">
+                    <div class="form-card wide">
+                        <h3>Contact Form</h3>
+                        <form class="demo-form contact-form">
+                            <div class="form-row">
+                                <div class="form-group form-floating">
+                                    <input type="text" id="contact-name" class="form-input" placeholder=" " required>
+                                    <label for="contact-name">Your Name</label>
+                                </div>
+                                <div class="form-group form-floating">
+                                    <input type="email" id="contact-email" class="form-input" placeholder=" " required>
+                                    <label for="contact-email">Email Address</label>
+                                </div>
+                            </div>
+                            <div class="form-group form-floating">
+                                <input type="text" id="contact-subject" class="form-input" placeholder=" ">
+                                <label for="contact-subject">Subject</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message">Message</label>
+                                <textarea id="contact-message" class="form-textarea" rows="4" placeholder="How can we help you?"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" class="form-checkbox">
+                                    <span class="checkbox-mark"></span>
+                                    <span class="checkbox-label">Send me a copy of this message</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div class="form-card wide">
+                        <h3>Sign Up Form</h3>
+                        <form class="demo-form signup-form">
+                            <div class="form-header">
+                                <h4>Create Your Account</h4>
+                                <p>Join thousands of happy users!</p>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="signup-first">First Name</label>
+                                    <input type="text" id="signup-first" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signup-last">Last Name</label>
+                                    <input type="text" id="signup-last" class="form-input" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-email">Email</label>
+                                <input type="email" id="signup-email" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-password">Password</label>
+                                <input type="password" id="signup-password" class="form-input" required>
+                                <div class="password-requirements">
+                                    <span class="requirement" data-req="length">8+ characters</span>
+                                    <span class="requirement" data-req="uppercase">Uppercase letter</span>
+                                    <span class="requirement" data-req="lowercase">Lowercase letter</span>
+                                    <span class="requirement" data-req="number">Number</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" class="form-checkbox" required>
+                                    <span class="checkbox-mark"></span>
+                                    <span class="checkbox-label">I agree to the <a href="#">Terms of Service</a></span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                            <div class="form-footer">
+                                <p>Already have an account? <a href="#">Sign in</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Form Design Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">🎯</span>
+                        <h3>Clear Labels</h3>
+                        <p>Always use clear, descriptive labels. Users should know exactly what to enter.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">✅</span>
+                        <h3>Instant Feedback</h3>
+                        <p>Validate as users type, not just on submit. Help them succeed!</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">📱</span>
+                        <h3>Mobile First</h3>
+                        <p>Design for touch. Make tap targets at least 44x44 pixels.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">☕</span>
+                        <h3>British Polish</h3>
+                        <p>Like a proper queue, forms should be orderly, polite, and respectful of everyone's time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All form styles created with pure CSS - no JavaScript required for the styling!</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/forms.js"></script>
+</body>
+</html>

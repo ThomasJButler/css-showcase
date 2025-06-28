@@ -1,86 +1,634 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic CSS</title>
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/basic.css">
+    <meta name="description" content="Master the fundamentals of CSS - selectors, properties, and the cascade. Interactive examples and clean code.">
+    <meta name="author" content="Thomas Butler">
+    <title>Basic CSS | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/basic.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Basic CSS</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="layout.html">Layout</a></li>
-                <li><a href="transitions.html">Transitions and Animations</a></li>
-                <li><a href="advanced.html">Advanced CSS</a></li>
-                <li><a href="responsive.html">Responsive Design</a></li>
-            </ul>
-        </nav>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#selectors" class="nav-link">Selectors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#properties" class="nav-link">Properties</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#cascade" class="nav-link">The Cascade</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#units" class="nav-link">Units</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
     <main>
-        <section>
-            <h2>Basic Styling Elements</h2>
-            <div class="basic-examples">
-                <div class="example">
-                    <h3>Padding</h3>
-                    <div class="padding-example">Basic Padding</div>
-                    <div class="advanced-padding-example">Advanced Padding</div>
-                </div>
-                <div class="example">
-                    <h3>Margin</h3>
-                    <div class="margin-example">Basic Margin</div>
-                    <div class="advanced-margin-example">Advanced Margin</div>
-                </div>
-                <div class="example">
-                    <h3>Colors</h3>
-                    <div class="color-example">Basic Color</div>
-                    <div class="advanced-color-example">Advanced Color</div>
-                </div>
-                <div class="example">
-                    <h3>Background Colors</h3>
-                    <div class="bg-color-example">Basic Background Color</div>
-                    <div class="advanced-bg-color-example">Advanced Background Color</div>
-                </div>
-                <div class="example">
-                    <h3>Flexbox</h3>
-                    <div class="flexbox-example">
-                        <div class="flex-item">Basic Flex Item 1</div>
-                        <div class="flex-item">Basic Flex Item 2</div>
-                        <div class="flex-item">Basic Flex Item 3</div>
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Basic CSS</h1>
+                <p class="page-subtitle">
+                    The foundation of web styling - where every brilliant design begins
+                </p>
+            </div>
+        </section>
+
+        <section id="selectors" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">CSS Selectors</h2>
+                <p class="section-intro">
+                    Selectors are the backbone of CSS - they let you target HTML elements with surgical precision. 
+                    From simple element selectors to complex pseudo-selectors, mastering these is essential.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Element Selectors</h3>
+                        <div class="demo-example">
+                            <p class="element-demo">This paragraph is styled with an element selector</p>
+                            <span class="span-demo">This span has different styling</span>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Target all paragraphs */
+p {
+    color: var(--colour-primary);
+    font-weight: 500;
+}
+
+/* Target all spans */
+span {
+    color: var(--colour-accent);
+    font-style: italic;
+}</code></pre>
+                        </div>
                     </div>
-                    <div class="advanced-flexbox-example">
-                        <div class="flex-item">Advanced Flex Item 1</div>
-                        <div class="flex-item">Advanced Flex Item 2</div>
-                        <div class="flex-item">Advanced Flex Item 3</div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Class Selectors</h3>
+                        <div class="demo-example">
+                            <p class="highlight">Classes add reusable styles</p>
+                            <p class="highlight important">Multiple classes? No problem!</p>
+                            <p class="subtle">Different class, different style</p>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Single class */
+.highlight {
+    background: var(--colour-warning-light);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+/* Multiple classes */
+.highlight.important {
+    border-left: 4px solid var(--colour-error);
+    font-weight: bold;
+}
+
+.subtle {
+    opacity: 0.7;
+    font-size: 0.875rem;
+}</code></pre>
+                        </div>
                     </div>
-                </div>
-                <div class="example">
-                    <h3>Grid</h3>
-                    <div class="grid-example">
-                        <div class="grid-item">1</div>
-                        <div class="grid-item">2</div>
-                        <div class="grid-item">3</div>
-                        <div class="grid-item">4</div>
-                        <div class="grid-item">5</div>
-                        <div class="grid-item">6</div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">ID Selectors</h3>
+                        <div class="demo-example">
+                            <p id="unique-element">IDs are unique - use sparingly!</p>
+                            <p class="note">Prefer classes for reusability</p>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* ID selector - high specificity */
+#unique-element {
+    background: linear-gradient(
+        45deg, 
+        var(--colour-primary), 
+        var(--colour-secondary)
+    );
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}</code></pre>
+                        </div>
                     </div>
-                    <div class="advanced-grid-example">
-                        <div class="grid-item">A</div>
-                        <div class="grid-item">B</div>
-                        <div class="grid-item">C</div>
-                        <div class="grid-item">D</div>
-                        <div class="grid-item">E</div>
-                        <div class="grid-item">F</div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Attribute Selectors</h3>
+                        <div class="demo-example">
+                            <input type="text" placeholder="Text input">
+                            <input type="email" placeholder="Email input">
+                            <a href="https://example.com" target="_blank">External link</a>
+                            <a href="#internal">Internal link</a>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Target by attribute */
+input[type="email"] {
+    border-color: var(--colour-primary);
+}
+
+/* Target external links */
+a[target="_blank"] {
+    padding-right: 1.25rem;
+    position: relative;
+}
+
+a[target="_blank"]::after {
+    content: "↗";
+    position: absolute;
+    right: 0;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Pseudo-class Selectors</h3>
+                        <div class="demo-example">
+                            <div class="interactive-list">
+                                <button class="pseudo-demo">Hover over me!</button>
+                                <button class="pseudo-demo" disabled>I'm disabled</button>
+                                <ul>
+                                    <li>First item (special styling)</li>
+                                    <li>Regular item</li>
+                                    <li>Regular item</li>
+                                    <li>Last item (special styling)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Interactive states */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Structural pseudo-classes */
+li:first-child {
+    color: var(--colour-primary);
+    font-weight: bold;
+}
+
+li:last-child {
+    color: var(--colour-secondary);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Combinators</h3>
+                        <div class="demo-example">
+                            <div class="parent-demo">
+                                <p>Direct child paragraph</p>
+                                <div>
+                                    <p>Nested paragraph (descendant)</p>
+                                </div>
+                                <p>Another direct child</p>
+                                <span>Adjacent sibling</span>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Direct child */
+.parent-demo > p {
+    border-left: 3px solid var(--colour-primary);
+    padding-left: 1rem;
+}
+
+/* Descendant */
+.parent-demo p {
+    margin: 0.5rem 0;
+}
+
+/* Adjacent sibling */
+p + span {
+    color: var(--colour-accent);
+    font-weight: bold;
+}</code></pre>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section id="properties" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Essential CSS Properties</h2>
+                <p class="section-intro">
+                    CSS properties are the tools that bring your designs to life. Here are the fundamental 
+                    properties every developer should master.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Colour Properties</h3>
+                        <div class="demo-example">
+                            <div class="colour-showcase">
+                                <p style="color: #2563eb;">Hex colour: #2563eb</p>
+                                <p style="color: rgb(37, 99, 235);">RGB: rgb(37, 99, 235)</p>
+                                <p style="color: hsl(217, 91%, 60%);">HSL: hsl(217, 91%, 60%)</p>
+                                <p style="background: linear-gradient(45deg, #2563eb, #7c3aed); color: white; padding: 0.5rem;">
+                                    Gradient background
+                                </p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Different colour formats */
+.element {
+    /* Hexadecimal */
+    color: #2563eb;
+    
+    /* RGB with alpha */
+    background-color: rgba(37, 99, 235, 0.1);
+    
+    /* HSL - great for variations */
+    border-color: hsl(217, 91%, 60%);
+    
+    /* CSS Variables */
+    box-shadow: 0 4px 6px var(--colour-primary);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Typography Properties</h3>
+                        <div class="demo-example">
+                            <div class="typography-showcase">
+                                <p style="font-size: 1.5rem; font-weight: 700;">Bold and Large</p>
+                                <p style="font-style: italic; letter-spacing: 0.1em;">Italic with letter spacing</p>
+                                <p style="text-transform: uppercase; font-size: 0.875rem;">Uppercase text</p>
+                                <p style="line-height: 1.8; text-align: justify;">
+                                    This paragraph has increased line height for better readability. 
+                                    Notice how the text breathes with proper spacing.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Typography styling */
+.heading {
+    font-family: var(--font-sans);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.body-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+    text-indent: 2rem;
+}
+
+.accent-text {
+    font-style: italic;
+    text-transform: uppercase;
+    text-decoration: underline;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Display Properties</h3>
+                        <div class="demo-example">
+                            <div class="display-showcase">
+                                <span class="display-block">Block element (full width)</span>
+                                <span class="display-inline">Inline</span>
+                                <span class="display-inline">elements</span>
+                                <span class="display-inline">flow</span>
+                                <span class="display-inline-block">Inline-block combines both</span>
+                                <span class="display-none">Hidden element</span>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Display values */
+.display-block {
+    display: block;
+    background: var(--colour-surface);
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.display-inline {
+    display: inline;
+    background: var(--colour-primary-light);
+    padding: 0.25rem;
+}
+
+.display-inline-block {
+    display: inline-block;
+    background: var(--colour-secondary-light);
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+.display-none {
+    display: none; /* Completely hidden */
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cascade" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">The Cascade & Specificity</h2>
+                <p class="section-intro">
+                    Understanding how CSS rules cascade and which styles take precedence is crucial 
+                    for writing maintainable stylesheets. It's like a pecking order for your styles!
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card wide">
+                        <h3 class="demo-title">Specificity Calculator</h3>
+                        <div class="demo-example">
+                            <div class="specificity-demo">
+                                <p class="text" id="specific" style="color: green;">
+                                    Which colour wins? (Hint: it's green!)
+                                </p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Specificity: 0-0-1 (1 element) */
+p { color: blue; }
+
+/* Specificity: 0-1-0 (1 class) */
+.text { color: red; }
+
+/* Specificity: 1-0-0 (1 ID) */
+#specific { color: purple; }
+
+/* Specificity: 1-1-1 (1 ID + 1 class + 1 element) */
+p#specific.text { color: orange; }
+
+/* Inline styles: 1-0-0-0 (highest specificity) */
+style="color: green;"
+
+/* Calculation: ID=100, Class=10, Element=1 */</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Inheritance</h3>
+                        <div class="demo-example">
+                            <div class="inheritance-demo" style="color: var(--colour-primary); font-size: 1.1rem;">
+                                Parent element
+                                <p>Child inherits colour and font-size</p>
+                                <p style="color: var(--colour-secondary);">But can override inherited styles</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Some properties inherit */
+.parent {
+    color: var(--colour-primary);
+    font-size: 1.1rem;
+    font-family: var(--font-sans);
+}
+
+/* Children automatically inherit */
+.parent p {
+    /* Inherits color and font */
+}
+
+/* Properties that DON'T inherit:
+   - margin, padding
+   - border
+   - background
+   - display
+   - position */</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">!important (Use Sparingly!)</h3>
+                        <div class="demo-example">
+                            <p class="important-demo override-attempt">
+                                This text is red, despite other rules
+                            </p>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Normal rule */
+.important-demo {
+    color: blue;
+}
+
+/* Higher specificity */
+p.important-demo.override-attempt {
+    color: green;
+}
+
+/* !important wins (but avoid this!) */
+.important-demo {
+    color: red !important;
+}
+
+/* Better approach: use specificity */
+/* or restructure your CSS */</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="units" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">CSS Units</h2>
+                <p class="section-intro">
+                    Choosing the right unit is like picking the right tool for the job. 
+                    From pixels to percentages, each has its perfect use case.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Absolute Units</h3>
+                        <div class="demo-example">
+                            <div class="units-showcase">
+                                <div class="unit-box" style="width: 200px;">200px wide</div>
+                                <div class="unit-box" style="width: 15rem;">15rem wide</div>
+                                <div class="unit-box" style="width: 2in;">2in wide</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Absolute units */
+.pixel-box {
+    width: 200px;  /* Fixed pixels */
+    height: 100px;
+}
+
+.rem-box {
+    width: 15rem;  /* Relative to root font-size */
+    padding: 1rem;
+}
+
+/* Other absolute units:
+   cm, mm, in, pt, pc
+   (rarely used in web) */</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Relative Units</h3>
+                        <div class="demo-example">
+                            <div class="relative-units" style="font-size: 16px;">
+                                <div class="unit-box" style="width: 100%;">100% of parent</div>
+                                <div class="unit-box" style="width: 50%;">50% of parent</div>
+                                <div class="unit-box" style="font-size: 1.5em; padding: 1em;">1.5em font, 1em padding</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Relative units */
+.percentage {
+    width: 100%;     /* Of parent */
+    max-width: 1200px;
+}
+
+.em-sizing {
+    font-size: 1.5em;  /* 1.5x parent font */
+    padding: 1em;      /* Relative to element font */
+}
+
+.viewport-units {
+    width: 80vw;   /* 80% viewport width */
+    height: 50vh;  /* 50% viewport height */
+    
+    /* New viewport units */
+    height: 100dvh; /* Dynamic viewport */
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Modern Units</h3>
+                        <div class="demo-example">
+                            <div class="modern-units">
+                                <div class="unit-box" style="width: min(100%, 400px);">min(100%, 400px)</div>
+                                <div class="unit-box" style="width: clamp(200px, 50%, 400px);">clamp(200px, 50%, 400px)</div>
+                                <div class="unit-box ch-demo">20ch wide (character units)</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Modern CSS units & functions */
+.responsive-box {
+    /* Minimum of two values */
+    width: min(100%, 600px);
+    
+    /* Maximum of two values */
+    height: max(300px, 50vh);
+    
+    /* Clamp between min and max */
+    font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+.text-measure {
+    /* ch = width of '0' character */
+    max-width: 65ch; /* Optimal reading */
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Pro Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">💡</span>
+                        <h3>Start with a Reset</h3>
+                        <p>Use a CSS reset or normalise stylesheet to ensure consistent styling across browsers.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎯</span>
+                        <h3>Specificity Over !important</h3>
+                        <p>Instead of reaching for !important, understand and use specificity properly.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">📏</span>
+                        <h3>REM for Consistency</h3>
+                        <p>Use REM units for sizes to respect user's font preferences and ensure scalability.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎨</span>
+                        <h3>CSS Variables FTW</h3>
+                        <p>Define your colours and sizes as CSS variables for easy theming and maintenance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section-title">Ready for More?</h2>
+                <p class="section-subtitle">
+                    You've mastered the basics! Time to explore how these fundamentals 
+                    come together in more complex scenarios.
+                </p>
+                <div class="next-links">
+                    <a href="box-model.html" class="next-link">
+                        <span class="next-icon">📦</span>
+                        <div>
+                            <h3>Box Model</h3>
+                            <p>Understand spacing, borders, and element dimensions</p>
+                        </div>
+                    </a>
+                    <a href="typography.html" class="next-link">
+                        <span class="next-icon">🔤</span>
+                        <div>
+                            <h3>Typography</h3>
+                            <p>Create beautiful, readable text designs</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>Epic CSS Showcase by Thomas Butler</p>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All examples use pure CSS - no frameworks were harmed in the making of this showcase</small>
+            </p>
+        </div>
     </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/code-examples.js"></script>
 </body>
 </html>

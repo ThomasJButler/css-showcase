@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Native CSS Nesting - Write cleaner, more maintainable CSS without preprocessors. Say goodbye to SASS!">
+    <meta name="author" content="Thomas Butler">
+    <title>CSS Nesting | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/modern-features.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Nesting</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="playground.html" class="nav-link">Playground</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#examples" class="nav-link">Examples</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#migration" class="nav-link">SASS Migration</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="feature-hero">
+            <div class="container">
+                <div class="feature-badge">CSS 2024</div>
+                <h1 class="feature-title">Native CSS Nesting</h1>
+                <p class="feature-subtitle">
+                    No more preprocessors needed! CSS now supports nesting natively. 
+                    Write cleaner, more organised stylesheets with less repetition.
+                </p>
+                <div class="browser-support-badges">
+                    <span class="support-badge chrome">Chrome 112+</span>
+                    <span class="support-badge firefox">Firefox 117+</span>
+                    <span class="support-badge safari">Safari 16.5+</span>
+                    <span class="support-badge edge">Edge 112+</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Goodbye SASS, Hello Native Nesting!</h2>
+                <p class="section-intro">
+                    For years, we've relied on preprocessors like SASS and LESS for nesting. 
+                    Now CSS has caught up! Native nesting means faster builds, simpler tooling, 
+                    and one less dependency in your project.
+                </p>
+
+                <div class="feature-comparison">
+                    <div class="comparison-card old-way">
+                        <h3>❌ The Old Way (Repetitive)</h3>
+                        <pre><code>/* So much repetition! */
+.card {
+    background: white;
+    padding: 2rem;
+}
+
+.card h2 {
+    margin-bottom: 1rem;
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card:hover h2 {
+    color: #2563eb;
+}</code></pre>
+                    </div>
+                    <div class="comparison-card new-way">
+                        <h3>✅ The New Way (Native Nesting)</h3>
+                        <pre><code>/* Clean and organised! */
+.card {
+    background: white;
+    padding: 2rem;
+    
+    h2 {
+        margin-bottom: 1rem;
+    }
+    
+    p {
+        line-height: 1.6;
+    }
+    
+    &:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        
+        h2 {
+            color: #2563eb;
+        }
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Nesting in Action</h2>
+                
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Basic Nesting</h3>
+                        <div class="demo-example">
+                            <nav class="demo-nav">
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li class="active"><a href="#">About</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Nested navigation styles */
+.demo-nav {
+    background: #f3f4f6;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    
+    ul {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        position: relative;
+        
+        &.active {
+            font-weight: 600;
+            
+            a {
+                color: #2563eb;
+            }
+            
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -0.5rem;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: #2563eb;
+            }
+        }
+    }
+    
+    a {
+        color: #6b7280;
+        text-decoration: none;
+        transition: color 0.2s;
+        
+        &:hover {
+            color: #111827;
+        }
+    }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">The & Selector</h3>
+                        <div class="demo-example">
+                            <div class="button-group">
+                                <button class="btn-nested">Default</button>
+                                <button class="btn-nested primary">Primary</button>
+                                <button class="btn-nested secondary">Secondary</button>
+                                <button class="btn-nested" disabled>Disabled</button>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Using & for parent reference */
+.btn-nested {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #e5e7eb;
+    background: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    
+    /* Modifier classes */
+    &.primary {
+        background: #2563eb;
+        border-color: #2563eb;
+        color: white;
+        
+        &:hover {
+            background: #1d4ed8;
+        }
+    }
+    
+    &.secondary {
+        background: #7c3aed;
+        border-color: #7c3aed;
+        color: white;
+        
+        &:hover {
+            background: #6d28d9;
+        }
+    }
+    
+    /* States */
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+    
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        
+        &:hover {
+            transform: none;
+            box-shadow: none;
+        }
+    }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Media Queries & Nesting</h3>
+                        <div class="demo-example">
+                            <div class="responsive-card">
+                                <h4>Responsive Card</h4>
+                                <p>Resize your browser to see me change!</p>
+                                <div class="card-grid">
+                                    <div class="card-item">One</div>
+                                    <div class="card-item">Two</div>
+                                    <div class="card-item">Three</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Nested media queries */
+.responsive-card {
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    h4 {
+        margin-bottom: 1rem;
+        color: #1f2937;
+    }
+    
+    .card-grid {
+        display: grid;
+        gap: 1rem;
+        
+        /* Mobile first approach */
+        grid-template-columns: 1fr;
+        
+        @media (min-width: 640px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    .card-item {
+        padding: 1rem;
+        background: #f3f4f6;
+        border-radius: 0.5rem;
+        text-align: center;
+        
+        @media (min-width: 640px) {
+            padding: 1.5rem;
+        }
+    }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Complex Component</h3>
+                        <div class="demo-example">
+                            <article class="blog-card">
+                                <div class="blog-card__image">
+                                    <span class="blog-card__category">CSS Tips</span>
+                                </div>
+                                <div class="blog-card__content">
+                                    <h3 class="blog-card__title">Native CSS Nesting is Here!</h3>
+                                    <p class="blog-card__excerpt">
+                                        Learn how to use CSS nesting to write cleaner, 
+                                        more maintainable stylesheets.
+                                    </p>
+                                    <div class="blog-card__footer">
+                                        <span class="blog-card__author">Thomas Butler</span>
+                                        <span class="blog-card__date">Today</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Complex nested component */
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s;
+    
+    &:hover {
+        transform: translateY(-4px);
+        
+        .blog-card__image {
+            transform: scale(1.05);
+        }
+    }
+    
+    &__image {
+        height: 200px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        position: relative;
+        transition: transform 0.3s;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+        
+        &::before {
+            content: '📝';
+        }
+    }
+    
+    &__category {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        padding: 0.25rem 0.75rem;
+        background: rgba(255,255,255,0.9);
+        color: #764ba2;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+    
+    &__content {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__title {
+        margin: 0 0 0.5rem;
+        color: #1f2937;
+        font-size: 1.25rem;
+    }
+    
+    &__excerpt {
+        color: #6b7280;
+        line-height: 1.6;
+        flex: 1;
+    }
+    
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #e5e7eb;
+        font-size: 0.875rem;
+        color: #9ca3af;
+    }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card wide">
+                        <h3 class="demo-title">Nested Animations</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo">
+                                <div class="loader">
+                                    <div class="loader__dot"></div>
+                                    <div class="loader__dot"></div>
+                                    <div class="loader__dot"></div>
+                                </div>
+                                <p class="animation-text">Hover over me for a surprise!</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Nested animations and keyframes */
+.animation-demo {
+    text-align: center;
+    padding: 3rem;
+    
+    .loader {
+        display: inline-flex;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        
+        &__dot {
+            width: 12px;
+            height: 12px;
+            background: #2563eb;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+            
+            &:nth-child(1) {
+                animation-delay: -0.32s;
+            }
+            
+            &:nth-child(2) {
+                animation-delay: -0.16s;
+            }
+        }
+    }
+    
+    .animation-text {
+        font-size: 1.25rem;
+        color: #6b7280;
+        transition: all 0.3s;
+        display: inline-block;
+        
+        &:hover {
+            color: #2563eb;
+            transform: scale(1.1) rotate(2deg);
+            
+            animation: wiggle 0.5s ease-in-out;
+        }
+    }
+}
+
+/* Keyframes still go outside */
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="migration" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Migrating from SASS</h2>
+                
+                <div class="migration-guide">
+                    <div class="migration-card">
+                        <h3>What Works the Same ✅</h3>
+                        <ul>
+                            <li>Basic nesting of selectors</li>
+                            <li>The & parent selector</li>
+                            <li>Nesting media queries</li>
+                            <li>Nesting pseudo-classes and pseudo-elements</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="migration-card">
+                        <h3>What's Different ⚠️</h3>
+                        <ul>
+                            <li>No variables (use CSS custom properties)</li>
+                            <li>No mixins (coming soon with @mixin)</li>
+                            <li>No extends (use CSS classes)</li>
+                            <li>No math operations (use calc())</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="migration-card">
+                        <h3>Best Practices 🎯</h3>
+                        <ul>
+                            <li>Don't nest too deeply (3 levels max)</li>
+                            <li>Use BEM naming for clarity</li>
+                            <li>Keep specificity in check</li>
+                            <li>Test in all target browsers</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="demo-card wide">
+                    <h3 class="demo-title">SASS to CSS Migration Example</h3>
+                    <div class="code-comparison">
+                        <div class="code-block">
+                            <h4>SASS (Before)</h4>
+                            <pre><code>// SASS with variables and mixins
+$primary: #2563eb;
+$radius: 0.5rem;
+
+@mixin button-style {
+    padding: 0.75rem 1.5rem;
+    border-radius: $radius;
+    transition: all 0.2s;
+}
+
+.form {
+    padding: 2rem;
+    
+    &__group {
+        margin-bottom: 1.5rem;
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: darken($primary, 20%);
+        }
+        
+        input {
+            @include button-style;
+            border: 2px solid $primary;
+            
+            &:focus {
+                outline: none;
+                border-color: lighten($primary, 10%);
+            }
+        }
+    }
+}</code></pre>
+                        </div>
+                        <div class="code-block">
+                            <h4>Native CSS (After)</h4>
+                            <pre><code>/* CSS with custom properties */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #60a5fa;
+    --radius: 0.5rem;
+}
+
+.form {
+    padding: 2rem;
+    
+    &__group {
+        margin-bottom: 1.5rem;
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+        
+        input {
+            /* Direct styles instead of mixin */
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            transition: all 0.2s;
+            border: 2px solid var(--primary);
+            
+            &:focus {
+                outline: none;
+                border-color: var(--primary-light);
+            }
+        }
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Nesting Rules & Gotchas</h2>
+                
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <h3>Rule 1: Implicit & </h3>
+                        <pre><code>/* CSS automatically adds & */
+.parent {
+    .child { }     /* = .parent .child */
+    & .child { }   /* = .parent .child */
+    
+    div { }        /* = .parent div */
+    & div { }      /* = .parent div */
+}</code></pre>
+                    </div>
+                    
+                    <div class="rule-card">
+                        <h3>Rule 2: Combining Selectors</h3>
+                        <pre><code>/* Be careful with specificity */
+.card {
+    /* This becomes .card.active */
+    &.active { }
+    
+    /* This becomes .card .active */
+    .active { }
+    
+    /* Multiple selectors */
+    h2, h3 {
+        margin: 0;
+    }
+}</code></pre>
+                    </div>
+                    
+                    <div class="rule-card">
+                        <h3>Rule 3: At-Rules</h3>
+                        <pre><code>/* Media queries and supports */
+.element {
+    width: 100%;
+    
+    @media (min-width: 768px) {
+        width: 50%;
+    }
+    
+    @supports (display: grid) {
+        display: grid;
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Pro Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">📏</span>
+                        <h3>Keep It Shallow</h3>
+                        <p>Avoid nesting more than 3 levels deep. It makes CSS harder to read and increases specificity.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎯</span>
+                        <h3>BEM + Nesting</h3>
+                        <p>Combine BEM naming with nesting for the best of both worlds - clarity and convenience.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🔍</span>
+                        <h3>DevTools Support</h3>
+                        <p>Modern DevTools show nested CSS properly, making debugging much easier than before.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">☕</span>
+                        <h3>Tea Break Wisdom</h3>
+                        <p>Like a perfectly nested tea cosy, CSS nesting keeps everything warm and organised!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section-title">Keep Learning Modern CSS</h2>
+                <p class="section-subtitle">
+                    Native nesting is just the beginning. Explore more cutting-edge CSS features!
+                </p>
+                <div class="next-links">
+                    <a href="scroll-animations.html" class="next-link">
+                        <span class="next-icon">🎢</span>
+                        <div>
+                            <h3>Scroll Animations</h3>
+                            <p>Create scroll-driven effects without JavaScript</p>
+                        </div>
+                    </a>
+                    <a href="anchor-positioning.html" class="next-link">
+                        <span class="next-icon">⚓</span>
+                        <div>
+                            <h3>Anchor Positioning</h3>
+                            <p>Position elements relative to any anchor</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All examples use pure CSS - no frameworks were harmed in the making of this showcase</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/code-examples.js"></script>
+</body>
+</html>

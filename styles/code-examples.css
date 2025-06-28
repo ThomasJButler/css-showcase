@@ -1,0 +1,303 @@
+/* ============================================
+   Code Examples Styling - Shared across all pages
+   Author: Thomas Butler
+   ============================================ */
+
+/* Code Syntax Highlighting */
+.code-example {
+    position: relative;
+    background: #1e293b;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+    overflow: hidden;
+}
+
+.code-example::before {
+    content: 'CSS';
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: var(--font-bold);
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.code-example.html::before {
+    content: 'HTML';
+}
+
+.code-example.js::before {
+    content: 'JavaScript';
+}
+
+.code-example pre {
+    margin: 0;
+    padding: var(--space-6);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.code-example code {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    color: #e2e8f0;
+    white-space: pre;
+    display: block;
+}
+
+/* Scrollbar styling */
+.code-example pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+.code-example pre::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.code-example pre::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+}
+
+.code-example pre::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Basic syntax highlighting */
+.token.comment {
+    color: #64748b;
+    font-style: italic;
+}
+
+.token.property {
+    color: #60a5fa;
+}
+
+.token.selector {
+    color: #a78bfa;
+}
+
+.token.value {
+    color: #fbbf24;
+}
+
+.token.unit {
+    color: #f472b6;
+}
+
+.token.function {
+    color: #34d399;
+}
+
+.token.string {
+    color: #fbbf24;
+}
+
+.token.keyword {
+    color: #f472b6;
+}
+
+.token.important {
+    color: #ef4444;
+    font-weight: bold;
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .code-example {
+    background: #f8fafc;
+    border: 1px solid var(--colour-border);
+}
+
+[data-theme="light"] .code-example::before {
+    color: #94a3b8;
+}
+
+[data-theme="light"] .code-example code {
+    color: #1e293b;
+}
+
+[data-theme="light"] .token.comment {
+    color: #94a3b8;
+}
+
+[data-theme="light"] .token.property {
+    color: #2563eb;
+}
+
+[data-theme="light"] .token.selector {
+    color: #7c3aed;
+}
+
+[data-theme="light"] .token.value {
+    color: #d97706;
+}
+
+[data-theme="light"] .token.unit {
+    color: #db2777;
+}
+
+[data-theme="light"] .token.function {
+    color: #059669;
+}
+
+[data-theme="light"] .token.string {
+    color: #d97706;
+}
+
+[data-theme="light"] .token.keyword {
+    color: #db2777;
+}
+
+[data-theme="light"] .token.important {
+    color: #dc2626;
+}
+
+/* Interactive Code Editor (for future enhancement) */
+.code-editor {
+    position: relative;
+    background: var(--colour-surface);
+    border: 1px solid var(--colour-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.code-editor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-4);
+    background: var(--colour-surface-alt);
+    border-bottom: 1px solid var(--colour-border);
+}
+
+.code-editor-title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--colour-text-muted);
+}
+
+.code-editor-actions {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.code-editor-button {
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    color: var(--colour-text-muted);
+    background: transparent;
+    border: 1px solid var(--colour-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.code-editor-button:hover {
+    color: var(--colour-primary);
+    border-color: var(--colour-primary);
+    background: rgba(37, 99, 235, 0.05);
+}
+
+.code-editor-button.active {
+    color: white;
+    background: var(--colour-primary);
+    border-color: var(--colour-primary);
+}
+
+/* Copy button */
+.copy-button {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    color: #94a3b8;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    z-index: 10;
+}
+
+.copy-button:hover {
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.copy-button.copied {
+    color: #34d399;
+    border-color: #34d399;
+}
+
+.copy-button.copied::before {
+    content: '✓ ';
+}
+
+[data-theme="light"] .copy-button {
+    color: #64748b;
+    background: rgba(255, 255, 255, 0.8);
+    border-color: var(--colour-border);
+}
+
+[data-theme="light"] .copy-button:hover {
+    color: var(--colour-primary);
+    background: white;
+    border-color: var(--colour-primary);
+}
+
+/* Line numbers (optional) */
+.code-example.line-numbers {
+    position: relative;
+    padding-left: 3.5rem;
+}
+
+.code-example.line-numbers pre {
+    position: relative;
+}
+
+.code-example.line-numbers .line-numbers-wrapper {
+    position: absolute;
+    left: 0;
+    top: var(--space-6);
+    bottom: var(--space-6);
+    width: 3rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    color: #475569;
+    text-align: right;
+    padding-right: var(--space-3);
+    user-select: none;
+}
+
+[data-theme="light"] .code-example.line-numbers .line-numbers-wrapper {
+    border-right-color: var(--colour-border);
+    color: #cbd5e1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .code-example pre {
+        padding: var(--space-4);
+        font-size: var(--text-xs);
+    }
+    
+    .code-example::before {
+        font-size: 0.625rem;
+        top: var(--space-2);
+        right: var(--space-3);
+    }
+    
+    .copy-button {
+        padding: var(--space-1) var(--space-2);
+        font-size: 0.625rem;
+    }
+}

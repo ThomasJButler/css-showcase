@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive CSS Playground - Write CSS, see results instantly. Experiment with modern CSS features in a live editor.">
+    <meta name="author" content="Thomas Butler">
+    <title>CSS Playground | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/playground.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Playground</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#examples" class="nav-link">Examples</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#snippets" class="nav-link">Snippets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#saved" class="nav-link">Saved</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="playground-container">
+        <div class="playground-header">
+            <div class="playground-controls">
+                <button class="control-btn" id="resetBtn" title="Reset to default">
+                    <span>🔄</span> Reset
+                </button>
+                <button class="control-btn" id="shareBtn" title="Share your creation">
+                    <span>🔗</span> Share
+                </button>
+                <button class="control-btn" id="saveBtn" title="Save locally">
+                    <span>💾</span> Save
+                </button>
+                <button class="control-btn" id="fullscreenBtn" title="Fullscreen preview">
+                    <span>⛶</span> Fullscreen
+                </button>
+                <select class="example-select" id="exampleSelect">
+                    <option value="">Choose an example...</option>
+                    <optgroup label="Animations">
+                        <option value="bounce">Bouncing Ball</option>
+                        <option value="spinner">Loading Spinner</option>
+                        <option value="typewriter">Typewriter Effect</option>
+                    </optgroup>
+                    <optgroup label="Modern CSS">
+                        <option value="has-selector">:has() Selector</option>
+                        <option value="container-query">Container Queries</option>
+                        <option value="nesting">CSS Nesting</option>
+                        <option value="scroll-animation">Scroll Animation</option>
+                    </optgroup>
+                    <optgroup label="Layouts">
+                        <option value="holy-grail">Holy Grail Layout</option>
+                        <option value="masonry">Masonry Grid</option>
+                        <option value="magazine">Magazine Layout</option>
+                    </optgroup>
+                    <optgroup label="Effects">
+                        <option value="glassmorphism">Glassmorphism</option>
+                        <option value="neumorphism">Neumorphism</option>
+                        <option value="gradient-text">Gradient Text</option>
+                        <option value="3d-card">3D Card Flip</option>
+                    </optgroup>
+                    <optgroup label="Fun Stuff">
+                        <option value="tea-animation">Brewing Tea ☕</option>
+                        <option value="union-jack">Union Jack 🇬🇧</option>
+                        <option value="rainbow">Rainbow Effect</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+
+        <div class="playground-main">
+            <div class="editor-panel">
+                <div class="editor-tabs">
+                    <button class="editor-tab active" data-editor="html">HTML</button>
+                    <button class="editor-tab" data-editor="css">CSS</button>
+                    <div class="editor-actions">
+                        <button class="action-btn" id="formatBtn" title="Format code">
+                            <span>✨</span>
+                        </button>
+                        <button class="action-btn" id="copyBtn" title="Copy code">
+                            <span>📋</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="editor-content">
+                    <div class="editor active" id="htmlEditor">
+                        <textarea class="code-input" id="htmlInput" spellcheck="false" placeholder="Write your HTML here..."><!-- Welcome to the CSS Playground! -->
+<div class="container">
+  <h1 class="title">CSS Playground</h1>
+  <p class="subtitle">Edit the CSS to see changes instantly!</p>
+  
+  <div class="card">
+    <h2>Experiment Freely</h2>
+    <p>Try changing colours, sizes, animations - anything goes!</p>
+    <button class="btn">Click Me!</button>
+  </div>
+  
+  <div class="features">
+    <div class="feature">🎨 Live Preview</div>
+    <div class="feature">💾 Save Locally</div>
+    <div class="feature">🔗 Share Creations</div>
+  </div>
+</div></textarea>
+                    </div>
+                    
+                    <div class="editor" id="cssEditor">
+                        <textarea class="code-input" id="cssInput" spellcheck="false" placeholder="Write your CSS here...">/* Welcome to the CSS Playground! */
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.title {
+  font-size: 3rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature {
+  background: #f3f4f6;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  color: #374151;
+  transition: all 0.3s ease;
+}
+
+.feature:hover {
+  background: #e5e7eb;
+  transform: scale(1.05);
+}
+
+/* Try adding your own styles below! */</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-panel">
+                <div class="preview-header">
+                    <span class="preview-title">Preview</span>
+                    <div class="preview-controls">
+                        <button class="preview-size active" data-size="desktop" title="Desktop view">
+                            <span>🖥️</span>
+                        </button>
+                        <button class="preview-size" data-size="tablet" title="Tablet view">
+                            <span>📱</span>
+                        </button>
+                        <button class="preview-size" data-size="mobile" title="Mobile view">
+                            <span>📲</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="preview-frame-container">
+                    <iframe class="preview-frame" id="preview" title="CSS Preview"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="playground-info">
+            <div class="info-card">
+                <h3>🎯 Quick Tips</h3>
+                <ul>
+                    <li>Use <kbd>Ctrl</kbd> + <kbd>S</kbd> to save your work</li>
+                    <li>Press <kbd>Tab</kbd> in the editor for auto-indent</li>
+                    <li>Your code is automatically saved locally</li>
+                    <li>Try the examples dropdown for inspiration!</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>✨ What's New</h3>
+                <ul>
+                    <li>Container queries support</li>
+                    <li>:has() selector examples</li>
+                    <li>Native CSS nesting</li>
+                    <li>Scroll-driven animations</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>🍵 Tea Break Challenge</h3>
+                <p>Can you create a CSS animation of a steaming cup of tea? Share your creation with #CSSTeaTime!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>Your creations are saved locally - no data leaves your browser</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/playground.js"></script>
+</body>
+</html>
