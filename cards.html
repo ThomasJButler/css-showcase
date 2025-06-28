@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master CSS Cards - create versatile, responsive card components for modern web design.">
+    <meta name="author" content="Thomas Butler">
+    <title>Cards | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/cards.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#basic" class="nav-link">Basic Cards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#advanced" class="nav-link">Advanced</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#layouts" class="nav-link">Layouts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#interactive" class="nav-link">Interactive</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Card Components</h1>
+                <p class="page-subtitle">
+                    The building blocks of modern UI - versatile, reusable, and beautiful
+                </p>
+            </div>
+        </section>
+
+        <section id="basic" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Basic Card Patterns</h2>
+                <p class="section-intro">
+                    Essential card designs that form the foundation of any modern interface.
+                </p>
+
+                <div class="card-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Simple Card</h3>
+                        <div class="demo-example">
+                            <div class="card card-simple">
+                                <h4 class="card-title">Card Title</h4>
+                                <p class="card-text">This is a simple card with basic styling. Perfect for displaying content in a clean, organised way.</p>
+                                <a href="#" class="card-link">Learn more →</a>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Basic card */
+.card {
+    background: var(--colour-surface);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card-text {
+    color: var(--colour-text-secondary);
+    line-height: 1.6;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Image Card</h3>
+                        <div class="demo-example">
+                            <div class="card card-image">
+                                <div class="card-image-top"></div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Beautiful Landscape</h4>
+                                    <p class="card-text">Cards with images draw attention and provide visual context for your content.</p>
+                                    <div class="card-meta">
+                                        <span class="card-date">Jan 15, 2024</span>
+                                        <span class="card-tag">Nature</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Image card */
+.card-image {
+    overflow: hidden;
+}
+
+.card-image-top {
+    height: 200px;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    margin: -1.5rem -1.5rem 1.5rem;
+}
+
+.card-body {
+    padding: 0 1.5rem 1.5rem;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: var(--colour-text-secondary);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Profile Card</h3>
+                        <div class="demo-example">
+                            <div class="card card-profile">
+                                <div class="profile-avatar"></div>
+                                <h4 class="profile-name">Jane Smith</h4>
+                                <p class="profile-role">Senior Designer</p>
+                                <p class="profile-bio">Passionate about creating beautiful, user-friendly interfaces that delight users.</p>
+                                <div class="profile-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">127</span>
+                                        <span class="stat-label">Projects</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">4.9</span>
+                                        <span class="stat-label">Rating</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">52</span>
+                                        <span class="stat-label">Awards</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Profile card */
+.card-profile {
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    margin: 0 auto 1rem;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--colour-border);
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--colour-primary);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Advanced Card Designs</h2>
+                <p class="section-intro">
+                    More complex card patterns with rich interactions and visual effects.
+                </p>
+
+                <div class="card-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Product Card</h3>
+                        <div class="demo-example">
+                            <div class="card card-product">
+                                <div class="product-badge">Sale</div>
+                                <div class="product-image"></div>
+                                <div class="product-details">
+                                    <h4 class="product-title">Premium Headphones</h4>
+                                    <p class="product-description">Wireless noise-cancelling headphones with premium sound quality.</p>
+                                    <div class="product-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating-count">(128 reviews)</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="price-current">£249</span>
+                                        <span class="price-original">£299</span>
+                                    </div>
+                                    <button class="btn-add-cart">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Product card */
+.card-product {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.card-product:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.product-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--colour-error);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.stars {
+    color: #f59e0b;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Feature Card</h3>
+                        <div class="demo-example">
+                            <div class="card card-feature">
+                                <div class="feature-icon">🚀</div>
+                                <h4 class="feature-title">Lightning Fast</h4>
+                                <p class="feature-text">Optimised for speed with lazy loading and efficient caching strategies.</p>
+                                <ul class="feature-list">
+                                    <li>Sub-second load times</li>
+                                    <li>CDN integration</li>
+                                    <li>Smart caching</li>
+                                </ul>
+                                <a href="#" class="feature-link">
+                                    Learn about performance
+                                    <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Feature card */
+.card-feature {
+    border: 2px solid transparent;
+    background: linear-gradient(var(--colour-surface), var(--colour-surface)) padding-box,
+                linear-gradient(135deg, #667eea, #764ba2) border-box;
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.feature-list li::before {
+    content: "✓";
+    color: var(--colour-success);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Testimonial Card</h3>
+                        <div class="demo-example">
+                            <div class="card card-testimonial">
+                                <div class="quote-icon">"</div>
+                                <p class="testimonial-text">This CSS showcase has been an invaluable resource for our team. The examples are practical and the code is clean and well-documented.</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar"></div>
+                                    <div class="author-info">
+                                        <h5 class="author-name">Alex Johnson</h5>
+                                        <p class="author-role">Lead Developer, TechCorp</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Testimonial card */
+.card-testimonial {
+    position: relative;
+    background: var(--colour-surface-variant);
+}
+
+.quote-icon {
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--colour-primary);
+    opacity: 0.2;
+}
+
+.testimonial-text {
+    font-style: italic;
+    line-height: 1.8;
+    margin: 1rem 0 1.5rem;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f06, #48f);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="layouts" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Card Layouts</h2>
+                <p class="section-intro">
+                    Different ways to arrange and display cards for various use cases.
+                </p>
+
+                <div class="demo-examples">
+                    <div class="layout-demo">
+                        <h3>Grid Layout</h3>
+                        <div class="cards-grid">
+                            <div class="card card-small">Card 1</div>
+                            <div class="card card-small">Card 2</div>
+                            <div class="card card-small">Card 3</div>
+                            <div class="card card-small">Card 4</div>
+                            <div class="card card-small">Card 5</div>
+                            <div class="card card-small">Card 6</div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Responsive grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="layout-demo">
+                        <h3>Masonry Layout</h3>
+                        <div class="cards-masonry">
+                            <div class="card card-masonry tall">Tall Card</div>
+                            <div class="card card-masonry">Regular</div>
+                            <div class="card card-masonry short">Short</div>
+                            <div class="card card-masonry">Regular</div>
+                            <div class="card card-masonry tall">Tall Card</div>
+                            <div class="card card-masonry short">Short</div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Masonry with columns */
+.cards-masonry {
+    columns: 3;
+    column-gap: 1.5rem;
+}
+
+.card-masonry {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="layout-demo">
+                        <h3>Horizontal Scroll</h3>
+                        <div class="cards-scroll">
+                            <div class="card card-scroll">Card 1</div>
+                            <div class="card card-scroll">Card 2</div>
+                            <div class="card card-scroll">Card 3</div>
+                            <div class="card card-scroll">Card 4</div>
+                            <div class="card card-scroll">Card 5</div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Horizontal scroll */
+.cards-scroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.card-scroll {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="interactive" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Interactive Cards</h2>
+                <p class="section-intro">
+                    Cards with engaging hover effects, animations, and interactive elements.
+                </p>
+
+                <div class="card-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Flip Card</h3>
+                        <div class="demo-example">
+                            <div class="card-flip-container">
+                                <div class="card-flip">
+                                    <div class="card-front">
+                                        <h4>Front Side</h4>
+                                        <p>Hover to see the back</p>
+                                    </div>
+                                    <div class="card-back">
+                                        <h4>Back Side</h4>
+                                        <p>Hidden information revealed!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* 3D flip card */
+.card-flip-container {
+    perspective: 1000px;
+}
+
+.card-flip {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card-flip-container:hover .card-flip {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Expanding Card</h3>
+                        <div class="demo-example">
+                            <div class="card card-expand">
+                                <h4>Click to Expand</h4>
+                                <p class="expand-preview">This card contains more information...</p>
+                                <div class="expand-content">
+                                    <p>Here's the additional content that was hidden. You can include detailed information, images, or any other content that appears on interaction.</p>
+                                </div>
+                                <button class="expand-toggle">Show More</button>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Expanding card */
+.card-expand {
+    cursor: pointer;
+}
+
+.expand-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.card-expand.expanded .expand-content {
+    max-height: 200px;
+}
+
+.expand-toggle {
+    background: none;
+    border: none;
+    color: var(--colour-primary);
+    cursor: pointer;
+    font-weight: 600;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Hover Reveal</h3>
+                        <div class="demo-example">
+                            <div class="card card-hover-reveal">
+                                <div class="reveal-image"></div>
+                                <div class="reveal-overlay">
+                                    <h4>Hidden Details</h4>
+                                    <p>This overlay appears on hover with additional information and actions.</p>
+                                    <button class="reveal-button">View More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Hover reveal overlay */
+.card-hover-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.reveal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-hover-reveal:hover .reveal-overlay {
+    opacity: 1;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Card Design Best Practices</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">📐</span>
+                        <h3>Consistent Spacing</h3>
+                        <p>Use a spacing system to maintain consistent padding and margins across all cards.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">♿</span>
+                        <h3>Accessible Actions</h3>
+                        <p>Ensure interactive elements have proper focus states and are keyboard navigable.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">📱</span>
+                        <h3>Responsive Design</h3>
+                        <p>Cards should stack vertically on mobile and adapt to different screen sizes.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎨</span>
+                        <h3>Visual Hierarchy</h3>
+                        <p>Use typography, colour, and spacing to guide users through card content.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section-title">You've Mastered CSS!</h2>
+                <p class="section-subtitle">
+                    Congratulations on completing the CSS Showcase. Keep experimenting and building amazing things!
+                </p>
+                <div class="next-links">
+                    <a href="index.html" class="next-link">
+                        <span class="next-icon">🏠</span>
+                        <div>
+                            <h3>Back to Home</h3>
+                            <p>Explore all the showcases again</p>
+                        </div>
+                    </a>
+                    <a href="playground.html" class="next-link">
+                        <span class="next-icon">🎮</span>
+                        <div>
+                            <h3>CSS Playground</h3>
+                            <p>Experiment with your own ideas</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All examples use pure CSS - no frameworks were harmed in the making of this showcase</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/cards.js"></script>
+</body>
+</html>

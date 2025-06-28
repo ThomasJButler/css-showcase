@@ -1,0 +1,661 @@
+/* Cards Specific Styles */
+
+/* Card Grid Layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Base Card Styles */
+.card {
+    background: var(--colour-surface);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Simple Card */
+.card-simple {
+    border: 1px solid var(--colour-border);
+}
+
+.card-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--colour-text);
+}
+
+.card-text {
+    margin: 0 0 1rem 0;
+    color: var(--colour-text-secondary);
+    line-height: 1.6;
+}
+
+.card-link {
+    color: var(--colour-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.card-link:hover {
+    color: var(--colour-primary-dark);
+}
+
+/* Image Card */
+.card-image {
+    padding: 0;
+    overflow: hidden;
+}
+
+.card-image-top {
+    height: 200px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    background-size: cover;
+    background-position: center;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--colour-text-secondary);
+}
+
+.card-tag {
+    background: var(--colour-primary-light);
+    color: var(--colour-primary-dark);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-weight: 500;
+}
+
+/* Profile Card */
+.card-profile {
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile-name {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.profile-role {
+    margin: 0 0 1rem 0;
+    color: var(--colour-primary);
+    font-weight: 500;
+}
+
+.profile-bio {
+    margin: 0 0 1.5rem 0;
+    color: var(--colour-text-secondary);
+    line-height: 1.6;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--colour-border);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--colour-primary);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--colour-text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* Product Card */
+.card-product {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.product-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--colour-error);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+.product-image {
+    height: 250px;
+    background: linear-gradient(135deg, #fa709a, #fee140);
+    background-size: cover;
+    background-position: center;
+}
+
+.product-details {
+    padding: 1.5rem;
+}
+
+.product-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.product-description {
+    margin: 0 0 1rem 0;
+    color: var(--colour-text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.stars {
+    color: #f59e0b;
+    font-size: 1.125rem;
+}
+
+.rating-count {
+    color: var(--colour-text-secondary);
+    font-size: 0.875rem;
+}
+
+.product-price {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.price-current {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--colour-primary);
+}
+
+.price-original {
+    font-size: 1rem;
+    color: var(--colour-text-secondary);
+    text-decoration: line-through;
+}
+
+.btn-add-cart {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--colour-primary);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-add-cart:hover {
+    background: var(--colour-primary-dark);
+}
+
+/* Feature Card */
+.card-feature {
+    border: 2px solid transparent;
+    background: linear-gradient(var(--colour-surface), var(--colour-surface)) padding-box,
+                linear-gradient(135deg, #667eea, #764ba2) border-box;
+    transition: all 0.3s ease;
+}
+
+.card-feature:hover {
+    transform: translateY(-4px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.feature-text {
+    margin: 0 0 1rem 0;
+    color: var(--colour-text-secondary);
+    line-height: 1.6;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.feature-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--colour-success);
+    font-weight: bold;
+}
+
+.feature-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--colour-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: gap 0.2s ease;
+}
+
+.feature-link:hover {
+    gap: 0.75rem;
+}
+
+.link-arrow {
+    transition: transform 0.2s ease;
+}
+
+.feature-link:hover .link-arrow {
+    transform: translateX(4px);
+}
+
+/* Testimonial Card */
+.card-testimonial {
+    background: var(--colour-surface-variant);
+    border: none;
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--colour-primary);
+    opacity: 0.2;
+    font-family: Georgia, serif;
+}
+
+.testimonial-text {
+    font-style: italic;
+    line-height: 1.8;
+    margin: 1rem 0 1.5rem;
+    color: var(--colour-text);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    flex-shrink: 0;
+}
+
+.author-info {
+    flex: 1;
+}
+
+.author-name {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.author-role {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--colour-text-secondary);
+}
+
+/* Card Layouts */
+.demo-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.layout-demo {
+    background: var(--colour-surface-variant);
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+
+.layout-demo h3 {
+    margin: 0 0 1.5rem 0;
+    color: var(--colour-primary);
+}
+
+/* Grid Layout */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-small {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Masonry Layout */
+.cards-masonry {
+    columns: 3;
+    column-gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-masonry {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.card-masonry.tall {
+    height: 200px;
+    background: var(--colour-primary);
+    color: white;
+}
+
+.card-masonry.short {
+    height: 80px;
+    background: var(--colour-secondary);
+    color: white;
+}
+
+/* Horizontal Scroll */
+.cards-scroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+    margin: 0 -1rem 1.5rem;
+    padding: 0 1rem 1rem;
+}
+
+.card-scroll {
+    flex: 0 0 250px;
+    scroll-snap-align: start;
+    padding: 2rem;
+    text-align: center;
+    font-weight: 600;
+    background: var(--colour-primary);
+    color: white;
+}
+
+/* Custom scrollbar */
+.cards-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.cards-scroll::-webkit-scrollbar-track {
+    background: var(--colour-surface);
+    border-radius: 4px;
+}
+
+.cards-scroll::-webkit-scrollbar-thumb {
+    background: var(--colour-primary);
+    border-radius: 4px;
+}
+
+/* Interactive Cards */
+
+/* Flip Card */
+.card-flip-container {
+    perspective: 1000px;
+    height: 200px;
+}
+
+.card-flip {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card-flip-container:hover .card-flip {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 0.75rem;
+}
+
+.card-front {
+    background: var(--colour-primary);
+    color: white;
+}
+
+.card-back {
+    background: var(--colour-secondary);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.card-front h4,
+.card-back h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+/* Expanding Card */
+.card-expand {
+    cursor: pointer;
+}
+
+.expand-preview {
+    margin: 0.5rem 0;
+    color: var(--colour-text-secondary);
+}
+
+.expand-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.card-expand.expanded .expand-content {
+    max-height: 300px;
+    margin: 1rem 0;
+}
+
+.expand-toggle {
+    background: none;
+    border: none;
+    color: var(--colour-primary);
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    transition: color 0.2s ease;
+}
+
+.expand-toggle:hover {
+    color: var(--colour-primary-dark);
+}
+
+.card-expand.expanded .expand-toggle::after {
+    content: " ↑";
+}
+
+.card-expand:not(.expanded) .expand-toggle::after {
+    content: " ↓";
+}
+
+/* Hover Reveal */
+.card-hover-reveal {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    height: 300px;
+}
+
+.reveal-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    transition: transform 0.3s ease;
+}
+
+.card-hover-reveal:hover .reveal-image {
+    transform: scale(1.1);
+}
+
+.reveal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-hover-reveal:hover .reveal-overlay {
+    opacity: 1;
+}
+
+.reveal-overlay h4 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+}
+
+.reveal-overlay p {
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.reveal-button {
+    background: white;
+    color: black;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.reveal-button:hover {
+    transform: scale(1.05);
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .card {
+    background: var(--colour-surface);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .layout-demo {
+    background: var(--colour-surface);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cards-masonry {
+        columns: 2;
+    }
+    
+    .card-scroll {
+        flex: 0 0 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-masonry {
+        columns: 1;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-price {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+}
