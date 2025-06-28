@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transitions and Animations</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/transitions.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff512f, #dd2476);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            color: #ff512f;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .transition-box, .advanced-transition-box, .animation-box, .advanced-animation-box {
+            padding: 20px;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .transition-box:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        .advanced-transition-box:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.2) rotate(10deg);
+        }
+        .animation-box:hover {
+            animation: bounce 1s infinite;
+        }
+        .advanced-animation-box:hover {
+            animation: shake 0.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                transform: translateX(-10px);
+            }
+            20%, 40%, 60%, 80% {
+                transform: translateX(10px);
+            }
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Transitions and Animations</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="basic.html">Basic CSS</a></li>
+                <li><a href="layout.html">Layout</a></li>
+                <li><a href="advanced.html">Advanced CSS</a></li>
+                <li><a href="responsive.html">Responsive Design</a></li>
+                <li><a href="typography.html">Typography</a></li>
+                <li><a href="forms.html">Forms</a></li>
+                <li><a href="buttons.html">Buttons</a></li>
+                <li><a href="icons.html">Icons</a></li>
+                <li><a href="tables.html">Tables</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>CSS Transitions</h2>
+            <div class="transition-box">Hover me!</div>
+            <div class="advanced-transition-box">Hover me for more effects!</div>
+        </section>
+        <section>
+            <h2>CSS Animations</h2>
+            <div class="animation-box">Hover me!</div>
+            <div class="advanced-animation-box">Hover me for advanced animation!</div>
+        </section>
+    </main>
+    <script src="scripts/transitions.js"></script>
+    <footer>
+        <p>Epic CSS Showcase by Thomas Butler</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,69 @@
+/* styles/layout.css */
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+}
+
+.flex-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.flex-item {
+    background-color: #4caf50;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    margin: 5px;
+    border-radius: 8px;
+    flex: 1;
+    transition: transform 0.3s;
+}
+
+.flex-item:hover {
+    transform: scale(1.05);
+}
+
+.advanced-flex {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+}
+
+.grid-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item {
+    background-color: #4caf50;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+}
+
+.advanced-grid {
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+}
