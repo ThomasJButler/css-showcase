@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master CSS Animations - bring your designs to life with keyframes, timing functions, and creative effects.">
+    <meta name="author" content="Thomas Butler">
+    <title>Animations | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#keyframes" class="nav-link">Keyframes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#properties" class="nav-link">Properties</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#effects" class="nav-link">Effects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#advanced" class="nav-link">Advanced</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title animated-title">CSS Animations</h1>
+                <p class="page-subtitle animated-subtitle">
+                    Bring your designs to life with smooth, performant animations
+                </p>
+            </div>
+        </section>
+
+        <section id="keyframes" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Keyframe Basics</h2>
+                <p class="section-intro">
+                    Keyframes define the stages of your animation. Create complex motion by specifying 
+                    styles at various points during the animation sequence.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Simple Bounce</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo">
+                                <div class="bounce-ball"></div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+}
+
+.ball {
+    animation: bounce 1s ease-in-out infinite;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Rotation</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo">
+                                <div class="rotate-square"></div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.square {
+    animation: rotate 2s linear infinite;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Pulse Effect</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo">
+                                <div class="pulse-circle"></div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.circle {
+    animation: pulse 2s ease-in-out infinite;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Color Shift</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo">
+                                <div class="color-shift"></div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>@keyframes colorShift {
+    0% { background: #3b82f6; }
+    25% { background: #8b5cf6; }
+    50% { background: #ec4899; }
+    75% { background: #f59e0b; }
+    100% { background: #3b82f6; }
+}
+
+.element {
+    animation: colorShift 4s ease infinite;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="properties" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Animation Properties</h2>
+                <p class="section-intro">
+                    Control every aspect of your animations with these powerful properties.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Timing Functions</h3>
+                        <div class="demo-example">
+                            <div class="timing-demos">
+                                <div class="timing-demo">
+                                    <div class="timing-box linear">linear</div>
+                                </div>
+                                <div class="timing-demo">
+                                    <div class="timing-box ease">ease</div>
+                                </div>
+                                <div class="timing-demo">
+                                    <div class="timing-box ease-in">ease-in</div>
+                                </div>
+                                <div class="timing-demo">
+                                    <div class="timing-box ease-out">ease-out</div>
+                                </div>
+                                <div class="timing-demo">
+                                    <div class="timing-box ease-in-out">ease-in-out</div>
+                                </div>
+                                <div class="timing-demo">
+                                    <div class="timing-box cubic">cubic-bezier</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Timing functions */
+.linear { animation-timing-function: linear; }
+.ease { animation-timing-function: ease; }
+.ease-in { animation-timing-function: ease-in; }
+.ease-out { animation-timing-function: ease-out; }
+.ease-in-out { animation-timing-function: ease-in-out; }
+
+/* Custom cubic-bezier */
+.bounce {
+    animation-timing-function: 
+        cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Direction & Fill Mode</h3>
+                        <div class="demo-example">
+                            <div class="direction-demos">
+                                <div class="direction-demo">
+                                    <div class="direction-box normal">normal</div>
+                                </div>
+                                <div class="direction-demo">
+                                    <div class="direction-box reverse">reverse</div>
+                                </div>
+                                <div class="direction-demo">
+                                    <div class="direction-box alternate">alternate</div>
+                                </div>
+                                <div class="direction-demo">
+                                    <div class="direction-box fill-both">fill-mode: both</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Animation direction */
+.normal { animation-direction: normal; }
+.reverse { animation-direction: reverse; }
+.alternate { animation-direction: alternate; }
+
+/* Fill modes */
+.forwards { animation-fill-mode: forwards; }
+.backwards { animation-fill-mode: backwards; }
+.both { animation-fill-mode: both; }</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Play State</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo">
+                                <div class="play-state-box">Hover to pause</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Control animation playback */
+.animated {
+    animation: slide 3s infinite;
+    animation-play-state: running;
+}
+
+.animated:hover {
+    animation-play-state: paused;
+}
+
+/* JavaScript control */
+element.style.animationPlayState = 'paused';</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="effects" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Creative Effects</h2>
+                <p class="section-intro">
+                    Combine animations to create stunning visual effects that captivate your users.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Loading Spinner</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo dark-bg">
+                                <div class="loading-spinner"></div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Typing Effect</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo">
+                                <p class="typing-text">Hello, World!</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.typing {
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid;
+    animation: 
+        typing 3s steps(13),
+        blink 1s infinite;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Floating Elements</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo">
+                                <div class="floating-container">
+                                    <div class="floating-element delay-0">🎈</div>
+                                    <div class="floating-element delay-1">🎈</div>
+                                    <div class="floating-element delay-2">🎈</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Stagger animations */
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Morphing Shape</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo">
+                                <div class="morph-shape"></div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>@keyframes morph {
+    0% {
+        border-radius: 50%;
+        transform: rotate(0deg);
+    }
+    50% {
+        border-radius: 0%;
+        transform: rotate(180deg);
+    }
+    100% {
+        border-radius: 50%;
+        transform: rotate(360deg);
+    }
+}
+
+.shape {
+    animation: morph 4s ease-in-out infinite;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Wave Animation</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo">
+                                <div class="wave-container">
+                                    <span class="wave-dot"></span>
+                                    <span class="wave-dot"></span>
+                                    <span class="wave-dot"></span>
+                                    <span class="wave-dot"></span>
+                                    <span class="wave-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>@keyframes wave {
+    0%, 60%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-15px);
+    }
+}
+
+.wave-dot {
+    animation: wave 1.5s infinite;
+}
+
+.wave-dot:nth-child(2) { animation-delay: 0.1s; }
+.wave-dot:nth-child(3) { animation-delay: 0.2s; }
+.wave-dot:nth-child(4) { animation-delay: 0.3s; }
+.wave-dot:nth-child(5) { animation-delay: 0.4s; }</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Glitch Effect</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo dark-bg">
+                                <h3 class="glitch-text" data-text="GLITCH">GLITCH</h3>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>@keyframes glitch {
+    0%, 100% {
+        text-shadow: 
+            2px 2px 0 #ff00ff,
+            -2px -2px 0 #00ffff;
+    }
+    25% {
+        text-shadow: 
+            -2px 2px 0 #ff00ff,
+            2px -2px 0 #00ffff;
+    }
+}
+
+.glitch {
+    animation: glitch 0.5s infinite;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Advanced Techniques</h2>
+                <p class="section-intro">
+                    Push the boundaries with complex animations and performance optimisations.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card wide">
+                        <h3 class="demo-title">3D Card Flip</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <h4>Front Side</h4>
+                                            <p>Hover to flip</p>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <h4>Back Side</h4>
+                                            <p>Hidden content!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* 3D card flip */
+.flip-card {
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Particle System</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo dark-bg">
+                                <div class="particles">
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>@keyframes rise {
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+.particle {
+    position: absolute;
+    animation: rise 10s infinite;
+}
+
+/* Random positions and delays */
+.particle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+.particle:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">SVG Path Animation</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo">
+                                <svg class="svg-animation" viewBox="0 0 200 200">
+                                    <path class="svg-path" d="M20,100 Q100,20 180,100 T180,100" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* SVG path animation */
+.svg-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 3s ease-in-out infinite;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Animation Best Practices</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">⚡</span>
+                        <h3>Use Transform & Opacity</h3>
+                        <p>These properties are GPU-accelerated and provide the smoothest animations.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎯</span>
+                        <h3>will-change Property</h3>
+                        <p>Hint to browsers about which properties will animate for better optimisation.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">♿</span>
+                        <h3>Respect Motion Preferences</h3>
+                        <p>Use prefers-reduced-motion media query for accessibility.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">📱</span>
+                        <h3>Test on Real Devices</h3>
+                        <p>Mobile devices have different performance characteristics than desktops.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section-title">Add Visual Polish</h2>
+                <p class="section-subtitle">
+                    Animations mastered! Continue with gradients and filters for stunning visual effects.
+                </p>
+                <div class="next-links">
+                    <a href="gradients.html" class="next-link">
+                        <span class="next-icon">🌈</span>
+                        <div>
+                            <h3>Gradients</h3>
+                            <p>Create beautiful colour transitions</p>
+                        </div>
+                    </a>
+                    <a href="filters.html" class="next-link">
+                        <span class="next-icon">🎨</span>
+                        <div>
+                            <h3>Filters</h3>
+                            <p>Apply visual effects like blur and brightness</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All examples use pure CSS - no frameworks were harmed in the making of this showcase</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/code-examples.js"></script>
+</body>
+</html>

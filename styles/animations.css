@@ -1,0 +1,639 @@
+/* Animations Specific Styles */
+
+/* Page Hero Animation */
+.animated-title {
+    animation: slideInDown 1s ease-out;
+}
+
+.animated-subtitle {
+    animation: slideInUp 1s ease-out 0.3s both;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animation Demo Container */
+.animation-demo {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--colour-surface-variant);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.animation-demo.dark-bg {
+    background: #1a1a1a;
+}
+
+/* Basic Animations */
+.bounce-ball {
+    width: 50px;
+    height: 50px;
+    background: var(--colour-primary);
+    border-radius: 50%;
+    animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+}
+
+.rotate-square {
+    width: 60px;
+    height: 60px;
+    background: var(--colour-secondary);
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.pulse-circle {
+    width: 80px;
+    height: 80px;
+    background: var(--colour-accent);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.color-shift {
+    width: 100px;
+    height: 100px;
+    border-radius: 0.5rem;
+    animation: colorShift 4s ease infinite;
+}
+
+@keyframes colorShift {
+    0% { background: #3b82f6; }
+    25% { background: #8b5cf6; }
+    50% { background: #ec4899; }
+    75% { background: #f59e0b; }
+    100% { background: #3b82f6; }
+}
+
+/* Timing Function Demos */
+.timing-demos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.timing-demo {
+    height: 30px;
+    background: var(--colour-surface);
+    border-radius: 0.25rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.timing-box {
+    position: absolute;
+    left: 0;
+    width: 60px;
+    height: 100%;
+    background: var(--colour-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 0.25rem;
+    animation: slide 3s infinite;
+}
+
+@keyframes slide {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(calc(100% - 60px));
+    }
+}
+
+.timing-box.linear { animation-timing-function: linear; }
+.timing-box.ease { animation-timing-function: ease; }
+.timing-box.ease-in { animation-timing-function: ease-in; }
+.timing-box.ease-out { animation-timing-function: ease-out; }
+.timing-box.ease-in-out { animation-timing-function: ease-in-out; }
+.timing-box.cubic { 
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background: var(--colour-secondary);
+}
+
+/* Direction Demos */
+.direction-demos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.direction-demo {
+    height: 60px;
+    background: var(--colour-surface);
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.direction-box {
+    padding: 0.5rem 1rem;
+    background: var(--colour-primary);
+    color: white;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.direction-box.normal {
+    animation: fadeScale 2s ease-in-out infinite normal;
+}
+
+.direction-box.reverse {
+    animation: fadeScale 2s ease-in-out infinite reverse;
+    background: var(--colour-secondary);
+}
+
+.direction-box.alternate {
+    animation: fadeScale 2s ease-in-out infinite alternate;
+    background: var(--colour-accent);
+}
+
+.direction-box.fill-both {
+    animation: fadeScale 2s ease-in-out both;
+    background: var(--colour-success);
+}
+
+@keyframes fadeScale {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* Play State Demo */
+.play-state-box {
+    padding: 1rem 2rem;
+    background: var(--colour-primary);
+    color: white;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    animation: slideRotate 3s ease-in-out infinite;
+    cursor: pointer;
+}
+
+.play-state-box:hover {
+    animation-play-state: paused;
+}
+
+@keyframes slideRotate {
+    0%, 100% {
+        transform: translateX(-50px) rotate(-5deg);
+    }
+    50% {
+        transform: translateX(50px) rotate(5deg);
+    }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Typing Effect */
+.typing-text {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    margin: 0;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--colour-primary);
+    animation: 
+        typing 3s steps(13) infinite,
+        blink 1s infinite;
+}
+
+@keyframes typing {
+    0%, 90% {
+        width: 0;
+    }
+    40%, 60% {
+        width: 13ch;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Floating Elements */
+.floating-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.floating-element {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-element:nth-child(1) {
+    left: 20%;
+}
+
+.floating-element:nth-child(2) {
+    left: 50%;
+    animation-delay: 0.5s;
+}
+
+.floating-element:nth-child(3) {
+    left: 80%;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+/* Morphing Shape */
+.morph-shape {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, var(--colour-primary), var(--colour-secondary));
+    animation: morph 4s ease-in-out infinite;
+}
+
+@keyframes morph {
+    0% {
+        border-radius: 50%;
+        transform: rotate(0deg);
+    }
+    25% {
+        border-radius: 0%;
+        transform: rotate(90deg);
+    }
+    50% {
+        border-radius: 50% 0%;
+        transform: rotate(180deg);
+    }
+    75% {
+        border-radius: 0% 50%;
+        transform: rotate(270deg);
+    }
+    100% {
+        border-radius: 50%;
+        transform: rotate(360deg);
+    }
+}
+
+/* Wave Animation */
+.wave-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wave-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--colour-primary);
+    border-radius: 50%;
+    animation: wave 1.5s ease-in-out infinite;
+}
+
+.wave-dot:nth-child(2) { animation-delay: 0.1s; }
+.wave-dot:nth-child(3) { animation-delay: 0.2s; }
+.wave-dot:nth-child(4) { animation-delay: 0.3s; }
+.wave-dot:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes wave {
+    0%, 60%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Glitch Effect */
+.glitch-text {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    color: white;
+    letter-spacing: 0.1em;
+    animation: glitch 0.5s infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch-text::before {
+    animation: glitch-1 0.5s infinite;
+    color: #ff00ff;
+    z-index: -1;
+}
+
+.glitch-text::after {
+    animation: glitch-2 0.5s infinite;
+    color: #00ffff;
+    z-index: -2;
+}
+
+@keyframes glitch {
+    0%, 100% {
+        text-shadow: 
+            2px 2px 0 #ff00ff,
+            -2px -2px 0 #00ffff;
+    }
+    25% {
+        text-shadow: 
+            -2px 2px 0 #ff00ff,
+            2px -2px 0 #00ffff;
+    }
+    50% {
+        text-shadow: 
+            2px -2px 0 #ff00ff,
+            -2px 2px 0 #00ffff;
+    }
+}
+
+@keyframes glitch-1 {
+    0%, 100% {
+        clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+        transform: translate(2px, -2px);
+    }
+    25% {
+        clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+        transform: translate(-2px, 2px);
+    }
+}
+
+@keyframes glitch-2 {
+    0%, 100% {
+        clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+        transform: translate(-2px, 2px);
+    }
+    25% {
+        clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+        transform: translate(2px, -2px);
+    }
+}
+
+/* 3D Card Flip */
+.flip-card {
+    width: 200px;
+    height: 150px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.flip-card-front {
+    background: var(--colour-primary);
+    color: white;
+}
+
+.flip-card-back {
+    background: var(--colour-secondary);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flip-card h4 {
+    margin: 0 0 0.5rem 0;
+}
+
+.flip-card p {
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+/* Particle System */
+.particles {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: rise 10s linear infinite;
+}
+
+.particle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+
+.particle:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+    animation-duration: 10s;
+}
+
+.particle:nth-child(3) {
+    left: 50%;
+    animation-delay: 4s;
+    animation-duration: 12s;
+}
+
+.particle:nth-child(4) {
+    left: 70%;
+    animation-delay: 6s;
+    animation-duration: 9s;
+}
+
+.particle:nth-child(5) {
+    left: 90%;
+    animation-delay: 8s;
+    animation-duration: 11s;
+}
+
+@keyframes rise {
+    from {
+        transform: translateY(150px);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-150px);
+        opacity: 0;
+    }
+}
+
+/* SVG Animation */
+.svg-animation {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+}
+
+.svg-path {
+    fill: none;
+    stroke: var(--colour-primary);
+    stroke-width: 3;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 3s ease-in-out infinite;
+}
+
+@keyframes draw {
+    50% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .animation-demo:not(.dark-bg) {
+    background: var(--colour-surface);
+}
+
+[data-theme="dark"] .timing-demo,
+[data-theme="dark"] .direction-demo {
+    background: var(--colour-surface-variant);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .direction-demos {
+        grid-template-columns: 1fr;
+    }
+    
+    .glitch-text {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timing-demos {
+        font-size: 0.625rem;
+    }
+    
+    .typing-text {
+        font-size: 1.125rem;
+    }
+}
