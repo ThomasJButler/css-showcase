@@ -1,0 +1,509 @@
+/* Box Model Specific Styles */
+
+/* Visual Box Model Demonstration */
+.box-model-visual {
+    max-width: 600px;
+    margin: 2rem auto;
+    font-size: 0.875rem;
+}
+
+.margin-layer,
+.border-layer,
+.padding-layer,
+.content-layer {
+    position: relative;
+    text-align: center;
+}
+
+.margin-layer {
+    background: rgba(255, 193, 7, 0.1);
+    border: 2px dashed rgba(255, 193, 7, 0.5);
+    padding: 30px;
+}
+
+.border-layer {
+    background: rgba(220, 53, 69, 0.1);
+    border: 5px solid rgba(220, 53, 69, 0.8);
+    padding: 0;
+}
+
+.padding-layer {
+    background: rgba(40, 167, 69, 0.1);
+    border: 2px dashed rgba(40, 167, 69, 0.5);
+    padding: 20px;
+}
+
+.content-layer {
+    background: var(--colour-surface);
+    border: 2px solid var(--colour-border);
+    padding: 2rem;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.layer-label {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: var(--colour-background);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Padding Examples */
+.padding-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.padding-demo {
+    background: var(--colour-surface);
+    border: 2px solid var(--colour-border);
+    color: var(--colour-text);
+}
+
+.padding-demo.uniform {
+    padding: 20px;
+}
+
+.padding-demo.directional {
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+}
+
+.padding-demo.shorthand {
+    padding: 20px 40px;
+}
+
+/* Margin Examples */
+.margin-examples {
+    background: var(--colour-surface-variant);
+    padding: 1rem;
+    border: 2px dashed var(--colour-border);
+}
+
+.margin-demo {
+    background: var(--colour-surface);
+    border: 2px solid var(--colour-primary);
+    padding: 1rem;
+    text-align: center;
+}
+
+.margin-demo.basic {
+    margin: 20px;
+}
+
+.margin-demo.auto {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.margin-demo.negative {
+    margin-top: -10px;
+    margin-left: -20px;
+    position: relative;
+    z-index: 1;
+    background: var(--colour-primary);
+    color: white;
+}
+
+/* Border Examples */
+.border-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.border-demo {
+    padding: 1rem;
+    text-align: center;
+    background: var(--colour-surface);
+}
+
+.border-demo.solid {
+    border: 3px solid var(--colour-primary);
+}
+
+.border-demo.dashed {
+    border: 2px dashed var(--colour-secondary);
+}
+
+.border-demo.gradient {
+    border: 4px solid transparent;
+    background: 
+        linear-gradient(var(--colour-surface), var(--colour-surface)) padding-box,
+        linear-gradient(45deg, #f06, #48f) border-box;
+}
+
+.border-demo.rounded {
+    border: 2px solid var(--colour-border);
+    border-radius: 12px;
+    border-top-left-radius: 20px;
+}
+
+/* Box Sizing Comparison */
+.box-sizing-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.sizing-demo {
+    background: var(--colour-surface);
+    position: relative;
+}
+
+.sizing-demo h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--colour-primary);
+}
+
+.content-box {
+    box-sizing: content-box;
+    width: 300px;
+    padding: 20px;
+    border: 5px solid var(--colour-primary);
+}
+
+.border-box {
+    box-sizing: border-box;
+    width: 300px;
+    padding: 20px;
+    border: 5px solid var(--colour-secondary);
+}
+
+.size-indicator {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--colour-text-secondary);
+    font-weight: 600;
+}
+
+/* Layout Grid Example */
+.layout-grid {
+    display: flex;
+    gap: 20px;
+    background: var(--colour-surface-variant);
+    padding: 1rem;
+}
+
+.grid-item {
+    box-sizing: border-box;
+    flex: 1;
+    padding: 20px;
+    border: 2px solid var(--colour-primary);
+    background: var(--colour-surface);
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Interactive Playground */
+.playground-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.controls-panel {
+    background: var(--colour-surface);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--colour-border);
+}
+
+.controls-panel h3 {
+    margin: 0 0 1rem 0;
+    color: var(--colour-primary);
+}
+
+.control-group {
+    margin-bottom: 1rem;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--colour-text-secondary);
+}
+
+.control-group input[type="range"] {
+    width: 100%;
+    margin-bottom: 0.25rem;
+}
+
+.value-display {
+    display: inline-block;
+    background: var(--colour-surface-variant);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+}
+
+.playground-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.playground-wrapper {
+    background: var(--colour-surface-variant);
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.playground-box {
+    background: var(--colour-surface);
+    border: 5px solid var(--colour-primary);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.box-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-weight: 600;
+    color: var(--colour-text);
+}
+
+.dimension-labels {
+    position: absolute;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.label-top {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    color: var(--colour-text-secondary);
+}
+
+.label-side {
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    white-space: nowrap;
+    color: var(--colour-text-secondary);
+}
+
+.playground-code {
+    background: var(--colour-surface);
+    border: 1px solid var(--colour-border);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.playground-code pre {
+    margin: 0;
+    padding: 1rem;
+}
+
+/* Advanced Techniques */
+.collapse-demo {
+    background: var(--colour-surface-variant);
+    padding: 1rem;
+}
+
+.collapse-box {
+    background: var(--colour-surface);
+    border: 2px solid var(--colour-primary);
+    padding: 1rem;
+    text-align: center;
+}
+
+.collapse-box.first {
+    margin-bottom: 30px;
+}
+
+.collapse-box.second {
+    margin-top: 20px;
+}
+
+.collapse-note {
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--colour-text-secondary);
+    font-size: 0.875rem;
+    font-style: italic;
+}
+
+/* Outline Examples */
+.outline-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.outline-demo {
+    padding: 0.75rem 1.5rem;
+    background: var(--colour-surface);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.outline-demo.border-style {
+    border: 3px solid var(--colour-primary);
+}
+
+.outline-demo.outline-style {
+    border: none;
+    outline: 3px solid var(--colour-secondary);
+    outline-offset: 2px;
+}
+
+.outline-demo.focus-style {
+    border: 1px solid var(--colour-border);
+}
+
+.outline-demo.focus-style:focus {
+    outline: 2px dashed currentColor;
+    outline-offset: 4px;
+}
+
+/* Percentage Examples */
+.percentage-parent {
+    width: 100%;
+    height: 300px;
+    background: var(--colour-surface-variant);
+    padding: 1rem;
+    position: relative;
+}
+
+.percentage-child {
+    background: var(--colour-surface);
+    border: 2px solid var(--colour-primary);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.percentage-child.width-demo {
+    width: 50%;
+    padding: 1rem;
+}
+
+.percentage-child.padding-demo {
+    width: auto;
+    padding: 10%;
+}
+
+.percentage-child.margin-demo {
+    width: auto;
+    margin: 0 25%;
+    padding: 1rem;
+}
+
+/* Shadow Examples */
+.shadow-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--colour-surface-variant);
+}
+
+.shadow-demo {
+    background: var(--colour-surface);
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+.shadow-demo.basic-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-demo.inset-shadow {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.shadow-demo.multiple-shadows {
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-demo.glow-effect {
+    box-shadow: 
+        0 0 20px rgba(59, 130, 246, 0.5),
+        0 0 40px rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .box-sizing-comparison {
+        grid-template-columns: 1fr;
+    }
+    
+    .playground-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .controls-panel {
+        order: 2;
+    }
+    
+    .playground-demo {
+        order: 1;
+    }
+    
+    .label-side {
+        right: -60px;
+        font-size: 0.7rem;
+    }
+    
+    .border-examples,
+    .shadow-examples {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-box,
+    .border-box {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .border-examples,
+    .shadow-examples {
+        grid-template-columns: 1fr;
+    }
+    
+    .playground-wrapper {
+        padding: 1.5rem;
+    }
+}
