@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pure CSS icons and icon animations - no icon fonts needed! Create stunning icons with just CSS.">
+    <meta name="author" content="Thomas Butler">
+    <title>Pure CSS Icons | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Icons</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#basic" class="nav-link">Basic Icons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#animated" class="nav-link">Animated</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#interactive" class="nav-link">Interactive</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="playground.html" class="nav-link">Playground</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Pure CSS Icons</h1>
+                <p class="hero-subtitle">
+                    No icon fonts needed! Create beautiful, scalable icons using just CSS. 
+                    From simple shapes to complex animations - all without a single image file.
+                </p>
+            </div>
+        </section>
+
+        <section id="basic" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Basic Icons</h2>
+                <p class="section-subtitle">Essential icons crafted with CSS shapes and pseudo-elements</p>
+                
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon hamburger-menu"></div>
+                        </div>
+                        <h3>Menu</h3>
+                        <code>.hamburger-menu</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon close-icon"></div>
+                        </div>
+                        <h3>Close</h3>
+                        <code>.close-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon arrow-right"></div>
+                        </div>
+                        <h3>Arrow</h3>
+                        <code>.arrow-right</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon heart-icon"></div>
+                        </div>
+                        <h3>Heart</h3>
+                        <code>.heart-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon star-icon"></div>
+                        </div>
+                        <h3>Star</h3>
+                        <code>.star-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon envelope-icon"></div>
+                        </div>
+                        <h3>Envelope</h3>
+                        <code>.envelope-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon check-icon"></div>
+                        </div>
+                        <h3>Check</h3>
+                        <code>.check-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon search-icon"></div>
+                        </div>
+                        <h3>Search</h3>
+                        <code>.search-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon home-icon"></div>
+                        </div>
+                        <h3>Home</h3>
+                        <code>.home-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon user-icon"></div>
+                        </div>
+                        <h3>User</h3>
+                        <code>.user-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon settings-icon"></div>
+                        </div>
+                        <h3>Settings</h3>
+                        <code>.settings-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon download-icon"></div>
+                        </div>
+                        <h3>Download</h3>
+                        <code>.download-icon</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="animated" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Animated Icons</h2>
+                <p class="section-subtitle">Icons that come alive with CSS animations</p>
+                
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon spinner-icon"></div>
+                        </div>
+                        <h3>Spinner</h3>
+                        <code>.spinner-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon pulse-heart"></div>
+                        </div>
+                        <h3>Pulse Heart</h3>
+                        <code>.pulse-heart</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon bell-icon"></div>
+                        </div>
+                        <h3>Bell</h3>
+                        <code>.bell-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon loading-dots"></div>
+                        </div>
+                        <h3>Loading</h3>
+                        <code>.loading-dots</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon wifi-icon"></div>
+                        </div>
+                        <h3>WiFi</h3>
+                        <code>.wifi-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon battery-icon"></div>
+                        </div>
+                        <h3>Battery</h3>
+                        <code>.battery-icon</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="interactive" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Interactive Icons</h2>
+                <p class="section-subtitle">Icons that respond to your actions - hover or click to see the magic!</p>
+                
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <button class="css-icon menu-to-close" aria-label="Toggle menu"></button>
+                        </div>
+                        <h3>Menu Toggle</h3>
+                        <code>.menu-to-close</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <button class="css-icon play-pause" aria-label="Play or pause"></button>
+                        </div>
+                        <h3>Play/Pause</h3>
+                        <code>.play-pause</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <button class="css-icon like-button" aria-label="Like"></button>
+                        </div>
+                        <h3>Like Button</h3>
+                        <code>.like-button</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <button class="css-icon share-icon" aria-label="Share"></button>
+                        </div>
+                        <h3>Share</h3>
+                        <code>.share-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon hover-mail"></div>
+                        </div>
+                        <h3>Mail Hover</h3>
+                        <code>.hover-mail</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon expand-icon"></div>
+                        </div>
+                        <h3>Expand</h3>
+                        <code>.expand-icon</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">British Bonus Icons</h2>
+                <p class="section-subtitle">A spot of tea, anyone? These icons are quintessentially British!</p>
+                
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon tea-cup"></div>
+                        </div>
+                        <h3>Cuppa</h3>
+                        <code>.tea-cup</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon umbrella-icon"></div>
+                        </div>
+                        <h3>Brolly</h3>
+                        <code>.umbrella-icon</code>
+                    </div>
+
+                    <div class="icon-card">
+                        <div class="icon-wrapper">
+                            <div class="css-icon crown-icon"></div>
+                        </div>
+                        <h3>Crown</h3>
+                        <code>.crown-icon</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="code-showcase">
+            <div class="container">
+                <h2 class="section-title">Icon Techniques</h2>
+                <p class="section-subtitle">Learn how to create your own CSS icons</p>
+                
+                <div class="technique-grid">
+                    <div class="technique-card">
+                        <h3>Basic Shapes</h3>
+                        <pre><code>/* Simple circle icon */
+.circle-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--colour-primary);
+}
+
+/* Triangle using borders */
+.triangle-icon {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 35px solid var(--colour-primary);
+}</code></pre>
+                    </div>
+
+                    <div class="technique-card">
+                        <h3>Pseudo Elements</h3>
+                        <pre><code>/* Plus icon using ::before and ::after */
+.plus-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.plus-icon::before,
+.plus-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--colour-primary);
+}
+
+.plus-icon::before {
+    width: 100%;
+    height: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.plus-icon::after {
+    width: 4px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}</code></pre>
+                    </div>
+
+                    <div class="technique-card">
+                        <h3>Animations</h3>
+                        <pre><code>/* Rotating spinner */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.spinner-icon {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0,0,0,0.1);
+    border-top-color: var(--colour-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Icon Design Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">📏</span>
+                        <h3>Size Consistency</h3>
+                        <p>Keep icons within a consistent grid (24x24, 32x32) for visual harmony.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎨</span>
+                        <h3>Use CSS Variables</h3>
+                        <p>Define colours as variables for easy theming and consistency.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">⚡</span>
+                        <h3>Performance</h3>
+                        <p>CSS icons load instantly - no HTTP requests needed!</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">♿</span>
+                        <h3>Accessibility</h3>
+                        <p>Always add proper ARIA labels for interactive icons.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All icons created with pure CSS - no icon fonts were harmed in the making!</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/icons.js"></script>
+</body>
+</html>

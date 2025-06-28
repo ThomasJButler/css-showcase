@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beautiful CSS button designs and effects - from simple to spectacular. Click-worthy buttons that users will love!">
+    <meta name="author" content="Thomas Butler">
+    <title>CSS Buttons | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Buttons</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#basic" class="nav-link">Basic</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#hover" class="nav-link">Hover Effects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#animated" class="nav-link">Animated</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#creative" class="nav-link">Creative</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="playground.html" class="nav-link">Playground</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Brilliant Buttons</h1>
+                <p class="hero-subtitle">
+                    From simple and elegant to absolutely bonkers - explore button styles that make 
+                    users actually want to click. No framework needed, just pure CSS magic!
+                </p>
+            </div>
+        </section>
+
+        <section id="basic" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Basic Button Styles</h2>
+                <p class="section-subtitle">Clean, accessible button designs for every occasion</p>
+                
+                <div class="button-grid">
+                    <div class="button-card">
+                        <h3>Primary Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-primary">Primary</button>
+                            <button class="btn btn-primary btn-large">Large Primary</button>
+                            <button class="btn btn-primary btn-small">Small</button>
+                            <button class="btn btn-primary" disabled>Disabled</button>
+                        </div>
+                        <code>.btn-primary</code>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Secondary Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-secondary">Secondary</button>
+                            <button class="btn btn-secondary btn-large">Large Secondary</button>
+                            <button class="btn btn-secondary btn-small">Small</button>
+                            <button class="btn btn-secondary" disabled>Disabled</button>
+                        </div>
+                        <code>.btn-secondary</code>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Outline Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-outline">Outline</button>
+                            <button class="btn btn-outline btn-large">Large Outline</button>
+                            <button class="btn btn-outline btn-small">Small</button>
+                            <button class="btn btn-outline" disabled>Disabled</button>
+                        </div>
+                        <code>.btn-outline</code>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Ghost Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-ghost">Ghost</button>
+                            <button class="btn btn-ghost btn-large">Large Ghost</button>
+                            <button class="btn btn-ghost btn-small">Small</button>
+                            <button class="btn btn-ghost" disabled>Disabled</button>
+                        </div>
+                        <code>.btn-ghost</code>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Rounded Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-primary btn-rounded">Rounded</button>
+                            <button class="btn btn-secondary btn-rounded">Secondary</button>
+                            <button class="btn btn-outline btn-rounded">Outline</button>
+                            <button class="btn btn-ghost btn-rounded">Ghost</button>
+                        </div>
+                        <code>.btn-rounded</code>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Icon Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-primary btn-icon">
+                                <span class="btn-icon-content">⬇</span> Download
+                            </button>
+                            <button class="btn btn-secondary btn-icon">
+                                <span class="btn-icon-content">❤</span> Like
+                            </button>
+                            <button class="btn btn-outline btn-icon">
+                                <span class="btn-icon-content">⚙</span> Settings
+                            </button>
+                            <button class="btn btn-icon btn-icon-only btn-primary">
+                                <span class="btn-icon-content">✕</span>
+                            </button>
+                        </div>
+                        <code>.btn-icon</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hover" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Hover Effects</h2>
+                <p class="section-subtitle">Buttons that respond beautifully to user interaction</p>
+                
+                <div class="button-grid">
+                    <div class="button-card">
+                        <h3>Slide Effects</h3>
+                        <div class="button-group">
+                            <button class="btn btn-slide-right">Slide Right</button>
+                            <button class="btn btn-slide-up">Slide Up</button>
+                            <button class="btn btn-slide-down">Slide Down</button>
+                            <button class="btn btn-slide-diagonal">Diagonal</button>
+                        </div>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Gradient Effects</h3>
+                        <div class="button-group">
+                            <button class="btn btn-gradient">Gradient Shift</button>
+                            <button class="btn btn-gradient-radial">Radial Gradient</button>
+                            <button class="btn btn-gradient-sweep">Sweep</button>
+                            <button class="btn btn-gradient-rainbow">Rainbow</button>
+                        </div>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Border Effects</h3>
+                        <div class="button-group">
+                            <button class="btn btn-border-draw">Draw Border</button>
+                            <button class="btn btn-border-spin">Spin Border</button>
+                            <button class="btn btn-border-scale">Scale Border</button>
+                            <button class="btn btn-border-corners">Corner Borders</button>
+                        </div>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Shadow Effects</h3>
+                        <div class="button-group">
+                            <button class="btn btn-shadow-grow">Shadow Grow</button>
+                            <button class="btn btn-shadow-inset">Shadow Inset</button>
+                            <button class="btn btn-shadow-multiple">Multi Shadow</button>
+                            <button class="btn btn-shadow-glow">Neon Glow</button>
+                        </div>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Transform Effects</h3>
+                        <div class="button-group">
+                            <button class="btn btn-transform-grow">Grow</button>
+                            <button class="btn btn-transform-shrink">Shrink</button>
+                            <button class="btn btn-transform-rotate">Rotate</button>
+                            <button class="btn btn-transform-skew">Skew</button>
+                        </div>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Text Effects</h3>
+                        <div class="button-group">
+                            <button class="btn btn-text-slide">
+                                <span data-text="Slide Text">Slide Text</span>
+                            </button>
+                            <button class="btn btn-text-reveal">Reveal</button>
+                            <button class="btn btn-text-rotate">
+                                <span>Rotate</span>
+                                <span>Click Me!</span>
+                            </button>
+                            <button class="btn btn-text-glitch" data-text="GLITCH">GLITCH</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="animated" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Animated Buttons</h2>
+                <p class="section-subtitle">Buttons with personality that demand attention</p>
+                
+                <div class="button-grid">
+                    <div class="button-card">
+                        <h3>Pulse & Breathe</h3>
+                        <div class="button-group">
+                            <button class="btn btn-pulse">Pulse</button>
+                            <button class="btn btn-breathe">Breathe</button>
+                            <button class="btn btn-heartbeat">Heartbeat</button>
+                            <button class="btn btn-shake">Shake</button>
+                        </div>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Loading States</h3>
+                        <div class="button-group">
+                            <button class="btn btn-loading-spinner">
+                                <span class="btn-text">Submit</span>
+                                <span class="btn-spinner"></span>
+                            </button>
+                            <button class="btn btn-loading-dots">
+                                <span class="btn-text">Loading</span>
+                                <span class="btn-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                            </button>
+                            <button class="btn btn-loading-progress">
+                                <span class="btn-text">Upload</span>
+                                <span class="btn-progress"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Morphing Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-morph-round">Round Morph</button>
+                            <button class="btn btn-morph-square">Square Morph</button>
+                            <button class="btn btn-success-check">
+                                <span class="btn-text">Submit</span>
+                                <span class="btn-check">✓</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Particle Effects</h3>
+                        <div class="button-group">
+                            <button class="btn btn-confetti">Confetti</button>
+                            <button class="btn btn-sparkle">Sparkle</button>
+                            <button class="btn btn-ripple">Ripple</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="creative" class="showcase-section">
+            <div class="container">
+                <h2 class="section-title">Creative Buttons</h2>
+                <p class="section-subtitle">When ordinary just won't do - buttons that break the mould</p>
+                
+                <div class="button-grid">
+                    <div class="button-card">
+                        <h3>3D Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-3d">3D Push</button>
+                            <button class="btn btn-3d-flip">3D Flip</button>
+                            <button class="btn btn-3d-rotate">3D Rotate</button>
+                            <button class="btn btn-3d-float">3D Float</button>
+                        </div>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Neon Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-neon-blue">Neon Blue</button>
+                            <button class="btn btn-neon-pink">Neon Pink</button>
+                            <button class="btn btn-neon-green">Neon Green</button>
+                            <button class="btn btn-neon-flicker">Flicker</button>
+                        </div>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>Liquid Buttons</h3>
+                        <div class="button-group">
+                            <button class="btn btn-liquid">Liquid Fill</button>
+                            <button class="btn btn-blob">Blob</button>
+                            <button class="btn btn-wave">Wave</button>
+                            <button class="btn btn-bubble">Bubble</button>
+                        </div>
+                    </div>
+
+                    <div class="button-card">
+                        <h3>British Specials</h3>
+                        <div class="button-group">
+                            <button class="btn btn-union-jack">Union Jack</button>
+                            <button class="btn btn-tea">☕ Tea Time</button>
+                            <button class="btn btn-mind-the-gap">Mind the Gap</button>
+                            <button class="btn btn-queue">Join Queue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="code-showcase">
+            <div class="container">
+                <h2 class="section-title">Button Recipes</h2>
+                <p class="section-subtitle">The CSS behind the magic</p>
+                
+                <div class="code-grid">
+                    <div class="code-card">
+                        <h3>Basic Button Structure</h3>
+                        <pre><code>/* Base button styles */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Primary button */
+.btn-primary {
+    background: var(--colour-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--colour-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}</code></pre>
+                    </div>
+
+                    <div class="code-card">
+                        <h3>Gradient Hover Effect</h3>
+                        <pre><code>/* Gradient shift on hover */
+.btn-gradient {
+    background: linear-gradient(
+        135deg, 
+        var(--colour-primary) 0%, 
+        var(--colour-secondary) 100%
+    );
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+}
+
+.btn-gradient:hover {
+    background-position: 100% 100%;
+}</code></pre>
+                    </div>
+
+                    <div class="code-card">
+                        <h3>Border Animation</h3>
+                        <pre><code>/* Animated border draw */
+.btn-border-draw {
+    background: transparent;
+    color: var(--colour-primary);
+    position: relative;
+}
+
+.btn-border-draw::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border: 2px solid var(--colour-primary);
+    border-right: none;
+    border-left: none;
+    transition: width 0.3s;
+}
+
+.btn-border-draw:hover::before {
+    width: 100%;
+}</code></pre>
+                    </div>
+
+                    <div class="code-card">
+                        <h3>Loading Animation</h3>
+                        <pre><code>/* Spinner button */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.btn-loading-spinner .btn-spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.btn-loading-spinner.loading .btn-text {
+    display: none;
+}
+
+.btn-loading-spinner.loading .btn-spinner {
+    display: inline-block;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Button Best Practices</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">♿</span>
+                        <h3>Accessibility First</h3>
+                        <p>Always ensure buttons have proper contrast ratios and focus states for keyboard navigation.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">👆</span>
+                        <h3>Touch Targets</h3>
+                        <p>Make buttons at least 44x44 pixels for comfortable mobile tapping.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">⚡</span>
+                        <h3>Performance</h3>
+                        <p>Use transform and opacity for animations - they're GPU accelerated!</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🫖</span>
+                        <h3>British Wisdom</h3>
+                        <p>Like a good cup of tea, the best buttons are simple, reliable, and always there when you need them.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="interactive-section">
+            <div class="container">
+                <h2 class="section-title">Try It Yourself</h2>
+                <p class="section-subtitle">Click any button to see it in action!</p>
+                
+                <div class="playground-preview">
+                    <p>All buttons on this page are interactive. Click them, hover over them, and inspect the code to learn how they work!</p>
+                    <a href="playground.html" class="btn btn-primary btn-large">Open in Playground</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All buttons made with pure CSS - no JavaScript required for the effects!</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/buttons.js"></script>
+</body>
+</html>

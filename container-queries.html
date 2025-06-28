@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master CSS Container Queries - responsive components based on container size, not viewport. The future of component-based design.">
+    <meta name="author" content="Thomas Butler">
+    <title>Container Queries | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/modern-features.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">@container</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="playground.html" class="nav-link">Playground</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#examples" class="nav-link">Examples</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#comparison" class="nav-link">vs Media Queries</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="feature-hero">
+            <div class="container">
+                <div class="feature-badge">CSS 2024</div>
+                <h1 class="feature-title">Container Queries</h1>
+                <p class="feature-subtitle">
+                    Finally! Components that respond to their container's size, not the viewport. 
+                    Build truly reusable components that work anywhere.
+                </p>
+                <div class="browser-support-badges">
+                    <span class="support-badge chrome">Chrome 106+</span>
+                    <span class="support-badge firefox">Firefox 110+</span>
+                    <span class="support-badge safari">Safari 16+</span>
+                    <span class="support-badge edge">Edge 106+</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <div class="container">
+                <h2 class="section-title">What are Container Queries?</h2>
+                <p class="section-intro">
+                    Container queries allow you to apply styles based on the size of a containing element 
+                    rather than the viewport. This means your components can adapt to any layout context - 
+                    sidebar, main content, or anywhere else!
+                </p>
+
+                <div class="feature-comparison">
+                    <div class="comparison-card old-way">
+                        <h3>❌ Media Queries (Old Way)</h3>
+                        <pre><code>/* Responds to viewport only */
+@media (min-width: 768px) {
+    .card {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+    }
+}
+
+/* Problem: Card looks wrong in sidebar! */</code></pre>
+                    </div>
+                    <div class="comparison-card new-way">
+                        <h3>✅ Container Queries (New Way)</h3>
+                        <pre><code>/* Responds to container size */
+.card-container {
+    container-type: inline-size;
+}
+
+@container (min-width: 400px) {
+    .card {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Interactive Examples</h2>
+                
+                <div class="demo-card wide">
+                    <h3 class="demo-title">Responsive Card Component</h3>
+                    <p class="demo-description">Resize the containers below to see how the same component adapts to different sizes</p>
+                    <div class="demo-example">
+                        <div class="container-demo-grid">
+                            <div class="resizable-container" style="width: 100%;">
+                                <div class="resize-handle">↔️ Drag to resize</div>
+                                <div class="product-card-container">
+                                    <article class="product-card-cq">
+                                        <img class="product-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23764ba2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='300' height='200' fill='url(%23g)'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-weight='bold'%3ECSS Course%3C/text%3E%3C/svg%3E" alt="CSS Course">
+                                        <div class="product-content">
+                                            <span class="product-category">Web Development</span>
+                                            <h3 class="product-title">Master Modern CSS</h3>
+                                            <p class="product-description">
+                                                Learn everything from basics to advanced techniques including 
+                                                Container Queries, :has(), and more!
+                                            </p>
+                                            <div class="product-meta">
+                                                <span class="product-price">£49.99</span>
+                                                <button class="product-button">Enroll Now</button>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                            
+                            <div class="fixed-container" style="width: 300px;">
+                                <div class="container-label">Sidebar (300px)</div>
+                                <div class="product-card-container">
+                                    <article class="product-card-cq">
+                                        <img class="product-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Cdefs%3E%3ClinearGradient id='g2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23764ba2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='300' height='200' fill='url(%23g2)'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-weight='bold'%3ECSS Course%3C/text%3E%3C/svg%3E" alt="CSS Course">
+                                        <div class="product-content">
+                                            <span class="product-category">Web Development</span>
+                                            <h3 class="product-title">Master Modern CSS</h3>
+                                            <p class="product-description">
+                                                Learn everything from basics to advanced techniques including 
+                                                Container Queries, :has(), and more!
+                                            </p>
+                                            <div class="product-meta">
+                                                <span class="product-price">£49.99</span>
+                                                <button class="product-button">Enroll Now</button>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-example">
+                        <pre><code>/* Define container */
+.product-card-container {
+    container-type: inline-size;
+    container-name: card;
+}
+
+/* Default mobile-first styles */
+.product-card-cq {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Compact layout for small containers */
+@container card (max-width: 399px) {
+    .product-image {
+        height: 120px;
+    }
+    
+    .product-description {
+        display: none;
+    }
+    
+    .product-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Horizontal layout for medium containers */
+@container card (min-width: 400px) {
+    .product-card-cq {
+        flex-direction: row;
+    }
+    
+    .product-image {
+        width: 200px;
+        height: 150px;
+    }
+    
+    .product-button {
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+/* Enhanced layout for large containers */
+@container card (min-width: 600px) {
+    .product-content {
+        padding: 2rem;
+    }
+    
+    .product-title {
+        font-size: 1.5rem;
+    }
+    
+    .product-meta {
+        justify-content: space-between;
+    }
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Container Size Units</h3>
+                        <div class="demo-example">
+                            <div class="units-container">
+                                <div class="unit-demo">
+                                    <h4>Using cqw (container query width)</h4>
+                                    <p class="cqw-text">This text scales with container width!</p>
+                                </div>
+                                <div class="unit-demo">
+                                    <h4>Using cqh (container query height)</h4>
+                                    <div class="cqh-box">Height-based sizing</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Container query units */
+.units-container {
+    container-type: size;
+}
+
+.cqw-text {
+    /* 5% of container width */
+    font-size: clamp(1rem, 5cqw, 2rem);
+}
+
+.cqh-box {
+    /* 30% of container height */
+    height: 30cqh;
+    display: grid;
+    place-items: center;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 0.5rem;
+}
+
+/* Other units:
+   cqi - inline size
+   cqb - block size
+   cqmin - smaller of cqi/cqb
+   cqmax - larger of cqi/cqb */</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Named Containers</h3>
+                        <div class="demo-example">
+                            <div class="named-demo">
+                                <div class="outer-container">
+                                    <h4>Outer Container</h4>
+                                    <div class="inner-container">
+                                        <h4>Inner Container</h4>
+                                        <div class="responsive-box">
+                                            I respond to the inner container!
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Named containers for specificity */
+.outer-container {
+    container-type: inline-size;
+    container-name: outer;
+    padding: 2rem;
+    background: #f3f4f6;
+}
+
+.inner-container {
+    container-type: inline-size;
+    container-name: inner;
+    padding: 1rem;
+    background: white;
+}
+
+/* Target specific container */
+@container inner (min-width: 300px) {
+    .responsive-box {
+        background: var(--colour-primary);
+        color: white;
+        padding: 1rem;
+    }
+}
+
+/* Can also combine names */
+@container outer (min-width: 500px) and 
+           inner (min-width: 300px) {
+    .responsive-box {
+        font-size: 1.25rem;
+    }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Style Queries</h3>
+                        <div class="demo-example">
+                            <div class="style-query-demo">
+                                <div class="theme-container" data-theme="dark">
+                                    <div class="theme-card">
+                                        <h4>Dark Theme Container</h4>
+                                        <p>Components adapt to container styles!</p>
+                                    </div>
+                                </div>
+                                <div class="theme-container" data-theme="light">
+                                    <div class="theme-card">
+                                        <h4>Light Theme Container</h4>
+                                        <p>Same component, different container style</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Style queries (experimental) */
+.theme-container {
+    container-type: inline-size;
+}
+
+/* Query custom properties */
+@container style(--theme: dark) {
+    .theme-card {
+        background: #1a1a1a;
+        color: white;
+        border-color: #333;
+    }
+}
+
+@container style(--theme: light) {
+    .theme-card {
+        background: white;
+        color: #333;
+        border-color: #e5e7eb;
+    }
+}
+
+/* Combine size and style queries */
+@container (min-width: 400px) and 
+           style(--theme: dark) {
+    .theme-card {
+        padding: 2rem;
+        border-width: 2px;
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Container Queries vs Media Queries</h2>
+                
+                <div class="comparison-table">
+                    <div class="comparison-row header">
+                        <div>Feature</div>
+                        <div>Media Queries</div>
+                        <div>Container Queries</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div>Responds to</div>
+                        <div>Viewport size</div>
+                        <div>Container size</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div>Use case</div>
+                        <div>Page-level layouts</div>
+                        <div>Component-level layouts</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div>Reusability</div>
+                        <div>Limited (viewport-dependent)</div>
+                        <div>High (context-independent)</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div>Browser support</div>
+                        <div>Universal</div>
+                        <div>Modern browsers (87%+)</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div>Performance</div>
+                        <div>Excellent</div>
+                        <div>Good (slight overhead)</div>
+                    </div>
+                </div>
+
+                <div class="best-practices">
+                    <h3>When to Use Each</h3>
+                    <div class="practice-grid">
+                        <div class="practice-card">
+                            <h4>Use Media Queries for:</h4>
+                            <ul>
+                                <li>Overall page layout</li>
+                                <li>Navigation changes</li>
+                                <li>Major breakpoints</li>
+                                <li>Print styles</li>
+                            </ul>
+                        </div>
+                        <div class="practice-card">
+                            <h4>Use Container Queries for:</h4>
+                            <ul>
+                                <li>Reusable components</li>
+                                <li>Card layouts</li>
+                                <li>Sidebar widgets</li>
+                                <li>Dynamic grid items</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Real-World Examples</h2>
+                
+                <div class="demo-card wide">
+                    <h3 class="demo-title">Article Layout System</h3>
+                    <div class="demo-example">
+                        <div class="article-layout-demo">
+                            <main class="article-main">
+                                <div class="article-container">
+                                    <article class="article-cq">
+                                        <header class="article-header">
+                                            <span class="article-category">CSS Tutorials</span>
+                                            <h2 class="article-title">Mastering Container Queries</h2>
+                                            <div class="article-meta">
+                                                <span>By Thomas Butler</span>
+                                                <span>5 min read</span>
+                                            </div>
+                                        </header>
+                                        <div class="article-content">
+                                            <p>Container queries revolutionise how we build responsive components...</p>
+                                            <blockquote>
+                                                "Container queries are the most requested CSS feature for over a decade!"
+                                            </blockquote>
+                                            <p>They finally allow us to create truly reusable components.</p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </main>
+                            <aside class="article-sidebar">
+                                <div class="article-container">
+                                    <article class="article-cq">
+                                        <header class="article-header">
+                                            <span class="article-category">Quick Tip</span>
+                                            <h2 class="article-title">Browser Support</h2>
+                                        </header>
+                                        <div class="article-content">
+                                            <p>Container queries are supported in all modern browsers!</p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                    <div class="code-example">
+                        <pre><code>/* Article container setup */
+.article-container {
+    container-type: inline-size;
+    container-name: article;
+}
+
+/* Base styles */
+.article-cq {
+    background: var(--colour-background);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+/* Narrow containers (sidebar) */
+@container article (max-width: 400px) {
+    .article-header {
+        text-align: center;
+    }
+    
+    .article-title {
+        font-size: 1.25rem;
+    }
+    
+    .article-meta {
+        display: none;
+    }
+    
+    blockquote {
+        margin: 1rem 0;
+        padding-left: 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Wide containers (main content) */
+@container article (min-width: 600px) {
+    .article-cq {
+        padding: 3rem;
+    }
+    
+    .article-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .article-content {
+        font-size: 1.125rem;
+        line-height: 1.7;
+    }
+    
+    blockquote {
+        margin: 2rem -1rem;
+        padding: 1.5rem 2rem;
+        background: var(--colour-surface);
+        border-left: 4px solid var(--colour-primary);
+        font-size: 1.25rem;
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Pro Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">🎯</span>
+                        <h3>Container Types</h3>
+                        <p>Use `inline-size` for horizontal queries, `size` for both dimensions. Most components only need `inline-size`.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">⚡</span>
+                        <h3>Performance</h3>
+                        <p>Container queries have minimal performance impact. The browser optimises them efficiently.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🏗️</span>
+                        <h3>Progressive Enhancement</h3>
+                        <p>Always provide sensible defaults. Container queries should enhance, not break, your layout.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">☕</span>
+                        <h3>Tea Break Wisdom</h3>
+                        <p>Think of containers like Russian dolls - each knows its own size perfectly. Brilliant!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section-title">Continue Your Journey</h2>
+                <p class="section-subtitle">
+                    Container queries are just one piece of the modern CSS puzzle. Keep exploring!
+                </p>
+                <div class="next-links">
+                    <a href="css-nesting.html" class="next-link">
+                        <span class="next-icon">🪆</span>
+                        <div>
+                            <h3>CSS Nesting</h3>
+                            <p>Write cleaner CSS with native nesting</p>
+                        </div>
+                    </a>
+                    <a href="has-selector.html" class="next-link">
+                        <span class="next-icon">🎯</span>
+                        <div>
+                            <h3>:has() Selector</h3>
+                            <p>The parent selector revolution</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All examples use pure CSS - no frameworks were harmed in the making of this showcase</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/container-queries-demo.js"></script>
+</body>
+</html>
