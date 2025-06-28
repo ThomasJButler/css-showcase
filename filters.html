@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master CSS Filters - apply visual effects like blur, brightness, and more to create stunning designs.">
+    <meta name="author" content="Thomas Butler">
+    <title>CSS Filters | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/filters.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#basic" class="nav-link">Basic Filters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#advanced" class="nav-link">Advanced</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#playground" class="nav-link">Playground</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#creative" class="nav-link">Creative</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title filter-title">CSS Filters</h1>
+                <p class="page-subtitle">
+                    Transform images and elements with Instagram-like effects using pure CSS
+                </p>
+            </div>
+        </section>
+
+        <section id="basic" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Basic Filter Functions</h2>
+                <p class="section-intro">
+                    CSS filters provide graphical effects like blur, colour shifting, and more. 
+                    Apply them to any element for instant visual transformation.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Blur & Brightness</h3>
+                        <div class="demo-example">
+                            <div class="filter-grid">
+                                <div class="filter-item">
+                                    <div class="filter-image original"></div>
+                                    <p class="filter-label">Original</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image blur"></div>
+                                    <p class="filter-label">blur(5px)</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image brightness"></div>
+                                    <p class="filter-label">brightness(1.5)</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image brightness-dark"></div>
+                                    <p class="filter-label">brightness(0.5)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Blur effect */
+.blur {
+    filter: blur(5px);
+}
+
+/* Brightness adjustment */
+.bright {
+    filter: brightness(1.5); /* 150% */
+}
+
+.dark {
+    filter: brightness(0.5); /* 50% */
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Contrast & Grayscale</h3>
+                        <div class="demo-example">
+                            <div class="filter-grid">
+                                <div class="filter-item">
+                                    <div class="filter-image contrast-high"></div>
+                                    <p class="filter-label">contrast(2)</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image contrast-low"></div>
+                                    <p class="filter-label">contrast(0.5)</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image grayscale"></div>
+                                    <p class="filter-label">grayscale(1)</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image grayscale-partial"></div>
+                                    <p class="filter-label">grayscale(0.5)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Contrast adjustment */
+.high-contrast {
+    filter: contrast(200%);
+}
+
+/* Grayscale conversion */
+.grayscale {
+    filter: grayscale(100%);
+}
+
+/* Partial grayscale */
+.desaturated {
+    filter: grayscale(50%);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Hue Rotate & Invert</h3>
+                        <div class="demo-example">
+                            <div class="filter-grid">
+                                <div class="filter-item">
+                                    <div class="filter-image hue-rotate-90"></div>
+                                    <p class="filter-label">hue-rotate(90deg)</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image hue-rotate-180"></div>
+                                    <p class="filter-label">hue-rotate(180deg)</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image invert"></div>
+                                    <p class="filter-label">invert(1)</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image invert-partial"></div>
+                                    <p class="filter-label">invert(0.5)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Hue rotation */
+.hue-shift {
+    filter: hue-rotate(90deg);
+}
+
+/* Colour inversion */
+.invert {
+    filter: invert(100%);
+}
+
+/* Partial inversion */
+.semi-invert {
+    filter: invert(50%);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Saturate & Sepia</h3>
+                        <div class="demo-example">
+                            <div class="filter-grid">
+                                <div class="filter-item">
+                                    <div class="filter-image saturate"></div>
+                                    <p class="filter-label">saturate(2)</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image desaturate"></div>
+                                    <p class="filter-label">saturate(0.5)</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image sepia"></div>
+                                    <p class="filter-label">sepia(1)</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image sepia-partial"></div>
+                                    <p class="filter-label">sepia(0.5)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Saturation control */
+.vibrant {
+    filter: saturate(200%);
+}
+
+.muted {
+    filter: saturate(50%);
+}
+
+/* Sepia tone */
+.vintage {
+    filter: sepia(100%);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Advanced Filter Techniques</h2>
+                <p class="section-intro">
+                    Combine multiple filters and use special effects to create unique visual styles.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Drop Shadow</h3>
+                        <div class="demo-example">
+                            <div class="shadow-grid">
+                                <div class="shadow-item">
+                                    <div class="shadow-demo basic-shadow"></div>
+                                    <p class="filter-label">Basic Shadow</p>
+                                </div>
+                                <div class="shadow-item">
+                                    <div class="shadow-demo colour-shadow"></div>
+                                    <p class="filter-label">Colour Shadow</p>
+                                </div>
+                                <div class="shadow-item">
+                                    <div class="shadow-demo multi-shadow"></div>
+                                    <p class="filter-label">Multiple Shadows</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Drop shadow (follows alpha) */
+.shadow {
+    filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.3));
+}
+
+/* Coloured shadow */
+.glow {
+    filter: drop-shadow(0 0 20px #3b82f6);
+}
+
+/* Multiple shadows */
+.multi {
+    filter: 
+        drop-shadow(5px 5px 5px rgba(0,0,0,0.3))
+        drop-shadow(-5px -5px 5px rgba(255,255,255,0.3));
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Combined Filters</h3>
+                        <div class="demo-example">
+                            <div class="filter-grid">
+                                <div class="filter-item">
+                                    <div class="filter-image instagram-1"></div>
+                                    <p class="filter-label">Vintage</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image instagram-2"></div>
+                                    <p class="filter-label">Cool Tone</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image instagram-3"></div>
+                                    <p class="filter-label">Warm Tone</p>
+                                </div>
+                                <div class="filter-item">
+                                    <div class="filter-image instagram-4"></div>
+                                    <p class="filter-label">Dramatic</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Instagram-like filters */
+.vintage {
+    filter: 
+        contrast(1.2) 
+        brightness(1.1) 
+        sepia(0.3) 
+        saturate(1.4);
+}
+
+.cool {
+    filter: 
+        brightness(1.1) 
+        hue-rotate(180deg) 
+        saturate(0.7);
+}
+
+.dramatic {
+    filter: 
+        contrast(1.5) 
+        brightness(0.9) 
+        grayscale(0.3);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">SVG Filters</h3>
+                        <div class="demo-example">
+                            <div class="svg-filter-demo">
+                                <svg style="position: absolute; width: 0; height: 0;">
+                                    <defs>
+                                        <filter id="goo">
+                                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                            <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+                                        </filter>
+                                    </defs>
+                                </svg>
+                                <div class="goo-effect">
+                                    <div class="goo-ball"></div>
+                                    <div class="goo-ball"></div>
+                                    <div class="goo-ball"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Reference SVG filter */
+.goo-effect {
+    filter: url(#goo);
+}
+
+/* SVG filter definition */
+<filter id="goo">
+    <feGaussianBlur 
+        in="SourceGraphic" 
+        stdDeviation="10" />
+    <feColorMatrix 
+        mode="matrix" 
+        values="..." />
+</filter></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="playground" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Interactive Filter Playground</h2>
+                <p class="section-intro">
+                    Experiment with different filter combinations in real-time!
+                </p>
+
+                <div class="playground-container">
+                    <div class="controls-panel">
+                        <h3>Adjust Filters</h3>
+                        
+                        <div class="control-group">
+                            <label for="blur-control">Blur</label>
+                            <input type="range" id="blur-control" min="0" max="20" value="0" step="0.5">
+                            <span class="value-display">0px</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="brightness-control">Brightness</label>
+                            <input type="range" id="brightness-control" min="0" max="200" value="100">
+                            <span class="value-display">100%</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="contrast-control">Contrast</label>
+                            <input type="range" id="contrast-control" min="0" max="200" value="100">
+                            <span class="value-display">100%</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="grayscale-control">Grayscale</label>
+                            <input type="range" id="grayscale-control" min="0" max="100" value="0">
+                            <span class="value-display">0%</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="hue-rotate-control">Hue Rotate</label>
+                            <input type="range" id="hue-rotate-control" min="0" max="360" value="0">
+                            <span class="value-display">0deg</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="saturate-control">Saturate</label>
+                            <input type="range" id="saturate-control" min="0" max="200" value="100">
+                            <span class="value-display">100%</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="sepia-control">Sepia</label>
+                            <input type="range" id="sepia-control" min="0" max="100" value="0">
+                            <span class="value-display">0%</span>
+                        </div>
+
+                        <button class="reset-button" id="reset-filters">Reset All</button>
+                    </div>
+
+                    <div class="playground-demo">
+                        <div class="playground-image" id="playground-target"></div>
+                        <div class="playground-code">
+                            <pre><code id="filter-css">.element {
+    filter: none;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="creative" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Creative Filter Effects</h2>
+                <p class="section-intro">
+                    Push the boundaries with creative filter applications and animations.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Hover Effects</h3>
+                        <div class="demo-example">
+                            <div class="hover-grid">
+                                <div class="hover-item hover-blur">Blur on Hover</div>
+                                <div class="hover-item hover-bright">Brighten</div>
+                                <div class="hover-item hover-rotate">Hue Shift</div>
+                                <div class="hover-item hover-gray">Grayscale</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Hover transitions */
+.card {
+    transition: filter 0.3s ease;
+}
+
+.card:hover {
+    filter: brightness(1.1) saturate(1.2);
+}
+
+/* Focus effect */
+.gallery img {
+    filter: grayscale(1) brightness(0.7);
+    transition: filter 0.3s;
+}
+
+.gallery img:hover {
+    filter: grayscale(0) brightness(1);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Animated Filters</h3>
+                        <div class="demo-example">
+                            <div class="animated-filters">
+                                <div class="animated-filter pulse-filter">Pulsing</div>
+                                <div class="animated-filter rotate-filter">Rotating Hue</div>
+                                <div class="animated-filter glitch-filter">Glitch</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Animated filters */
+@keyframes pulse-brightness {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+}
+
+@keyframes hue-cycle {
+    to { filter: hue-rotate(360deg); }
+}
+
+.animated {
+    animation: hue-cycle 5s linear infinite;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Text Effects</h3>
+                        <div class="demo-example">
+                            <div class="text-effects">
+                                <h3 class="text-shadow-filter">Shadow Text</h3>
+                                <h3 class="text-glow-filter">Glowing Text</h3>
+                                <h3 class="text-blur-filter">Blurred Text</h3>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Text with filters */
+.shadow-text {
+    filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.5));
+}
+
+.glow-text {
+    filter: 
+        drop-shadow(0 0 10px #3b82f6)
+        drop-shadow(0 0 20px #3b82f6);
+}
+
+.blur-text {
+    filter: blur(2px);
+    transition: filter 0.3s;
+}
+
+.blur-text:hover {
+    filter: blur(0);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Filter Best Practices</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">⚡</span>
+                        <h3>Performance</h3>
+                        <p>Filters can be GPU-intensive. Test performance, especially on mobile devices.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎨</span>
+                        <h3>Subtlety is Key</h3>
+                        <p>Often, subtle filter effects work better than dramatic ones for professional designs.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">♿</span>
+                        <h3>Accessibility</h3>
+                        <p>Ensure filtered content remains readable and doesn't rely solely on colour.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🔧</span>
+                        <h3>Browser Support</h3>
+                        <p>Most filters have excellent support, but always test in target browsers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section-title">Style Your Components</h2>
+                <p class="section-subtitle">
+                    Filters mastered! Apply your skills to real-world components.
+                </p>
+                <div class="next-links">
+                    <a href="tables.html" class="next-link">
+                        <span class="next-icon">📊</span>
+                        <div>
+                            <h3>Tables</h3>
+                            <p>Create beautiful, responsive data tables</p>
+                        </div>
+                    </a>
+                    <a href="cards.html" class="next-link">
+                        <span class="next-icon">🃏</span>
+                        <div>
+                            <h3>Cards</h3>
+                            <p>Design versatile card components</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All examples use pure CSS - no frameworks were harmed in the making of this showcase</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/filter-playground.js"></script>
+</body>
+</html>
