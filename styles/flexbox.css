@@ -1,0 +1,572 @@
+/* Flexbox Specific Styles */
+
+/* Base flex demo styles */
+.flex-demo {
+    display: flex;
+    background: var(--colour-surface-variant);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    min-height: 100px;
+    position: relative;
+}
+
+.flex-item {
+    background: var(--colour-primary);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    text-align: center;
+    min-width: 60px;
+}
+
+.demo-label {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--colour-text-secondary);
+    font-family: var(--font-mono);
+}
+
+/* Direction demos */
+.direction-row {
+    flex-direction: row;
+}
+
+.direction-column {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.direction-column .flex-item {
+    width: 100%;
+}
+
+/* Wrap demo */
+.wrap-demo {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.wrap-demo .flex-item {
+    flex: 0 0 calc(33.333% - 0.5rem);
+}
+
+/* Grow demo */
+.grow-demo {
+    gap: 0.5rem;
+}
+
+.grow-0 {
+    flex-grow: 0;
+}
+
+.grow-1 {
+    flex-grow: 1;
+}
+
+.grow-2 {
+    flex-grow: 2;
+}
+
+/* Gap demo */
+.gap-demo {
+    gap: 1rem;
+}
+
+/* Alignment demos container */
+.alignment-demos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.align-container {
+    background: var(--colour-surface);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--colour-border);
+}
+
+/* Justify content demos */
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+/* Align items demos */
+.tall {
+    min-height: 150px;
+}
+
+.tall-item {
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.align-stretch .flex-item {
+    height: auto;
+}
+
+.align-baseline {
+    align-items: baseline;
+}
+
+/* Center demo */
+.center-demo {
+    min-height: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-demo .flex-item {
+    background: var(--colour-secondary);
+    padding: 2rem;
+}
+
+/* Interactive Playground */
+.playground-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.controls-panel {
+    background: var(--colour-surface);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--colour-border);
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.controls-panel h3 {
+    margin: 0 0 1rem 0;
+    color: var(--colour-primary);
+    font-size: 1.125rem;
+}
+
+.controls-panel h3:not(:first-child) {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--colour-border);
+}
+
+.control-group {
+    margin-bottom: 1rem;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--colour-text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+}
+
+.control-group select,
+.control-group input[type="range"] {
+    width: 100%;
+}
+
+.control-group select {
+    padding: 0.5rem;
+    border: 1px solid var(--colour-border);
+    border-radius: 0.25rem;
+    background: var(--colour-background);
+    color: var(--colour-text);
+    font-family: inherit;
+}
+
+.value-display {
+    display: inline-block;
+    background: var(--colour-surface-variant);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.playground-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.playground-flex-container {
+    background: var(--colour-surface-variant);
+    border: 2px dashed var(--colour-border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    min-height: 400px;
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+.playground-item {
+    background: var(--colour-primary);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.playground-item.selected {
+    background: var(--colour-secondary);
+    box-shadow: 0 0 0 3px var(--colour-secondary-light);
+}
+
+.playground-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.playground-code {
+    background: var(--colour-surface);
+    border: 1px solid var(--colour-border);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.playground-code pre {
+    margin: 0;
+    padding: 1rem;
+}
+
+/* Pattern Examples */
+.pattern-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--colour-surface);
+    border-radius: 0.5rem;
+}
+
+.nav-brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--colour-primary);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    color: var(--colour-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--colour-primary);
+}
+
+.nav-cta {
+    background: var(--colour-primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-cta:hover {
+    background: var(--colour-primary-dark);
+    transform: translateY(-1px);
+}
+
+/* Card pattern */
+.pattern-cards {
+    display: flex;
+    gap: 1rem;
+}
+
+.card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--colour-surface);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--colour-border);
+}
+
+.card h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--colour-primary);
+}
+
+.card p {
+    flex: 1;
+    margin: 0 0 1rem 0;
+    color: var(--colour-text-secondary);
+}
+
+.card button {
+    background: var(--colour-primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.card button:hover {
+    background: var(--colour-primary-dark);
+}
+
+/* Media object pattern */
+.pattern-media {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: var(--colour-surface);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.media-image {
+    flex: 0 0 100px;
+    height: 100px;
+    background: var(--colour-primary);
+    border-radius: 0.5rem;
+}
+
+.media-content {
+    flex: 1;
+}
+
+.media-content h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--colour-primary);
+}
+
+.media-content p {
+    margin: 0;
+    color: var(--colour-text-secondary);
+}
+
+/* Sticky footer pattern */
+.pattern-sticky {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    background: var(--colour-surface);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.sticky-header,
+.sticky-footer {
+    background: var(--colour-primary);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.sticky-content {
+    flex: 1;
+    padding: 1rem;
+    background: var(--colour-surface-variant);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--colour-text-secondary);
+}
+
+/* Input group pattern */
+.pattern-input-group {
+    display: flex;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    border: 1px solid var(--colour-border);
+}
+
+.pattern-input-group:last-child {
+    margin-bottom: 0;
+}
+
+.pattern-input-group input {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    background: var(--colour-background);
+    color: var(--colour-text);
+    font-family: inherit;
+}
+
+.input-addon {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    background: var(--colour-surface);
+    color: var(--colour-text-secondary);
+    font-weight: 600;
+    border-right: 1px solid var(--colour-border);
+}
+
+.input-button {
+    padding: 0 1.5rem;
+    background: var(--colour-primary);
+    color: white;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.input-button:hover {
+    background: var(--colour-primary-dark);
+}
+
+/* Holy grail pattern */
+.pattern-holy-grail {
+    display: flex;
+    gap: 1rem;
+    min-height: 200px;
+}
+
+.sidebar-left,
+.sidebar-right {
+    flex: 0 0 80px;
+    background: var(--colour-primary);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.sidebar-right {
+    background: var(--colour-secondary);
+}
+
+.main-content {
+    flex: 1;
+    background: var(--colour-surface);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--colour-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--colour-text-secondary);
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .control-group select {
+    background: var(--colour-surface);
+}
+
+[data-theme="dark"] .pattern-input-group input {
+    background: var(--colour-surface);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .playground-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .controls-panel {
+        order: 2;
+        max-height: none;
+    }
+    
+    .playground-demo {
+        order: 1;
+    }
+    
+    .alignment-demos {
+        grid-template-columns: 1fr;
+    }
+    
+    .pattern-cards {
+        flex-direction: column;
+    }
+    
+    .pattern-nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .nav-menu {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .pattern-holy-grail {
+        flex-direction: column;
+    }
+    
+    .sidebar-left,
+    .sidebar-right {
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .wrap-demo .flex-item {
+        flex: 0 0 100%;
+    }
+}

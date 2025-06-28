@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master the CSS Box Model - padding, margin, borders, and box-sizing. Interactive examples and visual demonstrations.">
+    <meta name="author" content="Thomas Butler">
+    <title>Box Model | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/box-model.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#fundamentals" class="nav-link">Fundamentals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#box-sizing" class="nav-link">Box Sizing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#playground" class="nav-link">Playground</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#advanced" class="nav-link">Advanced</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">The Box Model</h1>
+                <p class="page-subtitle">
+                    Everything in CSS is a box - master how they work and you'll master layouts
+                </p>
+            </div>
+        </section>
+
+        <section id="fundamentals" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Box Model Fundamentals</h2>
+                <p class="section-intro">
+                    The CSS box model describes how every element is rendered as a rectangular box, 
+                    consisting of content, padding, border, and margin layers.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card wide">
+                        <h3 class="demo-title">The Anatomy of a Box</h3>
+                        <div class="demo-example">
+                            <div class="box-model-visual">
+                                <div class="margin-layer">
+                                    <span class="layer-label">Margin</span>
+                                    <div class="border-layer">
+                                        <span class="layer-label">Border</span>
+                                        <div class="padding-layer">
+                                            <span class="layer-label">Padding</span>
+                                            <div class="content-layer">
+                                                <span class="layer-label">Content</span>
+                                                <p>The actual content of your element lives here</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* The box model layers */
+.element {
+    /* Content dimensions */
+    width: 300px;
+    height: 150px;
+    
+    /* Padding: space inside the border */
+    padding: 20px;
+    
+    /* Border: the element's frame */
+    border: 5px solid var(--colour-primary);
+    
+    /* Margin: space outside the border */
+    margin: 30px;
+    
+    /* Background affects content + padding */
+    background: var(--colour-surface);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Padding</h3>
+                        <div class="demo-example">
+                            <div class="padding-examples">
+                                <div class="padding-demo uniform">Uniform padding: 20px</div>
+                                <div class="padding-demo directional">Different padding per side</div>
+                                <div class="padding-demo shorthand">Shorthand: top/bottom left/right</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Padding variations */
+.uniform {
+    padding: 20px;
+}
+
+.directional {
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+}
+
+.shorthand {
+    /* top right bottom left */
+    padding: 10px 20px 30px 40px;
+    
+    /* vertical horizontal */
+    padding: 20px 40px;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Margin</h3>
+                        <div class="demo-example">
+                            <div class="margin-examples">
+                                <div class="margin-demo basic">Basic margin</div>
+                                <div class="margin-demo auto">Auto margin for centering</div>
+                                <div class="margin-demo negative">Negative margin overlap</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Margin techniques */
+.basic {
+    margin: 20px;
+}
+
+.auto {
+    width: 200px;
+    margin: 0 auto; /* Horizontal centering */
+}
+
+.negative {
+    margin-top: -10px; /* Pulls element up */
+    margin-left: -20px; /* Overlaps left */
+}
+
+/* Margin collapse */
+.paragraph {
+    margin-bottom: 20px;
+}
+.next-paragraph {
+    margin-top: 30px;
+    /* Total space: 30px (not 50px) */
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Borders</h3>
+                        <div class="demo-example">
+                            <div class="border-examples">
+                                <div class="border-demo solid">Solid border</div>
+                                <div class="border-demo dashed">Dashed border</div>
+                                <div class="border-demo gradient">Gradient border trick</div>
+                                <div class="border-demo rounded">Rounded corners</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Border styles */
+.solid {
+    border: 3px solid var(--colour-primary);
+}
+
+.dashed {
+    border: 2px dashed var(--colour-secondary);
+}
+
+.gradient {
+    border: 4px solid transparent;
+    background: 
+        linear-gradient(white, white) padding-box,
+        linear-gradient(45deg, #f06, #48f) border-box;
+}
+
+.rounded {
+    border: 2px solid var(--colour-border);
+    border-radius: 12px;
+    /* Individual corners */
+    border-top-left-radius: 20px;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="box-sizing" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Box Sizing Models</h2>
+                <p class="section-intro">
+                    The box-sizing property changes how the total width and height of elements are calculated. 
+                    This can make layouts much more predictable!
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card wide">
+                        <h3 class="demo-title">Content Box vs Border Box</h3>
+                        <div class="demo-example">
+                            <div class="box-sizing-comparison">
+                                <div class="sizing-demo content-box">
+                                    <h4>content-box (default)</h4>
+                                    <p>Width: 300px + padding + border</p>
+                                    <div class="size-indicator">Total: 350px</div>
+                                </div>
+                                <div class="sizing-demo border-box">
+                                    <h4>border-box</h4>
+                                    <p>Width: 300px total</p>
+                                    <div class="size-indicator">Total: 300px</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Default behaviour */
+.content-box {
+    box-sizing: content-box;
+    width: 300px;
+    padding: 20px;
+    border: 5px solid;
+    /* Total width: 300 + 40 + 10 = 350px */
+}
+
+/* Modern approach */
+.border-box {
+    box-sizing: border-box;
+    width: 300px;
+    padding: 20px;
+    border: 5px solid;
+    /* Total width: 300px (includes padding/border) */
+}
+
+/* Best practice: apply globally */
+*, *::before, *::after {
+    box-sizing: border-box;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Practical Example</h3>
+                        <div class="demo-example">
+                            <div class="layout-grid">
+                                <div class="grid-item">1/3</div>
+                                <div class="grid-item">1/3</div>
+                                <div class="grid-item">1/3</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* With border-box, math is easy! */
+.layout-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.grid-item {
+    box-sizing: border-box;
+    width: 33.333%;
+    padding: 20px;
+    border: 2px solid;
+    /* No need to calculate! */
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="playground" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Interactive Box Model Playground</h2>
+                <p class="section-intro">
+                    Experiment with different values to see how they affect the box model in real-time.
+                </p>
+
+                <div class="playground-container">
+                    <div class="controls-panel">
+                        <h3>Adjust Properties</h3>
+                        
+                        <div class="control-group">
+                            <label for="content-width">Content Width</label>
+                            <input type="range" id="content-width" min="100" max="400" value="200">
+                            <span class="value-display">200px</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="content-height">Content Height</label>
+                            <input type="range" id="content-height" min="50" max="200" value="100">
+                            <span class="value-display">100px</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="padding-value">Padding</label>
+                            <input type="range" id="padding-value" min="0" max="50" value="20">
+                            <span class="value-display">20px</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="border-width">Border Width</label>
+                            <input type="range" id="border-width" min="0" max="20" value="5">
+                            <span class="value-display">5px</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="margin-value">Margin</label>
+                            <input type="range" id="margin-value" min="0" max="50" value="20">
+                            <span class="value-display">20px</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="box-sizing-toggle">
+                                <input type="checkbox" id="box-sizing-toggle">
+                                Use border-box
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="playground-demo">
+                        <div class="playground-wrapper">
+                            <div class="playground-box" id="playground-box">
+                                <div class="dimension-labels">
+                                    <span class="label-top">Total Width: <span id="total-width">250px</span></span>
+                                    <span class="label-side">Total Height: <span id="total-height">150px</span></span>
+                                </div>
+                                <div class="box-content">
+                                    Content Area
+                                </div>
+                            </div>
+                        </div>
+                        <div class="playground-code">
+                            <pre><code id="playground-css">.box {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 5px solid;
+    margin: 20px;
+    box-sizing: content-box;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Advanced Box Model Techniques</h2>
+                <p class="section-intro">
+                    Take your box model skills to the next level with these advanced techniques and edge cases.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Margin Collapse</h3>
+                        <div class="demo-example">
+                            <div class="collapse-demo">
+                                <div class="collapse-box first">30px bottom margin</div>
+                                <div class="collapse-box second">20px top margin</div>
+                                <p class="collapse-note">Gap = 30px (not 50px)</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Margins collapse vertically */
+.first {
+    margin-bottom: 30px;
+}
+.second {
+    margin-top: 20px;
+}
+/* Result: 30px gap (larger wins) */
+
+/* Prevent collapse */
+.parent {
+    /* Any of these work: */
+    overflow: hidden;
+    padding: 1px;
+    border: 1px solid transparent;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Outline vs Border</h3>
+                        <div class="demo-example">
+                            <div class="outline-examples">
+                                <button class="outline-demo border-style">Border (affects layout)</button>
+                                <button class="outline-demo outline-style">Outline (no layout impact)</button>
+                                <button class="outline-demo focus-style">Focus state outline</button>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Border affects box size */
+.border-style {
+    border: 3px solid var(--colour-primary);
+}
+
+/* Outline doesn't affect layout */
+.outline-style {
+    outline: 3px solid var(--colour-secondary);
+    outline-offset: 2px;
+}
+
+/* Perfect for focus states */
+.focus-style:focus {
+    outline: 2px dashed currentColor;
+    outline-offset: 4px;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Percentage Calculations</h3>
+                        <div class="demo-example">
+                            <div class="percentage-parent">
+                                <div class="percentage-child width-demo">50% width</div>
+                                <div class="percentage-child padding-demo">10% padding</div>
+                                <div class="percentage-child margin-demo">25% margin</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Percentages reference parent */
+.parent {
+    width: 400px;
+    height: 200px;
+}
+
+.child {
+    /* Width: 50% of parent width */
+    width: 50%; /* = 200px */
+    
+    /* Padding: % of parent WIDTH */
+    padding: 10%; /* = 40px all sides */
+    
+    /* Margin: % of parent WIDTH */
+    margin: 25%; /* = 100px */
+    
+    /* Height % needs parent height */
+    height: 50%; /* = 100px */
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Box Shadow Layers</h3>
+                        <div class="demo-example">
+                            <div class="shadow-examples">
+                                <div class="shadow-demo basic-shadow">Basic shadow</div>
+                                <div class="shadow-demo inset-shadow">Inset shadow</div>
+                                <div class="shadow-demo multiple-shadows">Multiple shadows</div>
+                                <div class="shadow-demo glow-effect">Glow effect</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Box shadows don't affect layout */
+.basic-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.inset-shadow {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.multiple-shadows {
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.glow-effect {
+    box-shadow: 
+        0 0 20px rgba(59, 130, 246, 0.5),
+        0 0 40px rgba(59, 130, 246, 0.3);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Box Model Best Practices</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">📦</span>
+                        <h3>Always Use Border-Box</h3>
+                        <p>Set box-sizing: border-box globally to make width calculations predictable and intuitive.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">📐</span>
+                        <h3>Margin for Spacing Between</h3>
+                        <p>Use margin for space between elements, padding for space inside elements.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎯</span>
+                        <h3>Consistent Spacing Scale</h3>
+                        <p>Define spacing variables (8px, 16px, 24px...) for consistent rhythm throughout your design.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">⚡</span>
+                        <h3>Outline for Focus States</h3>
+                        <p>Use outline instead of border for focus indicators to avoid layout shifts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section-title">Continue Your Journey</h2>
+                <p class="section-subtitle">
+                    Now that you understand how boxes work, explore how to arrange them!
+                </p>
+                <div class="next-links">
+                    <a href="flexbox.html" class="next-link">
+                        <span class="next-icon">🎪</span>
+                        <div>
+                            <h3>Flexbox</h3>
+                            <p>Master flexible one-dimensional layouts</p>
+                        </div>
+                    </a>
+                    <a href="grid.html" class="next-link">
+                        <span class="next-icon">🏗️</span>
+                        <div>
+                            <h3>CSS Grid</h3>
+                            <p>Create powerful two-dimensional layouts</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All examples use pure CSS - no frameworks were harmed in the making of this showcase</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/box-model-playground.js"></script>
+</body>
+</html>

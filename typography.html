@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master CSS Typography - fonts, text styling, and beautiful type design. From basics to advanced techniques.">
+    <meta name="author" content="Thomas Butler">
+    <title>Typography | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/typography.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&family=Playfair+Display:wght@400;700&family=Bebas+Neue&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#font-families" class="nav-link">Font Families</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#text-styling" class="nav-link">Text Styling</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#advanced" class="nav-link">Advanced</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#specimens" class="nav-link">Specimens</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Typography</h1>
+                <p class="page-subtitle">
+                    The art and technique of arranging type to make written language beautiful and readable
+                </p>
+            </div>
+        </section>
+
+        <section id="font-families" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Font Families & Loading</h2>
+                <p class="section-intro">
+                    Choosing the right typeface sets the tone for your entire design. 
+                    Learn how to load and use fonts effectively.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">System Font Stacks</h3>
+                        <div class="demo-example">
+                            <div class="font-showcase">
+                                <p class="system-sans">System Sans-Serif</p>
+                                <p class="system-serif">System Serif</p>
+                                <p class="system-mono">System Monospace</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Modern system font stacks */
+.system-sans {
+    font-family: -apple-system, BlinkMacSystemFont, 
+        "Segoe UI", Roboto, Helvetica, Arial, 
+        sans-serif;
+}
+
+.system-serif {
+    font-family: Georgia, Cambria, 
+        "Times New Roman", Times, serif;
+}
+
+.system-mono {
+    font-family: ui-monospace, SFMono-Regular, 
+        "SF Mono", Consolas, "Liberation Mono", 
+        Menlo, monospace;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Web Font Loading</h3>
+                        <div class="demo-example">
+                            <div class="font-loading">
+                                <p class="google-font">Google Fonts: Inter</p>
+                                <p class="variable-font">Variable Font (Inter)</p>
+                                <p class="font-display-swap">Font Display: Swap</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Import from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?
+    family=Inter:wght@400;500;600;700&display=swap');
+
+/* Or use link in HTML (faster) */
+<link href="..." rel="stylesheet">
+
+/* Font-display for better UX */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('font.woff2') format('woff2');
+    font-display: swap; /* or fallback */
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Font Pairing</h3>
+                        <div class="demo-example">
+                            <div class="font-pairs">
+                                <div class="pair-example">
+                                    <h4 class="pair-heading">Playfair + Inter</h4>
+                                    <p class="pair-body">Classic serif paired with modern sans-serif creates elegant contrast.</p>
+                                </div>
+                                <div class="pair-example">
+                                    <h4 class="pair-heading-alt">Bebas Neue</h4>
+                                    <p class="pair-body">Bold display font with clean body text for impactful design.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Complementary font pairing */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Contrast in weight, not just family */
+.display {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.05em;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="text-styling" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Text Styling Properties</h2>
+                <p class="section-intro">
+                    Transform plain text into visually appealing content with these essential CSS properties.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Font Weight & Style</h3>
+                        <div class="demo-example">
+                            <div class="weight-showcase">
+                                <p class="weight-100">Thin (100)</p>
+                                <p class="weight-300">Light (300)</p>
+                                <p class="weight-400">Regular (400)</p>
+                                <p class="weight-500">Medium (500)</p>
+                                <p class="weight-600">Semibold (600)</p>
+                                <p class="weight-700">Bold (700)</p>
+                                <p class="style-italic">Italic Style</p>
+                                <p class="style-oblique">Oblique 15deg</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Font weights */
+.thin { font-weight: 100; }
+.light { font-weight: 300; }
+.regular { font-weight: 400; } /* or normal */
+.medium { font-weight: 500; }
+.semibold { font-weight: 600; }
+.bold { font-weight: 700; } /* or bold */
+
+/* Font styles */
+.italic { font-style: italic; }
+.oblique { font-style: oblique 15deg; }</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Size & Line Height</h3>
+                        <div class="demo-example">
+                            <div class="size-showcase">
+                                <p class="size-xs">Extra Small (0.75rem)</p>
+                                <p class="size-sm">Small (0.875rem)</p>
+                                <p class="size-base">Base (1rem)</p>
+                                <p class="size-lg">Large (1.25rem)</p>
+                                <p class="size-xl">Extra Large (1.5rem)</p>
+                                <p class="line-height-demo">
+                                    This paragraph has optimised line height (1.6) for comfortable reading. 
+                                    Notice how the lines have breathing room between them, making the text easier to scan.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Responsive font sizing */
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.25rem; }
+.text-xl { font-size: 1.5rem; }
+
+/* Line height for readability */
+body { line-height: 1.6; }
+h1, h2, h3 { line-height: 1.2; }
+.tight { line-height: 1.25; }
+.loose { line-height: 2; }
+
+/* Fluid typography */
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Letter & Word Spacing</h3>
+                        <div class="demo-example">
+                            <div class="spacing-showcase">
+                                <p class="tracking-tight">Tight Letter Spacing (-0.05em)</p>
+                                <p class="tracking-normal">Normal Letter Spacing</p>
+                                <p class="tracking-wide">Wide Letter Spacing (0.1em)</p>
+                                <p class="word-spacing">Increased    Word    Spacing</p>
+                                <p class="uppercase-spaced">UPPERCASE WITH SPACING</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Letter spacing (tracking) */
+.tracking-tight { letter-spacing: -0.05em; }
+.tracking-normal { letter-spacing: 0; }
+.tracking-wide { letter-spacing: 0.1em; }
+
+/* Word spacing */
+.word-spacing { word-spacing: 0.5em; }
+
+/* Common patterns */
+.uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.1em; /* More readable */
+}
+
+.display-heading {
+    font-size: 4rem;
+    letter-spacing: -0.02em; /* Tighter */
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Text Decoration & Transform</h3>
+                        <div class="demo-example">
+                            <div class="decoration-showcase">
+                                <p class="underline-simple">Simple Underline</p>
+                                <p class="underline-custom">Custom Underline Style</p>
+                                <p class="line-through">Strikethrough Text</p>
+                                <p class="overline">Overline Decoration</p>
+                                <p class="transform-upper">lowercase to uppercase</p>
+                                <p class="transform-cap">capitalize each word</p>
+                                <p class="small-caps">Small Caps Variant</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Text decoration */
+.underline-simple {
+    text-decoration: underline;
+}
+
+.underline-custom {
+    text-decoration: underline wavy #f06;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+/* Text transform */
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+
+/* Small caps */
+.small-caps {
+    font-variant: small-caps;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Text Alignment & Indentation</h3>
+                        <div class="demo-example">
+                            <div class="alignment-showcase">
+                                <p class="align-left">Left aligned text (default)</p>
+                                <p class="align-center">Center aligned text</p>
+                                <p class="align-right">Right aligned text</p>
+                                <p class="align-justify">Justified text creates even edges on both sides by adjusting word spacing. This can sometimes create rivers of white space.</p>
+                                <p class="text-indent">This paragraph has a text indent, common in traditional book typography for the first line of paragraphs.</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Text alignment */
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+.align-right { text-align: right; }
+.align-justify { 
+    text-align: justify;
+    hyphens: auto; /* Better justification */
+}
+
+/* Text indentation */
+.text-indent {
+    text-indent: 2rem;
+}
+
+/* First letter styling */
+p:first-child::first-letter {
+    font-size: 3em;
+    float: left;
+    line-height: 1;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Advanced Typography</h2>
+                <p class="section-intro">
+                    Take your typography to the next level with these advanced CSS features and techniques.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Variable Fonts</h3>
+                        <div class="demo-example">
+                            <div class="variable-font-demo">
+                                <p class="variable-weight" style="font-variation-settings: 'wght' 300;">Weight: 300</p>
+                                <p class="variable-weight" style="font-variation-settings: 'wght' 500;">Weight: 500</p>
+                                <p class="variable-weight" style="font-variation-settings: 'wght' 700;">Weight: 700</p>
+                                <p class="variable-weight" style="font-variation-settings: 'wght' 900;">Weight: 900</p>
+                                <p class="variable-animated">Animated Variable Font</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Variable font usage */
+@font-face {
+    font-family: 'Inter var';
+    src: url('Inter.var.woff2') format('woff2');
+    font-weight: 100 900;
+}
+
+/* Fine control */
+.custom-weight {
+    font-variation-settings: 'wght' 650;
+}
+
+/* Animation */
+@keyframes weight-dance {
+    0% { font-variation-settings: 'wght' 300; }
+    50% { font-variation-settings: 'wght' 700; }
+    100% { font-variation-settings: 'wght' 300; }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Text Shadow & Effects</h3>
+                        <div class="demo-example">
+                            <div class="shadow-showcase">
+                                <p class="shadow-simple">Simple Shadow</p>
+                                <p class="shadow-long">Long Shadow Effect</p>
+                                <p class="shadow-neon">Neon Glow</p>
+                                <p class="shadow-3d">3D Text Effect</p>
+                                <p class="shadow-outline">Outlined Text</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Text shadows */
+.shadow-simple {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.shadow-neon {
+    text-shadow: 
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 30px #f06,
+        0 0 40px #f06;
+}
+
+.shadow-3d {
+    text-shadow: 
+        1px 1px 0 #ccc,
+        2px 2px 0 #bbb,
+        3px 3px 0 #aaa,
+        4px 4px 6px rgba(0,0,0,0.3);
+}
+
+.shadow-outline {
+    text-shadow: 
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">OpenType Features</h3>
+                        <div class="demo-example">
+                            <div class="opentype-showcase">
+                                <p class="liga-on">Ligatures: fi fl ff ffi ffl</p>
+                                <p class="liga-off">No Ligatures: fi fl ff ffi ffl</p>
+                                <p class="numbers-old">Old Style: 1234567890</p>
+                                <p class="numbers-tabular">Tabular: 1234567890</p>
+                                <p class="fractions">Fractions: 1/2 3/4 5/8</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* OpenType features */
+.liga-on {
+    font-feature-settings: "liga" 1;
+}
+
+.liga-off {
+    font-feature-settings: "liga" 0;
+}
+
+.numbers-old {
+    font-feature-settings: "onum" 1;
+}
+
+.numbers-tabular {
+    font-feature-settings: "tnum" 1;
+}
+
+.fractions {
+    font-feature-settings: "frac" 1;
+}
+
+/* Modern syntax */
+.stylistic {
+    font-variant-ligatures: common-ligatures;
+    font-variant-numeric: oldstyle-nums;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Text Overflow & Wrapping</h3>
+                        <div class="demo-example">
+                            <div class="overflow-showcase">
+                                <p class="overflow-ellipsis">This text is too long and will be truncated with an ellipsis at the end...</p>
+                                <p class="overflow-clip">This text is too long and will be clipped without any visual indicator...</p>
+                                <p class="word-break">Thisisaverylongwordthatwillbreakwhenitreachestheendofthecontainer</p>
+                                <p class="hyphens">This paragraph uses automatic hyphenation to break long words at appropriate syllable boundaries.</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Text overflow */
+.overflow-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Word breaking */
+.word-break {
+    word-break: break-all;
+}
+
+.word-wrap {
+    overflow-wrap: break-word;
+}
+
+/* Hyphenation */
+.hyphens {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+}
+
+/* Multi-line truncation */
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="specimens" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Type Specimens</h2>
+                <p class="section-intro">
+                    Complete typography systems showcasing hierarchy, rhythm, and cohesive design.
+                </p>
+
+                <div class="specimen-container">
+                    <div class="specimen">
+                        <h1 class="specimen-h1">The Quick Brown Fox</h1>
+                        <h2 class="specimen-h2">Jumps Over the Lazy Dog</h2>
+                        <h3 class="specimen-h3">A Typography Specimen</h3>
+                        <p class="specimen-lead">
+                            This is a lead paragraph demonstrating larger, more impactful text that introduces 
+                            the main content. It sets the tone and draws the reader in.
+                        </p>
+                        <p class="specimen-body">
+                            Regular body text maintains optimal readability with carefully chosen font size, 
+                            line height, and measure. The typography system creates visual hierarchy through 
+                            size, weight, and spacing rather than relying on colour alone.
+                        </p>
+                        <blockquote class="specimen-quote">
+                            "Typography is the craft of endowing human language with a durable visual form."
+                            <cite>— Robert Bringhurst</cite>
+                        </blockquote>
+                        <div class="specimen-scale">
+                            <h4>Type Scale</h4>
+                            <div class="scale-item">
+                                <span class="scale-size">48px</span>
+                                <span class="scale-example" style="font-size: 3rem;">Display</span>
+                            </div>
+                            <div class="scale-item">
+                                <span class="scale-size">32px</span>
+                                <span class="scale-example" style="font-size: 2rem;">Heading 1</span>
+                            </div>
+                            <div class="scale-item">
+                                <span class="scale-size">24px</span>
+                                <span class="scale-example" style="font-size: 1.5rem;">Heading 2</span>
+                            </div>
+                            <div class="scale-item">
+                                <span class="scale-size">20px</span>
+                                <span class="scale-example" style="font-size: 1.25rem;">Heading 3</span>
+                            </div>
+                            <div class="scale-item">
+                                <span class="scale-size">16px</span>
+                                <span class="scale-example" style="font-size: 1rem;">Body</span>
+                            </div>
+                            <div class="scale-item">
+                                <span class="scale-size">14px</span>
+                                <span class="scale-example" style="font-size: 0.875rem;">Small</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="character-set">
+                        <h3>Character Set</h3>
+                        <div class="characters">
+                            <div class="char-group">
+                                <h4>Uppercase</h4>
+                                <p class="char-display">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+                            </div>
+                            <div class="char-group">
+                                <h4>Lowercase</h4>
+                                <p class="char-display">abcdefghijklmnopqrstuvwxyz</p>
+                            </div>
+                            <div class="char-group">
+                                <h4>Numbers</h4>
+                                <p class="char-display">0123456789</p>
+                            </div>
+                            <div class="char-group">
+                                <h4>Punctuation</h4>
+                                <p class="char-display">.,;:!?'""-–—()[]{}/*@#£$%&</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Typography Best Practices</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">📏</span>
+                        <h3>Optimal Line Length</h3>
+                        <p>Keep lines between 45-75 characters for comfortable reading. Use ch units or max-width.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎯</span>
+                        <h3>Establish Hierarchy</h3>
+                        <p>Use size, weight, and spacing to create clear visual hierarchy, not just colour.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🔤</span>
+                        <h3>Limit Font Families</h3>
+                        <p>Stick to 2-3 font families maximum. More creates visual chaos.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">📱</span>
+                        <h3>Responsive Typography</h3>
+                        <p>Use relative units and fluid type scales that adapt to viewport size.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section-title">Ready to Layout?</h2>
+                <p class="section-subtitle">
+                    Beautiful typography needs a solid foundation. Time to master modern layout techniques!
+                </p>
+                <div class="next-links">
+                    <a href="flexbox.html" class="next-link">
+                        <span class="next-icon">🎪</span>
+                        <div>
+                            <h3>Flexbox</h3>
+                            <p>Create flexible one-dimensional layouts</p>
+                        </div>
+                    </a>
+                    <a href="grid.html" class="next-link">
+                        <span class="next-icon">🏗️</span>
+                        <div>
+                            <h3>CSS Grid</h3>
+                            <p>Build complex two-dimensional layouts</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All examples use pure CSS - no frameworks were harmed in the making of this showcase</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/code-examples.js"></script>
+</body>
+</html>

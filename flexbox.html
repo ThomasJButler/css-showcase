@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master CSS Flexbox - flexible one-dimensional layouts. Interactive playground and comprehensive examples.">
+    <meta name="author" content="Thomas Butler">
+    <title>Flexbox | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/flexbox.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#basics" class="nav-link">Basics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#alignment" class="nav-link">Alignment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#playground" class="nav-link">Playground</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#patterns" class="nav-link">Patterns</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Flexbox</h1>
+                <p class="page-subtitle">
+                    The flexible box layout - your go-to tool for one-dimensional layouts
+                </p>
+            </div>
+        </section>
+
+        <section id="basics" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Flexbox Fundamentals</h2>
+                <p class="section-intro">
+                    Flexbox makes it easy to align and distribute space among items in a container, 
+                    even when their size is unknown or dynamic.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Flex Direction</h3>
+                        <div class="demo-example">
+                            <div class="flex-demo direction-row">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                            <p class="demo-label">Row (default)</p>
+                            
+                            <div class="flex-demo direction-column">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                            </div>
+                            <p class="demo-label">Column</p>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Flex container */
+.container {
+    display: flex;
+    flex-direction: row; /* default */
+}
+
+/* Other directions */
+.column { flex-direction: column; }
+.row-reverse { flex-direction: row-reverse; }
+.column-reverse { flex-direction: column-reverse; }</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Flex Wrap</h3>
+                        <div class="demo-example">
+                            <div class="flex-demo wrap-demo">
+                                <div class="flex-item">Item 1</div>
+                                <div class="flex-item">Item 2</div>
+                                <div class="flex-item">Item 3</div>
+                                <div class="flex-item">Item 4</div>
+                                <div class="flex-item">Item 5</div>
+                            </div>
+                            <p class="demo-label">Flex-wrap: wrap</p>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Allow items to wrap */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Shorthand */
+.container {
+    display: flex;
+    flex-flow: row wrap;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Flex Grow, Shrink & Basis</h3>
+                        <div class="demo-example">
+                            <div class="flex-demo grow-demo">
+                                <div class="flex-item grow-0">No grow</div>
+                                <div class="flex-item grow-1">Grow: 1</div>
+                                <div class="flex-item grow-2">Grow: 2</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Flex item properties */
+.item {
+    flex-grow: 0;    /* Don't grow */
+    flex-shrink: 1;  /* Can shrink */
+    flex-basis: auto; /* Base size */
+}
+
+/* Shorthand */
+.item {
+    flex: 1; /* grow: 1, shrink: 1, basis: 0 */
+}
+
+/* Common patterns */
+.item { flex: 1 1 auto; } /* Flexible */
+.item { flex: 0 0 200px; } /* Fixed width */</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Gap Property</h3>
+                        <div class="demo-example">
+                            <div class="flex-demo gap-demo">
+                                <div class="flex-item">1</div>
+                                <div class="flex-item">2</div>
+                                <div class="flex-item">3</div>
+                                <div class="flex-item">4</div>
+                            </div>
+                            <p class="demo-label">Gap: 1rem</p>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Modern gap property */
+.container {
+    display: flex;
+    gap: 1rem; /* All directions */
+}
+
+/* Separate row and column gaps */
+.container {
+    row-gap: 1rem;
+    column-gap: 2rem;
+    /* or */
+    gap: 1rem 2rem;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="alignment" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Alignment & Justification</h2>
+                <p class="section-intro">
+                    Flexbox shines when it comes to alignment. Control both main axis and cross axis alignment with ease.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card wide">
+                        <h3 class="demo-title">Justify Content (Main Axis)</h3>
+                        <div class="demo-example">
+                            <div class="alignment-demos">
+                                <div class="align-container">
+                                    <div class="flex-demo justify-start">
+                                        <div class="flex-item">1</div>
+                                        <div class="flex-item">2</div>
+                                        <div class="flex-item">3</div>
+                                    </div>
+                                    <p class="demo-label">flex-start</p>
+                                </div>
+                                
+                                <div class="align-container">
+                                    <div class="flex-demo justify-center">
+                                        <div class="flex-item">1</div>
+                                        <div class="flex-item">2</div>
+                                        <div class="flex-item">3</div>
+                                    </div>
+                                    <p class="demo-label">center</p>
+                                </div>
+                                
+                                <div class="align-container">
+                                    <div class="flex-demo justify-end">
+                                        <div class="flex-item">1</div>
+                                        <div class="flex-item">2</div>
+                                        <div class="flex-item">3</div>
+                                    </div>
+                                    <p class="demo-label">flex-end</p>
+                                </div>
+                                
+                                <div class="align-container">
+                                    <div class="flex-demo justify-between">
+                                        <div class="flex-item">1</div>
+                                        <div class="flex-item">2</div>
+                                        <div class="flex-item">3</div>
+                                    </div>
+                                    <p class="demo-label">space-between</p>
+                                </div>
+                                
+                                <div class="align-container">
+                                    <div class="flex-demo justify-around">
+                                        <div class="flex-item">1</div>
+                                        <div class="flex-item">2</div>
+                                        <div class="flex-item">3</div>
+                                    </div>
+                                    <p class="demo-label">space-around</p>
+                                </div>
+                                
+                                <div class="align-container">
+                                    <div class="flex-demo justify-evenly">
+                                        <div class="flex-item">1</div>
+                                        <div class="flex-item">2</div>
+                                        <div class="flex-item">3</div>
+                                    </div>
+                                    <p class="demo-label">space-evenly</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Main axis alignment */
+.container {
+    display: flex;
+    justify-content: flex-start; /* default */
+    justify-content: center;
+    justify-content: flex-end;
+    justify-content: space-between;
+    justify-content: space-around;
+    justify-content: space-evenly;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card wide">
+                        <h3 class="demo-title">Align Items (Cross Axis)</h3>
+                        <div class="demo-example">
+                            <div class="alignment-demos">
+                                <div class="align-container">
+                                    <div class="flex-demo align-start tall">
+                                        <div class="flex-item">1</div>
+                                        <div class="flex-item tall-item">2</div>
+                                        <div class="flex-item">3</div>
+                                    </div>
+                                    <p class="demo-label">flex-start</p>
+                                </div>
+                                
+                                <div class="align-container">
+                                    <div class="flex-demo align-center tall">
+                                        <div class="flex-item">1</div>
+                                        <div class="flex-item tall-item">2</div>
+                                        <div class="flex-item">3</div>
+                                    </div>
+                                    <p class="demo-label">center</p>
+                                </div>
+                                
+                                <div class="align-container">
+                                    <div class="flex-demo align-end tall">
+                                        <div class="flex-item">1</div>
+                                        <div class="flex-item tall-item">2</div>
+                                        <div class="flex-item">3</div>
+                                    </div>
+                                    <p class="demo-label">flex-end</p>
+                                </div>
+                                
+                                <div class="align-container">
+                                    <div class="flex-demo align-stretch tall">
+                                        <div class="flex-item">1</div>
+                                        <div class="flex-item">2</div>
+                                        <div class="flex-item">3</div>
+                                    </div>
+                                    <p class="demo-label">stretch</p>
+                                </div>
+                                
+                                <div class="align-container">
+                                    <div class="flex-demo align-baseline tall">
+                                        <div class="flex-item" style="font-size: 1.5rem;">1</div>
+                                        <div class="flex-item">2</div>
+                                        <div class="flex-item" style="font-size: 0.75rem;">3</div>
+                                    </div>
+                                    <p class="demo-label">baseline</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Cross axis alignment */
+.container {
+    display: flex;
+    align-items: stretch; /* default */
+    align-items: flex-start;
+    align-items: center;
+    align-items: flex-end;
+    align-items: baseline;
+}
+
+/* Individual item alignment */
+.item {
+    align-self: auto; /* default */
+    align-self: center;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Perfect Centering</h3>
+                        <div class="demo-example">
+                            <div class="flex-demo center-demo">
+                                <div class="flex-item">Perfectly Centered!</div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* The holy grail of centering */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+/* Even simpler with place-content */
+.container {
+    display: flex;
+    place-content: center;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="playground" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Interactive Flexbox Playground</h2>
+                <p class="section-intro">
+                    Experiment with different flexbox properties and see the results in real-time!
+                </p>
+
+                <div class="playground-container">
+                    <div class="controls-panel">
+                        <h3>Container Properties</h3>
+                        
+                        <div class="control-group">
+                            <label for="flex-direction">flex-direction</label>
+                            <select id="flex-direction">
+                                <option value="row">row</option>
+                                <option value="row-reverse">row-reverse</option>
+                                <option value="column">column</option>
+                                <option value="column-reverse">column-reverse</option>
+                            </select>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="flex-wrap">flex-wrap</label>
+                            <select id="flex-wrap">
+                                <option value="nowrap">nowrap</option>
+                                <option value="wrap">wrap</option>
+                                <option value="wrap-reverse">wrap-reverse</option>
+                            </select>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="justify-content">justify-content</label>
+                            <select id="justify-content">
+                                <option value="flex-start">flex-start</option>
+                                <option value="center">center</option>
+                                <option value="flex-end">flex-end</option>
+                                <option value="space-between">space-between</option>
+                                <option value="space-around">space-around</option>
+                                <option value="space-evenly">space-evenly</option>
+                            </select>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="align-items">align-items</label>
+                            <select id="align-items">
+                                <option value="stretch">stretch</option>
+                                <option value="flex-start">flex-start</option>
+                                <option value="center">center</option>
+                                <option value="flex-end">flex-end</option>
+                                <option value="baseline">baseline</option>
+                            </select>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="gap-value">gap</label>
+                            <input type="range" id="gap-value" min="0" max="40" value="10">
+                            <span class="value-display">10px</span>
+                        </div>
+
+                        <h3>Item Properties</h3>
+                        
+                        <div class="control-group">
+                            <label for="item-count">Number of items</label>
+                            <input type="range" id="item-count" min="1" max="10" value="5">
+                            <span class="value-display">5</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="selected-item">Selected item</label>
+                            <select id="selected-item">
+                                <option value="0">Item 1</option>
+                                <option value="1">Item 2</option>
+                                <option value="2">Item 3</option>
+                                <option value="3">Item 4</option>
+                                <option value="4">Item 5</option>
+                            </select>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="flex-grow">flex-grow</label>
+                            <input type="range" id="flex-grow" min="0" max="5" value="0">
+                            <span class="value-display">0</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="flex-shrink">flex-shrink</label>
+                            <input type="range" id="flex-shrink" min="0" max="5" value="1">
+                            <span class="value-display">1</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="align-self">align-self</label>
+                            <select id="align-self">
+                                <option value="auto">auto</option>
+                                <option value="flex-start">flex-start</option>
+                                <option value="center">center</option>
+                                <option value="flex-end">flex-end</option>
+                                <option value="stretch">stretch</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="playground-demo">
+                        <div class="playground-flex-container" id="playground-container">
+                            <div class="playground-item" data-index="0">1</div>
+                            <div class="playground-item" data-index="1">2</div>
+                            <div class="playground-item" data-index="2">3</div>
+                            <div class="playground-item" data-index="3">4</div>
+                            <div class="playground-item" data-index="4">5</div>
+                        </div>
+                        <div class="playground-code">
+                            <pre><code id="playground-css">.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 10px;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="patterns" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Common Flexbox Patterns</h2>
+                <p class="section-intro">
+                    Real-world flexbox patterns you'll use again and again in your projects.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Navigation Bar</h3>
+                        <div class="demo-example">
+                            <nav class="pattern-nav">
+                                <div class="nav-brand">Logo</div>
+                                <ul class="nav-menu">
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                                <button class="nav-cta">Sign Up</button>
+                            </nav>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Responsive navigation */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+/* Push items apart */
+.nav-brand { margin-right: auto; }</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Card Layout</h3>
+                        <div class="demo-example">
+                            <div class="pattern-cards">
+                                <div class="card">
+                                    <h4>Card 1</h4>
+                                    <p>Flexible card that grows to fill space.</p>
+                                    <button>Action</button>
+                                </div>
+                                <div class="card">
+                                    <h4>Card 2</h4>
+                                    <p>All cards maintain equal height.</p>
+                                    <button>Action</button>
+                                </div>
+                                <div class="card">
+                                    <h4>Card 3</h4>
+                                    <p>Button always at the bottom.</p>
+                                    <button>Action</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Equal height cards */
+.cards {
+    display: flex;
+    gap: 1rem;
+}
+
+.card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card p {
+    flex: 1; /* Push button to bottom */
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Media Object</h3>
+                        <div class="demo-example">
+                            <div class="pattern-media">
+                                <div class="media-image"></div>
+                                <div class="media-content">
+                                    <h4>Media Object Pattern</h4>
+                                    <p>Image on the left, content on the right. A classic pattern made simple with flexbox.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Media object pattern */
+.media {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.media-image {
+    flex: 0 0 100px; /* Fixed width */
+}
+
+.media-content {
+    flex: 1; /* Take remaining space */
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Sticky Footer</h3>
+                        <div class="demo-example">
+                            <div class="pattern-sticky">
+                                <header class="sticky-header">Header</header>
+                                <main class="sticky-content">
+                                    Main content area that expands
+                                </main>
+                                <footer class="sticky-footer">Footer sticks to bottom</footer>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Sticky footer pattern */
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header, .footer {
+    flex: 0 0 auto;
+}
+
+.main {
+    flex: 1 0 auto;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Input Groups</h3>
+                        <div class="demo-example">
+                            <div class="pattern-input-group">
+                                <span class="input-addon">@</span>
+                                <input type="text" placeholder="Username">
+                            </div>
+                            <div class="pattern-input-group">
+                                <input type="text" placeholder="Search...">
+                                <button class="input-button">Go</button>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Input group pattern */
+.input-group {
+    display: flex;
+}
+
+.input-group input {
+    flex: 1;
+    border-radius: 0;
+}
+
+.input-addon {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    background: var(--colour-surface);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Holy Grail Layout</h3>
+                        <div class="demo-example">
+                            <div class="pattern-holy-grail">
+                                <aside class="sidebar-left">Left</aside>
+                                <main class="main-content">Main Content</main>
+                                <aside class="sidebar-right">Right</aside>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Holy grail layout */
+.layout {
+    display: flex;
+    gap: 1rem;
+}
+
+.sidebar-left,
+.sidebar-right {
+    flex: 0 0 200px; /* Fixed width */
+}
+
+.main-content {
+    flex: 1; /* Flexible center */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .layout { flex-direction: column; }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Flexbox Pro Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">🎯</span>
+                        <h3>Use Gap Instead of Margins</h3>
+                        <p>The gap property is cleaner and doesn't require nth-child selectors to remove edge margins.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">📐</span>
+                        <h3>Min-Width: 0 for Truncation</h3>
+                        <p>Flex items have min-width: auto by default. Set to 0 to allow text truncation.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🔄</span>
+                        <h3>Flex: 1 1 0 vs Flex: 1</h3>
+                        <p>Flex: 1 is shorthand for flex: 1 1 0, which makes items grow equally from 0 basis.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎨</span>
+                        <h3>Margin Auto for Spacing</h3>
+                        <p>Use margin-left: auto to push items to the right, creating smart spacing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section-title">Master Two Dimensions</h2>
+                <p class="section-subtitle">
+                    Flexbox is perfect for one dimension. Ready for the full power of two-dimensional layouts?
+                </p>
+                <div class="next-links">
+                    <a href="grid.html" class="next-link">
+                        <span class="next-icon">🏗️</span>
+                        <div>
+                            <h3>CSS Grid</h3>
+                            <p>The ultimate layout system for complex designs</p>
+                        </div>
+                    </a>
+                    <a href="layout.html" class="next-link">
+                        <span class="next-icon">📐</span>
+                        <div>
+                            <h3>Layout Techniques</h3>
+                            <p>Combine Grid and Flexbox like a pro</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All examples use pure CSS - no frameworks were harmed in the making of this showcase</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/flexbox-playground.js"></script>
+</body>
+</html>
