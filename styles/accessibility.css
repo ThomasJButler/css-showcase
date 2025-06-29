@@ -1,0 +1,252 @@
+/* Accessibility Improvements */
+
+/* Skip Navigation Link */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--colour-primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 10000;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Enhanced Focus States */
+:focus-visible {
+    outline: 3px solid var(--colour-primary);
+    outline-offset: 3px;
+    border-radius: 0.125rem;
+}
+
+/* Remove outline for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Better focus for buttons */
+button:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid var(--colour-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+}
+
+/* Focus for links */
+a:focus-visible {
+    outline: 2px solid var(--colour-primary);
+    outline-offset: 4px;
+    text-decoration: none;
+}
+
+/* Focus for form elements */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--colour-primary);
+    outline-offset: 0;
+    border-color: var(--colour-primary);
+}
+
+/* Focus for theme toggle */
+.theme-toggle:focus-visible {
+    outline: 3px solid var(--colour-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+}
+
+/* Search trigger focus */
+.search-trigger:focus-visible {
+    outline: 2px solid var(--colour-primary);
+    outline-offset: 2px;
+    background-color: var(--colour-surface);
+}
+
+/* Mobile nav toggle focus */
+.nav-toggle:focus-visible {
+    outline: 3px solid var(--colour-primary);
+    outline-offset: 0;
+    background-color: var(--colour-surface);
+}
+
+/* Code copy button focus */
+.copy-button:focus-visible {
+    outline: 2px solid var(--colour-primary);
+    outline-offset: 2px;
+}
+
+/* Skip animations for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .floating-element {
+        animation: none !important;
+    }
+    
+    .nav-list,
+    .nav-backdrop,
+    .search-modal {
+        transition: none !important;
+    }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+    .btn {
+        border: 2px solid currentColor;
+    }
+    
+    .card {
+        border: 2px solid var(--colour-text);
+    }
+    
+    .search-input {
+        border: 2px solid var(--colour-text);
+    }
+    
+    .code-example {
+        border: 2px solid var(--colour-text);
+    }
+}
+
+/* Screen reader only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Ensure interactive elements are large enough */
+button,
+.btn,
+a,
+input,
+select,
+textarea {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Exception for inline links */
+p a,
+li a {
+    min-height: auto;
+    min-width: auto;
+}
+
+/* Improve contrast for placeholder text */
+::placeholder {
+    color: var(--colour-text-muted);
+    opacity: 1;
+}
+
+/* Better contrast for disabled elements */
+:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Ensure sufficient color contrast */
+.text-muted {
+    color: var(--colour-text-muted);
+}
+
+/* Dark theme contrast improvements */
+[data-theme="dark"] {
+    --colour-text-muted: #9ca3af;
+    --colour-text-light: #6b7280;
+}
+
+/* Focus trap indicator */
+[data-focus-trap="active"] {
+    position: relative;
+}
+
+[data-focus-trap="active"]::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    border: 4px solid var(--colour-primary);
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.2;
+}
+
+/* Improve table accessibility */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table caption {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+/* Improve form accessibility */
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.required::after {
+    content: " *";
+    color: var(--colour-error);
+}
+
+/* Error messages */
+.error-message {
+    color: var(--colour-error);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Success messages */
+.success-message {
+    color: var(--colour-success);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Loading states */
+[aria-busy="true"] {
+    cursor: wait;
+}
+
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Improved link underlines */
+a:not(.btn):not(.nav-link):not(.card-link) {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+}
+
+a:not(.btn):not(.nav-link):not(.card-link):hover {
+    text-decoration-thickness: 3px;
+}
