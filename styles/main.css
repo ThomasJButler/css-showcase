@@ -238,7 +238,11 @@ a:hover {
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.9);
     z-index: var(--z-sticky);
-    transition: all var(--transition-base);
+    transition: all var(--transition-base), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-header.header-hidden {
+    transform: translateY(-100%);
 }
 
 [data-theme="dark"] .site-header {
@@ -283,27 +287,65 @@ a:hover {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px;
-    height: 22px;
+    width: 44px;
+    height: 44px;
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 10px;
+    border-radius: var(--radius-md);
+    transition: background-color var(--transition-base);
+}
+
+.nav-toggle:hover {
+    background-color: var(--colour-surface);
 }
 
 .nav-toggle span {
     display: block;
-    width: 100%;
-    height: 3px;
+    width: 24px;
+    height: 2px;
     background-color: var(--colour-text);
     border-radius: var(--radius-full);
     transition: all var(--transition-base);
+    transform-origin: center;
+}
+
+/* Hamburger animation */
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 .nav-list {
     display: flex;
     list-style: none;
     gap: var(--space-8);
+}
+
+/* Mobile menu backdrop */
+.nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-backdrop.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .nav-link {
@@ -592,6 +634,65 @@ a:hover {
     margin-top: var(--space-10);
 }
 
+/* Coming Soon Links */
+.card-link.coming-soon {
+    position: relative;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.card-link.coming-soon:hover {
+    color: var(--colour-text-muted);
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    font-size: var(--text-sm);
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.breadcrumb-item::after {
+    content: '/';
+    color: var(--colour-text-light);
+    margin-left: 0.5rem;
+}
+
+.breadcrumb-item:last-child::after {
+    display: none;
+}
+
+.breadcrumb-link {
+    color: var(--colour-text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+    color: var(--colour-primary);
+}
+
+.breadcrumb-current {
+    color: var(--colour-text);
+    font-weight: 500;
+}
+
 /* Footer */
 .site-footer {
     background-color: var(--colour-surface-alt);
@@ -645,25 +746,45 @@ a:hover {
     }
     
     .nav-list {
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: var(--header-height, 80px);
         left: 0;
         right: 0;
+        bottom: 0;
         background-color: var(--colour-background);
-        border-bottom: 1px solid var(--colour-border);
+        border-top: 1px solid var(--colour-border);
         flex-direction: column;
-        padding: var(--space-4) var(--space-6);
-        gap: var(--space-4);
+        padding: var(--space-8) var(--space-6);
+        gap: var(--space-2);
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-10px);
-        transition: all var(--transition-base);
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+        overflow-y: auto;
+        z-index: 999;
     }
     
     .nav-list.active {
         opacity: 1;
         visibility: visible;
-        transform: translateY(0);
+        transform: translateX(0);
+    }
+    
+    .nav-item {
+        width: 100%;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: var(--space-4);
+        font-size: var(--text-lg);
+        border-radius: var(--radius-md);
+        transition: background-color var(--transition-base);
+    }
+    
+    .nav-link:hover,
+    .nav-link:focus {
+        background-color: var(--colour-surface);
     }
     
     .hero-cta {

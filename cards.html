@@ -7,13 +7,19 @@
     <meta name="author" content="Thomas Butler">
     <title>Cards | The Ultimate CSS Showcase</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
     <link rel="stylesheet" href="styles/cards.css">
     <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
         <span class="theme-icon">🌞</span>
     </div>
@@ -53,7 +59,24 @@
         </div>
     </header>
 
-    <main>
+    <main id="main">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="index.html" class="breadcrumb-link">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="index.html#components" class="breadcrumb-link">Components</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="breadcrumb-current">Cards</span>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
+
         <section class="page-hero">
             <div class="container">
                 <h1 class="page-title">Card Components</h1>
@@ -646,5 +669,8 @@
     <script src="scripts/main.js"></script>
     <script src="scripts/code-examples.js"></script>
     <script src="scripts/cards.js"></script>
+    <script src="scripts/syntax-highlight.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/micro-interactions.js"></script>
 </body>
 </html>
