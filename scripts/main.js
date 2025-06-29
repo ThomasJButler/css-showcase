@@ -156,22 +156,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // Header Scroll Effect
     const header = document.querySelector('.site-header');
     let lastScroll = 0;
+    let scrollTimer = null;
     
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
         
-        if (currentScroll > 100) {
+        if (currentScroll > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
         
-        // Hide/show header on scroll
-        if (currentScroll > lastScroll && currentScroll > 200) {
-            header.classList.add('header-hidden');
-        } else {
-            header.classList.remove('header-hidden');
+        // Hide/show header on scroll (only when mobile menu is not open)
+        if (!navList.classList.contains('active')) {
+            if (currentScroll > lastScroll && currentScroll > 200) {
+                header.classList.add('header-hidden');
+            } else {
+                header.classList.remove('header-hidden');
+            }
         }
+        
+        // Clear timer
+        clearTimeout(scrollTimer);
+        
+        // Show header after scroll stops
+        scrollTimer = setTimeout(() => {
+            header.classList.remove('header-hidden');
+        }, 500);
         
         lastScroll = currentScroll;
     }, { passive: true });

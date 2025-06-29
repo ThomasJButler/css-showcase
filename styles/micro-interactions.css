@@ -1,0 +1,186 @@
+/* Micro-interactions and Animation Styles */
+
+/* Ripple Effect */
+.btn,
+button:not(.nav-toggle) {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+[data-theme="dark"] .ripple {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Reveal Animation */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation for grids */
+.showcase-grid .reveal-on-scroll:nth-child(1) { transition-delay: 0.1s; }
+.showcase-grid .reveal-on-scroll:nth-child(2) { transition-delay: 0.2s; }
+.showcase-grid .reveal-on-scroll:nth-child(3) { transition-delay: 0.3s; }
+.showcase-grid .reveal-on-scroll:nth-child(4) { transition-delay: 0.4s; }
+.showcase-grid .reveal-on-scroll:nth-child(5) { transition-delay: 0.5s; }
+.showcase-grid .reveal-on-scroll:nth-child(6) { transition-delay: 0.6s; }
+
+/* Floating animation enhancement */
+.floating-element {
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+}
+
+/* Magnetic effect */
+.card-icon,
+.tip-icon,
+.next-icon {
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+}
+
+/* Glow effect on hover */
+.showcase-card::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--colour-primary), var(--colour-secondary), var(--colour-primary));
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    background-size: 300% 300%;
+    animation: gradient-shift 3s ease infinite;
+}
+
+.showcase-card:hover::after {
+    opacity: 0.3;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Pulse animation for CTAs */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    }
+}
+
+.btn-primary {
+    animation: pulse 2s infinite;
+}
+
+.btn-primary:hover {
+    animation: none;
+}
+
+/* Loading skeleton animation */
+.skeleton-loading {
+    position: relative;
+    overflow: hidden;
+    background: var(--colour-surface);
+}
+
+.skeleton-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Smooth page transitions */
+main {
+    animation: page-enter 0.6s ease-out;
+}
+
+@keyframes page-enter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Interactive card tilt */
+.showcase-card {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
+.showcase-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+    }
+    
+    .floating-element {
+        transform: none !important;
+    }
+}
