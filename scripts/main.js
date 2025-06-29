@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
     const navList = document.querySelector('.nav-list');
     const navLinks = document.querySelectorAll('.nav-link');
-    const header = document.querySelector('.site-header');
     
     // Create backdrop for mobile menu
     const backdrop = document.createElement('div');
