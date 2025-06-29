@@ -7,12 +7,14 @@
     <meta name="author" content="Thomas Butler">
     <title>The Ultimate CSS Showcase | Thomas Butler</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
     <link rel="stylesheet" href="styles/search.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
         <span class="theme-icon">🌞</span>
     </div>
@@ -53,7 +55,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="main">
         <section class="hero">
             <div class="hero-content">
                 <h1 class="hero-title">

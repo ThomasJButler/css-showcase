@@ -41,24 +41,74 @@ document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
     const navList = document.querySelector('.nav-list');
     const navLinks = document.querySelectorAll('.nav-link');
+    const header = document.querySelector('.site-header');
     
-    navToggle.addEventListener('click', () => {
+    // Create backdrop for mobile menu
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    if (navToggle && navList) {
+        navToggle.parentElement.appendChild(backdrop);
+    }
+    
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         const isOpen = navList.classList.contains('active');
         navList.classList.toggle('active');
+        backdrop.classList.toggle('active');
         navToggle.setAttribute('aria-expanded', !isOpen);
         
         // Animate hamburger menu
         navToggle.classList.toggle('active');
+        
+        // Toggle body scroll
+        document.body.style.overflow = isOpen ? '' : 'hidden';
     });
     
     // Close mobile menu when clicking a link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            navList.classList.remove('active');
-            navToggle.classList.remove('active');
-            navToggle.setAttribute('aria-expanded', 'false');
+            closeMobileMenu();
         });
     });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navList.classList.contains('active') && 
+            !navList.contains(e.target) && 
+            !navToggle.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navList.classList.contains('active')) {
+            closeMobileMenu();
+            navToggle.focus();
+        }
+    });
+    
+    // Close mobile menu on window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (window.innerWidth > 768 && navList.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        }, 250);
+    });
+    
+    function closeMobileMenu() {
+        navList.classList.remove('active');
+        navToggle.classList.remove('active');
+        backdrop.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+    
+    // Also handle backdrop clicks
+    backdrop.addEventListener('click', closeMobileMenu);
     
     // Smooth Scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
