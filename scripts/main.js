@@ -42,23 +42,72 @@ document.addEventListener('DOMContentLoaded', function() {
     const navList = document.querySelector('.nav-list');
     const navLinks = document.querySelectorAll('.nav-link');
     
-    navToggle.addEventListener('click', () => {
+    // Create backdrop for mobile menu
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    if (navToggle && navList) {
+        navToggle.parentElement.appendChild(backdrop);
+    }
+    
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         const isOpen = navList.classList.contains('active');
         navList.classList.toggle('active');
+        backdrop.classList.toggle('active');
         navToggle.setAttribute('aria-expanded', !isOpen);
         
         // Animate hamburger menu
         navToggle.classList.toggle('active');
+        
+        // Toggle body scroll
+        document.body.style.overflow = isOpen ? '' : 'hidden';
     });
     
     // Close mobile menu when clicking a link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            navList.classList.remove('active');
-            navToggle.classList.remove('active');
-            navToggle.setAttribute('aria-expanded', 'false');
+            closeMobileMenu();
         });
     });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navList.classList.contains('active') && 
+            !navList.contains(e.target) && 
+            !navToggle.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navList.classList.contains('active')) {
+            closeMobileMenu();
+            navToggle.focus();
+        }
+    });
+    
+    // Close mobile menu on window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (window.innerWidth > 768 && navList.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        }, 250);
+    });
+    
+    function closeMobileMenu() {
+        navList.classList.remove('active');
+        navToggle.classList.remove('active');
+        backdrop.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+    
+    // Also handle backdrop clicks
+    backdrop.addEventListener('click', closeMobileMenu);
     
     // Smooth Scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -107,22 +156,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // Header Scroll Effect
     const header = document.querySelector('.site-header');
     let lastScroll = 0;
+    let scrollTimer = null;
     
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
         
-        if (currentScroll > 100) {
+        if (currentScroll > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
         
-        // Hide/show header on scroll
-        if (currentScroll > lastScroll && currentScroll > 200) {
-            header.classList.add('header-hidden');
-        } else {
-            header.classList.remove('header-hidden');
+        // Hide/show header on scroll (only when mobile menu is not open)
+        if (!navList.classList.contains('active')) {
+            if (currentScroll > lastScroll && currentScroll > 200) {
+                header.classList.add('header-hidden');
+            } else {
+                header.classList.remove('header-hidden');
+            }
         }
+        
+        // Clear timer
+        clearTimeout(scrollTimer);
+        
+        // Show header after scroll stops
+        scrollTimer = setTimeout(() => {
+            header.classList.remove('header-hidden');
+        }, 500);
         
         lastScroll = currentScroll;
     }, { passive: true });

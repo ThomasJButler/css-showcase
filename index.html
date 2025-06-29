@@ -7,11 +7,16 @@
     <meta name="author" content="Thomas Butler">
     <title>The Ultimate CSS Showcase | Thomas Butler</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
         <span class="theme-icon">🌞</span>
     </div>
@@ -45,14 +50,14 @@
                         <a href="#advanced" class="nav-link">Advanced</a>
                     </li>
                     <li class="nav-item">
-                        <a href="playground.html" class="nav-link">🎮 Playground</a>
+                        <a href="#modern-css" class="nav-link">Modern CSS</a>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
+    <main id="main">
         <section class="hero">
             <div class="hero-content">
                 <h1 class="hero-title">
@@ -65,8 +70,8 @@
                 </p>
                 <div class="hero-cta">
                     <a href="#fundamentals" class="btn btn-primary">Start Exploring</a>
-                    <a href="playground.html" class="btn btn-secondary">
-                        <span style="margin-right: 0.5rem;">🎮</span> Try Playground
+                    <a href="#components" class="btn btn-secondary">
+                        <span style="margin-right: 0.5rem;">🧩</span> View Components
                     </a>
                     <a href="#about" class="btn btn-outline">About This Project</a>
                 </div>
@@ -132,7 +137,7 @@
                         <div class="card-icon">🎁</div>
                         <h3 class="card-title">Container Queries</h3>
                         <p class="card-description">The future of component-based responsive design</p>
-                        <a href="containers.html" class="card-link">Contain yourself</a>
+                        <a href="container-queries.html" class="card-link">Contain yourself</a>
                     </article>
                 </div>
             </div>
@@ -219,25 +224,25 @@
                         <div class="card-icon">🎭</div>
                         <h3 class="card-title">Custom Properties</h3>
                         <p class="card-description">CSS variables that make theming a doddle</p>
-                        <a href="custom-properties.html" class="card-link">Get variable</a>
+                        <a href="#" class="card-link coming-soon" data-tooltip="Coming soon">Get variable</a>
                     </article>
                     <article class="showcase-card">
                         <div class="card-icon">🌊</div>
                         <h3 class="card-title">Blend Modes</h3>
                         <p class="card-description">Photoshop-style effects without leaving CSS</p>
-                        <a href="blend-modes.html" class="card-link">Start blending</a>
+                        <a href="#" class="card-link coming-soon" data-tooltip="Coming soon">Start blending</a>
                     </article>
                     <article class="showcase-card">
                         <div class="card-icon">✂️</div>
                         <h3 class="card-title">Shapes & Clips</h3>
                         <p class="card-description">Break free from rectangular tyranny</p>
-                        <a href="shapes.html" class="card-link">Shape up</a>
+                        <a href="#" class="card-link coming-soon" data-tooltip="Coming soon">Shape up</a>
                     </article>
                     <article class="showcase-card">
                         <div class="card-icon">🎪</div>
                         <h3 class="card-title">3D Transforms</h3>
                         <p class="card-description">Add depth to your designs with perspective</p>
-                        <a href="transforms-3d.html" class="card-link">Go 3D</a>
+                        <a href="#" class="card-link coming-soon" data-tooltip="Coming soon">Go 3D</a>
                     </article>
                 </div>
             </div>
@@ -270,31 +275,31 @@
                         <div class="card-icon">⚓</div>
                         <h3 class="card-title">Anchor Positioning</h3>
                         <p class="card-description">Position elements relative to others easily</p>
-                        <a href="anchor-positioning.html" class="card-link">Drop anchor</a>
+                        <a href="#" class="card-link coming-soon" data-tooltip="Coming soon">Drop anchor</a>
                     </article>
                     <article class="showcase-card">
                         <div class="card-icon">🎢</div>
                         <h3 class="card-title">Scroll Animations</h3>
                         <p class="card-description">Scroll-driven animations without JavaScript</p>
-                        <a href="scroll-animations.html" class="card-link">Start scrolling</a>
+                        <a href="#" class="card-link coming-soon" data-tooltip="Coming soon">Start scrolling</a>
                     </article>
                     <article class="showcase-card">
                         <div class="card-icon">🎨</div>
                         <h3 class="card-title">New Colour Spaces</h3>
                         <p class="card-description">OKLCH, LAB, and more vibrant colours</p>
-                        <a href="color-spaces.html" class="card-link">Expand palette</a>
+                        <a href="#" class="card-link coming-soon" data-tooltip="Coming soon">Expand palette</a>
                     </article>
                     <article class="showcase-card">
                         <div class="card-icon">📐</div>
                         <h3 class="card-title">Subgrid</h3>
                         <p class="card-description">Align nested grids with parent grids</p>
-                        <a href="subgrid.html" class="card-link">Align perfectly</a>
+                        <a href="#" class="card-link coming-soon" data-tooltip="Coming soon">Align perfectly</a>
                     </article>
                     <article class="showcase-card">
                         <div class="card-icon">📰</div>
                         <h3 class="card-title">CSS Blog</h3>
                         <p class="card-description">Latest CSS news and tutorials</p>
-                        <a href="blog.html" class="card-link">Read more</a>
+                        <a href="#" class="card-link coming-soon" data-tooltip="Coming soon">Read more</a>
                     </article>
                 </div>
             </div>
@@ -342,5 +347,7 @@
     </footer>
 
     <script src="scripts/main.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/micro-interactions.js"></script>
 </body>
 </html>

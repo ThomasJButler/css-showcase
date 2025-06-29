@@ -1,6 +1,8 @@
-# 🎨 The Ultimate CSS Showcase
+# 🎨 The Ultimate CSS Showcase v1.1
 
 > An interactive showcase of CSS capabilities - from fundamentals to cutting-edge features. Pure CSS, no frameworks.
+
+**✨ Version 1.1 Released!** - Enhanced UX, search functionality, accessibility improvements, and micro-interactions.
 
 <div align="center">
   <img src="https://img.shields.io/badge/CSS-Pure%20CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="Pure CSS">
@@ -164,6 +166,33 @@ css-showcase/
 - Lazy loading for interactive demos
 - Optimised for fast initial load
 - Zero runtime dependencies
+
+## 📋 Changelog
+
+### v1.1 (Current Release)
+#### New Features
+- 🔍 **Global Search** (Cmd/Ctrl + K) - Instantly find any CSS feature
+- 🍞 **Breadcrumb Navigation** - Better orientation on all pages
+- ✨ **Syntax Highlighting** - Custom lightweight code highlighting
+- 📋 **Copy Code Buttons** - One-click copying for all examples
+- 🎭 **Micro-interactions** - Subtle animations throughout
+- ♿ **Accessibility Overhaul** - WCAG compliant with full keyboard support
+
+#### Improvements
+- Enhanced mobile navigation with backdrop and smooth animations
+- Improved header with auto-hide on scroll
+- Better spacing and typography for readability
+- Refined card designs with hover effects
+- Ripple effects on interactive elements
+- Parallax effects in hero sections
+- Reveal animations on scroll
+- Performance optimizations for smooth 60fps
+
+### v1.0
+- Initial release with 20+ showcase pages
+- Interactive playgrounds for Flexbox, Grid, and Filters
+- Dark mode support
+- Responsive design
 
 ## 🎯 Learning Path
 
