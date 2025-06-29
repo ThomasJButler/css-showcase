@@ -7,6 +7,8 @@
     <meta name="author" content="Thomas Butler">
     <title>CSS Forms | The Ultimate CSS Showcase</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
+    <link rel="stylesheet" href="styles/search.css">
     <link rel="stylesheet" href="styles/forms.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,6 +58,23 @@
     </header>
 
     <main>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="index.html" class="breadcrumb-link">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="index.html#components" class="breadcrumb-link">Components</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="breadcrumb-current">Forms</span>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
+
         <section class="hero">
             <div class="hero-content">
                 <h1 class="hero-title">Forms Made Beautiful</h1>
@@ -562,5 +581,7 @@
 
     <script src="scripts/main.js"></script>
     <script src="scripts/forms.js"></script>
+    <script src="scripts/syntax-highlight.js"></script>
+    <script src="scripts/search.js"></script>
 </body>
 </html>
