@@ -592,6 +592,65 @@ a:hover {
     margin-top: var(--space-10);
 }
 
+/* Coming Soon Links */
+.card-link.coming-soon {
+    position: relative;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.card-link.coming-soon:hover {
+    color: var(--colour-text-muted);
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    font-size: var(--text-sm);
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.breadcrumb-item::after {
+    content: '/';
+    color: var(--colour-text-light);
+    margin-left: 0.5rem;
+}
+
+.breadcrumb-item:last-child::after {
+    display: none;
+}
+
+.breadcrumb-link {
+    color: var(--colour-text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+    color: var(--colour-primary);
+}
+
+.breadcrumb-current {
+    color: var(--colour-text);
+    font-weight: 500;
+}
+
 /* Footer */
 .site-footer {
     background-color: var(--colour-surface-alt);
