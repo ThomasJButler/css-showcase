@@ -329,6 +329,10 @@ a:hover {
     display: flex;
     list-style: none;
     gap: var(--space-8);
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 /* Mobile menu backdrop */

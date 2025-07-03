@@ -182,7 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <circle cx="11" cy="11" r="8"></circle>
                     <path d="m21 21-4.35-4.35"></path>
                 </svg>
-                <span class="search-shortcut">⌘K</span>
             </button>
         `;
         navList.appendChild(searchButton);
