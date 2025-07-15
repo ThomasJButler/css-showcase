@@ -1,6 +1,9 @@
 # 🎨 The Ultimate CSS Showcase v1.1
 
 > An interactive showcase of CSS capabilities - from fundamentals to cutting-edge features. Pure CSS, no frameworks.
+>
+> <img width="1439" height="850" alt="image" src="https://github.com/user-attachments/assets/9fbd1b1d-e574-43a0-b77a-f35d048e7a5e" />
+
 
 **✨ Version 1.1 Released!** - Enhanced UX, search functionality, accessibility improvements, and micro-interactions.
 
