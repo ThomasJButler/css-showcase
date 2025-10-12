@@ -11,11 +11,22 @@
     height: 100vh;
     background: var(--colour-background);
     border-right: 1px solid var(--colour-border);
-    z-index: 100;
+    z-index: 90; /* Below header (which is z-index: 100) */
     overflow-y: auto;
     overflow-x: hidden;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding-top: 80px; /* Space for header */
+}
+
+/* Auto-hide sidebar on scroll down (desktop only) */
+.sidebar.sidebar-hidden {
+    transform: translateX(-220px); /* Keep 60px visible for collapse button */
+}
+
+@media (max-width: 1023px) {
+    .sidebar.sidebar-hidden {
+        transform: translateX(-100%); /* Fully hide on mobile */
+    }
 }
 
 /* Collapsed sidebar (desktop only) */
@@ -462,4 +473,82 @@
     body {
         padding-left: 0;
     }
+}
+
+/* ============================================
+   Floating Back to Top Button (Main Content)
+   ============================================ */
+
+.floating-back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
+    background: var(--colour-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+    z-index: 80;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px) scale(0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.5rem;
+}
+
+.floating-back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.floating-back-to-top:hover {
+    background: var(--colour-primary-dark);
+    box-shadow: 0 6px 30px rgba(37, 99, 235, 0.6);
+    transform: translateY(-4px) scale(1.05);
+}
+
+.floating-back-to-top:active {
+    transform: translateY(-2px) scale(0.95);
+}
+
+/* Progress ring around button */
+.floating-back-to-top::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: var(--colour-accent);
+    transition: transform 0.3s ease;
+    transform: rotate(calc(var(--scroll-progress, 0) * 360deg));
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+    .floating-back-to-top {
+        width: 48px;
+        height: 48px;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        font-size: 1.25rem;
+    }
+}
+
+/* Dark mode */
+.dark .floating-back-to-top {
+    box-shadow: 0 4px 20px rgba(96, 165, 250, 0.4);
+}
+
+.dark .floating-back-to-top:hover {
+    box-shadow: 0 6px 30px rgba(96, 165, 250, 0.6);
 }

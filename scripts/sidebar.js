@@ -70,6 +70,12 @@
 
         // Restore collapsed sections from localStorage
         restoreCollapsedSections();
+
+        // Setup auto-hide on scroll
+        setupAutoHide();
+
+        // Setup floating back-to-top button
+        setupFloatingBackToTop();
     }
 
     /**
@@ -294,6 +300,92 @@
 
     // Restore collapsed state on page load
     restoreSidebarCollapsedState();
+
+    /**
+     * Setup auto-hide sidebar on scroll
+     */
+    function setupAutoHide() {
+        let lastScrollTop = 0;
+        let ticking = false;
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const sidebar = document.querySelector('.sidebar');
+
+                    if (!sidebar) return;
+
+                    // Only auto-hide on desktop and if sidebar is not manually toggled
+                    if (window.innerWidth >= 1024 && !sidebar.classList.contains('active')) {
+                        if (scrollTop > lastScrollTop && scrollTop > 200) {
+                            // Scrolling down & past threshold
+                            sidebar.classList.add('sidebar-hidden');
+                        } else if (scrollTop < lastScrollTop) {
+                            // Scrolling up
+                            sidebar.classList.remove('sidebar-hidden');
+                        }
+                    }
+
+                    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+                    ticking = false;
+                });
+
+                ticking = true;
+            }
+        }, { passive: true });
+    }
+
+    /**
+     * Setup floating back-to-top button
+     */
+    function setupFloatingBackToTop() {
+        // Create button if it doesn't exist
+        let floatingBtn = document.querySelector('.floating-back-to-top');
+
+        if (!floatingBtn) {
+            floatingBtn = document.createElement('button');
+            floatingBtn.className = 'floating-back-to-top';
+            floatingBtn.setAttribute('aria-label', 'Back to top');
+            floatingBtn.innerHTML = '↑';
+            document.body.appendChild(floatingBtn);
+        }
+
+        // Show/hide based on scroll position
+        let ticking = false;
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrollProgress = scrollTop / docHeight;
+
+                    // Show button after scrolling down 400px
+                    if (scrollTop > 400) {
+                        floatingBtn.classList.add('visible');
+                    } else {
+                        floatingBtn.classList.remove('visible');
+                    }
+
+                    // Update progress ring
+                    floatingBtn.style.setProperty('--scroll-progress', scrollProgress);
+
+                    ticking = false;
+                });
+
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Scroll to top on click
+        floatingBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 
     /**
      * Handle window resize - close sidebar on mobile if open

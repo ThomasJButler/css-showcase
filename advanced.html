@@ -8,6 +8,202 @@
     <link rel="stylesheet" href="./styles/advanced.css">
 </head>
 <body>
+    <!-- Sidebar Toggle Button (Mobile) -->
+<button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <div class="sidebar-toggle-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</button>
+
+<!-- Sidebar Backdrop (Mobile) -->
+<div class="sidebar-backdrop"></div>
+
+<!-- Sidebar Navigation -->
+<aside class="sidebar" role="navigation" aria-label="Main navigation">
+    <!-- Collapse button (desktop only) -->
+    <button class="sidebar-collapse-btn" aria-label="Collapse sidebar">
+        <span class="sidebar-collapse-icon">◀</span>
+    </button>
+
+    <div class="sidebar-content">
+        <!-- Home Link -->
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-home-link">
+                <span class="icon">🏠</span>
+                <span>Home</span>
+            </a>
+        </div>
+
+        <!-- Fundamentals Section -->
+        <div class="sidebar-section" data-section="fundamentals">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="typography.html" class="sidebar-nav-link">Typography</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Layout Section -->
+        <div class="sidebar-section" data-section="layout">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <span><span class="sidebar-section-icon">🎯</span>Layout</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="grid.html" class="sidebar-nav-link">Grid</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Visual Effects Section -->
+        <div class="sidebar-section" data-section="visual-effects">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="animations.html" class="sidebar-nav-link">Animations</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Components Section -->
+        <div class="sidebar-section" data-section="components">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <span><span class="sidebar-section-icon">🧩</span>Components</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="forms.html" class="sidebar-nav-link">Forms</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="tables.html" class="sidebar-nav-link">Tables</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="cards.html" class="sidebar-nav-link">Cards</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="icons.html" class="sidebar-nav-link">Icons</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Advanced Section -->
+        <div class="sidebar-section" data-section="advanced">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a>
+                </li>
+                <!-- Future pages (commented out until created) -->
+                <!--
+                <li class="sidebar-nav-item">
+                    <a href="custom-properties.html" class="sidebar-nav-link">Custom Properties</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="blend-modes.html" class="sidebar-nav-link">Blend Modes</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="shapes-clips.html" class="sidebar-nav-link">Shapes & Clips</a>
+                </li>
+                -->
+            </ul>
+        </div>
+
+        <!-- Modern CSS Section -->
+        <div class="sidebar-section" data-section="modern-css">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
+                </li>
+                <!-- Future pages (commented out until created) -->
+                <!--
+                <li class="sidebar-nav-item">
+                    <a href="anchor-positioning.html" class="sidebar-nav-link">Anchor Positioning</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="scroll-animations.html" class="sidebar-nav-link">Scroll Animations</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="color-spaces.html" class="sidebar-nav-link">Color Spaces</a>
+                </li>
+                -->
+            </ul>
+        </div>
+
+        <!-- Playground Section -->
+        <div class="sidebar-section" data-section="playground">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <span><span class="sidebar-section-icon">🎮</span>Playground</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="playground.html" class="sidebar-nav-link">CSS Playground</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+        <button class="back-to-top">
+            <span>↑</span>
+            <span>Back to Top</span>
+        </button>
+    </div>
+</aside>
+
+
     <a href="#main" class="skip-link">Skip to main content</a>
     <header>
         <h1>Advanced CSS</h1>
