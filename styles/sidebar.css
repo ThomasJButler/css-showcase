@@ -14,8 +14,57 @@
     z-index: 100;
     overflow-y: auto;
     overflow-x: hidden;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding-top: 80px; /* Space for header */
+}
+
+/* Collapsed sidebar (desktop only) */
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar.collapsed .sidebar-content {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar.collapsed .sidebar-footer {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Sidebar collapse button (desktop only) */
+.sidebar-collapse-btn {
+    position: absolute;
+    top: 90px;
+    right: -12px;
+    width: 24px;
+    height: 24px;
+    background: var(--colour-background);
+    border: 1px solid var(--colour-border);
+    border-radius: 50%;
+    display: none; /* Hidden on mobile */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 101;
+    transition: all 0.2s ease;
+    font-size: 0.75rem;
+}
+
+.sidebar-collapse-btn:hover {
+    background: var(--colour-primary);
+    border-color: var(--colour-primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+.sidebar-collapse-icon {
+    transition: transform 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-collapse-icon {
+    transform: rotate(180deg);
 }
 
 /* Scrollbar styling */
@@ -279,18 +328,39 @@
    ============================================ */
 
 @media (min-width: 1024px) {
+    /* Show collapse button on desktop */
+    .sidebar-collapse-btn {
+        display: flex;
+    }
+
     /* Adjust main content and header for sidebar */
     body {
         padding-left: 280px;
+        transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.sidebar-collapsed {
+        padding-left: 60px;
     }
 
     .site-header {
         left: 280px;
         width: calc(100% - 280px);
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.sidebar-collapsed .site-header {
+        left: 60px;
+        width: calc(100% - 60px);
     }
 
     .theme-toggle {
         left: calc(280px + 1rem);
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.sidebar-collapsed .theme-toggle {
+        left: calc(60px + 1rem);
     }
 
     .sidebar {
