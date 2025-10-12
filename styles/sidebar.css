@@ -20,13 +20,7 @@
 
 /* Auto-hide sidebar on scroll down (desktop only) */
 .sidebar.sidebar-hidden {
-    transform: translateX(-220px); /* Keep 60px visible for collapse button */
-}
-
-@media (max-width: 1023px) {
-    .sidebar.sidebar-hidden {
-        transform: translateX(-100%); /* Fully hide on mobile */
-    }
+    transform: translateX(-100%); /* Fully hide sidebar */
 }
 
 /* Collapsed sidebar (desktop only) */
@@ -350,8 +344,14 @@
         transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    /* When sidebar is manually collapsed */
     body.sidebar-collapsed {
         padding-left: 60px;
+    }
+
+    /* When sidebar is auto-hidden on scroll */
+    body.sidebar-hidden {
+        padding-left: 0;
     }
 
     .site-header {
@@ -360,9 +360,16 @@
         transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    /* When sidebar is manually collapsed */
     body.sidebar-collapsed .site-header {
         left: 60px;
         width: calc(100% - 60px);
+    }
+
+    /* When sidebar is auto-hidden on scroll */
+    body.sidebar-hidden .site-header {
+        left: 0;
+        width: 100%;
     }
 
     .theme-toggle {
@@ -370,8 +377,14 @@
         transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    /* When sidebar is manually collapsed */
     body.sidebar-collapsed .theme-toggle {
         left: calc(60px + 1rem);
+    }
+
+    /* When sidebar is auto-hidden on scroll */
+    body.sidebar-hidden .theme-toggle {
+        left: 1rem;
     }
 
     .sidebar {

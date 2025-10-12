@@ -321,9 +321,11 @@
                         if (scrollTop > lastScrollTop && scrollTop > 200) {
                             // Scrolling down & past threshold
                             sidebar.classList.add('sidebar-hidden');
+                            document.body.classList.add('sidebar-hidden');
                         } else if (scrollTop < lastScrollTop) {
                             // Scrolling up
                             sidebar.classList.remove('sidebar-hidden');
+                            document.body.classList.remove('sidebar-hidden');
                         }
                     }
 
