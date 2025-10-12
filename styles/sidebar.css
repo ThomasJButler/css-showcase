@@ -41,7 +41,7 @@
 /* Sidebar collapse button (desktop only) */
 .sidebar-collapse-btn {
     position: absolute;
-    top: 90px;
+    top: 20px;
     right: -12px;
     width: 24px;
     height: 24px;
