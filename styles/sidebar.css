@@ -7,7 +7,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 280px;
+    width: 320px;
     height: 100vh;
     background: var(--colour-background);
     border-right: 1px solid var(--colour-border);
@@ -323,7 +323,7 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
-    z-index: 99;
+    z-index: 1;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -345,7 +345,7 @@
 
     /* Adjust main content and header for sidebar */
     body {
-        padding-left: 280px;
+        padding-left: 320px;
         transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -360,8 +360,8 @@
     }
 
     .site-header {
-        left: 280px;
-        width: calc(100% - 280px);
+        left: 320px;
+        width: calc(100% - 320px);
         transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -378,6 +378,11 @@
     }
 
     /* Theme toggle stays on the right side of header - no left positioning needed */
+
+    /* Hide extra nav items when sidebar is open (show only first 4) */
+    body:not(.sidebar-hidden) .nav-list .nav-item:nth-child(n+5) {
+        display: none;
+    }
 
     .sidebar {
         transform: translateX(0);
