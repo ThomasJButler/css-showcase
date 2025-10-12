@@ -17,7 +17,6 @@
         const sidebar = document.querySelector('.sidebar');
         const sidebarToggle = document.querySelector('.sidebar-toggle');
         const sidebarBackdrop = document.querySelector('.sidebar-backdrop');
-        const sidebarCollapseBtn = document.querySelector('.sidebar-collapse-btn');
         const sectionTitles = document.querySelectorAll('.sidebar-section-title');
         const backToTop = document.querySelector('.back-to-top');
 
@@ -30,11 +29,6 @@
 
         if (sidebarBackdrop) {
             sidebarBackdrop.addEventListener('click', closeSidebar);
-        }
-
-        // Desktop sidebar collapse
-        if (sidebarCollapseBtn) {
-            sidebarCollapseBtn.addEventListener('click', toggleSidebarCollapse);
         }
 
         // Section collapsing
@@ -259,47 +253,6 @@
             }
         });
     }
-
-    /**
-     * Toggle sidebar collapsed state (desktop only)
-     */
-    function toggleSidebarCollapse() {
-        const sidebar = document.querySelector('.sidebar');
-        if (!sidebar) return;
-
-        const isCollapsed = sidebar.classList.toggle('collapsed');
-        document.body.classList.toggle('sidebar-collapsed', isCollapsed);
-
-        // Save state to localStorage
-        try {
-            localStorage.setItem('sidebarCollapsed', isCollapsed ? 'true' : 'false');
-        } catch (e) {
-            console.warn('Could not save sidebar state:', e);
-        }
-    }
-
-    /**
-     * Restore sidebar collapsed state from localStorage (desktop only)
-     */
-    function restoreSidebarCollapsedState() {
-        if (window.innerWidth < 1024) return;
-
-        try {
-            const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
-            if (isCollapsed) {
-                const sidebar = document.querySelector('.sidebar');
-                if (sidebar) {
-                    sidebar.classList.add('collapsed');
-                    document.body.classList.add('sidebar-collapsed');
-                }
-            }
-        } catch (e) {
-            console.warn('Could not restore sidebar state:', e);
-        }
-    }
-
-    // Restore collapsed state on page load
-    restoreSidebarCollapsedState();
 
     /**
      * Setup auto-hide sidebar on scroll
