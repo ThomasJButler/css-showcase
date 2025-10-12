@@ -15,7 +15,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding-top: 80px; /* Space for header */
+    padding-top: 20px; /* Minimal space for breathing room */
 }
 
 /* Auto-hide sidebar on scroll down (desktop only) */
@@ -234,6 +234,11 @@
     margin-top: 2rem;
 }
 
+/* Hide the back-to-top button in sidebar (floating one is used instead) */
+.sidebar-footer .back-to-top {
+    display: none;
+}
+
 .back-to-top {
     display: flex;
     align-items: center;
@@ -261,10 +266,10 @@
 /* Sidebar toggle button (mobile hamburger) */
 .sidebar-toggle {
     position: fixed;
-    top: 1.25rem;
+    top: var(--space-6); /* Aligned with theme toggle */
     left: 1rem;
-    width: 44px;
-    height: 44px;
+    width: 48px; /* Match theme toggle size */
+    height: 48px; /* Match theme toggle size */
     background: var(--colour-background);
     border: 1px solid var(--colour-border);
     border-radius: 8px;
@@ -372,20 +377,7 @@
         width: 100%;
     }
 
-    .theme-toggle {
-        left: calc(280px + 1rem);
-        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* When sidebar is manually collapsed */
-    body.sidebar-collapsed .theme-toggle {
-        left: calc(60px + 1rem);
-    }
-
-    /* When sidebar is auto-hidden on scroll */
-    body.sidebar-hidden .theme-toggle {
-        left: 1rem;
-    }
+    /* Theme toggle stays on the right side of header - no left positioning needed */
 
     .sidebar {
         transform: translateX(0);
@@ -412,6 +404,11 @@
 
     /* Hide old header nav toggle - we use sidebar toggle now */
     .nav-toggle {
+        display: none !important;
+    }
+
+    /* Hide header nav items on mobile - sidebar has all navigation */
+    .nav-list {
         display: none !important;
     }
 
