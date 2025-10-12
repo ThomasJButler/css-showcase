@@ -410,6 +410,11 @@
         display: flex;
     }
 
+    /* Hide old header nav toggle - we use sidebar toggle now */
+    .nav-toggle {
+        display: none !important;
+    }
+
     /* Adjust theme toggle when sidebar button is visible */
     .theme-toggle {
         left: 4rem;
