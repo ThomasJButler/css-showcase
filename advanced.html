@@ -1,218 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced CSS</title>
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/advanced.css">
+    <meta name="description" content="Master advanced CSS techniques including complex selectors, pseudo-elements, CSS counters, attribute selectors, and specificity management">
+    <meta name="author" content="Thomas Butler">
+    <title>Advanced CSS Techniques | The Ultimate CSS Showcase</title>
+
+    <!-- Core styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
+
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="styles/advanced-page.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Sidebar Toggle Button (Mobile) -->
-<button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-    <div class="sidebar-toggle-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</button>
-
-<!-- Sidebar Backdrop (Mobile) -->
-<div class="sidebar-backdrop"></div>
-
-<!-- Sidebar Navigation -->
-<aside class="sidebar" role="navigation" aria-label="Main navigation">
-    <div class="sidebar-content">
-        <!-- Home Link -->
-        <div class="sidebar-header">
-            <a href="index.html" class="sidebar-home-link">
-                <span class="icon">🏠</span>
-                <span>Home</span>
-            </a>
-        </div>
-
-        <!-- Fundamentals Section -->
-        <div class="sidebar-section" data-section="fundamentals">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="typography.html" class="sidebar-nav-link">Typography</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Layout Section -->
-        <div class="sidebar-section" data-section="layout">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">🎯</span>Layout</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="grid.html" class="sidebar-nav-link">Grid</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Visual Effects Section -->
-        <div class="sidebar-section" data-section="visual-effects">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="animations.html" class="sidebar-nav-link">Animations</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Components Section -->
-        <div class="sidebar-section" data-section="components">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">🧩</span>Components</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="forms.html" class="sidebar-nav-link">Forms</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="tables.html" class="sidebar-nav-link">Tables</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="cards.html" class="sidebar-nav-link">Cards</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="icons.html" class="sidebar-nav-link">Icons</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Advanced Section -->
-        <div class="sidebar-section" data-section="advanced">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a>
-                </li>
-                <!-- Future pages (commented out until created) -->
-                <!--
-                <li class="sidebar-nav-item">
-                    <a href="custom-properties.html" class="sidebar-nav-link">Custom Properties</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="blend-modes.html" class="sidebar-nav-link">Blend Modes</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="shapes-clips.html" class="sidebar-nav-link">Shapes & Clips</a>
-                </li>
-                -->
-            </ul>
-        </div>
-
-        <!-- Modern CSS Section -->
-        <div class="sidebar-section" data-section="modern-css">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
-                </li>
-                <!-- Future pages (commented out until created) -->
-                <!--
-                <li class="sidebar-nav-item">
-                    <a href="anchor-positioning.html" class="sidebar-nav-link">Anchor Positioning</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="scroll-animations.html" class="sidebar-nav-link">Scroll Animations</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="color-spaces.html" class="sidebar-nav-link">Color Spaces</a>
-                </li>
-                -->
-            </ul>
-        </div>
-
-        <!-- Playground Section -->
-        <div class="sidebar-section" data-section="playground">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">🎮</span>Playground</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="playground.html" class="sidebar-nav-link">CSS Playground</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Sidebar Footer -->
-    <div class="sidebar-footer">
-        <button class="back-to-top">
-            <span>↑</span>
-            <span>Back to Top</span>
-        </button>
-    </div>
-</aside>
-
-
+    <!-- Skip link for accessibility -->
     <a href="#main" class="skip-link">Skip to main content</a>
-    <header>
-        <h1>Advanced CSS</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="basic.html">Basic CSS</a></li>
-                <li><a href="layout.html">Layout</a></li>
-                <li><a href="transitions.html">Transitions and Animations</a></li>
-                <li><a href="responsive.html">Responsive Design</a></li>
-            </ul>
-        </nav>
-    </header>
+
+    <!-- Theme toggle -->
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle color theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <!-- Sidebar Toggle Button (Mobile) -->
+    <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <div class="sidebar-toggle-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="sidebar-content">
+            <!-- Home Link -->
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-home-link">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+            </div>
+
+            <!-- Fundamentals Section -->
+            <div class="sidebar-section" data-section="fundamentals">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="typography.html" class="sidebar-nav-link">Typography</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Layout Section -->
+            <div class="sidebar-section" data-section="layout">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🎯</span>Layout</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="grid.html" class="sidebar-nav-link">Grid</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Visual Effects Section -->
+            <div class="sidebar-section" data-section="visual-effects">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="animations.html" class="sidebar-nav-link">Animations</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Components Section -->
+            <div class="sidebar-section" data-section="components">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🧩</span>Components</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="forms.html" class="sidebar-nav-link">Forms</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="tables.html" class="sidebar-nav-link">Tables</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="cards.html" class="sidebar-nav-link">Cards</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="icons.html" class="sidebar-nav-link">Icons</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Advanced Section -->
+            <div class="sidebar-section" data-section="advanced">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="advanced.html" class="sidebar-nav-link active">Advanced CSS</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Modern CSS Section -->
+            <div class="sidebar-section" data-section="modern-css">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Playground Section -->
+            <div class="sidebar-section" data-section="playground">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🎮</span>Playground</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="playground.html" class="sidebar-nav-link">CSS Playground</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <button class="back-to-top">
+                <span>↑</span>
+                <span>Back to Top</span>
+            </button>
+        </div>
+    </aside>
+
     <main id="main">
+        <!-- Breadcrumb navigation -->
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <div class="container">
                 <ol class="breadcrumb-list">
@@ -229,34 +217,582 @@
             </div>
         </nav>
 
-
-        <section>
-            <h2>Pseudo-classes and Pseudo-elements</h2>
-            <div class="pseudo-example">
-                <p>Hover over this text to see a pseudo-element effect.</p>
-                <p>Hover over <span class="pseudo-hover">this span</span> to see a pseudo-class effect.</p>
-            </div>
-            <div class="advanced-pseudo-example">
-                <p>Hover over this text for advanced pseudo-elements.</p>
-                <p>Hover over <span class="advanced-pseudo-hover">this span</span> for advanced pseudo-classes.</p>
+        <!-- Page hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Advanced CSS Techniques</h1>
+                <p class="page-subtitle">Master powerful selectors, pseudo-elements, CSS counters, and specificity management to write sophisticated, maintainable stylesheets</p>
             </div>
         </section>
-        <section>
-            <h2>Complex Selectors</h2>
-            <div class="complex-example">
-                <p>Targeting <span>nested elements</span> and <span>siblings</span>.</p>
-                <p>Combining <span class="complex-sibling">complex selectors</span> for effects.</p>
+
+        <!-- Modern Complex Selectors -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Modern Complex Selectors</h2>
+                <p>CSS has evolved with powerful new selectors that make targeting elements easier and more maintainable. Let's explore <code>:is()</code>, <code>:where()</code>, and <code>:not()</code>.</p>
+
+                <h3>The :is() Selector</h3>
+                <p>The <code>:is()</code> selector simplifies complex selector lists. Instead of repeating selectors, you can group them together. It's a huge time-saver!</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="is-demo">
+                            <h4>Heading in Section</h4>
+                            <article>
+                                <h4>Heading in Article</h4>
+                            </article>
+                            <aside>
+                                <h4>Heading in Aside</h4>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">/* Without :is() - repetitive */
+section h4,
+article h4,
+aside h4 {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* With :is() - clean and maintainable */
+:is(section, article, aside) h4 {
+  color: #2563eb;
+  font-weight: 700;
+}</code></pre>
+                </div>
+
+                <h3>The :where() Selector</h3>
+                <p>The <code>:where()</code> selector works like <code>:is()</code> but with zero specificity. This makes it perfect for base styles that you want to easily override.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="where-demo">
+                            <a href="#" class="link-default">Default Link</a>
+                            <a href="#" class="link-special">Special Link (Overridden)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">/* :where() has zero specificity - easy to override */
+:where(a) {
+  color: #64748b;
+  text-decoration: none;
+}
+
+/* Simple class selector wins */
+.link-special {
+  color: #7c3aed;
+  font-weight: 600;
+}</code></pre>
+                </div>
+
+                <h3>The :not() Selector</h3>
+                <p>The <code>:not()</code> selector is your exclusion tool. Style everything except certain elements - incredibly powerful for edge cases.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="not-demo">
+                            <button>Regular Button</button>
+                            <button>Regular Button</button>
+                            <button class="primary">Primary Button (Excluded)</button>
+                            <button>Regular Button</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">/* Style all buttons except .primary */
+button:not(.primary) {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+button.primary {
+  background: #2563eb;
+  color: white;
+  border: none;
+}</code></pre>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 Specificity Tip</h4>
+                    <p><strong>:is()</strong> takes the specificity of its most specific argument, while <strong>:where()</strong> always has zero specificity. Use <code>:where()</code> for reusable base styles and <code>:is()</code> when you need more control.</p>
+                </div>
             </div>
-            <div class="advanced-complex-example">
-                <p>Advanced <span>nested elements</span> and <span>siblings</span> styling.</p>
-                <p>Combining <span class="advanced-complex-sibling">advanced selectors</span> for unique effects.</p>
+        </section>
+
+        <!-- Pseudo-elements Deep Dive -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Pseudo-elements Deep Dive</h2>
+                <p>Pseudo-elements let you style specific parts of an element or add decorative content without extra HTML. They're your secret weapon for clean, semantic markup.</p>
+
+                <h3>::before and ::after</h3>
+                <p>These are the workhorses of pseudo-elements. Create decorative elements, badges, tooltips, and more - all with CSS.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="pseudo-demo">
+                            <div class="badge-demo">
+                                <span class="badge">New</span>
+                                <span class="badge badge-success">Pro</span>
+                                <span class="badge badge-warning">Beta</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">.badge::before {
+  content: '★ ';
+  opacity: 0.7;
+}
+
+.badge::after {
+  content: ' ★';
+  opacity: 0.7;
+}
+
+/* Badges with icons - no extra HTML needed! */</code></pre>
+                </div>
+
+                <h3>::first-letter and ::first-line</h3>
+                <p>Style the first letter or line of text differently - perfect for drop caps, magazine-style layouts, and typographic effects.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="dropcap-demo">
+                            <p class="dropcap-text">Once upon a time, in a web far, far away, there lived a developer who discovered the magic of CSS pseudo-elements. With just a few lines of code, entire design systems came to life, creating beautiful typography without touching a single line of HTML.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">.dropcap-text::first-letter {
+  font-size: 3.5em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.9;
+  margin: 0.1em 0.15em 0 0;
+  color: #2563eb;
+}
+
+.dropcap-text::first-line {
+  font-variant: small-caps;
+  font-weight: 600;
+  color: #475569;
+}</code></pre>
+                </div>
+
+                <h3>::selection</h3>
+                <p>Style the appearance of selected text. A small touch that can significantly improve your site's personality.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="selection-demo">
+                            <p>Try selecting this text - notice the custom selection color! This works on any text element and can match your brand colors.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">::selection {
+  background: #2563eb;
+  color: white;
+}
+
+/* Firefox */
+::-moz-selection {
+  background: #2563eb;
+  color: white;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS Counters -->
+        <section class="content-section">
+            <div class="container">
+                <h2>CSS Counters</h2>
+                <p>CSS counters let you create automatic numbering without JavaScript. They're perfect for step-by-step guides, nested lists, and numbered sections.</p>
+
+                <h3>Basic Counter</h3>
+                <p>Create numbered items that update automatically when you add or remove elements. No manual renumbering required!</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="counter-demo">
+                            <div class="step-item">Set up your project structure</div>
+                            <div class="step-item">Install dependencies</div>
+                            <div class="step-item">Configure your build tools</div>
+                            <div class="step-item">Write your first component</div>
+                            <div class="step-item">Test and deploy</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">.counter-demo {
+  counter-reset: step;
+}
+
+.step-item::before {
+  counter-increment: step;
+  content: 'Step ' counter(step) ': ';
+  font-weight: 700;
+  color: #2563eb;
+}</code></pre>
+                </div>
+
+                <h3>Nested Counters</h3>
+                <p>Counters can be nested to create hierarchical numbering like 1.1, 1.2, 2.1, etc. Great for documentation and specifications.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="nested-counter-demo">
+                            <div class="section-item">
+                                Introduction
+                                <div class="subsection-item">Overview</div>
+                                <div class="subsection-item">Prerequisites</div>
+                            </div>
+                            <div class="section-item">
+                                Setup
+                                <div class="subsection-item">Installation</div>
+                                <div class="subsection-item">Configuration</div>
+                            </div>
+                            <div class="section-item">
+                                Advanced Topics
+                                <div class="subsection-item">Optimization</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">.nested-counter-demo {
+  counter-reset: section;
+}
+
+.section-item {
+  counter-reset: subsection;
+  counter-increment: section;
+}
+
+.section-item::before {
+  content: counter(section) '. ';
+  font-weight: 700;
+}
+
+.subsection-item::before {
+  counter-increment: subsection;
+  content: counter(section) '.' counter(subsection) ' ';
+  font-weight: 600;
+  color: #7c3aed;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Attribute Selectors -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Attribute Selectors</h2>
+                <p>Target elements based on their attributes and attribute values. These selectors are incredibly powerful for styling forms, links, and dynamic content.</p>
+
+                <h3>Basic Attribute Selectors</h3>
+                <p>Match elements that have specific attributes, or attributes with specific values.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="attribute-demo">
+                            <input type="text" placeholder="Text input">
+                            <input type="email" placeholder="Email input">
+                            <input type="password" placeholder="Password input">
+                            <button disabled>Disabled Button</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">/* Style all inputs with type attribute */
+input[type] {
+  padding: 8px 12px;
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+/* Specific type values */
+input[type="email"] {
+  border-color: #2563eb;
+}
+
+input[type="password"] {
+  border-color: #7c3aed;
+}
+
+/* Elements with disabled attribute */
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}</code></pre>
+                </div>
+
+                <h3>Advanced Attribute Matching</h3>
+                <p>Use powerful operators to match attribute values partially - perfect for styling external links, file types, or data attributes.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="advanced-attribute-demo">
+                            <a href="https://example.com">External Link</a>
+                            <a href="/internal">Internal Link</a>
+                            <a href="document.pdf">PDF Document</a>
+                            <a href="image.jpg">Image File</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">/* Starts with https:// */
+a[href^="https://"]::after {
+  content: ' ↗';
+  font-size: 0.85em;
+}
+
+/* Ends with .pdf */
+a[href$=".pdf"]::before {
+  content: '📄 ';
+}
+
+/* Contains 'image' */
+a[href*="image"]::before {
+  content: '🖼️ ';
+}
+
+/* Matches word in space-separated list */
+[class~="special"] {
+  background: #fef3c7;
+}</code></pre>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 Attribute Selector Operators</h4>
+                    <p><code>^=</code> starts with, <code>$=</code> ends with, <code>*=</code> contains, <code>~=</code> word match, <code>|=</code> starts with (dash-separated). These operators make attribute selectors incredibly flexible!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Combinators -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Combinators & Relationship Selectors</h2>
+                <p>Combinators let you select elements based on their relationship to other elements. Master these and you'll write cleaner, more maintainable CSS.</p>
+
+                <h3>Descendant Combinator (space)</h3>
+                <p>Selects all descendants, no matter how deeply nested. The most common combinator you'll use.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="combinator-demo descendant-demo">
+                            <div>
+                                <p>Styled paragraph</p>
+                                <div>
+                                    <p>Nested styled paragraph</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">/* Space = descendant combinator */
+.descendant-demo p {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* Matches ALL paragraphs inside, no matter how nested */</code></pre>
+                </div>
+
+                <h3>Child Combinator (>)</h3>
+                <p>Selects only direct children, not deeper descendants. Great for precise targeting.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="combinator-demo child-demo">
+                            <p>Direct child (styled)</p>
+                            <div>
+                                <p>Grandchild (not styled)</p>
+                            </div>
+                            <p>Direct child (styled)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">/* > = child combinator */
+.child-demo > p {
+  color: #7c3aed;
+  font-weight: 600;
+}
+
+/* Only matches DIRECT children, not grandchildren */</code></pre>
+                </div>
+
+                <h3>Adjacent Sibling (+) and General Sibling (~)</h3>
+                <p>Select elements based on their sibling relationships. Perfect for spacing, alternating styles, and contextual design.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="combinator-demo sibling-demo">
+                            <h4>Heading</h4>
+                            <p>First paragraph (adjacent to h4)</p>
+                            <p>Second paragraph (general sibling)</p>
+                            <p>Third paragraph (general sibling)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">/* + = adjacent sibling (immediately follows) */
+h4 + p {
+  font-weight: 700;
+  color: #2563eb;
+}
+
+/* ~ = general sibling (any following sibling) */
+h4 ~ p {
+  margin-left: 16px;
+  border-left: 3px solid #cbd5e1;
+  padding-left: 16px;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specificity Management -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Understanding & Managing Specificity</h2>
+                <p>Specificity determines which CSS rules win when multiple rules target the same element. Master it to avoid <code>!important</code> hell.</p>
+
+                <h3>Specificity Hierarchy</h3>
+                <p>CSS specificity is calculated based on four categories (inline, IDs, classes, elements). Understanding this hierarchy is crucial.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="specificity-demo">
+                            <div class="specificity-visual">
+                                <div class="spec-level spec-inline">
+                                    <span class="spec-number">1000</span>
+                                    <span class="spec-label">Inline Styles</span>
+                                </div>
+                                <div class="spec-level spec-id">
+                                    <span class="spec-number">100</span>
+                                    <span class="spec-label">IDs</span>
+                                </div>
+                                <div class="spec-level spec-class">
+                                    <span class="spec-number">10</span>
+                                    <span class="spec-label">Classes, Attributes, Pseudo-classes</span>
+                                </div>
+                                <div class="spec-level spec-element">
+                                    <span class="spec-number">1</span>
+                                    <span class="spec-label">Elements, Pseudo-elements</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code class="language-css">/* Specificity: 1 (one element) */
+p { color: gray; }
+
+/* Specificity: 10 (one class) */
+.text { color: blue; }
+
+/* Specificity: 100 (one ID) */
+#special { color: red; }
+
+/* Specificity: 11 (one class + one element) */
+div.text { color: green; }
+
+/* Specificity: 111 (one ID + one class + one element) */
+div#special.text { color: purple; }</code></pre>
+                </div>
+
+                <h3>Specificity Best Practices</h3>
+                <p>Keep specificity low and consistent. Use classes over IDs, avoid nesting too deeply, and reserve <code>!important</code> for truly exceptional cases.</p>
+
+                <div class="tip-box">
+                    <h4>💡 Specificity Tips</h4>
+                    <p><strong>1.</strong> Prefer classes over IDs for styling<br>
+                    <strong>2.</strong> Keep selector chains short (2-3 levels max)<br>
+                    <strong>3.</strong> Use <code>:where()</code> for zero-specificity base styles<br>
+                    <strong>4.</strong> Avoid <code>!important</code> unless absolutely necessary<br>
+                    <strong>5.</strong> Organize CSS from low to high specificity</p>
+                </div>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="specificity-examples">
+                            <div class="good-example">
+                                <h4>✅ Good</h4>
+                                <pre><code class="language-css">.button { }
+.button-primary { }
+.button-large { }</code></pre>
+                            </div>
+                            <div class="bad-example">
+                                <h4>❌ Avoid</h4>
+                                <pre><code class="language-css">#header div.nav ul li a.button { }
+.button { color: blue !important; }</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Links -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Related Topics</h2>
+                <div class="related-links">
+                    <a href="has-selector.html" class="related-card">
+                        <h3>:has() Selector</h3>
+                        <p>Learn about the revolutionary :has() pseudo-class that lets you style parent elements based on their children.</p>
+                    </a>
+                    <a href="css-nesting.html" class="related-card">
+                        <h3>CSS Nesting</h3>
+                        <p>Explore native CSS nesting to write more maintainable, organized stylesheets without preprocessors.</p>
+                    </a>
+                    <a href="basic.html" class="related-card">
+                        <h3>CSS Fundamentals</h3>
+                        <p>Review the basics of CSS selectors, cascade, and inheritance to build a strong foundation.</p>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>Epic CSS Showcase by Thomas Butler</p>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion by <a href="https://thomasjbutler.me" target="_blank" rel="noopener noreferrer">Thomas Butler</a>.
+                Explore the <a href="https://github.com/ThomasJButler/css-showcase" target="_blank" rel="noopener noreferrer">source code on GitHub</a>.
+            </p>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
     <script src="scripts/syntax-highlight.js"></script>
+    <script src="scripts/code-examples.js"></script>
     <script src="scripts/search.js"></script>
     <script src="scripts/micro-interactions.js"></script>
 </body>
