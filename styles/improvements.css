@@ -53,11 +53,135 @@
     padding: 1rem 1.5rem;
     max-width: 1400px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
 @media (min-width: 768px) {
     .header-content {
         padding: 1.25rem 2rem;
+    }
+}
+
+/* Header Actions - Toggles Side by Side */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    order: 2;
+}
+
+.header-actions .sidebar-toggle,
+.header-actions .theme-toggle {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--colour-surface);
+    border: 1px solid var(--colour-border);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-actions .sidebar-toggle:hover,
+.header-actions .theme-toggle:hover {
+    background: var(--colour-surface-variant);
+    border-color: var(--colour-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.header-actions .sidebar-toggle:active,
+.header-actions .theme-toggle:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Sidebar toggle icon */
+.header-actions .sidebar-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--colour-text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    position: absolute;
+}
+
+.header-actions .sidebar-toggle span:nth-child(1) {
+    transform: translateY(-6px);
+}
+
+.header-actions .sidebar-toggle span:nth-child(2) {
+    transform: translateY(0);
+}
+
+.header-actions .sidebar-toggle span:nth-child(3) {
+    transform: translateY(6px);
+}
+
+.header-actions .sidebar-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+}
+
+.header-actions .sidebar-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.header-actions .sidebar-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+}
+
+/* Theme toggle in header */
+.header-actions .theme-toggle {
+    font-size: 1.25rem;
+}
+
+/* Logo should be first, actions second, nav third */
+.logo {
+    order: 1;
+}
+
+.main-nav {
+    order: 3;
+}
+
+/* On mobile, hide nav toggle since we have sidebar toggle */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: none;
+    }
+
+    .header-content {
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        order: 1;
+        flex: 1;
+    }
+
+    .header-actions {
+        order: 2;
+    }
+
+    .main-nav {
+        order: 3;
+        width: 100%;
+        flex-basis: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+    /* On desktop, hide sidebar toggle */
+    .header-actions .sidebar-toggle {
+        display: none;
     }
 }
 
