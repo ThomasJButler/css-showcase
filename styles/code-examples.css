@@ -37,6 +37,7 @@
     padding: var(--space-6);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    max-width: 100%;
 }
 
 .code-example code {
@@ -45,12 +46,13 @@
     line-height: var(--leading-relaxed);
     color: #e2e8f0;
     white-space: pre;
-    display: block;
+    display: inline-block;
+    min-width: 100%;
 }
 
 /* Scrollbar styling */
 .code-example pre::-webkit-scrollbar {
-    height: 8px;
+    height: 10px;
 }
 
 .code-example pre::-webkit-scrollbar-track {
