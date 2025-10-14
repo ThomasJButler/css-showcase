@@ -29,20 +29,6 @@
     <!-- Skip link for accessibility -->
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <!-- Theme toggle -->
-    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle color theme">
-        <span class="theme-icon">🌞</span>
-    </div>
-
-    <!-- Sidebar Toggle Button (Mobile) -->
-    <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <div class="sidebar-toggle-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </button>
-
     <!-- Sidebar Backdrop (Mobile) -->
     <div class="sidebar-backdrop"></div>
 
@@ -59,7 +45,7 @@
 
             <!-- Fundamentals Section -->
             <div class="sidebar-section" data-section="fundamentals">
-                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
                     <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
                     <span class="sidebar-section-toggle">▼</span>
                 </div>
@@ -78,7 +64,7 @@
 
             <!-- Layout Section -->
             <div class="sidebar-section" data-section="layout">
-                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
                     <span><span class="sidebar-section-icon">🎯</span>Layout</span>
                     <span class="sidebar-section-toggle">▼</span>
                 </div>
@@ -100,7 +86,7 @@
 
             <!-- Visual Effects Section -->
             <div class="sidebar-section" data-section="visual-effects">
-                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
                     <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
                     <span class="sidebar-section-toggle">▼</span>
                 </div>
@@ -122,7 +108,7 @@
 
             <!-- Components Section -->
             <div class="sidebar-section" data-section="components">
-                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
                     <span><span class="sidebar-section-icon">🧩</span>Components</span>
                     <span class="sidebar-section-toggle">▼</span>
                 </div>
@@ -147,7 +133,7 @@
 
             <!-- Advanced Section -->
             <div class="sidebar-section" data-section="advanced">
-                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
                     <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
                     <span class="sidebar-section-toggle">▼</span>
                 </div>
@@ -160,7 +146,7 @@
 
             <!-- Modern CSS Section -->
             <div class="sidebar-section" data-section="modern-css">
-                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
                     <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
                     <span class="sidebar-section-toggle">▼</span>
                 </div>
@@ -179,7 +165,7 @@
 
             <!-- Playground Section -->
             <div class="sidebar-section" data-section="playground">
-                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
                     <span><span class="sidebar-section-icon">🎮</span>Playground</span>
                     <span class="sidebar-section-toggle">▼</span>
                 </div>
@@ -199,6 +185,54 @@
             </button>
         </div>
     </aside>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+
+            <div class="header-actions">
+                <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <button class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+                    <span class="theme-icon">🌞</span>
+                </button>
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#selectors" class="nav-link">Selectors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pseudo-elements" class="nav-link">Pseudo-elements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#counters" class="nav-link">Counters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#specificity" class="nav-link">Specificity</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <main id="main">
         <!-- Breadcrumb navigation -->
