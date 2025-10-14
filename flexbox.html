@@ -70,7 +70,10 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-nav-item">
-                    <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
+                    <a href="flexbox.html" class="sidebar-nav-link active">Flexbox</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="flexbox-patterns.html" class="sidebar-nav-link">Flexbox Patterns</a>
                 </li>
                 <li class="sidebar-nav-item">
                     <a href="grid.html" class="sidebar-nav-link">Grid</a>
@@ -706,243 +709,20 @@
             </div>
         </section>
 
-        <section id="patterns" class="demo-section">
-            <div class="container">
-                <h2 class="section-title">Common Flexbox Patterns</h2>
-                <p class="section-intro">
-                    Real-world flexbox patterns you'll use again and again in your projects.
-                </p>
-
-                <div class="demo-grid">
-                    <div class="demo-card">
-                        <h3 class="demo-title">Navigation Bar</h3>
-                        <div class="demo-example">
-                            <nav class="pattern-nav">
-                                <div class="nav-brand">Logo</div>
-                                <ul class="nav-menu">
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                                <button class="nav-cta">Sign Up</button>
-                            </nav>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* Responsive navigation */
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
-
-/* Push items apart */
-.nav-brand { margin-right: auto; }</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="demo-card">
-                        <h3 class="demo-title">Card Layout</h3>
-                        <div class="demo-example">
-                            <div class="pattern-cards">
-                                <div class="card">
-                                    <h4>Card 1</h4>
-                                    <p>Flexible card that grows to fill space.</p>
-                                    <button>Action</button>
-                                </div>
-                                <div class="card">
-                                    <h4>Card 2</h4>
-                                    <p>All cards maintain equal height.</p>
-                                    <button>Action</button>
-                                </div>
-                                <div class="card">
-                                    <h4>Card 3</h4>
-                                    <p>Button always at the bottom.</p>
-                                    <button>Action</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* Equal height cards */
-.cards {
-    display: flex;
-    gap: 1rem;
-}
-
-.card {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.card p {
-    flex: 1; /* Push button to bottom */
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="demo-card">
-                        <h3 class="demo-title">Media Object</h3>
-                        <div class="demo-example">
-                            <div class="pattern-media">
-                                <div class="media-image"></div>
-                                <div class="media-content">
-                                    <h4>Media Object Pattern</h4>
-                                    <p>Image on the left, content on the right. A classic pattern made simple with flexbox.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* Media object pattern */
-.media {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-}
-
-.media-image {
-    flex: 0 0 100px; /* Fixed width */
-}
-
-.media-content {
-    flex: 1; /* Take remaining space */
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="demo-card">
-                        <h3 class="demo-title">Sticky Footer</h3>
-                        <div class="demo-example">
-                            <div class="pattern-sticky">
-                                <header class="sticky-header">Header</header>
-                                <main class="sticky-content">
-                                    Main content area that expands
-                                </main>
-                                <footer class="sticky-footer">Footer sticks to bottom</footer>
-                            </div>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* Sticky footer pattern */
-.page {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.header, .footer {
-    flex: 0 0 auto;
-}
-
-.main {
-    flex: 1 0 auto;
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="demo-card">
-                        <h3 class="demo-title">Input Groups</h3>
-                        <div class="demo-example">
-                            <div class="pattern-input-group">
-                                <span class="input-addon">@</span>
-                                <input type="text" placeholder="Username">
-                            </div>
-                            <div class="pattern-input-group">
-                                <input type="text" placeholder="Search...">
-                                <button class="input-button">Go</button>
-                            </div>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* Input group pattern */
-.input-group {
-    display: flex;
-}
-
-.input-group input {
-    flex: 1;
-    border-radius: 0;
-}
-
-.input-addon {
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-    background: var(--colour-surface);
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="demo-card">
-                        <h3 class="demo-title">Holy Grail Layout</h3>
-                        <div class="demo-example">
-                            <div class="pattern-holy-grail">
-                                <aside class="sidebar-left">Left</aside>
-                                <main class="main-content">Main Content</main>
-                                <aside class="sidebar-right">Right</aside>
-                            </div>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* Holy grail layout */
-.layout {
-    display: flex;
-    gap: 1rem;
-}
-
-.sidebar-left,
-.sidebar-right {
-    flex: 0 0 200px; /* Fixed width */
-}
-
-.main-content {
-    flex: 1; /* Flexible center */
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .layout { flex-direction: column; }
-}</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="tips-section">
-            <div class="container">
-                <h2 class="section-title">Flexbox Pro Tips</h2>
-                <div class="tips-grid">
-                    <div class="tip-card">
-                        <span class="tip-icon">🎯</span>
-                        <h3>Use Gap Instead of Margins</h3>
-                        <p>The gap property is cleaner and doesn't require nth-child selectors to remove edge margins.</p>
-                    </div>
-                    <div class="tip-card">
-                        <span class="tip-icon">📐</span>
-                        <h3>Min-Width: 0 for Truncation</h3>
-                        <p>Flex items have min-width: auto by default. Set to 0 to allow text truncation.</p>
-                    </div>
-                    <div class="tip-card">
-                        <span class="tip-icon">🔄</span>
-                        <h3>Flex: 1 1 0 vs Flex: 1</h3>
-                        <p>Flex: 1 is shorthand for flex: 1 1 0, which makes items grow equally from 0 basis.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="next-steps">
             <div class="container">
-                <h2 class="section-title">Master Two Dimensions</h2>
+                <h2 class="section-title">Ready for Real-World Patterns?</h2>
                 <p class="section-subtitle">
-                    Flexbox is perfect for one dimension. Ready for the full power of two-dimensional layouts?
+                    Now that you've mastered the fundamentals, explore common patterns and pro tips.
                 </p>
                 <div class="next-links">
+                    <a href="flexbox-patterns.html" class="next-link">
+                        <span class="next-icon">🎨</span>
+                        <div>
+                            <h3>Flexbox Patterns</h3>
+                            <p>Navigation bars, card layouts, media objects, and pro tips</p>
+                        </div>
+                    </a>
                     <a href="grid.html" class="next-link">
                         <span class="next-icon">🏗️</span>
                         <div>

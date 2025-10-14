@@ -98,7 +98,10 @@
                     <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
                 </li>
                 <li class="sidebar-nav-item">
-                    <a href="animations.html" class="sidebar-nav-link">Animations</a>
+                    <a href="animations.html" class="sidebar-nav-link active">Animations</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="animations-advanced.html" class="sidebar-nav-link">Advanced Animations</a>
                 </li>
                 <li class="sidebar-nav-item">
                     <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
@@ -676,154 +679,20 @@ element.style.animationPlayState = 'paused';</code></pre>
             </div>
         </section>
 
-        <section id="advanced" class="demo-section">
-            <div class="container">
-                <h2 class="section-title">Advanced Techniques</h2>
-                <p class="section-intro">
-                    Push the boundaries with complex animations and performance optimisations.
-                </p>
-
-                <div class="demo-grid">
-                    <div class="demo-card wide">
-                        <h3 class="demo-title">3D Card Flip</h3>
-                        <div class="demo-example">
-                            <div class="animation-demo">
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <h4>Front Side</h4>
-                                            <p>Hover to flip</p>
-                                        </div>
-                                        <div class="flip-card-back">
-                                            <h4>Back Side</h4>
-                                            <p>Hidden content!</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* 3D card flip */
-.flip-card {
-    perspective: 1000px;
-}
-
-.flip-card-inner {
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-}
-
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-    position: absolute;
-    backface-visibility: hidden;
-}
-
-.flip-card-back {
-    transform: rotateY(180deg);
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="demo-card">
-                        <h3 class="demo-title">Particle System</h3>
-                        <div class="demo-example">
-                            <div class="animation-demo dark-bg">
-                                <div class="particles">
-                                    <span class="particle"></span>
-                                    <span class="particle"></span>
-                                    <span class="particle"></span>
-                                    <span class="particle"></span>
-                                    <span class="particle"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>@keyframes rise {
-    to {
-        transform: translateY(-100vh);
-        opacity: 0;
-    }
-}
-
-.particle {
-    position: absolute;
-    animation: rise 10s infinite;
-}
-
-/* Random positions and delays */
-.particle:nth-child(1) {
-    left: 10%;
-    animation-delay: 0s;
-}
-.particle:nth-child(2) {
-    left: 30%;
-    animation-delay: 2s;
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="demo-card">
-                        <h3 class="demo-title">SVG Path Animation</h3>
-                        <div class="demo-example">
-                            <div class="animation-demo">
-                                <svg class="svg-animation" viewBox="0 0 200 200">
-                                    <path class="svg-path" d="M20,100 Q100,20 180,100 T180,100" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* SVG path animation */
-.svg-path {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: draw 3s ease-in-out infinite;
-}
-
-@keyframes draw {
-    to {
-        stroke-dashoffset: 0;
-    }
-}</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="tips-section">
-            <div class="container">
-                <h2 class="section-title">Animation Best Practices</h2>
-                <div class="tips-grid">
-                    <div class="tip-card">
-                        <span class="tip-icon">⚡</span>
-                        <h3>Use Transform & Opacity</h3>
-                        <p>These properties are GPU-accelerated and provide the smoothest animations.</p>
-                    </div>
-                    <div class="tip-card">
-                        <span class="tip-icon">🎯</span>
-                        <h3>will-change Property</h3>
-                        <p>Hint to browsers about which properties will animate for better optimisation.</p>
-                    </div>
-                    <div class="tip-card">
-                        <span class="tip-icon">♿</span>
-                        <h3>Respect Motion Preferences</h3>
-                        <p>Use prefers-reduced-motion media query for accessibility.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="next-steps">
             <div class="container">
-                <h2 class="section-title">Add Visual Polish</h2>
+                <h2 class="section-title">Ready for Advanced Techniques?</h2>
                 <p class="section-subtitle">
-                    Animations mastered! Continue with gradients and filters for stunning visual effects.
+                    Now that you've mastered the basics, explore 3D transforms, particle systems, and performance optimization.
                 </p>
                 <div class="next-links">
+                    <a href="animations-advanced.html" class="next-link">
+                        <span class="next-icon">🚀</span>
+                        <div>
+                            <h3>Advanced Animations</h3>
+                            <p>3D effects, particle systems, SVG animations, and best practices</p>
+                        </div>
+                    </a>
                     <a href="gradients.html" class="next-link">
                         <span class="next-icon">🌈</span>
                         <div>
