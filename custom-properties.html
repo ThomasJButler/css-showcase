@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master CSS Custom Properties (CSS Variables) - dynamic theming, maintainable stylesheets, and powerful design systems with native CSS variables.">
+    <meta name="author" content="Thomas Butler">
+    <title>CSS Custom Properties | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/custom-properties.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="sidebar-content">
+            <!-- Home Link -->
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-home-link">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+            </div>
+
+            <!-- Fundamentals Section -->
+            <div class="sidebar-section" data-section="fundamentals">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="typography.html" class="sidebar-nav-link">Typography</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Layout Section -->
+            <div class="sidebar-section" data-section="layout">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎯</span>Layout</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="grid.html" class="sidebar-nav-link">Grid</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Visual Effects Section -->
+            <div class="sidebar-section" data-section="visual-effects">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="animations.html" class="sidebar-nav-link">Animations</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Components Section -->
+            <div class="sidebar-section" data-section="components">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🧩</span>Components</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="forms.html" class="sidebar-nav-link">Forms</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="tables.html" class="sidebar-nav-link">Tables</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="cards.html" class="sidebar-nav-link">Cards</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="icons.html" class="sidebar-nav-link">Icons</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Advanced Section -->
+            <div class="sidebar-section" data-section="advanced">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="custom-properties.html" class="sidebar-nav-link">Custom Properties</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Modern CSS Section -->
+            <div class="sidebar-section" data-section="modern-css">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Playground Section -->
+            <div class="sidebar-section" data-section="playground">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎮</span>Playground</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="playground.html" class="sidebar-nav-link">CSS Playground</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <button class="back-to-top">
+                <span>↑</span>
+                <span>Back to Top</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Header with navigation -->
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+
+            <div class="header-actions">
+                <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <button class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+                    <span class="theme-icon">🌞</span>
+                </button>
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="basic.html" class="nav-link">Fundamentals</a></li>
+                    <li class="nav-item"><a href="flexbox.html" class="nav-link">Layout</a></li>
+                    <li class="nav-item"><a href="animations.html" class="nav-link">Visual Effects</a></li>
+                    <li class="nav-item"><a href="buttons.html" class="nav-link">Components</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Breadcrumb navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="index.html" class="breadcrumb-link">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="index.html#advanced" class="breadcrumb-link">Advanced</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="breadcrumb-current">Custom Properties</span>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
+        <!-- Page hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">CSS Custom Properties</h1>
+                <p class="page-subtitle">Dynamic variables that revolutionize how you write CSS. Create flexible design systems, seamless theming, and maintainable stylesheets with native CSS variables.</p>
+            </div>
+        </section>
+
+        <!-- Custom Properties Basics Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>What Are Custom Properties?</h2>
+                <p>Custom properties (also called CSS variables) let you store values that you can reuse throughout your stylesheet. Unlike preprocessor variables (Sass, Less), these are native to CSS and live in the browser - which means you can change them dynamically with JavaScript!</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="custom-property-basic-demo">
+                            <div class="demo-box">Styled with CSS Variables</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Define custom properties */
+:root {
+    --primary-color: #2563eb;
+    --spacing: 1rem;
+    --border-radius: 12px;
+}
+
+/* Use them with var() function */
+.box {
+    background: var(--primary-color);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+}
+
+/* Fallback values if property isn't defined */
+.element {
+    color: var(--text-color, #000000); /* Falls back to black */
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <h3>Syntax Breakdown</h3>
+                    <ul>
+                        <li><strong>Defining:</strong> <code>--property-name: value;</code> - Custom properties always start with <code>--</code></li>
+                        <li><strong>Using:</strong> <code>var(--property-name)</code> - The <code>var()</code> function retrieves the value</li>
+                        <li><strong>Fallback:</strong> <code>var(--property-name, fallback)</code> - Comma-separated fallback if the property isn't set</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scope Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Scope & Inheritance</h2>
+                <p>Custom properties follow CSS cascade rules. Define them globally on <code>:root</code>, or scope them to specific elements. Child elements inherit their parent's custom properties.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="scope-demo">
+                            <div class="scope-box scope-global">
+                                Global Scope
+                            </div>
+                            <div class="scope-box scope-local">
+                                Local Scope
+                                <div class="scope-child">Inherits from parent</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Global scope - available everywhere */
+:root {
+    --global-color: #2563eb;
+}
+
+/* Local scope - only for this element and children */
+.card {
+    --card-padding: 2rem;
+    --card-bg: #f8fafc;
+
+    padding: var(--card-padding);
+    background: var(--card-bg);
+}
+
+/* Child inherits parent's custom properties */
+.card .title {
+    /* Can use --card-padding and --card-bg here */
+    margin-bottom: calc(var(--card-padding) / 2);
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p><strong>Pro tip:</strong> Use <code>:root</code> for design system tokens (colors, spacing, typography), and local scope for component-specific values. This creates a clear hierarchy and makes your CSS more maintainable.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Theming Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Theming Made Easy</h2>
+                <p>Custom properties are perfect for theming. Change a few variables and your entire design transforms. This is how this very website implements its dark/light theme!</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="theme-demo-container">
+                            <div class="theme-demo" data-theme="light">
+                                <div class="theme-card">
+                                    <h3>Light Theme</h3>
+                                    <p>Clean and bright, perfect for daytime browsing.</p>
+                                    <button class="theme-button">Click me</button>
+                                </div>
+                            </div>
+                            <div class="theme-demo" data-theme="dark">
+                                <div class="theme-card">
+                                    <h3>Dark Theme</h3>
+                                    <p>Easy on the eyes, great for nighttime coding.</p>
+                                    <button class="theme-button">Click me</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Light theme (default) */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1e293b;
+    --border-color: #e2e8f0;
+}
+
+/* Dark theme - just override the variables */
+[data-theme="dark"] {
+    --bg-color: #0f172a;
+    --text-color: #f1f5f9;
+    --border-color: #334155;
+}
+
+/* Components use the variables */
+.card {
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Notice how we only change the custom property values - the component styles stay exactly the same. This is the magic of CSS variables!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Updates Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Dynamic Updates with JavaScript</h2>
+                <p>Unlike Sass variables that compile away, CSS custom properties exist at runtime. This means JavaScript can modify them on the fly, creating truly interactive experiences.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="color-picker-demo">
+                            <div class="color-preview" id="colorPreview">
+                                <p>Dynamic Color</p>
+                            </div>
+                            <div class="color-controls">
+                                <label>
+                                    Hue
+                                    <input type="range" id="hueSlider" min="0" max="360" value="220">
+                                    <span id="hueValue">220</span>°
+                                </label>
+                                <label>
+                                    Saturation
+                                    <input type="range" id="satSlider" min="0" max="100" value="70">
+                                    <span id="satValue">70</span>%
+                                </label>
+                                <label>
+                                    Lightness
+                                    <input type="range" id="lightSlider" min="0" max="100" value="55">
+                                    <span id="lightValue">55</span>%
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">JavaScript</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-js">// Get the element
+const element = document.querySelector('.color-preview');
+
+// Set a custom property value
+element.style.setProperty('--dynamic-color', 'hsl(220, 70%, 55%)');
+
+// Read a custom property value
+const color = getComputedStyle(element)
+    .getPropertyValue('--dynamic-color');
+
+// Update based on user input
+hueSlider.addEventListener('input', (e) => {
+    const hue = e.target.value;
+    element.style.setProperty('--hue', hue);
+});</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.color-preview {
+    --hue: 220;
+    --saturation: 70%;
+    --lightness: 55%;
+
+    background: hsl(var(--hue), var(--saturation), var(--lightness));
+    color: white;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Patterns Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Advanced Patterns</h2>
+                <p>Custom properties unlock powerful techniques that were impossible before. Here are some advanced patterns that'll level up your CSS game.</p>
+
+                <h3>Calculations with Custom Properties</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="spacing-demo">
+                            <div class="spacing-item" style="--multiplier: 1">1x spacing</div>
+                            <div class="spacing-item" style="--multiplier: 2">2x spacing</div>
+                            <div class="spacing-item" style="--multiplier: 3">3x spacing</div>
+                            <div class="spacing-item" style="--multiplier: 4">4x spacing</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">:root {
+    --base-spacing: 0.5rem;
+}
+
+.spacing-item {
+    --multiplier: 1;
+    margin-bottom: calc(var(--base-spacing) * var(--multiplier));
+    padding: calc(var(--base-spacing) * var(--multiplier));
+}
+
+/* Override multiplier inline */
+.spacing-item { --multiplier: 2; }</code></pre>
+                </div>
+
+                <h3>Responsive Design with Custom Properties</h3>
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Responsive values change in media queries */
+:root {
+    --container-width: 100%;
+    --font-size: 1rem;
+    --grid-columns: 1;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --container-width: 90%;
+        --font-size: 1.125rem;
+        --grid-columns: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --container-width: 1200px;
+        --font-size: 1.25rem;
+        --grid-columns: 3;
+    }
+}
+
+/* Components automatically adapt */
+.container {
+    width: var(--container-width);
+    font-size: var(--font-size);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+}</code></pre>
+                </div>
+
+                <h3>Component API Pattern</h3>
+                <div class="demo-block">
+                    <div class="demo-content component-api-demo">
+                        <button class="api-button" style="--button-color: #2563eb; --button-size: 1;">
+                            Primary
+                        </button>
+                        <button class="api-button" style="--button-color: #10b981; --button-size: 1.2;">
+                            Success (Large)
+                        </button>
+                        <button class="api-button" style="--button-color: #ef4444; --button-size: 0.875;">
+                            Danger (Small)
+                        </button>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Component with customizable API */
+.api-button {
+    /* Default values */
+    --button-color: #2563eb;
+    --button-size: 1;
+
+    background: var(--button-color);
+    padding: calc(0.75rem * var(--button-size)) calc(1.5rem * var(--button-size));
+    font-size: calc(1rem * var(--button-size));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Hover state lightens the custom color */
+.api-button:hover {
+    filter: brightness(1.1);
+}</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">HTML</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-html">&lt;!-- Customize via inline styles --&gt;
+&lt;button class="api-button" style="--button-color: #ef4444; --button-size: 1.2;"&gt;
+    Large Danger Button
+&lt;/button&gt;</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>This pattern creates a clean API for your components. Instead of creating tons of modifier classes (<code>.button-large</code>, <code>.button-danger</code>), you expose custom properties that users can adjust.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Browser Support Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Browser Support</h2>
+                <p>CSS custom properties have excellent browser support! They work in all modern browsers since 2016.</p>
+
+                <div class="tip-box">
+                    <h4>Browser Compatibility</h4>
+                    <ul>
+                        <li><strong>Chrome/Edge:</strong> 49+ ✅</li>
+                        <li><strong>Firefox:</strong> 31+ ✅</li>
+                        <li><strong>Safari:</strong> 9.1+ ✅</li>
+                        <li><strong>Internet Explorer:</strong> Not supported ❌</li>
+                    </ul>
+                    <p>For IE11 support (if you must), provide fallback values:</p>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.element {
+    /* Fallback for browsers without custom property support */
+    color: #2563eb;
+
+    /* Custom property value (overrides fallback in modern browsers) */
+    color: var(--primary-color);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real-World Example Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Real-World Example: Design System</h2>
+                <p>Let's build a complete mini design system using custom properties. This is how professional design systems (like Material Design or Chakra UI) are structured.</p>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">:root {
+    /* Color Palette */
+    --color-primary-50: #eff6ff;
+    --color-primary-100: #dbeafe;
+    --color-primary-500: #3b82f6;
+    --color-primary-900: #1e3a8a;
+
+    /* Semantic Colors */
+    --color-background: var(--color-primary-50);
+    --color-text: var(--color-primary-900);
+    --color-accent: var(--color-primary-500);
+
+    /* Spacing Scale (8pt grid) */
+    --space-1: 0.25rem;   /* 4px */
+    --space-2: 0.5rem;    /* 8px */
+    --space-3: 0.75rem;   /* 12px */
+    --space-4: 1rem;      /* 16px */
+    --space-6: 1.5rem;    /* 24px */
+    --space-8: 2rem;      /* 32px */
+
+    /* Typography Scale */
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+/* Components reference the design tokens */
+.card {
+    background: var(--color-background);
+    color: var(--color-text);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.button {
+    background: var(--color-accent);
+    color: white;
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--font-size-base);
+    border-radius: var(--radius-md);
+}</code></pre>
+                </div>
+
+                <div class="design-system-demo">
+                    <div class="ds-card">
+                        <h3>Design System Card</h3>
+                        <p>This card uses tokens from our custom property design system.</p>
+                        <button class="ds-button">Take Action</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Topics Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Keep Learning</h2>
+                <div class="related-links">
+                    <a href="advanced.html" class="related-card">
+                        <h3>Advanced CSS</h3>
+                        <p>Explore more advanced techniques including pseudo-elements, specificity, and complex selectors.</p>
+                    </a>
+                    <a href="transitions.html" class="related-card">
+                        <h3>CSS Transitions</h3>
+                        <p>Combine custom properties with transitions to create smooth, dynamic color and size changes.</p>
+                    </a>
+                    <a href="has-selector.html" class="related-card">
+                        <h3>:has() Selector</h3>
+                        <p>Learn about another modern CSS feature that gives you incredible selector power.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion by <a href="https://thomasjbutler.me" target="_blank" rel="noopener">Thomas Butler</a>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/syntax-highlight.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/micro-interactions.js"></script>
+    <script src="scripts/custom-properties.js"></script>
+</body>
+</html>

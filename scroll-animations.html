@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master CSS Scroll-Driven Animations - create scroll-triggered effects without JavaScript using animation-timeline and view() timelines.">
+    <meta name="author" content="Thomas Butler">
+    <title>CSS Scroll Animations | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/scroll-animations.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <div class="sidebar-backdrop"></div>
+
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-home-link">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+            </div>
+
+            <div class="sidebar-section" data-section="fundamentals">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="basic.html" class="sidebar-nav-link">Basic CSS</a></li>
+                    <li class="sidebar-nav-item"><a href="box-model.html" class="sidebar-nav-link">Box Model</a></li>
+                    <li class="sidebar-nav-item"><a href="typography.html" class="sidebar-nav-link">Typography</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section" data-section="layout">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎯</span>Layout</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="flexbox.html" class="sidebar-nav-link">Flexbox</a></li>
+                    <li class="sidebar-nav-item"><a href="grid.html" class="sidebar-nav-link">Grid</a></li>
+                    <li class="sidebar-nav-item"><a href="layout.html" class="sidebar-nav-link">Layout Techniques</a></li>
+                    <li class="sidebar-nav-item"><a href="responsive.html" class="sidebar-nav-link">Responsive Design</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section" data-section="visual-effects">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="gradients.html" class="sidebar-nav-link">Gradients</a></li>
+                    <li class="sidebar-nav-item"><a href="transitions.html" class="sidebar-nav-link">Transitions</a></li>
+                    <li class="sidebar-nav-item"><a href="animations.html" class="sidebar-nav-link">Animations</a></li>
+                    <li class="sidebar-nav-item"><a href="filters.html" class="sidebar-nav-link">Filters & Effects</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section" data-section="components">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🧩</span>Components</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="buttons.html" class="sidebar-nav-link">Buttons</a></li>
+                    <li class="sidebar-nav-item"><a href="forms.html" class="sidebar-nav-link">Forms</a></li>
+                    <li class="sidebar-nav-item"><a href="tables.html" class="sidebar-nav-link">Tables</a></li>
+                    <li class="sidebar-nav-item"><a href="cards.html" class="sidebar-nav-link">Cards</a></li>
+                    <li class="sidebar-nav-item"><a href="icons.html" class="sidebar-nav-link">Icons</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section" data-section="advanced">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a></li>
+                    <li class="sidebar-nav-item"><a href="custom-properties.html" class="sidebar-nav-link">Custom Properties</a></li>
+                    <li class="sidebar-nav-item"><a href="blend-modes.html" class="sidebar-nav-link">Blend Modes</a></li>
+                    <li class="sidebar-nav-item"><a href="shapes-clips.html" class="sidebar-nav-link">Shapes & Clips</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section" data-section="modern-css">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a></li>
+                    <li class="sidebar-nav-item"><a href="container-queries.html" class="sidebar-nav-link">Container Queries</a></li>
+                    <li class="sidebar-nav-item"><a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a></li>
+                    <li class="sidebar-nav-item"><a href="anchor-positioning.html" class="sidebar-nav-link">Anchor Positioning</a></li>
+                    <li class="sidebar-nav-item"><a href="scroll-animations.html" class="sidebar-nav-link">Scroll Animations</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section" data-section="playground">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎮</span>Playground</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="playground.html" class="sidebar-nav-link">CSS Playground</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <button class="back-to-top">
+                <span>↑</span>
+                <span>Back to Top</span>
+            </button>
+        </div>
+    </aside>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+
+            <div class="header-actions">
+                <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <button class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+                    <span class="theme-icon">🌞</span>
+                </button>
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="basic.html" class="nav-link">Fundamentals</a></li>
+                    <li class="nav-item"><a href="flexbox.html" class="nav-link">Layout</a></li>
+                    <li class="nav-item"><a href="animations.html" class="nav-link">Visual Effects</a></li>
+                    <li class="nav-item"><a href="buttons.html" class="nav-link">Components</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Home</a></li>
+                    <li class="breadcrumb-item"><a href="index.html#modern-css" class="breadcrumb-link">Modern CSS</a></li>
+                    <li class="breadcrumb-item"><span class="breadcrumb-current">Scroll Animations</span></li>
+                </ol>
+            </div>
+        </nav>
+
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">CSS Scroll-Driven Animations</h1>
+                <p class="page-subtitle">Animations that respond to scroll position - all in pure CSS. Create parallax effects, reveal animations, and scroll progress indicators without a single line of JavaScript.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>The Future of Scroll Effects</h2>
+                <p>For years, scroll-triggered animations required JavaScript libraries, scroll listeners, and performance concerns. CSS Scroll-Driven Animations changes the game - animations driven by scroll position, completely declarative.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="scroll-demo-box fade-in-scroll">
+                            <h3>Scroll Down</h3>
+                            <p>This element fades in as you scroll</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">@keyframes fade-in {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.element {
+    animation: fade-in linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <h3>Key Concepts</h3>
+                    <ul>
+                        <li><strong>animation-timeline:</strong> Links animation to scroll instead of time</li>
+                        <li><strong>scroll():</strong> Animates based on scroll container position</li>
+                        <li><strong>view():</strong> Animates based on element visibility in viewport</li>
+                        <li><strong>animation-range:</strong> Controls when animation starts/ends during scroll</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Scroll Progress Indicator</h2>
+                <p>Create reading progress bars that fill as you scroll - perfect for blog posts and articles.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="progress-demo">
+                            <div class="progress-bar"></div>
+                            <p>The bar above fills as you scroll this page!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">@keyframes grow-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #2563eb;
+    transform-origin: 0 50%;
+    animation: grow-progress linear;
+    animation-timeline: scroll(root);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Reveal on Scroll</h2>
+                <p>Elements animate into view as they enter the viewport - the classic "scroll reveal" effect, now in pure CSS.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="reveal-grid">
+                            <div class="reveal-card">Card 1</div>
+                            <div class="reveal-card">Card 2</div>
+                            <div class="reveal-card">Card 3</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(100px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.card {
+    animation: reveal linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Browser Support</h2>
+                <div class="tip-box warning-box">
+                    <h4>⚠️ Cutting-Edge Feature</h4>
+                    <p><strong>Scroll-Driven Animations are very new!</strong></p>
+                    <ul>
+                        <li><strong>Chrome 115+:</strong> Fully supported ✅</li>
+                        <li><strong>Edge 115+:</strong> Fully supported ✅</li>
+                        <li><strong>Firefox:</strong> Behind flag 🚧</li>
+                        <li><strong>Safari:</strong> In development 🚧</li>
+                    </ul>
+                    <p><strong>For production:</strong> Use progressive enhancement. The animations won't run in unsupported browsers, but your content will still be visible.</p>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Progressive enhancement */
+.element {
+    opacity: 1; /* Default state for unsupported browsers */
+}
+
+@supports (animation-timeline: view()) {
+    .element {
+        opacity: 0; /* Start hidden only if supported */
+        animation: fade-in linear;
+        animation-timeline: view();
+    }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Why This Matters</h2>
+                <div class="explanation">
+                    <p>Scroll-Driven Animations eliminate common problems:</p>
+                    <ul>
+                        <li>✅ <strong>Performance:</strong> Browser-optimized, runs on compositor thread</li>
+                        <li>✅ <strong>No JavaScript:</strong> Pure CSS means no scroll listeners, no jank</li>
+                        <li>✅ <strong>Declarative:</strong> Define what you want, browser handles how</li>
+                        <li>✅ <strong>Accessibility:</strong> Respects prefers-reduced-motion automatically</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Keep Learning</h2>
+                <div class="related-links">
+                    <a href="animations.html" class="related-card">
+                        <h3>CSS Animations</h3>
+                        <p>Master keyframe animations before diving into scroll-driven effects.</p>
+                    </a>
+                    <a href="transitions.html" class="related-card">
+                        <h3>CSS Transitions</h3>
+                        <p>Learn the foundations of CSS animation timing and easing functions.</p>
+                    </a>
+                    <a href="has-selector.html" class="related-card">
+                        <h3>:has() Selector</h3>
+                        <p>Another game-changing modern CSS feature for powerful selectors.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion by <a href="https://thomasjbutler.me" target="_blank" rel="noopener">Thomas Butler</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/syntax-highlight.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/micro-interactions.js"></script>
+</body>
+</html>

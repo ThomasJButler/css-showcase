@@ -155,35 +155,48 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Header Scroll Effect
     const header = document.querySelector('.site-header');
+    const themeToggleEl = document.querySelector('.theme-toggle');
     let lastScroll = 0;
     let scrollTimer = null;
-    
+
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
-        
+        const isMobile = window.innerWidth <= 768;
+
         if (currentScroll > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-        
+
         // Hide/show header on scroll (only when mobile menu is not open)
         if (!navList.classList.contains('active')) {
             if (currentScroll > lastScroll && currentScroll > 200) {
                 header.classList.add('header-hidden');
+                // Hide theme toggle on mobile when scrolling down
+                if (isMobile && themeToggleEl) {
+                    themeToggleEl.classList.add('header-hidden');
+                }
             } else {
                 header.classList.remove('header-hidden');
+                // Show theme toggle on mobile when scrolling up
+                if (isMobile && themeToggleEl) {
+                    themeToggleEl.classList.remove('header-hidden');
+                }
             }
         }
-        
+
         // Clear timer
         clearTimeout(scrollTimer);
-        
+
         // Show header after scroll stops
         scrollTimer = setTimeout(() => {
             header.classList.remove('header-hidden');
+            if (isMobile && themeToggleEl) {
+                themeToggleEl.classList.remove('header-hidden');
+            }
         }, 500);
-        
+
         lastScroll = currentScroll;
     }, { passive: true });
     
@@ -193,15 +206,21 @@ document.addEventListener('DOMContentLoaded', function() {
         .site-header.scrolled {
             box-shadow: var(--shadow-md);
         }
-        
+
         .site-header.header-hidden {
             transform: translateY(-100%);
         }
-        
+
+        .theme-toggle.header-hidden {
+            transform: translateY(-100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         .nav-toggle.active span:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
         }
-        
+
         .nav-toggle.active span:nth-child(2) {
             opacity: 0;
         }

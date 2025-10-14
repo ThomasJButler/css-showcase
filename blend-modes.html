@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master CSS Blend Modes - create stunning visual effects by blending colors and images with mix-blend-mode and background-blend-mode properties.">
+    <meta name="author" content="Thomas Butler">
+    <title>CSS Blend Modes | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/blend-modes.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="sidebar-content">
+            <!-- Home Link -->
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-home-link">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+            </div>
+
+            <!-- Fundamentals Section -->
+            <div class="sidebar-section" data-section="fundamentals">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="typography.html" class="sidebar-nav-link">Typography</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Layout Section -->
+            <div class="sidebar-section" data-section="layout">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎯</span>Layout</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="grid.html" class="sidebar-nav-link">Grid</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Visual Effects Section -->
+            <div class="sidebar-section" data-section="visual-effects">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="animations.html" class="sidebar-nav-link">Animations</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Components Section -->
+            <div class="sidebar-section" data-section="components">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🧩</span>Components</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="forms.html" class="sidebar-nav-link">Forms</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="tables.html" class="sidebar-nav-link">Tables</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="cards.html" class="sidebar-nav-link">Cards</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="icons.html" class="sidebar-nav-link">Icons</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Advanced Section -->
+            <div class="sidebar-section" data-section="advanced">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="custom-properties.html" class="sidebar-nav-link">Custom Properties</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="blend-modes.html" class="sidebar-nav-link">Blend Modes</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Modern CSS Section -->
+            <div class="sidebar-section" data-section="modern-css">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Playground Section -->
+            <div class="sidebar-section" data-section="playground">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎮</span>Playground</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="playground.html" class="sidebar-nav-link">CSS Playground</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <button class="back-to-top">
+                <span>↑</span>
+                <span>Back to Top</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Header with navigation -->
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+
+            <div class="header-actions">
+                <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <button class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+                    <span class="theme-icon">🌞</span>
+                </button>
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="basic.html" class="nav-link">Fundamentals</a></li>
+                    <li class="nav-item"><a href="flexbox.html" class="nav-link">Layout</a></li>
+                    <li class="nav-item"><a href="animations.html" class="nav-link">Visual Effects</a></li>
+                    <li class="nav-item"><a href="buttons.html" class="nav-link">Components</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Breadcrumb navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="index.html" class="breadcrumb-link">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="index.html#advanced" class="breadcrumb-link">Advanced</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="breadcrumb-current">Blend Modes</span>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
+        <!-- Page hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">CSS Blend Modes</h1>
+                <p class="page-subtitle">Create stunning visual effects by blending colors and images together. Master Photoshop-style blending right in your CSS with mix-blend-mode and background-blend-mode.</p>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>What Are Blend Modes?</h2>
+                <p>Blend modes determine how an element's colors mix with the colors behind it. If you've used Photoshop or other design tools, you're already familiar with blend modes like "multiply", "screen", and "overlay". CSS brings these same effects to the web!</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="blend-intro-demo">
+                            <div class="blend-base">
+                                <div class="blend-overlay">mix-blend-mode</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.overlay {
+    mix-blend-mode: multiply;
+    /* Element blends with everything behind it */
+}
+
+.background {
+    background-blend-mode: overlay;
+    /* Multiple backgrounds blend with each other */
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <h3>Two Types of Blending</h3>
+                    <ul>
+                        <li><strong>mix-blend-mode:</strong> Blends an element with its backdrop (everything behind it)</li>
+                        <li><strong>background-blend-mode:</strong> Blends multiple background layers together</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Blend Modes Gallery Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>All Blend Modes</h2>
+                <p>CSS supports 16 blend modes. Each creates a unique effect - experiment to find the perfect look for your design.</p>
+
+                <div class="blend-modes-gallery">
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="normal">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">normal</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="multiply">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">multiply</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="screen">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">screen</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="overlay">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">overlay</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="darken">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">darken</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="lighten">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">lighten</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="color-dodge">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">color-dodge</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="color-burn">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">color-burn</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="hard-light">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">hard-light</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="soft-light">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">soft-light</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="difference">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">difference</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="exclusion">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">exclusion</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="hue">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">hue</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="saturation">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">saturation</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="color">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">color</span>
+                    </div>
+
+                    <div class="blend-mode-card">
+                        <div class="blend-preview" data-mode="luminosity">
+                            <div class="blend-layer"></div>
+                        </div>
+                        <span class="blend-name">luminosity</span>
+                    </div>
+                </div>
+
+                <div class="explanation">
+                    <h3>Most Useful Blend Modes</h3>
+                    <ul>
+                        <li><strong>multiply:</strong> Darkens - perfect for shadows and overlays</li>
+                        <li><strong>screen:</strong> Lightens - great for glows and highlights</li>
+                        <li><strong>overlay:</strong> Contrast boost - combines multiply and screen</li>
+                        <li><strong>soft-light:</strong> Subtle lighting effect - like a soft spotlight</li>
+                        <li><strong>difference:</strong> Creates inverted colors - striking effects</li>
+                        <li><strong>color:</strong> Applies hue and saturation - great for colorizing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- mix-blend-mode Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>mix-blend-mode</h2>
+                <p>The <code>mix-blend-mode</code> property blends an element with everything behind it - backgrounds, images, text, the whole backdrop.</p>
+
+                <h3>Text Overlay Effect</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="text-blend-demo">
+                            <div class="text-blend-bg">
+                                <h2 class="blend-text">BLEND</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.background {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.text {
+    font-size: 5rem;
+    font-weight: 900;
+    color: white;
+    mix-blend-mode: difference;
+    /* Text inverts the background colors */
+}</code></pre>
+                </div>
+
+                <h3>Image Duotone Effect</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="duotone-demo">
+                            <div class="duotone-image">
+                                <div class="duotone-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.image {
+    background: url('image.jpg');
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+    mix-blend-mode: multiply;
+    /* Creates duotone effect */
+}</code></pre>
+                </div>
+
+                <h3>Logo Adaptation</h3>
+                <div class="demo-block">
+                    <div class="demo-content logo-adapt-demo">
+                        <div class="logo-section logo-light">
+                            <div class="logo-adapt">LOGO</div>
+                            <p>Light Background</p>
+                        </div>
+                        <div class="logo-section logo-dark">
+                            <div class="logo-adapt">LOGO</div>
+                            <p>Dark Background</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.logo {
+    color: black;
+    mix-blend-mode: difference;
+    /* Logo automatically contrasts with background */
+}
+
+/* Works on any background color! */
+.light { background: white; }
+.dark { background: black; }</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- background-blend-mode Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>background-blend-mode</h2>
+                <p>Use <code>background-blend-mode</code> to blend multiple background layers together. This creates rich, complex effects without extra elements.</p>
+
+                <h3>Gradient + Image Blend</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="bg-blend-demo">
+                            <div class="gradient-image-blend">
+                                <h3>Beautiful Blending</h3>
+                                <p>Gradient overlaid on pattern</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.element {
+    background:
+        linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)),
+        url('pattern.png');
+    background-blend-mode: overlay;
+    /* Gradient blends with image */
+}</code></pre>
+                </div>
+
+                <h3>Multiple Gradient Blend</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="multi-gradient-demo"></div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.element {
+    background:
+        radial-gradient(circle at 20% 50%, rgba(255, 0, 150, 0.5), transparent),
+        radial-gradient(circle at 80% 50%, rgba(0, 200, 255, 0.5), transparent),
+        linear-gradient(45deg, #667eea, #764ba2);
+    background-blend-mode: screen;
+    /* Creates vibrant, overlapping colors */
+}</code></pre>
+                </div>
+
+                <h3>Texture Overlay</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="texture-demo">
+                            <div class="textured-card">
+                                <h3>Textured Effect</h3>
+                                <p>Adding depth with blend modes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.card {
+    background:
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,.05) 2px, rgba(0,0,0,.05) 4px),
+        linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-blend-mode: multiply;
+    /* Subtle texture over gradient */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real-World Examples Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Real-World Examples</h2>
+                <p>Here's how blend modes solve real design problems.</p>
+
+                <h3>Dark Mode Text</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="dark-mode-text-demo">
+                            <div class="theme-box theme-light-box">
+                                <h4 class="adaptive-text">Adaptive Text</h4>
+                                <p>Light theme</p>
+                            </div>
+                            <div class="theme-box theme-dark-box">
+                                <h4 class="adaptive-text">Adaptive Text</h4>
+                                <p>Dark theme</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.adaptive-text {
+    color: #888;
+    mix-blend-mode: difference;
+    /* Always contrasts with background */
+}
+
+/* No theme-specific styles needed! */</code></pre>
+                </div>
+
+                <h3>Colorful Shadows</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="colorful-shadow-demo">
+                            <div class="shadow-card">
+                                <h4>Vibrant Card</h4>
+                                <p>With blended shadows</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.card {
+    background: white;
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: inherit;
+    filter: blur(20px);
+    opacity: 0.6;
+    z-index: -1;
+    mix-blend-mode: multiply;
+    /* Colorful shadow that blends */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Browser Support Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Browser Support</h2>
+                <p>Blend modes have excellent support across modern browsers!</p>
+
+                <div class="tip-box">
+                    <h4>Browser Compatibility</h4>
+                    <ul>
+                        <li><strong>Chrome/Edge:</strong> 35+ ✅</li>
+                        <li><strong>Firefox:</strong> 32+ ✅</li>
+                        <li><strong>Safari:</strong> 8+ ✅</li>
+                        <li><strong>Internet Explorer:</strong> Not supported ❌</li>
+                    </ul>
+                    <p><strong>Pro tip:</strong> Always design with blend modes as an enhancement. Your design should still work (even if less fancy) when blend modes aren't supported.</p>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Feature detection with @supports */
+@supports (mix-blend-mode: multiply) {
+    .fancy-text {
+        mix-blend-mode: difference;
+    }
+}
+
+/* Fallback for unsupported browsers */
+.fancy-text {
+    /* Basic styling here */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Performance Tips</h2>
+
+                <div class="explanation">
+                    <h3>Best Practices</h3>
+                    <ul>
+                        <li><strong>Use sparingly:</strong> Blend modes can be GPU-intensive on complex layouts</li>
+                        <li><strong>Isolate blending:</strong> Create a new stacking context with <code>isolation: isolate</code></li>
+                        <li><strong>Test on mobile:</strong> Performance varies across devices</li>
+                        <li><strong>Avoid over-nesting:</strong> Multiple blend modes on top of each other can be slow</li>
+                    </ul>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Isolate blend mode effects */
+.blend-container {
+    isolation: isolate;
+    /* Creates a new stacking context */
+}
+
+.blend-element {
+    mix-blend-mode: multiply;
+    /* Only blends within .blend-container */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Topics Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Keep Learning</h2>
+                <div class="related-links">
+                    <a href="filters.html" class="related-card">
+                        <h3>Filters & Effects</h3>
+                        <p>Combine blend modes with CSS filters for even more creative effects like blur, saturation, and hue rotation.</p>
+                    </a>
+                    <a href="gradients.html" class="related-card">
+                        <h3>Gradients</h3>
+                        <p>Master gradients to create beautiful backgrounds that you can blend with images and other elements.</p>
+                    </a>
+                    <a href="custom-properties.html" class="related-card">
+                        <h3>Custom Properties</h3>
+                        <p>Use CSS variables to dynamically control blend mode colors and create interactive effects.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion by <a href="https://thomasjbutler.me" target="_blank" rel="noopener">Thomas Butler</a>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/syntax-highlight.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/micro-interactions.js"></script>
+</body>
+</html>

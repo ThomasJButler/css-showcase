@@ -1,0 +1,440 @@
+/* Scroll Animations Page Styles */
+
+.intro-demo {
+    padding: 4rem 2rem;
+    overflow: hidden;
+}
+
+.scroll-demo-box {
+    padding: 3rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.scroll-demo-box h3 {
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+}
+
+.scroll-demo-box p {
+    margin: 0;
+    font-size: 1.125rem;
+    opacity: 0.9;
+}
+
+/* Fade-in on scroll animation */
+.fade-in-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fade-in-up linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fallback for browsers without scroll-driven animations */
+@supports not (animation-timeline: view()) {
+    .fade-in-scroll {
+        animation: none;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Progress Indicator Demo */
+.progress-demo {
+    padding: 3rem 2rem;
+    position: relative;
+}
+
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dark .progress-container {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #2563eb, #7c3aed);
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: scroll-progress linear;
+    animation-timeline: scroll(root);
+}
+
+@keyframes scroll-progress {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* Fallback for browsers without scroll-driven animations */
+@supports not (animation-timeline: scroll()) {
+    .progress-bar {
+        animation: none;
+        transform: scaleX(0);
+    }
+}
+
+.progress-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.progress-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.progress-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.125rem;
+}
+
+/* Reveal Cards Demo */
+.reveal-demo {
+    padding: 3rem 2rem;
+}
+
+.reveal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.reveal-card {
+    padding: 2rem;
+    background: var(--color-surface, #f8fafc);
+    border: 2px solid var(--color-border, #e2e8f0);
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    animation: reveal-card linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+}
+
+.dark .reveal-card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+@keyframes reveal-card {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Fallback for browsers without scroll-driven animations */
+@supports not (animation-timeline: view()) {
+    .reveal-card {
+        animation: none;
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.reveal-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.25rem;
+    color: var(--color-text, #1e293b);
+}
+
+.reveal-card p {
+    margin: 0;
+    color: var(--color-text-secondary, #64748b);
+    line-height: 1.6;
+}
+
+/* Stagger the animations for multiple cards */
+.reveal-card:nth-child(1) {
+    animation-delay: 0ms;
+}
+
+.reveal-card:nth-child(2) {
+    animation-delay: 100ms;
+}
+
+.reveal-card:nth-child(3) {
+    animation-delay: 200ms;
+}
+
+/* Timeline Demo */
+.timeline-demo {
+    padding: 3rem 2rem;
+}
+
+.timeline-description {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.timeline-description h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-description p {
+    line-height: 1.8;
+    color: var(--color-text-secondary, #64748b);
+}
+
+.timeline-values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.timeline-value {
+    padding: 1.5rem;
+    background: var(--color-surface, #f8fafc);
+    border: 2px solid var(--color-border, #e2e8f0);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.dark .timeline-value {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+.timeline-value code {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.875rem;
+    color: var(--color-primary, #2563eb);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-value p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary, #64748b);
+    line-height: 1.5;
+}
+
+/* Range Demo */
+.range-demo {
+    padding: 3rem 2rem;
+}
+
+.range-description {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.range-description h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.range-description p {
+    line-height: 1.8;
+    color: var(--color-text-secondary, #64748b);
+}
+
+.range-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.range-example {
+    padding: 2rem;
+    background: var(--color-surface, #f8fafc);
+    border: 2px solid var(--color-border, #e2e8f0);
+    border-radius: 12px;
+}
+
+.dark .range-example {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+.range-example h4 {
+    margin: 0 0 1rem 0;
+    font-size: 1.125rem;
+    color: var(--color-text, #1e293b);
+}
+
+.dark .range-example h4 {
+    color: #f1f5f9;
+}
+
+.range-example code {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.875rem;
+    color: var(--color-primary, #2563eb);
+    background: rgba(37, 99, 235, 0.05);
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.range-example p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary, #64748b);
+    line-height: 1.6;
+}
+
+/* Browser Support Info */
+.info-box {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+}
+
+.dark .info-box {
+    background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+    border-left-color: #60a5fa;
+}
+
+.info-box h4 {
+    margin: 0 0 1rem 0;
+    font-size: 1.125rem;
+}
+
+.info-box ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.info-box li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.info-box code {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.875rem;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+}
+
+.dark .info-box code {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Related Links */
+.related-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.related-card {
+    padding: 2rem;
+    background: var(--color-surface, #f8fafc);
+    border: 2px solid var(--color-border, #e2e8f0);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.dark .related-card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+.related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    border-color: #2563eb;
+}
+
+.related-card h3 {
+    margin: 0 0 0.75rem 0;
+    color: var(--color-text, #1e293b);
+    font-size: 1.25rem;
+}
+
+.dark .related-card h3 {
+    color: #f1f5f9;
+}
+
+.related-card p {
+    margin: 0;
+    color: var(--color-text-secondary, #64748b);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .scroll-demo-box h3 {
+        font-size: 1.5rem;
+    }
+
+    .scroll-demo-box p {
+        font-size: 1rem;
+    }
+
+    .reveal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-values {
+        grid-template-columns: 1fr;
+    }
+
+    .range-examples {
+        grid-template-columns: 1fr;
+    }
+
+    .related-links {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-scroll,
+    .reveal-card,
+    .progress-bar {
+        animation: none !important;
+        opacity: 1;
+        transform: none;
+    }
+}

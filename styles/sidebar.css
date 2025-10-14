@@ -224,7 +224,7 @@
 .sidebar-toggle {
     position: fixed;
     top: var(--space-6); /* Aligned with theme toggle */
-    right: 1rem; /* Changed from left to right */
+    left: 1rem; /* Position on left side */
     width: 48px; /* Match theme toggle size */
     height: 48px; /* Match theme toggle size */
     background: var(--colour-background);
@@ -346,6 +346,8 @@
 
     .sidebar-toggle {
         display: flex;
+        left: 1rem; /* Position on left side */
+        right: auto; /* Override default right positioning */
     }
 
     /* Hide old header nav toggle - we use sidebar toggle now */
@@ -358,9 +360,22 @@
         display: none !important;
     }
 
-    /* Theme toggle positioning adjusted - sidebar toggle now on right */
+    /* Add padding above Home to make space for toggle buttons */
+    .sidebar-content {
+        padding-top: 5rem; /* Space for toggle buttons */
+    }
+
+    /* Theme toggle positioning adjusted - both toggles now on left */
     .theme-toggle {
-        right: 4.5rem; /* Position to left of sidebar toggle */
+        top: var(--space-6) !important; /* Align with sidebar toggle */
+        left: 4.5rem !important; /* Position to right of sidebar toggle */
+    }
+
+    /* Hide logo when sidebar is active to prevent overlap */
+    .sidebar.active ~ header .logo {
+        opacity: 0 !important;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
     }
 }
 
@@ -376,11 +391,19 @@
 
     .sidebar-nav-link {
         font-size: 1rem;
-        padding: 0.75rem 1rem 0.75rem 2.5rem;
+        padding: 0.875rem 1rem 0.875rem 2.5rem; /* 14px top/bottom = 28px + 16px font ≈ 44px touch target */
+        min-height: 44px; /* Ensure minimum touch target */
     }
 
     .sidebar-section-title {
         font-size: 0.8125rem;
+        padding: 0.875rem 1rem; /* Increase touch target */
+        min-height: 44px;
+    }
+
+    .sidebar-home-link {
+        padding: 0.875rem 1rem;
+        min-height: 44px;
     }
 }
 

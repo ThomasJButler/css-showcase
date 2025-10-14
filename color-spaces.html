@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore modern CSS color spaces including oklch, lab, lch, display-p3, and color-mix functions for vibrant, perceptually uniform colors.">
+    <meta name="author" content="Thomas Butler">
+    <title>Modern CSS Color Spaces | The Ultimate CSS Showcase</title>
+
+    <!-- Core styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
+
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="styles/color-spaces.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Theme toggle -->
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle color theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <!-- Header with navigation -->
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <button class="nav-link dropdown-trigger" aria-expanded="false">
+                            Modern CSS
+                            <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="has-selector.html">:has() Selector</a></li>
+                            <li><a href="container-queries.html">Container Queries</a></li>
+                            <li><a href="css-nesting.html">CSS Nesting</a></li>
+                            <li><a href="anchor-positioning.html">Anchor Positioning</a></li>
+                            <li><a href="scroll-animations.html">Scroll Animations</a></li>
+                            <li><a href="color-spaces.html" class="active">Color Spaces</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav" aria-label="Secondary navigation">
+            <section class="nav-section">
+                <h3 class="nav-section-title">Fundamentals</h3>
+                <ul class="nav-section-list">
+                    <li><a href="basic.html">CSS Basics</a></li>
+                    <li><a href="box-model.html">Box Model</a></li>
+                    <li><a href="typography.html">Typography</a></li>
+                </ul>
+            </section>
+
+            <section class="nav-section">
+                <h3 class="nav-section-title">Layout</h3>
+                <ul class="nav-section-list">
+                    <li><a href="flexbox.html">Flexbox</a></li>
+                    <li><a href="grid.html">Grid</a></li>
+                    <li><a href="layout.html">Layout Techniques</a></li>
+                    <li><a href="responsive.html">Responsive Design</a></li>
+                </ul>
+            </section>
+
+            <section class="nav-section">
+                <h3 class="nav-section-title">Visual Effects</h3>
+                <ul class="nav-section-list">
+                    <li><a href="gradients.html">Gradients</a></li>
+                    <li><a href="transitions.html">Transitions</a></li>
+                    <li><a href="animations.html">Animations</a></li>
+                </ul>
+            </section>
+
+            <section class="nav-section">
+                <h3 class="nav-section-title">Components</h3>
+                <ul class="nav-section-list">
+                    <li><a href="buttons.html">Buttons</a></li>
+                    <li><a href="forms.html">Forms</a></li>
+                    <li><a href="tables.html">Tables</a></li>
+                    <li><a href="cards.html">Cards</a></li>
+                    <li><a href="icons.html">CSS Icons</a></li>
+                    <li><a href="filters.html">CSS Filters</a></li>
+                </ul>
+            </section>
+
+            <section class="nav-section">
+                <h3 class="nav-section-title">Advanced</h3>
+                <ul class="nav-section-list">
+                    <li><a href="advanced.html">Pseudo Elements</a></li>
+                    <li><a href="custom-properties.html">Custom Properties</a></li>
+                    <li><a href="blend-modes.html">Blend Modes</a></li>
+                    <li><a href="shapes-clips.html">Shapes & Clips</a></li>
+                </ul>
+            </section>
+
+            <section class="nav-section">
+                <h3 class="nav-section-title">Modern CSS</h3>
+                <ul class="nav-section-list">
+                    <li><a href="has-selector.html">:has() Selector</a></li>
+                    <li><a href="container-queries.html">Container Queries</a></li>
+                    <li><a href="css-nesting.html">CSS Nesting</a></li>
+                    <li><a href="anchor-positioning.html">Anchor Positioning</a></li>
+                    <li><a href="scroll-animations.html">Scroll Animations</a></li>
+                    <li><a href="color-spaces.html" class="active">Color Spaces</a></li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <main id="main" class="main-content">
+        <!-- Breadcrumb navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="index.html" class="breadcrumb-link">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="index.html#modern-css" class="breadcrumb-link">Modern CSS</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="breadcrumb-current">Color Spaces</span>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
+        <!-- Page hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Modern CSS Color Spaces</h1>
+                <p class="page-subtitle">Step into the future of color with perceptually uniform color spaces like oklch, display-p3 wide gamut, and powerful color manipulation functions</p>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section class="content-section">
+            <div class="container">
+                <h2>What Are Modern Color Spaces?</h2>
+                <p>Traditional CSS colors (hex, rgb, hsl) are limited to the sRGB color space, which represents only about 35% of colors the human eye can see. Modern CSS introduces new color spaces that unlock a wider range of more vibrant colors and provide perceptually uniform color manipulation.</p>
+
+                <p>The game-changers include:</p>
+                <ul>
+                    <li><strong>oklch()</strong> - Perceptually uniform, human-friendly color space</li>
+                    <li><strong>display-p3</strong> - Wide gamut color space (50% more colors than sRGB)</li>
+                    <li><strong>color-mix()</strong> - Mix any two colors in any color space</li>
+                    <li><strong>Relative colors</strong> - Modify existing colors dynamically</li>
+                </ul>
+
+                <div class="intro-demo">
+                    <div class="gamut-comparison">
+                        <div class="gamut-box srgb">
+                            <h3>sRGB</h3>
+                            <div class="color-sample" style="background: rgb(255, 0, 128);"></div>
+                            <p>Limited gamut</p>
+                            <code>rgb(255, 0, 128)</code>
+                        </div>
+                        <div class="gamut-box p3">
+                            <h3>Display P3</h3>
+                            <div class="color-sample" style="background: color(display-p3 1 0 0.5);"></div>
+                            <p>Wide gamut - more vibrant!</p>
+                            <code>color(display-p3 1 0 0.5)</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code><span class="token comment">/* Traditional sRGB colors */</span>
+<span class="token selector">.old-way</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">hsl</span><span class="token punctuation">(</span><span class="token number">220</span><span class="token punctuation">,</span> <span class="token number">70%</span><span class="token punctuation">,</span> <span class="token number">50%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Modern color spaces */</span>
+<span class="token selector">.new-way</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">oklch</span><span class="token punctuation">(</span><span class="token number">0.7</span> <span class="token number">0.3</span> <span class="token number">330</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* Perceptually uniform */</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">color</span><span class="token punctuation">(</span>display-p3 <span class="token number">0</span> <span class="token number">0.5</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* Wide gamut */</span>
+<span class="token punctuation">}</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- OKLCH Color Space -->
+        <section class="content-section">
+            <div class="container">
+                <h2>OKLCH: Perceptually Uniform Colors</h2>
+                <p>OKLCH (Oklch stands for Oklab Lightness Chroma Hue) is a perceptually uniform color space. This means that the same numeric change in color values produces the same perceived change in color by humans, regardless of where you are in the color space.</p>
+
+                <p>The syntax is: <code>oklch(lightness chroma hue)</code></p>
+                <ul>
+                    <li><strong>Lightness</strong>: 0-1 (0 = black, 1 = white)</li>
+                    <li><strong>Chroma</strong>: 0-0.4 (0 = gray, 0.4 = very vibrant)</li>
+                    <li><strong>Hue</strong>: 0-360 degrees (0 = pink, 120 = green, 240 = blue)</li>
+                </ul>
+
+                <div class="oklch-demo">
+                    <h3>OKLCH Color Palette</h3>
+                    <div class="oklch-grid">
+                        <div class="oklch-swatch" style="background: oklch(0.5 0.2 0);">
+                            <code>oklch(0.5 0.2 0)</code>
+                            <span>Pink</span>
+                        </div>
+                        <div class="oklch-swatch" style="background: oklch(0.5 0.2 60);">
+                            <code>oklch(0.5 0.2 60)</code>
+                            <span>Orange</span>
+                        </div>
+                        <div class="oklch-swatch" style="background: oklch(0.5 0.2 120);">
+                            <code>oklch(0.5 0.2 120)</code>
+                            <span>Yellow</span>
+                        </div>
+                        <div class="oklch-swatch" style="background: oklch(0.5 0.2 180);">
+                            <code>oklch(0.5 0.2 180)</code>
+                            <span>Green</span>
+                        </div>
+                        <div class="oklch-swatch" style="background: oklch(0.5 0.2 240);">
+                            <code>oklch(0.5 0.2 240)</code>
+                            <span>Cyan</span>
+                        </div>
+                        <div class="oklch-swatch" style="background: oklch(0.5 0.2 300);">
+                            <code>oklch(0.5 0.2 300)</code>
+                            <span>Blue</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code><span class="token comment">/* Creating a color palette with consistent lightness */</span>
+<span class="token selector">.palette</span> <span class="token punctuation">{</span>
+    <span class="token property">--color-1</span><span class="token punctuation">:</span> <span class="token function">oklch</span><span class="token punctuation">(</span><span class="token number">0.6</span> <span class="token number">0.25</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">--color-2</span><span class="token punctuation">:</span> <span class="token function">oklch</span><span class="token punctuation">(</span><span class="token number">0.6</span> <span class="token number">0.25</span> <span class="token number">120</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">--color-3</span><span class="token punctuation">:</span> <span class="token function">oklch</span><span class="token punctuation">(</span><span class="token number">0.6</span> <span class="token number">0.25</span> <span class="token number">240</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* All three colors have the SAME perceived brightness */</span>
+<span class="token comment">/* Try doing that with HSL! */</span></code></pre>
+                </div>
+
+                <p class="tip">💡 <strong>Pro Tip:</strong> OKLCH is perfect for creating accessible color palettes. By keeping lightness consistent, you ensure consistent contrast ratios across all your colors.</p>
+            </div>
+        </section>
+
+        <!-- Display P3 Wide Gamut -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Display P3: Wide Gamut Colors</h2>
+                <p>Display P3 is a wide gamut color space that can represent 50% more colors than sRGB. It's supported on modern displays (iPhones since 2017, MacBooks since 2016, many modern monitors). These colors are noticeably more vibrant and saturated.</p>
+
+                <div class="p3-demo">
+                    <h3>sRGB vs Display P3</h3>
+                    <div class="p3-comparison">
+                        <div class="p3-example">
+                            <div class="p3-box srgb-red" style="background: rgb(255, 0, 0);">
+                                <span>sRGB Red</span>
+                                <code>rgb(255, 0, 0)</code>
+                            </div>
+                            <div class="p3-box p3-red" style="background: color(display-p3 1 0 0);">
+                                <span>P3 Red</span>
+                                <code>color(display-p3 1 0 0)</code>
+                            </div>
+                        </div>
+                        <div class="p3-example">
+                            <div class="p3-box srgb-green" style="background: rgb(0, 255, 0);">
+                                <span>sRGB Green</span>
+                                <code>rgb(0, 255, 0)</code>
+                            </div>
+                            <div class="p3-box p3-green" style="background: color(display-p3 0 1 0);">
+                                <span>P3 Green</span>
+                                <code>color(display-p3 0 1 0)</code>
+                            </div>
+                        </div>
+                        <div class="p3-example">
+                            <div class="p3-box srgb-blue" style="background: rgb(0, 0, 255);">
+                                <span>sRGB Blue</span>
+                                <code>rgb(0, 0, 255)</code>
+                            </div>
+                            <div class="p3-box p3-blue" style="background: color(display-p3 0 0 1);">
+                                <span>P3 Blue</span>
+                                <code>color(display-p3 0 0 1)</code>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="p3-note">Note: You'll only see the difference on a wide gamut display (modern phones, tablets, and monitors).</p>
+                </div>
+
+                <div class="code-example">
+                    <pre><code><span class="token comment">/* Using display-p3 with fallback */</span>
+<span class="token selector">.vibrant-button</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* Fallback for older browsers */</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">color</span><span class="token punctuation">(</span>display-p3 <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0.4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* More vibrant on capable displays */</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Feature detection */</span>
+<span class="token atrule">@supports</span> <span class="token punctuation">(</span><span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">color</span><span class="token punctuation">(</span>display-p3 <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token selector">.hero</span> <span class="token punctuation">{</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">color</span><span class="token punctuation">(</span>display-p3 <span class="token number">0</span> <span class="token number">0.8</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Color Mix Function -->
+        <section class="content-section">
+            <div class="container">
+                <h2>color-mix(): Blend Any Two Colors</h2>
+                <p>The <code>color-mix()</code> function lets you blend any two colors in any color space. This is incredibly powerful for creating tints, shades, and variations of colors without complex calculations.</p>
+
+                <div class="mix-demo">
+                    <h3>Mixing Colors</h3>
+                    <div class="mix-examples">
+                        <div class="mix-row">
+                            <div class="mix-box" style="background: #2563eb;">
+                                <span>Base Blue</span>
+                                <code>#2563eb</code>
+                            </div>
+                            <span class="mix-symbol">+</span>
+                            <div class="mix-box" style="background: white;">
+                                <span style="color: #333;">White</span>
+                                <code style="color: #333;">#ffffff</code>
+                            </div>
+                            <span class="mix-symbol">=</span>
+                            <div class="mix-box" style="background: color-mix(in oklch, #2563eb 70%, white);">
+                                <span>Lighter Blue</span>
+                                <code>color-mix(in oklch, #2563eb 70%, white)</code>
+                            </div>
+                        </div>
+
+                        <div class="mix-row">
+                            <div class="mix-box" style="background: #ef4444;">
+                                <span>Red</span>
+                                <code>#ef4444</code>
+                            </div>
+                            <span class="mix-symbol">+</span>
+                            <div class="mix-box" style="background: #3b82f6;">
+                                <span>Blue</span>
+                                <code>#3b82f6</code>
+                            </div>
+                            <span class="mix-symbol">=</span>
+                            <div class="mix-box" style="background: color-mix(in oklch, #ef4444, #3b82f6);">
+                                <span>Purple</span>
+                                <code>color-mix(in oklch, #ef4444, #3b82f6)</code>
+                            </div>
+                        </div>
+
+                        <div class="mix-row">
+                            <div class="mix-box" style="background: #10b981;">
+                                <span>Green</span>
+                                <code>#10b981</code>
+                            </div>
+                            <span class="mix-symbol">+</span>
+                            <div class="mix-box" style="background: black;">
+                                <span>Black</span>
+                                <code>#000000</code>
+                            </div>
+                            <span class="mix-symbol">=</span>
+                            <div class="mix-box" style="background: color-mix(in oklch, #10b981 60%, black);">
+                                <span>Dark Green</span>
+                                <code>color-mix(in oklch, #10b981 60%, black)</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code><span class="token comment">/* Creating a color scale with color-mix */</span>
+<span class="token selector">:root</span> <span class="token punctuation">{</span>
+    <span class="token property">--primary</span><span class="token punctuation">:</span> <span class="token hexcode">#2563eb</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/* Lighter variations */</span>
+    <span class="token property">--primary-light</span><span class="token punctuation">:</span> <span class="token function">color-mix</span><span class="token punctuation">(</span><span class="token keyword">in</span> oklch<span class="token punctuation">,</span> <span class="token function">var</span><span class="token punctuation">(</span>--primary<span class="token punctuation">)</span> <span class="token number">70%</span><span class="token punctuation">,</span> white<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">--primary-lighter</span><span class="token punctuation">:</span> <span class="token function">color-mix</span><span class="token punctuation">(</span><span class="token keyword">in</span> oklch<span class="token punctuation">,</span> <span class="token function">var</span><span class="token punctuation">(</span>--primary<span class="token punctuation">)</span> <span class="token number">40%</span><span class="token punctuation">,</span> white<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/* Darker variations */</span>
+    <span class="token property">--primary-dark</span><span class="token punctuation">:</span> <span class="token function">color-mix</span><span class="token punctuation">(</span><span class="token keyword">in</span> oklch<span class="token punctuation">,</span> <span class="token function">var</span><span class="token punctuation">(</span>--primary<span class="token punctuation">)</span> <span class="token number">70%</span><span class="token punctuation">,</span> black<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">--primary-darker</span><span class="token punctuation">:</span> <span class="token function">color-mix</span><span class="token punctuation">(</span><span class="token keyword">in</span> oklch<span class="token punctuation">,</span> <span class="token function">var</span><span class="token punctuation">(</span>--primary<span class="token punctuation">)</span> <span class="token number">40%</span><span class="token punctuation">,</span> black<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Hover state with automatic darkening */</span>
+<span class="token selector">.button</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--primary<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.button:hover</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">color-mix</span><span class="token punctuation">(</span><span class="token keyword">in</span> oklch<span class="token punctuation">,</span> <span class="token function">var</span><span class="token punctuation">(</span>--primary<span class="token punctuation">)</span> <span class="token number">85%</span><span class="token punctuation">,</span> black<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Relative Colors -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Relative Colors: Dynamic Color Manipulation</h2>
+                <p>Relative color syntax lets you create new colors based on existing ones by modifying specific channels. This is perfect for creating hover states, active states, and color variations dynamically.</p>
+
+                <div class="relative-demo">
+                    <h3>Relative Color Examples</h3>
+                    <div class="relative-grid">
+                        <div class="relative-example">
+                            <div class="relative-base" style="background: #2563eb;">
+                                <span>Base Color</span>
+                                <code>#2563eb</code>
+                            </div>
+                            <div class="relative-modified" style="background: oklch(from #2563eb calc(l + 0.2) c h);">
+                                <span>Lighter (L +20%)</span>
+                                <code>oklch(from #2563eb calc(l + 0.2) c h)</code>
+                            </div>
+                        </div>
+
+                        <div class="relative-example">
+                            <div class="relative-base" style="background: #10b981;">
+                                <span>Base Color</span>
+                                <code>#10b981</code>
+                            </div>
+                            <div class="relative-modified" style="background: oklch(from #10b981 0.4 c h);">
+                                <span>Darkened (L = 40%)</span>
+                                <code>oklch(from #10b981 0.4 c h)</code>
+                            </div>
+                        </div>
+
+                        <div class="relative-example">
+                            <div class="relative-base" style="background: #ef4444;">
+                                <span>Base Color</span>
+                                <code>#ef4444</code>
+                            </div>
+                            <div class="relative-modified" style="background: oklch(from #ef4444 l calc(c * 1.5) h);">
+                                <span>More Vibrant (C ×1.5)</span>
+                                <code>oklch(from #ef4444 l calc(c * 1.5) h)</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code><span class="token comment">/* Dynamic hover state */</span>
+<span class="token selector">.card</span> <span class="token punctuation">{</span>
+    <span class="token property">--card-color</span><span class="token punctuation">:</span> <span class="token hexcode">#3b82f6</span><span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--card-color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.card:hover</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* Automatically darken by reducing lightness */</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">oklch</span><span class="token punctuation">(</span><span class="token keyword">from</span> <span class="token function">var</span><span class="token punctuation">(</span>--card-color<span class="token punctuation">)</span> <span class="token function">calc</span><span class="token punctuation">(</span>l <span class="token operator">-</span> <span class="token number">0.1</span><span class="token punctuation">)</span> c h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Semi-transparent version of any color */</span>
+<span class="token selector">.overlay</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">oklch</span><span class="token punctuation">(</span><span class="token keyword">from</span> <span class="token function">var</span><span class="token punctuation">(</span>--card-color<span class="token punctuation">)</span> l c h / <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Rotate hue for complementary color */</span>
+<span class="token selector">.accent</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">oklch</span><span class="token punctuation">(</span><span class="token keyword">from</span> <span class="token function">var</span><span class="token punctuation">(</span>--card-color<span class="token punctuation">)</span> l c <span class="token function">calc</span><span class="token punctuation">(</span>h <span class="token operator">+</span> <span class="token number">180</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practical Examples -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Real-World Applications</h2>
+                <p>Let's see how these modern color spaces solve real design problems.</p>
+
+                <div class="practical-demo">
+                    <h3>Dynamic Theme System</h3>
+                    <div class="theme-system">
+                        <div class="theme-card" style="--theme-base: #2563eb;">
+                            <div class="theme-header" style="background: var(--theme-base);">
+                                <h4>Blue Theme</h4>
+                            </div>
+                            <div class="theme-content">
+                                <button class="theme-button" style="background: var(--theme-base); border-color: var(--theme-base);">Primary Button</button>
+                                <button class="theme-button secondary" style="background: oklch(from var(--theme-base) calc(l + 0.3) calc(c * 0.3) h); color: var(--theme-base); border-color: var(--theme-base);">Secondary</button>
+                                <div class="theme-alert" style="background: oklch(from var(--theme-base) 0.95 calc(c * 0.2) h); border-color: var(--theme-base); color: var(--theme-base);">
+                                    <strong>Info:</strong> This is an alert styled with the theme color
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="theme-card" style="--theme-base: #10b981;">
+                            <div class="theme-header" style="background: var(--theme-base);">
+                                <h4>Green Theme</h4>
+                            </div>
+                            <div class="theme-content">
+                                <button class="theme-button" style="background: var(--theme-base); border-color: var(--theme-base);">Primary Button</button>
+                                <button class="theme-button secondary" style="background: oklch(from var(--theme-base) calc(l + 0.3) calc(c * 0.3) h); color: var(--theme-base); border-color: var(--theme-base);">Secondary</button>
+                                <div class="theme-alert" style="background: oklch(from var(--theme-base) 0.95 calc(c * 0.2) h); border-color: var(--theme-base); color: var(--theme-base);">
+                                    <strong>Success:</strong> This is an alert styled with the theme color
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="theme-card" style="--theme-base: #f59e0b;">
+                            <div class="theme-header" style="background: var(--theme-base);">
+                                <h4>Amber Theme</h4>
+                            </div>
+                            <div class="theme-content">
+                                <button class="theme-button" style="background: var(--theme-base); border-color: var(--theme-base);">Primary Button</button>
+                                <button class="theme-button secondary" style="background: oklch(from var(--theme-base) calc(l + 0.3) calc(c * 0.3) h); color: var(--theme-base); border-color: var(--theme-base);">Secondary</button>
+                                <div class="theme-alert" style="background: oklch(from var(--theme-base) 0.95 calc(c * 0.2) h); border-color: var(--theme-base); color: var(--theme-base);">
+                                    <strong>Warning:</strong> This is an alert styled with the theme color
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <pre><code><span class="token comment">/* Single base color generates entire theme */</span>
+<span class="token selector">.theme-card</span> <span class="token punctuation">{</span>
+    <span class="token property">--theme-base</span><span class="token punctuation">:</span> <span class="token hexcode">#2563eb</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/* Automatically generate variations */</span>
+    <span class="token property">--theme-light</span><span class="token punctuation">:</span> <span class="token function">oklch</span><span class="token punctuation">(</span><span class="token keyword">from</span> <span class="token function">var</span><span class="token punctuation">(</span>--theme-base<span class="token punctuation">)</span> <span class="token number">0.95</span> <span class="token function">calc</span><span class="token punctuation">(</span>c <span class="token operator">*</span> <span class="token number">0.2</span><span class="token punctuation">)</span> h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">--theme-dark</span><span class="token punctuation">:</span> <span class="token function">oklch</span><span class="token punctuation">(</span><span class="token keyword">from</span> <span class="token function">var</span><span class="token punctuation">(</span>--theme-base<span class="token punctuation">)</span> <span class="token number">0.3</span> c h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">--theme-muted</span><span class="token punctuation">:</span> <span class="token function">oklch</span><span class="token punctuation">(</span><span class="token keyword">from</span> <span class="token function">var</span><span class="token punctuation">(</span>--theme-base<span class="token punctuation">)</span> <span class="token function">calc</span><span class="token punctuation">(</span>l <span class="token operator">+</span> <span class="token number">0.3</span><span class="token punctuation">)</span> <span class="token function">calc</span><span class="token punctuation">(</span>c <span class="token operator">*</span> <span class="token number">0.3</span><span class="token punctuation">)</span> h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.theme-button</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--theme-base<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.theme-button:hover</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--theme-dark<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.theme-alert</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--theme-light<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--theme-base<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--theme-base<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Browser Support -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Browser Support</h2>
+
+                <div class="info-box">
+                    <h4>✅ Wide Support (2023+)</h4>
+                    <ul>
+                        <li><strong>OKLCH:</strong> Chrome 111+, Safari 15.4+, Firefox 113+</li>
+                        <li><strong>color-mix():</strong> Chrome 111+, Safari 16.2+, Firefox 113+</li>
+                        <li><strong>Relative colors:</strong> Chrome 119+, Safari 16.4+, Firefox 120+</li>
+                        <li><strong>Display P3:</strong> Chrome 111+, Safari 10+, Firefox 113+</li>
+                    </ul>
+                </div>
+
+                <div class="code-example">
+                    <pre><code><span class="token comment">/* Always provide fallbacks */</span>
+<span class="token selector">.button</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#2563eb</span><span class="token punctuation">;</span> <span class="token comment">/* Fallback */</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">oklch</span><span class="token punctuation">(</span><span class="token number">0.55</span> <span class="token number">0.25</span> <span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* Modern browsers */</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Feature detection */</span>
+<span class="token atrule">@supports</span> <span class="token punctuation">(</span><span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">oklch</span><span class="token punctuation">(</span><span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token selector">.enhanced</span> <span class="token punctuation">{</span>
+        <span class="token comment">/* Use modern color spaces */</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Topics -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Related Topics</h2>
+                <div class="related-links">
+                    <a href="custom-properties.html" class="related-card">
+                        <h3>CSS Custom Properties</h3>
+                        <p>Use CSS variables with modern color spaces for dynamic theming</p>
+                    </a>
+                    <a href="blend-modes.html" class="related-card">
+                        <h3>Blend Modes</h3>
+                        <p>Combine colors using blend modes for creative effects</p>
+                    </a>
+                    <a href="gradients.html" class="related-card">
+                        <h3>Gradients</h3>
+                        <p>Create stunning gradients with oklch for smooth color transitions</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion by <a href="https://thomasjbutler.me" target="_blank" rel="noopener noreferrer">Thomas Butler</a>.
+                Explore the code on <a href="https://github.com/ThomasJButler/css-showcase" target="_blank" rel="noopener noreferrer">GitHub</a>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/syntax-highlight.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/micro-interactions.js"></script>
+</body>
+</html>
