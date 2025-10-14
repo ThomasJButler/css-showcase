@@ -224,7 +224,7 @@
 .sidebar-toggle {
     position: fixed;
     top: var(--space-6); /* Aligned with theme toggle */
-    left: 1rem;
+    right: 1rem; /* Changed from left to right */
     width: 48px; /* Match theme toggle size */
     height: 48px; /* Match theme toggle size */
     background: var(--colour-background);
@@ -358,9 +358,9 @@
         display: none !important;
     }
 
-    /* Adjust theme toggle when sidebar button is visible */
+    /* Theme toggle positioning adjusted - sidebar toggle now on right */
     .theme-toggle {
-        left: 4rem;
+        right: 4.5rem; /* Position to left of sidebar toggle */
     }
 }
 
