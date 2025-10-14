@@ -20,8 +20,8 @@
     --space-32: 8rem;
     
     /* Section spacing */
-    --section-spacing: clamp(4rem, 10vw, 8rem);
-    --content-spacing: clamp(2rem, 5vw, 3rem);
+    --section-spacing: clamp(4rem, 10vw, 4rem);
+    --content-spacing: clamp(2rem, 5vw, 2rem);
     
     /* Enhanced shadows */
     --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -160,15 +160,21 @@
 
     .header-content {
         flex-wrap: wrap;
+        justify-content: flex-end; /* Push logo to right */
     }
 
     .logo {
-        order: 1;
-        flex: 1;
+        order: 2; /* Logo on right */
+        margin-left: auto;
+        font-size: var(--text-xl);
     }
 
     .header-actions {
-        order: 2;
+        order: 1; /* Toggles on left */
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .main-nav {

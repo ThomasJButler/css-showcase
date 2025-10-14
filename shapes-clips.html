@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master CSS Shapes and Clipping - create polygons, circles, and custom shapes with clip-path and shape-outside for unique, non-rectangular designs.">
+    <meta name="author" content="Thomas Butler">
+    <title>CSS Shapes & Clipping | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/shapes-clips.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="sidebar-content">
+            <!-- Home Link -->
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-home-link">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+            </div>
+
+            <!-- Fundamentals Section -->
+            <div class="sidebar-section" data-section="fundamentals">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="typography.html" class="sidebar-nav-link">Typography</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Layout Section -->
+            <div class="sidebar-section" data-section="layout">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎯</span>Layout</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="grid.html" class="sidebar-nav-link">Grid</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Visual Effects Section -->
+            <div class="sidebar-section" data-section="visual-effects">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="animations.html" class="sidebar-nav-link">Animations</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Components Section -->
+            <div class="sidebar-section" data-section="components">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🧩</span>Components</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="forms.html" class="sidebar-nav-link">Forms</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="tables.html" class="sidebar-nav-link">Tables</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="cards.html" class="sidebar-nav-link">Cards</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="icons.html" class="sidebar-nav-link">Icons</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Advanced Section -->
+            <div class="sidebar-section" data-section="advanced">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="custom-properties.html" class="sidebar-nav-link">Custom Properties</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="blend-modes.html" class="sidebar-nav-link">Blend Modes</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="shapes-clips.html" class="sidebar-nav-link">Shapes & Clips</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Modern CSS Section -->
+            <div class="sidebar-section" data-section="modern-css">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Playground Section -->
+            <div class="sidebar-section" data-section="playground">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎮</span>Playground</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="playground.html" class="sidebar-nav-link">CSS Playground</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <button class="back-to-top">
+                <span>↑</span>
+                <span>Back to Top</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Header with navigation -->
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+
+            <div class="header-actions">
+                <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <button class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+                    <span class="theme-icon">🌞</span>
+                </button>
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="basic.html" class="nav-link">Fundamentals</a></li>
+                    <li class="nav-item"><a href="flexbox.html" class="nav-link">Layout</a></li>
+                    <li class="nav-item"><a href="animations.html" class="nav-link">Visual Effects</a></li>
+                    <li class="nav-item"><a href="buttons.html" class="nav-link">Components</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Breadcrumb navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="index.html" class="breadcrumb-link">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="index.html#advanced" class="breadcrumb-link">Advanced</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="breadcrumb-current">Shapes & Clips</span>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
+        <!-- Page hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">CSS Shapes & Clipping</h1>
+                <p class="page-subtitle">Break free from the rectangle. Create polygons, circles, and custom shapes with clip-path. Make text flow around curves with shape-outside. Design like never before.</p>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Beyond the Box</h2>
+                <p>By default, everything in CSS is a rectangle. But with clip-path and shape-outside, you can create circular buttons, diagonal sections, polygon cards, and text that wraps around custom shapes. Let's escape the box!</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="shapes-intro-grid">
+                            <div class="shape-demo circle-demo">Circle</div>
+                            <div class="shape-demo triangle-demo">Triangle</div>
+                            <div class="shape-demo hexagon-demo">Hexagon</div>
+                            <div class="shape-demo star-demo">Star</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="explanation">
+                    <h3>Two Main Properties</h3>
+                    <ul>
+                        <li><strong>clip-path:</strong> Clips (cuts) an element to a specific shape</li>
+                        <li><strong>shape-outside:</strong> Makes text flow around a shape</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- clip-path Basics Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>clip-path Basics</h2>
+                <p>The <code>clip-path</code> property lets you define a clipping region for an element. Anything outside the region is hidden.</p>
+
+                <h3>Basic Shapes</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="basic-shapes-grid">
+                            <div class="basic-shape">
+                                <div class="shape-box clip-circle"></div>
+                                <span>circle()</span>
+                            </div>
+                            <div class="basic-shape">
+                                <div class="shape-box clip-ellipse"></div>
+                                <span>ellipse()</span>
+                            </div>
+                            <div class="basic-shape">
+                                <div class="shape-box clip-inset"></div>
+                                <span>inset()</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Circle - radius at center */
+.circle {
+    clip-path: circle(50%);
+}
+
+/* Ellipse - horizontal and vertical radius */
+.ellipse {
+    clip-path: ellipse(50% 30% at 50% 50%);
+}
+
+/* Inset - rectangle with optional rounded corners */
+.inset {
+    clip-path: inset(20px 20px 20px 20px round 20px);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Polygon Shapes Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Polygon Shapes</h2>
+                <p>The <code>polygon()</code> function is where things get really creative. Define any shape using x,y coordinate pairs.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="polygon-gallery">
+                            <div class="polygon-card">
+                                <div class="poly-shape poly-triangle"></div>
+                                <span>Triangle</span>
+                            </div>
+                            <div class="polygon-card">
+                                <div class="poly-shape poly-diamond"></div>
+                                <span>Diamond</span>
+                            </div>
+                            <div class="polygon-card">
+                                <div class="poly-shape poly-hexagon"></div>
+                                <span>Hexagon</span>
+                            </div>
+                            <div class="polygon-card">
+                                <div class="poly-shape poly-octagon"></div>
+                                <span>Octagon</span>
+                            </div>
+                            <div class="polygon-card">
+                                <div class="poly-shape poly-star"></div>
+                                <span>Star</span>
+                            </div>
+                            <div class="polygon-card">
+                                <div class="poly-shape poly-arrow"></div>
+                                <span>Arrow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Triangle pointing up */
+.triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Diamond shape */
+.diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* Hexagon */
+.hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+/* Star (5-pointed) */
+.star {
+    clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 68% 57%,
+        79% 91%, 50% 70%, 21% 91%, 32% 57%,
+        2% 35%, 39% 35%
+    );
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p><strong>Pro tip:</strong> Use <a href="https://bennettfeely.com/clippy/" target="_blank" rel="noopener">Clippy</a> to visually create clip-path shapes. It's a fantastic tool for experimenting with coordinates!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real-World Examples Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Real-World Examples</h2>
+
+                <h3>Hero Section with Diagonal Edge</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="diagonal-hero">
+                            <h2>Welcome to Our Site</h2>
+                            <p>Creating dynamic, modern layouts with CSS shapes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 5rem 2rem 8rem;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    /* Diagonal bottom edge */
+}</code></pre>
+                </div>
+
+                <h3>Circular Profile Images</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="profile-demo">
+                            <div class="profile-circle">AB</div>
+                            <div class="profile-hexagon">CD</div>
+                            <div class="profile-squircle">EF</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.profile-circle {
+    clip-path: circle(50%);
+}
+
+.profile-hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+/* Squircle (rounded square) - iOS-style */
+.profile-squircle {
+    clip-path: inset(0 0 0 0 round 30%);
+}</code></pre>
+                </div>
+
+                <h3>Image Reveal on Hover</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="reveal-demo">
+                            <div class="reveal-image">
+                                <span>Hover Me</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.image {
+    clip-path: circle(20% at 50% 50%);
+    transition: clip-path 0.5s ease;
+}
+
+.image:hover {
+    clip-path: circle(70% at 50% 50%);
+    /* Expands on hover */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- shape-outside Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>shape-outside: Text Flow</h2>
+                <p>The <code>shape-outside</code> property controls how text wraps around floated elements. Create magazine-style layouts with text flowing around circles, polygons, or images.</p>
+
+                <h3>Text Around Circle</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="text-wrap-demo">
+                            <div class="float-circle"></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.float-circle {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-right: 2rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    shape-outside: circle(50%);
+    /* Text flows around the circle */
+}</code></pre>
+                </div>
+
+                <h3>Text Around Polygon</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="text-wrap-demo">
+                            <div class="float-diamond"></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.float-diamond {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-right: 2rem;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    shape-outside: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    /* Both clip-path and shape-outside for perfect wrapping */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animated Shapes Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Animated Shapes</h2>
+                <p>Combine clip-path with transitions and animations for eye-catching effects.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="animated-shapes-grid">
+                            <div class="animated-shape morph-shape">Hover</div>
+                            <div class="animated-shape pulse-shape">Pulse</div>
+                            <div class="animated-shape rotate-shape">Spin</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Shape morphing on hover */
+.morph {
+    clip-path: circle(50%);
+    transition: clip-path 0.5s ease;
+}
+
+.morph:hover {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+/* Pulsing animation */
+@keyframes pulse {
+    0%, 100% { clip-path: circle(40%); }
+    50% { clip-path: circle(50%); }
+}
+
+.pulse {
+    animation: pulse 2s ease-in-out infinite;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Browser Support Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Browser Support</h2>
+
+                <div class="tip-box">
+                    <h4>Browser Compatibility</h4>
+                    <ul>
+                        <li><strong>clip-path:</strong> Chrome 55+, Firefox 54+, Safari 9.1+ ✅</li>
+                        <li><strong>shape-outside:</strong> Chrome 37+, Safari 10.1+, Firefox 62+ ✅</li>
+                        <li><strong>Internet Explorer:</strong> Not supported ❌</li>
+                    </ul>
+                    <p><strong>Fallback strategy:</strong> Elements without clip-path support will simply display as rectangles - ensure your design still works!</p>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Feature detection */
+@supports (clip-path: circle(50%)) {
+    .fancy-shape {
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+}
+
+/* Fallback for unsupported browsers */
+.fancy-shape {
+    border-radius: 50%; /* Simple circle fallback */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Best Practices & Tips</h2>
+
+                <div class="explanation">
+                    <h3>Performance</h3>
+                    <ul>
+                        <li><strong>GPU acceleration:</strong> clip-path is GPU-accelerated and performs well</li>
+                        <li><strong>Avoid complex polygons:</strong> Hundreds of points can slow down rendering</li>
+                        <li><strong>Use transforms:</strong> Combine with <code>transform</code> for smooth animations</li>
+                    </ul>
+
+                    <h3>Accessibility</h3>
+                    <ul>
+                        <li><strong>Ensure readability:</strong> Don't clip text content - it might be hard to read</li>
+                        <li><strong>Touch targets:</strong> Make sure clipped buttons/links are still easy to click</li>
+                        <li><strong>Test with screen readers:</strong> Clipped content is still read by assistive tech</li>
+                    </ul>
+
+                    <h3>Design Tips</h3>
+                    <ul>
+                        <li><strong>Start simple:</strong> Begin with basic shapes before complex polygons</li>
+                        <li><strong>Be consistent:</strong> Use similar shapes across your design for cohesion</li>
+                        <li><strong>Less is more:</strong> A few strategic shapes beat shape overload</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Topics Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Keep Learning</h2>
+                <div class="related-links">
+                    <a href="animations.html" class="related-card">
+                        <h3>CSS Animations</h3>
+                        <p>Combine shapes with keyframe animations for morphing effects and dynamic layouts.</p>
+                    </a>
+                    <a href="transitions.html" class="related-card">
+                        <h3>CSS Transitions</h3>
+                        <p>Learn how to smoothly animate clip-path changes for interactive hover effects.</p>
+                    </a>
+                    <a href="filters.html" class="related-card">
+                        <h3>Filters & Effects</h3>
+                        <p>Add filters like drop-shadow() to shapes for depth and dimension.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion by <a href="https://thomasjbutler.me" target="_blank" rel="noopener">Thomas Butler</a>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/syntax-highlight.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/micro-interactions.js"></script>
+</body>
+</html>

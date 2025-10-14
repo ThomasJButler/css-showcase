@@ -744,7 +744,28 @@ a:hover {
         --text-4xl: 1.875rem;
         --text-3xl: 1.5rem;
     }
-    
+
+    /* Mobile header adjustments */
+    .header-content {
+        padding: var(--space-3) var(--space-4);
+        justify-content: flex-end; /* Push content to right */
+    }
+
+    .logo {
+        font-size: var(--text-xl);
+        margin-left: auto; /* Ensure logo stays on right */
+    }
+
+    /* Theme toggle adjustments for mobile */
+    .theme-toggle {
+        width: 44px;
+        height: 44px;
+    }
+
+    .theme-icon {
+        font-size: 1.25rem;
+    }
+
     .nav-toggle {
         display: flex;
     }
@@ -799,9 +820,25 @@ a:hover {
     .showcase-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .floating-element {
         display: none;
+    }
+
+    /* Breadcrumb touch targets */
+    .breadcrumb-link {
+        padding: var(--space-2) var(--space-1);
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Content links need adequate touch targets */
+    .content-section a:not(.btn) {
+        padding: var(--space-1) 0;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
     }
 }
 
