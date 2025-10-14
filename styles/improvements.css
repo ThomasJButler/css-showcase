@@ -114,8 +114,31 @@
 }
 
 .showcase-section,
-.demo-section {
+.demo-section,
+.content-section {
     padding: var(--section-spacing) 0;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+/* Section dividers for visual separation */
+.showcase-section::after,
+.demo-section::after,
+.content-section::after {
+    content: '';
+    display: block;
+    width: 80%;
+    max-width: 800px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--colour-border), transparent);
+    margin: var(--section-spacing) auto 0;
+}
+
+/* Remove divider from last section before footer */
+.showcase-section:last-of-type::after,
+.demo-section:last-of-type::after,
+.content-section:last-of-type::after {
+    display: none;
 }
 
 .section-title {
