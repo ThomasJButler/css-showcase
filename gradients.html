@@ -92,7 +92,10 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-nav-item">
-                    <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
+                    <a href="gradients.html" class="sidebar-nav-link active">Gradients</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="gradient-patterns.html" class="sidebar-nav-link">Gradient Patterns</a>
                 </li>
                 <li class="sidebar-nav-item">
                     <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
@@ -101,7 +104,7 @@
                     <a href="animations.html" class="sidebar-nav-link">Animations</a>
                 </li>
                 <li class="sidebar-nav-item">
-                    <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
+                    <a href="animations-advanced.html" class="sidebar-nav-link">Advanced Animations</a>
                 </li>
             </ul>
         </div>
@@ -711,180 +714,17 @@
             </div>
         </section>
 
-        <section id="patterns" class="demo-section">
+        <!-- Link to Advanced Gradient Patterns -->
+        <section class="content-section">
             <div class="container">
-                <h2 class="section-title">Gradient Patterns</h2>
-                <p class="section-intro">
-                    Combine multiple gradients to create complex patterns and textures using only CSS.
-                </p>
-
-                <div class="demo-grid">
-                    <div class="demo-card">
-                        <h3 class="demo-title">Geometric Patterns</h3>
-                        <div class="demo-example">
-                            <div class="pattern-showcase">
-                                <div class="pattern-box pattern-stripes"></div>
-                                <p class="pattern-label">Stripes</p>
-                            </div>
-                            <div class="pattern-showcase">
-                                <div class="pattern-box pattern-chevron"></div>
-                                <p class="pattern-label">Chevron</p>
-                            </div>
-                            <div class="pattern-showcase">
-                                <div class="pattern-box pattern-dots"></div>
-                                <p class="pattern-label">Polka Dots</p>
-                            </div>
-                            <div class="pattern-showcase">
-                                <div class="pattern-box pattern-grid"></div>
-                                <p class="pattern-label">Grid</p>
-                            </div>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* Diagonal stripes */
-.stripes {
-    background: repeating-linear-gradient(
-        45deg,
-        #3b82f6,
-        #3b82f6 10px,
-        #60a5fa 10px,
-        #60a5fa 20px
-    );
-}
-
-/* Polka dots */
-.dots {
-    background-color: #1e40af;
-    background-image: radial-gradient(
-        circle,
-        #3b82f6 25%,
-        transparent 25%
-    );
-    background-size: 20px 20px;
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="demo-card">
-                        <h3 class="demo-title">Organic Textures</h3>
-                        <div class="demo-example">
-                            <div class="pattern-showcase">
-                                <div class="pattern-box pattern-noise"></div>
-                                <p class="pattern-label">Noise</p>
-                            </div>
-                            <div class="pattern-showcase">
-                                <div class="pattern-box pattern-paper"></div>
-                                <p class="pattern-label">Paper</p>
-                            </div>
-                            <div class="pattern-showcase">
-                                <div class="pattern-box pattern-fabric"></div>
-                                <p class="pattern-label">Fabric</p>
-                            </div>
-                            <div class="pattern-showcase">
-                                <div class="pattern-box pattern-carbon"></div>
-                                <p class="pattern-label">Carbon</p>
-                            </div>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* Paper texture */
-.paper {
-    background: 
-        radial-gradient(
-            ellipse at top,
-            rgba(255,255,255,0.5),
-            transparent
-        ),
-        radial-gradient(
-            ellipse at bottom,
-            rgba(0,0,0,0.1),
-            transparent
-        ),
-        #f5f5f5;
-}
-
-/* Carbon fiber */
-.carbon {
-    background:
-        linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0,
-        linear-gradient(27deg, #222 5px, transparent 5px) 0 10px,
-        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, 
-            transparent 50%, transparent 75%, #242424 75%, #242424);
-    background-size: 20px 20px;
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="demo-card wide">
-                        <h3 class="demo-title">Animated Gradients</h3>
-                        <div class="demo-example">
-                            <div class="animated-gradient-showcase">
-                                <div class="animated-gradient gradient-wave"></div>
-                                <div class="animated-gradient gradient-pulse"></div>
-                                <div class="animated-gradient gradient-rotate"></div>
-                                <div class="animated-gradient gradient-shift"></div>
-                            </div>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* Animated gradient background */
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.animated-gradient {
-    background: linear-gradient(
-        -45deg,
-        #ee7752,
-        #e73c7e,
-        #23a6d5,
-        #23d5ab
-    );
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-}
-
-/* Rotating conic gradient */
-@keyframes rotate {
-    to { transform: rotate(360deg); }
-}
-
-.rotating {
-    background: conic-gradient(
-        from 0deg,
-        #f06,
-        #48f,
-        #f06
-    );
-    animation: rotate 4s linear infinite;
-}</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="tips-section">
-            <div class="container">
-                <h2 class="section-title">Gradient Best Practices</h2>
-                <div class="tips-grid">
-                    <div class="tip-card">
-                        <span class="tip-icon">🎨</span>
-                        <h3>Smooth Transitions</h3>
-                        <p>Use colour stops at 0% and 100% to avoid harsh edges at gradient boundaries.</p>
-                    </div>
-                    <div class="tip-card">
-                        <span class="tip-icon">⚡</span>
-                        <h3>Performance</h3>
-                        <p>Complex gradients can impact performance. Test on lower-end devices.</p>
-                    </div>
-                    <div class="tip-card">
-                        <span class="tip-icon">♿</span>
-                        <h3>Accessibility</h3>
-                        <p>Ensure sufficient contrast when placing text over gradients.</p>
-                    </div>
+                <div class="demo-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border: 2px solid var(--colour-primary);">
+                    <h3 class="demo-title">🎨 Want to Create Stunning Patterns?</h3>
+                    <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">
+                        Ready to take your gradients to the next level? Learn how to create complex patterns, realistic textures, and smooth animations.
+                    </p>
+                    <a href="gradient-patterns.html" class="btn btn-primary" style="display: inline-block; padding: 1rem 2rem; background: linear-gradient(135deg, var(--colour-primary), var(--colour-secondary)); color: white; border-radius: 0.75rem; font-weight: 600; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                        Explore Advanced Gradient Patterns →
+                    </a>
                 </div>
             </div>
         </section>
