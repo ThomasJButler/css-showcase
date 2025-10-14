@@ -1,218 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transitions and Animations</title>
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/transitions.css">
+    <meta name="description" content="Master CSS Transitions - smooth state changes that make your UI feel alive with timing functions, multiple properties, and performance tips.">
+    <meta name="author" content="Thomas Butler">
+    <title>CSS Transitions | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/transitions.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Sidebar Toggle Button (Mobile) -->
-<button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-    <div class="sidebar-toggle-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</button>
-
-<!-- Sidebar Backdrop (Mobile) -->
-<div class="sidebar-backdrop"></div>
-
-<!-- Sidebar Navigation -->
-<aside class="sidebar" role="navigation" aria-label="Main navigation">
-    <div class="sidebar-content">
-        <!-- Home Link -->
-        <div class="sidebar-header">
-            <a href="index.html" class="sidebar-home-link">
-                <span class="icon">🏠</span>
-                <span>Home</span>
-            </a>
-        </div>
-
-        <!-- Fundamentals Section -->
-        <div class="sidebar-section" data-section="fundamentals">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="typography.html" class="sidebar-nav-link">Typography</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Layout Section -->
-        <div class="sidebar-section" data-section="layout">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">🎯</span>Layout</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="grid.html" class="sidebar-nav-link">Grid</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Visual Effects Section -->
-        <div class="sidebar-section" data-section="visual-effects">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="animations.html" class="sidebar-nav-link">Animations</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Components Section -->
-        <div class="sidebar-section" data-section="components">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">🧩</span>Components</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="forms.html" class="sidebar-nav-link">Forms</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="tables.html" class="sidebar-nav-link">Tables</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="cards.html" class="sidebar-nav-link">Cards</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="icons.html" class="sidebar-nav-link">Icons</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Advanced Section -->
-        <div class="sidebar-section" data-section="advanced">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a>
-                </li>
-                <!-- Future pages (commented out until created) -->
-                <!--
-                <li class="sidebar-nav-item">
-                    <a href="custom-properties.html" class="sidebar-nav-link">Custom Properties</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="blend-modes.html" class="sidebar-nav-link">Blend Modes</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="shapes-clips.html" class="sidebar-nav-link">Shapes & Clips</a>
-                </li>
-                -->
-            </ul>
-        </div>
-
-        <!-- Modern CSS Section -->
-        <div class="sidebar-section" data-section="modern-css">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
-                </li>
-                <!-- Future pages (commented out until created) -->
-                <!--
-                <li class="sidebar-nav-item">
-                    <a href="anchor-positioning.html" class="sidebar-nav-link">Anchor Positioning</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="scroll-animations.html" class="sidebar-nav-link">Scroll Animations</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="color-spaces.html" class="sidebar-nav-link">Color Spaces</a>
-                </li>
-                -->
-            </ul>
-        </div>
-
-        <!-- Playground Section -->
-        <div class="sidebar-section" data-section="playground">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
-                <span><span class="sidebar-section-icon">🎮</span>Playground</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="playground.html" class="sidebar-nav-link">CSS Playground</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Sidebar Footer -->
-    <div class="sidebar-footer">
-        <button class="back-to-top">
-            <span>↑</span>
-            <span>Back to Top</span>
-        </button>
-    </div>
-</aside>
-
-
+    <!-- Skip link for accessibility -->
     <a href="#main" class="skip-link">Skip to main content</a>
-    <header>
-        <h1>Transitions and Animations</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="basic.html">Basic CSS</a></li>
-                <li><a href="layout.html">Layout</a></li>
-                <li><a href="advanced.html">Advanced CSS</a></li>
-                <li><a href="responsive.html">Responsive Design</a></li>
-            </ul>
-        </nav>
+
+    <!-- Theme toggle -->
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle color theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <!-- Sidebar Toggle Button (Mobile) -->
+    <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <div class="sidebar-toggle-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="sidebar-content">
+            <!-- Home Link -->
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-home-link">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+            </div>
+
+            <!-- Fundamentals Section -->
+            <div class="sidebar-section" data-section="fundamentals">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="typography.html" class="sidebar-nav-link">Typography</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Layout Section -->
+            <div class="sidebar-section" data-section="layout">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🎯</span>Layout</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="grid.html" class="sidebar-nav-link">Grid</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Visual Effects Section -->
+            <div class="sidebar-section" data-section="visual-effects">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="animations.html" class="sidebar-nav-link">Animations</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Components Section -->
+            <div class="sidebar-section" data-section="components">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🧩</span>Components</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="forms.html" class="sidebar-nav-link">Forms</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="tables.html" class="sidebar-nav-link">Tables</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="cards.html" class="sidebar-nav-link">Cards</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="icons.html" class="sidebar-nav-link">Icons</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Advanced Section -->
+            <div class="sidebar-section" data-section="advanced">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Modern CSS Section -->
+            <div class="sidebar-section" data-section="modern-css">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Playground Section -->
+            <div class="sidebar-section" data-section="playground">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🎮</span>Playground</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="playground.html" class="sidebar-nav-link">CSS Playground</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <button class="back-to-top">
+                <span>↑</span>
+                <span>Back to Top</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Header with navigation -->
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="basic.html" class="nav-link">Fundamentals</a></li>
+                    <li class="nav-item"><a href="flexbox.html" class="nav-link">Layout</a></li>
+                    <li class="nav-item"><a href="animations.html" class="nav-link">Visual Effects</a></li>
+                    <li class="nav-item"><a href="buttons.html" class="nav-link">Components</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
     <main id="main">
+        <!-- Breadcrumb navigation -->
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <div class="container">
                 <ol class="breadcrumb-list">
@@ -229,24 +236,438 @@
             </div>
         </nav>
 
-
-        <section>
-            <h2>CSS Transitions</h2>
-            <div class="transition-box">Hover me!</div>
-            <div class="advanced-transition-box">Hover me for more effects!</div>
+        <!-- Page hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">CSS Transitions</h1>
+                <p class="page-subtitle">Smooth state changes that make your UI feel alive. Master the art of animating between CSS property values with timing, easing, and performance in mind.</p>
+            </div>
         </section>
-        <section>
-            <h2>CSS Animations</h2>
-            <div class="animation-box">Hover me!</div>
-            <div class="advanced-animation-box">Hover me for advanced animation!</div>
+
+        <!-- Transition Basics Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Transition Basics</h2>
+                <p>Transitions let you smoothly animate changes between CSS property values. Instead of an instant jump from one state to another, transitions create a smooth visual flow that feels natural and polished.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="transition-basic-box">Hover me!</div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.box {
+    background-color: #2563eb;
+    transform: scale(1);
+    /* property | duration | timing-function | delay */
+    transition: all 0.3s ease 0s;
+}
+
+.box:hover {
+    background-color: #7c3aed;
+    transform: scale(1.1);
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>The <code>transition</code> property is shorthand for four individual properties:</p>
+                    <ul>
+                        <li><strong>transition-property:</strong> Which CSS properties to animate (or <code>all</code>)</li>
+                        <li><strong>transition-duration:</strong> How long the transition takes (e.g., 0.3s)</li>
+                        <li><strong>transition-timing-function:</strong> The easing curve (e.g., ease, linear)</li>
+                        <li><strong>transition-delay:</strong> Wait time before starting (default: 0s)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timing Functions Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Timing Functions</h2>
+                <p>Timing functions control the acceleration curve of your transition. They determine whether the animation starts slow and speeds up, or starts fast and slows down. Choose the right easing for the right context.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content timing-demo">
+                        <div class="timing-comparison">
+                            <div class="timing-box" data-timing="linear">
+                                <span class="timing-label">linear</span>
+                                <div class="timing-runner"></div>
+                            </div>
+                            <div class="timing-box" data-timing="ease">
+                                <span class="timing-label">ease</span>
+                                <div class="timing-runner"></div>
+                            </div>
+                            <div class="timing-box" data-timing="ease-in">
+                                <span class="timing-label">ease-in</span>
+                                <div class="timing-runner"></div>
+                            </div>
+                            <div class="timing-box" data-timing="ease-out">
+                                <span class="timing-label">ease-out</span>
+                                <div class="timing-runner"></div>
+                            </div>
+                            <div class="timing-box" data-timing="ease-in-out">
+                                <span class="timing-label">ease-in-out</span>
+                                <div class="timing-runner"></div>
+                            </div>
+                        </div>
+                        <button class="demo-button" id="run-timing-demo">Run Demo</button>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Built-in timing functions */
+.linear      { transition-timing-function: linear; }
+.ease        { transition-timing-function: ease; }      /* default */
+.ease-in     { transition-timing-function: ease-in; }   /* slow start */
+.ease-out    { transition-timing-function: ease-out; }  /* slow end */
+.ease-in-out { transition-timing-function: ease-in-out; }
+
+/* Custom cubic-bezier curves */
+.custom {
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* bounce effect */
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <h3>Choosing the Right Timing Function</h3>
+                    <ul>
+                        <li><strong>linear:</strong> Constant speed - good for continuous motion like loading spinners</li>
+                        <li><strong>ease:</strong> Starts fast, ends slow - the default, works for most cases</li>
+                        <li><strong>ease-in:</strong> Starts slow, accelerates - good for objects exiting the screen</li>
+                        <li><strong>ease-out:</strong> Starts fast, decelerates - good for objects entering the screen</li>
+                        <li><strong>ease-in-out:</strong> Slow start and end - good for attention-grabbing effects</li>
+                    </ul>
+                    <p>For custom curves, use <a href="https://cubic-bezier.com/" target="_blank" rel="noopener">cubic-bezier.com</a> to visualize and create your own timing functions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Multiple Properties Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Transitioning Multiple Properties</h2>
+                <p>You can transition multiple properties at once, each with its own duration and timing. This creates rich, layered effects that feel premium and well-crafted.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="multi-transition-card">
+                            <div class="card-icon">🎨</div>
+                            <h3>Hover Me</h3>
+                            <p>Multiple properties transition together</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.card {
+    background: white;
+    transform: translateY(0) scale(1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+    /* Different durations for each property */
+    transition:
+        transform 0.3s ease-out,
+        box-shadow 0.3s ease-out,
+        background 0.5s ease,
+        opacity 0.2s ease;
+}
+
+.card:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p><strong>Pro tip:</strong> While <code>transition: all</code> is convenient during prototyping, it's better to specify individual properties in production. This gives you fine control over timing and avoids unintended transitions on properties you didn't mean to animate.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real-World Examples Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Real-World Examples</h2>
+                <p>Transitions shine in everyday UI patterns. Here are some practical applications you'll use constantly.</p>
+
+                <h3>Button Hover States</h3>
+                <div class="demo-block">
+                    <div class="demo-content button-examples">
+                        <button class="btn-transition btn-primary">Primary Button</button>
+                        <button class="btn-transition btn-ghost">Ghost Button</button>
+                        <button class="btn-transition btn-gradient">Gradient Button</button>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.button {
+    padding: 12px 24px;
+    border: 2px solid #2563eb;
+    background: #2563eb;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.button:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}</code></pre>
+                </div>
+
+                <h3>Navigation Menus</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <nav class="demo-nav">
+                            <a href="#" class="nav-link-demo">Home</a>
+                            <a href="#" class="nav-link-demo">About</a>
+                            <a href="#" class="nav-link-demo">Services</a>
+                            <a href="#" class="nav-link-demo">Contact</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.nav-link {
+    position: relative;
+    color: #64748b;
+    transition: color 0.2s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #2563eb;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #2563eb;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}</code></pre>
+                </div>
+
+                <h3>Image Hover Effects</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="image-hover-demo">
+                            <div class="image-card">
+                                <div class="image-placeholder">🖼️</div>
+                                <div class="image-overlay">
+                                    <p>View Details</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.image-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-card img {
+    transition: transform 0.4s ease;
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-card:hover img {
+    transform: scale(1.1);
+}
+
+.image-card:hover .image-overlay {
+    opacity: 1;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Performance & Best Practices</h2>
+                <p>Not all CSS properties are created equal when it comes to animation performance. Some trigger expensive layout recalculations, while others can be GPU-accelerated for buttery smooth transitions.</p>
+
+                <div class="explanation">
+                    <h3>Properties to Prefer (GPU-accelerated)</h3>
+                    <ul>
+                        <li><code>transform</code> - translate, scale, rotate, skew</li>
+                        <li><code>opacity</code> - fade in/out effects</li>
+                    </ul>
+
+                    <h3>Properties to Avoid Animating (Expensive)</h3>
+                    <ul>
+                        <li><code>width</code> / <code>height</code> - triggers layout recalculation</li>
+                        <li><code>top</code> / <code>left</code> - use <code>transform: translate()</code> instead</li>
+                        <li><code>margin</code> / <code>padding</code> - affects layout</li>
+                    </ul>
+
+                    <h3>Accessibility Considerations</h3>
+                    <p>Some users prefer reduced motion. Respect their preferences with a media query:</p>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Default transitions */
+.element {
+    transition: transform 0.3s ease;
+}
+
+/* Disable for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .element {
+        transition: none;
+    }
+}</code></pre>
+                </div>
+
+                <div class="tip-box">
+                    <h4>When to Use Transitions vs Animations</h4>
+                    <p><strong>Use Transitions when:</strong> You're animating between two states (like hover effects, toggles, or UI feedback).</p>
+                    <p><strong>Use Animations when:</strong> You need complex, multi-step sequences, looping effects, or animations that start automatically. Check out the <a href="animations.html">Animations page</a> for more on keyframe animations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transition Delay Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Transition Delays & Staggering</h2>
+                <p>The <code>transition-delay</code> property lets you wait before starting a transition. This is perfect for creating staggered animations where elements appear one after another.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="stagger-container">
+                            <div class="stagger-box" style="transition-delay: 0s;">1</div>
+                            <div class="stagger-box" style="transition-delay: 0.1s;">2</div>
+                            <div class="stagger-box" style="transition-delay: 0.2s;">3</div>
+                            <div class="stagger-box" style="transition-delay: 0.3s;">4</div>
+                            <div class="stagger-box" style="transition-delay: 0.4s;">5</div>
+                        </div>
+                        <p class="demo-hint">Hover over the container to see staggered transitions</p>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.stagger-box {
+    opacity: 0.3;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+/* Stagger delays for each box */
+.stagger-box:nth-child(1) { transition-delay: 0s; }
+.stagger-box:nth-child(2) { transition-delay: 0.1s; }
+.stagger-box:nth-child(3) { transition-delay: 0.2s; }
+.stagger-box:nth-child(4) { transition-delay: 0.3s; }
+.stagger-box:nth-child(5) { transition-delay: 0.4s; }
+
+.stagger-container:hover .stagger-box {
+    opacity: 1;
+    transform: translateY(0);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Topics Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Keep Learning</h2>
+                <div class="related-links">
+                    <a href="animations.html" class="related-card">
+                        <h3>CSS Animations</h3>
+                        <p>Ready for more complex effects? Learn keyframe animations for multi-step sequences and automatic motion.</p>
+                    </a>
+                    <a href="gradients.html" class="related-card">
+                        <h3>Gradients</h3>
+                        <p>Combine transitions with gradients for dynamic color effects that respond to user interaction.</p>
+                    </a>
+                    <a href="filters.html" class="related-card">
+                        <h3>Filters & Effects</h3>
+                        <p>Explore transitioning filter effects like blur, brightness, and hue-rotation for creative hover states.</p>
+                    </a>
+                </div>
+            </div>
         </section>
     </main>
-    <script src="scripts/transitions.js"></script>
-    <footer>
-        <p>Epic CSS Showcase by Thomas Butler</p>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion by <a href="https://thomasjbutler.me" target="_blank" rel="noopener">Thomas Butler</a>.
+            </p>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/sidebar.js"></script>
     <script src="scripts/syntax-highlight.js"></script>
+    <script src="scripts/code-examples.js"></script>
     <script src="scripts/search.js"></script>
     <script src="scripts/micro-interactions.js"></script>
+    <script src="scripts/transitions.js"></script>
 </body>
 </html>
