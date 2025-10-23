@@ -1,8 +1,13 @@
-// Code Examples JavaScript
-// Author: Thomas Butler
+/**
+ * @author Tom Butler
+ * @date 2025-10-23
+ * @description Adds copy-to-clipboard functionality to code examples throughout the showcase
+ */
 
+/**
+ * @constructs - Initialises copy buttons for all code examples
+ */
 document.addEventListener('DOMContentLoaded', function() {
-    // Add copy buttons to code examples
     const codeExamples = document.querySelectorAll('.code-example pre');
     
     codeExamples.forEach(pre => {
