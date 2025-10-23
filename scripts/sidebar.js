@@ -1,12 +1,13 @@
 /**
- * Sidebar Navigation
- * Handles mobile toggle, section collapsing, and active page highlighting
+ * @author Tom Butler
+ * @date 2025-10-23
+ * @description Sidebar navigation functionality including mobile toggle, section collapsing,
+ *              auto-hide on scroll, and active page highlighting with localStorage persistence
  */
 
 (function() {
     'use strict';
 
-    // Wait for DOM to be ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initSidebar);
     } else {
@@ -73,7 +74,8 @@
     }
 
     /**
-     * Toggle sidebar open/closed (mobile)
+     * Toggles sidebar open/closed state for mobile view
+     * Manages backdrop visibility and prevents body scroll when open
      */
     function toggleSidebar() {
         const sidebar = document.querySelector('.sidebar');
@@ -102,7 +104,7 @@
     }
 
     /**
-     * Close sidebar
+     * Closes sidebar and resets all related states
      */
     function closeSidebar() {
         const sidebar = document.querySelector('.sidebar');
@@ -126,7 +128,8 @@
     }
 
     /**
-     * Toggle section collapsed state
+     * Toggles section collapsed state and persists to localStorage
+     * @param {Event} e - Click event from section title
      */
     function toggleSection(e) {
         const section = e.currentTarget.closest('.sidebar-section');
@@ -135,7 +138,6 @@
         const isCollapsed = section.classList.toggle('collapsed');
         e.currentTarget.setAttribute('aria-expanded', !isCollapsed);
 
-        // Save state to localStorage
         const sectionId = section.dataset.section;
         if (sectionId) {
             saveCollapsedState(sectionId, isCollapsed);
@@ -163,7 +165,8 @@
     }
 
     /**
-     * Highlight the current page in the sidebar
+     * Highlights current page in sidebar navigation and ensures its section is expanded
+     * Scrolls active link into view if it's outside the visible sidebar area
      */
     function highlightCurrentPage() {
         const currentPage = getCurrentPage();
@@ -176,7 +179,6 @@
                 link.classList.add('active');
                 link.setAttribute('aria-current', 'page');
 
-                // Expand the parent section
                 const section = link.closest('.sidebar-section');
                 if (section) {
                     section.classList.remove('collapsed');
@@ -186,7 +188,7 @@
                     }
                 }
 
-                // Scroll link into view if not visible
+                // Brief delay allows sidebar to render before scrolling
                 setTimeout(() => {
                     const sidebar = document.querySelector('.sidebar');
                     const linkRect = link.getBoundingClientRect();
@@ -201,7 +203,8 @@
     }
 
     /**
-     * Get current page filename
+     * Extracts current page filename from URL
+     * @return {string} Page filename (e.g., 'flexbox.html')
      */
     function getCurrentPage() {
         const path = window.location.pathname;
@@ -210,7 +213,9 @@
     }
 
     /**
-     * Save collapsed section state to localStorage
+     * Persists collapsed section state to localStorage
+     * @param {string} sectionId - Section identifier
+     * @param {boolean} isCollapsed - Whether section is collapsed
      */
     function saveCollapsedState(sectionId, isCollapsed) {
         const collapsedSections = getCollapsedSections();
@@ -225,7 +230,8 @@
     }
 
     /**
-     * Get collapsed sections from localStorage
+     * Retrieves collapsed sections from localStorage
+     * @return {Set<string>} Set of collapsed section IDs
      */
     function getCollapsedSections() {
         try {
@@ -237,7 +243,7 @@
     }
 
     /**
-     * Restore collapsed sections from localStorage
+     * Restores collapsed section states from localStorage on page load
      */
     function restoreCollapsedSections() {
         const collapsedSections = getCollapsedSections();
@@ -255,7 +261,8 @@
     }
 
     /**
-     * Setup auto-hide sidebar on scroll
+     * Auto-hides sidebar when scrolling down, reveals when scrolling up
+     * Uses requestAnimationFrame for performance optimisation on desktop only
      */
     function setupAutoHide() {
         let lastScrollTop = 0;
@@ -269,14 +276,12 @@
 
                     if (!sidebar) return;
 
-                    // Only auto-hide on desktop and if sidebar is not manually toggled
+                    // Only auto-hide on desktop and when sidebar is not manually toggled
                     if (window.innerWidth >= 1024 && !sidebar.classList.contains('active')) {
                         if (scrollTop > lastScrollTop && scrollTop > 200) {
-                            // Scrolling down & past threshold
                             sidebar.classList.add('sidebar-hidden');
                             document.body.classList.add('sidebar-hidden');
                         } else if (scrollTop < lastScrollTop) {
-                            // Scrolling up
                             sidebar.classList.remove('sidebar-hidden');
                             document.body.classList.remove('sidebar-hidden');
                         }
@@ -292,10 +297,10 @@
     }
 
     /**
-     * Setup floating back-to-top button
+     * Creates and manages floating back-to-top button with scroll progress indicator
+     * Button appears after scrolling 400px down the page
      */
     function setupFloatingBackToTop() {
-        // Create button if it doesn't exist
         let floatingBtn = document.querySelector('.floating-back-to-top');
 
         if (!floatingBtn) {
@@ -306,7 +311,6 @@
             document.body.appendChild(floatingBtn);
         }
 
-        // Show/hide based on scroll position
         let ticking = false;
 
         window.addEventListener('scroll', () => {
@@ -316,14 +320,12 @@
                     const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                     const scrollProgress = scrollTop / docHeight;
 
-                    // Show button after scrolling down 400px
                     if (scrollTop > 400) {
                         floatingBtn.classList.add('visible');
                     } else {
                         floatingBtn.classList.remove('visible');
                     }
 
-                    // Update progress ring
                     floatingBtn.style.setProperty('--scroll-progress', scrollProgress);
 
                     ticking = false;
@@ -333,7 +335,6 @@
             }
         }, { passive: true });
 
-        // Scroll to top on click
         floatingBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -342,9 +343,7 @@
         });
     }
 
-    /**
-     * Handle window resize - close sidebar on mobile if open
-     */
+    // Close sidebar when resizing to desktop view
     window.addEventListener('resize', () => {
         if (window.innerWidth >= 1024) {
             closeSidebar();
