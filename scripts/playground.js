@@ -16,14 +16,60 @@ document.addEventListener('DOMContentLoaded', function() {
     const formatBtn = document.getElementById('formatBtn');
     const copyBtn = document.getElementById('copyBtn');
     const previewSizes = document.querySelectorAll('.preview-size');
-    
+    const viewBtns = document.querySelectorAll('.view-btn');
+
     // Default content
     const defaultHTML = htmlInput.value;
     const defaultCSS = cssInput.value;
-    
+
+    // Start in fullscreen preview mode
+    document.body.classList.add('fullscreen-preview');
+
+    // View switcher functionality
+    viewBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const view = btn.dataset.view;
+            switchView(view);
+        });
+    });
+
+    /**
+     * Switches between different view modes
+     * @param {string} view - View mode: 'preview', 'html', 'css', or 'split'
+     */
+    function switchView(view) {
+        // Remove all view classes
+        document.body.classList.remove('fullscreen-preview', 'editor-html', 'editor-css', 'split-view');
+
+        // Add selected view class
+        if (view === 'preview') {
+            document.body.classList.add('fullscreen-preview');
+        } else if (view === 'html') {
+            document.body.classList.add('fullscreen-preview', 'editor-html');
+            // Switch to HTML tab in editor
+            editorTabs.forEach(t => t.classList.remove('active'));
+            editors.forEach(e => e.classList.remove('active'));
+            document.querySelector('[data-editor="html"]').classList.add('active');
+            document.getElementById('htmlEditor').classList.add('active');
+        } else if (view === 'css') {
+            document.body.classList.add('fullscreen-preview', 'editor-css');
+            // Switch to CSS tab in editor
+            editorTabs.forEach(t => t.classList.remove('active'));
+            editors.forEach(e => e.classList.remove('active'));
+            document.querySelector('[data-editor="css"]').classList.add('active');
+            document.getElementById('cssEditor').classList.add('active');
+        } else if (view === 'split') {
+            document.body.classList.add('split-view');
+        }
+
+        // Update active button
+        viewBtns.forEach(b => b.classList.remove('active'));
+        document.querySelector(`[data-view="${view}"]`).classList.add('active');
+    }
+
     // Load saved content
     loadSavedContent();
-    
+
     // Update preview on load
     updatePreview();
     
