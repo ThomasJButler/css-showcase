@@ -17,7 +17,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="playground-page">
+    <!-- View Switcher Bar -->
+    <div class="view-switcher">
+        <button class="view-btn active" data-view="preview" title="Full-screen preview">
+            <span>👁️</span> Preview
+        </button>
+        <button class="view-btn" data-view="html" title="Edit HTML">
+            <span>📝</span> HTML
+        </button>
+        <button class="view-btn" data-view="css" title="Edit CSS">
+            <span>🎨</span> CSS
+        </button>
+        <button class="view-btn" data-view="split" title="Split view (editor + preview)">
+            <span>⚏</span> Split View
+        </button>
+    </div>
+
     <!-- Sidebar Toggle Button (Mobile) -->
 <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
     <div class="sidebar-toggle-icon">

@@ -389,7 +389,7 @@
     }
 }
 
-/* Fullscreen Mode */
+/* Fullscreen Mode (Old - deprecated but keeping for backwards compatibility) */
 .fullscreen .preview-frame-container {
     position: fixed;
     inset: 0;
@@ -404,6 +404,194 @@
     max-height: none;
     border-radius: 0;
     box-shadow: none;
+}
+
+/* ============================================
+   View Switcher & New Fullscreen System
+   ============================================ */
+
+/* View Switcher Bar */
+.view-switcher {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--colour-background);
+    border-bottom: 2px solid var(--colour-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 var(--space-4);
+    z-index: 1001;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.view-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-5);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    color: var(--colour-text-muted);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.view-btn span {
+    font-size: 1.1em;
+}
+
+.view-btn:hover {
+    background: var(--colour-surface-alt);
+    color: var(--colour-text);
+    border-color: var(--colour-border);
+}
+
+.view-btn.active {
+    background: var(--colour-primary);
+    color: white;
+    border-color: var(--colour-primary);
+}
+
+/* Hide site chrome on playground page */
+.playground-page .site-header,
+.playground-page .sidebar,
+.playground-page .sidebar-toggle,
+.playground-page .sidebar-backdrop,
+.playground-page .theme-toggle,
+.playground-page .breadcrumb {
+    display: none !important;
+}
+
+.playground-page .playground-container {
+    height: 100vh;
+    padding-top: 60px;
+}
+
+/* Fullscreen Preview Mode (Default) */
+.fullscreen-preview .preview-frame-container {
+    position: fixed;
+    inset: 0;
+    padding-top: 60px;
+    z-index: 1000;
+    background: white;
+}
+
+.fullscreen-preview .preview-frame {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
+    top: 0;
+    left: 0;
+}
+
+.fullscreen-preview .editor-panel,
+.fullscreen-preview .playground-header,
+.fullscreen-preview .playground-info {
+    display: none;
+}
+
+/* Editor Slide-In Modes */
+.fullscreen-preview.editor-html .editor-panel,
+.fullscreen-preview.editor-css .editor-panel {
+    display: flex;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    width: 650px;
+    max-width: 90vw;
+    z-index: 1002;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+    animation: slideInFromLeft 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Split View Mode */
+.split-view .playground-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+}
+
+.split-view .playground-main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.split-view .editor-panel {
+    display: flex;
+}
+
+.split-view .preview-panel {
+    display: flex;
+}
+
+.split-view .preview-frame-container {
+    position: relative;
+}
+
+.split-view .preview-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Mobile Warning */
+@media (max-width: 1024px) {
+    .playground-page::before {
+        content: 'CSS Playground works best on desktop browsers. Some features may be limited on mobile devices.';
+        position: fixed;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #f59e0b;
+        color: white;
+        padding: var(--space-3) var(--space-6);
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+        max-width: 90%;
+        text-align: center;
+        z-index: 999;
+        font-size: var(--text-sm);
+        font-weight: var(--font-medium);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .playground-page .playground-container {
+        padding-top: 120px; /* Extra space for warning */
+    }
+
+    .view-switcher {
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+    .view-btn {
+        flex-shrink: 0;
+    }
 }
 
 /* Loading State */
