@@ -489,11 +489,13 @@ a:hover {
     margin-bottom: var(--space-12);
 }
 
-/* Showcase Grid */
+/* Showcase Grid - max 3 columns for better visual hierarchy */
 .showcase-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-6);
+    max-width: calc(300px * 3 + var(--space-6) * 2 + var(--space-8) * 2);
+    margin: 0 auto;
 }
 
 /* Showcase Cards */
