@@ -1,0 +1,319 @@
+{
+  "pages": {
+    "index.html": {
+      "name": "index.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/index.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/index.png"
+      },
+      "loadTime": {
+        "desktop": 1640,
+        "mobile": 1598
+      }
+    },
+    "playground.html": {
+      "name": "playground.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/playground.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/playground.png"
+      },
+      "loadTime": {
+        "desktop": 1952,
+        "mobile": 1951
+      }
+    },
+    "basic.html": {
+      "name": "basic.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/basic.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/basic.png"
+      },
+      "loadTime": {
+        "desktop": 3568,
+        "mobile": 3555
+      }
+    },
+    "box-model.html": {
+      "name": "box-model.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/box-model.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/box-model.png"
+      },
+      "loadTime": {
+        "desktop": 3499,
+        "mobile": 3511
+      }
+    },
+    "typography.html": {
+      "name": "typography.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/typography.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/typography.png"
+      },
+      "loadTime": {
+        "desktop": 3127,
+        "mobile": 3034
+      }
+    },
+    "flexbox.html": {
+      "name": "flexbox.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/flexbox.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/flexbox.png"
+      },
+      "loadTime": {
+        "desktop": 3242,
+        "mobile": 3565
+      }
+    },
+    "grid.html": {
+      "name": "grid.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/grid.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/grid.png"
+      },
+      "loadTime": {
+        "desktop": 3344,
+        "mobile": 3286
+      }
+    },
+    "layout.html": {
+      "name": "layout.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/layout.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/layout.png"
+      },
+      "loadTime": {
+        "desktop": 1096,
+        "mobile": 1086
+      }
+    },
+    "responsive.html": {
+      "name": "responsive.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/responsive.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/responsive.png"
+      },
+      "loadTime": {
+        "desktop": 1074,
+        "mobile": 988
+      }
+    },
+    "gradients.html": {
+      "name": "gradients.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/gradients.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/gradients.png"
+      },
+      "loadTime": {
+        "desktop": 2942,
+        "mobile": 3198
+      }
+    },
+    "transitions.html": {
+      "name": "transitions.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/transitions.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/transitions.png"
+      },
+      "loadTime": {
+        "desktop": 1070,
+        "mobile": 995
+      }
+    },
+    "animations.html": {
+      "name": "animations.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/animations.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/animations.png"
+      },
+      "loadTime": {
+        "desktop": 2987,
+        "mobile": 3290
+      }
+    },
+    "filters.html": {
+      "name": "filters.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/filters.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/filters.png"
+      },
+      "loadTime": {
+        "desktop": 3348,
+        "mobile": 3400
+      }
+    },
+    "buttons.html": {
+      "name": "buttons.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/buttons.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/buttons.png"
+      },
+      "loadTime": {
+        "desktop": 2272,
+        "mobile": 2126
+      }
+    },
+    "forms.html": {
+      "name": "forms.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/forms.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/forms.png"
+      },
+      "loadTime": {
+        "desktop": 2082,
+        "mobile": 1875
+      }
+    },
+    "tables.html": {
+      "name": "tables.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/tables.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/tables.png"
+      },
+      "loadTime": {
+        "desktop": 3672,
+        "mobile": 3684
+      }
+    },
+    "cards.html": {
+      "name": "cards.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/cards.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/cards.png"
+      },
+      "loadTime": {
+        "desktop": 3562,
+        "mobile": 3520
+      }
+    },
+    "icons.html": {
+      "name": "icons.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/icons.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/icons.png"
+      },
+      "loadTime": {
+        "desktop": 2417,
+        "mobile": 2040
+      }
+    },
+    "advanced.html": {
+      "name": "advanced.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/advanced.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/advanced.png"
+      },
+      "loadTime": {
+        "desktop": 972,
+        "mobile": 1065
+      }
+    },
+    "has-selector.html": {
+      "name": "has-selector.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/has-selector.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/has-selector.png"
+      },
+      "loadTime": {
+        "desktop": 3709,
+        "mobile": 3721
+      }
+    },
+    "container-queries.html": {
+      "name": "container-queries.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/container-queries.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/container-queries.png"
+      },
+      "loadTime": {
+        "desktop": 3576,
+        "mobile": 3525
+      }
+    },
+    "css-nesting.html": {
+      "name": "css-nesting.html",
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "networkErrors": [],
+      "screenshots": {
+        "desktop": "/Users/tombutler/Repos/css-showcase/audit-screenshots/desktop/css-nesting.png",
+        "mobile": "/Users/tombutler/Repos/css-showcase/audit-screenshots/mobile/css-nesting.png"
+      },
+      "loadTime": {
+        "desktop": 4013,
+        "mobile": 3922
+      }
+    }
+  },
+  "summary": {
+    "totalPages": 22,
+    "pagesWithErrors": 0,
+    "totalConsoleErrors": 0,
+    "totalConsoleWarnings": 0,
+    "brokenLinks": []
+  }
+}

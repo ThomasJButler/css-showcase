@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced gradient patterns and techniques - create stunning textures, animated backgrounds, and complex designs with CSS gradients.">
+    <meta name="author" content="Thomas Butler">
+    <title>Gradient Patterns | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/gradients.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Sidebar Toggle Button (Mobile) -->
+    <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <div class="sidebar-toggle-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="sidebar-content">
+            <!-- Home Link -->
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-home-link">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+            </div>
+
+            <!-- Fundamentals Section -->
+            <div class="sidebar-section" data-section="fundamentals">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="basic.html" class="sidebar-nav-link">CSS Basics</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="typography.html" class="sidebar-nav-link">Typography</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Layout Section -->
+            <div class="sidebar-section" data-section="layout">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">📐</span>Layout</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="flexbox-patterns.html" class="sidebar-nav-link">Flexbox Patterns</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="grid.html" class="sidebar-nav-link">Grid</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Visual Effects Section -->
+            <div class="sidebar-section" data-section="visual">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="gradient-patterns.html" class="sidebar-nav-link active">Gradient Patterns</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="animations.html" class="sidebar-nav-link">Animations</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="animations-advanced.html" class="sidebar-nav-link">Advanced Animations</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Components Section -->
+            <div class="sidebar-section" data-section="components">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🧩</span>Components</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="forms.html" class="sidebar-nav-link">Forms</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="tables.html" class="sidebar-nav-link">Tables</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="tables-advanced.html" class="sidebar-nav-link">Advanced Tables</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="cards.html" class="sidebar-nav-link">Cards</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="icons.html" class="sidebar-nav-link">Pure CSS Icons</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="filters.html" class="sidebar-nav-link">CSS Filters</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Advanced Section -->
+            <div class="sidebar-section" data-section="advanced">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🔬</span>Advanced</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="advanced.html" class="sidebar-nav-link">Advanced Selectors</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Modern CSS Section -->
+            <div class="sidebar-section" data-section="modern">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🚀</span>Modern CSS</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Playground Section -->
+            <div class="sidebar-section" data-section="playground">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🎮</span>Playground</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="playground.html" class="sidebar-nav-link" target="_blank" rel="noopener noreferrer">CSS Playground</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <button class="back-to-top" aria-label="Back to top">
+                <span>↑</span>
+                <span>Back to Top</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle color theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <!-- Floating Back to Top Button -->
+    <button class="floating-back-to-top" aria-label="Back to top">
+        <span>↑</span>
+    </button>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="basic.html" class="nav-link">Fundamentals</a></li>
+                    <li class="nav-item"><a href="flexbox.html" class="nav-link">Layout</a></li>
+                    <li class="nav-item"><a href="gradients.html" class="nav-link">Visual Effects</a></li>
+                    <li class="nav-item"><a href="buttons.html" class="nav-link">Components</a></li>
+                    <li class="nav-item"><a href="advanced.html" class="nav-link">Advanced</a></li>
+                    <li class="nav-item"><a href="has-selector.html" class="nav-link">Modern CSS</a></li>
+                    <li class="nav-item"><a href="playground.html" class="nav-link">Playground</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="index.html" class="breadcrumb-link">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="index.html#visual-effects" class="breadcrumb-link">Visual Effects</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="gradients.html" class="breadcrumb-link">Gradients</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="breadcrumb-current">Gradient Patterns</span>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="page-hero gradient-hero">
+            <div class="container">
+                <h1 class="page-title">Gradient Patterns</h1>
+                <p class="page-subtitle">
+                    Combine multiple gradients to create stunning patterns, textures, and animated backgrounds with pure CSS.
+                </p>
+            </div>
+        </section>
+
+        <!-- Geometric Patterns Section -->
+        <section id="geometric" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Geometric Patterns</h2>
+                <p class="section-intro">
+                    Create repeating patterns like stripes, chevrons, dots, and grids using gradient repetition.
+                </p>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">Pattern Gallery</h3>
+                    <div class="demo-example">
+                        <div class="pattern-showcase">
+                            <div class="pattern-box pattern-stripes"></div>
+                            <p class="pattern-label">Stripes</p>
+                        </div>
+                        <div class="pattern-showcase">
+                            <div class="pattern-box pattern-chevron"></div>
+                            <p class="pattern-label">Chevron</p>
+                        </div>
+                        <div class="pattern-showcase">
+                            <div class="pattern-box pattern-dots"></div>
+                            <p class="pattern-label">Polka Dots</p>
+                        </div>
+                        <div class="pattern-showcase">
+                            <div class="pattern-box pattern-grid"></div>
+                            <p class="pattern-label">Grid</p>
+                        </div>
+                    </div>
+                    <div class="code-example">
+                        <pre><code>/* Diagonal stripes */
+.stripes {
+    background: repeating-linear-gradient(
+        45deg,
+        #3b82f6,
+        #3b82f6 10px,
+        #60a5fa 10px,
+        #60a5fa 20px
+    );
+}
+
+/* Polka dots */
+.dots {
+    background-color: #ddd3ee;
+    background-image: radial-gradient(
+        circle,
+        #8b5cf6 25%,
+        transparent 25%
+    );
+    background-size: 20px 20px;
+}
+
+/* Grid pattern */
+.grid {
+    background:
+        linear-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-color: #f3f4f6;
+}
+
+/* Chevron pattern */
+.chevron {
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #3b82f6,
+            #3b82f6 10px,
+            transparent 10px,
+            transparent 20px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            #8b5cf6,
+            #8b5cf6 10px,
+            transparent 10px,
+            transparent 20px
+        );
+}</code></pre>
+                    </div>
+                    <div class="explanation">
+                        <p>
+                            The key to creating patterns is using <code>repeating-linear-gradient()</code> or
+                            <code>repeating-radial-gradient()</code> with carefully placed colour stops. By setting
+                            a background-size, you control the pattern's scale.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="content-spacer"></div>
+        </div>
+
+        <!-- Organic Textures Section -->
+        <section id="textures" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Organic Textures</h2>
+                <p class="section-intro">
+                    Layer multiple gradients to create realistic textures like paper, fabric, and carbon fiber.
+                </p>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">Texture Gallery</h3>
+                    <div class="demo-example">
+                        <div class="pattern-showcase">
+                            <div class="pattern-box pattern-noise"></div>
+                            <p class="pattern-label">Noise</p>
+                        </div>
+                        <div class="pattern-showcase">
+                            <div class="pattern-box pattern-paper"></div>
+                            <p class="pattern-label">Paper</p>
+                        </div>
+                        <div class="pattern-showcase">
+                            <div class="pattern-box pattern-fabric"></div>
+                            <p class="pattern-label">Fabric</p>
+                        </div>
+                        <div class="pattern-showcase">
+                            <div class="pattern-box pattern-carbon"></div>
+                            <p class="pattern-label">Carbon</p>
+                        </div>
+                    </div>
+                    <div class="code-example">
+                        <pre><code>/* Paper texture */
+.paper {
+    background:
+        radial-gradient(
+            ellipse at top,
+            rgba(255,255,255,0.5),
+            transparent
+        ),
+        radial-gradient(
+            ellipse at bottom,
+            rgba(0,0,0,0.1),
+            transparent
+        ),
+        #f5f5f5;
+}
+
+/* Carbon fiber */
+.carbon {
+    background:
+        linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0,
+        linear-gradient(27deg, #222 5px, transparent 5px) 0 10px,
+        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%,
+            transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-size: 20px 20px;
+    background-color: #131313;
+}
+
+/* Fabric weave */
+.fabric {
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.05),
+            rgba(0, 0, 0, 0.05) 1px,
+            transparent 1px,
+            transparent 2px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.05),
+            rgba(0, 0, 0, 0.05) 1px,
+            transparent 1px,
+            transparent 2px
+        ),
+        #e5e7eb;
+}</code></pre>
+                    </div>
+                    <div class="explanation">
+                        <p>
+                            Complex textures are built by layering multiple gradients with different angles,
+                            sizes, and positions. The magic happens when you combine transparency with
+                            subtle colour variations. Don't be afraid to experiment!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="content-spacer"></div>
+        </div>
+
+        <!-- Animated Gradients Section -->
+        <section id="animated" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Animated Gradients</h2>
+                <p class="section-intro">
+                    Bring your gradients to life with CSS animations. Perfect for hero sections and attention-grabbing backgrounds.
+                </p>
+
+                <div class="demo-card wide">
+                    <h3 class="demo-title">Animation Showcase</h3>
+                    <div class="demo-example">
+                        <div class="animated-gradient-showcase">
+                            <div class="animated-gradient gradient-wave"></div>
+                            <div class="animated-gradient gradient-pulse"></div>
+                            <div class="animated-gradient gradient-rotate"></div>
+                            <div class="animated-gradient gradient-shift"></div>
+                        </div>
+                    </div>
+                    <div class="code-example">
+                        <pre><code>/* Animated gradient background */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+    background: linear-gradient(
+        -45deg,
+        #ee7752,
+        #e73c7e,
+        #23a6d5,
+        #23d5ab
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+/* Rotating conic gradient */
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+.rotating {
+    background: conic-gradient(
+        from 0deg,
+        #3b82f6,
+        #8b5cf6,
+        #ec4899,
+        #f59e0b,
+        #3b82f6
+    );
+    animation: rotate 5s linear infinite;
+}
+
+/* Wave effect */
+@keyframes wave {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+.wave {
+    background: linear-gradient(
+        90deg,
+        #3b82f6,
+        #8b5cf6,
+        #ec4899,
+        #3b82f6
+    );
+    background-size: 200% 100%;
+    animation: wave 4s linear infinite;
+}</code></pre>
+                    </div>
+                    <div class="explanation">
+                        <p>
+                            To animate gradients, you can't directly animate the gradient itself. Instead, create
+                            a large gradient (using <code>background-size</code>) and animate the
+                            <code>background-position</code>. For conic gradients, animate the
+                            <code>transform: rotate()</code> property instead.
+                        </p>
+                        <p>
+                            <strong>Performance tip:</strong> Animated gradients can be resource-intensive. Use them
+                            sparingly and test on lower-end devices. Consider using <code>will-change: transform</code>
+                            for rotation animations to hint to the browser about optimization.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Gradient Best Practices</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">🎨</span>
+                        <h3>Smooth Transitions</h3>
+                        <p>Use colour stops at 0% and 100% to avoid harsh edges at gradient boundaries. For smoother blends, add intermediate colour stops.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">⚡</span>
+                        <h3>Performance</h3>
+                        <p>Complex gradients and animations can impact performance. Test on lower-end devices and consider simplifying patterns for mobile.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">♿</span>
+                        <h3>Accessibility</h3>
+                        <p>Ensure sufficient contrast when placing text over gradients. Use tools like WebAIM's contrast checker to verify readability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section-title">Continue Your Journey</h2>
+                <p class="section-subtitle">
+                    Gradient patterns mastered! Explore more visual effects to create stunning designs.
+                </p>
+                <div class="next-links">
+                    <a href="filters.html" class="next-link">
+                        <span class="next-icon">🎨</span>
+                        <div>
+                            <h3>CSS Filters</h3>
+                            <p>Apply Instagram-like effects with CSS</p>
+                        </div>
+                    </a>
+                    <a href="animations.html" class="next-link">
+                        <span class="next-icon">🎬</span>
+                        <div>
+                            <h3>Animations</h3>
+                            <p>Combine gradients with motion</p>
+                        </div>
+                    </a>
+                    <a href="gradients.html" class="next-link">
+                        <span class="next-icon">🌈</span>
+                        <div>
+                            <h3>Back to Gradient Basics</h3>
+                            <p>Review linear, radial, and conic gradients</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion (and far too much tea) by Thomas Butler
+            </p>
+            <p class="footer-text">
+                <small>All examples use pure CSS - no frameworks were harmed in the making of this showcase</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/syntax-highlight.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/micro-interactions.js"></script>
+</body>
+</html>

@@ -1,27 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Design</title>
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/responsive.css">
+    <meta name="description" content="Master Responsive Design - build websites that look amazing on every device with media queries, fluid typography, responsive images, and mobile-first techniques.">
+    <meta name="author" content="Thomas Butler">
+    <title>Responsive Design | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/responsive-page.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Skip link for accessibility -->
     <a href="#main" class="skip-link">Skip to main content</a>
-    <header>
-        <h1>Responsive Design</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="basic.html">Basic CSS</a></li>
-                <li><a href="layout.html">Layout</a></li>
-                <li><a href="transitions.html">Transitions and Animations</a></li>
-                <li><a href="advanced.html">Advanced CSS</a></li>
-            </ul>
-        </nav>
+
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="sidebar-content">
+            <!-- Home Link -->
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-home-link">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+            </div>
+
+            <!-- Fundamentals Section -->
+            <div class="sidebar-section" data-section="fundamentals">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="typography.html" class="sidebar-nav-link">Typography</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Layout Section -->
+            <div class="sidebar-section" data-section="layout">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎯</span>Layout</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="grid.html" class="sidebar-nav-link">Grid</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Visual Effects Section -->
+            <div class="sidebar-section" data-section="visual-effects">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="animations.html" class="sidebar-nav-link">Animations</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Components Section -->
+            <div class="sidebar-section" data-section="components">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🧩</span>Components</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="forms.html" class="sidebar-nav-link">Forms</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="tables.html" class="sidebar-nav-link">Tables</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="cards.html" class="sidebar-nav-link">Cards</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="icons.html" class="sidebar-nav-link">Icons</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Advanced Section -->
+            <div class="sidebar-section" data-section="advanced">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Modern CSS Section -->
+            <div class="sidebar-section" data-section="modern-css">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Playground Section -->
+            <div class="sidebar-section" data-section="playground">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎮</span>Playground</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="playground.html" class="sidebar-nav-link" target="_blank" rel="noopener noreferrer">CSS Playground</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <button class="back-to-top">
+                <span>↑</span>
+                <span>Back to Top</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Header with navigation -->
+
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+
+            <div class="header-actions">
+                <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="basic.html" class="nav-link">Fundamentals</a></li>
+                    <li class="nav-item"><a href="flexbox.html" class="nav-link">Layout</a></li>
+                    <li class="nav-item"><a href="animations.html" class="nav-link">Visual Effects</a></li>
+                    <li class="nav-item"><a href="buttons.html" class="nav-link">Components</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
     <main id="main">
+        <!-- Breadcrumb navigation -->
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <div class="container">
                 <ol class="breadcrumb-list">
@@ -38,25 +236,517 @@
             </div>
         </nav>
 
-
-        <section>
-            <h2>Responsive Layout</h2>
-            <div class="responsive-container">
-                <div class="responsive-item">Responsive Item</div>
+        <!-- Page hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Responsive Design</h1>
+                <p class="page-subtitle">Build websites that look amazing on every device. Master media queries, fluid layouts, responsive images, and mobile-first development strategies.</p>
             </div>
         </section>
-        <section>
-            <h2>Media Queries</h2>
-            <div class="media-query-example">
-                <p>Resize the window to see the effect of media queries.</p>
+
+        <!-- Core Concepts Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Responsive Design Fundamentals</h2>
+                <p>Responsive design ensures your website adapts seamlessly to any screen size - from phones to tablets to desktops. It's not just about making things smaller; it's about creating optimal experiences for each device.</p>
+
+                <h3>The Viewport Meta Tag</h3>
+                <div class="explanation">
+                    <p>This small tag is essential for responsive design. Without it, mobile browsers render your site at desktop width and scale it down, breaking your responsive styles.</p>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">HTML</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+                </div>
+
+                <h3>Relative Units</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="units-comparison">
+                            <div class="unit-box unit-px">100px</div>
+                            <div class="unit-box unit-percent">50%</div>
+                            <div class="unit-box unit-rem">5rem</div>
+                            <div class="unit-box unit-vw">25vw</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Fixed units - don't scale */
+.fixed { width: 300px; }
+
+/* Relative to parent */
+.relative { width: 50%; }
+
+/* Relative to root font-size (usually 16px) */
+.rem { font-size: 1.5rem; /* 24px */ }
+
+/* Relative to viewport width */
+.viewport { width: 50vw; /* 50% of viewport width */ }
+
+/* Relative to current font-size */
+.em { padding: 2em; /* 2x current font size */ }</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <ul>
+                        <li><strong>%:</strong> Relative to parent element - great for fluid layouts</li>
+                        <li><strong>rem:</strong> Relative to root font-size - consistent scaling</li>
+                        <li><strong>em:</strong> Relative to current font-size - component-level scaling</li>
+                        <li><strong>vw/vh:</strong> Viewport-relative - full-width/height sections</li>
+                        <li><strong>vmin/vmax:</strong> Smaller/larger viewport dimension</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Queries Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Media Queries</h2>
+                <p>Media queries let you apply different styles based on device characteristics like screen width, height, orientation, or resolution. They're the foundation of responsive design.</p>
+
+                <h3>Basic Syntax</h3>
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Mobile-first approach (recommended) */
+.container {
+    padding: 16px;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .container {
+        padding: 32px;
+    }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+    .container {
+        padding: 48px;
+    }
+}</code></pre>
+                </div>
+
+                <h3>Common Breakpoints</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="breakpoint-visualizer">
+                            <div class="bp-indicator bp-mobile">
+                                <span class="bp-label">📱 Mobile</span>
+                                <span class="bp-range">&lt; 768px</span>
+                            </div>
+                            <div class="bp-indicator bp-tablet">
+                                <span class="bp-label">📱 Tablet</span>
+                                <span class="bp-range">768px - 1023px</span>
+                            </div>
+                            <div class="bp-indicator bp-desktop">
+                                <span class="bp-label">💻 Desktop</span>
+                                <span class="bp-range">1024px - 1439px</span>
+                            </div>
+                            <div class="bp-indicator bp-large">
+                                <span class="bp-label">🖥️ Large</span>
+                                <span class="bp-range">&gt; 1440px</span>
+                            </div>
+                        </div>
+                        <div class="current-breakpoint" id="currentBreakpoint"></div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Mobile: 0-767px (default, no media query needed) */
+
+/* Tablet: 768px and up */
+@media (min-width: 768px) { }
+
+/* Desktop: 1024px and up */
+@media (min-width: 1024px) { }
+
+/* Large Desktop: 1440px and up */
+@media (min-width: 1440px) { }
+
+/* Between specific widths */
+@media (min-width: 768px) and (max-width: 1023px) { }
+
+/* Portrait/Landscape orientation */
+@media (orientation: portrait) { }
+@media (orientation: landscape) { }</code></pre>
+                </div>
+
+                <div class="tip-box">
+                    <h4>Mobile-First vs Desktop-First</h4>
+                    <p><strong>Mobile-first (recommended):</strong> Start with mobile styles, then add complexity for larger screens using <code>min-width</code>. Easier to maintain and better performance on mobile devices.</p>
+                    <p><strong>Desktop-first:</strong> Start with desktop styles, then override for smaller screens using <code>max-width</code>. Can lead to bloated mobile CSS as you're removing desktop complexity.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fluid Typography Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Fluid Typography</h2>
+                <p>Fluid typography scales smoothly between minimum and maximum sizes based on viewport width. No more jarring jumps between breakpoints!</p>
+
+                <h3>The clamp() Function</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <h2 class="fluid-heading">Resize your browser to see me scale smoothly!</h2>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* clamp(minimum, preferred, maximum) */
+h1 {
+    font-size: clamp(2rem, 5vw + 1rem, 4rem);
+    /* Minimum 2rem (32px), scales with viewport, max 4rem (64px) */
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
+}
+
+p {
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
+}
+
+/* Line height scales too */
+.text {
+    line-height: clamp(1.5, 1vw + 1.2, 1.8);
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p><strong>How it works:</strong> clamp() accepts three values - minimum, preferred (typically viewport-based), and maximum. The browser calculates the preferred value, but constrains it between min and max.</p>
+                    <p>This creates smooth scaling across all viewport sizes without media queries!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Responsive Images Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Responsive Images</h2>
+                <p>Images need special attention in responsive design. Serve appropriately sized images to save bandwidth and improve performance.</p>
+
+                <h3>Basic Responsive Images</h3>
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Make images fluid by default */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Maintain aspect ratio while filling container */
+.image-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* or contain, fill, scale-down */
+    object-position: center; /* or top, bottom, left, right */
+}</code></pre>
+                </div>
+
+                <h3>Object-fit Examples</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="object-fit-demo">
+                            <div class="fit-box">
+                                <div class="fit-item fit-cover">📷</div>
+                                <span>cover</span>
+                            </div>
+                            <div class="fit-box">
+                                <div class="fit-item fit-contain">📷</div>
+                                <span>contain</span>
+                            </div>
+                            <div class="fit-box">
+                                <div class="fit-item fit-fill">📷</div>
+                                <span>fill</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">HTML</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-html">&lt;!-- srcset: serve different images for different screen sizes --&gt;
+&lt;img
+    src="image-800w.jpg"
+    srcset="image-400w.jpg 400w,
+            image-800w.jpg 800w,
+            image-1200w.jpg 1200w"
+    sizes="(max-width: 600px) 400px,
+           (max-width: 1000px) 800px,
+           1200px"
+    alt="Responsive image"
+&gt;
+
+&lt;!-- picture element: art direction (different crops for different sizes) --&gt;
+&lt;picture&gt;
+    &lt;source media="(min-width: 1024px)" srcset="wide-image.jpg"&gt;
+    &lt;source media="(min-width: 768px)" srcset="medium-image.jpg"&gt;
+    &lt;img src="mobile-image.jpg" alt="Adaptive image"&gt;
+&lt;/picture&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Responsive Layout Patterns Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Responsive Layout Patterns</h2>
+                <p>Common patterns for adapting layouts across screen sizes.</p>
+
+                <h3>Responsive Grid</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="responsive-grid">
+                            <div class="grid-card">1</div>
+                            <div class="grid-card">2</div>
+                            <div class="grid-card">3</div>
+                            <div class="grid-card">4</div>
+                            <div class="grid-card">5</div>
+                            <div class="grid-card">6</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Auto-responsive grid - no media queries! */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+/* Or with media queries for more control */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile: 1 column */
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
+        gap: 24px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* Desktop: 3 columns */
+        gap: 32px;
+    }
+}</code></pre>
+                </div>
+
+                <h3>Responsive Navigation</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="responsive-nav-demo">
+                            <div class="demo-nav-mobile">
+                                <span>📱 Mobile: Hamburger Menu</span>
+                                <button class="demo-hamburger">☰</button>
+                            </div>
+                            <div class="demo-nav-desktop">
+                                <span>💻 Desktop: Horizontal Nav</span>
+                                <nav class="demo-nav-links">
+                                    <a href="#">Home</a>
+                                    <a href="#">About</a>
+                                    <a href="#">Services</a>
+                                    <a href="#">Contact</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Mobile: Hidden navigation, show hamburger */
+.nav-links {
+    display: none;
+}
+
+.hamburger {
+    display: block;
+}
+
+/* Desktop: Show navigation, hide hamburger */
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+        gap: 24px;
+    }
+
+    .hamburger {
+        display: none;
+    }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Container Queries Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Container Queries (Modern)</h2>
+                <p>Container queries let components respond to their container's size instead of the viewport. This enables truly reusable, context-aware components.</p>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Define a container */
+.sidebar {
+    container-type: inline-size;
+    container-name: sidebar;
+}
+
+/* Query the container, not the viewport */
+@container sidebar (min-width: 400px) {
+    .card {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>For a deep dive into container queries, check out the dedicated <a href="container-queries.html">Container Queries page</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Best Practices</h2>
+
+                <h3>Touch Targets</h3>
+                <div class="explanation">
+                    <p><strong>Minimum 44×44px:</strong> This is the WCAG guideline for touch targets. Smaller targets are hard to tap accurately, especially for users with motor impairments.</p>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Ensure buttons and links are tappable */
+button, a {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 24px;
+}
+
+/* Or use padding to reach the minimum */
+.link {
+    padding: 12px 16px;
+}</code></pre>
+                </div>
+
+                <h3>Performance on Mobile</h3>
+                <ul>
+                    <li><strong>Optimize images:</strong> Use modern formats (WebP, AVIF) and appropriate sizes</li>
+                    <li><strong>Minimize JavaScript:</strong> Mobile CPUs are slower - keep JS lightweight</li>
+                    <li><strong>Use system fonts:</strong> Save bandwidth by using fonts already on the device</li>
+                    <li><strong>Lazy load:</strong> Load images and content as users scroll to them</li>
+                    <li><strong>Test on real devices:</strong> Simulators don't capture real-world performance</li>
+                </ul>
+
+                <h3>Testing Checklist</h3>
+                <ul>
+                    <li>✓ Test on actual mobile devices (iOS and Android)</li>
+                    <li>✓ Verify touch targets are large enough (44×44px minimum)</li>
+                    <li>✓ Check text readability without zooming</li>
+                    <li>✓ Test forms on mobile keyboards</li>
+                    <li>✓ Verify images load quickly on 3G</li>
+                    <li>✓ Check horizontal scrolling (should be none!)</li>
+                    <li>✓ Test both portrait and landscape orientations</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Related Topics Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Keep Learning</h2>
+                <div class="related-links">
+                    <a href="layout.html" class="related-card">
+                        <h3>Layout Techniques</h3>
+                        <p>Master fundamental layout concepts that work hand-in-hand with responsive design.</p>
+                    </a>
+                    <a href="flexbox.html" class="related-card">
+                        <h3>Flexbox</h3>
+                        <p>One-dimensional layouts that adapt beautifully to different screen sizes.</p>
+                    </a>
+                    <a href="grid.html" class="related-card">
+                        <h3>CSS Grid</h3>
+                        <p>Two-dimensional layouts with powerful responsive capabilities built right in.</p>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>Epic CSS Showcase by Thomas Butler</p>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion by <a href="https://thomasjbutler.me" target="_blank" rel="noopener">Thomas Butler</a>.
+            </p>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/code-examples.js"></script>
     <script src="scripts/syntax-highlight.js"></script>
     <script src="scripts/search.js"></script>
     <script src="scripts/micro-interactions.js"></script>
+    <script src="scripts/responsive-page.js"></script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+{
+  "name": "css-showcase",
+  "version": "1.0.0",
+  "description": "> An interactive showcase of CSS capabilities - from fundamentals to cutting-edge features. Pure CSS, no frameworks. > > <img width=\"1439\" height=\"850\" alt=\"image\" src=\"https://github.com/user-attachments/assets/9fbd1b1d-e574-43a0-b77a-f35d048e7a5e\" />",
+  "main": "index.js",
+  "scripts": {
+    "audit": "node test-audit.js",
+    "test": "node test-audit.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasJButler/css-showcase.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomasJButler/css-showcase/issues"
+  },
+  "homepage": "https://github.com/ThomasJButler/css-showcase#readme",
+  "devDependencies": {
+    "puppeteer": "^24.24.0"
+  }
+}

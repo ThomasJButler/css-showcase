@@ -1,6 +1,14 @@
-// Micro-interactions and Enhancements
+/**
+ * @author Tom Butler
+ * @date 2025-10-23
+ * @description Micro-interactions including ripple effects, parallax mouse tracking,
+ *              and scroll-triggered reveal animations for enhanced user experience
+ */
+
+/**
+ * @constructs - Initialises micro-interactions and visual enhancements
+ */
 document.addEventListener('DOMContentLoaded', function() {
-    // Add ripple effect to buttons
     const buttons = document.querySelectorAll('.btn, button:not(.nav-toggle)');
     
     buttons.forEach(button => {

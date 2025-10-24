@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master CSS Anchor Positioning - position elements relative to other elements without JavaScript. Create tooltips, popovers, and dynamic layouts with the new Anchor Positioning API.">
+    <meta name="author" content="Thomas Butler">
+    <title>CSS Anchor Positioning | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/anchor-positioning.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+    <div class="sidebar-backdrop"></div>
+
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-home-link">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+            </div>
+
+            <div class="sidebar-section" data-section="fundamentals">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="basic.html" class="sidebar-nav-link">Basic CSS</a></li>
+                    <li class="sidebar-nav-item"><a href="box-model.html" class="sidebar-nav-link">Box Model</a></li>
+                    <li class="sidebar-nav-item"><a href="typography.html" class="sidebar-nav-link">Typography</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section" data-section="layout">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎯</span>Layout</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="flexbox.html" class="sidebar-nav-link">Flexbox</a></li>
+                    <li class="sidebar-nav-item"><a href="grid.html" class="sidebar-nav-link">Grid</a></li>
+                    <li class="sidebar-nav-item"><a href="layout.html" class="sidebar-nav-link">Layout Techniques</a></li>
+                    <li class="sidebar-nav-item"><a href="responsive.html" class="sidebar-nav-link">Responsive Design</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section" data-section="visual-effects">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="gradients.html" class="sidebar-nav-link">Gradients</a></li>
+                    <li class="sidebar-nav-item"><a href="transitions.html" class="sidebar-nav-link">Transitions</a></li>
+                    <li class="sidebar-nav-item"><a href="animations.html" class="sidebar-nav-link">Animations</a></li>
+                    <li class="sidebar-nav-item"><a href="filters.html" class="sidebar-nav-link">Filters & Effects</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section" data-section="components">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🧩</span>Components</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="buttons.html" class="sidebar-nav-link">Buttons</a></li>
+                    <li class="sidebar-nav-item"><a href="forms.html" class="sidebar-nav-link">Forms</a></li>
+                    <li class="sidebar-nav-item"><a href="tables.html" class="sidebar-nav-link">Tables</a></li>
+                    <li class="sidebar-nav-item"><a href="cards.html" class="sidebar-nav-link">Cards</a></li>
+                    <li class="sidebar-nav-item"><a href="icons.html" class="sidebar-nav-link">Icons</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section" data-section="advanced">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a></li>
+                    <li class="sidebar-nav-item"><a href="custom-properties.html" class="sidebar-nav-link">Custom Properties</a></li>
+                    <li class="sidebar-nav-item"><a href="blend-modes.html" class="sidebar-nav-link">Blend Modes</a></li>
+                    <li class="sidebar-nav-item"><a href="shapes-clips.html" class="sidebar-nav-link">Shapes & Clips</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section" data-section="modern-css">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a></li>
+                    <li class="sidebar-nav-item"><a href="container-queries.html" class="sidebar-nav-link">Container Queries</a></li>
+                    <li class="sidebar-nav-item"><a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a></li>
+                    <li class="sidebar-nav-item"><a href="anchor-positioning.html" class="sidebar-nav-link">Anchor Positioning</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section" data-section="playground">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎮</span>Playground</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item"><a href="playground.html" class="sidebar-nav-link" target="_blank" rel="noopener noreferrer">CSS Playground</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <button class="back-to-top">
+                <span>↑</span>
+                <span>Back to Top</span>
+            </button>
+        </div>
+    </aside>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+
+            <div class="header-actions">
+                <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="basic.html" class="nav-link">Fundamentals</a></li>
+                    <li class="nav-item"><a href="flexbox.html" class="nav-link">Layout</a></li>
+                    <li class="nav-item"><a href="animations.html" class="nav-link">Visual Effects</a></li>
+                    <li class="nav-item"><a href="buttons.html" class="nav-link">Components</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Home</a></li>
+                    <li class="breadcrumb-item"><a href="index.html#modern-css" class="breadcrumb-link">Modern CSS</a></li>
+                    <li class="breadcrumb-item"><span class="breadcrumb-current">Anchor Positioning</span></li>
+                </ol>
+            </div>
+        </nav>
+
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">CSS Anchor Positioning</h1>
+                <p class="page-subtitle">Position elements relative to other elements without JavaScript. The Anchor Positioning API brings tooltips, popovers, and dropdown menus into pure CSS.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>The Problem Anchor Positioning Solves</h2>
+                <p>For years, positioning a tooltip next to a button or a dropdown below an input required JavaScript. You'd calculate positions, handle scrolling, deal with viewport edges - it was a nightmare. Anchor Positioning changes everything.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content anchor-intro-demo">
+                        <button class="anchor-button" id="demo-button">Hover for Tooltip</button>
+                        <div class="simple-tooltip">I'm positioned with CSS!</div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Define an anchor */
+.button {
+    anchor-name: --my-button;
+}
+
+/* Position relative to the anchor */
+.tooltip {
+    position: absolute;
+    position-anchor: --my-button;
+    bottom: anchor(top);
+    left: anchor(center);
+    translate: -50% -8px; /* Center and add gap */
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <h3>Key Concepts</h3>
+                    <ul>
+                        <li><strong>anchor-name:</strong> Defines an element as an anchor point</li>
+                        <li><strong>position-anchor:</strong> Links a positioned element to an anchor</li>
+                        <li><strong>anchor():</strong> Function that references anchor edges (top, bottom, left, right, center)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Basic Positioning</h2>
+                <p>Position tooltips, badges, and notifications relative to any element.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content positioning-demo">
+                        <div class="anchor-container">
+                            <button class="pos-button" style="--anchor: --btn-top">Button</button>
+                            <div class="pos-tooltip pos-top">Top</div>
+                        </div>
+                        <div class="anchor-container">
+                            <button class="pos-button" style="--anchor: --btn-right">Button</button>
+                            <div class="pos-tooltip pos-right">Right</div>
+                        </div>
+                        <div class="anchor-container">
+                            <button class="pos-button" style="--anchor: --btn-bottom">Button</button>
+                            <div class="pos-tooltip pos-bottom">Bottom</div>
+                        </div>
+                        <div class="anchor-container">
+                            <button class="pos-button" style="--anchor: --btn-left">Button</button>
+                            <div class="pos-tooltip pos-left">Left</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.button { anchor-name: --my-anchor; }
+
+/* Tooltip above button */
+.tooltip-top {
+    position: absolute;
+    position-anchor: --my-anchor;
+    bottom: anchor(top);
+    left: anchor(center);
+    translate: -50% -8px;
+}
+
+/* Tooltip below button */
+.tooltip-bottom {
+    position: absolute;
+    position-anchor: --my-anchor;
+    top: anchor(bottom);
+    left: anchor(center);
+    translate: -50% 8px;
+}
+
+/* Tooltip to the right */
+.tooltip-right {
+    position: absolute;
+    position-anchor: --my-anchor;
+    left: anchor(right);
+    top: anchor(center);
+    translate: 8px -50%;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Real-World Examples</h2>
+
+                <h3>Dropdown Menu</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="dropdown-demo">
+                            <button class="dropdown-trigger">Open Menu ▼</button>
+                            <div class="dropdown-menu">
+                                <a href="#">Profile</a>
+                                <a href="#">Settings</a>
+                                <a href="#">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.trigger {
+    anchor-name: --dropdown-anchor;
+}
+
+.menu {
+    position: absolute;
+    position-anchor: --dropdown-anchor;
+    top: anchor(bottom);
+    left: anchor(left);
+    margin-top: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.trigger:hover + .menu,
+.menu:hover {
+    opacity: 1;
+    pointer-events: auto;
+}</code></pre>
+                </div>
+
+                <h3>Notification Badge</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="badge-demo">
+                            <button class="icon-button">🔔</button>
+                            <span class="notification-badge">3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.icon-button {
+    anchor-name: --icon-anchor;
+}
+
+.badge {
+    position: absolute;
+    position-anchor: --icon-anchor;
+    top: anchor(top);
+    left: anchor(right);
+    translate: -30% -30%; /* Overlap corner */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Browser Support</h2>
+                <div class="tip-box warning-box">
+                    <h4>⚠️ Cutting-Edge Feature</h4>
+                    <p><strong>CSS Anchor Positioning is brand new!</strong></p>
+                    <ul>
+                        <li><strong>Chrome 125+:</strong> Supported behind flag ✅</li>
+                        <li><strong>Firefox:</strong> In development 🚧</li>
+                        <li><strong>Safari:</strong> In development 🚧</li>
+                    </ul>
+                    <p><strong>For production:</strong> Use JavaScript fallbacks or wait for broader support. Consider using a polyfill or CSS feature detection.</p>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Feature detection */
+@supports (anchor-name: --test) {
+    /* Use anchor positioning */
+    .tooltip {
+        position-anchor: --my-anchor;
+        bottom: anchor(top);
+    }
+}
+
+/* Fallback for unsupported browsers */
+@supports not (anchor-name: --test) {
+    .tooltip {
+        position: absolute;
+        top: -40px; /* Manual positioning */
+    }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Why This Matters</h2>
+                <div class="explanation">
+                    <p>Anchor Positioning removes the need for thousands of lines of JavaScript positioning logic. No more:</p>
+                    <ul>
+                        <li>❌ Calculating element positions with getBoundingClientRect()</li>
+                        <li>❌ Handling scroll events to reposition tooltips</li>
+                        <li>❌ Detecting viewport edges and flipping positions</li>
+                        <li>❌ Heavy libraries like Popper.js for simple tooltips</li>
+                    </ul>
+                    <p><strong>It's all declarative CSS now.</strong> Define relationships between elements and let the browser handle the rest.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Keep Learning</h2>
+                <div class="related-links">
+                    <a href="has-selector.html" class="related-card">
+                        <h3>:has() Selector</h3>
+                        <p>Another game-changing modern CSS feature that changes how we write selectors.</p>
+                    </a>
+                    <a href="container-queries.html" class="related-card">
+                        <h3>Container Queries</h3>
+                        <p>Responsive design based on container size, not viewport size.</p>
+                    </a>
+                    <a href="custom-properties.html" class="related-card">
+                        <h3>Custom Properties</h3>
+                        <p>Use CSS variables to create dynamic, reusable anchor names.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion by <a href="https://thomasjbutler.me" target="_blank" rel="noopener">Thomas Butler</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/syntax-highlight.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/micro-interactions.js"></script>
+</body>
+</html>
