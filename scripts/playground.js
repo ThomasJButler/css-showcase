@@ -60,11 +60,96 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('cssEditor').classList.add('active');
         } else if (view === 'split') {
             document.body.classList.add('split-view');
+            applyEditorWidth();
         }
 
         // Update active button
         viewBtns.forEach(b => b.classList.remove('active'));
         document.querySelector(`[data-view="${view}"]`).classList.add('active');
+    }
+
+    // Resize functionality for split view
+    const resizeHandle = document.querySelector('.resize-handle');
+    const playgroundMain = document.querySelector('.playground-main');
+    let isResizing = false;
+    let startX = 0;
+    let startWidth = 0;
+
+    /**
+     * Applies saved editor width from localStorage
+     */
+    function applyEditorWidth() {
+        const savedWidth = localStorage.getItem('playground_editor_width');
+        if (savedWidth && playgroundMain) {
+            playgroundMain.style.setProperty('--editor-width', savedWidth);
+        }
+    }
+
+    /**
+     * Handles resize drag start
+     * @param {MouseEvent} e - Mouse event
+     */
+    function startResize(e) {
+        isResizing = true;
+        startX = e.clientX;
+
+        const editorPanel = document.querySelector('.editor-panel');
+        if (editorPanel) {
+            startWidth = editorPanel.offsetWidth;
+        }
+
+        resizeHandle.classList.add('dragging');
+        document.body.style.cursor = 'col-resize';
+        document.body.style.userSelect = 'none';
+
+        e.preventDefault();
+    }
+
+    /**
+     * Handles resize dragging
+     * @param {MouseEvent} e - Mouse event
+     */
+    function resize(e) {
+        if (!isResizing) return;
+
+        const delta = e.clientX - startX;
+        const newWidth = startWidth + delta;
+        const containerWidth = playgroundMain.offsetWidth;
+
+        // Constrain between 20% and 80% of container width
+        const minWidth = containerWidth * 0.2;
+        const maxWidth = containerWidth * 0.8;
+        const constrainedWidth = Math.max(minWidth, Math.min(maxWidth, newWidth));
+
+        const widthPercentage = (constrainedWidth / containerWidth * 100).toFixed(2) + '%';
+        playgroundMain.style.setProperty('--editor-width', widthPercentage);
+
+        e.preventDefault();
+    }
+
+    /**
+     * Handles resize drag end
+     */
+    function stopResize() {
+        if (!isResizing) return;
+
+        isResizing = false;
+        resizeHandle.classList.remove('dragging');
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+
+        // Save width to localStorage
+        const currentWidth = playgroundMain.style.getPropertyValue('--editor-width');
+        if (currentWidth) {
+            localStorage.setItem('playground_editor_width', currentWidth);
+        }
+    }
+
+    // Resize event listeners
+    if (resizeHandle) {
+        resizeHandle.addEventListener('mousedown', startResize);
+        document.addEventListener('mousemove', resize);
+        document.addEventListener('mouseup', stopResize);
     }
 
     // Load saved content
