@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master common Flexbox patterns - navigation bars, card layouts, media objects, and real-world layout solutions.">
+    <meta name="author" content="Thomas Butler">
+    <title>Flexbox Patterns | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/flexbox.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar Toggle Button (Mobile) -->
+    <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <div class="sidebar-toggle-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="sidebar-content">
+            <!-- Home Link -->
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-home-link">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+            </div>
+
+            <!-- Fundamentals Section -->
+            <div class="sidebar-section" data-section="fundamentals">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="typography.html" class="sidebar-nav-link">Typography</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Layout Section -->
+            <div class="sidebar-section" data-section="layout">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🎯</span>Layout</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="flexbox-patterns.html" class="sidebar-nav-link active">Flexbox Patterns</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="grid.html" class="sidebar-nav-link">Grid</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Visual Effects Section -->
+            <div class="sidebar-section" data-section="visual-effects">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="animations.html" class="sidebar-nav-link">Animations</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Components Section -->
+            <div class="sidebar-section" data-section="components">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🧩</span>Components</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="forms.html" class="sidebar-nav-link">Forms</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="tables.html" class="sidebar-nav-link">Tables</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="tables-advanced.html" class="sidebar-nav-link">Advanced Tables</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="cards.html" class="sidebar-nav-link">Cards</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="icons.html" class="sidebar-nav-link">Icons</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Advanced Section -->
+            <div class="sidebar-section" data-section="advanced">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Modern CSS Section -->
+            <div class="sidebar-section" data-section="modern-css">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Playground Section -->
+            <div class="sidebar-section" data-section="playground">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="true">
+                    <span><span class="sidebar-section-icon">🎮</span>Playground</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="playground.html" class="sidebar-nav-link" target="_blank" rel="noopener noreferrer">CSS Playground</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <button class="back-to-top">
+                <span>↑</span>
+                <span>Back to Top</span>
+            </button>
+        </div>
+    </aside>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="flexbox.html" class="nav-link">Flexbox Basics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#patterns" class="nav-link">Patterns</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#tips" class="nav-link">Pro Tips</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="index.html" class="breadcrumb-link">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="index.html#layout" class="breadcrumb-link">Layout</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="flexbox.html" class="breadcrumb-link">Flexbox</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="breadcrumb-current">Flexbox Patterns</span>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Flexbox Patterns</h1>
+                <p class="page-subtitle">
+                    Real-world flexbox patterns you'll use again and again - navigation bars, card layouts, media objects, and more
+                </p>
+            </div>
+        </section>
+
+        <section id="patterns" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Common Flexbox Patterns</h2>
+                <p class="section-intro">
+                    Real-world flexbox patterns you'll use again and again in your projects.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Navigation Bar</h3>
+                        <div class="demo-example">
+                            <nav class="pattern-nav">
+                                <div class="nav-brand">Logo</div>
+                                <ul class="nav-menu">
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                                <button class="nav-cta">Sign Up</button>
+                            </nav>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Responsive navigation */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+/* Push items apart */
+.nav-brand { margin-right: auto; }</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Card Layout</h3>
+                        <div class="demo-example">
+                            <div class="pattern-cards">
+                                <div class="card">
+                                    <h4>Card 1</h4>
+                                    <p>Flexible card that grows to fill space.</p>
+                                    <button>Action</button>
+                                </div>
+                                <div class="card">
+                                    <h4>Card 2</h4>
+                                    <p>All cards maintain equal height.</p>
+                                    <button>Action</button>
+                                </div>
+                                <div class="card">
+                                    <h4>Card 3</h4>
+                                    <p>Button always at the bottom.</p>
+                                    <button>Action</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Equal height cards */
+.cards {
+    display: flex;
+    gap: 1rem;
+}
+
+.card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card p {
+    flex: 1; /* Push button to bottom */
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Media Object</h3>
+                        <div class="demo-example">
+                            <div class="pattern-media">
+                                <div class="media-image"></div>
+                                <div class="media-content">
+                                    <h4>Media Object Pattern</h4>
+                                    <p>Image on the left, content on the right. A classic pattern made simple with flexbox.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Media object pattern */
+.media {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.media-image {
+    flex: 0 0 100px; /* Fixed width */
+}
+
+.media-content {
+    flex: 1; /* Take remaining space */
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Sticky Footer</h3>
+                        <div class="demo-example">
+                            <div class="pattern-sticky">
+                                <header class="sticky-header">Header</header>
+                                <main class="sticky-content">
+                                    Main content area that expands
+                                </main>
+                                <footer class="sticky-footer">Footer sticks to bottom</footer>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Sticky footer pattern */
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header, .footer {
+    flex: 0 0 auto;
+}
+
+.main {
+    flex: 1 0 auto;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Input Groups</h3>
+                        <div class="demo-example">
+                            <div class="pattern-input-group">
+                                <span class="input-addon">@</span>
+                                <input type="text" placeholder="Username">
+                            </div>
+                            <div class="pattern-input-group">
+                                <input type="text" placeholder="Search...">
+                                <button class="input-button">Go</button>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Input group pattern */
+.input-group {
+    display: flex;
+}
+
+.input-group input {
+    flex: 1;
+    border-radius: 0;
+}
+
+.input-addon {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    background: var(--colour-surface);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Holy Grail Layout</h3>
+                        <div class="demo-example">
+                            <div class="pattern-holy-grail">
+                                <aside class="sidebar-left">Left</aside>
+                                <main class="main-content">Main Content</main>
+                                <aside class="sidebar-right">Right</aside>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Holy grail layout */
+.layout {
+    display: flex;
+    gap: 1rem;
+}
+
+.sidebar-left,
+.sidebar-right {
+    flex: 0 0 200px; /* Fixed width */
+}
+
+.main-content {
+    flex: 1; /* Flexible center */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .layout { flex-direction: column; }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tips" class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Flexbox Pro Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">🎯</span>
+                        <h3>Use Gap Instead of Margins</h3>
+                        <p>The gap property is cleaner and doesn't require nth-child selectors to remove edge margins.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">📐</span>
+                        <h3>Min-Width: 0 for Truncation</h3>
+                        <p>Flex items have min-width: auto by default. Set to 0 to allow text truncation.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🔄</span>
+                        <h3>Flex: 1 1 0 vs Flex: 1</h3>
+                        <p>Flex: 1 is shorthand for flex: 1 1 0, which makes items grow equally from 0 basis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section-title">Master Two Dimensions</h2>
+                <p class="section-subtitle">
+                    Flexbox is perfect for one dimension. Ready for the full power of two-dimensional layouts?
+                </p>
+                <div class="next-links">
+                    <a href="flexbox.html" class="next-link">
+                        <span class="next-icon">🔙</span>
+                        <div>
+                            <h3>Back to Flexbox Basics</h3>
+                            <p>Review fundamentals and the interactive playground</p>
+                        </div>
+                    </a>
+                    <a href="grid.html" class="next-link">
+                        <span class="next-icon">🏗️</span>
+                        <div>
+                            <h3>CSS Grid</h3>
+                            <p>The ultimate layout system for complex designs</p>
+                        </div>
+                    </a>
+                    <a href="layout.html" class="next-link">
+                        <span class="next-icon">📐</span>
+                        <div>
+                            <h3>Layout Techniques</h3>
+                            <p>Combine Grid and Flexbox like a pro</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion by <a href="https://thomasjbutler.me" target="_blank" rel="noopener noreferrer">Thomas Butler</a>.
+                Explore the <a href="https://github.com/ThomasJButler/css-showcase" target="_blank" rel="noopener noreferrer">source code on GitHub</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/syntax-highlight.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/micro-interactions.js"></script>
+</body>
+</html>

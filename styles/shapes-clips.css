@@ -1,0 +1,407 @@
+/* ===============================================
+   CSS Shapes & Clipping Page Styles
+   =============================================== */
+
+/* Introduction Grid */
+.shapes-intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+}
+
+.shape-demo {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.circle-demo {
+    clip-path: circle(50%);
+}
+
+.triangle-demo {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.hexagon-demo {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.star-demo {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* Basic Shapes */
+.basic-shapes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.basic-shape {
+    text-align: center;
+}
+
+.shape-box {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.clip-circle {
+    clip-path: circle(50%);
+}
+
+.clip-ellipse {
+    clip-path: ellipse(50% 30%);
+}
+
+.clip-inset {
+    clip-path: inset(20px round 20px);
+}
+
+.basic-shape span {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text, #1e293b);
+}
+
+/* Polygon Gallery */
+.polygon-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.polygon-card {
+    text-align: center;
+}
+
+.poly-shape {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.poly-triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.poly-diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.poly-hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.poly-octagon {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.poly-star {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.poly-arrow {
+    clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+}
+
+.polygon-card span {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text, #1e293b);
+}
+
+/* Diagonal Hero */
+.diagonal-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 5rem 2rem 8rem;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    text-align: center;
+    color: white;
+}
+
+.diagonal-hero h2 {
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.diagonal-hero p {
+    margin: 0;
+    font-size: 1.125rem;
+    opacity: 0.9;
+}
+
+/* Profile Demos */
+.profile-demo {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+.profile-circle,
+.profile-hexagon,
+.profile-squircle {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.profile-circle {
+    clip-path: circle(50%);
+}
+
+.profile-hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.profile-squircle {
+    clip-path: inset(0 round 30%);
+}
+
+/* Reveal Demo */
+.reveal-demo {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.reveal-image {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    clip-path: circle(20% at 50% 50%);
+    transition: clip-path 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.reveal-image:hover {
+    clip-path: circle(70% at 50% 50%);
+}
+
+/* Text Wrap Demos */
+.text-wrap-demo {
+    max-width: 700px;
+    margin: 2rem auto;
+    line-height: 1.8;
+}
+
+.float-circle {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin: 0 2rem 1rem 0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    shape-outside: circle(50%);
+}
+
+.float-diamond {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin: 0 2rem 1rem 0;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    shape-outside: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* Animated Shapes */
+.animated-shapes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+}
+
+.animated-shape {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.morph-shape {
+    clip-path: circle(50%);
+    transition: clip-path 0.5s ease;
+}
+
+.morph-shape:hover {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+@keyframes pulse-clip {
+    0%, 100% { clip-path: circle(40%); }
+    50% { clip-path: circle(50%); }
+}
+
+.pulse-shape {
+    clip-path: circle(40%);
+    animation: pulse-clip 2s ease-in-out infinite;
+}
+
+@keyframes rotate-polygon {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.rotate-shape {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    animation: rotate-polygon 3s linear infinite;
+}
+
+/* Tip Box */
+.tip-box {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+}
+
+.dark .tip-box {
+    background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%);
+    border-left-color: #60a5fa;
+}
+
+.tip-box h4 {
+    margin: 0 0 1rem 0;
+    color: var(--color-text, #1e293b);
+    font-size: 1.125rem;
+}
+
+.tip-box ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.tip-box li {
+    margin: 0.5rem 0;
+    color: var(--color-text, #1e293b);
+    line-height: 1.6;
+}
+
+.tip-box p {
+    margin: 1rem 0 0 0;
+    color: var(--color-text, #1e293b);
+    line-height: 1.6;
+}
+
+/* Related Links */
+.related-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.related-card {
+    padding: 2rem;
+    background: var(--color-surface, #f8fafc);
+    border: 2px solid var(--color-border, #e2e8f0);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: #2563eb;
+}
+
+.dark .related-card {
+    background: var(--color-surface, #1e293b);
+    border-color: var(--color-border, #334155);
+}
+
+.dark .related-card:hover {
+    border-color: #60a5fa;
+}
+
+.related-card h3 {
+    margin: 0 0 0.75rem 0;
+    color: var(--color-text, #1e293b);
+    font-size: 1.25rem;
+}
+
+.related-card p {
+    margin: 0;
+    color: var(--color-text-secondary, #64748b);
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .shapes-intro-grid,
+    .polygon-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .diagonal-hero {
+        padding: 3rem 1.5rem 5rem;
+    }
+
+    .diagonal-hero h2 {
+        font-size: 2rem;
+    }
+
+    .float-circle,
+    .float-diamond {
+        width: 150px;
+        height: 150px;
+        margin: 0 1.5rem 1rem 0;
+    }
+
+    .animated-shapes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-demo {
+        gap: 1.5rem;
+    }
+
+    .profile-circle,
+    .profile-hexagon,
+    .profile-squircle {
+        width: 100px;
+        height: 100px;
+        font-size: 1.5rem;
+    }
+}

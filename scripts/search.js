@@ -1,6 +1,14 @@
-// CSS Showcase Search Functionality
+/**
+ * @author Tom Butler
+ * @date 2025-10-23
+ * @description Global search functionality with keyboard shortcut (Cmd/Ctrl+K) providing
+ *              fuzzy search across all pages, categories, and tags
+ */
+
+/**
+ * @constructs - Initialises global search with keyboard shortcut and search index
+ */
 document.addEventListener('DOMContentLoaded', function() {
-    // Search index - all searchable content
     const searchIndex = [
         // Fundamentals
         { title: 'Basic CSS', url: 'basic.html', category: 'Fundamentals', tags: ['selectors', 'properties', 'cascade', 'specificity', 'units', 'colours'] },

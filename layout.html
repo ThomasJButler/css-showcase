@@ -1,27 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layout</title>
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/layout.css">
+    <meta name="description" content="Master CSS Layout Techniques - from display and position properties to modern layout patterns. Learn how to position your content like a pro.">
+    <meta name="author" content="Thomas Butler">
+    <title>Layout Techniques | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/accessibility.css">
+    <link rel="stylesheet" href="styles/improvements.css">
+    <link rel="stylesheet" href="styles/micro-interactions.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/code-examples.css">
+    <link rel="stylesheet" href="styles/syntax-highlight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Skip link for accessibility -->
     <a href="#main" class="skip-link">Skip to main content</a>
-    <header>
-        <h1>Layout</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="basic.html">Basic CSS</a></li>
-                <li><a href="transitions.html">Transitions and Animations</a></li>
-                <li><a href="advanced.html">Advanced CSS</a></li>
-                <li><a href="responsive.html">Responsive Design</a></li>
-            </ul>
-        </nav>
+
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="sidebar-content">
+            <!-- Home Link -->
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-home-link">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+            </div>
+
+            <!-- Fundamentals Section -->
+            <div class="sidebar-section" data-section="fundamentals">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="typography.html" class="sidebar-nav-link">Typography</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Layout Section -->
+            <div class="sidebar-section" data-section="layout">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎯</span>Layout</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="grid.html" class="sidebar-nav-link">Grid</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Visual Effects Section -->
+            <div class="sidebar-section" data-section="visual-effects">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="animations.html" class="sidebar-nav-link">Animations</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Components Section -->
+            <div class="sidebar-section" data-section="components">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🧩</span>Components</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="forms.html" class="sidebar-nav-link">Forms</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="tables.html" class="sidebar-nav-link">Tables</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="cards.html" class="sidebar-nav-link">Cards</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="icons.html" class="sidebar-nav-link">Icons</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Advanced Section -->
+            <div class="sidebar-section" data-section="advanced">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Modern CSS Section -->
+            <div class="sidebar-section" data-section="modern-css">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Playground Section -->
+            <div class="sidebar-section" data-section="playground">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon">🎮</span>Playground</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="playground.html" class="sidebar-nav-link" target="_blank" rel="noopener noreferrer">CSS Playground</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <button class="back-to-top">
+                <span>↑</span>
+                <span>Back to Top</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Header with navigation -->
+
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
+        <span class="theme-icon">🌞</span>
+    </div>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">CSS</span>
+                    <span class="logo-accent">Showcase</span>
+                </a>
+            </div>
+
+            <div class="header-actions">
+                <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="basic.html" class="nav-link">Fundamentals</a></li>
+                    <li class="nav-item"><a href="flexbox.html" class="nav-link">Layout</a></li>
+                    <li class="nav-item"><a href="animations.html" class="nav-link">Visual Effects</a></li>
+                    <li class="nav-item"><a href="buttons.html" class="nav-link">Components</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
     <main id="main">
+        <!-- Breadcrumb navigation -->
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <div class="container">
                 <ol class="breadcrumb-list">
@@ -38,45 +236,443 @@
             </div>
         </nav>
 
-
-        <section>
-            <h2>Flexbox Layout</h2>
-            <div class="flex-container">
-                <div class="flex-item">Item 1</div>
-                <div class="flex-item">Item 2</div>
-                <div class="flex-item">Item 3</div>
-            </div>
-            <div class="flex-container advanced-flex">
-                <div class="flex-item">Advanced Item 1</div>
-                <div class="flex-item">Advanced Item 2</div>
-                <div class="flex-item">Advanced Item 3</div>
+        <!-- Page hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">CSS Layout Techniques</h1>
+                <p class="page-subtitle">From floats to modern layouts - master the fundamentals of positioning your content. Learn display properties, positioning schemes, and essential layout patterns.</p>
             </div>
         </section>
-        <section>
-            <h2>Grid Layout</h2>
-            <div class="grid-container">
-                <div class="grid-item">1</div>
-                <div class="grid-item">2</div>
-                <div class="grid-item">3</div>
-                <div class="grid-item">4</div>
-                <div class="grid-item">5</div>
-                <div class="grid-item">6</div>
+
+        <!-- Display Property Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>The Display Property</h2>
+                <p>The <code>display</code> property is fundamental to CSS layout. It determines how an element behaves in the document flow and how its children are laid out. Understanding display is the first step to mastering layout.</p>
+
+                <h3>Block vs Inline</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="display-demo">
+                            <div class="display-example display-block">Block Element</div>
+                            <span class="display-example display-inline">Inline Element</span>
+                            <span class="display-example display-inline">Another Inline</span>
+                            <div class="display-example display-inline-block">Inline-Block Element</div>
+                            <div class="display-example display-inline-block">Another Inline-Block</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Block elements take full width */
+.block {
+    display: block;
+    /* Takes up entire row, stacks vertically */
+}
+
+/* Inline elements flow with text */
+.inline {
+    display: inline;
+    /* Width/height ignored, no line breaks */
+}
+
+/* Inline-block: best of both worlds */
+.inline-block {
+    display: inline-block;
+    /* Can set width/height, flows horizontally */
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <ul>
+                        <li><strong>block:</strong> Takes full width, starts on new line (divs, headings, paragraphs)</li>
+                        <li><strong>inline:</strong> Only takes needed width, flows with text (spans, links, emphasis)</li>
+                        <li><strong>inline-block:</strong> Flows inline but accepts width/height (great for layouts)</li>
+                    </ul>
+                </div>
             </div>
-            <div class="grid-container advanced-grid">
-                <div class="grid-item">A</div>
-                <div class="grid-item">B</div>
-                <div class="grid-item">C</div>
-                <div class="grid-item">D</div>
-                <div class="grid-item">E</div>
-                <div class="grid-item">F</div>
+        </section>
+
+        <!-- Position Property Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>CSS Positioning</h2>
+                <p>The <code>position</code> property controls how elements are positioned in the document. Each value completely changes how the element behaves and interacts with others.</p>
+
+                <h3>Position Values</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="position-demo-container" id="positionDemo">
+                            <div class="position-context">
+                                <div class="position-box position-static">Static (default)</div>
+                                <div class="position-box position-relative">Relative (offset from normal position)</div>
+                                <div class="position-box position-absolute">Absolute (removed from flow)</div>
+                                <div class="position-box position-fixed">Fixed (viewport-relative)</div>
+                                <div class="position-box position-sticky">Sticky (hybrid behavior)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Static: default, follows document flow */
+.static {
+    position: static;
+    /* top, right, bottom, left have no effect */
+}
+
+/* Relative: offset from its normal position */
+.relative {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    /* Original space is preserved */
+}
+
+/* Absolute: positioned relative to nearest positioned ancestor */
+.absolute {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* Removed from document flow */
+}
+
+/* Fixed: positioned relative to viewport */
+.fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /* Stays in place when scrolling */
+}
+
+/* Sticky: hybrid of relative and fixed */
+.sticky {
+    position: sticky;
+    top: 0;
+    /* Acts relative until scroll threshold, then fixed */
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <h3>When to Use Each Position Value</h3>
+                    <ul>
+                        <li><strong>static:</strong> The default - use for normal document flow</li>
+                        <li><strong>relative:</strong> Small adjustments, containing block for absolute children</li>
+                        <li><strong>absolute:</strong> Tooltips, dropdowns, overlays, custom positioning</li>
+                        <li><strong>fixed:</strong> Sticky headers, floating buttons, modals</li>
+                        <li><strong>sticky:</strong> Section headers that stick on scroll, table headers</li>
+                    </ul>
+                </div>
+
+                <h3>Z-Index & Stacking Context</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="z-index-demo">
+                            <div class="z-box z-box-1">z-index: 1</div>
+                            <div class="z-box z-box-2">z-index: 2</div>
+                            <div class="z-box z-box-3">z-index: 3</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.element {
+    position: relative; /* or absolute, fixed, sticky */
+    z-index: 10; /* Higher values appear on top */
+}
+
+/* z-index only works on positioned elements */
+.not-positioned {
+    z-index: 999; /* Has no effect without position */
+}</code></pre>
+                </div>
+
+                <p><strong>Pro tip:</strong> z-index only works on positioned elements (not static). Create a new stacking context to isolate z-index layers using <code>position</code>, <code>opacity</code>, or <code>transform</code>.</p>
+            </div>
+        </section>
+
+        <!-- Multi-Column Layout Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Multi-Column Layout</h2>
+                <p>CSS Multi-column creates magazine-style text layouts automatically. Perfect for long-form content where you want to break text into columns without manual wrapping.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="multi-column-demo">
+                            <p>CSS multi-column layout is a module of CSS that adds support for multi-column layouts. Support is included for establishing the number of columns in a layout, as well as how content should flow from column to column, gap sizes between columns, and column dividing lines (known as column rules) along with their appearance.</p>
+                            <p>The multi-column layout specification provides a way to define how content flows through multiple columns. This makes it easier to read long blocks of text if lines aren't excessively long. Additionally, if a newspaper style display is desired, the multi-column properties can be used.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.multi-column {
+    column-count: 3; /* or column-width: 200px */
+    column-gap: 32px;
+    column-rule: 1px solid #e2e8f0;
+}
+
+/* Prevent elements from breaking across columns */
+.multi-column h2,
+.multi-column img {
+    break-inside: avoid;
+}
+
+/* Span an element across all columns */
+.multi-column h1 {
+    column-span: all;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layout Patterns Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Common Layout Patterns</h2>
+                <p>Here are essential layout patterns you'll use constantly. These demonstrate how different positioning and display properties work together to create real-world layouts.</p>
+
+                <h3>Centered Content</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="centered-demo">
+                            <div class="centered-box">Perfectly Centered</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Method 1: Absolute + Transform */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Method 2: Flexbox (modern, preferred) */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+/* Method 3: Grid (also great) */
+.container {
+    display: grid;
+    place-items: center;
+    min-height: 300px;
+}</code></pre>
+                </div>
+
+                <h3>Holy Grail Layout</h3>
+                <p>The classic three-column layout with header and footer - header and footer span full width, content area has three columns.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="holy-grail-demo">
+                            <div class="hg-header">Header</div>
+                            <div class="hg-content">
+                                <div class="hg-sidebar hg-sidebar-left">Left Sidebar</div>
+                                <div class="hg-main">Main Content</div>
+                                <div class="hg-sidebar hg-sidebar-right">Right Sidebar</div>
+                            </div>
+                            <div class="hg-footer">Footer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.holy-grail {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 200px 1fr 200px;
+    min-height: 100vh;
+}
+
+.header {
+    grid-column: 1 / -1; /* Span all columns */
+}
+
+.footer {
+    grid-column: 1 / -1;
+}
+
+/* Content area uses default grid placement */</code></pre>
+                </div>
+
+                <h3>Sticky Sidebar Layout</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="sticky-layout-demo">
+                            <div class="sticky-sidebar">
+                                <p><strong>Sidebar</strong></p>
+                                <p>I stick to the top when you scroll!</p>
+                            </div>
+                            <div class="sticky-content">
+                                <p>Main content area with lots of text. This demonstrates how a sticky sidebar stays in view as you scroll through long content. Perfect for navigation menus, table of contents, or supplementary information you want to keep visible.</p>
+                                <p>Scroll down to see the sidebar stick to the viewport...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">.layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 32px;
+}
+
+.sidebar {
+    position: sticky;
+    top: 20px; /* Offset from top when stuck */
+    align-self: start; /* Important! Prevents stretching */
+    height: fit-content;
+}</code></pre>
+                </div>
+
+                <h3>Card Grid</h3>
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="card-grid-demo">
+                            <div class="card-item">Card 1</div>
+                            <div class="card-item">Card 2</div>
+                            <div class="card-item">Card 3</div>
+                            <div class="card-item">Card 4</div>
+                            <div class="card-item">Card 5</div>
+                            <div class="card-item">Card 6</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Auto-responsive card grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+/* Cards automatically wrap to new rows */
+/* No media queries needed! */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Floats (Legacy) Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Floats (Legacy)</h2>
+                <p>Floats were once the primary way to create layouts, but they've mostly been replaced by Flexbox and Grid. However, they're still useful for wrapping text around images.</p>
+
+                <div class="demo-block">
+                    <div class="demo-content">
+                        <div class="float-demo">
+                            <div class="float-box">Floated Element</div>
+                            <p>This text wraps around the floated element. Floats remove an element from normal document flow but still affect surrounding content. They're perfect for magazine-style text wrapping.</p>
+                            <p>Before Flexbox and Grid existed, floats were used to create entire page layouts. Those days are gone, but floats still have their place.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-language">CSS</span>
+                        <button class="copy-button" aria-label="Copy code">Copy</button>
+                    </div>
+                    <pre><code class="language-css">/* Float an image within text */
+img {
+    float: left;
+    margin: 0 20px 20px 0;
+}
+
+/* Clear floats to prevent layout issues */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Modern alternative: use Flexbox/Grid instead */</code></pre>
+                </div>
+
+                <p><strong>Modern alternatives:</strong> Use Flexbox or Grid for layouts. Only use floats when you specifically need text wrapping behavior.</p>
+            </div>
+        </section>
+
+        <!-- Related Topics Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Dive Deeper</h2>
+                <div class="related-links">
+                    <a href="flexbox.html" class="related-card">
+                        <h3>Flexbox</h3>
+                        <p>Master one-dimensional layouts with Flexbox. Perfect for navigation bars, card rows, and flexible components.</p>
+                    </a>
+                    <a href="grid.html" class="related-card">
+                        <h3>CSS Grid</h3>
+                        <p>Create complex two-dimensional layouts with Grid. The most powerful layout system in CSS.</p>
+                    </a>
+                    <a href="responsive.html" class="related-card">
+                        <h3>Responsive Design</h3>
+                        <p>Learn how to make your layouts adapt to any screen size with media queries and responsive techniques.</p>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>Epic CSS Showcase by Thomas Butler</p>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">
+                Crafted with passion by <a href="https://thomasjbutler.me" target="_blank" rel="noopener">Thomas Butler</a>.
+            </p>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/code-examples.js"></script>
     <script src="scripts/syntax-highlight.js"></script>
     <script src="scripts/search.js"></script>
     <script src="scripts/micro-interactions.js"></script>
+    <script src="scripts/layout.js"></script>
 </body>
 </html>

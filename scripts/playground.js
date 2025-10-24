@@ -6,41 +6,240 @@ document.addEventListener('DOMContentLoaded', function() {
     const htmlInput = document.getElementById('htmlInput');
     const cssInput = document.getElementById('cssInput');
     const preview = document.getElementById('preview');
-    const editorTabs = document.querySelectorAll('.editor-tab');
-    const editors = document.querySelectorAll('.editor');
     const exampleSelect = document.getElementById('exampleSelect');
     const resetBtn = document.getElementById('resetBtn');
     const shareBtn = document.getElementById('shareBtn');
     const saveBtn = document.getElementById('saveBtn');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
-    const formatBtn = document.getElementById('formatBtn');
-    const copyBtn = document.getElementById('copyBtn');
+    const formatHtmlBtn = document.getElementById('formatHtmlBtn');
+    const formatCssBtn = document.getElementById('formatCssBtn');
+    const copyHtmlBtn = document.getElementById('copyHtmlBtn');
+    const copyCssBtn = document.getElementById('copyCssBtn');
     const previewSizes = document.querySelectorAll('.preview-size');
-    
+    const viewBtns = document.querySelectorAll('.view-btn');
+
     // Default content
     const defaultHTML = htmlInput.value;
     const defaultCSS = cssInput.value;
-    
-    // Load saved content
-    loadSavedContent();
-    
-    // Update preview on load
-    updatePreview();
-    
-    // Tab switching
-    editorTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const editorType = tab.dataset.editor;
-            
-            // Update active states
-            editorTabs.forEach(t => t.classList.remove('active'));
-            editors.forEach(e => e.classList.remove('active'));
-            
-            tab.classList.add('active');
-            document.getElementById(`${editorType}Editor`).classList.add('active');
+
+    // Start in fullscreen preview mode
+    document.body.classList.add('fullscreen-preview');
+
+    // View switcher functionality
+    viewBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const view = btn.dataset.view;
+            switchView(view);
         });
     });
-    
+
+    /**
+     * Switches between different view modes with toggle behavior
+     * @param {string} view - View mode: 'preview', 'html', or 'css'
+     */
+    function switchView(view) {
+        if (view === 'preview') {
+            // Preview button removes all editors and shows fullscreen preview
+            document.body.classList.remove('show-html-editor', 'show-css-editor');
+            document.body.classList.add('fullscreen-preview');
+            updateActiveButtons();
+        } else if (view === 'html') {
+            // Toggle HTML editor
+            document.body.classList.toggle('show-html-editor');
+            if (!document.body.classList.contains('show-html-editor') && !document.body.classList.contains('show-css-editor')) {
+                document.body.classList.add('fullscreen-preview');
+            } else {
+                document.body.classList.add('fullscreen-preview');
+            }
+            applyEditorWidths();
+            updateActiveButtons();
+        } else if (view === 'css') {
+            // Toggle CSS editor
+            document.body.classList.toggle('show-css-editor');
+            if (!document.body.classList.contains('show-html-editor') && !document.body.classList.contains('show-css-editor')) {
+                document.body.classList.add('fullscreen-preview');
+            } else {
+                document.body.classList.add('fullscreen-preview');
+            }
+            applyEditorWidths();
+            updateActiveButtons();
+        }
+
+        // Save editor states to localStorage
+        saveEditorStates();
+    }
+
+    /**
+     * Updates active button states based on visible editors
+     */
+    function updateActiveButtons() {
+        viewBtns.forEach(btn => {
+            const view = btn.dataset.view;
+            if (view === 'preview') {
+                // Preview is always "active" in the sense that it's always visible
+                btn.classList.toggle('active',
+                    !document.body.classList.contains('show-html-editor') &&
+                    !document.body.classList.contains('show-css-editor'));
+            } else if (view === 'html') {
+                btn.classList.toggle('active', document.body.classList.contains('show-html-editor'));
+            } else if (view === 'css') {
+                btn.classList.toggle('active', document.body.classList.contains('show-css-editor'));
+            }
+        });
+    }
+
+    // Dual resize functionality
+    const resizeHandleLeft = document.querySelector('.resize-handle-left');
+    const resizeHandleRight = document.querySelector('.resize-handle-right');
+    let isResizingLeft = false;
+    let isResizingRight = false;
+    let startX = 0;
+    let startWidth = 0;
+
+    /**
+     * Applies saved editor widths from localStorage
+     */
+    function applyEditorWidths() {
+        const savedLeftWidth = localStorage.getItem('playground_left_editor_width');
+        const savedRightWidth = localStorage.getItem('playground_right_editor_width');
+
+        if (savedLeftWidth) {
+            document.documentElement.style.setProperty('--left-editor-width', savedLeftWidth);
+        }
+        if (savedRightWidth) {
+            document.documentElement.style.setProperty('--right-editor-width', savedRightWidth);
+        }
+    }
+
+    /**
+     * Saves editor visibility states to localStorage
+     */
+    function saveEditorStates() {
+        localStorage.setItem('playground_show_html', document.body.classList.contains('show-html-editor'));
+        localStorage.setItem('playground_show_css', document.body.classList.contains('show-css-editor'));
+    }
+
+    /**
+     * Loads editor visibility states from localStorage
+     */
+    function loadEditorStates() {
+        const showHtml = localStorage.getItem('playground_show_html') === 'true';
+        const showCss = localStorage.getItem('playground_show_css') === 'true';
+
+        if (showHtml) {
+            document.body.classList.add('show-html-editor');
+        }
+        if (showCss) {
+            document.body.classList.add('show-css-editor');
+        }
+
+        applyEditorWidths();
+        updateActiveButtons();
+    }
+
+    /**
+     * Handles left resize drag start
+     * @param {MouseEvent} e - Mouse event
+     */
+    function startResizeLeft(e) {
+        isResizingLeft = true;
+        startX = e.clientX;
+        startWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--left-editor-width')) || 33.33;
+
+        resizeHandleLeft.classList.add('dragging');
+        document.body.style.cursor = 'col-resize';
+        document.body.style.userSelect = 'none';
+
+        e.preventDefault();
+    }
+
+    /**
+     * Handles right resize drag start
+     * @param {MouseEvent} e - Mouse event
+     */
+    function startResizeRight(e) {
+        isResizingRight = true;
+        startX = e.clientX;
+        startWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--right-editor-width')) || 33.33;
+
+        resizeHandleRight.classList.add('dragging');
+        document.body.style.cursor = 'col-resize';
+        document.body.style.userSelect = 'none';
+
+        e.preventDefault();
+    }
+
+    /**
+     * Handles resize dragging
+     * @param {MouseEvent} e - Mouse event
+     */
+    function resize(e) {
+        if (isResizingLeft) {
+            const deltaX = e.clientX - startX;
+            const deltaPercent = (deltaX / window.innerWidth) * 100;
+            let newWidth = startWidth + deltaPercent;
+
+            // Constrain between 20% and 80%
+            newWidth = Math.max(20, Math.min(80, newWidth));
+
+            document.documentElement.style.setProperty('--left-editor-width', newWidth + '%');
+            e.preventDefault();
+        } else if (isResizingRight) {
+            const deltaX = startX - e.clientX;
+            const deltaPercent = (deltaX / window.innerWidth) * 100;
+            let newWidth = startWidth + deltaPercent;
+
+            // Constrain between 20% and 80%
+            newWidth = Math.max(20, Math.min(80, newWidth));
+
+            document.documentElement.style.setProperty('--right-editor-width', newWidth + '%');
+            e.preventDefault();
+        }
+    }
+
+    /**
+     * Handles resize drag end
+     */
+    function stopResize() {
+        if (isResizingLeft) {
+            isResizingLeft = false;
+            resizeHandleLeft.classList.remove('dragging');
+
+            const currentWidth = getComputedStyle(document.documentElement).getPropertyValue('--left-editor-width');
+            localStorage.setItem('playground_left_editor_width', currentWidth);
+        }
+
+        if (isResizingRight) {
+            isResizingRight = false;
+            resizeHandleRight.classList.remove('dragging');
+
+            const currentWidth = getComputedStyle(document.documentElement).getPropertyValue('--right-editor-width');
+            localStorage.setItem('playground_right_editor_width', currentWidth);
+        }
+
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+    }
+
+    // Resize event listeners
+    if (resizeHandleLeft) {
+        resizeHandleLeft.addEventListener('mousedown', startResizeLeft);
+    }
+    if (resizeHandleRight) {
+        resizeHandleRight.addEventListener('mousedown', startResizeRight);
+    }
+    document.addEventListener('mousemove', resize);
+    document.addEventListener('mouseup', stopResize);
+
+    // Load saved editor states on startup
+    loadEditorStates();
+
+    // Load saved content
+    loadSavedContent();
+
+    // Update preview on load
+    updatePreview();
+
     // Live preview updates
     let updateTimeout;
     htmlInput.addEventListener('input', () => {
@@ -90,8 +289,14 @@ document.addEventListener('DOMContentLoaded', function() {
     shareBtn.addEventListener('click', sharePlayground);
     saveBtn.addEventListener('click', downloadCode);
     fullscreenBtn.addEventListener('click', toggleFullscreen);
-    formatBtn.addEventListener('click', formatCode);
-    copyBtn.addEventListener('click', copyCode);
+
+    // Format and copy buttons for HTML
+    if (formatHtmlBtn) formatHtmlBtn.addEventListener('click', () => formatCode('html'));
+    if (copyHtmlBtn) copyHtmlBtn.addEventListener('click', () => copyCode('html'));
+
+    // Format and copy buttons for CSS
+    if (formatCssBtn) formatCssBtn.addEventListener('click', () => formatCode('css'));
+    if (copyCssBtn) copyCssBtn.addEventListener('click', () => copyCode('css'));
     
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
@@ -633,17 +838,17 @@ ${html}
             : '<span>⛶</span> Fullscreen';
     }
     
-    function formatCode() {
-        // Simple formatting - in a real app, use a proper formatter
-        const activeEditor = document.querySelector('.editor.active .code-input');
-        const isCSS = activeEditor === cssInput;
-        
-        if (isCSS) {
-            activeEditor.value = formatCSS(activeEditor.value);
+    /**
+     * Formats code for specified editor
+     * @param {string} editorType - 'html' or 'css'
+     */
+    function formatCode(editorType) {
+        if (editorType === 'css') {
+            cssInput.value = formatCSS(cssInput.value);
         } else {
-            activeEditor.value = formatHTML(activeEditor.value);
+            htmlInput.value = formatHTML(htmlInput.value);
         }
-        
+
         updatePreview();
         showMessage('Code formatted!');
     }
@@ -676,11 +881,15 @@ ${html}
         return formatted.trim();
     }
     
-    function copyCode() {
-        const activeEditor = document.querySelector('.editor.active .code-input');
-        activeEditor.select();
+    /**
+     * Copies code from specified editor to clipboard
+     * @param {string} editorType - 'html' or 'css'
+     */
+    function copyCode(editorType) {
+        const editor = editorType === 'css' ? cssInput : htmlInput;
+        editor.select();
         document.execCommand('copy');
-        showMessage('Code copied to clipboard!');
+        showMessage(`${editorType.toUpperCase()} copied to clipboard!`);
     }
     
     function showMessage(text) {

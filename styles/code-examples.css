@@ -32,38 +32,47 @@
     content: 'JavaScript';
 }
 
+/* Horizontal scrolling enforced for desktop readability */
 .code-example pre {
     margin: 0;
     padding: var(--space-6);
     overflow-x: auto;
+    overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+    max-width: 100%;
 }
 
+/* Code always displays in single line - no wrapping */
 .code-example code {
     font-family: var(--font-mono);
     font-size: var(--text-sm);
     line-height: var(--leading-relaxed);
     color: #e2e8f0;
-    white-space: pre;
-    display: block;
+    white-space: pre; /* Prevents line wrapping - forces horizontal scroll */
+    display: inline-block;
+    min-width: 100%;
+    word-wrap: normal;
+    word-break: normal;
 }
 
-/* Scrollbar styling */
+/* Enhanced scrollbar for better horizontal scroll visibility */
 .code-example pre::-webkit-scrollbar {
-    height: 8px;
+    height: 12px; /* Slightly larger for better visibility */
 }
 
 .code-example pre::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius-sm);
 }
 
 .code-example pre::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
     border-radius: var(--radius-full);
+    border: 2px solid rgba(0, 0, 0, 0.3); /* Better definition */
 }
 
 .code-example pre::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.5);
 }
 
 /* Basic syntax highlighting */
@@ -285,19 +294,55 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .code-example {
+        position: relative;
+    }
+
     .code-example pre {
         padding: var(--space-4);
         font-size: var(--text-xs);
+        position: relative;
     }
-    
+
+    /* Scroll fade indicator - shows there's more content to scroll */
+    .code-example::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 40px;
+        background: linear-gradient(to left, #1e293b 0%, transparent 100%);
+        pointer-events: none;
+        opacity: 0.6;
+    }
+
+    [data-theme="light"] .code-example::after {
+        background: linear-gradient(to left, #f8fafc 0%, transparent 100%);
+    }
+
     .code-example::before {
         font-size: 0.625rem;
         top: var(--space-2);
         right: var(--space-3);
+        z-index: 11; /* Above fade gradient */
     }
-    
+
     .copy-button {
-        padding: var(--space-1) var(--space-2);
+        padding: var(--space-2) var(--space-3);
         font-size: 0.625rem;
+        min-width: 44px; /* Touch target */
+        min-height: 44px;
+        top: var(--space-2);
+        right: var(--space-2);
+    }
+
+    /* Larger scrollbar for touch devices */
+    .code-example pre::-webkit-scrollbar {
+        height: 12px;
+    }
+
+    .code-example pre::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
     }
 }

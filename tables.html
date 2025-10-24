@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="styles/improvements.css">
     <link rel="stylesheet" href="styles/micro-interactions.css">
     <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
     <link rel="stylesheet" href="styles/tables.css">
     <link rel="stylesheet" href="styles/code-examples.css">
     <link rel="stylesheet" href="styles/syntax-highlight.css">
@@ -19,7 +20,193 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- Sidebar Backdrop (Mobile) -->
+<div class="sidebar-backdrop"></div>
+
+<!-- Sidebar Navigation -->
+<aside class="sidebar" role="navigation" aria-label="Main navigation">
+    <div class="sidebar-content">
+        <!-- Home Link -->
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-home-link">
+                <span class="icon">🏠</span>
+                <span>Home</span>
+            </a>
+        </div>
+
+        <!-- Fundamentals Section -->
+        <div class="sidebar-section" data-section="fundamentals">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                <span><span class="sidebar-section-icon">📚</span>Fundamentals</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="typography.html" class="sidebar-nav-link">Typography</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Layout Section -->
+        <div class="sidebar-section" data-section="layout">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                <span><span class="sidebar-section-icon">🎯</span>Layout</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="grid.html" class="sidebar-nav-link">Grid</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Visual Effects Section -->
+        <div class="sidebar-section" data-section="visual-effects">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                <span><span class="sidebar-section-icon">✨</span>Visual Effects</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="animations.html" class="sidebar-nav-link">Animations</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Components Section -->
+        <div class="sidebar-section" data-section="components">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                <span><span class="sidebar-section-icon">🧩</span>Components</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="forms.html" class="sidebar-nav-link">Forms</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="tables.html" class="sidebar-nav-link active">Tables</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="tables-advanced.html" class="sidebar-nav-link">Advanced Tables</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="cards.html" class="sidebar-nav-link">Cards</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="icons.html" class="sidebar-nav-link">Icons</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Advanced Section -->
+        <div class="sidebar-section" data-section="advanced">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                <span><span class="sidebar-section-icon">🚀</span>Advanced</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a>
+                </li>
+                <!-- Future pages (commented out until created) -->
+                <!--
+                <li class="sidebar-nav-item">
+                    <a href="custom-properties.html" class="sidebar-nav-link">Custom Properties</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="blend-modes.html" class="sidebar-nav-link">Blend Modes</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="shapes-clips.html" class="sidebar-nav-link">Shapes & Clips</a>
+                </li>
+                -->
+            </ul>
+        </div>
+
+        <!-- Modern CSS Section -->
+        <div class="sidebar-section" data-section="modern-css">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                <span><span class="sidebar-section-icon">🔮</span>Modern CSS</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
+                </li>
+                <!-- Future pages (commented out until created) -->
+                <!--
+                <li class="sidebar-nav-item">
+                    <a href="anchor-positioning.html" class="sidebar-nav-link">Anchor Positioning</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="scroll-animations.html" class="sidebar-nav-link">Scroll Animations</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="color-spaces.html" class="sidebar-nav-link">Color Spaces</a>
+                </li>
+                -->
+            </ul>
+        </div>
+
+        <!-- Playground Section -->
+        <div class="sidebar-section" data-section="playground">
+            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                <span><span class="sidebar-section-icon">🎮</span>Playground</span>
+                <span class="sidebar-section-toggle">▼</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a href="playground.html" class="sidebar-nav-link" target="_blank" rel="noopener noreferrer">CSS Playground</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+        <button class="back-to-top">
+            <span>↑</span>
+            <span>Back to Top</span>
+        </button>
+    </div>
+</aside>
+
+
     <a href="#main" class="skip-link">Skip to main content</a>
+
     <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
         <span class="theme-icon">🌞</span>
     </div>
@@ -32,6 +219,14 @@
                     <span class="logo-accent">Showcase</span>
                 </a>
             </div>
+
+            <div class="header-actions">
+                <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>            </div>
+
             <nav class="main-nav" aria-label="Main navigation">
                 <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
                     <span></span>
@@ -52,7 +247,7 @@
                         <a href="#responsive" class="nav-link">Responsive</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#advanced" class="nav-link">Advanced</a>
+                        <a href="tables-advanced.html" class="nav-link">Advanced</a>
                     </li>
                 </ul>
             </nav>
@@ -81,7 +276,7 @@
             <div class="container">
                 <h1 class="page-title">CSS Tables</h1>
                 <p class="page-subtitle">
-                    Transform boring data into beautiful, accessible tables
+                    Transform boring data into beautiful, accessible tables with fundamental styling techniques
                 </p>
             </div>
         </section>
@@ -266,6 +461,10 @@
                     Different table styles for different contexts - from minimal to bold designs.
                 </p>
 
+
+        <div class="container">
+            <div class="content-spacer"></div>
+        </div>
                 <div class="demo-grid">
                     <div class="demo-card">
                         <h3 class="demo-title">Minimal Design</h3>
@@ -442,6 +641,10 @@
                         <h3 class="demo-title">Horizontal Scroll</h3>
                         <div class="demo-example">
                             <div class="table-wrapper">
+
+        <div class="container">
+            <div class="content-spacer"></div>
+        </div>
                                 <table class="table-scroll">
                                     <thead>
                                         <tr>
@@ -564,259 +767,20 @@
             </div>
         </section>
 
-        <section id="advanced" class="demo-section">
-            <div class="container">
-                <h2 class="section-title">Advanced Table Features</h2>
-                <p class="section-intro">
-                    Enhanced tables with sorting indicators, sticky headers, and interactive features.
-                </p>
-
-                <div class="demo-grid">
-                    <div class="demo-card wide">
-                        <h3 class="demo-title">Sortable Table</h3>
-                        <div class="demo-example">
-                            <table class="table-sortable">
-                                <thead>
-                                    <tr>
-                                        <th class="sortable active-asc">Name <span class="sort-indicator"></span></th>
-                                        <th class="sortable">Score <span class="sort-indicator"></span></th>
-                                        <th class="sortable">Date <span class="sort-indicator"></span></th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Alice Brown</td>
-                                        <td>95</td>
-                                        <td>2024-01-10</td>
-                                        <td>
-                                            <button class="btn-icon">✏️</button>
-                                            <button class="btn-icon">🗑️</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bob Davis</td>
-                                        <td>87</td>
-                                        <td>2024-01-12</td>
-                                        <td>
-                                            <button class="btn-icon">✏️</button>
-                                            <button class="btn-icon">🗑️</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carol White</td>
-                                        <td>92</td>
-                                        <td>2024-01-11</td>
-                                        <td>
-                                            <button class="btn-icon">✏️</button>
-                                            <button class="btn-icon">🗑️</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* Sortable headers */
-.sortable {
-    cursor: pointer;
-    position: relative;
-    padding-right: 2rem;
-}
-
-.sortable:hover {
-    background: var(--colour-primary-light);
-}
-
-.sort-indicator::after {
-    content: '↕️';
-    position: absolute;
-    right: 0.5rem;
-    opacity: 0.3;
-}
-
-.active-asc .sort-indicator::after {
-    content: '↑';
-    opacity: 1;
-}
-
-.active-desc .sort-indicator::after {
-    content: '↓';
-    opacity: 1;
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="demo-card">
-                        <h3 class="demo-title">Data Table with Filters</h3>
-                        <div class="demo-example">
-                            <div class="table-filters">
-                                <input type="search" class="filter-input" placeholder="Search...">
-                                <select class="filter-select">
-                                    <option>All Categories</option>
-                                    <option>Electronics</option>
-                                    <option>Clothing</option>
-                                    <option>Books</option>
-                                </select>
-                            </div>
-                            <table class="table-data">
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Category</th>
-                                        <th>Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Smartphone X</td>
-                                        <td>Electronics</td>
-                                        <td>£699</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Winter Jacket</td>
-                                        <td>Clothing</td>
-                                        <td>£129</td>
-                                    </tr>
-                                    <tr>
-                                        <td>CSS Mastery</td>
-                                        <td>Books</td>
-                                        <td>£35</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* Table filters */
-.table-filters {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.filter-input,
-.filter-select {
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--colour-border);
-    border-radius: 0.25rem;
-    background: var(--colour-surface);
-}
-
-.filter-input {
-    flex: 1;
-}
-
-/* Highlighted search results */
-.highlight-match {
-    background: var(--colour-warning-light);
-    padding: 0.125rem 0.25rem;
-    border-radius: 0.125rem;
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="demo-card">
-                        <h3 class="demo-title">Fixed Header Table</h3>
-                        <div class="demo-example">
-                            <div class="table-fixed-wrapper">
-                                <table class="table-fixed-header">
-                                    <thead>
-                                        <tr>
-                                            <th>Month</th>
-                                            <th>Revenue</th>
-                                            <th>Growth</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>January</td>
-                                            <td>£45,230</td>
-                                            <td class="text-success">+12%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>February</td>
-                                            <td>£48,650</td>
-                                            <td class="text-success">+8%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>March</td>
-                                            <td>£52,180</td>
-                                            <td class="text-success">+7%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>April</td>
-                                            <td>£51,990</td>
-                                            <td class="text-error">-0.4%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>May</td>
-                                            <td>£55,420</td>
-                                            <td class="text-success">+6.6%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>June</td>
-                                            <td>£58,760</td>
-                                            <td class="text-success">+6%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="code-example">
-                            <pre><code>/* Fixed header */
-.table-fixed-wrapper {
-    height: 200px;
-    overflow-y: auto;
-    border: 1px solid var(--colour-border);
-}
-
-.table-fixed-header thead th {
-    position: sticky;
-    top: 0;
-    background: var(--colour-surface);
-    z-index: 10;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="tips-section">
-            <div class="container">
-                <h2 class="section-title">Table Best Practices</h2>
-                <div class="tips-grid">
-                    <div class="tip-card">
-                        <span class="tip-icon">♿</span>
-                        <h3>Use Semantic HTML</h3>
-                        <p>Always use proper table elements (thead, tbody, th) for accessibility.</p>
-                    </div>
-                    <div class="tip-card">
-                        <span class="tip-icon">📱</span>
-                        <h3>Mobile-First Design</h3>
-                        <p>Consider how tables will display on small screens from the start.</p>
-                    </div>
-                    <div class="tip-card">
-                        <span class="tip-icon">🎨</span>
-                        <h3>Visual Hierarchy</h3>
-                        <p>Use colour, weight, and spacing to guide the eye through data.</p>
-                    </div>
-                    <div class="tip-card">
-                        <span class="tip-icon">⚡</span>
-                        <h3>Performance</h3>
-                        <p>For large datasets, consider pagination or virtual scrolling.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="next-steps">
             <div class="container">
-                <h2 class="section-title">Build Complete Components</h2>
+                <h2 class="section-title">Ready for Advanced Features?</h2>
                 <p class="section-subtitle">
-                    Tables mastered! Continue with versatile card components.
+                    Now that you've mastered the basics, explore sorting, filtering, and sticky headers.
                 </p>
                 <div class="next-links">
+                    <a href="tables-advanced.html" class="next-link">
+                        <span class="next-icon">🚀</span>
+                        <div>
+                            <h3>Advanced Tables</h3>
+                            <p>Sortable columns, filters, sticky headers, and best practices</p>
+                        </div>
+                    </a>
                     <a href="cards.html" class="next-link">
                         <span class="next-icon">🃏</span>
                         <div>
@@ -848,6 +812,7 @@
     </footer>
 
     <script src="scripts/main.js"></script>
+    <script src="scripts/sidebar.js"></script>
     <script src="scripts/code-examples.js"></script>
     <script src="scripts/syntax-highlight.js"></script>
     <script src="scripts/search.js"></script>

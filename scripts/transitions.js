@@ -1,23 +1,43 @@
 // scripts/transitions.js
-document.addEventListener("DOMContentLoaded", function() {
-    const transitionBox = document.querySelector('.transition-box');
-    const animationBox = document.querySelector('.animation-box');
+// Handles interactive demos for the transitions page
 
-    transitionBox.addEventListener('mouseover', function() {
-        this.style.backgroundColor = '#2ecc71';
-        this.style.transform = 'scale(1.5)';
-    });
-
-    transitionBox.addEventListener('mouseout', function() {
-        this.style.backgroundColor = '#e74c3c';
-        this.style.transform = 'scale(1)';
-    });
-
-    animationBox.addEventListener('mouseover', function() {
-        this.style.animation = 'rotate360 2s linear infinite';
-    });
-
-    animationBox.addEventListener('mouseout', function() {
-        this.style.animation = 'none';
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize timing function demo
+    initTimingDemo();
 });
+
+/**
+ * Initialize the timing function comparison demo
+ */
+function initTimingDemo() {
+    const runButton = document.getElementById('run-timing-demo');
+    const timingBoxes = document.querySelectorAll('.timing-box');
+
+    if (!runButton || timingBoxes.length === 0) {
+        return;
+    }
+
+    runButton.addEventListener('click', function() {
+        // Reset all boxes first
+        timingBoxes.forEach(box => {
+            box.classList.remove('running');
+        });
+
+        // Force a reflow to restart the animation
+        void document.body.offsetHeight;
+
+        // Add running class to trigger transitions
+        setTimeout(() => {
+            timingBoxes.forEach(box => {
+                box.classList.add('running');
+            });
+        }, 10);
+
+        // Remove running class after animation completes
+        setTimeout(() => {
+            timingBoxes.forEach(box => {
+                box.classList.remove('running');
+            });
+        }, 2100); // 2s animation + 100ms buffer
+    });
+}

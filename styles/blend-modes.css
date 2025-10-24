@@ -1,0 +1,522 @@
+/* ===============================================
+   CSS Blend Modes Page Styles
+   =============================================== */
+
+/* Introduction Demo */
+.blend-intro-demo {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 2rem;
+}
+
+.blend-base {
+    width: 300px;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.blend-overlay {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: white;
+    mix-blend-mode: difference;
+}
+
+/* Blend Modes Gallery */
+.blend-modes-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.blend-mode-card {
+    text-align: center;
+}
+
+.blend-preview {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.blend-layer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #f093fb 0%, #f5576c 100%);
+}
+
+.blend-preview[data-mode="normal"] .blend-layer {
+    mix-blend-mode: normal;
+}
+
+.blend-preview[data-mode="multiply"] .blend-layer {
+    mix-blend-mode: multiply;
+}
+
+.blend-preview[data-mode="screen"] .blend-layer {
+    mix-blend-mode: screen;
+}
+
+.blend-preview[data-mode="overlay"] .blend-layer {
+    mix-blend-mode: overlay;
+}
+
+.blend-preview[data-mode="darken"] .blend-layer {
+    mix-blend-mode: darken;
+}
+
+.blend-preview[data-mode="lighten"] .blend-layer {
+    mix-blend-mode: lighten;
+}
+
+.blend-preview[data-mode="color-dodge"] .blend-layer {
+    mix-blend-mode: color-dodge;
+}
+
+.blend-preview[data-mode="color-burn"] .blend-layer {
+    mix-blend-mode: color-burn;
+}
+
+.blend-preview[data-mode="hard-light"] .blend-layer {
+    mix-blend-mode: hard-light;
+}
+
+.blend-preview[data-mode="soft-light"] .blend-layer {
+    mix-blend-mode: soft-light;
+}
+
+.blend-preview[data-mode="difference"] .blend-layer {
+    mix-blend-mode: difference;
+}
+
+.blend-preview[data-mode="exclusion"] .blend-layer {
+    mix-blend-mode: exclusion;
+}
+
+.blend-preview[data-mode="hue"] .blend-layer {
+    mix-blend-mode: hue;
+}
+
+.blend-preview[data-mode="saturation"] .blend-layer {
+    mix-blend-mode: saturation;
+}
+
+.blend-preview[data-mode="color"] .blend-layer {
+    mix-blend-mode: color;
+}
+
+.blend-preview[data-mode="luminosity"] .blend-layer {
+    mix-blend-mode: luminosity;
+}
+
+.blend-name {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text, #1e293b);
+    font-family: var(--font-mono);
+}
+
+/* Text Blend Demo */
+.text-blend-demo {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.text-blend-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 3rem 4rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.blend-text {
+    margin: 0;
+    font-size: 5rem;
+    font-weight: 900;
+    color: white;
+    mix-blend-mode: difference;
+    text-align: center;
+}
+
+/* Duotone Demo */
+.duotone-demo {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.duotone-image {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 16 / 9;
+    background:
+        linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        repeating-linear-gradient(45deg, #667eea, #667eea 10px, #764ba2 10px, #764ba2 20px);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.duotone-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+    mix-blend-mode: multiply;
+}
+
+/* Logo Adaptation Demo */
+.logo-adapt-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.logo-section {
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.logo-light {
+    background: #f8fafc;
+}
+
+.logo-dark {
+    background: #0f172a;
+}
+
+.logo-adapt {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #888;
+    mix-blend-mode: difference;
+    margin-bottom: 1rem;
+}
+
+.logo-section p {
+    margin: 0;
+    opacity: 0.6;
+}
+
+.logo-light p {
+    color: #1e293b;
+}
+
+.logo-dark p {
+    color: #f1f5f9;
+}
+
+/* Background Blend Demo */
+.bg-blend-demo {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.gradient-image-blend {
+    width: 100%;
+    max-width: 500px;
+    padding: 4rem 2rem;
+    background:
+        linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)),
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,.05) 10px, rgba(255,255,255,.05) 20px);
+    background-blend-mode: overlay;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    color: white;
+}
+
+.gradient-image-blend h3 {
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    color: white;
+}
+
+.gradient-image-blend p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Multiple Gradient Demo */
+.multi-gradient-demo {
+    height: 300px;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(255, 0, 150, 0.5), transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(0, 200, 255, 0.5), transparent 50%),
+        linear-gradient(45deg, #667eea, #764ba2);
+    background-blend-mode: screen;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Texture Demo */
+.texture-demo {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.textured-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 3rem 2rem;
+    background:
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,.05) 2px, rgba(0,0,0,.05) 4px),
+        linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-blend-mode: multiply;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    color: white;
+}
+
+.textured-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.75rem;
+    color: white;
+}
+
+.textured-card p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Dark Mode Text Demo */
+.dark-mode-text-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.theme-box {
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.theme-light-box {
+    background: #f8fafc;
+}
+
+.theme-dark-box {
+    background: #0f172a;
+}
+
+.adaptive-text {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #888;
+    mix-blend-mode: difference;
+}
+
+.theme-box p {
+    margin: 0;
+    font-size: 0.875rem;
+    opacity: 0.6;
+}
+
+.theme-light-box p {
+    color: #1e293b;
+}
+
+.theme-dark-box p {
+    color: #f1f5f9;
+}
+
+/* Colorful Shadow Demo */
+.colorful-shadow-demo {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 2rem;
+    background: var(--color-surface, #f8fafc);
+    border-radius: 16px;
+}
+
+.dark .colorful-shadow-demo {
+    background: var(--color-surface, #1e293b);
+}
+
+.shadow-card {
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.dark .shadow-card {
+    background: #0f172a;
+    color: #f1f5f9;
+}
+
+.shadow-card::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: inherit;
+    filter: blur(30px);
+    opacity: 0.6;
+    z-index: -1;
+    mix-blend-mode: multiply;
+}
+
+.shadow-card h4 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.5rem;
+}
+
+.shadow-card p {
+    margin: 0;
+    opacity: 0.75;
+}
+
+/* Tip Box */
+.tip-box {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+}
+
+.dark .tip-box {
+    background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%);
+    border-left-color: #60a5fa;
+}
+
+.tip-box h4 {
+    margin: 0 0 1rem 0;
+    color: var(--color-text, #1e293b);
+    font-size: 1.125rem;
+}
+
+.tip-box ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.tip-box li {
+    margin: 0.5rem 0;
+    color: var(--color-text, #1e293b);
+    line-height: 1.6;
+}
+
+.tip-box p {
+    margin: 1rem 0 0 0;
+    color: var(--color-text, #1e293b);
+    line-height: 1.6;
+}
+
+.tip-box p:first-of-type {
+    margin-top: 0;
+}
+
+/* Related Links Cards */
+.related-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.related-card {
+    padding: 2rem;
+    background: var(--color-surface, #f8fafc);
+    border: 2px solid var(--color-border, #e2e8f0);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: #2563eb;
+}
+
+.dark .related-card {
+    background: var(--color-surface, #1e293b);
+    border-color: var(--color-border, #334155);
+}
+
+.dark .related-card:hover {
+    border-color: #60a5fa;
+}
+
+.related-card h3 {
+    margin: 0 0 0.75rem 0;
+    color: var(--color-text, #1e293b);
+    font-size: 1.25rem;
+}
+
+.related-card p {
+    margin: 0;
+    color: var(--color-text-secondary, #64748b);
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .blend-modes-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+
+    .blend-text {
+        font-size: 3rem;
+    }
+
+    .text-blend-bg {
+        padding: 2rem 3rem;
+    }
+
+    .logo-adapt-demo {
+        grid-template-columns: 1fr;
+    }
+
+    .logo-adapt {
+        font-size: 2.5rem;
+    }
+
+    .related-links {
+        grid-template-columns: 1fr;
+    }
+
+    .colorful-shadow-demo {
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .blend-text {
+        font-size: 2rem;
+    }
+
+    .text-blend-bg {
+        padding: 1.5rem 2rem;
+    }
+
+    .logo-adapt {
+        font-size: 2rem;
+    }
+}
