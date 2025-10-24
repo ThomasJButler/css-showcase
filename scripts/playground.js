@@ -6,15 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const htmlInput = document.getElementById('htmlInput');
     const cssInput = document.getElementById('cssInput');
     const preview = document.getElementById('preview');
-    const editorTabs = document.querySelectorAll('.editor-tab');
-    const editors = document.querySelectorAll('.editor');
     const exampleSelect = document.getElementById('exampleSelect');
     const resetBtn = document.getElementById('resetBtn');
     const shareBtn = document.getElementById('shareBtn');
     const saveBtn = document.getElementById('saveBtn');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
-    const formatBtn = document.getElementById('formatBtn');
-    const copyBtn = document.getElementById('copyBtn');
+    const formatHtmlBtn = document.getElementById('formatHtmlBtn');
+    const formatCssBtn = document.getElementById('formatCssBtn');
+    const copyHtmlBtn = document.getElementById('copyHtmlBtn');
+    const copyCssBtn = document.getElementById('copyCssBtn');
     const previewSizes = document.querySelectorAll('.preview-size');
     const viewBtns = document.querySelectorAll('.view-btn');
 
@@ -34,71 +34,135 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     /**
-     * Switches between different view modes
-     * @param {string} view - View mode: 'preview', 'html', 'css', or 'split'
+     * Switches between different view modes with toggle behavior
+     * @param {string} view - View mode: 'preview', 'html', or 'css'
      */
     function switchView(view) {
-        // Remove all view classes
-        document.body.classList.remove('fullscreen-preview', 'editor-html', 'editor-css', 'split-view');
-
-        // Add selected view class
         if (view === 'preview') {
+            // Preview button removes all editors and shows fullscreen preview
+            document.body.classList.remove('show-html-editor', 'show-css-editor');
             document.body.classList.add('fullscreen-preview');
+            updateActiveButtons();
         } else if (view === 'html') {
-            document.body.classList.add('fullscreen-preview', 'editor-html');
-            // Switch to HTML tab in editor
-            editorTabs.forEach(t => t.classList.remove('active'));
-            editors.forEach(e => e.classList.remove('active'));
-            document.querySelector('[data-editor="html"]').classList.add('active');
-            document.getElementById('htmlEditor').classList.add('active');
+            // Toggle HTML editor
+            document.body.classList.toggle('show-html-editor');
+            if (!document.body.classList.contains('show-html-editor') && !document.body.classList.contains('show-css-editor')) {
+                document.body.classList.add('fullscreen-preview');
+            } else {
+                document.body.classList.add('fullscreen-preview');
+            }
+            applyEditorWidths();
+            updateActiveButtons();
         } else if (view === 'css') {
-            document.body.classList.add('fullscreen-preview', 'editor-css');
-            // Switch to CSS tab in editor
-            editorTabs.forEach(t => t.classList.remove('active'));
-            editors.forEach(e => e.classList.remove('active'));
-            document.querySelector('[data-editor="css"]').classList.add('active');
-            document.getElementById('cssEditor').classList.add('active');
-        } else if (view === 'split') {
-            document.body.classList.add('split-view');
-            applyEditorWidth();
+            // Toggle CSS editor
+            document.body.classList.toggle('show-css-editor');
+            if (!document.body.classList.contains('show-html-editor') && !document.body.classList.contains('show-css-editor')) {
+                document.body.classList.add('fullscreen-preview');
+            } else {
+                document.body.classList.add('fullscreen-preview');
+            }
+            applyEditorWidths();
+            updateActiveButtons();
         }
 
-        // Update active button
-        viewBtns.forEach(b => b.classList.remove('active'));
-        document.querySelector(`[data-view="${view}"]`).classList.add('active');
+        // Save editor states to localStorage
+        saveEditorStates();
     }
 
-    // Resize functionality for split view
-    const resizeHandle = document.querySelector('.resize-handle');
-    const playgroundMain = document.querySelector('.playground-main');
-    let isResizing = false;
+    /**
+     * Updates active button states based on visible editors
+     */
+    function updateActiveButtons() {
+        viewBtns.forEach(btn => {
+            const view = btn.dataset.view;
+            if (view === 'preview') {
+                // Preview is always "active" in the sense that it's always visible
+                btn.classList.toggle('active',
+                    !document.body.classList.contains('show-html-editor') &&
+                    !document.body.classList.contains('show-css-editor'));
+            } else if (view === 'html') {
+                btn.classList.toggle('active', document.body.classList.contains('show-html-editor'));
+            } else if (view === 'css') {
+                btn.classList.toggle('active', document.body.classList.contains('show-css-editor'));
+            }
+        });
+    }
+
+    // Dual resize functionality
+    const resizeHandleLeft = document.querySelector('.resize-handle-left');
+    const resizeHandleRight = document.querySelector('.resize-handle-right');
+    let isResizingLeft = false;
+    let isResizingRight = false;
     let startX = 0;
     let startWidth = 0;
 
     /**
-     * Applies saved editor width from localStorage
+     * Applies saved editor widths from localStorage
      */
-    function applyEditorWidth() {
-        const savedWidth = localStorage.getItem('playground_editor_width');
-        if (savedWidth && playgroundMain) {
-            playgroundMain.style.setProperty('--editor-width', savedWidth);
+    function applyEditorWidths() {
+        const savedLeftWidth = localStorage.getItem('playground_left_editor_width');
+        const savedRightWidth = localStorage.getItem('playground_right_editor_width');
+
+        if (savedLeftWidth) {
+            document.documentElement.style.setProperty('--left-editor-width', savedLeftWidth);
+        }
+        if (savedRightWidth) {
+            document.documentElement.style.setProperty('--right-editor-width', savedRightWidth);
         }
     }
 
     /**
-     * Handles resize drag start
-     * @param {MouseEvent} e - Mouse event
+     * Saves editor visibility states to localStorage
      */
-    function startResize(e) {
-        isResizing = true;
-        startX = e.clientX;
+    function saveEditorStates() {
+        localStorage.setItem('playground_show_html', document.body.classList.contains('show-html-editor'));
+        localStorage.setItem('playground_show_css', document.body.classList.contains('show-css-editor'));
+    }
 
-        const editorPanel = document.querySelector('.editor-panel');
-        if (editorPanel) {
-            startWidth = editorPanel.offsetWidth;
+    /**
+     * Loads editor visibility states from localStorage
+     */
+    function loadEditorStates() {
+        const showHtml = localStorage.getItem('playground_show_html') === 'true';
+        const showCss = localStorage.getItem('playground_show_css') === 'true';
+
+        if (showHtml) {
+            document.body.classList.add('show-html-editor');
+        }
+        if (showCss) {
+            document.body.classList.add('show-css-editor');
         }
 
-        resizeHandle.classList.add('dragging');
+        applyEditorWidths();
+        updateActiveButtons();
+    }
+
+    /**
+     * Handles left resize drag start
+     * @param {MouseEvent} e - Mouse event
+     */
+    function startResizeLeft(e) {
+        isResizingLeft = true;
+        startX = e.clientX;
+        startWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--left-editor-width')) || 33.33;
+
+        resizeHandleLeft.classList.add('dragging');
+        document.body.style.cursor = 'col-resize';
+        document.body.style.userSelect = 'none';
+
+        e.preventDefault();
+    }
+
+    /**
+     * Handles right resize drag start
+     * @param {MouseEvent} e - Mouse event
+     */
+    function startResizeRight(e) {
+        isResizingRight = true;
+        startX = e.clientX;
+        startWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--right-editor-width')) || 33.33;
+
+        resizeHandleRight.classList.add('dragging');
         document.body.style.cursor = 'col-resize';
         document.body.style.userSelect = 'none';
 
@@ -110,68 +174,72 @@ document.addEventListener('DOMContentLoaded', function() {
      * @param {MouseEvent} e - Mouse event
      */
     function resize(e) {
-        if (!isResizing) return;
+        if (isResizingLeft) {
+            const deltaX = e.clientX - startX;
+            const deltaPercent = (deltaX / window.innerWidth) * 100;
+            let newWidth = startWidth + deltaPercent;
 
-        const delta = e.clientX - startX;
-        const newWidth = startWidth + delta;
-        const containerWidth = playgroundMain.offsetWidth;
+            // Constrain between 20% and 80%
+            newWidth = Math.max(20, Math.min(80, newWidth));
 
-        // Constrain between 20% and 80% of container width
-        const minWidth = containerWidth * 0.2;
-        const maxWidth = containerWidth * 0.8;
-        const constrainedWidth = Math.max(minWidth, Math.min(maxWidth, newWidth));
+            document.documentElement.style.setProperty('--left-editor-width', newWidth + '%');
+            e.preventDefault();
+        } else if (isResizingRight) {
+            const deltaX = startX - e.clientX;
+            const deltaPercent = (deltaX / window.innerWidth) * 100;
+            let newWidth = startWidth + deltaPercent;
 
-        const widthPercentage = (constrainedWidth / containerWidth * 100).toFixed(2) + '%';
-        playgroundMain.style.setProperty('--editor-width', widthPercentage);
+            // Constrain between 20% and 80%
+            newWidth = Math.max(20, Math.min(80, newWidth));
 
-        e.preventDefault();
+            document.documentElement.style.setProperty('--right-editor-width', newWidth + '%');
+            e.preventDefault();
+        }
     }
 
     /**
      * Handles resize drag end
      */
     function stopResize() {
-        if (!isResizing) return;
+        if (isResizingLeft) {
+            isResizingLeft = false;
+            resizeHandleLeft.classList.remove('dragging');
 
-        isResizing = false;
-        resizeHandle.classList.remove('dragging');
+            const currentWidth = getComputedStyle(document.documentElement).getPropertyValue('--left-editor-width');
+            localStorage.setItem('playground_left_editor_width', currentWidth);
+        }
+
+        if (isResizingRight) {
+            isResizingRight = false;
+            resizeHandleRight.classList.remove('dragging');
+
+            const currentWidth = getComputedStyle(document.documentElement).getPropertyValue('--right-editor-width');
+            localStorage.setItem('playground_right_editor_width', currentWidth);
+        }
+
         document.body.style.cursor = '';
         document.body.style.userSelect = '';
-
-        // Save width to localStorage
-        const currentWidth = playgroundMain.style.getPropertyValue('--editor-width');
-        if (currentWidth) {
-            localStorage.setItem('playground_editor_width', currentWidth);
-        }
     }
 
     // Resize event listeners
-    if (resizeHandle) {
-        resizeHandle.addEventListener('mousedown', startResize);
-        document.addEventListener('mousemove', resize);
-        document.addEventListener('mouseup', stopResize);
+    if (resizeHandleLeft) {
+        resizeHandleLeft.addEventListener('mousedown', startResizeLeft);
     }
+    if (resizeHandleRight) {
+        resizeHandleRight.addEventListener('mousedown', startResizeRight);
+    }
+    document.addEventListener('mousemove', resize);
+    document.addEventListener('mouseup', stopResize);
+
+    // Load saved editor states on startup
+    loadEditorStates();
 
     // Load saved content
     loadSavedContent();
 
     // Update preview on load
     updatePreview();
-    
-    // Tab switching
-    editorTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const editorType = tab.dataset.editor;
-            
-            // Update active states
-            editorTabs.forEach(t => t.classList.remove('active'));
-            editors.forEach(e => e.classList.remove('active'));
-            
-            tab.classList.add('active');
-            document.getElementById(`${editorType}Editor`).classList.add('active');
-        });
-    });
-    
+
     // Live preview updates
     let updateTimeout;
     htmlInput.addEventListener('input', () => {
@@ -221,8 +289,14 @@ document.addEventListener('DOMContentLoaded', function() {
     shareBtn.addEventListener('click', sharePlayground);
     saveBtn.addEventListener('click', downloadCode);
     fullscreenBtn.addEventListener('click', toggleFullscreen);
-    formatBtn.addEventListener('click', formatCode);
-    copyBtn.addEventListener('click', copyCode);
+
+    // Format and copy buttons for HTML
+    if (formatHtmlBtn) formatHtmlBtn.addEventListener('click', () => formatCode('html'));
+    if (copyHtmlBtn) copyHtmlBtn.addEventListener('click', () => copyCode('html'));
+
+    // Format and copy buttons for CSS
+    if (formatCssBtn) formatCssBtn.addEventListener('click', () => formatCode('css'));
+    if (copyCssBtn) copyCssBtn.addEventListener('click', () => copyCode('css'));
     
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
@@ -764,17 +838,17 @@ ${html}
             : '<span>⛶</span> Fullscreen';
     }
     
-    function formatCode() {
-        // Simple formatting - in a real app, use a proper formatter
-        const activeEditor = document.querySelector('.editor.active .code-input');
-        const isCSS = activeEditor === cssInput;
-        
-        if (isCSS) {
-            activeEditor.value = formatCSS(activeEditor.value);
+    /**
+     * Formats code for specified editor
+     * @param {string} editorType - 'html' or 'css'
+     */
+    function formatCode(editorType) {
+        if (editorType === 'css') {
+            cssInput.value = formatCSS(cssInput.value);
         } else {
-            activeEditor.value = formatHTML(activeEditor.value);
+            htmlInput.value = formatHTML(htmlInput.value);
         }
-        
+
         updatePreview();
         showMessage('Code formatted!');
     }
@@ -807,11 +881,15 @@ ${html}
         return formatted.trim();
     }
     
-    function copyCode() {
-        const activeEditor = document.querySelector('.editor.active .code-input');
-        activeEditor.select();
+    /**
+     * Copies code from specified editor to clipboard
+     * @param {string} editorType - 'html' or 'css'
+     */
+    function copyCode(editorType) {
+        const editor = editorType === 'css' ? cssInput : htmlInput;
+        editor.select();
         document.execCommand('copy');
-        showMessage('Code copied to clipboard!');
+        showMessage(`${editorType.toUpperCase()} copied to clipboard!`);
     }
     
     function showMessage(text) {

@@ -27,14 +27,11 @@
             <button class="view-btn active" data-view="preview" title="Full-screen preview">
                 <span>👁️</span> Preview
             </button>
-            <button class="view-btn" data-view="html" title="Edit HTML">
+            <button class="view-btn" data-view="html" title="Toggle HTML editor">
                 <span>📝</span> HTML
             </button>
-            <button class="view-btn" data-view="css" title="Edit CSS">
+            <button class="view-btn" data-view="css" title="Toggle CSS editor">
                 <span>🎨</span> CSS
-            </button>
-            <button class="view-btn" data-view="split" title="Split view (editor + preview)">
-                <span>⚏</span> Split View
             </button>
         </div>
     </div>
@@ -329,23 +326,21 @@
         </div>
 
         <div class="playground-main">
-            <div class="editor-panel">
-                <div class="editor-tabs">
-                    <button class="editor-tab active" data-editor="html">HTML</button>
-                    <button class="editor-tab" data-editor="css">CSS</button>
+            <!-- HTML Editor Panel (Left Overlay) -->
+            <div class="editor-panel-left">
+                <div class="editor-header">
+                    <span class="editor-title">HTML</span>
                     <div class="editor-actions">
-                        <button class="action-btn" id="formatBtn" title="Format code">
+                        <button class="action-btn" id="formatHtmlBtn" title="Format HTML">
                             <span>✨</span>
                         </button>
-                        <button class="action-btn" id="copyBtn" title="Copy code">
+                        <button class="action-btn" id="copyHtmlBtn" title="Copy HTML">
                             <span>📋</span>
                         </button>
                     </div>
                 </div>
-                
                 <div class="editor-content">
-                    <div class="editor active" id="htmlEditor">
-                        <textarea class="code-input" id="htmlInput" spellcheck="false" placeholder="Write your HTML here..."><!-- Welcome to the CSS Playground! -->
+                    <textarea class="code-input" id="htmlInput" spellcheck="false" placeholder="Write your HTML here..."><!-- Welcome to the CSS Playground! -->
 <div class="container">
   <h1 class="title">CSS Playground</h1>
   <p class="subtitle">Edit the CSS to see changes instantly!</p>
@@ -362,10 +357,27 @@
     <div class="feature">🔗 Share Creations</div>
   </div>
 </div></textarea>
+                </div>
+            </div>
+
+            <!-- Left Resize Handle -->
+            <div class="resize-handle-left" title="Drag to resize HTML editor"></div>
+
+            <!-- CSS Editor Panel (Right Overlay) -->
+            <div class="editor-panel-right">
+                <div class="editor-header">
+                    <span class="editor-title">CSS</span>
+                    <div class="editor-actions">
+                        <button class="action-btn" id="formatCssBtn" title="Format CSS">
+                            <span>✨</span>
+                        </button>
+                        <button class="action-btn" id="copyCssBtn" title="Copy CSS">
+                            <span>📋</span>
+                        </button>
                     </div>
-                    
-                    <div class="editor" id="cssEditor">
-                        <textarea class="code-input" id="cssInput" spellcheck="false" placeholder="Write your CSS here...">/* Welcome to the CSS Playground! */
+                </div>
+                <div class="editor-content">
+                    <textarea class="code-input" id="cssInput" spellcheck="false" placeholder="Write your CSS here...">/* Welcome to the CSS Playground! */
 
 .container {
   max-width: 800px;
@@ -476,12 +488,13 @@
 }
 
 /* Try adding your own styles below! */</textarea>
-                    </div>
                 </div>
             </div>
 
-            <div class="resize-handle" title="Drag to resize panels"></div>
+            <!-- Right Resize Handle -->
+            <div class="resize-handle-right" title="Drag to resize CSS editor"></div>
 
+            <!-- Preview Panel -->
             <div class="preview-panel">
                 <div class="preview-header">
                     <span class="preview-title">Preview</span>
