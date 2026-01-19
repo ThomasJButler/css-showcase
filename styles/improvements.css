@@ -550,12 +550,129 @@ h1, h2, h3, h4, h5, h6 {
 /* Footer Enhancement */
 .site-footer {
     background: var(--colour-surface-alt);
-    padding: 3rem 0;
+    padding: 4rem 0 2rem;
     margin-top: var(--section-spacing);
-    text-align: center;
     border-top: 1px solid var(--colour-border);
 }
 
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-brand {
+    max-width: 350px;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-description {
+    color: var(--colour-text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--colour-surface);
+    border: 1px solid var(--colour-border);
+    border-radius: 6px;
+    color: var(--colour-text);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.footer-social-link:hover {
+    transform: translateY(-2px);
+    border-color: var(--colour-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.footer-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--colour-text);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: var(--colour-text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 0.9375rem;
+}
+
+.footer-links a:hover {
+    color: var(--colour-primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--colour-border);
+}
+
+.footer-copyright {
+    color: var(--colour-text-muted);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* Footer responsive layout */
+@media (max-width: 968px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .site-footer {
+        padding: 3rem 0 1.5rem;
+    }
+}
+
+/* Legacy footer text support (for pages not yet updated) */
 .footer-text {
     color: var(--colour-text-muted);
     margin-bottom: 0.5rem;
