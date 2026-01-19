@@ -155,16 +155,6 @@ main {
     }
 }
 
-/* Interactive card tilt */
-.showcase-card {
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-}
-
-.showcase-card:hover {
-    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
-}
-
 /* Performance optimizations */
 @media (prefers-reduced-motion: reduce) {
     *,
