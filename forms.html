@@ -343,17 +343,19 @@
                         <h3>Icon Inputs</h3>
                         <form class="demo-form">
                             <div class="form-group form-icon">
-                                <span class="form-icon-left">👤</span>
+                                <span class="form-icon-left" role="img" aria-label="User icon">👤</span>
                                 <input type="text" class="form-input" placeholder="Username">
                             </div>
                             <div class="form-group form-icon">
-                                <span class="form-icon-left">✉️</span>
+                                <span class="form-icon-left" role="img" aria-label="Email icon">✉️</span>
                                 <input type="email" class="form-input" placeholder="Email address">
                             </div>
                             <div class="form-group form-icon">
-                                <span class="form-icon-left">🔒</span>
+                                <span class="form-icon-left" role="img" aria-label="Lock icon">🔒</span>
                                 <input type="password" class="form-input" placeholder="Password">
-                                <button type="button" class="form-icon-right password-toggle">👁️</button>
+                                <button type="button" class="form-icon-right password-toggle" aria-label="Toggle password visibility">
+                                    <span role="img" aria-label="Eye icon">👁️</span>
+                                </button>
                             </div>
                         </form>
                     </div>
