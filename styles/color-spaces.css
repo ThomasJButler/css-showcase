@@ -29,13 +29,16 @@
     border-color: #334155;
 }
 
-.gamut-box h3 {
+.gamut-box h3,
+.gamut-box .gamut-title {
     margin: 0 0 1.5rem 0;
     font-size: 1.25rem;
+    font-weight: 600;
     color: var(--color-text, #1e293b);
 }
 
-.dark .gamut-box h3 {
+.dark .gamut-box h3,
+.dark .gamut-box .gamut-title {
     color: #f1f5f9;
 }
 
