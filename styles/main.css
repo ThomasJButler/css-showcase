@@ -509,24 +509,7 @@ a:hover {
     overflow: hidden;
 }
 
-.showcase-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--gradient-primary);
-    opacity: 0;
-    transition: opacity var(--transition-base);
-}
-
-.showcase-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: transparent;
-}
-
-.showcase-card:hover::before {
-    opacity: 0.03;
-}
+/* Note: .showcase-card hover styles defined in improvements.css */
 
 .card-icon {
     font-size: 3rem;
