@@ -18,8 +18,7 @@
 
 ### 1. Fix "Coming Soon" Placeholder Links
 
-**Status**: Pages EXIST but are not linked from index.html
-**Effort**: Minimal - just update href attributes
+**Status**: ✅ COMPLETED
 
 The following 6 pages are marked "coming soon" on index.html but are fully implemented:
 
@@ -32,27 +31,30 @@ The following 6 pages are marked "coming soon" on index.html but are fully imple
 | Scroll Animations | `href="#"` | `href="scroll-animations.html"` |
 | New Colour Spaces | `href="#"` | `href="color-spaces.html"` |
 
-**Files to modify**:
+**Files modified**:
 - `/Users/tombutler/Repos/css-showcase/index.html` - Lines 416, 422, 428, 461, 467, 473
 
-**Actions**:
-- Change `href="#"` to the actual page URLs
-- Remove `class="coming-soon"` from those links
-- Remove `data-tooltip="Coming soon"` attribute
+**Actions completed**:
+- Changed `href="#"` to the actual page URLs
+- Removed `class="coming-soon"` from those links
+- Removed `data-tooltip="Coming soon"` attribute
+
+**Completion Note**: Completed on 19 January 2026. All requirements verified and tested.
 
 ---
 
 ### 2. Update Search Index
 
-**Status**: Search is FULLY FUNCTIONAL with professional UI (Cmd/Ctrl+K shortcut)
-**Issue**: Search index in `scripts/search.js` is missing 11 pages
+**Status**: ✅ COMPLETED
 
-**File to modify**: `/Users/tombutler/Repos/css-showcase/scripts/search.js` - Lines 12-47
+The search functionality is fully operational with professional UI (Cmd/Ctrl+K shortcut), and the search index in `scripts/search.js` has been updated to include all pages.
 
-**Pages missing from searchIndex array**:
+**File modified**: `/Users/tombutler/Repos/css-showcase/scripts/search.js` - Lines 12-47
 
-| Page | File | Suggested Category |
-|------|------|-------------------|
+**Pages added to searchIndex array**:
+
+| Page | File | Category |
+|------|------|----------|
 | Custom Properties | custom-properties.html | Advanced |
 | Blend Modes | blend-modes.html | Visual Effects |
 | Shapes & Clips | shapes-clips.html | Visual Effects |
@@ -63,45 +65,27 @@ The following 6 pages are marked "coming soon" on index.html but are fully imple
 | Flexbox Patterns | flexbox-patterns.html | Layout |
 | Gradient Patterns | gradient-patterns.html | Visual Effects |
 | Tables Advanced | tables-advanced.html | Components |
-| Sidebar Snippet | sidebar-snippet.html | Tools (or exclude) |
+| Sidebar Snippet | sidebar-snippet.html | Tools |
 
-**Example entries to add**:
-```javascript
-{ title: 'Custom Properties', url: 'custom-properties.html', category: 'Advanced', tags: ['variables', 'theming', 'custom properties', 'css variables'] },
-{ title: 'Blend Modes', url: 'blend-modes.html', category: 'Visual Effects', tags: ['blend', 'mix-blend-mode', 'overlay', 'multiply'] },
-{ title: 'Shapes & Clipping', url: 'shapes-clips.html', category: 'Visual Effects', tags: ['clip-path', 'shapes', 'polygon', 'circle'] },
-{ title: 'Anchor Positioning', url: 'anchor-positioning.html', category: 'Modern CSS', tags: ['anchor', 'positioning', 'tooltips', 'popovers'] },
-{ title: 'Scroll Animations', url: 'scroll-animations.html', category: 'Modern CSS', tags: ['scroll', 'animation-timeline', 'scroll-driven'] },
-{ title: 'Colour Spaces', url: 'color-spaces.html', category: 'Modern CSS', tags: ['oklch', 'lab', 'lch', 'colour-mix', 'p3'] },
-{ title: 'Flexbox Patterns', url: 'flexbox-patterns.html', category: 'Layout', tags: ['flexbox', 'patterns', 'holy grail', 'sticky footer'] },
-{ title: 'Gradient Patterns', url: 'gradient-patterns.html', category: 'Visual Effects', tags: ['gradient', 'patterns', 'stripes', 'checkerboard'] },
-{ title: 'Advanced Animations', url: 'animations-advanced.html', category: 'Visual Effects', tags: ['animation', 'keyframes', 'advanced', 'complex'] },
-{ title: 'Advanced Tables', url: 'tables-advanced.html', category: 'Components', tags: ['table', 'data', 'sorting', 'advanced'] },
-```
+**Completion Note**: Completed on 19 January 2026. All requirements verified and tested.
 
 ---
 
 ### 3. Standardise GitHub Repository Link
 
-**Status**: Inconsistent - index.html links to profile, only 5 pages link to repo
-**Issue**:
-- `index.html` links to `https://github.com/ThomasJButler` (profile)
-- 5 pages correctly link to `https://github.com/ThomasJButler/css-showcase` (repo)
-- 27 pages have no GitHub link at all
+**Status**: ✅ COMPLETED
 
-**Files with correct repo link** (use as reference):
-- `/Users/tombutler/Repos/css-showcase/advanced.html`
-- `/Users/tombutler/Repos/css-showcase/animations-advanced.html`
-- `/Users/tombutler/Repos/css-showcase/color-spaces.html`
-- `/Users/tombutler/Repos/css-showcase/flexbox-patterns.html`
-- `/Users/tombutler/Repos/css-showcase/tables-advanced.html`
+All pages now consistently link to the repository instead of the user profile.
 
-**Actions**:
-1. Update `index.html` line 300-302: Change profile link to repository link
+**Actions completed**:
+1. Updated `index.html` to change profile link to repository link
    - From: `https://github.com/ThomasJButler`
    - To: `https://github.com/ThomasJButler/css-showcase`
 
-2. Add GitHub repository link to footer of all 27 pages missing it (see Footer Enhancement below)
+2. Added GitHub repository link to footer of all pages requiring it
+   - All 32 pages now include consistent GitHub repository links in the footer
+
+**Completion Note**: Completed on 19 January 2026. All requirements verified and tested.
 
 ---
 
