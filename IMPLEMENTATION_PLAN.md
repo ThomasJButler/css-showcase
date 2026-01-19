@@ -190,16 +190,18 @@ The site already implements:
 
 **Medium Priority:**
 
-3. **Card hover lift inconsistency**
+3. **Card hover lift inconsistency** ✅ COMPLETED
    - `.showcase-card`: 4px translateY
    - `.demo-card`: 2px translateY
    - `.card`: 0px translateY (shadow only)
    - **Consider**: Standardising to 4px for all interactive cards
+   - **Resolution**: Standardised all card hover effects to use -4px translateY. Updated .demo-card (basic.css) from -2px to -4px, and added -4px translateY to .card (cards.css). Completed 19 January 2026.
 
-4. **Code example style duplication**
+4. **Code example style duplication** ✅ COMPLETED
    - `/Users/tombutler/Repos/css-showcase/styles/improvements.css` (lines 427-438) redefines `.code-example` rules
    - These may conflict with `/Users/tombutler/Repos/css-showcase/styles/code-examples.css`
    - **Action**: Ensure improvements.css loads before code-examples.css, or remove duplicate rules
+   - **Resolution**: Removed duplicate .code-example rules from styles/improvements.css and styles/basic.css. Removed conflicting .copy-button styles from styles/syntax-highlight.css. All code example styling now consolidated in styles/code-examples.css. Completed 19 January 2026.
 
 **Low Priority:**
 
@@ -288,8 +290,8 @@ In the **Modern CSS** section (around line 153-164 in each sidebar):
 ### MEDIUM (Nice to have)
 - [x] Fix missing .content-spacer CSS or remove divs from 18 pages
 - [x] Resolve duplicate .showcase-card hover state definitions
-- [ ] Standardise card hover lift distances (4px, 2px, or 0px)
-- [ ] Remove duplicate .code-example rules from improvements.css
+- [x] Standardise card hover lift distances (4px, 2px, or 0px)
+- [x] Remove duplicate .code-example rules from improvements.css
 - [ ] Add pre-built examples to playground
 - [ ] Add aria-labels to icon containers for accessibility
 - [ ] Minor mobile padding adjustments (if needed after testing)

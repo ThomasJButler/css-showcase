@@ -61,7 +61,7 @@
 }
 
 .demo-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
 }
 
@@ -373,34 +373,7 @@
     background: var(--gradient-cool);
 }
 
-/* Code Examples */
-.code-example {
-    background: var(--colour-surface-alt);
-    border-top: 1px solid var(--colour-border);
-    overflow-x: auto;
-}
-
-.code-example pre {
-    margin: 0;
-    padding: var(--space-6);
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    line-height: var(--leading-relaxed);
-}
-
-.code-example code {
-    color: var(--colour-text);
-    white-space: pre;
-}
-
-/* Syntax highlighting (basic) */
-[data-theme="dark"] .code-example {
-    background: rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .code-example code {
-    color: var(--colour-text);
-}
+/* Code Examples - styles moved to styles/code-examples.css */
 
 /* Tips Section */
 .tips-section {
