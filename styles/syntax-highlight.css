@@ -130,54 +130,10 @@ code.highlighted ::selection {
     color: var(--colour-text);
 }
 
-/* Copy button integration */
-.code-example {
-    position: relative;
-}
-
-.copy-button {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: var(--colour-surface);
-    border: 1px solid var(--colour-border);
-    border-radius: 0.375rem;
-    padding: 0.375rem 0.75rem;
-    font-size: 0.75rem;
-    font-family: var(--font-sans);
-    color: var(--colour-text-muted);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    opacity: 0;
-    z-index: 10;
-}
-
-.code-example:hover .copy-button {
-    opacity: 1;
-}
-
-.copy-button:hover {
-    background: var(--colour-primary);
-    color: white;
-    border-color: var(--colour-primary);
-}
-
-.copy-button.copied {
-    background: var(--colour-success);
-    color: white;
-    border-color: var(--colour-success);
-}
-
-.copy-button.copied::before {
-    content: "✓ ";
-}
+/* Copy button integration - styles moved to styles/code-examples.css */
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-    .copy-button {
-        opacity: 1;
-    }
-    
     code.line-numbers {
         padding-left: 2.5rem !important;
     }
