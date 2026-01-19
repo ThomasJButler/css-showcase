@@ -37,11 +37,21 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Advanced
         { title: 'Advanced CSS', url: 'advanced.html', category: 'Advanced', tags: ['advanced', 'pseudo', 'selectors', 'variables'] },
-        
+        { title: 'Custom Properties', url: 'custom-properties.html', category: 'Advanced', tags: ['variables', 'theming', 'custom properties', 'css variables'] },
+        { title: 'Blend Modes', url: 'blend-modes.html', category: 'Visual Effects', tags: ['blend', 'mix-blend-mode', 'overlay', 'multiply'] },
+        { title: 'Shapes & Clipping', url: 'shapes-clips.html', category: 'Visual Effects', tags: ['clip-path', 'shapes', 'polygon', 'circle'] },
+        { title: 'Advanced Animations', url: 'animations-advanced.html', category: 'Visual Effects', tags: ['animation', 'keyframes', 'advanced', 'complex'] },
+        { title: 'Gradient Patterns', url: 'gradient-patterns.html', category: 'Visual Effects', tags: ['gradient', 'patterns', 'stripes', 'checkerboard'] },
+        { title: 'Flexbox Patterns', url: 'flexbox-patterns.html', category: 'Layout', tags: ['flexbox', 'patterns', 'holy grail', 'sticky footer'] },
+        { title: 'Advanced Tables', url: 'tables-advanced.html', category: 'Components', tags: ['table', 'data', 'sorting', 'advanced'] },
+
         // Modern CSS
         { title: ':has() Selector', url: 'has-selector.html', category: 'Modern CSS', tags: ['has', 'parent', 'selector', 'modern'] },
         { title: 'CSS Nesting', url: 'css-nesting.html', category: 'Modern CSS', tags: ['nesting', 'nested', 'modern', 'sass-like'] },
-        
+        { title: 'Anchor Positioning', url: 'anchor-positioning.html', category: 'Modern CSS', tags: ['anchor', 'positioning', 'tooltips', 'popovers'] },
+        { title: 'Scroll Animations', url: 'scroll-animations.html', category: 'Modern CSS', tags: ['scroll', 'animation-timeline', 'scroll-driven'] },
+        { title: 'Colour Spaces', url: 'color-spaces.html', category: 'Modern CSS', tags: ['oklch', 'lab', 'lch', 'colour-mix', 'p3'] },
+
         // Tools
         { title: 'CSS Playground', url: 'playground.html', category: 'Tools', tags: ['playground', 'experiment', 'try', 'code', 'editor'] }
     ];
