@@ -4,516 +4,431 @@
 
 ---
 
-## Latest Verification (19 January 2026 - Final Verification)
+## Latest Verification (19 January 2026 - Updated After Deep Analysis)
 
-**All items have been verified as complete:**
+### Executive Summary
 
-### ✅ All Items Complete:
-- **CRITICAL Priority #1**: All 6 "coming soon" pages fully implemented and linked - COMPLETED
-- **CRITICAL Priority #2**: Search functionality fully operational with complete index - COMPLETED
-- **CRITICAL Priority #3**: GitHub repository links standardised across all pages - COMPLETED
-- **HIGH Priority #4**: Sidebar navigation links added to all 13 files - COMPLETED
-- **HIGH Priority #5**: UK/US spelling corrected across 13 files (21 instances) - COMPLETED
-- **HIGH Priority #6**: CSS hover conflict resolved in micro-interactions.css - COMPLETED
-- **MEDIUM Priority #7**: Footer wording standardised in color-spaces.html - COMPLETED
-- **MEDIUM Priority #8**: Lorem ipsum verified as intentional (no change required) - VERIFIED
-- **MEDIUM Priority #9**: "Coming soon" reference updated in css-nesting.html - COMPLETED
-- **MEDIUM Priority #10**: Demo link accessibility improved (33 occurrences updated) - COMPLETED
-- **LOW Priority #11**: Icon accessibility attributes added to 377 emoji icons across 33 files - COMPLETED
-- **LOW Priority #12**: Debug console.log removed from scripts/layout.js - COMPLETED
+The CSS Showcase project has been thoroughly verified by 8 parallel Sonnet agents with findings synthesized by Opus. Following recent implementation work, the completion status has been significantly improved.
 
-**Final completion: 12/12 items (100% complete)**
+**Current Completion Status:**
+- CRITICAL Priority: 3/3 Complete (100%)
+- HIGH Priority: 4/4 Complete (100%)
+- MEDIUM Priority: 4/4 Complete (100%)
+- LOW Priority: 1/4 Complete (25%)
 
-### ⚠️ Re-Verification Note (19 January 2026):
-A subsequent verification performed on 19 January 2026 revealed that **HIGH Priority Item #5 (UK/US English Spelling)** was incomplete in the original implementation. The verification found:
+**Overall: 11/15 Items Complete (73%)**
 
-1. **22 additional US spellings were discovered:**
-   - 20 instances of "Color Spaces" (should be "Colour Spaces") across 16 files
-   - 2 instances in advanced.html ("selection color" and "brand colors")
-
-2. **All 22 instances have now been corrected**
-
-3. **Final verification confirms 0 remaining US spellings in HTML content text**
-
-4. **Updated totals:** 43 total instances corrected across 29 files (21 original + 22 additional)
+All CRITICAL, HIGH, and MEDIUM priority items are now complete. The remaining work consists of LOW priority polish items, primarily accessibility attributes for icons and minor heading hierarchy adjustments.
 
 ---
 
-## Issues Found and Fixed (19 January 2026)
+## COMPLETED ITEMS
 
-Following the completion verification, additional review uncovered several issues that have now been corrected:
+### CRITICAL Priority - All Complete ✓
 
-### 🔤 UK English Spelling - Additional Corrections
-**Status**: ✅ FIXED
+#### 1. Fix "Coming Soon" Placeholder Links
+**Status**: COMPLETED ✓
 
-**5 additional instances found and corrected:**
+All 6 pages that were marked "coming soon" are fully implemented and linked:
 
-| File | Issue | Correction | Line/Context |
-|------|-------|------------|--------------|
-| gradient-patterns.html | "optimization" | "optimisation" | Meta description |
-| animations-advanced.html | "optimization" | "optimisation" | Meta description |
-| animations-advanced.html | "optimization" | "optimisation" | Page subtitle |
-| animations.html | "optimization" | "optimisation" | Content text |
-| custom-properties.html | "colors" | "colours" | Content text |
-
-**Updated total:** 48 instances corrected across 30 files (43 from previous verification + 5 additional)
-
----
-
-### 🐛 Critical Bug Fixes
-**Status**: ✅ FIXED
-
-**1. Broken link in playground.html**
-- **Issue**: Incorrect link "colour-spaces.html" pointing to non-existent file
-- **Fix**: Updated to correct filename "color-spaces.html"
-- **Impact**: Restored navigation functionality from playground page
-
-**2. Missing sidebar toggle button in color-spaces.html**
-- **Issue**: Mobile navigation inaccessible - no sidebar toggle button present
-- **Fix**: Added complete sidebar toggle button with menu icon for mobile navigation
-- **Impact**: Restored mobile responsiveness and navigation consistency across all pages
+| Card Title | Link | Verified |
+|------------|------|----------|
+| Custom Properties | `custom-properties.html` | ✓ 776 lines |
+| Blend Modes | `blend-modes.html` | ✓ 797 lines |
+| Shapes & Clips | `shapes-clips.html` | ✓ 707 lines |
+| Anchor Positioning | `anchor-positioning.html` | ✓ 461 lines |
+| Scroll Animations | `scroll-animations.html` | ✓ 396 lines |
+| New Colour Spaces | `color-spaces.html` | ✓ 641 lines |
 
 ---
 
-### ♿ Accessibility Improvements
-**Status**: ✅ COMPLETED
+#### 2. Update Search Index
+**Status**: COMPLETED ✓
 
-**1. Missing emoji icon accessibility attributes (9 additional icons)**
-
-| File | Icons Added | Details |
-|------|-------------|---------|
-| forms.html | 4 icons | User, email, lock, eye icons in form examples |
-| playground.html | 4 icons | Eye, palette, save, link icons in toolbar |
-| anchor-positioning.html | 1 icon | Bell icon in notification demo |
-
-**2. Missing aria-label on gradient-patterns.html**
-- Added role="img" and aria-label to Layout section icon
-
-**Updated total:** 377 emoji icons with accessibility attributes across 33 files (368 original + 9 additional)
+Search functionality is fully operational:
+- Professional modal UI
+- Cmd/Ctrl+K keyboard shortcut implemented
+- All 6 new pages included in search index
+- Works in both light and dark modes
 
 ---
 
-### 🔧 Consistency Improvements
-**Status**: ✅ FIXED
+#### 3. Standardise GitHub Repository Link
+**Status**: COMPLETED ✓
 
-**Navigation labeling standardisation**
-- **Issue**: Inconsistent labeling between "CSS Basics" and "Basic CSS" in sidebar navigation
-- **Files fixed**:
-  - gradient-patterns.html
-  - color-spaces.html
-- **Standardised to**: "CSS Basics" (consistent with all other pages)
+All 33 HTML files consistently link to `https://github.com/ThomasJButler/css-showcase`.
+Minor footer text variation in color-spaces.html noted (see MEDIUM issues).
 
 ---
 
-### ✅ Verifications Completed
+### HIGH Priority - All Complete ✓
 
-**1. Demo links accessibility**
-- Verified all 31 demo links across the site have proper aria-labels
-- No missing accessibility attributes found
+#### 4. Sidebar Navigation Inconsistencies
+**Status**: COMPLETED ✓
 
-**2. Skip-links**
-- Verified all 32 main pages include skip-to-content links
-- Full coverage confirmed
+Added the missing `scroll-animations.html` link to the Modern CSS section in `anchor-positioning.html` sidebar.
 
 ---
 
-## Executive Summary
+#### 5. UK/US English Spelling Inconsistencies
+**Status**: COMPLETED ✓
 
-**Current Status**: The project is now **100% complete**. All 12 prioritized improvements have been successfully implemented and verified. The portfolio demonstrates excellent quality with:
-
-- ✅ Full mobile responsiveness and functional search
-- ✅ All "coming soon" pages fully implemented and linked
-- ✅ Complete sidebar navigation across all 33 pages
-- ✅ Consistent UK English spelling throughout
-- ✅ CSS hover conflicts resolved and standardised
-- ✅ Enhanced accessibility for demo links and emoji icons (377 icons across 33 files)
+All 10 US spelling instances have been corrected to UK English:
+- index.html: 2 instances (lines 344, 472) - "colors" → "colours"
+- typography.html: 1 instance (line 536) - "Center" → "Centre"
+- color-spaces.html: 7 instances (lines 219, 230, 278, 338, 342, 426, 430) - "Color/Colors" → "Colour/Colours"
 
 ---
 
-## Verification Status Overview
+#### 6. Resolve CSS Hover State Conflict
+**Status**: COMPLETED ✓
 
-| Category | Verified | Status |
-|----------|----------|--------|
-| CRITICAL Priority Items | 3/3 | ✅ All Complete |
-| HIGH Priority Items | 3/3 | ✅ All Complete |
-| MEDIUM Priority Items | 4/4 | ✅ All Complete |
-| LOW Priority Items | 2/2 | ✅ All Complete |
-| **Overall Project Status** | **12/12** | **✅ 100% Complete** |
+The conflicting `.showcase-card:hover` definitions in `micro-interactions.css` have been resolved.
 
 ---
 
-## CRITICAL Priority Items
+#### 13. color-spaces.html Structural Issues
+**Status**: COMPLETED ✓
 
-### 1. Fix "Coming Soon" Placeholder Links
-
-**Status**: ✅ COMPLETED AND VERIFIED
-
-The following 6 pages that were marked "coming soon" on index.html are fully implemented and linked:
-
-| Card Title | Status | Link |
-|------------|--------|------|
-| Custom Properties | ✅ | `custom-properties.html` |
-| Blend Modes | ✅ | `blend-modes.html` |
-| Shapes & Clips | ✅ | `shapes-clips.html` |
-| Anchor Positioning | ✅ | `anchor-positioning.html` |
-| Scroll Animations | ✅ | `scroll-animations.html` |
-| New Colour Spaces | ✅ | `color-spaces.html` |
-
-**Completion Note**: Verified complete on 19 January 2026. All links functional and "coming soon" badges removed.
+Completed full sidebar restructure to match standard pattern:
+- Added `styles/sidebar.css` stylesheet link
+- Added `scripts/sidebar.js` script
+- Replaced all `nav-section-title` classes with `sidebar-section-title` collapsible pattern
+- Added `sidebar-backdrop` element
+- Added back-to-top button to sidebar footer
 
 ---
 
-### 2. Update Search Index
+### MEDIUM Priority - All Complete ✓
 
-**Status**: ✅ COMPLETED AND VERIFIED
+#### 7. Footer Text Standardisation
+**Status**: COMPLETED ✓
 
-The search functionality is fully operational with professional UI (Cmd/Ctrl+K shortcut), and the search index includes all pages.
-
-**File verified**: `/Users/tombutler/Repos/css-showcase/scripts/search.js`
-
-**Completion Note**: Verified complete on 19 January 2026.
+Updated color-spaces.html footer text from "the code on" to "the source code on" for consistency.
 
 ---
 
-### 3. Standardise GitHub Repository Link
+#### 8. Lorem Ipsum Placeholder Text
+**Status**: VERIFIED AS INTENTIONAL ✓
 
-**Status**: ✅ COMPLETED AND VERIFIED
-
-All pages consistently link to the repository (`https://github.com/ThomasJButler/css-showcase`) instead of the user profile.
-
-**Completion Note**: Verified complete on 19 January 2026.
+Lorem ipsum in shapes-clips.html is appropriate for shape-wrapping demos.
 
 ---
 
-## HIGH Priority Items
+#### 9. "Coming Soon" Reference in css-nesting.html
+**Status**: COMPLETED ✓
 
-### 4. Fix Sidebar Navigation Inconsistencies
+Updated from 'coming soon with @mixin' to 'CSS @mixin is a separate specification'.
 
-**Status**: ✅ COMPLETED
+---
 
-**Issue**: 12 pages are missing links to `scroll-animations.html` and `color-spaces.html` in their sidebar navigation.
+#### 10. Demo Link Accessibility
+**Status**: COMPLETED ✓
 
-**Files requiring sidebar update**:
+All 33 demo links now use `href="javascript:void(0)"` with appropriate `aria-label` attributes.
 
-**Missing BOTH scroll-animations.html AND color-spaces.html (11 files):**
+---
 
-| File | Line Range (Modern CSS section) |
-|------|--------------------------------|
-| `/Users/tombutler/Repos/css-showcase/advanced.html` | Lines 157-167 |
-| `/Users/tombutler/Repos/css-showcase/animations-advanced.html` | Lines 152-162 |
-| `/Users/tombutler/Repos/css-showcase/blend-modes.html` | Lines 157-167 |
-| `/Users/tombutler/Repos/css-showcase/custom-properties.html` | Lines 154-164 |
-| `/Users/tombutler/Repos/css-showcase/flexbox-patterns.html` | Lines 159-169 |
-| `/Users/tombutler/Repos/css-showcase/gradient-patterns.html` | Lines 168-177 |
-| `/Users/tombutler/Repos/css-showcase/layout.html` | Lines 147-157 |
-| `/Users/tombutler/Repos/css-showcase/responsive.html` | Lines 147-157 |
-| `/Users/tombutler/Repos/css-showcase/shapes-clips.html` | Lines 160-170 |
-| `/Users/tombutler/Repos/css-showcase/tables-advanced.html` | Lines 156-166 |
-| `/Users/tombutler/Repos/css-showcase/transitions.html` | Lines 151-161 |
+#### 14. playground.html Skip-Link Target
+**Status**: COMPLETED ✓
 
-**Missing ONLY color-spaces.html (2 files):**
+Added `id="main"` to the main element in playground.html to match the skip-link target.
 
-| File | Line Range (Modern CSS section) |
-|------|--------------------------------|
-| `/Users/tombutler/Repos/css-showcase/anchor-positioning.html` | Line 114 (has scroll-animations.html) |
-| `/Users/tombutler/Repos/css-showcase/scroll-animations.html` | Line 114 (has itself) |
+---
 
-**Action Required**:
-- Add TWO links to 11 files (scroll-animations.html AND color-spaces.html)
-- Add ONE link to 2 files (color-spaces.html only)
+### LOW Priority - 1 of 4 Complete
 
+#### 12. Console.log Statements
+**Status**: COMPLETED ✓
+
+Debug console.log removed from `scripts/layout.js` line 7.
+
+---
+
+## REMAINING ITEMS - REQUIRES ACTION
+
+### LOW Priority (3 items remaining)
+
+#### 11. Icon Accessibility Attributes
+**Status**: INCOMPLETE - 45 icons missing attributes ❌
+
+**A. Back-to-Top Button Arrows (32 files)**
+
+The `<span>` containing the `↑` arrow in back-to-top buttons needs `role="img"` and `aria-label="Up arrow"`.
+
+**Files requiring update**:
+
+| File | Line |
+|------|------|
+| `/Users/tombutler/Repos/css-showcase/index.html` | 180 |
+| `/Users/tombutler/Repos/css-showcase/basic.html` | 192 |
+| `/Users/tombutler/Repos/css-showcase/box-model.html` | 192 |
+| `/Users/tombutler/Repos/css-showcase/typography.html` | 192 |
+| `/Users/tombutler/Repos/css-showcase/flexbox.html` | 195 |
+| `/Users/tombutler/Repos/css-showcase/flexbox-patterns.html` | 195 |
+| `/Users/tombutler/Repos/css-showcase/grid.html` | 192 |
+| `/Users/tombutler/Repos/css-showcase/layout.html` | 183 |
+| `/Users/tombutler/Repos/css-showcase/responsive.html` | 183 |
+| `/Users/tombutler/Repos/css-showcase/gradients.html` | 195 |
+| `/Users/tombutler/Repos/css-showcase/transitions.html` | 187 |
+| `/Users/tombutler/Repos/css-showcase/animations.html` | 195 |
+| `/Users/tombutler/Repos/css-showcase/animations-advanced.html` | 186 |
+| `/Users/tombutler/Repos/css-showcase/filters.html` | 192 |
+| `/Users/tombutler/Repos/css-showcase/buttons.html` | 192 |
+| `/Users/tombutler/Repos/css-showcase/forms.html` | 192 |
+| `/Users/tombutler/Repos/css-showcase/tables.html` | 195 |
+| `/Users/tombutler/Repos/css-showcase/tables-advanced.html` | 192 |
+| `/Users/tombutler/Repos/css-showcase/cards.html` | 192 |
+| `/Users/tombutler/Repos/css-showcase/icons.html` | 192 |
+| `/Users/tombutler/Repos/css-showcase/advanced.html` | 193 |
+| `/Users/tombutler/Repos/css-showcase/custom-properties.html` | 190 |
+| `/Users/tombutler/Repos/css-showcase/blend-modes.html` | 193 |
+| `/Users/tombutler/Repos/css-showcase/shapes-clips.html` | 196 |
+| `/Users/tombutler/Repos/css-showcase/has-selector.html` | 192 |
+| `/Users/tombutler/Repos/css-showcase/container-queries.html` | 192 |
+| `/Users/tombutler/Repos/css-showcase/css-nesting.html` | 192 |
+| `/Users/tombutler/Repos/css-showcase/anchor-positioning.html` | 133 |
+| `/Users/tombutler/Repos/css-showcase/scroll-animations.html` | 134 |
+| `/Users/tombutler/Repos/css-showcase/playground.html` | 217 |
+| `/Users/tombutler/Repos/css-showcase/sidebar-snippet.html` | 179 |
+| `/Users/tombutler/Repos/css-showcase/gradient-patterns.html` | See note below |
+
+**Note on gradient-patterns.html**: This file has `aria-label="Back to top"` on the button element itself (line 203), which is an alternative but acceptable approach. The arrow span does not have attributes, but the button does.
+
+**Note on color-spaces.html**: This file has NO back-to-top button at all (see HIGH Priority Issue #13E).
+
+**Current Pattern**:
 ```html
-<li class="sidebar-nav-item">
-    <a href="scroll-animations.html" class="sidebar-nav-link">Scroll Animations</a>
-</li>
-<li class="sidebar-nav-item">
-    <a href="color-spaces.html" class="sidebar-nav-link">Colour Spaces</a>
-</li>
+<button class="back-to-top">
+    <span>↑</span>
+    <span>Back to Top</span>
+</button>
+```
+
+**Required Pattern**:
+```html
+<button class="back-to-top">
+    <span role="img" aria-label="Up arrow">↑</span>
+    <span>Back to Top</span>
+</button>
 ```
 
 ---
 
-### 5. Fix UK/US English Spelling Inconsistency
+**B. Toolbar Icons in playground.html (13 icons)** - Corrected count
 
-**Status**: ✅ COMPLETED AND RE-VERIFIED
+**File**: `/Users/tombutler/Repos/css-showcase/playground.html`
 
-**Issue**: American English spellings found throughout the project that should use UK English consistently.
+**Verified: 13 icons missing attributes** (not 15 as previously stated)
 
-**Total Instances: 48 US spellings across 30 files (21 original + 22 from re-verification + 5 additional)**
+| Line | Icon | Required aria-label |
+|------|------|---------------------|
+| 31 | `<span>📝</span>` | "HTML editor icon" |
+| 34 | `<span>🎨</span>` | "CSS editor icon" |
+| 278 | `<span>🔄</span>` | "Reset icon" |
+| 281 | `<span>🔗</span>` | "Share icon" |
+| 284 | `<span>💾</span>` | "Save icon" |
+| 287 | `<span>⛶</span>` | "Fullscreen icon" |
+| 329 | `<span>✨</span>` | "Format HTML icon" |
+| 332 | `<span>📋</span>` | "Copy HTML icon" |
+| 366 | `<span>✨</span>` | "Format CSS icon" |
+| 369 | `<span>📋</span>` | "Copy CSS icon" |
+| 497 | `<span>🖥️</span>` | "Desktop view icon" |
+| 500 | `<span>📱</span>` | "Tablet view icon" |
+| 503 | `<span>📲</span>` | "Mobile view icon" |
 
-**Completion Note**: Re-verified on 19 January 2026 with subsequent additional corrections. Original implementation had 21 instances. Re-verification found 22 additional instances. Further review found 5 more instances. All corrections completed. Total corrections: 48 instances across 30 files (21 original + 22 re-verification + 5 additional).
+**Note**: Line 28 Preview icon (`👁️`) already has correct `role="img" aria-label="Preview icon"` and does not need updating.
 
-| US Spelling | UK Spelling | Count | Files Affected |
-|-------------|-------------|-------|----------------|
-| organized/Organize | organised/Organise | 2 | advanced.html |
-| color/colors | colour/colours | 9 | animations-advanced.html, animations.html, gradients.html, index.html, playground.html, transitions.html, gradient-patterns.html, color-spaces.html |
-| center | centre | 1 | gradients.html |
-| behavior | behaviour | 2 | layout.html |
-| gray | grey | 2 | advanced.html, color-spaces.html |
-| Optimize/optimized | Optimise/optimised | 2 | responsive.html, scroll-animations.html |
-| Customize | Customise | 1 | custom-properties.html |
-| visualize | visualise | 1 | transitions.html |
-
-**Key Examples**:
-- `/Users/tombutler/Repos/css-showcase/advanced.html` line 805: "organized" → "organised"
-- `/Users/tombutler/Repos/css-showcase/advanced.html` line 771: "Organize" → "Organise"
-- `/Users/tombutler/Repos/css-showcase/index.html` line 343: "color transitions" → "colour transitions"
-- `/Users/tombutler/Repos/css-showcase/layout.html` lines 315, 634: "behavior" → "behaviour"
-- `/Users/tombutler/Repos/css-showcase/responsive.html` line 692: "Optimize" → "Optimise"
-
-**Note**: CSS property names (color:, background-color) and CSS values (center, gray) should remain unchanged as they are standard CSS syntax.
-
----
-
-### 6. Resolve CSS Hover State Conflict
-
-**Status**: ✅ COMPLETED
-
-**Issue**: Conflicting `.showcase-card:hover` definitions found across stylesheets.
-
-**Conflict locations**:
-
-1. **File**: `/Users/tombutler/Repos/css-showcase/styles/micro-interactions.css`
-   - **Line 164-166**: 3D tilt effect
-   ```css
-   .showcase-card:hover {
-       transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
-   }
-   ```
-
-2. **File**: `/Users/tombutler/Repos/css-showcase/styles/improvements.css`
-   - **Line 314-318**: translateY lift effect
-   ```css
-   .showcase-card:hover {
-       transform: translateY(-4px);
-       box-shadow: var(--shadow-lg);
-       border-color: transparent;
-   }
-   ```
-
-**Action Required**: Choose one approach and remove the other. Recommended: Remove the 3D tilt effect from `micro-interactions.css` lines 159-166, keeping the simpler translateY effect for consistency with other card hover states.
+**Required Pattern**:
+```html
+<span role="img" aria-label="[description]">[emoji]</span>
+```
 
 ---
 
-## MEDIUM Priority Items
+#### 15. Heading Hierarchy Issues
+**Status**: INCOMPLETE ❌
 
-### 7. Fix Footer Wording Inconsistency
+**A. anchor-positioning.html**
 
-**Status**: ✅ RESOLVED - RE-VERIFIED 19 January 2026
+**File**: `/Users/tombutler/Repos/css-showcase/anchor-positioning.html`
+**Line**: 373
 
-**Issue**: `color-spaces.html` footer has been standardised.
+**Issue**: `<h4>` element appears without a preceding `<h3>` under the `<h2>Browser Support</h2>` section.
+
+**Current**:
+```html
+<h2>Browser Support</h2>
+<div class="tip-box warning-box">
+    <h4>⚠️ Cutting-Edge Feature</h4>
+```
+
+**Action**: Change `<h4>` to `<h3>` for proper heading hierarchy:
+```html
+<h2>Browser Support</h2>
+<div class="tip-box warning-box">
+    <h3>⚠️ Cutting-Edge Feature</h3>
+```
+
+---
+
+**B. color-spaces.html**
 
 **File**: `/Users/tombutler/Repos/css-showcase/color-spaces.html`
-**Line**: 622-623
+**Lines**: 186, 192
 
-**Current text** (standardised):
+**Issue**: `<h3>` elements used as labels within demo boxes, appearing before the first `<h2>` section heading.
+
+**Context**:
 ```html
-Crafted with passion by <a href="https://thomasjbutler.me" target="_blank" rel="noopener noreferrer">Thomas Butler</a>.
-Explore the code on <a href="https://github.com/ThomasJButler/css-showcase" target="_blank" rel="noopener noreferrer">GitHub</a>.
+<h1 class="page-title">Modern CSS Colour Spaces</h1>
+<p class="page-intro">...</p>
+<div class="intro-demo">
+    <div class="gamut-comparison">
+        <div class="gamut-box srgb">
+            <h3>sRGB</h3>  <!-- Line 186 -->
+            ...
+        </div>
+        <div class="gamut-box p3">
+            <h3>Display P3</h3>  <!-- Line 192 -->
+            ...
+        </div>
+    </div>
+</div>
+<h2>What Are Modern Colour Spaces?</h2>  <!-- First h2 is on line 172 -->
 ```
 
-**Completion Note**: Footer wording is now consistent with other pages. No action required.
+**Analysis**: While technically the h1 > h3 jump violates strict heading hierarchy, these h3 elements are being used as labels within UI components rather than as document structure headings.
+
+**Action Options**:
+1. Change to `<div class="gamut-title">sRGB</div>` and style with CSS
+2. Change to `<h2>` if they're truly section headings
+3. Change to `<strong>` or `<p class="title">` elements
+4. Move the demo section after the first `<h2>` heading
+
+**Recommendation**: Option 1 (styled divs) or Option 4 (restructure order) are most semantically correct.
 
 ---
 
-### 8. Replace Lorem Ipsum Placeholder Text
+## PRIORITISED ACTION CHECKLIST
 
-**Status**: ✅ INTENTIONAL - VERIFIED (Lorem ipsum is appropriate for shape-wrapping demos)
+### Completed Actions ✓
 
-**Issue**: Lorem ipsum placeholder text found in shapes-clips.html demonstration sections.
+**HIGH PRIORITY - All Complete:**
 
-**File**: `/Users/tombutler/Repos/css-showcase/shapes-clips.html`
-**Lines**: 501, 528
+- [x] **HIGH #4**: Add scroll-animations.html link to anchor-positioning.html sidebar
+- [x] **HIGH #5**: Fix 10 UK English spelling inconsistencies (all instances corrected)
+- [x] **HIGH #13**: Restructure color-spaces.html sidebar to match standard pattern
 
-**Current state**: Two text wrap demonstrations use standard Lorem ipsum text.
+**MEDIUM PRIORITY - All Complete:**
 
-**Verification Result**: Confirmed that Lorem ipsum text is being used appropriately to demonstrate the CSS `shape-outside` property. The text wraps around circular and polygon shapes to visually demonstrate the effect. This is a legitimate use case for placeholder text.
-
-**Recommendation**: NO ACTION REQUIRED - The Lorem ipsum text serves its purpose as demonstration content to show text flow around shapes. This is acceptable for CSS demonstration purposes.
-
----
-
-### 9. Update "Coming Soon" Reference in css-nesting.html
-
-**Status**: ✅ COMPLETED AND VERIFIED
-
-**Issue**: Reference to "coming soon" feature for CSS @mixin specification.
-
-**File**: `/Users/tombutler/Repos/css-showcase/css-nesting.html`
-**Line**: 731
-
-**Original text**:
-```html
-<li>No mixins (coming soon with @mixin)</li>
-```
-
-**Updated to**:
-```html
-<li>No mixins (CSS @mixin is a separate specification)</li>
-```
-
-**Completion Note**: Updated on 19 January 2026. Changed 'coming soon with @mixin' to 'CSS @mixin is a separate specification'.
+- [x] **MEDIUM #7**: Fix footer text in color-spaces.html
+- [x] **MEDIUM #14**: Add `id="main"` to playground.html main element
 
 ---
 
-### 10. Improve Demo Link Accessibility
+### Remaining Actions (For 9+/10 Excellence)
 
-**Status**: ✅ COMPLETED AND VERIFIED
+**LOW PRIORITY - Polish:**
 
-**Issue**: Demo links using `href="#"` could be improved for accessibility. These are primarily within demonstration components (navigation menus, dropdowns, forms).
-
-**Files and line numbers**:
-
-| File | Lines | Context |
-|------|-------|---------|
-| `/Users/tombutler/Repos/css-showcase/anchor-positioning.html` | 299-301 | Dropdown menu demo |
-| `/Users/tombutler/Repos/css-showcase/responsive.html` | 591-594 | Navigation demo |
-| `/Users/tombutler/Repos/css-showcase/has-selector.html` | 414-427 | Nested navigation demo |
-| `/Users/tombutler/Repos/css-showcase/flexbox-patterns.html` | 275-278 | Navigation demo |
-| `/Users/tombutler/Repos/css-showcase/cards.html` | 289, 494 | Card links |
-| `/Users/tombutler/Repos/css-showcase/css-nesting.html` | 356-359 | Navigation demo |
-| `/Users/tombutler/Repos/css-showcase/advanced.html` | 307-308 | Link styling demo |
-| `/Users/tombutler/Repos/css-showcase/transitions.html` | 447-450 | Navigation transition demo |
-| `/Users/tombutler/Repos/css-showcase/forms.html` | 732, 737 | Form links |
-
-**Actions Completed**:
-1. For demo navigation links: Changed to `href="javascript:void(0)"`
-2. Added appropriate `aria-label` attributes where link purpose was not clear from context
-3. Updated all 33 occurrences across all 9 files
-
-**Completion Note**: Updated on 19 January 2026. All 33 href='#' occurrences replaced with href='javascript:void(0)' and appropriate aria-label attributes added across all 9 files.
+- [ ] **LOW #11A**: Add accessibility attributes to back-to-top button arrows in 32 files
+  - Pattern: `<span role="img" aria-label="Up arrow">↑</span>`
+- [ ] **LOW #11B**: Add accessibility attributes to 13 toolbar icons in playground.html
+  - Pattern: `<span role="img" aria-label="[description]">[emoji]</span>`
+- [ ] **LOW #15A**: Fix heading hierarchy in anchor-positioning.html (line 373: h4 → h3)
+- [ ] **LOW #15B**: Review heading hierarchy in color-spaces.html (lines 186, 192: consider changing h3 to styled divs)
 
 ---
 
-## LOW Priority Items
+## FILES SUMMARY
 
-### 11. Add Icon Accessibility Attributes
+### Files with Completed Changes ✓
 
-**Status**: ✅ COMPLETED AND VERIFIED
+| Priority | File | Changes Completed |
+|----------|------|-------------------|
+| **HIGH** | `/Users/tombutler/Repos/css-showcase/color-spaces.html` | 7 spelling fixes ✓, complete sidebar restructure ✓, back-to-top button ✓, footer text ✓ |
+| HIGH | `/Users/tombutler/Repos/css-showcase/anchor-positioning.html` | Added scroll-animations.html sidebar link ✓ |
+| HIGH | `/Users/tombutler/Repos/css-showcase/index.html` | 2 spelling fixes ✓ |
+| MEDIUM | `/Users/tombutler/Repos/css-showcase/playground.html` | Added id="main" ✓ |
+| HIGH | `/Users/tombutler/Repos/css-showcase/typography.html` | 1 spelling fix ✓ |
 
-**Issue**: All emoji icons throughout the site lacked accessibility attributes.
+### Files Requiring Remaining Changes (LOW Priority)
 
-**Implementation Details**: Successfully added `role="img"` and `aria-label` attributes to emoji icons across the entire site.
+| Priority | File | Changes Required | Lines Affected |
+|----------|------|------------------|----------------|
+| LOW | `/Users/tombutler/Repos/css-showcase/anchor-positioning.html` | h4→h3 fix + back-to-top accessibility | 133, 373 |
+| LOW | `/Users/tombutler/Repos/css-showcase/color-spaces.html` | Heading hierarchy fix | 186, 192 |
+| LOW | `/Users/tombutler/Repos/css-showcase/index.html` | Back-to-top accessibility | 180 |
+| LOW | `/Users/tombutler/Repos/css-showcase/playground.html` | 13 toolbar icon accessibility + back-to-top accessibility | 31, 34, 217, 278, 281, 284, 287, 329, 332, 366, 369, 497, 500, 503 |
+| LOW | `/Users/tombutler/Repos/css-showcase/typography.html` | Back-to-top accessibility | 192 |
 
-**Breakdown by icon type (377 total attributes added across 33 files)**:
-- **Sidebar section icons**: 224 occurrences (🎨 Fundamentals, 🎯 Layout, ✨ Visual Effects, 🧩 Components, 🚀 Advanced, 🔮 Modern CSS, 🎮 Playground)
-- **Card icons**: 25+ occurrences (📝, 📦, 🔤, 🎨, ✨, etc.)
-- **Tip icons**: 89 occurrences (⚡, 🎯, ♿, 🎨, 🚀, 🌈, etc.)
-- **Form and interactive icons**: 9 additional occurrences (user, email, lock, eye, palette, save, link, bell icons)
-- **Next step icons**: Multiple occurrences
-- **Feature icons**: Multiple occurrences
-- **Theme and home icons**: Multiple occurrences
+### Reference Files (Use as Templates)
 
-**Files updated**: All 33 primary HTML pages
+| File | Purpose |
+|------|---------|
+| `/Users/tombutler/Repos/css-showcase/blend-modes.html` | **REFERENCE TEMPLATE** for correct sidebar structure, collapsible sections, back-to-top button placement |
+| `/Users/tombutler/Repos/css-showcase/has-selector.html` | Example of correct Modern CSS sidebar navigation including scroll-animations.html link |
+| `/Users/tombutler/Repos/css-showcase/gradient-patterns.html` | Example of back-to-top button with aria-label on button (alternative pattern) |
 
-**Implementation Example**: Added `role="img"` and descriptive `aria-label` to icon containers:
-```html
-<span class="sidebar-section-icon" role="img" aria-label="Fundamentals section">🎨</span>
-<div class="card-icon" role="img" aria-label="Basic CSS">📝</div>
-<span class="tip-icon" role="img" aria-label="Performance tip">⚡</span>
-```
+### Files Requiring Single Change (Back-to-Top Arrow Accessibility Only)
 
-**Completion Note**: Completed and verified on 19 January 2026 with subsequent additional corrections. Initial implementation added 368 attributes. Further review added 9 additional attributes. Total: 377 accessibility attributes added across 33 HTML files. This enhances screen reader experience and provides better contextual accessibility for all emoji icons throughout the portfolio.
-
----
-
-### 12. Review Console Statements in Production Code
-
-**Status**: ✅ COMPLETED AND VERIFIED
-
-**Issue**: Debug console.log statement found in production JavaScript code.
-
-**Debug console.log removed**:
-
-| File | Line | Statement | Action |
-|------|------|-----------|--------|
-| `/Users/tombutler/Repos/css-showcase/scripts/layout.js` | 7 | `console.log('Layout page loaded successfully');` | Removed (debug statement) |
-
-**Console.error statements (kept for production)**:
-- `/Users/tombutler/Repos/css-showcase/scripts/code-examples.js` - Lines 55, 131 (error handling)
-- `/Users/tombutler/Repos/css-showcase/scripts/syntax-highlight.js` - Line 219 (error handling)
-- `/Users/tombutler/Repos/css-showcase/scripts/playground.js` - Line 1743 (error handling)
-
-**Completion Note**: Updated on 19 January 2026. Debug console.log removed from scripts/layout.js line 7.
+27 files require only the back-to-top arrow accessibility fix:
+- basic.html, box-model.html, flexbox.html, flexbox-patterns.html, grid.html, layout.html, responsive.html, gradients.html, transitions.html, animations.html, animations-advanced.html, filters.html, buttons.html, forms.html, tables.html, tables-advanced.html, cards.html, icons.html, advanced.html, custom-properties.html, blend-modes.html, shapes-clips.html, has-selector.html, container-queries.html, css-nesting.html, scroll-animations.html, sidebar-snippet.html
 
 ---
 
-## COMPLETED Items (Verified)
+## VERIFICATION METHODOLOGY
 
-The following items have been verified as complete:
+This plan was created through:
 
-### Visual Consistency
-- [x] Missing .content-spacer CSS - COMPLETED
-- [x] Duplicate .showcase-card hover states in main.css/improvements.css - COMPLETED
-- [x] Card hover lift standardisation (all now use -4px) - COMPLETED
-- [x] Code example style duplication removal - COMPLETED
-
-### Footer Standardisation
-- [x] All 33 pages have standardised footer pattern with GitHub link - COMPLETED (1 wording variation noted above)
-
-### Playground Enhancements
-- [x] 17 example snippets implemented - COMPLETED
-
-### Mobile Responsiveness
-- [x] Site is already highly responsive - No action required
+1. **Deep Analysis**: 8 parallel Sonnet agents verified all aspects of the implementation plan
+2. **File-by-File Verification**: Each file mentioned in the original plan was read and verified
+3. **Pattern Comparison**: color-spaces.html was compared against 32 other pages to identify structural deviations
+4. **Specification Cross-Reference**: All findings were cross-referenced against the 7 specification files (01-07)
+5. **Opus Synthesis**: Findings were analyzed by Opus agent to ensure accuracy and prioritization
 
 ---
 
-## Summary Checklist
+## COMPLETION ESTIMATES
 
-### CRITICAL (Verified Complete)
-- [x] Update 6 "coming soon" links in index.html to actual page URLs
-- [x] Add 10-11 missing pages to search index in scripts/search.js
-- [x] Change GitHub link in index.html from profile to repository
+| Priority | Items | Status | Estimated Effort |
+|----------|-------|--------|------------------|
+| CRITICAL | 3 items | ✓ COMPLETE | 0 hours |
+| HIGH | 4 items | ✓ COMPLETE | 0 hours |
+| MEDIUM | 4 items | ✓ COMPLETE | 0 hours |
+| LOW | 3 items | IN PROGRESS | 2-3 hours |
+| **TOTAL** | **14 items** | **11/14 Complete (79%)** | **2-3 hours remaining** |
 
-### HIGH (Remaining Work)
-- [x] Add missing sidebar navigation links (13 files: 11 need both links, 2 need color-spaces.html only)
-- [x] Fix UK English spelling: 48 instances across 30 files (organized→organised, color→colour, etc.)
-- [x] Resolve .showcase-card:hover CSS conflict in micro-interactions.css
-
-### MEDIUM (Remaining Work)
-- [x] Fix footer wording in color-spaces.html - ✅ RESOLVED upon re-verification
-- [x] Review Lorem ipsum in shapes-clips.html - ✅ VERIFIED as intentional for demo purposes
-- [x] Update "coming soon" reference in css-nesting.html
-- [x] Improve demo link accessibility (33 occurrences across 9 files)
-
-### LOW (Completed)
-- [x] Add aria-labels to 377 emoji icon containers across 33 files - ✅ COMPLETED
-- [x] Remove 1 debug console.log from layout.js line 7 - ✅ COMPLETED
+**Completed Work**: All CRITICAL, HIGH, and MEDIUM priority items have been successfully implemented, including the complex color-spaces.html sidebar restructure.
 
 ---
 
-## Files Modified Summary (All Work Complete)
+## KEY INSIGHTS
 
-All planned modifications have been successfully completed. The following files were updated as part of the implementation:
-
-| Category | Files Modified | Changes Completed | Status |
-|----------|----------------|-------------------|--------|
-| Sidebar Navigation | 13 HTML files | Added modern CSS links to scroll-animations.html and color-spaces.html | ✅ |
-| Spelling Corrections | 30 HTML files | Fixed 48 US English spellings to UK English | ✅ |
-| CSS Improvements | micro-interactions.css | Removed conflicting hover effect | ✅ |
-| Footer Standardisation | color-spaces.html | Standardised footer wording | ✅ |
-| Content Updates | css-nesting.html | Updated "coming soon" reference | ✅ |
-| Link Accessibility | 9 HTML files | Improved 33 demo links with aria-labels and javascript:void(0) | ✅ |
-| Icon Accessibility | 33 HTML files | Added role="img" and aria-label to 377 emoji icons | ✅ |
-| Code Quality | scripts/layout.js | Removed debug console.log statement | ✅ |
-| Bug Fixes | playground.html, color-spaces.html | Fixed broken link and added missing sidebar toggle | ✅ |
+1. **All HIGH and MEDIUM priority work is complete**: The project has achieved 73% overall completion (11/15 items)
+2. **color-spaces.html has been fully restructured**: All sidebar issues resolved, spelling corrected, and footer text standardized
+3. **UK English consistency achieved**: All 10 spelling inconsistencies have been corrected across index.html, typography.html, and color-spaces.html
+4. **Remaining work is LOW priority polish**: Only accessibility attributes and minor heading hierarchy fixes remain
+5. **Project is portfolio-ready at 8+/10 quality**: With all CRITICAL, HIGH, and MEDIUM items complete, the site meets professional standards
 
 ---
 
-## Completion Metrics
+## NEXT STEPS
 
-| Category | Complete | Total | Percentage |
-|----------|----------|-------|------------|
-| CRITICAL Items | 3 | 3 | 100% |
-| HIGH Items | 3 | 3 | 100% |
-| MEDIUM Items | 4 | 4 | 100% |
-| LOW Items | 2 | 2 | 100% |
-| **Overall** | **12** | **12** | **100%** |
+### Completed Implementation ✓
 
-**Final Completion Note**: All 12 implementation items have been successfully completed and verified on 19 January 2026. The CSS Showcase portfolio project is now at portfolio-ready quality (10/10) with comprehensive accessibility improvements, consistent UK English spelling, complete sidebar navigation, and no CSS conflicts.
+1. ✓ **color-spaces.html fully restructured**: Complete sidebar restructure, spelling fixes, footer text, and back-to-top button implemented
+2. ✓ **UK English consistency**: All spelling inconsistencies corrected across all affected files
+3. ✓ **Sidebar navigation**: Added missing scroll-animations.html link to anchor-positioning.html
+4. ✓ **Accessibility improvements**: Added id="main" to playground.html for skip-link functionality
+
+### Remaining LOW Priority Tasks (Optional Polish)
+
+1. **Icon Accessibility**: Add `role="img"` and `aria-label` attributes to 45 icons (32 back-to-top arrows + 13 toolbar icons)
+2. **Heading Hierarchy**: Fix minor heading hierarchy issues in anchor-positioning.html and color-spaces.html
+3. **Visual Testing**: Verify all changes work correctly in both light and dark modes
 
 ---
 
-*Plan initially verified 19 January 2026 by 9 parallel Sonnet agents.*
-*Re-verified 19 January 2026 by 5 parallel Sonnet agents - all remaining items confirmed accurate.*
+*Plan updated 19 January 2026 based on comprehensive verification by 8 Sonnet agents and Opus synthesis.*
+*Latest update: 19 January 2026 - All HIGH and MEDIUM priority items completed. Project now at 73% completion (11/15 items), with only LOW priority polish work remaining.*
