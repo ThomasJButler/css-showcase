@@ -752,6 +752,791 @@ input:focus {
   margin-top: 2rem;
   font-weight: 600;
 }`
+            },
+            'typewriter': {
+                html: `<div class="typewriter-container">
+  <h1 class="typewriter">Hello, CSS World!</h1>
+</div>`,
+                css: `.typewriter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #1f2937;
+}
+
+.typewriter {
+  font-family: 'Space Mono', monospace;
+  font-size: 2rem;
+  color: #10b981;
+  border-right: 3px solid #10b981;
+  width: 19ch;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(19, end), blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 19ch;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}`
+            },
+            'nesting': {
+                html: `<article class="post">
+  <header>
+    <h2>CSS Nesting is Here!</h2>
+    <p class="meta">Published today</p>
+  </header>
+  <div class="content">
+    <p>Native CSS nesting allows you to nest selectors, just like in Sass!</p>
+    <button class="read-more">Read More</button>
+  </div>
+</article>`,
+                css: `/* Modern CSS Nesting - No preprocessor needed! */
+.post {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  & header {
+    margin-bottom: 1.5rem;
+
+    & h2 {
+      font-size: 1.75rem;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+    }
+
+    & .meta {
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+  }
+
+  & .content {
+    & p {
+      line-height: 1.6;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+    }
+
+    & .read-more {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #5568d3;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+      }
+    }
+  }
+}`
+            },
+            'scroll-animation': {
+                html: `<div class="scroll-container">
+  <div class="scroll-message">⬇️ Scroll down to see the magic! ⬇️</div>
+  <div class="scroll-box box-1">Box 1</div>
+  <div class="scroll-box box-2">Box 2</div>
+  <div class="scroll-box box-3">Box 3</div>
+  <div class="scroll-box box-4">Box 4</div>
+  <div class="scroll-message">⬆️ Scroll up to reverse! ⬆️</div>
+</div>`,
+                css: `.scroll-container {
+  padding: 2rem;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.scroll-message {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.5rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.scroll-box {
+  width: 200px;
+  height: 200px;
+  margin: 10rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 1rem;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeIn linear forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+}
+
+.box-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.box-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+.box-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+.box-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Note: Scroll-driven animations may need browser support */`
+            },
+            'holy-grail': {
+                html: `<div class="holy-grail">
+  <header class="hg-header">Header</header>
+  <nav class="hg-nav">Navigation</nav>
+  <main class="hg-main">
+    <h1>Holy Grail Layout</h1>
+    <p>Classic 3-column layout with header and footer, using modern CSS Grid!</p>
+  </main>
+  <aside class="hg-aside">Sidebar</aside>
+  <footer class="hg-footer">Footer</footer>
+</div>`,
+                css: `.holy-grail {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+  grid-template-columns: 150px 1fr 150px;
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+  height: 100vh;
+  padding: 1rem;
+}
+
+.hg-header {
+  grid-area: header;
+  background: #667eea;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.hg-nav {
+  grid-area: nav;
+  background: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.hg-main {
+  grid-area: main;
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hg-aside {
+  grid-area: aside;
+  background: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.hg-footer {
+  grid-area: footer;
+  background: #374151;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}`
+            },
+            'masonry': {
+                html: `<div class="masonry">
+  <div class="masonry-item tall">Item 1</div>
+  <div class="masonry-item">Item 2</div>
+  <div class="masonry-item medium">Item 3</div>
+  <div class="masonry-item">Item 4</div>
+  <div class="masonry-item tall">Item 5</div>
+  <div class="masonry-item medium">Item 6</div>
+  <div class="masonry-item">Item 7</div>
+  <div class="masonry-item tall">Item 8</div>
+</div>`,
+                css: `.masonry {
+  column-count: 3;
+  column-gap: 1rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.masonry-item:hover {
+  transform: scale(1.05);
+}
+
+.masonry-item {
+  height: 150px;
+}
+
+.masonry-item.medium {
+  height: 200px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.masonry-item.tall {
+  height: 300px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+@media (max-width: 768px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry {
+    column-count: 1;
+  }
+}`
+            },
+            'magazine': {
+                html: `<div class="magazine">
+  <article class="feature">
+    <h1>Featured Article</h1>
+    <p>This is the main story with a large prominent layout.</p>
+  </article>
+  <article class="story">
+    <h2>Story 1</h2>
+    <p>Secondary story content.</p>
+  </article>
+  <article class="story">
+    <h2>Story 2</h2>
+    <p>More interesting content.</p>
+  </article>
+  <aside class="sidebar">
+    <h3>Quick Links</h3>
+    <p>Additional information</p>
+  </aside>
+  <article class="story wide">
+    <h2>Wide Story</h2>
+    <p>This story spans multiple columns for emphasis.</p>
+  </article>
+</div>`,
+                css: `.magazine {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(150px, auto);
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.feature h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.story {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #667eea;
+}
+
+.story.wide {
+  grid-column: span 2;
+  background: #f3f4f6;
+}
+
+.story h2 {
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+}
+
+.sidebar {
+  background: #fef3c7;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 2px dashed #f59e0b;
+}
+
+.sidebar h3 {
+  color: #92400e;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .magazine {
+    grid-template-columns: 1fr;
+  }
+
+  .feature,
+  .story.wide {
+    grid-column: span 1;
+  }
+}`
+            },
+            'glassmorphism': {
+                html: `<div class="glass-background">
+  <div class="glass-card">
+    <h2>Glassmorphism</h2>
+    <p>A modern design trend using frosted glass effects with backdrop filters.</p>
+    <button class="glass-btn">Learn More</button>
+  </div>
+</div>`,
+                css: `.glass-background {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-background::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: 20%;
+  left: 20%;
+  filter: blur(60px);
+}
+
+.glass-background::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  bottom: 20%;
+  right: 20%;
+  filter: blur(80px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 3rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-card h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.glass-card p {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.glass-btn {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}`
+            },
+            'neumorphism': {
+                html: `<div class="neu-container">
+  <div class="neu-card">
+    <h2 class="neu-title">Neumorphism</h2>
+    <p class="neu-text">Soft UI design with subtle shadows creating a extruded effect.</p>
+    <button class="neu-button">Press Me</button>
+  </div>
+</div>`,
+                css: `.neu-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e5ec;
+  padding: 2rem;
+}
+
+.neu-card {
+  background: #e0e5ec;
+  border-radius: 2rem;
+  padding: 3rem;
+  max-width: 400px;
+  box-shadow:
+    20px 20px 60px #bebebe,
+    -20px -20px 60px #ffffff;
+}
+
+.neu-title {
+  font-size: 2rem;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px #ffffff;
+}
+
+.neu-text {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.neu-button {
+  background: #e0e5ec;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  color: #667eea;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow:
+    5px 5px 10px #bebebe,
+    -5px -5px 10px #ffffff;
+  transition: all 0.3s ease;
+}
+
+.neu-button:hover {
+  box-shadow:
+    3px 3px 6px #bebebe,
+    -3px -3px 6px #ffffff;
+}
+
+.neu-button:active {
+  box-shadow:
+    inset 5px 5px 10px #bebebe,
+    inset -5px -5px 10px #ffffff;
+}`
+            },
+            'gradient-text': {
+                html: `<div class="gradient-showcase">
+  <h1 class="gradient-text-1">Gradient Text</h1>
+  <h2 class="gradient-text-2">Multiple Styles</h2>
+  <p class="gradient-text-3">Beautiful colour gradients applied to text using background-clip!</p>
+  <div class="gradient-text-4">Animated Gradient</div>
+</div>`,
+                css: `.gradient-showcase {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: #1f2937;
+  padding: 2rem;
+}
+
+.gradient-text-1 {
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-2 {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #f093fb 0%, #f5576c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-3 {
+  font-size: 1.5rem;
+  max-width: 600px;
+  text-align: center;
+  background: linear-gradient(45deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-4 {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(
+    90deg,
+    #ff0080,
+    #ff8c00,
+    #40e0d0,
+    #ff0080
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}`
+            },
+            '3d-card': {
+                html: `<div class="card-scene">
+  <div class="card-3d">
+    <div class="card-face card-front">
+      <h2>Flip Me!</h2>
+      <p>Hover to see the back</p>
+    </div>
+    <div class="card-face card-back">
+      <h2>Surprise! 🎉</h2>
+      <p>3D CSS transforms are amazing!</p>
+    </div>
+  </div>
+</div>`,
+                css: `.card-scene {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  perspective: 1000px;
+}
+
+.card-3d {
+  width: 300px;
+  height: 400px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+  cursor: pointer;
+}
+
+.card-3d:hover {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.card-front {
+  background: white;
+  color: #1f2937;
+}
+
+.card-back {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.card-face h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.card-face p {
+  text-align: center;
+  line-height: 1.6;
+  font-size: 1.125rem;
+}`
+            },
+            'rainbow': {
+                html: `<div class="rainbow-scene">
+  <div class="rainbow">
+    <div class="rainbow-band band-1"></div>
+    <div class="rainbow-band band-2"></div>
+    <div class="rainbow-band band-3"></div>
+    <div class="rainbow-band band-4"></div>
+    <div class="rainbow-band band-5"></div>
+    <div class="rainbow-band band-6"></div>
+    <div class="rainbow-band band-7"></div>
+  </div>
+  <div class="clouds">
+    <div class="cloud cloud-1">☁️</div>
+    <div class="cloud cloud-2">☁️</div>
+  </div>
+  <h1 class="rainbow-text">Pure CSS Rainbow! 🌈</h1>
+</div>`,
+                css: `.rainbow-scene {
+  height: 100vh;
+  background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.rainbow {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  margin-bottom: 3rem;
+}
+
+.rainbow-band {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 200px 200px 0 0;
+  border: 20px solid;
+  border-bottom: none;
+  opacity: 0.8;
+}
+
+.band-1 { border-color: #ff0000; transform: scale(1); }
+.band-2 { border-color: #ff7f00; transform: scale(0.85); }
+.band-3 { border-color: #ffff00; transform: scale(0.70); }
+.band-4 { border-color: #00ff00; transform: scale(0.55); }
+.band-5 { border-color: #0000ff; transform: scale(0.40); }
+.band-6 { border-color: #4b0082; transform: scale(0.25); }
+.band-7 { border-color: #9400d3; transform: scale(0.10); }
+
+.clouds {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.cloud {
+  position: absolute;
+  font-size: 4rem;
+  animation: float 20s ease-in-out infinite;
+}
+
+.cloud-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.cloud-2 {
+  top: 60%;
+  right: 15%;
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(20px);
+  }
+}
+
+.rainbow-text {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(
+    to right,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #4b0082,
+    #9400d3
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  animation: rainbow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes rainbow-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}`
             }
         };
         

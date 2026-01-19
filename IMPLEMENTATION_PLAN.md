@@ -216,24 +216,25 @@ The site already implements:
 
 ---
 
-### 7. Playground Enhancements
+### 7. Playground Enhancements ✅
 
-**Status**: Functional but could benefit from examples
-**File**: `/Users/tombutler/Repos/css-showcase/playground.html`
+**Status**: ✅ COMPLETED
+**File**: `/Users/tombutler/Repos/css-showcase/playground.html`, `/Users/tombutler/Repos/css-showcase/scripts/playground.js`
 
 **Current state**:
 - Live HTML/CSS editor works
 - View switcher (Preview/HTML/CSS) functional
 - Local storage saves user work
+- Example dropdown with 17 pre-built examples
 
-**Suggested improvements**:
-- Add pre-built example snippets dropdown
-- Include examples demonstrating features from the showcase:
-  - Flexbox centring
-  - CSS Grid layout
-  - Gradient background
-  - Animation keyframes
-  - :has() selector usage
+**Implemented examples** (completed 19 January 2026):
+- **Animations**: Bouncing Ball, Loading Spinner, Typewriter Effect
+- **Modern CSS**: :has() Selector, Container Queries, CSS Nesting, Scroll Animations
+- **Layouts**: Holy Grail Layout, Masonry Grid, Magazine Layout
+- **Effects**: Glassmorphism, Neumorphism, Gradient Text, 3D Card Flip
+- **Fun Stuff**: Brewing Tea, Union Jack Flag, Rainbow Effect
+
+**Completion Note**: All 17 example options from the dropdown are now fully implemented with high-quality HTML/CSS demonstrations showcasing modern CSS features.
 
 ---
 
@@ -292,7 +293,7 @@ In the **Modern CSS** section (around line 153-164 in each sidebar):
 - [x] Resolve duplicate .showcase-card hover state definitions
 - [x] Standardise card hover lift distances (4px, 2px, or 0px)
 - [x] Remove duplicate .code-example rules from improvements.css
-- [ ] Add pre-built examples to playground
+- [x] Add pre-built examples to playground (17 examples implemented)
 - [ ] Add aria-labels to icon containers for accessibility
 - [ ] Minor mobile padding adjustments (if needed after testing)
 
