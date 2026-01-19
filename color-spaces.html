@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles/improvements.css">
     <link rel="stylesheet" href="styles/micro-interactions.css">
     <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
 
     <!-- Page-specific styles -->
     <link rel="stylesheet" href="styles/color-spaces.css">
@@ -32,6 +33,9 @@
     <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
         <span class="theme-icon" role="img" aria-label="Light theme">🌞</span>
     </div>
+
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div class="sidebar-backdrop"></div>
 
     <!-- Header with navigation -->
     <header class="site-header">
@@ -74,70 +78,172 @@
     </header>
 
     <!-- Sidebar Navigation -->
-    <aside class="sidebar" id="sidebar">
-        <nav class="sidebar-nav" aria-label="Secondary navigation">
-            <section class="nav-section">
-                <h3 class="nav-section-title">Fundamentals</h3>
-                <ul class="nav-section-list">
-                    <li><a href="basic.html">Basic CSS</a></li>
-                    <li><a href="box-model.html">Box Model</a></li>
-                    <li><a href="typography.html">Typography</a></li>
-                </ul>
-            </section>
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="sidebar-content">
+            <!-- Home Link -->
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-home-link">
+                    <span class="icon" role="img" aria-label="Home">🏠</span>
+                    <span>Home</span>
+                </a>
+            </div>
 
-            <section class="nav-section">
-                <h3 class="nav-section-title">Layout</h3>
-                <ul class="nav-section-list">
-                    <li><a href="flexbox.html">Flexbox</a></li>
-                    <li><a href="grid.html">Grid</a></li>
-                    <li><a href="layout.html">Layout Techniques</a></li>
-                    <li><a href="responsive.html">Responsive Design</a></li>
+            <!-- Fundamentals Section -->
+            <div class="sidebar-section" data-section="fundamentals">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon" role="img" aria-label="Fundamentals section">📚</span>Fundamentals</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="typography.html" class="sidebar-nav-link">Typography</a>
+                    </li>
                 </ul>
-            </section>
+            </div>
 
-            <section class="nav-section">
-                <h3 class="nav-section-title">Visual Effects</h3>
-                <ul class="nav-section-list">
-                    <li><a href="gradients.html">Gradients</a></li>
-                    <li><a href="transitions.html">Transitions</a></li>
-                    <li><a href="animations.html">Animations</a></li>
+            <!-- Layout Section -->
+            <div class="sidebar-section" data-section="layout">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon" role="img" aria-label="Layout section">🎯</span>Layout</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="grid.html" class="sidebar-nav-link">Grid</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
+                    </li>
                 </ul>
-            </section>
+            </div>
 
-            <section class="nav-section">
-                <h3 class="nav-section-title">Components</h3>
-                <ul class="nav-section-list">
-                    <li><a href="buttons.html">Buttons</a></li>
-                    <li><a href="forms.html">Forms</a></li>
-                    <li><a href="tables.html">Tables</a></li>
-                    <li><a href="cards.html">Cards</a></li>
-                    <li><a href="icons.html">CSS Icons</a></li>
-                    <li><a href="filters.html">CSS Filters</a></li>
+            <!-- Visual Effects Section -->
+            <div class="sidebar-section" data-section="visual-effects">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon" role="img" aria-label="Visual Effects section">✨</span>Visual Effects</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="animations.html" class="sidebar-nav-link">Animations</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
+                    </li>
                 </ul>
-            </section>
+            </div>
 
-            <section class="nav-section">
-                <h3 class="nav-section-title">Advanced</h3>
-                <ul class="nav-section-list">
-                    <li><a href="advanced.html">Pseudo Elements</a></li>
-                    <li><a href="custom-properties.html">Custom Properties</a></li>
-                    <li><a href="blend-modes.html">Blend Modes</a></li>
-                    <li><a href="shapes-clips.html">Shapes & Clips</a></li>
+            <!-- Components Section -->
+            <div class="sidebar-section" data-section="components">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon" role="img" aria-label="Components section">🧩</span>Components</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="forms.html" class="sidebar-nav-link">Forms</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="tables.html" class="sidebar-nav-link">Tables</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="cards.html" class="sidebar-nav-link">Cards</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="icons.html" class="sidebar-nav-link">Icons</a>
+                    </li>
                 </ul>
-            </section>
+            </div>
 
-            <section class="nav-section">
-                <h3 class="nav-section-title">Modern CSS</h3>
-                <ul class="nav-section-list">
-                    <li><a href="has-selector.html">:has() Selector</a></li>
-                    <li><a href="container-queries.html">Container Queries</a></li>
-                    <li><a href="css-nesting.html">CSS Nesting</a></li>
-                    <li><a href="anchor-positioning.html">Anchor Positioning</a></li>
-                    <li><a href="scroll-animations.html">Scroll Animations</a></li>
-                    <li><a href="color-spaces.html" class="active">Colour Spaces</a></li>
+            <!-- Advanced Section -->
+            <div class="sidebar-section" data-section="advanced">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon" role="img" aria-label="Advanced section">🚀</span>Advanced</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="custom-properties.html" class="sidebar-nav-link">Custom Properties</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="blend-modes.html" class="sidebar-nav-link">Blend Modes</a>
+                    </li>
                 </ul>
-            </section>
-        </nav>
+            </div>
+
+            <!-- Modern CSS Section -->
+            <div class="sidebar-section" data-section="modern-css">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon" role="img" aria-label="Modern CSS section">🔮</span>Modern CSS</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="anchor-positioning.html" class="sidebar-nav-link">Anchor Positioning</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="scroll-animations.html" class="sidebar-nav-link">Scroll Animations</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="color-spaces.html" class="sidebar-nav-link">Colour Spaces</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Playground Section -->
+            <div class="sidebar-section" data-section="playground">
+                <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
+                    <span><span class="sidebar-section-icon" role="img" aria-label="Playground section">🎮</span>Playground</span>
+                    <span class="sidebar-section-toggle">▼</span>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="playground.html" class="sidebar-nav-link" target="_blank" rel="noopener noreferrer">CSS Playground</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <button class="back-to-top">
+                <span role="img" aria-label="Up arrow">↑</span>
+                <span>Back to Top</span>
+            </button>
+        </div>
     </aside>
 
     <main id="main" class="main-content">
@@ -216,7 +322,7 @@
         <!-- OKLCH Color Space -->
         <section class="content-section">
             <div class="container">
-                <h2>OKLCH: Perceptually Uniform Colors</h2>
+                <h2>OKLCH: Perceptually Uniform Colours</h2>
                 <p>OKLCH (Oklch stands for Oklab Lightness Chroma Hue) is a perceptually uniform colour space. This means that the same numeric change in colour values produces the same perceived change in colour by humans, regardless of where you are in the colour space.</p>
 
                 <p>The syntax is: <code>oklch(lightness chroma hue)</code></p>
@@ -227,7 +333,7 @@
                 </ul>
 
                 <div class="oklch-demo">
-                    <h3>OKLCH Color Palette</h3>
+                    <h3>OKLCH Colour Palette</h3>
                     <div class="oklch-grid">
                         <div class="oklch-swatch" style="background: oklch(0.5 0.2 0);">
                             <code>oklch(0.5 0.2 0)</code>
@@ -275,7 +381,7 @@
         <!-- Display P3 Wide Gamut -->
         <section class="content-section">
             <div class="container">
-                <h2>Display P3: Wide Gamut Colors</h2>
+                <h2>Display P3: Wide Gamut Colours</h2>
                 <p>Display P3 is a wide gamut colour space that can represent 50% more colours than sRGB. It's supported on modern displays (iPhones since 2017, MacBooks since 2016, many modern monitors). These colours are noticeably more vibrant and saturated.</p>
 
                 <div class="p3-demo">
@@ -335,11 +441,11 @@
         <!-- Color Mix Function -->
         <section class="content-section">
             <div class="container">
-                <h2>color-mix(): Blend Any Two Colors</h2>
+                <h2>color-mix(): Blend Any Two Colours</h2>
                 <p>The <code>color-mix()</code> function lets you blend any two colours in any colour space. This is incredibly powerful for creating tints, shades, and variations of colours without complex calculations.</p>
 
                 <div class="mix-demo">
-                    <h3>Mixing Colors</h3>
+                    <h3>Mixing Colours</h3>
                     <div class="mix-examples">
                         <div class="mix-row">
                             <div class="mix-box" style="background: #2563eb;">
@@ -423,11 +529,11 @@
         <!-- Relative Colors -->
         <section class="content-section">
             <div class="container">
-                <h2>Relative Colors: Dynamic Color Manipulation</h2>
+                <h2>Relative Colours: Dynamic Color Manipulation</h2>
                 <p>Relative colour syntax lets you create new colours based on existing ones by modifying specific channels. This is perfect for creating hover states, active states, and colour variations dynamically.</p>
 
                 <div class="relative-demo">
-                    <h3>Relative Color Examples</h3>
+                    <h3>Relative Colour Examples</h3>
                     <div class="relative-grid">
                         <div class="relative-example">
                             <div class="relative-base" style="background: #2563eb;">
@@ -626,13 +732,14 @@
         <div class="container">
             <p class="footer-text">
                 Crafted with passion by <a href="https://thomasjbutler.me" target="_blank" rel="noopener noreferrer">Thomas Butler</a>.
-                Explore the code on <a href="https://github.com/ThomasJButler/css-showcase" target="_blank" rel="noopener noreferrer">GitHub</a>.
+                Explore the <a href="https://github.com/ThomasJButler/css-showcase" target="_blank" rel="noopener noreferrer">source code on GitHub</a>.
             </p>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
+    <script src="scripts/sidebar.js"></script>
     <script src="scripts/syntax-highlight.js"></script>
     <script src="scripts/code-examples.js"></script>
     <script src="scripts/search.js"></script>
