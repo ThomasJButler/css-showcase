@@ -16,7 +16,7 @@
     font-weight: 600;
     border-radius: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-default);
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
@@ -246,7 +246,7 @@
     inset: 0;
     background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-default);
 }
 
 .btn-gradient:hover::before {
@@ -290,7 +290,7 @@
     width: 0;
     height: 2px;
     background: #2563eb;
-    transition: width 0.3s ease;
+    transition: width var(--transition-default);
 }
 
 .dark .nav-link-demo::after {
@@ -343,7 +343,7 @@
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-default);
 }
 
 .image-overlay p {
@@ -415,7 +415,7 @@
     border: 2px solid var(--color-border, #e2e8f0);
     border-radius: 12px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all var(--transition-default);
 }
 
 .related-card:hover {

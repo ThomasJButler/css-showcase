@@ -121,7 +121,7 @@
     height: 2px;
     background: var(--colour-text);
     border-radius: 2px;
-    transition: all 0.3s ease;
+    transition: all var(--transition-default);
     position: absolute;
 }
 
@@ -239,7 +239,7 @@
         inset: 0;
         background: var(--colour-primary);
         opacity: 0;
-        transition: opacity 0.3s ease;
+        transition: opacity var(--transition-default);
     }
     
     .nav-link:active::before {
@@ -308,7 +308,7 @@
     height: 3px;
     background: linear-gradient(90deg, var(--colour-primary), var(--colour-secondary));
     transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-default);
 }
 
 .showcase-card:hover {
@@ -350,12 +350,12 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    transition: gap 0.3s ease;
+    transition: gap var(--transition-default);
 }
 
 .card-link::after {
     content: '→';
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-default);
 }
 
 .card-link:hover::after {
@@ -495,7 +495,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 1rem;
     padding: 2rem;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all var(--transition-default);
 }
 
 .tip-card:hover {
@@ -533,7 +533,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: 1.5rem;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all var(--transition-default);
 }
 
 .next-link:hover {
