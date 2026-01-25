@@ -3,7 +3,11 @@
    Author: Thomas Butler
    ============================================ */
 
-/* Custom Properties (CSS Variables) */
+/* Custom Properties (CSS Variables)
+   Note: Canonical tokens are now defined in 01-design-tokens.css.
+   These are retained for backwards compatibility until all pages
+   import the new tokens file via bundle.css.
+*/
 :root {
     /* Colours - Light Theme */
     --colour-primary: #2563eb;

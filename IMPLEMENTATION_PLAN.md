@@ -49,7 +49,7 @@ Transform the CSS Showcase from "portfolio-ready" (10/10) to "industry-leading" 
 ```
 
 ### Task 1.2: Consolidate Design Tokens
-**Status:** PENDING
+**Status:** COMPLETE ✓
 **Files:**
 - Create: `styles/01-design-tokens.css`
 - Modify: `styles/main.css` (extract variables to new file)
@@ -578,7 +578,7 @@ main {
 | Phase | Status | Tasks | Complete |
 |-------|--------|-------|----------|
 | Phase 0: Housekeeping | COMPLETE ✓ | 2 | 2 |
-| Phase 1: CSS Architecture | PENDING | 2 | 0 |
+| Phase 1: CSS Architecture | COMPLETE ✓ | 2 | 2 |
 | Phase 2: Header & Sidebar | PENDING | 8 | 0 |
 | Phase 3: Code Box Polish | PENDING | 5 | 0 |
 | Phase 4: Advanced CSS | PENDING | 3 | 0 |

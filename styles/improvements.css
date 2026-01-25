@@ -1,37 +1,7 @@
 /* Final Design Improvements */
+/* Note: Design tokens (spacing, shadows) are now in 01-design-tokens.css */
 
-/* Enhanced Spacing System */
-:root {
-    /* Refined spacing scale */
-    --space-0: 0;
-    --space-1: 0.25rem;
-    --space-2: 0.5rem;
-    --space-3: 0.75rem;
-    --space-4: 1rem;
-    --space-5: 1.25rem;
-    --space-6: 1.5rem;
-    --space-7: 1.75rem;
-    --space-8: 2rem;
-    --space-10: 2.5rem;
-    --space-12: 3rem;
-    --space-16: 4rem;
-    --space-20: 5rem;
-    --space-24: 6rem;
-    --space-32: 8rem;
-    
-    /* Section spacing - reduced for height optimization */
-    --section-spacing: clamp(1rem, 3vw, 1.5rem);
-    --content-spacing: clamp(0.5rem, 2vw, 0.75rem);
-
-    /* Enhanced shadows */
-    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Content Spacer Utility - reduced for height optimization */
+/* Content Spacer Utility - reduced for height optimisation */
 .content-spacer {
     margin: var(--space-4) 0;
 }
