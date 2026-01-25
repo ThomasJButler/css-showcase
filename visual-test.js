@@ -46,6 +46,9 @@ const pages = [
   { name: 'color-spaces', path: '/color-spaces.html' },
   // Other
   { name: 'playground', path: '/playground.html' },
+  // Resources
+  { name: 'tools', path: '/tools.html' },
+  { name: 'frameworks', path: '/frameworks.html' },
 ];
 
 async function captureScreenshots() {
