@@ -574,8 +574,21 @@ main {
 **Result:** ~75% reduction in stylesheet HTTP requests for cached visits
 
 ### Task 5.6: Add Code Comments
-**Status:** PENDING
-**Action:** Add comprehensive header comments to all consolidated CSS files
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026 (completed during Tasks 5.1-5.4)
+**Action:** Added comprehensive header comments to all consolidated CSS files
+
+**Comments added:**
+- `bundle.css` - Import order, usage instructions, architecture overview
+- `03-core.css` - Section markers for accessibility, micro-interactions, improvements
+- `04-layout.css` - Section markers for sidebar, floating button, search modal
+- `06-code.css` - Section markers for 8 code-related sections
+
+All files include:
+- File header explaining purpose and contents
+- CSS Architecture diagram showing import order
+- Section comments with descriptive headers
+- Last updated timestamp
 
 ### Feature Files to Keep Separate (25 files)
 These should NOT be merged - they enable page-specific lazy loading:
@@ -753,10 +766,10 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 | Phase 2: Header & Sidebar | COMPLETE ✓ | 8 | 8 |
 | Phase 3: Code Box Polish | COMPLETE ✓ | 5 | 5 |
 | Phase 4: Advanced CSS | COMPLETE ✓ | 3 | 3 |
-| Phase 5: File Consolidation | IN PROGRESS | 7 | 6 |
+| Phase 5: File Consolidation | COMPLETE ✓ | 7 | 7 |
 | Phase 6: New Content | PENDING | 3 | 1 |
 | Phase 7: Final Polish | PENDING | 4 | 0 |
-| **TOTAL** | | **34** | **27** |
+| **TOTAL** | | **34** | **28** |
 
 **Notes:**
 - Task 4.1 (View Transitions) completed 25 January 2026
@@ -768,7 +781,9 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 - Task 5.3 (Layout CSS Merge) completed 25 January 2026
 - Task 5.4 (Code CSS Merge) completed 25 January 2026
 - Task 5.5 (HTML Import Update) completed 25 January 2026
+- Task 5.6 (Code Comments) completed 25 January 2026
 - Task 6.3 marked complete (sidebar Resources section verified)
+- **Phase 5 (File Consolidation) COMPLETE** - 37 → 6 core CSS files
 - Phase 4-7 research completed 25 January 2026 with refined findings
 
 ---
