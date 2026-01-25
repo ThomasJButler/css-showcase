@@ -19,9 +19,9 @@
     --space-24: 6rem;
     --space-32: 8rem;
     
-    /* Section spacing */
-    --section-spacing: clamp(2rem, 5vw, 3rem);
-    --content-spacing: clamp(1rem, 3vw, 1.5rem);
+    /* Section spacing - reduced for height optimization */
+    --section-spacing: clamp(1rem, 3vw, 1.5rem);
+    --content-spacing: clamp(0.5rem, 2vw, 0.75rem);
 
     /* Enhanced shadows */
     --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -31,14 +31,14 @@
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Content Spacer Utility */
+/* Content Spacer Utility - reduced for height optimization */
 .content-spacer {
-    margin: var(--space-8) 0;
+    margin: var(--space-4) 0;
 }
 
 @media (min-width: 768px) {
     .content-spacer {
-        margin: var(--space-12) 0;
+        margin: var(--space-6) 0;
     }
 }
 
@@ -258,7 +258,7 @@
 .demo-section,
 .content-section {
     padding: var(--section-spacing) 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     position: relative;
 }
 
@@ -267,7 +267,7 @@
 
 .section-title {
     font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
     line-height: 1.1;
 }
@@ -276,24 +276,24 @@
 .section-intro {
     font-size: clamp(1.125rem, 2vw, 1.375rem);
     color: var(--colour-text-muted);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     max-width: 65ch;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
 }
 
-/* Improved Cards */
+/* Improved Cards - reduced padding for height optimization */
 .showcase-grid {
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .showcase-card {
     background: var(--colour-surface);
     border: 1px solid var(--colour-border);
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1.25rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -322,8 +322,8 @@
 }
 
 .card-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
     display: inline-block;
     animation: float 3s ease-in-out infinite;
 }
@@ -335,14 +335,14 @@
 
 .card-title {
     font-size: 1.5rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     font-weight: 700;
 }
 
 .card-description {
     color: var(--colour-text-muted);
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .card-link {
@@ -410,18 +410,18 @@
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
 
-/* Demo Cards Enhancement */
+/* Demo Cards Enhancement - reduced for height optimization */
 .demo-card {
     background: var(--colour-background);
     border: 1px solid var(--colour-border);
     border-radius: 1rem;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 .demo-title {
-    font-size: 1.75rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -430,17 +430,17 @@
 .demo-example {
     background: var(--colour-surface);
     border-radius: 0.75rem;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
     border: 1px solid var(--colour-border);
 }
 
 /* .code-example styles removed - defined in styles/code-examples.css */
 
-/* Page Hero Enhancement */
+/* Page Hero Enhancement - reduced for height optimization */
 .page-hero {
     background: linear-gradient(180deg, var(--colour-surface) 0%, transparent 100%);
-    padding: clamp(3rem, 8vw, 6rem) 0;
+    padding: clamp(1.5rem, 4vw, 3rem) 0;
     text-align: center;
     position: relative;
 }
