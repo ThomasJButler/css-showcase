@@ -17,14 +17,14 @@ We will iterate with the ralph loop.  See below action points:
 
 ### Executive Summary - Fifth Pass
 
-A comprehensive research verification on 25 January 2026 using multiple parallel Sonnet subagents revealed **8 remaining issues** that required attention. These findings were verified against the actual codebase and expand upon the Fourth Pass findings. **5 of the 8 critical issues have now been successfully resolved.**
+A comprehensive research verification on 25 January 2026 using multiple parallel Sonnet subagents revealed **8 remaining issues** that required attention. These findings were verified against the actual codebase and expand upon the Fourth Pass findings. **6 of the 8 critical issues have now been successfully resolved.**
 
 **Fifth Pass Discovery & Resolution:**
 - **Previous Status**: Claimed TRUE 100% complete (21/21 items)
 - **New Issues Found**: 8 issues discovered requiring action (2 CRITICAL, 1 HIGH, 3 MEDIUM, 2 LOW)
-- **Resolved Issues**: 5 items completed (2 CRITICAL, 1 HIGH, 1 MEDIUM, 1 LOW)
-- **Current Status**: 26/29 items complete (90%)
-- **Estimated Remaining Effort**: ~1 hour
+- **Resolved Issues**: 6 items completed (2 CRITICAL, 1 HIGH, 2 MEDIUM, 1 LOW)
+- **Current Status**: 27/29 items complete (93%)
+- **Estimated Remaining Effort**: ~45 minutes
 
 ### Findings Overview
 
@@ -34,7 +34,7 @@ A comprehensive research verification on 25 January 2026 using multiple parallel
 | CRITICAL | Empty section | index.html | "Advanced Techniques" section has header but zero content cards | ✅ COMPLETED |
 | HIGH | Sidebar inconsistencies | 9 HTML files | Missing pages, duplicate links, incorrect section placement | ✅ COMPLETED |
 | MEDIUM | Label inconsistency | index.html | Uses "New Colour Spaces" vs "Colour Spaces" in other files | ✅ COMPLETED |
-| MEDIUM | Missing 375px breakpoint | CSS files | No dedicated breakpoint for very small mobile devices | ⏳ Pending |
+| MEDIUM | Missing 375px breakpoint | CSS files | No dedicated breakpoint for very small mobile devices | ✅ COMPLETED |
 | MEDIUM | HTML indentation | Multiple files | Inconsistent indentation in sidebar sections | ⏳ Pending |
 | LOW | Missing CSS variables | main.css | `--colour-success-dark` and `--colour-error-dark` not defined but referenced 4 times | ✅ COMPLETED |
 | LOW | Hardcoded transitions | 21 CSS files | Uses hardcoded `0.3s ease` instead of CSS variable | ⏳ Pending |
@@ -306,22 +306,23 @@ Change line 182 in index.html from "New Colour Spaces" to "Colour Spaces" for co
 ---
 
 ### MEDIUM #2: Add 375px Mobile Breakpoint for Very Small Devices
-**Status**: PENDING
-**Files**: `/Users/tombutler/Repos/css-showcase/styles/main.css`, `/Users/tombutler/Repos/css-showcase/styles/improvements.css`
+**Status**: COMPLETED ✅
+**Completed**: 25 January 2026
+**File**: `/Users/tombutler/Repos/css-showcase/styles/improvements.css` (lines 720-838)
 
-**Problem:**
-The site uses 768px and 480px breakpoints but lacks a dedicated 375px breakpoint for very small mobile devices (iPhone SE, older Android devices).
+**Implementation:**
+Added comprehensive 375px breakpoint for very small mobile devices (iPhone SE, older Android devices) with:
+- Reduced root font size (14px) for better content fit
+- Smaller heading sizes (h1: 1.75rem, h2: 1.5rem, h3: 1.25rem)
+- Tighter header padding and smaller toggle buttons (38px)
+- Compact container, demo card, and section spacing
+- Smaller code examples (0.75rem font, 0.75rem padding)
+- Narrower sidebar (260px) with smaller navigation links
+- Horizontal overflow prevention on main containers
+- Responsive table handling with horizontal scroll
+- Compact footer styling
 
-**Current Breakpoints:**
-- 768px (primary mobile/tablet)
-- 480px (secondary mobile)
-- No 375px breakpoint
-
-**Required Fix:**
-Add `@media (max-width: 375px)` rules for:
-- Reducing font sizes further
-- Adjusting padding/margins
-- Ensuring no horizontal overflow on very small screens
+**Tested:** Server verified CSS served correctly at http://localhost:8080
 
 ---
 
@@ -421,20 +422,20 @@ Many files use hardcoded `transition: 0.3s ease` or `transition: all 0.3s ease` 
 
 ## Summary
 
-| Priority | Issue | Files Affected | Estimated Effort | Verified |
-|----------|-------|----------------|------------------|----------|
-| CRITICAL | Broken anchor links in index.html | 1 file | 15 minutes | ✅ YES |
-| CRITICAL | Empty Advanced section in index.html | 1 file | 20 minutes | ✅ YES |
-| HIGH | Sidebar navigation inconsistencies | 9 files | 45 minutes | ✅ YES |
-| MEDIUM | Label inconsistency (Colour Spaces) | 1 file | 5 minutes | ✅ YES |
-| MEDIUM | Missing 375px breakpoint | 2 files | 30 minutes | ⏳ Pending |
+| Priority | Issue | Files Affected | Estimated Effort | Status |
+|----------|-------|----------------|------------------|--------|
+| CRITICAL | Broken anchor links in index.html | 1 file | 15 minutes | ✅ COMPLETED |
+| CRITICAL | Empty Advanced section in index.html | 1 file | 20 minutes | ✅ COMPLETED |
+| HIGH | Sidebar navigation inconsistencies | 9 files | 45 minutes | ✅ COMPLETED |
+| MEDIUM | Label inconsistency (Colour Spaces) | 1 file | 5 minutes | ✅ COMPLETED |
+| MEDIUM | Missing 375px breakpoint | 1 file | 30 minutes | ✅ COMPLETED |
 | MEDIUM | HTML indentation inconsistencies | Multiple files | 30 minutes | ⏳ Pending |
-| LOW | Missing CSS variables | 3 files | 10 minutes | ✅ YES |
+| LOW | Missing CSS variables | 3 files | 10 minutes | ✅ COMPLETED |
 | LOW | Hardcoded transitions | 21 files | 60 minutes | ⏳ Pending |
 
-**Total Pending Items:** 8
-**Verified Items:** 5/8 (63%)
-**Estimated Total Effort:** ~3.5 hours
+**Total Pending Items:** 2
+**Completed Items:** 6/8 (75%)
+**Estimated Remaining Effort:** ~1.5 hours
 
 ---
 
@@ -446,20 +447,20 @@ Many files use hardcoded `transition: 0.3s ease` or `transition: all 0.3s ease` 
 
 **After Fifth Pass (expanded scope with deep subagent verification):**
 - Total items: 29 (21 original + 8 newly identified issues)
-- Complete: 21/29 (72%)
-- Pending: 8/29 (28%)
-- Verified pending issues: 5/8 confirmed through code analysis
+- Complete: 27/29 (93%)
+- Pending: 2/29 (7%)
+- Completed issues: 6/8 resolved through implementation
 
 **Breakdown:**
 - Original UX/Visual items: 21/21 Complete
-- Fourth Pass Issues (navigation/content): 0/3 Pending
-- Fifth Pass Issues (sidebar consistency, CSS variables, etc.): 0/5 Pending
+- Fifth Pass Issues resolved: 6/8 Complete
+- Fifth Pass Issues pending: 2/8 (HTML indentation, hardcoded transitions)
 
 **Pending Items by Priority:**
-- CRITICAL: 2 items (broken anchor links, empty section)
-- HIGH: 1 item (sidebar inconsistencies across 9 pages)
-- MEDIUM: 3 items (label inconsistency, 375px breakpoint, HTML indentation)
-- LOW: 2 items (missing CSS variables, hardcoded transitions)
+- CRITICAL: 0 items (all resolved)
+- HIGH: 0 items (all resolved)
+- MEDIUM: 1 item (HTML indentation)
+- LOW: 1 item (hardcoded transitions)
 
 ---
 
