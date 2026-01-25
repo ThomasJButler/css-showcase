@@ -59,82 +59,25 @@ The CSS Showcase project has achieved **portfolio-ready status** following exten
 
 ### MEDIUM Priority - Visual Consistency
 
-#### MEDIUM #2: Standardise Icon Hover States
-**Status:** Pending (VERIFIED 25 January 2026)
+#### ~~MEDIUM #2: Standardise Icon Hover States~~
+**Status:** COMPLETE (25 January 2026)
 **Effort:** 30 minutes
 **Impact:** Visual consistency across icon interactions
 **File:** `/styles/icons.css`
 
-**Problem:**
-4 interactive icon buttons have NO hover states defined:
-- `.menu-to-close` (lines 614-662) - no hover
-- `.play-pause` (lines 665-704) - no hover
-- `.like-button` (lines 707-762) - no hover
-- `.share-icon` (lines 769-828) - no hover
-
-Only 3 elements in icons.css currently have hover states:
-- `.icon-card:hover`
-- `.hover-mail:hover`
-- `.expand-icon:hover`
-
-**Required Fix:**
-Add CSS hover states to interactive icon buttons:
-```css
-.menu-to-close:hover,
-.play-pause:hover,
-.like-button:hover,
-.share-icon:hover {
-    opacity: 0.8;
-}
-```
+**Resolution:**
+Added hover states to 4 interactive icon buttons (`.menu-to-close`, `.play-pause`, `.like-button`, `.share-icon`) with `opacity: 0.8` and `cursor: pointer` on hover.
 
 ---
 
-#### MEDIUM #3: Add Focus States for Keyboard Accessibility
-**Status:** Pending (VERIFIED 25 January 2026)
+#### ~~MEDIUM #3: Add Focus States for Keyboard Accessibility~~
+**Status:** COMPLETE (25 January 2026)
 **Effort:** 20 minutes
 **Impact:** Accessibility improvement for keyboard navigation
-**Files:** `/styles/icons.css`, `/styles/accessibility.css`
+**Files:** `/styles/icons.css`
 
-**Problem:**
-ZERO `:focus` or `:focus-visible` states are defined in icons.css for any icon elements. While global `:focus-visible` states exist in accessibility.css, no icon-specific focus enhancements are present.
-
-**Current global focus (accessibility.css):**
-```css
-:focus-visible {
-    outline: 3px solid var(--colour-primary);
-    outline-offset: 3px;
-    border-radius: 0.125rem;
-}
-```
-
-**Missing focus states in icons.css:**
-- `.menu-to-close:focus-visible` - not defined
-- `.play-pause:focus-visible` - not defined
-- `.like-button:focus-visible` - not defined
-- `.share-icon:focus-visible` - not defined
-- `.icon-card:focus-visible` - not defined
-
-**Required Fix:**
-1. Add icon-specific `:focus-visible` states in icons.css
-2. Ensure focus rings are visible and consistent with hover patterns
-3. Consider adding `box-shadow` for better icon button focus visibility
-
-```css
-.menu-to-close:focus-visible,
-.play-pause:focus-visible,
-.like-button:focus-visible,
-.share-icon:focus-visible {
-    outline: 3px solid var(--colour-primary);
-    outline-offset: 3px;
-}
-
-.icon-card:focus-visible {
-    outline: 3px solid var(--colour-primary);
-    outline-offset: 3px;
-    transform: translateY(-4px);
-}
-```
+**Resolution:**
+Added `:focus-visible` states to all 5 interactive icon elements (`.menu-to-close`, `.play-pause`, `.like-button`, `.share-icon`, `.icon-card`) with consistent focus ring styling using `var(--colour-primary)`.
 
 ---
 
@@ -180,12 +123,12 @@ Update index.html footer indentation from 4 spaces to 8 spaces to match other pa
 | Priority | Issue | Effort | Status |
 |----------|-------|--------|--------|
 | ~~MEDIUM~~ | ~~Missing CSS variables (9 variables, ~61 usages)~~ | ~~15 minutes~~ | **COMPLETE** (25 Jan 2026) |
-| MEDIUM | Icon hover state consistency (4 buttons) | 30 minutes | Pending (Verified) |
-| MEDIUM | Focus states for keyboard accessibility | 20 minutes | Pending (Verified) |
+| ~~MEDIUM~~ | ~~Icon hover state consistency (4 buttons)~~ | ~~30 minutes~~ | **COMPLETE** (25 Jan 2026) |
+| ~~MEDIUM~~ | ~~Focus states for keyboard accessibility~~ | ~~20 minutes~~ | **COMPLETE** (25 Jan 2026) |
 | LOW | Touch target sizing at 375px | 15 minutes | Pending (Verified) |
 | LOW | Footer indentation in index.html | 2 minutes | Pending (Verified) |
 
-**Total Remaining Effort:** ~67 minutes
+**Total Remaining Effort:** ~17 minutes
 
 ---
 
@@ -212,9 +155,16 @@ Update index.html footer indentation from 4 spaces to 8 spaces to match other pa
 
 ## Historical Context
 
-This project has undergone seven comprehensive verification passes:
+This project has undergone eight comprehensive verification passes:
 
-### Seventh Pass (25 January 2026) - Current
+### Eighth Pass (25 January 2026) - Current
+- Icon hover states added to 4 interactive buttons
+- Focus-visible states added for keyboard accessibility
+- All MEDIUM priority items now complete
+- Only 2 LOW priority items remaining
+- Project maintains 9/10 portfolio-readiness
+
+### Seventh Pass (25 January 2026)
 - Final verification of all remaining items
 - Confirmed 5 items still pending (3 MEDIUM, 2 LOW)
 - All CRITICAL and HIGH priority items complete

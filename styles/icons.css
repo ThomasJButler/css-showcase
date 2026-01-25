@@ -892,6 +892,31 @@
     transform: translate(3px, 3px);
 }
 
+/* Interactive Icon Button Hover States */
+.menu-to-close:hover,
+.play-pause:hover,
+.like-button:hover,
+.share-icon:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* Interactive Icon Button Focus States for Keyboard Accessibility */
+.menu-to-close:focus-visible,
+.play-pause:focus-visible,
+.like-button:focus-visible,
+.share-icon:focus-visible {
+    outline: 3px solid var(--colour-primary);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+.icon-card:focus-visible {
+    outline: 3px solid var(--colour-primary);
+    outline-offset: 3px;
+    transform: translateY(-4px);
+}
+
 /* British Icons */
 
 /* Tea Cup */
