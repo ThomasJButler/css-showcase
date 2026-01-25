@@ -13,23 +13,50 @@
 This phase focuses on simplifying the site, reducing clutter, and improving UX based on visual testing of all 33 pages (31 after merges).
 
 **Current Status:** IMPLEMENTATION COMPLETE - All 10 required items finished
-**Verification Status:** IN PROGRESS - 3/6 verification requirements completed (see specs/SPEC-01-UX-VERIFICATION.md)
+**Verification Status:** IN PROGRESS - Second round of improvements completed (see specs/SPEC-01-UX-VERIFICATION.md)
   - ✅ Stale references cleanup complete (visual-test.js and search.js updated)
   - ✅ Visual test re-execution complete (Jan 25, 2026)
-  - ✅ Page height measurements complete
+  - ✅ Page height measurements complete (first round)
+  - ✅ Second round of content reduction complete (Jan 25, 2026)
+  - ✅ Page height measurements complete (second round)
   - ⏳ Verification checklist pending
   - ⏳ Documentation updates pending
-  - ⏳ Additional improvements needed to meet targets
+  - ⏳ Additional improvements still needed to meet targets
 
 **CRITICAL VERIFICATION RESULTS (Jan 25, 2026):**
-New screenshots captured after improvements. Comparison shows improvements were implemented but **did NOT meet height reduction targets**:
+
+**First Round Results:**
+Initial improvements captured after spacing reductions. Comparison showed improvements but **did NOT meet height reduction targets**:
 
 | Page | Before | After | Reduction | Target | Status |
 |------|--------|-------|-----------|--------|--------|
 | grid.html (desktop) | 15,706px | 14,390px | -1,316px (8%) | <6,000px | ❌ 8,390px over |
 | index.html (mobile) | 13,434px | 12,046px | -1,388px (10%) | <4,000px | ❌ 8,046px over |
 
-**Analysis:** The global CSS spacing reductions (50% on variables) achieved only 8-10% actual page height reduction. This indicates spacing is not the primary driver of page height - content volume and structure are the main factors. Additional work required to meet targets.
+**Analysis:** The global CSS spacing reductions (50% on variables) achieved only 8-10% actual page height reduction. This indicated spacing alone was insufficient - content volume reduction was required.
+
+**Second Round Results (after content reduction phase):**
+Additional aggressive improvements applied. New measurements show significant progress but **targets still not met**:
+
+| Page | Before | After Round 1 | After Round 2 | Total Reduction | Target | Status |
+|------|--------|---------------|---------------|-----------------|--------|--------|
+| grid.html (desktop) | 15,706px | 14,390px | 11,517px | -4,189px (27%) | <6,000px | ❌ 5,517px over |
+| index.html (mobile) | 13,434px | 12,046px | 6,505px | -6,929px (52%) | <4,000px | ❌ 2,505px over |
+
+**Changes Implemented in Round 2:**
+1. Reduced index.html category cards from 25 to 12 (52% card reduction)
+2. Reduced grid.html demos from 14 to 12 by removing Dashboard Grid and consolidating Grid Gap into Basic Grid
+3. Applied aggressive spacing reductions:
+   - Section spacing: 2-3rem → 1-1.5rem (50% reduction)
+   - Content spacing: 1-1.5rem → 0.5-0.75rem (50-60% reduction)
+   - Card padding: 2rem → 1.25rem (37.5% reduction)
+   - Demo card padding: 1.5rem → 1rem (33% reduction)
+   - Page hero padding: 3-6rem → 1.5-3rem (50% reduction)
+
+**Progress Summary:**
+- index.html: 52% total reduction achieved (was 8,046px over target, now 2,505px over) - 69% improvement
+- grid.html: 27% total reduction achieved (was 8,390px over target, now 5,517px over) - 34% improvement
+- Still not meeting targets but significant progress toward goals
 
 ### Screenshots Location
 
@@ -393,17 +420,24 @@ Use these as quality benchmarks:
 
 ### Target Metrics
 
-| Metric | Before (Jan 24) | Target | Current (Jan 25) | Status |
-|--------|---------|--------|------------------|--------|
-| Total pages | 33 | 31 | 30 | ✓ Complete (30 HTML files) |
-| grid.html height (desktop) | 15,706px | <6,000px | **14,390px** | ❌ Failed (8,390px over target, 8% reduction) |
-| index.html mobile height | 13,434px | <4,000px | **12,046px** | ❌ Failed (8,046px over target, 10% reduction) |
-| Pages >6,000px (desktop) | Multiple | 0 | Not counted | ⏳ Requires verification |
-| Empty sections | ~8 instances | 0 | 0 | ✓ Complete |
-| Global spacing reduction | 100% (baseline) | 50-60% | 50-60% | ✓ Complete (CSS variables) |
-| Actual page height reduction | 100% (baseline) | 40-50% | **8-10%** | ❌ Failed (insufficient reduction) |
+| Metric | Before (Jan 24) | Target | Round 1 (Jan 25) | Round 2 (Jan 25) | Status |
+|--------|---------|--------|------------------|------------------|--------|
+| Total pages | 33 | 31 | 30 | 30 | ✓ Complete (30 HTML files) |
+| grid.html height (desktop) | 15,706px | <6,000px | **14,390px** (8% ↓) | **11,517px** (27% ↓) | ❌ 5,517px over target |
+| index.html mobile height | 13,434px | <4,000px | **12,046px** (10% ↓) | **6,505px** (52% ↓) | ❌ 2,505px over target |
+| Pages >6,000px (desktop) | Multiple | 0 | Not counted | Not counted | ⏳ Requires verification |
+| Empty sections | ~8 instances | 0 | 0 | 0 | ✓ Complete |
+| Global spacing reduction | 100% (baseline) | 50-60% | 50-60% | 75-80% | ✓ Complete (aggressive reductions) |
+| Content reduction | 100% (baseline) | 40-50% | 0% | ~40% | ⏳ In progress (cards/demos reduced) |
+| index.html category cards | 25 | ~12 | 25 | **12** | ✓ Complete (52% reduction) |
+| grid.html demo count | 14 | ~8 | 14 | **12** | ⏳ In progress (14% reduction) |
 
-**Note:** Measurements updated Jan 25, 2026 after running `node visual-test.js`. Global spacing CSS variables were reduced by 50-60%, but this translated to only 8-10% actual page height reduction. **Targets not met - additional improvements required.**
+**Note:**
+- **Round 1 (Jan 25, 2026):** Initial spacing reductions achieved only 8-10% height reduction
+- **Round 2 (Jan 25, 2026):** Content reduction phase achieved significant additional progress:
+  - index.html: 52% total reduction (was 8,046px over, now 2,505px over) - 69% improvement toward target
+  - grid.html: 27% total reduction (was 8,390px over, now 5,517px over) - 34% improvement toward target
+- **Status:** Significant progress made but targets still not met - additional aggressive improvements required
 
 ---
 
@@ -483,17 +517,22 @@ After all improvements are complete:
 
 **UX/Visual Improvement Phase - VERIFICATION:**
 - Stale References Cleanup: 2/2 Complete (100%) ✅ (completed 25 January 2026)
-- Visual Test Re-execution: 1/1 Complete (100%) ✅ (completed 25 January 2026)
-- Page Height Measurement: 2/2 Complete (100%) ✅ (grid.html, index.html measured)
-- Height Reduction Targets: 0/2 Met (0%) ❌ (grid: 8,390px over, index: 8,046px over)
+- Visual Test Re-execution Round 1: 1/1 Complete (100%) ✅ (completed 25 January 2026)
+- Page Height Measurement Round 1: 2/2 Complete (100%) ✅ (grid.html, index.html measured)
+- Content Reduction Implementation: 1/1 Complete (100%) ✅ (completed 25 January 2026)
+- Visual Test Re-execution Round 2: 1/1 Complete (100%) ✅ (completed 25 January 2026)
+- Page Height Measurement Round 2: 2/2 Complete (100%) ✅ (grid.html, index.html measured)
+- Height Reduction Targets: 0/2 Met (0%) ❌ (grid: 5,517px over, index: 2,505px over - improved but not met)
 - Verification Checklist: 4/11 Complete (36%) ⏳ (lines 412-432)
-- Documentation Updates: 3/3 Complete (100%) ✅ (IMPLEMENTATION_PLAN.md updated)
+- Documentation Updates: 4/4 Complete (100%) ✅ (IMPLEMENTATION_PLAN.md updated twice)
 
-**Overall Verification: 12/20 Required Items Complete (60%) ⏳**
+**Overall Verification: 17/24 Required Items Complete (71%) ⏳**
 
-**Phase Status**: IMPLEMENTATION COMPLETE - VERIFICATION REVEALS TARGETS NOT MET
+**Phase Status**: IMPLEMENTATION COMPLETE - SECOND ROUND VERIFICATION SHOWS PROGRESS BUT TARGETS NOT MET
 
-**Critical Finding**: Implemented improvements achieved only 8-10% page height reduction vs. 60%+ target. **Additional aggressive content reduction required** to meet goals. Current approach (spacing reduction only) is insufficient.
+**Critical Finding Round 1**: Initial improvements achieved only 8-10% page height reduction vs. 60%+ target. Spacing reduction alone was insufficient.
+
+**Critical Finding Round 2**: Content reduction phase achieved significant progress (27% reduction on grid.html, 52% reduction on index.html), but **additional aggressive content reduction still required** to meet targets. Current improvements brought index.html from 8,046px over to 2,505px over (69% improvement) and grid.html from 8,390px over to 5,517px over (34% improvement).
 
 ---
 
@@ -503,14 +542,21 @@ After all improvements are complete:
 
 Visual tests re-executed on 25 January 2026 after all 10 implementation items were completed. New screenshots captured for all 30 pages using Playwright.
 
-**Measurement Results:**
+**Round 1 Measurement Results (after spacing reduction):**
 
-| Page | Before | After | Reduction | Target | Gap |
-|------|--------|-------|-----------|--------|-----|
+| Page | Before | After Round 1 | Reduction | Target | Gap |
+|------|--------|---------------|-----------|--------|-----|
 | grid.html (desktop) | 15,706px | 14,390px | -1,316px (8%) | <6,000px | 8,390px over |
 | index.html (mobile) | 13,434px | 12,046px | -1,388px (10%) | <4,000px | 8,046px over |
 
-### Root Cause Analysis
+**Round 2 Measurement Results (after content reduction):**
+
+| Page | Before | After Round 1 | After Round 2 | Total Reduction | Target | Gap |
+|------|--------|---------------|---------------|-----------------|--------|-----|
+| grid.html (desktop) | 15,706px | 14,390px | 11,517px | -4,189px (27%) | <6,000px | 5,517px over |
+| index.html (mobile) | 13,434px | 12,046px | 6,505px | -6,929px (52%) | <4,000px | 2,505px over |
+
+### Root Cause Analysis - Round 1
 
 **Why spacing reduction achieved only 8-10% page height reduction:**
 
@@ -526,6 +572,43 @@ Visual tests re-executed on 25 January 2026 after all 10 implementation items we
    - Interactive demos with significant height
 
 4. **Structural Elements**: Headers, footers, navigation, and content-spacer divs add significant fixed height that spacing reduction doesn't address.
+
+### Round 2 Improvements Completed
+
+After Round 1 analysis confirmed that content volume was the primary driver of page height, a second round of aggressive improvements was implemented on 25 January 2026:
+
+#### Changes Implemented:
+
+**1. index.html Content Reduction (52% card reduction):**
+- Reduced category cards from 25 to 12 (removed 13 cards)
+- Kept only the most essential and popular CSS topics
+- Achieved 52% total page height reduction (13,434px → 6,505px)
+- Reduced gap from 8,046px over target to 2,505px over (69% improvement)
+
+**2. grid.html Content Reduction (14% demo reduction):**
+- Reduced demos from 14 to 12 (removed 2 demos)
+- Removed "Dashboard Grid" demo as too complex
+- Consolidated "Grid Gap" into "Basic Grid" demo
+- Achieved 27% total page height reduction (15,706px → 11,517px)
+- Reduced gap from 8,390px over target to 5,517px over (34% improvement)
+
+**3. Aggressive Spacing Reductions:**
+- Section spacing: 2-3rem → 1-1.5rem (50% reduction)
+- Content spacing: 1-1.5rem → 0.5-0.75rem (50-60% reduction)
+- Card padding: 2rem → 1.25rem (37.5% reduction)
+- Demo card padding: 1.5rem → 1rem (33% reduction)
+- Page hero padding: 3-6rem → 1.5-3rem (50% reduction)
+
+#### Results Summary:
+
+| Metric | Before | After Round 1 | After Round 2 | Improvement |
+|--------|--------|---------------|---------------|-------------|
+| index.html height | 13,434px | 12,046px | 6,505px | -6,929px (52% ↓) |
+| index.html gap from target | -8,046px | -8,046px | -2,505px | 69% improvement |
+| grid.html height | 15,706px | 14,390px | 11,517px | -4,189px (27% ↓) |
+| grid.html gap from target | -8,390px | -8,390px | -5,517px | 34% improvement |
+
+**Status:** Significant progress achieved but targets still not met. Additional content reduction required.
 
 ### Recommendations for Meeting Targets
 
@@ -564,27 +647,37 @@ To achieve the 60%+ reduction required to meet targets, **content reduction** is
 
 5. **Eliminate content-spacer divs entirely**: Replace with margin-bottom on sections
 
-### Next Steps
+### Next Steps (Updated after Round 2)
 
 **PRIORITY 1 - Content Reduction (CRITICAL)**
-- [ ] Audit grid.html and remove/consolidate 50% of demos
-- [ ] Audit index.html and reduce category cards by 50%
-- [ ] Remove all non-essential explanatory text site-wide
-- [ ] Consolidate similar demos across all pages
+- [x] Audit index.html and reduce category cards by 50% ✅ COMPLETE (25 → 12 cards, 52% reduction)
+- [x] Audit grid.html and remove/consolidate demos ✅ PARTIAL (14 → 12 demos, 14% reduction - need more)
+- [ ] Remove all non-essential explanatory text site-wide (NOT STARTED)
+- [ ] Consolidate similar demos across all pages (NOT STARTED)
+- [ ] **NEW:** Further reduce grid.html demos from 12 to 6-8 (additional 33-50% reduction needed)
 
 **PRIORITY 2 - Further Spacing Reduction (HIGH)**
-- [ ] Apply more aggressive spacing reductions (75% vs. current 50%)
-- [ ] Reduce all card/component padding globally
-- [ ] Eliminate content-spacer divs entirely
+- [x] Apply more aggressive spacing reductions (75% vs. current 50%) ✅ COMPLETE
+- [x] Reduce all card/component padding globally ✅ COMPLETE
+- [ ] Eliminate content-spacer divs entirely (NOT STARTED)
 
 **PRIORITY 3 - Structural Optimization (MEDIUM)**
-- [ ] Compact footers to single-line format
-- [ ] Reduce header heights
-- [ ] Optimize demo layouts for vertical efficiency
+- [ ] Compact footers to single-line format (NOT STARTED)
+- [ ] Reduce header heights (NOT STARTED)
+- [ ] Optimize demo layouts for vertical efficiency (NOT STARTED)
 
-**Expected Outcome**: Combining aggressive content reduction (40-50% reduction) with further spacing optimization (15-20% reduction) should achieve the required 60%+ total page height reduction.
+**Progress Summary:**
+- Round 2 achieved significant improvements (27-52% height reduction)
+- index.html is 69% of the way to target (2,505px remaining vs 8,046px before)
+- grid.html is 34% of the way to target (5,517px remaining vs 8,390px before)
+- Additional aggressive content reduction still required to meet targets
 
-**Timeline**: Additional 2-3 hours of focused content editing and CSS refinement required.
+**Expected Next Round**:
+- Further reduce grid.html demos from 12 to 6-8 (targeting additional 3,000-4,000px reduction)
+- Further reduce index.html content (targeting additional 1,500-2,500px reduction)
+- Combined with structural optimizations should achieve targets
+
+**Timeline**: Additional 1-2 hours of focused content editing required.
 
 ---
 
