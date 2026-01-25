@@ -13,6 +13,14 @@
 This phase focuses on simplifying the site, reducing clutter, and improving UX based on visual testing of all 33 pages (31 after merges).
 
 **Current Status:** IMPLEMENTATION COMPLETE - All 10 required items finished
+**Verification Status:** IN PROGRESS - 2/6 verification requirements completed (see specs/SPEC-01-UX-VERIFICATION.md)
+  - ✅ Stale references cleanup complete (visual-test.js and search.js updated)
+  - ⏳ Visual test re-execution pending
+  - ⏳ Page height measurements pending
+  - ⏳ Verification checklist pending
+  - ⏳ Documentation updates pending
+
+**CRITICAL NOTE:** The visual testing screenshots in `docs/visual-testing/screenshots/` were captured BEFORE the improvements were implemented (Jan 24, 2026 at 23:43 UTC). The improvements were implemented in commit `ab7adbe` on Jan 25, 2026 at 00:44 UTC. Therefore, the screenshots show the "before" state and do NOT reflect the current improved state. The verification checklist (lines 404-415) has NOT been completed.
 
 ### Screenshots Location
 
@@ -376,14 +384,16 @@ Use these as quality benchmarks:
 
 ### Target Metrics
 
-| Metric | Current | Target | Status |
-|--------|---------|--------|--------|
-| Total pages | 33 | 31 | Not started |
-| grid.html height | 15,706px | <6,000px | Not started |
-| index.html mobile height | 13,434px | <4,000px | Not started |
-| Pages >6,000px | Multiple | 0 | Not started |
-| Empty sections | ~8 instances | 0 | Not started |
-| Global spacing | 100% | 50-60% | Not started |
+| Metric | Before (Jan 24) | Target | Current (Jan 25) | Status |
+|--------|---------|--------|------------------|--------|
+| Total pages | 33 | 31 | 30 | ✓ Complete (30 HTML files) |
+| grid.html height (desktop) | 15,706px | <6,000px | Not measured | ⏳ Requires verification |
+| index.html mobile height | 13,434px | <4,000px | Not measured | ⏳ Requires verification |
+| Pages >6,000px (desktop) | Multiple | 0 | Not counted | ⏳ Requires verification |
+| Empty sections | ~8 instances | 0 | 0 | ✓ Complete |
+| Global spacing reduction | 100% (baseline) | 50-60% | 50-60% | ✓ Complete |
+
+**Note:** Measurements marked "Not measured" refer to POST-improvement values. The "Before" column shows measurements from screenshots taken on Jan 24, 2026 BEFORE improvements were applied. To verify targets were met, re-run `node visual-test.js` and measure new screenshots (see specs/SPEC-01-UX-VERIFICATION.md).
 
 ---
 
@@ -401,18 +411,24 @@ Use these as quality benchmarks:
 
 ### Verification Checklist
 
-After all changes:
-- [ ] Run `node visual-test.js` to capture new screenshots
-- [ ] Compare before/after page heights
-- [ ] Verify grid.html <6,000px desktop
-- [ ] Verify index.html <4,000px mobile
-- [ ] All navigation links work (no 404 errors)
-- [ ] Dark mode styling intact
-- [ ] Mobile layouts responsive
-- [ ] All interactive demos functional
-- [ ] Page count = 31 (down from 33)
-- [ ] No content overlap or layout breaking
-- [ ] Hover states still work
+**STATUS: 0/11 Complete (0%) - Verification phase not started**
+
+**STALE REFERENCES:** ✅ CLEANED (25 January 2026) - visual-test.js and search.js updated to remove deleted pages
+
+After all improvements are complete:
+- [ ] Run `node visual-test.js` to capture new screenshots (READY - stale references cleaned)
+- [ ] Compare before/after page heights (requires new screenshots)
+- [ ] Verify grid.html <6,000px desktop (requires measurement from new screenshot)
+- [ ] Verify index.html <4,000px mobile (requires measurement from new screenshot)
+- [ ] All navigation links work (no 404 errors) (requires testing - may have broken links from deleted pages)
+- [ ] Dark mode styling intact (requires visual inspection)
+- [ ] Mobile layouts responsive (requires testing on actual mobile viewport)
+- [ ] All interactive demos functional (requires manual testing)
+- [x] Page count = 30 (down from 33) **VERIFIED COMPLETE** (animations-advanced.html, tables-advanced.html, and one other page deleted)
+- [ ] No content overlap or layout breaking (requires visual inspection with new screenshots)
+- [ ] Hover states still work (requires manual testing)
+
+**See specs/SPEC-01-UX-VERIFICATION.md for detailed verification protocol.**
 
 ---
 
@@ -445,15 +461,26 @@ After all changes:
 
 ### Completion Status
 
-**UX/Visual Improvement Phase:**
+**UX/Visual Improvement Phase - IMPLEMENTATION:**
 - CRITICAL Priority: 3/3 Complete (100%) ✓
 - HIGH Priority: 4/4 Complete (100%) ✓
 - MEDIUM Priority: 3/3 Complete (100%) ✓
 - LOW Priority: 0/2 Deferred (optional)
 
-**Overall: 10/10 Required Items Complete (100%) ✓**
+**Overall Implementation: 10/10 Required Items Complete (100%) ✓**
 
-**Phase Status**: IMPLEMENTATION COMPLETE - All 10 required items finished
+**UX/Visual Improvement Phase - VERIFICATION:**
+- Stale References Cleanup: 2/2 Complete (100%) ✅ (completed 25 January 2026)
+- Visual Test Re-execution: 0/1 Complete (0%) ⏳ (see specs/SPEC-01-UX-VERIFICATION.md)
+- Page Height Measurement: 0/2 Complete (0%) ⏳ (grid.html, index.html)
+- Verification Checklist: 0/11 Complete (0%) ⏳ (lines 404-415)
+- Documentation Updates: 0/2 Complete (0%) ⏳ (target metrics, visual testing docs)
+
+**Overall Verification: 2/18 Required Items Complete (11%) ⏳**
+
+**Phase Status**: IMPLEMENTATION COMPLETE - VERIFICATION IN PROGRESS
+
+**Action Required**: Run specs/SPEC-01-UX-VERIFICATION.md (stale references cleanup complete)
 
 ---
 

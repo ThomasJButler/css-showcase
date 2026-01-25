@@ -23,13 +23,13 @@ const pages = [
   { name: 'gradient-patterns', path: '/gradient-patterns.html' },
   { name: 'transitions', path: '/transitions.html' },
   { name: 'animations', path: '/animations.html' },
-  { name: 'animations-advanced', path: '/animations-advanced.html' },
+  // animations-advanced.html merged into animations.html
   { name: 'filters', path: '/filters.html' },
   // Components
   { name: 'buttons', path: '/buttons.html' },
   { name: 'forms', path: '/forms.html' },
   { name: 'tables', path: '/tables.html' },
-  { name: 'tables-advanced', path: '/tables-advanced.html' },
+  // tables-advanced.html merged into tables.html
   { name: 'cards', path: '/cards.html' },
   { name: 'icons', path: '/icons.html' },
   // Advanced
