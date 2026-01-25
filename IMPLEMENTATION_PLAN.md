@@ -395,9 +395,33 @@ main {
 - Graceful degradation: bar hidden in unsupported browsers
 
 ### Task 4.3: CSS Nesting Migration
-**Status:** PENDING
-**Files:** `styles/sidebar.css` (536 lines, 39 `.sidebar-*` selectors), `styles/code-examples.css` (362 lines, 36+ flat selectors)
-**Reference:** `styles/modern-features.css` uses CSS nesting (24 instances at lines 966, 973, 990, 1012, 1017, 1023, 1028, 1034, 1039, 1043, 1047, 1109, 1118, 1129, 1134, 1146, 1153, 1159, 1165, 1186, 1193, 1197, 1210, 1263)
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026
+
+**Files migrated:**
+- `styles/sidebar.css` (543 lines → 543 lines, 31 nested `&` selectors)
+- `styles/code-examples.css` (373 lines → 373 lines, 40 nested `&` selectors)
+
+**Changes made:**
+1. **sidebar.css:** Converted flat selectors to nested structure using `&` syntax:
+   - `.sidebar` block now contains `&.sidebar-hidden`, `&.active`, scrollbar pseudo-elements
+   - `.sidebar-home-link` contains `&:hover`, `.icon`
+   - `.sidebar-section` contains `&.collapsed` with nested toggle/nav rules
+   - `.sidebar-section-title` contains `&:hover`, `&:focus`
+   - `.sidebar-nav-link` contains `&::before`, `&:hover`, `&:focus`, `&.active`
+   - `.sidebar-toggle` contains `&:hover`, `&.active .sidebar-toggle-icon span` animations
+   - `.sidebar-backdrop` contains `&.active`
+   - `.floating-back-to-top` contains `&::before`, `&.visible`, `&:hover`, `&:active`
+   - Media queries use nesting for `body.sidebar-hidden` and `.sidebar.active`
+
+2. **code-examples.css:** Converted flat selectors to nested structure:
+   - `.code-example` contains `&::before`, `&::after`, `&.has-overflow`, `&.html`, `&.js`, `pre`, `code`, `&.line-numbers`
+   - `.demo-card` contains `.demo-example`, `.code-example`
+   - `.token` contains all token type modifiers (`&.comment`, `&.property`, etc.)
+   - `[data-theme="light"]` block contains nested `.code-example`, `.copy-button`, `.token` overrides
+   - `.code-editor-button` contains `&:hover`, `&.active`
+   - `.copy-button` contains `&:hover`, `&.copied`
+   - Mobile media query uses nesting for `.code-example` children
 
 **Browser Support (January 2026):**
 - Chrome 112+ ✅
@@ -406,39 +430,7 @@ main {
 - Safari 16.5+ ✅
 - Coverage: ~95%
 
-**sidebar.css migration example:**
-```css
-/* Current flat structure */
-.sidebar-nav-link { ... }
-.sidebar-nav-link:hover { ... }
-.sidebar-nav-link.active { ... }
-.sidebar-nav-link::before { ... }
-
-/* Nested structure */
-.sidebar-nav-link {
-  ...
-  &:hover { ... }
-  &.active { ... }
-  &::before { ... }
-}
-```
-
-**code-examples.css migration example:**
-```css
-.code-example {
-  ...
-  &::before { ... }
-  &::after { ... }
-  &.has-overflow::after { ... }
-
-  pre {
-    ...
-    &::-webkit-scrollbar { ... }
-  }
-}
-```
-
-**Recommended order:** Task 4.2 → Task 4.3 → Task 4.1 (progress bar is lowest risk)
+**Validation:** Both files have balanced braces (81/81 and 64/64 respectively)
 
 ---
 
@@ -743,14 +735,15 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 | Phase 1: CSS Architecture | COMPLETE ✓ | 2 | 2 |
 | Phase 2: Header & Sidebar | COMPLETE ✓ | 8 | 8 |
 | Phase 3: Code Box Polish | COMPLETE ✓ | 5 | 5 |
-| Phase 4: Advanced CSS | IN PROGRESS | 3 | 1 |
+| Phase 4: Advanced CSS | IN PROGRESS | 3 | 2 |
 | Phase 5: File Consolidation | PENDING | 7 | 0 |
 | Phase 6: New Content | PENDING | 3 | 1 |
 | Phase 7: Final Polish | PENDING | 4 | 0 |
-| **TOTAL** | | **34** | **19** |
+| **TOTAL** | | **34** | **20** |
 
 **Notes:**
 - Task 4.2 (Scroll Progress Indicator) completed 25 January 2026
+- Task 4.3 (CSS Nesting Migration) completed 25 January 2026
 - Task 5.0 (Pre-Consolidation Cleanup) added
 - Task 6.3 marked complete (sidebar Resources section verified)
 - Phase 4-7 research completed 25 January 2026 with refined findings
