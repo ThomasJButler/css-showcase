@@ -338,8 +338,9 @@ codeExamples.forEach(pre => {
 ## Phase 4: Advanced CSS Implementation
 
 ### Task 4.1: View Transitions
-**Status:** PENDING
-**File:** `styles/main.css` (add after line ~440, after `.hero-title` section)
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026
+**File:** `styles/main.css` (added after line 463, after `.hero-cta` section)
 
 **Browser Support (January 2026):**
 - Chrome 111+ ✅
@@ -735,13 +736,14 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 | Phase 1: CSS Architecture | COMPLETE ✓ | 2 | 2 |
 | Phase 2: Header & Sidebar | COMPLETE ✓ | 8 | 8 |
 | Phase 3: Code Box Polish | COMPLETE ✓ | 5 | 5 |
-| Phase 4: Advanced CSS | IN PROGRESS | 3 | 2 |
+| Phase 4: Advanced CSS | COMPLETE ✓ | 3 | 3 |
 | Phase 5: File Consolidation | PENDING | 7 | 0 |
 | Phase 6: New Content | PENDING | 3 | 1 |
 | Phase 7: Final Polish | PENDING | 4 | 0 |
-| **TOTAL** | | **34** | **20** |
+| **TOTAL** | | **34** | **21** |
 
 **Notes:**
+- Task 4.1 (View Transitions) completed 25 January 2026
 - Task 4.2 (Scroll Progress Indicator) completed 25 January 2026
 - Task 4.3 (CSS Nesting Migration) completed 25 January 2026
 - Task 5.0 (Pre-Consolidation Cleanup) added

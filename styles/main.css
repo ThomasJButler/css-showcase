@@ -462,6 +462,42 @@ a:hover {
     animation: slideInUp 0.8s ease-out 0.4s both;
 }
 
+/* ==========================================================================
+   View Transitions (Cross-Document Navigation)
+   Browser Support: Chrome 111+, Edge 111+, Safari 17.2+ (~85-90%)
+   Firefox: NOT SUPPORTED (experimental flag only)
+   ========================================================================== */
+
+@view-transition {
+    navigation: auto;
+}
+
+main {
+    view-transition-name: page-content;
+}
+
+::view-transition-old(page-content) {
+    animation: fade-slide-out 0.15s ease-out;
+}
+
+::view-transition-new(page-content) {
+    animation: fade-slide-in 0.15s ease-in;
+}
+
+@keyframes fade-slide-out {
+    to {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+}
+
+@keyframes fade-slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+}
+
 /* Floating Elements */
 .hero-decoration {
     position: absolute;
