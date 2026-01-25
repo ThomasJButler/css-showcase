@@ -1,0 +1,32 @@
+/* ============================================================
+   BUNDLE.CSS - Core CSS Bundle
+   ============================================================
+
+   This bundle imports all core stylesheets in the correct order
+   for CSS cascade precedence. Use this single import to replace
+   multiple stylesheet links in HTML files.
+
+   Import Order (CSS Cascade Layers):
+   1. 00-layers.css    - Cascade layer declarations
+   2. 01-design-tokens.css - CSS custom properties (colours, spacing, etc.)
+   3. main.css         - Base styles and reset
+   4. 03-core.css      - Accessibility, micro-interactions, improvements
+   5. 04-layout.css    - Sidebar navigation, search modal
+   6. 06-code.css      - Code blocks, syntax highlighting
+
+   Usage:
+   Replace multiple <link> tags with a single import:
+   <link rel="stylesheet" href="styles/bundle.css">
+
+   Then add page-specific stylesheets as needed:
+   <link rel="stylesheet" href="styles/[feature].css">
+
+   Last Updated: 25 January 2026
+   ============================================================ */
+
+@import "00-layers.css";
+@import "01-design-tokens.css";
+@import "main.css";
+@import "03-core.css";
+@import "04-layout.css";
+@import "06-code.css";

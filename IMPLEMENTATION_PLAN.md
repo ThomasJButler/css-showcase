@@ -461,9 +461,11 @@ main {
 **Verification:** Server tested at localhost:8080, all CSS files loading correctly
 
 ### Task 5.1: Create Bundle CSS
-**Status:** PENDING
-**File:** Create `styles/bundle.css`
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026
+**File:** Created `styles/bundle.css`
 
+**Contents:**
 ```css
 @import "00-layers.css";
 @import "01-design-tokens.css";
@@ -472,6 +474,11 @@ main {
 @import "04-layout.css";
 @import "06-code.css";
 ```
+
+**Notes:**
+- Bundle imports all core stylesheets in correct cascade order
+- Replaces 8+ individual stylesheet links with single import
+- Page-specific feature stylesheets still loaded separately for lazy loading
 
 ### Task 5.2: Merge Core CSS Files
 **Status:** COMPLETE ✓
@@ -739,16 +746,17 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 | Phase 2: Header & Sidebar | COMPLETE ✓ | 8 | 8 |
 | Phase 3: Code Box Polish | COMPLETE ✓ | 5 | 5 |
 | Phase 4: Advanced CSS | COMPLETE ✓ | 3 | 3 |
-| Phase 5: File Consolidation | IN PROGRESS | 7 | 4 |
+| Phase 5: File Consolidation | IN PROGRESS | 7 | 5 |
 | Phase 6: New Content | PENDING | 3 | 1 |
 | Phase 7: Final Polish | PENDING | 4 | 0 |
-| **TOTAL** | | **34** | **25** |
+| **TOTAL** | | **34** | **26** |
 
 **Notes:**
 - Task 4.1 (View Transitions) completed 25 January 2026
 - Task 4.2 (Scroll Progress Indicator) completed 25 January 2026
 - Task 4.3 (CSS Nesting Migration) completed 25 January 2026
 - Task 5.0 (Pre-Consolidation Cleanup) completed 25 January 2026
+- Task 5.1 (Bundle CSS) completed 25 January 2026
 - Task 5.2 (Core CSS Merge) completed 25 January 2026
 - Task 5.3 (Layout CSS Merge) completed 25 January 2026
 - Task 5.4 (Code CSS Merge) completed 25 January 2026
