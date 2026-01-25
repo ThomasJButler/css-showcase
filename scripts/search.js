@@ -25,13 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Visual Effects
         { title: 'Gradients', url: 'gradients.html', category: 'Visual Effects', tags: ['gradient', 'linear', 'radial', 'conic', 'colours'] },
         { title: 'Transitions', url: 'transitions.html', category: 'Visual Effects', tags: ['transition', 'hover', 'animation', 'smooth', 'timing'] },
-        { title: 'Animations', url: 'animations.html', category: 'Visual Effects', tags: ['animation', 'keyframes', 'motion', 'timing', 'movement'] },
+        { title: 'Animations', url: 'animations.html', category: 'Visual Effects', tags: ['animation', 'keyframes', 'motion', 'timing', 'movement', '3d', 'flip', 'advanced'] },
         { title: 'Filters', url: 'filters.html', category: 'Visual Effects', tags: ['filter', 'blur', 'brightness', 'contrast', 'effects'] },
         
         // Components
         { title: 'Buttons', url: 'buttons.html', category: 'Components', tags: ['button', 'click', 'hover', 'states', 'interactive'] },
         { title: 'Forms', url: 'forms.html', category: 'Components', tags: ['form', 'input', 'select', 'textarea', 'validation'] },
-        { title: 'Tables', url: 'tables.html', category: 'Components', tags: ['table', 'data', 'rows', 'columns', 'responsive'] },
+        { title: 'Tables', url: 'tables.html', category: 'Components', tags: ['table', 'data', 'rows', 'columns', 'responsive', 'sorting', 'filters', 'fixed-header', 'advanced'] },
         { title: 'Cards', url: 'cards.html', category: 'Components', tags: ['card', 'component', 'container', 'layout', 'design'] },
         { title: 'Icons', url: 'icons.html', category: 'Components', tags: ['icon', 'pure css', 'shapes', 'symbols'] },
         
@@ -40,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: 'Custom Properties', url: 'custom-properties.html', category: 'Advanced', tags: ['variables', 'theming', 'custom properties', 'css variables'] },
         { title: 'Blend Modes', url: 'blend-modes.html', category: 'Visual Effects', tags: ['blend', 'mix-blend-mode', 'overlay', 'multiply'] },
         { title: 'Shapes & Clipping', url: 'shapes-clips.html', category: 'Visual Effects', tags: ['clip-path', 'shapes', 'polygon', 'circle'] },
-        { title: 'Advanced Animations', url: 'animations-advanced.html', category: 'Visual Effects', tags: ['animation', 'keyframes', 'advanced', 'complex'] },
+        // Advanced Animations content merged into animations.html
         { title: 'Gradient Patterns', url: 'gradient-patterns.html', category: 'Visual Effects', tags: ['gradient', 'patterns', 'stripes', 'checkerboard'] },
         { title: 'Flexbox Patterns', url: 'flexbox-patterns.html', category: 'Layout', tags: ['flexbox', 'patterns', 'holy grail', 'sticky footer'] },
-        { title: 'Advanced Tables', url: 'tables-advanced.html', category: 'Components', tags: ['table', 'data', 'sorting', 'advanced'] },
+        // Advanced Tables content merged into tables.html
 
         // Modern CSS
         { title: ':has() Selector', url: 'has-selector.html', category: 'Modern CSS', tags: ['has', 'parent', 'selector', 'modern'] },
