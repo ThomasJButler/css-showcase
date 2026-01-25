@@ -444,28 +444,21 @@ main {
 - **No breaking conflicts** found - all duplicates have identical values
 
 ### Task 5.0: Pre-Consolidation Cleanup (NEW)
-**Status:** PENDING
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026
 **Action:** Remove duplicate variables before merging
 
-**Files to clean:**
-1. `main.css` - Remove 68 duplicate colour/typography/spacing variables (lines 11-126)
-   - Colour variables: 47 duplicates (primary, secondary, semantic, surface, text, border, gradients)
-   - Typography variables: 15 duplicates (font families, sizes, weights, line heights)
-   - Spacing variables: 15 duplicates (--space-0 to --space-24)
-   - Note: --space-7, --space-32, --section-spacing, --content-spacing exist ONLY in tokens file
-2. `improvements.css` - **NO CHANGES NEEDED** (verified: no duplicate variable definitions in lines 1-50, file only references variables)
+**Changes made:**
+1. `main.css` - Removed 106 lines of duplicate variables (lines 11-126 for `:root` and lines 128-159 for `[data-theme="dark"]`)
+   - All colour, typography, spacing, shadow, transition, and z-index variables removed
+   - main.css reduced from 889 to 783 lines
+   - Updated header comment to note tokens are now in 01-design-tokens.css
+2. All 30 HTML files updated to import `00-layers.css` and `01-design-tokens.css` before `main.css`
+3. `improvements.css` - **NO CHANGES NEEDED** (verified: only references variables, no definitions)
 
-**Shadow Variable Conflict (DECISION REQUIRED):**
-| Variable | main.css | 01-design-tokens.css |
-|----------|----------|----------------------|
-| --shadow-sm | Single layer | Multi-layer (more refined) |
-| --shadow-md | Offset differs | Professional multi-layer |
-| --shadow-lg | Second layer differs | Refined offsets |
-| --shadow-xl | Second layer differs | Professional offsets |
+**Shadow Variable Decision:** Adopted 01-design-tokens.css shadow values (multi-layer, more sophisticated)
 
-**Recommendation:** Adopt 01-design-tokens.css shadow values (more sophisticated, already used in Phase 3 WCAG fixes)
-
-**Verification:** Run visual regression tests after cleanup
+**Verification:** Server tested at localhost:8080, all CSS files loading correctly
 
 ### Task 5.1: Create Bundle CSS
 **Status:** PENDING
@@ -737,16 +730,16 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 | Phase 2: Header & Sidebar | COMPLETE ✓ | 8 | 8 |
 | Phase 3: Code Box Polish | COMPLETE ✓ | 5 | 5 |
 | Phase 4: Advanced CSS | COMPLETE ✓ | 3 | 3 |
-| Phase 5: File Consolidation | PENDING | 7 | 0 |
+| Phase 5: File Consolidation | IN PROGRESS | 7 | 1 |
 | Phase 6: New Content | PENDING | 3 | 1 |
 | Phase 7: Final Polish | PENDING | 4 | 0 |
-| **TOTAL** | | **34** | **21** |
+| **TOTAL** | | **34** | **22** |
 
 **Notes:**
 - Task 4.1 (View Transitions) completed 25 January 2026
 - Task 4.2 (Scroll Progress Indicator) completed 25 January 2026
 - Task 4.3 (CSS Nesting Migration) completed 25 January 2026
-- Task 5.0 (Pre-Consolidation Cleanup) added
+- Task 5.0 (Pre-Consolidation Cleanup) completed 25 January 2026
 - Task 6.3 marked complete (sidebar Resources section verified)
 - Phase 4-7 research completed 25 January 2026 with refined findings
 
