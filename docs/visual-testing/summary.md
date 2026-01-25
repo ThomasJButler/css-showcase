@@ -295,3 +295,20 @@ index.html: ✅ PASS (under by 17px)
    - grid.html: 4 core grid demonstrations covering key concepts
 
 **Project Status: READY FOR DEPLOYMENT** ✅
+
+---
+
+## NEXT PHASE: Ultimate Overhaul (25 January 2026+)
+
+The project has achieved portfolio-ready status. A new "Ultimate Overhaul" phase has begun to take it to industry-leading quality:
+
+See **IMPLEMENTATION_PLAN.md** for the 7-phase overhaul plan:
+1. CSS Architecture Foundation (layers, tokens, z-index)
+2. Header & Sidebar Redesign (component injection)
+3. Code Box Polish (accessibility, visual separator)
+4. Advanced CSS (view transitions, scroll animations, nesting)
+5. File Consolidation (35 → ~12 CSS files)
+6. New Content Pages (tools.html, frameworks.html)
+7. Final Polish (audits, testing)
+
+Historical implementation details archived to **docs/IMPLEMENTATION_HISTORY.md**.

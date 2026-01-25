@@ -44,8 +44,6 @@ const pages = [
   { name: 'anchor-positioning', path: '/anchor-positioning.html' },
   { name: 'scroll-animations', path: '/scroll-animations.html' },
   { name: 'color-spaces', path: '/color-spaces.html' },
-  // Other
-  { name: 'playground', path: '/playground.html' },
   // Resources
   { name: 'tools', path: '/tools.html' },
   { name: 'frameworks', path: '/frameworks.html' },
@@ -71,6 +69,11 @@ async function captureScreenshots() {
     });
     const desktopPage = await desktopContext.newPage();
     await desktopPage.goto(`${BASE_URL}${page.path}`, { waitUntil: 'networkidle' });
+    // Trigger all reveal animations (elements use IntersectionObserver which doesn't fire on fullPage capture)
+    await desktopPage.evaluate(() => {
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('revealed'));
+    });
+    await desktopPage.waitForTimeout(100); // Brief pause for transitions
     await desktopPage.screenshot({
       path: `${SCREENSHOT_DIR}/desktop/${page.name}.png`,
       fullPage: true
@@ -84,6 +87,11 @@ async function captureScreenshots() {
     });
     const mobilePage = await mobileContext.newPage();
     await mobilePage.goto(`${BASE_URL}${page.path}`, { waitUntil: 'networkidle' });
+    // Trigger all reveal animations
+    await mobilePage.evaluate(() => {
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('revealed'));
+    });
+    await mobilePage.waitForTimeout(100);
     await mobilePage.screenshot({
       path: `${SCREENSHOT_DIR}/mobile/${page.name}.png`,
       fullPage: true
@@ -97,9 +105,10 @@ async function captureScreenshots() {
     });
     const darkPage = await darkContext.newPage();
     await darkPage.goto(`${BASE_URL}${page.path}`, { waitUntil: 'networkidle' });
-    // Also try to toggle via localStorage or data attribute
+    // Toggle theme and trigger reveal animations
     await darkPage.evaluate(() => {
       document.documentElement.setAttribute('data-theme', 'dark');
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('revealed'));
     });
     await darkPage.waitForTimeout(500); // Wait for theme transition
     await darkPage.screenshot({

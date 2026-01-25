@@ -78,11 +78,13 @@
 }
 
 .position-fixed {
-    position: fixed;
-    bottom: 80px;
+    /* Use absolute within demo container instead of actual fixed
+       to prevent element from escaping the demo area */
+    position: absolute;
+    bottom: 20px;
     right: 20px;
     background: #f59e0b;
-    z-index: 50;
+    z-index: 10;
 }
 
 .position-sticky {
@@ -395,9 +397,8 @@
         margin: 8px 0;
     }
 
-    .position-fixed {
-        display: none; /* Hide fixed element on mobile to avoid overlap */
-    }
+    /* .position-fixed now uses absolute positioning within demo container,
+       so no longer needs to be hidden on mobile */
 
     .multi-column-demo {
         column-count: 1;

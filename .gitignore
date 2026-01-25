@@ -104,3 +104,7 @@ out/
 *.sw?
 
 /docs
+/docs
+/docs/visual-testing/screenshots
+/docs
+*.png

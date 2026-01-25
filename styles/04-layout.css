@@ -30,22 +30,17 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 320px;
+    width: var(--sidebar-width);
     height: 100vh;
     background: var(--colour-background);
     border-right: 1px solid var(--colour-border);
     z-index: 90; /* Below header (which is z-index: 100) */
     overflow-y: auto;
     overflow-x: hidden;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Auto-hide sidebar on scroll down (desktop only) */
-    &.sidebar-hidden {
-        transform: translateX(-100%); /* Fully hide sidebar */
-    }
-
-    /* Active state (mobile) */
-    &.active {
+    /* Open state (mobile toggle) */
+    &.open {
         transform: translateX(0);
     }
 
@@ -338,29 +333,12 @@
 @media (min-width: 1024px) {
     /* Adjust main content and header for sidebar */
     body {
-        padding-left: 320px;
-        transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-        /* When sidebar is auto-hidden on scroll */
-        &.sidebar-hidden {
-            padding-left: 0;
-
-            .site-header {
-                left: 0;
-                width: 100%;
-            }
-        }
-
-        /* Hide extra nav items when sidebar is open (show only first 4) */
-        &:not(.sidebar-hidden) .nav-list .nav-item:nth-child(n+5) {
-            display: none;
-        }
+        padding-left: var(--sidebar-width);
     }
 
     .site-header {
-        left: 320px;
-        width: calc(100% - 320px);
-        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        left: var(--sidebar-width);
+        width: calc(100% - var(--sidebar-width));
     }
 
     .sidebar {
@@ -377,7 +355,7 @@
         transform: translateX(-100%);
         box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
 
-        &.active {
+        &.open {
             transform: translateX(0);
         }
     }
@@ -410,7 +388,7 @@
     }
 
     /* Hide logo when sidebar is active to prevent overlap */
-    .sidebar.active ~ header .logo {
+    .sidebar.open ~ header .logo {
         opacity: 0 !important;
         pointer-events: none;
         transition: opacity var(--transition-default);
