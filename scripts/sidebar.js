@@ -70,6 +70,43 @@
     }
 
     /**
+     * Focus trap helper - keeps focus within sidebar when open on mobile
+     * @param {KeyboardEvent} e - Keyboard event
+     */
+    function trapSidebarFocus(e) {
+        if (e.key !== 'Tab') return;
+
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        if (!sidebar || !sidebar.classList.contains('active')) return;
+
+        const focusableElements = sidebar.querySelectorAll(
+            'a[href], button, [tabindex]:not([tabindex="-1"])'
+        );
+        const focusable = Array.from(focusableElements).filter(
+            el => el.offsetParent !== null // Only visible elements
+        );
+
+        // Include the toggle button as the last focusable element
+        if (sidebarToggle) {
+            focusable.push(sidebarToggle);
+        }
+
+        if (focusable.length === 0) return;
+
+        const firstElement = focusable[0];
+        const lastElement = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+        }
+    }
+
+    /**
      * Toggles sidebar open/closed state for mobile view
      * Manages backdrop visibility and prevents body scroll when open
      */
@@ -91,6 +128,20 @@
             sidebarBackdrop.classList.toggle('active', isActive);
         }
 
+        // Manage focus trap for accessibility
+        if (isActive) {
+            sidebar.setAttribute('data-focus-trap', 'active');
+            document.addEventListener('keydown', trapSidebarFocus);
+            // Focus first link in sidebar for screen reader users
+            const firstLink = sidebar.querySelector('a[href], button');
+            if (firstLink) {
+                setTimeout(() => firstLink.focus(), 100);
+            }
+        } else {
+            sidebar.removeAttribute('data-focus-trap');
+            document.removeEventListener('keydown', trapSidebarFocus);
+        }
+
         // Prevent body scroll when sidebar is open on mobile
         if (isActive) {
             document.body.style.overflow = 'hidden';
@@ -110,6 +161,8 @@
         if (!sidebar) return;
 
         sidebar.classList.remove('active');
+        sidebar.removeAttribute('data-focus-trap');
+        document.removeEventListener('keydown', trapSidebarFocus);
 
         if (sidebarToggle) {
             sidebarToggle.classList.remove('active');

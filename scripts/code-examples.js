@@ -9,6 +9,14 @@
  */
 document.addEventListener('DOMContentLoaded', function() {
     const codeExamples = document.querySelectorAll('.code-example pre');
+
+    // Create aria-live region for copy feedback announcements
+    const copyAnnounce = document.createElement('div');
+    copyAnnounce.setAttribute('aria-live', 'polite');
+    copyAnnounce.setAttribute('aria-atomic', 'true');
+    copyAnnounce.className = 'sr-only';
+    copyAnnounce.id = 'copy-announce';
+    document.body.appendChild(copyAnnounce);
     
     codeExamples.forEach(pre => {
         const button = document.createElement('button');
@@ -23,16 +31,28 @@ document.addEventListener('DOMContentLoaded', function() {
         
         button.addEventListener('click', async () => {
             const code = pre.textContent;
-            
-            try {
-                await navigator.clipboard.writeText(code);
+
+            // Helper to show copy success
+            function showCopySuccess() {
                 button.classList.add('copied');
                 button.textContent = 'Copied!';
-                
+                copyAnnounce.textContent = 'Code copied to clipboard';
+
                 setTimeout(() => {
                     button.classList.remove('copied');
                     button.textContent = 'Copy';
                 }, 2000);
+            }
+
+            // Helper to show copy failure
+            function showCopyFailure() {
+                copyAnnounce.textContent = 'Failed to copy code';
+                console.error('Failed to copy code');
+            }
+
+            try {
+                await navigator.clipboard.writeText(code);
+                showCopySuccess();
             } catch (err) {
                 // Fallback for older browsers
                 const textArea = document.createElement('textarea');
@@ -41,25 +61,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 textArea.style.opacity = '0';
                 document.body.appendChild(textArea);
                 textArea.select();
-                
+
                 try {
                     document.execCommand('copy');
-                    button.classList.add('copied');
-                    button.textContent = 'Copied!';
-                    
-                    setTimeout(() => {
-                        button.classList.remove('copied');
-                        button.textContent = 'Copy';
-                    }, 2000);
-                } catch (err) {
-                    console.error('Failed to copy code:', err);
+                    showCopySuccess();
+                } catch (copyErr) {
+                    showCopyFailure();
                 }
-                
+
                 document.body.removeChild(textArea);
             }
         });
     });
-    
+
+    // Detect horizontal overflow and add class for scroll fade indicator
+    codeExamples.forEach(pre => {
+        if (pre.scrollWidth > pre.clientWidth) {
+            pre.closest('.code-example').classList.add('has-overflow');
+        }
+    });
+
     // Basic syntax highlighting (if not using a library)
     function highlightSyntax() {
         const codeBlocks = document.querySelectorAll('.code-example code');
