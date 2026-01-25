@@ -4,8 +4,8 @@ async function measurePageHeights() {
   const browser = await chromium.launch();
 
   const pages = [
-    'http://localhost:8080/index.html',
-    'http://localhost:8080/grid.html'
+    'http://localhost:8000/index.html',
+    'http://localhost:8000/grid.html'
   ];
 
   const viewports = [
