@@ -779,6 +779,50 @@ These should NOT be merged - they enable page-specific lazy loading:
 
 ---
 
+## Phase 8: Final 5% UX/UI Polish
+
+### Task 8.1: Typography Enhancement
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026
+
+**Changes:**
+- Added Satoshi display font for h1/h2 headings (bolder, tighter tracking)
+- Replaced Space Mono with JetBrains Mono for code blocks
+- Enhanced heading hierarchy with distinct weights (extrabold → medium)
+- Added letter-spacing tokens (--tracking-tighter, --tracking-tight, --tracking-wide)
+
+### Task 8.2: Sidebar Icon Overhaul
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026
+
+**Changes:**
+- Replaced all emoji icons with SVG Lucide icons throughout sidebar
+- Icons include: home, book, layout, sparkle, puzzle, cpu, flask, wrench
+- Added .sidebar-icon and .sidebar-section-icon CSS classes
+- Improved icon opacity and spacing
+
+### Task 8.3: Layout Token System
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026
+
+**Changes:**
+- Added --sidebar-width: 280px and --header-height: 56px tokens
+- Sidebar now positioned below header using calc(100vh - var(--header-height))
+- Renamed .active to .open for sidebar toggle state clarity
+- Simplified sidebar toggle positioning (now in header, not fixed)
+
+### Task 8.4: Animation & Interaction Polish
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026
+
+**Changes:**
+- Added --ease-out-expo and --ease-out-back easing curves
+- Added --transition-bounce for playful interactions
+- Added interaction overlay colours (--colour-hover-overlay, --colour-active-overlay)
+- Removed playground page (playground.html, playground.js, playground.css)
+
+---
+
 ## Progress Summary
 
 | Phase | Status | Tasks | Complete |
@@ -791,9 +835,11 @@ These should NOT be merged - they enable page-specific lazy loading:
 | Phase 5: File Consolidation | COMPLETE ✓ | 7 | 7 |
 | Phase 6: New Content | COMPLETE ✓ | 3 | 3 |
 | Phase 7: Final Polish | COMPLETE ✓ (7.4 manual) | 4 | 4 |
-| **TOTAL** | | **34** | **34** |
+| Phase 8: Final 5% UX/UI Polish | COMPLETE ✓ | 4 | 4 |
+| **TOTAL** | | **38** | **38** |
 
 **Notes:**
+- Phase 8 (Final 5% UX/UI Polish) completed 25 January 2026
 - Task 7.4 (Final Screenshots) ready for manual execution 25 January 2026 - visual-test.js updated with tools.html and frameworks.html pages
 - Task 7.3 (Accessibility Audit) completed 25 January 2026
 - Task 7.2 (Performance Audit) completed 25 January 2026
