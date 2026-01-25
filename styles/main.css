@@ -32,7 +32,18 @@
     
     --colour-border: #e5e7eb;
     --colour-border-light: #f3f4f6;
-    
+
+    /* Extended colour palette */
+    --colour-surface-variant: #e5e7eb;
+    --colour-text-secondary: #6b7280;
+    --colour-warning-light: #fef3c7;
+    --colour-warning-dark: #92400e;
+    --colour-success-light: #d1fae5;
+    --colour-info: #3b82f6;
+    --colour-info-light: #dbeafe;
+    --colour-info-dark: #1e40af;
+    --colour-error-light: #fee2e2;
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, var(--colour-primary) 0%, var(--colour-secondary) 100%);
     --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
@@ -129,7 +140,17 @@
     
     --colour-border: #334155;
     --colour-border-light: #1e293b;
-    
+
+    /* Extended dark theme colours */
+    --colour-surface-variant: #475569;
+    --colour-text-secondary: #94a3b8;
+    --colour-warning-light: #422006;
+    --colour-warning-dark: #fbbf24;
+    --colour-success-light: #064e3b;
+    --colour-info-light: #1e3a5f;
+    --colour-info-dark: #93c5fd;
+    --colour-error-light: #450a0a;
+
     --gradient-subtle: linear-gradient(180deg, var(--colour-surface) 0%, var(--colour-background) 100%);
 }
 
