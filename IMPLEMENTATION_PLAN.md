@@ -510,42 +510,32 @@ main {
 **Risk Level:** LOW - No overlapping selectors, consistent variable usage
 
 ### Task 5.4: Merge Code CSS Files
-**Status:** PENDING
-**Merge into `styles/06-code.css`:** (506 lines combined)
-- `code-examples.css` (362 lines) - Code block styling, copy button
-- `syntax-highlight.css` (144 lines) - Token colours, line numbers
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026
+**Merge into `styles/06-code.css`:** (517 lines combined)
+- `code-examples.css` (373 lines) - Code block styling, copy button
+- `syntax-highlight.css` (145 lines) - Token colours, line numbers
 
-**Risk Level:** MODERATE - Token colour conflicts require resolution
+**Token Colour Conflict Resolution:**
+- Used code-examples.css token colours (WCAG-compliant per Phase 3 fixes)
+- Dark theme: amber strings/values (#fbbf24), teal functions (#34d399), pink keywords (#f472b6)
+- Light theme: amber strings/values (#d97706), green functions (#059669), pink keywords (#db2777)
+- Added unique tokens from syntax-highlight.css: `.token.color`, `.token.number`, `.token.variable`
 
-**Token Colour Conflicts (CRITICAL - must resolve before merge):**
+**Changes made:**
+- Created `styles/06-code.css` with eight clearly labelled sections:
+  1. CODE EXAMPLE CONTAINERS - Language labels, scroll indicators, scrollbar styling
+  2. SYNTAX HIGHLIGHTING - DARK THEME (DEFAULT) - Token colours for dark backgrounds
+  3. SYNTAX HIGHLIGHTING - LIGHT THEME - Token colours for light backgrounds
+  4. COPY BUTTON - Positioned in code blocks with copied state
+  5. LINE NUMBERS - Absolute positioned line number display
+  6. INTERACTIVE CODE EDITOR - For future enhancement
+  7. SELECTION STYLING - Custom text selection within code blocks
+  8. RESPONSIVE ADJUSTMENTS - Mobile-optimised code display
+- Merged duplicate mobile media queries into single block
+- All font sizes use `var(--text-sm)` to meet WCAG 2.1 AA requirements
 
-*Light Theme Conflicts:*
-| Token | code-examples.css | syntax-highlight.css | Severity |
-|-------|-------------------|----------------------|----------|
-| .token.comment | #64748b | #6b7280 | Moderate - similar greys |
-| .token.selector | #a78bfa | #8b5cf6 | Moderate - both purple |
-| .token.property | #60a5fa | #2563eb | Moderate - both blue |
-| .token.string | #fbbf24 (amber) | #059669 (green) | **CRITICAL - completely different!** |
-| .token.function | #34d399 (teal) | #7c3aed (purple) | **SEVERE - completely different!** |
-| .token.keyword | #f472b6 | #e11d48 | Moderate - pink vs rose |
-
-*Dark Theme Conflicts:*
-| Token | code-examples.css | syntax-highlight.css | Match? |
-|-------|-------------------|----------------------|--------|
-| .token.property | #60a5fa | #60a5fa | ✓ YES |
-| .token.selector | #a78bfa | #a78bfa | ✓ YES |
-| .token.important | #ef4444 | #ef4444 | ✓ YES |
-| .token.string | #fbbf24 (amber) | #34d399 (mint) | ✗ DIFFERENT |
-| .token.function | #34d399 (teal) | #c084fc (purple) | ✗ DIFFERENT |
-
-*Tokens unique to each file:*
-- code-examples.css only: `.token.value`, `.token.unit`
-- syntax-highlight.css only: `.token.color`, `.token.number`, `.token.variable`
-
-**Recommendation:** Use code-examples.css token colours (WCAG-compliant per Phase 3 fixes)
-**Pre-merge action:** Remove conflicting token definitions from syntax-highlight.css, keep unique tokens
-
-**Pre-merge action:** Audit which token colours are visible in current pages, choose authoritative set, remove duplicates
+**Risk Level:** MODERATE - Token colour conflicts resolved by adopting code-examples.css values
 
 ### Task 5.5: Update HTML Imports
 **Status:** PENDING
@@ -749,10 +739,10 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 | Phase 2: Header & Sidebar | COMPLETE ✓ | 8 | 8 |
 | Phase 3: Code Box Polish | COMPLETE ✓ | 5 | 5 |
 | Phase 4: Advanced CSS | COMPLETE ✓ | 3 | 3 |
-| Phase 5: File Consolidation | IN PROGRESS | 7 | 3 |
+| Phase 5: File Consolidation | IN PROGRESS | 7 | 4 |
 | Phase 6: New Content | PENDING | 3 | 1 |
 | Phase 7: Final Polish | PENDING | 4 | 0 |
-| **TOTAL** | | **34** | **24** |
+| **TOTAL** | | **34** | **25** |
 
 **Notes:**
 - Task 4.1 (View Transitions) completed 25 January 2026
@@ -761,6 +751,7 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 - Task 5.0 (Pre-Consolidation Cleanup) completed 25 January 2026
 - Task 5.2 (Core CSS Merge) completed 25 January 2026
 - Task 5.3 (Layout CSS Merge) completed 25 January 2026
+- Task 5.4 (Code CSS Merge) completed 25 January 2026
 - Task 6.3 marked complete (sidebar Resources section verified)
 - Phase 4-7 research completed 25 January 2026 with refined findings
 
