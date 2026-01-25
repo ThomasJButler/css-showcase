@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore CSS frameworks and methodologies - Tailwind CSS, Bootstrap, and utility-first approaches compared with vanilla CSS.">
+    <meta name="author" content="Thomas Butler">
+    <title>CSS Frameworks | The Ultimate CSS Showcase</title>
+    <link rel="stylesheet" href="styles/bundle.css">
+    <link rel="stylesheet" href="styles/cards.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar Skeleton (shown while components load) -->
+    <div class="sidebar-skeleton" aria-hidden="true"></div>
+
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Component Placeholders -->
+    <header class="site-header" id="header"></header>
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation"></aside>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <main id="main">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="index.html" class="breadcrumb-link">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="index.html#resources" class="breadcrumb-link">Resources</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="breadcrumb-current">CSS Frameworks</span>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">CSS Frameworks</h1>
+                <p class="page-subtitle">
+                    Compare popular frameworks and decide when to use them versus vanilla CSS
+                </p>
+            </div>
+        </section>
+
+        <section id="utility-first" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Utility-First Frameworks</h2>
+                <p class="section-intro">
+                    Build designs directly in your HTML using pre-defined utility classes.
+                </p>
+
+                <div class="card-grid">
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="Tailwind CSS">🌊</div>
+                        <h3 class="feature-title">Tailwind CSS</h3>
+                        <p class="feature-text">
+                            A utility-first CSS framework packed with classes like flex, pt-4,
+                            and text-center that can be composed to build any design.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Highly customisable design tokens</li>
+                            <li>JIT compiler for tiny bundles</li>
+                            <li>Built-in dark mode support</li>
+                            <li>Extensive plugin ecosystem</li>
+                        </ul>
+                        <a href="https://tailwindcss.com/docs" target="_blank" rel="noopener noreferrer" class="feature-link">
+                            Explore Tailwind docs
+                            <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="UnoCSS">⚡</div>
+                        <h3 class="feature-title">UnoCSS</h3>
+                        <p class="feature-text">
+                            The instant atomic CSS engine. Highly customisable and
+                            compatible with Tailwind, Windi, and Tachyons presets.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Instant on-demand generation</li>
+                            <li>Pure CSS icons</li>
+                            <li>Variant groups</li>
+                            <li>Attributify mode</li>
+                        </ul>
+                        <a href="https://unocss.dev/" target="_blank" rel="noopener noreferrer" class="feature-link">
+                            Explore UnoCSS
+                            <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="Open Props">🎨</div>
+                        <h3 class="feature-title">Open Props</h3>
+                        <p class="feature-text">
+                            Supercharged CSS variables for design systems. Not a framework
+                            but a collection of design tokens as CSS custom properties.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Just CSS custom properties</li>
+                            <li>Framework agnostic</li>
+                            <li>Adaptive colour schemes</li>
+                            <li>No build step required</li>
+                        </ul>
+                        <a href="https://open-props.style/" target="_blank" rel="noopener noreferrer" class="feature-link">
+                            Explore Open Props
+                            <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="component-frameworks" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Component Frameworks</h2>
+                <p class="section-intro">
+                    Pre-built components and design systems for rapid prototyping and production.
+                </p>
+
+                <div class="card-grid">
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="Bootstrap">🅱️</div>
+                        <h3 class="feature-title">Bootstrap</h3>
+                        <p class="feature-text">
+                            The most popular HTML, CSS, and JS framework in the world.
+                            Comprehensive component library with extensive documentation.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Responsive grid system</li>
+                            <li>Pre-built components</li>
+                            <li>JavaScript plugins</li>
+                            <li>Sass customisation</li>
+                        </ul>
+                        <a href="https://getbootstrap.com/docs/" target="_blank" rel="noopener noreferrer" class="feature-link">
+                            Explore Bootstrap docs
+                            <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="Bulma">🎯</div>
+                        <h3 class="feature-title">Bulma</h3>
+                        <p class="feature-text">
+                            A free, open source CSS framework based on Flexbox.
+                            No JavaScript, just pure CSS with modular Sass files.
+                        </p>
+                        <ul class="feature-list">
+                            <li>100% CSS, no JS</li>
+                            <li>Flexbox-based grid</li>
+                            <li>Modular architecture</li>
+                            <li>Easy to customise</li>
+                        </ul>
+                        <a href="https://bulma.io/documentation/" target="_blank" rel="noopener noreferrer" class="feature-link">
+                            Explore Bulma docs
+                            <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="daisyUI">🌼</div>
+                        <h3 class="feature-title">daisyUI</h3>
+                        <p class="feature-text">
+                            The most popular component library for Tailwind CSS. Adds
+                            semantic class names for common UI components.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Tailwind CSS plugin</li>
+                            <li>Semantic class names</li>
+                            <li>29 built-in themes</li>
+                            <li>Fully customisable</li>
+                        </ul>
+                        <a href="https://daisyui.com/docs/" target="_blank" rel="noopener noreferrer" class="feature-link">
+                            Explore daisyUI docs
+                            <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="methodologies" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">CSS Methodologies</h2>
+                <p class="section-intro">
+                    Approaches and conventions for writing maintainable, scalable CSS.
+                </p>
+
+                <div class="card-grid">
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="BEM">📦</div>
+                        <h3 class="feature-title">BEM</h3>
+                        <p class="feature-text">
+                            Block Element Modifier is a naming convention that makes CSS
+                            easier to read, understand, and scale in large projects.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Clear naming convention</li>
+                            <li>Avoids specificity wars</li>
+                            <li>Self-documenting classes</li>
+                            <li>Works with any framework</li>
+                        </ul>
+                        <a href="https://getbem.com/" target="_blank" rel="noopener noreferrer" class="feature-link">
+                            Learn BEM methodology
+                            <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="CSS Modules">🧩</div>
+                        <h3 class="feature-title">CSS Modules</h3>
+                        <p class="feature-text">
+                            Locally scoped CSS by default. Class names are unique, so you
+                            never have to worry about naming collisions.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Automatic scoping</li>
+                            <li>Composition of styles</li>
+                            <li>Works with React, Vue, etc.</li>
+                            <li>Explicit dependencies</li>
+                        </ul>
+                        <a href="https://github.com/css-modules/css-modules" target="_blank" rel="noopener noreferrer" class="feature-link">
+                            Learn CSS Modules
+                            <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="CUBE CSS">🧊</div>
+                        <h3 class="feature-title">CUBE CSS</h3>
+                        <p class="feature-text">
+                            Composition Utility Block Exception. A CSS methodology that
+                            embraces the cascade and encourages pragmatic CSS.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Embraces the cascade</li>
+                            <li>Focuses on composition</li>
+                            <li>Progressive enhancement</li>
+                            <li>Framework agnostic</li>
+                        </ul>
+                        <a href="https://cube.fyi/" target="_blank" rel="noopener noreferrer" class="feature-link">
+                            Learn CUBE CSS
+                            <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="css-in-js" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">CSS-in-JS</h2>
+                <p class="section-intro">
+                    Write CSS directly in JavaScript for component-based architectures.
+                </p>
+
+                <div class="card-grid">
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="styled-components">💅</div>
+                        <h3 class="feature-title">styled-components</h3>
+                        <p class="feature-text">
+                            Visual primitives for the component age. Use the best bits of
+                            ES6 and CSS to style your apps without stress.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Automatic critical CSS</li>
+                            <li>No class name bugs</li>
+                            <li>Dynamic styling</li>
+                            <li>Server-side rendering</li>
+                        </ul>
+                        <a href="https://styled-components.com/docs" target="_blank" rel="noopener noreferrer" class="feature-link">
+                            Explore styled-components
+                            <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="Emotion">👩‍🎤</div>
+                        <h3 class="feature-title">Emotion</h3>
+                        <p class="feature-text">
+                            A performant and flexible CSS-in-JS library. Supports both
+                            string and object styles with a powerful composition model.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Source maps support</li>
+                            <li>Framework agnostic core</li>
+                            <li>Powerful composition</li>
+                            <li>Excellent performance</li>
+                        </ul>
+                        <a href="https://emotion.sh/docs/introduction" target="_blank" rel="noopener noreferrer" class="feature-link">
+                            Explore Emotion docs
+                            <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="Vanilla Extract">🍦</div>
+                        <h3 class="feature-title">Vanilla Extract</h3>
+                        <p class="feature-text">
+                            Zero-runtime CSS-in-TypeScript. Write type-safe styles in
+                            TypeScript that compile to static CSS at build time.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Zero runtime overhead</li>
+                            <li>Type-safe styles</li>
+                            <li>Static CSS extraction</li>
+                            <li>Theming support</li>
+                        </ul>
+                        <a href="https://vanilla-extract.style/documentation/" target="_blank" rel="noopener noreferrer" class="feature-link">
+                            Explore Vanilla Extract
+                            <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+                                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Framework vs Vanilla CSS</h2>
+                <p class="section-intro">
+                    Understanding when to use a framework versus writing custom CSS.
+                </p>
+
+                <div class="card-grid">
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="Use Frameworks">✅</div>
+                        <h3 class="feature-title">Use Frameworks When</h3>
+                        <p class="feature-text">
+                            Frameworks excel in certain scenarios and can significantly
+                            speed up development while maintaining consistency.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Rapid prototyping needed</li>
+                            <li>Large team, needs consistency</li>
+                            <li>Tight deadlines</li>
+                            <li>Standard UI patterns used</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="Use Vanilla CSS">🎯</div>
+                        <h3 class="feature-title">Use Vanilla CSS When</h3>
+                        <p class="feature-text">
+                            Custom CSS shines when you need full control, unique designs,
+                            or want to keep your bundle size minimal.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Unique, custom designs</li>
+                            <li>Performance is critical</li>
+                            <li>Learning CSS deeply</li>
+                            <li>Small projects or sites</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card-feature">
+                        <div class="feature-icon" role="img" aria-label="Hybrid Approach">🔄</div>
+                        <h3 class="feature-title">Hybrid Approach</h3>
+                        <p class="feature-text">
+                            Many teams combine frameworks with custom CSS, using the
+                            best of both worlds for optimal results.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Framework for utilities</li>
+                            <li>Custom CSS for unique parts</li>
+                            <li>Design tokens shared</li>
+                            <li>Gradual adoption possible</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <div class="container">
+                <h2 class="section-title">Continue Exploring</h2>
+                <p class="section-subtitle">
+                    Discover more CSS resources and tools for your projects
+                </p>
+                <div class="next-links">
+                    <a href="tools.html" class="next-link">
+                        <span class="next-icon" role="img" aria-label="Tools">🔧</span>
+                        <div>
+                            <h3>CSS Tools</h3>
+                            <p>Essential tools for modern CSS development</p>
+                        </div>
+                    </a>
+                    <a href="playground.html" class="next-link">
+                        <span class="next-icon" role="img" aria-label="Playground">🎮</span>
+                        <div>
+                            <h3>CSS Playground</h3>
+                            <p>Experiment with your own CSS ideas</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-brand">
+                    <h3 class="footer-title">CSS Showcase</h3>
+                    <p class="footer-description">The ultimate CSS reference and learning platform</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/ThomasJButler/css-showcase" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository" class="footer-social-link">
+                            <span role="img" aria-label="GitHub">🔗</span> GitHub
+                        </a>
+                        <a href="https://thomasjbutler.me" target="_blank" rel="noopener noreferrer" aria-label="Portfolio" class="footer-social-link">
+                            <span role="img" aria-label="Portfolio">🌐</span> Portfolio
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="playground.html">Playground</a></li>
+                        <li><a href="https://github.com/ThomasJButler/css-showcase" target="_blank" rel="noopener noreferrer">View on GitHub</a></li>
+                        <li><a href="https://thomasjbutler.me" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="basic.html">Basics</a></li>
+                        <li><a href="flexbox.html">Layout</a></li>
+                        <li><a href="buttons.html">Components</a></li>
+                        <li><a href="has-selector.html">Modern CSS</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="tools.html">CSS Tools</a></li>
+                        <li><a href="frameworks.html">Frameworks</a></li>
+                        <li><a href="advanced.html">Advanced Techniques</a></li>
+                        <li><a href="animations.html">Animations</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2026 Tom Butler. Crafted with passion and CSS.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/component-loader.js"></script>
+    <script src="scripts/scroll-manager.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/code-examples.js"></script>
+    <script src="scripts/syntax-highlight.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/micro-interactions.js"></script>
+</body>
+</html>
