@@ -3,9 +3,9 @@
 /* Base grid demo styles */
 .grid-demo {
     background: var(--colour-surface-variant);
-    padding: 1rem;
+    padding: 0.75rem;
     border-radius: 0.5rem;
-    min-height: 200px;
+    min-height: 150px;
 }
 
 .grid-item {
@@ -214,7 +214,7 @@
 }
 
 .grid-card.featured .card-image {
-    height: 200px;
+    height: 120px;
     background: linear-gradient(135deg, var(--colour-secondary), var(--colour-accent));
 }
 
@@ -222,7 +222,7 @@
 .magazine-layout {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, minmax(80px, auto));
+    grid-template-rows: repeat(3, minmax(60px, auto));
     gap: 1rem;
 }
 

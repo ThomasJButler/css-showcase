@@ -98,9 +98,6 @@
                     <a href="animations.html" class="sidebar-nav-link active">Animations</a>
                 </li>
                 <li class="sidebar-nav-item">
-                    <a href="animations-advanced.html" class="sidebar-nav-link">Advanced Animations</a>
-                </li>
-                <li class="sidebar-nav-item">
                     <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
                 </li>
             </ul>
@@ -121,9 +118,6 @@
                 </li>
                 <li class="sidebar-nav-item">
                     <a href="tables.html" class="sidebar-nav-link">Tables</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="tables-advanced.html" class="sidebar-nav-link">Advanced Tables</a>
                 </li>
                 <li class="sidebar-nav-item">
                     <a href="cards.html" class="sidebar-nav-link">Cards</a>
@@ -670,12 +664,12 @@ element.style.animationPlayState = 'paused';</code></pre>
                         <div class="code-example">
                             <pre><code>@keyframes glitch {
     0%, 100% {
-        text-shadow: 
+        text-shadow:
             2px 2px 0 #ff00ff,
             -2px -2px 0 #00ffff;
     }
     25% {
-        text-shadow: 
+        text-shadow:
             -2px 2px 0 #ff00ff,
             2px -2px 0 #00ffff;
     }
@@ -683,6 +677,50 @@ element.style.animationPlayState = 'paused';</code></pre>
 
 .glitch {
     animation: glitch 0.5s infinite;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card wide">
+                        <h3 class="demo-title">3D Card Flip</h3>
+                        <div class="demo-example">
+                            <div class="animation-demo">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <h4>Front Side</h4>
+                                            <p>Hover to flip</p>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <h4>Back Side</h4>
+                                            <p>Hidden content!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* 3D card flip */
+.flip-card {
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
 }</code></pre>
                         </div>
                     </div>
@@ -697,13 +735,6 @@ element.style.animationPlayState = 'paused';</code></pre>
                     Now that you've mastered the basics, explore 3D transforms, particle systems, and performance optimisation.
                 </p>
                 <div class="next-links">
-                    <a href="animations-advanced.html" class="next-link">
-                        <span class="next-icon" role="img" aria-label="Advanced features">🚀</span>
-                        <div>
-                            <h3>Advanced Animations</h3>
-                            <p>3D effects, particle systems, SVG animations, and best practices</p>
-                        </div>
-                    </a>
                     <a href="gradients.html" class="next-link">
                         <span class="next-icon" role="img" aria-label="Gradients">🌈</span>
                         <div>

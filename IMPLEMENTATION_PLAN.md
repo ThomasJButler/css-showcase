@@ -1,6 +1,469 @@
 # Implementation Plan for CSS Showcase Portfolio
 
-*Comprehensive analysis and prioritised action items - ALL IMPROVEMENTS COMPLETE*
+*Comprehensive analysis and prioritised action items*
+
+---
+
+## UX/VISUAL IMPROVEMENT PHASE (25 January 2026)
+
+### Start Here
+
+**Primary Reference:** `docs/visual-testing/summary.md`
+
+This phase focuses on simplifying the site, reducing clutter, and improving UX based on visual testing of all 33 pages (31 after merges).
+
+**Current Status:** PLANNING COMPLETE - Ready for implementation
+
+### Screenshots Location
+
+All page screenshots captured via Playwright:
+
+- `docs/visual-testing/screenshots/desktop/` - 1920x1080 viewport
+- `docs/visual-testing/screenshots/mobile/` - 375x667 viewport
+- `docs/visual-testing/screenshots/dark-mode/` - Dark theme variants
+
+### Implementation Plan Overview
+
+**Phase 1: Critical CSS Changes (Do First)**
+- Modify `styles/improvements.css` - global spacing variables
+- Modify `styles/main.css` - section padding
+
+**Phase 2: High Priority Merges**
+- Merge animations-advanced.html → animations.html (3D Card Flip demo)
+- Merge tables-advanced.html → tables.html (Sortable Table demo)
+- Update sidebar navigation across all HTML files
+- Result: 31 pages (from 33)
+
+**Phase 3: Page-Specific Fixes**
+- Fix index.html (13,434px → <4,000px mobile)
+- Fix grid.html (15,706px → <6,000px desktop)
+
+**Phase 4: Content Cleanup**
+- Remove misplaced content-spacer divs from basic.html, has-selector.html, filters.html
+
+**Phase 5: Verification**
+- Run `node visual-test.js` to capture new screenshots
+- Verify all page heights meet targets
+
+---
+
+### CRITICAL Priority - Global CSS Changes
+
+#### CRITICAL #1: Update CSS Spacing Variables
+**Status**: NOT STARTED
+**Risk**: HIGH (affects all 33 pages)
+**File**: `styles/improvements.css`
+
+**Current Values:**
+```css
+--section-spacing: clamp(4rem, 10vw, 4rem);
+--content-spacing: clamp(2rem, 5vw, 2rem);
+```
+
+**Target Values (50% reduction):**
+```css
+--section-spacing: clamp(2rem, 5vw, 3rem);
+--content-spacing: clamp(1rem, 3vw, 1.5rem);
+```
+
+**Impact**: Reduces overall page heights by 40-50% globally
+
+---
+
+#### CRITICAL #2: Reduce Section Padding
+**Status**: NOT STARTED
+**Risk**: HIGH (affects all pages)
+**Files**: `styles/main.css`, `styles/improvements.css`
+
+**Changes Required:**
+
+**main.css (line 472-474):**
+```css
+/* Current */
+.showcase-section { padding: var(--space-20) 0; /* 5rem */ }
+
+/* Target */
+.showcase-section { padding: var(--space-12) 0; /* 3rem */ }
+```
+
+**improvements.css (line 257-263):**
+```css
+/* Current */
+.showcase-section,
+.demo-section,
+.content-section {
+    padding: var(--section-spacing) 0;
+    margin-bottom: 2rem;
+}
+
+/* Target */
+.showcase-section,
+.demo-section,
+.content-section {
+    padding: var(--section-spacing) 0;
+    margin-bottom: 1rem;  /* was 2rem */
+}
+```
+
+---
+
+#### CRITICAL #3: Reduce Component Spacing
+**Status**: NOT STARTED
+**Risk**: MEDIUM
+**File**: `styles/improvements.css`
+
+**Changes (lines 268-525):**
+- Section titles: margin-bottom 1rem → 0.75rem
+- Section intro: margin-bottom 3rem → 1.5rem
+- Showcase grid: gap 2rem → 1.5rem, margin-top 3rem → 1.5rem
+- Demo cards: padding 2rem → 1.5rem, margin-bottom 3rem → 1.5rem
+- Tips grid: gap 2rem → 1.5rem, margin-top 3rem → 1.5rem
+- Next links: gap 2rem → 1.5rem, margin-top 3rem → 1.5rem
+
+**Content spacer reduction (60%):**
+```css
+/* Current */
+.content-spacer {
+    margin: var(--space-16) 0;  /* 4rem */
+}
+@media (min-width: 768px) {
+    .content-spacer { margin: var(--space-24) 0; /* 6rem */ }
+}
+
+/* Target */
+.content-spacer {
+    margin: var(--space-8) 0;  /* 2rem, was 4rem */
+}
+@media (min-width: 768px) {
+    .content-spacer { margin: var(--space-12) 0; /* 3rem, was 6rem */ }
+}
+```
+
+---
+
+### HIGH Priority - Page Merges & Major Fixes
+
+#### HIGH #1: Merge animations-advanced.html into animations.html
+**Status**: NOT STARTED
+**Risk**: LOW
+**Impact**: Reduces page count by 1, consolidates related content
+
+**Files to Modify:**
+1. `/animations.html` - add "3D Card Flip" demo section
+2. All 33 HTML files - remove "Advanced Animations" from sidebar navigation
+
+**Files to Delete:**
+1. `/animations-advanced.html`
+
+**Content to Extract:** "3D Card Flip" demo (lines 269-311 of animations-advanced.html)
+
+**Verification:**
+- [ ] 3D Card Flip demo works in animations.html
+- [ ] No 404 errors
+- [ ] Sidebar updated across all files
+- [ ] animations.html page height <6,000px
+
+---
+
+#### HIGH #2: Merge tables-advanced.html into tables.html
+**Status**: NOT STARTED
+**Risk**: LOW
+**Impact**: Reduces page count by 1, consolidates related content
+
+**Files to Modify:**
+1. `/tables.html` - add "Advanced Table Features" section
+2. All 33 HTML files - remove "Advanced Tables" from sidebar navigation
+
+**Files to Delete:**
+1. `/tables-advanced.html`
+
+**Content to Extract:**
+- Sortable Table demo (lines 283-355)
+- Data Table with Filters (lines 357-422)
+- Fixed Header Table
+
+**Verification:**
+- [ ] All three demos work in tables.html
+- [ ] Sorting functionality intact
+- [ ] No 404 errors
+- [ ] Sidebar updated across all files
+
+---
+
+#### HIGH #3: Fix index.html Page Height
+**Status**: NOT STARTED
+**Risk**: MEDIUM
+**Impact**: Reduce mobile height from 13,434px to <4,000px
+
+**File**: `/index.html`
+
+**Changes Required:**
+
+1. **Condense "About This Showcase" section (lines 309-336)**
+   - Current: 3 paragraphs (~120 words)
+   - Target: 2-3 sentences (~40 words)
+
+   **New content:**
+   ```html
+   <p>
+       A comprehensive CSS reference created by Thomas Butler. Every example uses
+       clean, semantic HTML and modern CSS techniques - no frameworks required.
+   </p>
+   ```
+
+2. **Remove "View on GitHub" button (lines 330-332)**
+   - Duplicate of footer link
+   - Delete entire `.about-cta` div
+
+3. **Make category cards more compact**
+   - Applied via global CSS changes (CRITICAL #3)
+
+**Verification:**
+- [ ] Mobile height <4,000px
+- [ ] Desktop height <6,000px
+- [ ] All category sections visible
+- [ ] No content overlap
+
+---
+
+#### HIGH #4: Fix grid.html Page Height (Worst Offender)
+**Status**: NOT STARTED
+**Risk**: MEDIUM
+**Impact**: Reduce from 15,706px to <6,000px (60% reduction)
+
+**Files**: `/grid.html`, `/styles/grid.css`
+
+**grid.html Changes:**
+
+1. **Remove misplaced content-spacer divs:**
+   - Lines 417-419
+   - Lines 505-507
+   - Lines 590-592
+   - Lines 648-650
+
+2. **Remove duplicate theme-toggle elements:**
+   - Lines 512-514 (inside demo section)
+   - Lines 648-650 (inside demo section)
+
+**grid.css Changes:**
+
+1. **Reduce grid demo padding (line 6-9):**
+   ```css
+   /* Current */
+   .grid-demo { padding: 1rem; min-height: 200px; }
+
+   /* Target */
+   .grid-demo { padding: 0.75rem; min-height: 150px; }
+   ```
+
+2. **Reduce card gallery height (line 170):**
+   ```css
+   /* Current */
+   .grid-card.featured .card-image { height: 200px; }
+
+   /* Target */
+   .grid-card.featured .card-image { height: 120px; }
+   ```
+
+3. **Compact magazine layout (lines 223-227):**
+   ```css
+   /* Current */
+   .magazine-layout { grid-template-rows: repeat(3, minmax(80px, auto)); }
+
+   /* Target */
+   .magazine-layout { grid-template-rows: repeat(3, minmax(60px, auto)); }
+   ```
+
+**Verification:**
+- [ ] Page height <6,000px desktop
+- [ ] All grid demos functional
+- [ ] No duplicate theme toggles
+- [ ] Responsive layouts work
+
+---
+
+### MEDIUM Priority - Content Cleanup
+
+#### MEDIUM #1: Remove Misplaced content-spacer Divs from basic.html
+**Status**: NOT STARTED
+**Risk**: LOW
+**Impact**: Reduces unnecessary whitespace
+
+**File**: `/basic.html`
+
+**Lines to Remove:**
+- Lines 294-296 (inside selectors section)
+- Lines 488-490 (inside colour properties section)
+- Lines 618-620 (inside cascade section)
+- Lines 728-730 (inside units section)
+
+**Note**: The "Essential CSS Properties" and "CSS Units" sections are NOT empty - they have content but excessive spacers.
+
+---
+
+#### MEDIUM #2: Remove Misplaced content-spacer Divs from has-selector.html
+**Status**: NOT STARTED
+**Risk**: LOW
+**Impact**: Reduces unnecessary whitespace
+
+**File**: `/has-selector.html`
+
+**Lines to Remove:**
+- Lines 328-330
+- Lines 561-563
+- Lines 617-619
+
+**Note**: The "Interactive Examples" section is well-populated with demos - not empty.
+
+---
+
+#### MEDIUM #3: Remove Misplaced content-spacer Divs from filters.html
+**Status**: NOT STARTED
+**Risk**: LOW
+**Impact**: Reduces unnecessary whitespace
+
+**File**: `/filters.html`
+
+**Lines to Remove:**
+- Lines 465-467
+- Lines 613-615
+- Lines 685-687
+
+**Note**: The "Advanced Filter Techniques" section is well-populated - not empty.
+
+---
+
+### LOW Priority - Optional Merges (Deferred)
+
+#### LOW #1: OPTIONAL - Merge flexbox-patterns.html into flexbox.html
+**Status**: DEFERRED
+**Risk**: MEDIUM
+**Impact**: Reduces page count by 1 (from 31 to 30)
+
+**Recommendation**: Skip unless page count reduction is critical. The pattern pages provide focused, digestible content that enhances user experience.
+
+---
+
+#### LOW #2: OPTIONAL - Merge gradient-patterns.html into gradients.html
+**Status**: DEFERRED
+**Risk**: MEDIUM
+**Impact**: Reduces page count by 1 (from 31 to 30)
+
+**Recommendation**: Skip unless page count reduction is critical.
+
+---
+
+### Reference Pages (Good Examples)
+
+Use these as quality benchmarks:
+- `buttons.html` - Well organised, good density, content-rich
+- `cards.html` - Clear structure, good visual examples
+- `playground.html` - Clean, focused, minimal
+
+---
+
+### Implementation Sequence (Recommended Order)
+
+1. **CRITICAL #1-3**: Global CSS changes (affects all pages)
+2. **HIGH #1**: Merge animations-advanced.html
+3. **HIGH #2**: Merge tables-advanced.html
+4. **HIGH #3**: Fix index.html page height
+5. **HIGH #4**: Fix grid.html page height
+6. **MEDIUM #1-3**: Remove content-spacer divs
+7. **Verification**: Run visual testing and verify targets met
+
+---
+
+### Target Metrics
+
+| Metric | Current | Target | Status |
+|--------|---------|--------|--------|
+| Total pages | 33 | 31 | Not started |
+| grid.html height | 15,706px | <6,000px | Not started |
+| index.html mobile height | 13,434px | <4,000px | Not started |
+| Pages >6,000px | Multiple | 0 | Not started |
+| Empty sections | ~8 instances | 0 | Not started |
+| Global spacing | 100% | 50-60% | Not started |
+
+---
+
+### Risk Assessment
+
+| Task | Risk Level | Mitigation Strategy |
+|------|-----------|---------------------|
+| Global CSS changes | HIGH | Test on multiple pages before deploying; use git to track changes |
+| Page merges | LOW | Keep backups; verify all demos work after merge |
+| Content removal | MEDIUM | Ensure merged content is preserved; check for broken links |
+| Sidebar updates | LOW | Use careful find/replace; verify navigation works |
+| Content spacer removal | LOW | Visual verification only; no functional impact |
+
+---
+
+### Verification Checklist
+
+After all changes:
+- [ ] Run `node visual-test.js` to capture new screenshots
+- [ ] Compare before/after page heights
+- [ ] Verify grid.html <6,000px desktop
+- [ ] Verify index.html <4,000px mobile
+- [ ] All navigation links work (no 404 errors)
+- [ ] Dark mode styling intact
+- [ ] Mobile layouts responsive
+- [ ] All interactive demos functional
+- [ ] Page count = 31 (down from 33)
+- [ ] No content overlap or layout breaking
+- [ ] Hover states still work
+
+---
+
+### Files Summary for UX/Visual Improvements
+
+**Primary CSS Files (CRITICAL changes):**
+- `/styles/improvements.css` - Global spacing variables, component spacing
+- `/styles/main.css` - Section padding definitions
+
+**Page Files (HIGH priority merges):**
+- `/animations.html` - Target for 3D Card Flip merge
+- `/tables.html` - Target for advanced table demos
+- `/animations-advanced.html` - DELETE after merge
+- `/tables-advanced.html` - DELETE after merge
+
+**Page Files (HIGH priority fixes):**
+- `/index.html` - Condense about section, remove duplicate button
+- `/grid.html` - Remove content spacers, duplicate elements
+- `/styles/grid.css` - Reduce demo heights and padding
+
+**Page Files (MEDIUM priority cleanup):**
+- `/basic.html` - Remove misplaced content spacers
+- `/has-selector.html` - Remove misplaced content spacers
+- `/filters.html` - Remove misplaced content spacers
+
+**All HTML Files (for sidebar updates):**
+- All 33 HTML files need sidebar navigation updated to remove "Advanced Animations" and "Advanced Tables" links
+
+---
+
+### Completion Status
+
+**UX/Visual Improvement Phase:**
+- CRITICAL Priority: 0/3 Complete (0%)
+- HIGH Priority: 0/4 Complete (0%)
+- MEDIUM Priority: 0/3 Complete (0%)
+- LOW Priority: 0/2 Deferred (optional)
+
+**Overall: 0/10 Required Items Complete (0%)**
+
+**Phase Status**: PLANNING COMPLETE - Ready for implementation
+
+---
+
+### Notes
+
+- This phase builds on the completed specification phase (21/21 items from previous work)
+- Visual testing revealed excessive page heights as the primary UX issue
+- The approach prioritizes global CSS changes first for maximum impact
+- Page merges simplify navigation while preserving valuable content
+- Optional LOW priority merges can be evaluated after measuring impact of required changes
 
 ---
 
