@@ -492,10 +492,20 @@ main {
 **Risk Level:** VERY LOW - No conflicting selectors, always loaded together
 
 ### Task 5.3: Merge Layout CSS Files
-**Status:** PENDING
-**Merge into `styles/04-layout.css`:** (777 lines combined)
-- `sidebar.css` (536 lines) - Sidebar navigation, mobile styling
-- `search.css` (241 lines) - Search modal, input styling
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026
+**Merge into `styles/04-layout.css`:** (785 lines combined)
+- `sidebar.css` (543 lines) - Sidebar navigation, mobile styling
+- `search.css` (242 lines) - Search modal, input styling
+
+**Changes made:**
+- Created `styles/04-layout.css` with four clearly labelled sections:
+  1. SIDEBAR NAVIGATION - Fixed sidebar, collapsible sections, mobile overlay
+  2. FLOATING BACK TO TOP BUTTON - Scroll-triggered visibility with progress ring
+  3. SEARCH MODAL - Full-screen overlay, input, results display
+  4. ACCESSIBILITY & PRINT - Reduced motion and print styles
+- Merged duplicate `@media (prefers-reduced-motion)` and print media queries into single blocks
+- Consolidated dark mode adjustments for sidebar and search
 
 **Risk Level:** LOW - No overlapping selectors, consistent variable usage
 
@@ -739,10 +749,10 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 | Phase 2: Header & Sidebar | COMPLETE ✓ | 8 | 8 |
 | Phase 3: Code Box Polish | COMPLETE ✓ | 5 | 5 |
 | Phase 4: Advanced CSS | COMPLETE ✓ | 3 | 3 |
-| Phase 5: File Consolidation | IN PROGRESS | 7 | 2 |
+| Phase 5: File Consolidation | IN PROGRESS | 7 | 3 |
 | Phase 6: New Content | PENDING | 3 | 1 |
 | Phase 7: Final Polish | PENDING | 4 | 0 |
-| **TOTAL** | | **34** | **23** |
+| **TOTAL** | | **34** | **24** |
 
 **Notes:**
 - Task 4.1 (View Transitions) completed 25 January 2026
@@ -750,6 +760,7 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 - Task 4.3 (CSS Nesting Migration) completed 25 January 2026
 - Task 5.0 (Pre-Consolidation Cleanup) completed 25 January 2026
 - Task 5.2 (Core CSS Merge) completed 25 January 2026
+- Task 5.3 (Layout CSS Merge) completed 25 January 2026
 - Task 6.3 marked complete (sidebar Resources section verified)
 - Phase 4-7 research completed 25 January 2026 with refined findings
 
