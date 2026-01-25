@@ -278,7 +278,7 @@
     background: var(--colour-surface);
     border: 5px solid var(--colour-primary);
     position: relative;
-    transition: all 0.3s ease;
+    transition: all var(--transition-default);
 }
 
 .box-content {

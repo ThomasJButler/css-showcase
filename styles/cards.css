@@ -14,7 +14,7 @@
     border-radius: 0.75rem;
     padding: 1.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: all var(--transition-default);
 }
 
 .card:hover {
@@ -245,7 +245,7 @@
     border: 2px solid transparent;
     background: linear-gradient(var(--colour-surface), var(--colour-surface)) padding-box,
                 linear-gradient(135deg, #667eea, #764ba2) border-box;
-    transition: all 0.3s ease;
+    transition: all var(--transition-default);
 }
 
 .card-feature:hover {
@@ -523,7 +523,7 @@
 .expand-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height var(--transition-default);
 }
 
 .card-expand.expanded .expand-content {
@@ -565,7 +565,7 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, #f093fb, #f5576c);
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-default);
 }
 
 .card-hover-reveal:hover .reveal-image {
@@ -583,7 +583,7 @@
     justify-content: center;
     padding: 2rem;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-default);
 }
 
 .card-hover-reveal:hover .reveal-overlay {

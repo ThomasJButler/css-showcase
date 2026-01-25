@@ -239,7 +239,7 @@
     padding: 1rem;
     min-height: 400px;
     display: flex;
-    transition: all 0.3s ease;
+    transition: all var(--transition-default);
 }
 
 .playground-item {
@@ -249,7 +249,7 @@
     border-radius: 0.25rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-default);
     position: relative;
 }
 

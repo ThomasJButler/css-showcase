@@ -62,7 +62,7 @@
     justify-content: space-between;
     align-items: center;
     opacity: 0.4;
-    transition: all 0.3s ease;
+    transition: all var(--transition-default);
 }
 
 .dark .bp-indicator {
@@ -328,7 +328,7 @@
     border: 2px solid var(--color-border, #e2e8f0);
     border-radius: 12px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all var(--transition-default);
 }
 
 .related-card:hover {

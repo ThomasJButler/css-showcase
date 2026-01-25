@@ -73,7 +73,7 @@ button:not(.nav-toggle) {
     border-radius: inherit;
     opacity: 0;
     z-index: -1;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-default);
     background-size: 300% 300%;
     animation: gradient-shift 3s ease infinite;
 }

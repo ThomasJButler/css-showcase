@@ -98,6 +98,7 @@
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-default: 0.3s ease;
     
     /* Z-index */
     --z-dropdown: 1000;
@@ -346,7 +347,7 @@ a:hover {
     z-index: 998;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity var(--transition-default), visibility var(--transition-default);
 }
 
 .nav-backdrop.active {
@@ -771,7 +772,7 @@ a:hover {
         opacity: 0;
         visibility: hidden;
         transform: translateX(100%);
-        transition: all 0.3s ease;
+        transition: all var(--transition-default);
         overflow-y: auto;
         z-index: 999;
     }

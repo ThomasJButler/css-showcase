@@ -254,7 +254,7 @@
     height: 2px;
     background: var(--colour-text);
     border-radius: 2px;
-    transition: all 0.3s ease;
+    transition: all var(--transition-default);
 }
 
 /* Hamburger animation when open */
@@ -282,7 +282,7 @@
     backdrop-filter: blur(4px);
     z-index: 1;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-default);
 }
 
 .sidebar-backdrop.active {
@@ -375,7 +375,7 @@
     .sidebar.active ~ header .logo {
         opacity: 0 !important;
         pointer-events: none;
-        transition: opacity 0.3s ease;
+        transition: opacity var(--transition-default);
     }
 }
 
@@ -512,7 +512,7 @@
     border-radius: 50%;
     border: 3px solid transparent;
     border-top-color: var(--colour-accent);
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-default);
     transform: rotate(calc(var(--scroll-progress, 0) * 360deg));
 }
 
