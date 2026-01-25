@@ -767,8 +767,15 @@ These should NOT be merged - they enable page-specific lazy loading:
 - Note: All code text meets WCAG 2.1 AA after Phase 3 font size fixes
 
 ### Task 7.4: Final Screenshots
-**Status:** PENDING
+**Status:** REQUIRES MANUAL EXECUTION
 **Action:** Run `node visual-test.js` to capture final state after all fixes
+
+**Prerequisites:**
+1. Start local server: `python3 -m http.server 8080`
+2. Ensure Playwright browsers installed: `npx playwright install chromium`
+3. Run: `node visual-test.js`
+
+**Note:** This task requires a local environment with browser access. Cannot be automated in containerised CI environments due to Playwright browser binary requirements.
 
 ---
 
