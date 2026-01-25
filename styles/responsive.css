@@ -55,3 +55,46 @@
         color: white;
     }
 }
+
+/* ==========================================
+   DARK MODE
+   ========================================== */
+[data-theme="dark"] {
+    .responsive-container {
+        background-color: var(--colour-surface);
+        box-shadow: var(--shadow-md);
+    }
+
+    .responsive-container:hover {
+        box-shadow: var(--shadow-lg);
+    }
+
+    .responsive-item {
+        background-color: #3b82f6;
+        box-shadow: var(--shadow-md);
+    }
+
+    .media-query-example {
+        background-color: var(--colour-surface);
+        color: var(--colour-text);
+        box-shadow: var(--shadow-md);
+    }
+}
+
+@media (max-width: 800px) {
+    [data-theme="dark"] .media-query-example {
+        background-color: #3b82f6;
+        color: white;
+    }
+}
+
+@media (max-width: 600px) {
+    [data-theme="dark"] .responsive-item {
+        background-color: #ef4444;
+    }
+
+    [data-theme="dark"] .media-query-example {
+        background-color: #ef4444;
+        color: white;
+    }
+}
