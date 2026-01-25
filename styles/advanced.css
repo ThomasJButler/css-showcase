@@ -58,3 +58,54 @@
     padding: 2px 5px;
     border-radius: 5px;
 }
+
+/* ==========================================
+   DARK MODE
+   ========================================== */
+[data-theme="dark"] {
+    /* Pseudo-element examples - brighten colours for dark backgrounds */
+    .pseudo-example p::after {
+        color: #f87171; /* Brighter red */
+    }
+
+    .pseudo-hover:hover {
+        color: #60a5fa; /* Brighter blue */
+    }
+
+    .advanced-pseudo-example p::before {
+        color: #34d399; /* Brighter green */
+    }
+
+    .advanced-pseudo-hover:hover {
+        color: #f87171;
+        background-color: #fbbf24;
+    }
+
+    /* Complex selector examples */
+    .complex-example span:first-child {
+        color: #60a5fa;
+    }
+
+    .complex-example span + span {
+        color: #f87171;
+    }
+
+    .complex-sibling:hover ~ .complex-sibling {
+        color: #34d399;
+    }
+
+    .advanced-complex-example span:first-child {
+        color: #a78bfa; /* Brighter purple */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .advanced-complex-example span + span {
+        color: #fb923c; /* Brighter orange */
+        background-color: #334155;
+    }
+
+    .advanced-complex-sibling:hover ~ .advanced-complex-sibling {
+        color: #f87171;
+        background-color: #3b82f6;
+    }
+}

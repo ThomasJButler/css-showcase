@@ -497,13 +497,56 @@
         width: 100%;
         max-width: 300px;
     }
-    
+
     .border-examples,
     .shadow-examples {
         grid-template-columns: 1fr;
     }
-    
+
     .playground-wrapper {
         padding: 1.5rem;
+    }
+}
+
+/* ==========================================
+   DARK MODE
+   Layer visualisation colours adjusted for dark backgrounds
+   ========================================== */
+[data-theme="dark"] {
+    .margin-layer {
+        background: rgba(251, 191, 36, 0.15);
+        border-color: rgba(251, 191, 36, 0.6);
+    }
+
+    .border-layer {
+        background: rgba(239, 68, 68, 0.15);
+        border-color: rgba(239, 68, 68, 0.8);
+    }
+
+    .padding-layer {
+        background: rgba(52, 211, 153, 0.15);
+        border-color: rgba(52, 211, 153, 0.6);
+    }
+
+    /* Shadow examples - adjust for dark backgrounds */
+    .shadow-demo.basic-shadow {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .shadow-demo.inset-shadow {
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .shadow-demo.multiple-shadows {
+        box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.2),
+            0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .shadow-demo.glow-effect {
+        box-shadow:
+            0 0 20px rgba(96, 165, 250, 0.5),
+            0 0 40px rgba(96, 165, 250, 0.3);
+        border-color: rgba(96, 165, 250, 0.5);
     }
 }

@@ -758,3 +758,50 @@
     font-family: var(--font-mono);
     font-size: var(--text-sm);
 }
+
+/* ==========================================
+   DARK MODE
+   ========================================== */
+[data-theme="dark"] {
+    /* Editor panels - stronger shadows for dark backgrounds */
+    .editor-panel-left,
+    .editor-panel-right {
+        box-shadow: 4px 0 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .editor-panel-right {
+        box-shadow: -4px 0 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* View switcher shadow */
+    .view-switcher {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Preview frame container */
+    .preview-frame-container {
+        background: var(--colour-surface);
+    }
+
+    .preview-frame {
+        background: var(--colour-background);
+    }
+
+    /* Fullscreen preview background */
+    .fullscreen-preview .preview-frame-container {
+        background: var(--colour-background);
+    }
+
+    /* Focus states */
+    .example-select:focus {
+        box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+    }
+}
+
+/* Mobile warning - dark mode adjustment */
+@media (max-width: 1024px) {
+    [data-theme="dark"] .playground-page::before {
+        background: #d97706;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+}

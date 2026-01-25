@@ -1303,15 +1303,80 @@
     padding: var(--space-6);
     border-radius: var(--radius-xl);
     border: 1px solid var(--colour-border);
-    
+
     h3 {
         margin-bottom: var(--space-4);
         color: var(--colour-text);
     }
-    
+
     pre {
         margin: 0;
         background: var(--colour-surface-alt);
         border-radius: var(--radius-lg);
+    }
+}
+
+/* ==========================================
+   DARK MODE
+   Adjust overlay opacities and shadows for dark backgrounds
+   ========================================== */
+[data-theme="dark"] {
+    /* Feature hero - enhance decorative gradients */
+    .feature-hero::before {
+        background:
+            radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    }
+
+    .feature-badge {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .feature-title {
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Browser support badges - slightly more opaque */
+    .support-badge {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .support-badge.chrome { background: rgba(96, 165, 250, 0.25); }
+    .support-badge.firefox { background: rgba(251, 146, 60, 0.25); }
+    .support-badge.safari { background: rgba(56, 189, 248, 0.25); }
+    .support-badge.edge { background: rgba(59, 130, 246, 0.25); }
+
+    /* Comparison cards - adjust overlay backgrounds for dark mode */
+    .comparison-card.old-way::before {
+        background: rgba(239, 68, 68, 0.1);
+    }
+
+    .comparison-card.new-way::before {
+        background: rgba(52, 211, 153, 0.1);
+    }
+
+    /* Form focus states */
+    .form-field input:focus {
+        box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+    }
+
+    /* Product cards with badges - enhanced overlays */
+    .product-card:has(.badge.new) {
+        background: linear-gradient(135deg, rgba(52, 211, 153, 0.1) 0%, transparent 50%);
+    }
+
+    .product-card:has(.badge.sale) {
+        background: linear-gradient(135deg, rgba(248, 113, 113, 0.1) 0%, transparent 50%);
+    }
+
+    /* Blog articles with media */
+    .blog-article:has(video) {
+        background: linear-gradient(135deg, rgba(167, 139, 250, 0.1) 0%, transparent 50%);
+    }
+
+    .blog-article:has(img) {
+        background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
     }
 }
