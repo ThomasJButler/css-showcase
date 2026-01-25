@@ -608,19 +608,23 @@ These should NOT be merged - they enable page-specific lazy loading:
 ## Phase 6: New Content Pages
 
 ### Task 6.1: Create CSS Tools Page
-**Status:** PENDING
-**File:** Create `tools.html`
-**Template:** Use `cards.html` as reference (703 lines)
-**Content:** Curated resource cards (Chrome DevTools, Tailwind, Bootstrap, Sass, Stylelint, CSS-Tricks)
-**Card Style:** Use `.card-feature` class from cards.css (gradient borders, icon + text)
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026
+**File:** Created `tools.html`
+**Template:** Used `cards.html` as reference
 
-**Page structure:**
-1. Standard stylesheet imports (main.css, accessibility.css, etc.)
-2. Sidebar skeleton + component placeholders
-3. Skip link, breadcrumb navigation
-4. Page hero section (h1 + subtitle)
-5. Resource cards in 3-column grid: `grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))`
-6. Footer + script includes
+**Content sections:**
+1. Browser Developer Tools (Chrome DevTools, Firefox DevTools, Safari Web Inspector)
+2. CSS Preprocessors (Sass, PostCSS, Lightning CSS)
+3. Linters & Formatters (Stylelint, Prettier, W3C CSS Validator)
+4. Learning Resources (CSS-Tricks, MDN Web Docs, web.dev)
+5. CSS Generators (CSS Gradient, cubic-bezier.com, Smooth Shadows)
+
+**Implementation:**
+- Uses `.card-feature` class from cards.css (gradient borders, icon + text)
+- 3-column responsive grid using `.card-grid`
+- Standard page structure: sidebar skeleton, breadcrumb, hero section, footer
+- All external links use `target="_blank" rel="noopener noreferrer"`
 
 ### Task 6.2: Create Frameworks Page
 **Status:** PENDING
@@ -767,9 +771,9 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 | Phase 3: Code Box Polish | COMPLETE ✓ | 5 | 5 |
 | Phase 4: Advanced CSS | COMPLETE ✓ | 3 | 3 |
 | Phase 5: File Consolidation | COMPLETE ✓ | 7 | 7 |
-| Phase 6: New Content | PENDING | 3 | 1 |
+| Phase 6: New Content | PENDING | 3 | 2 |
 | Phase 7: Final Polish | PENDING | 4 | 0 |
-| **TOTAL** | | **34** | **28** |
+| **TOTAL** | | **34** | **29** |
 
 **Notes:**
 - Task 4.1 (View Transitions) completed 25 January 2026
@@ -782,6 +786,7 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 - Task 5.4 (Code CSS Merge) completed 25 January 2026
 - Task 5.5 (HTML Import Update) completed 25 January 2026
 - Task 5.6 (Code Comments) completed 25 January 2026
+- Task 6.1 (CSS Tools Page) completed 25 January 2026
 - Task 6.3 marked complete (sidebar Resources section verified)
 - **Phase 5 (File Consolidation) COMPLETE** - 37 → 6 core CSS files
 - Phase 4-7 research completed 25 January 2026 with refined findings
