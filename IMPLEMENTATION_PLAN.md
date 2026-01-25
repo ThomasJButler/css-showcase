@@ -1,6 +1,465 @@
 # Implementation Plan for CSS Showcase Portfolio
 
+
+### Important: Please see recent changes in docs/visual-testing/screenshots
+
+### Important: I have just ran the visual-test.js script with 'node visual-test.js' and it takes new screenshots into this folder using playwright. 
+
+### Important: See the images, and we will make visual changes based off these images until we get it perfect. Currently there is mismatch everywhere, and some code boxes are too narrow, the header is too big, the theme toggle button is uneven with the mobile navigation, the sidebar and header nav are weird, we can make so many improvements until we get a finished, polished article.
+
+We will iterate with the ralph loop.  See below action points:
+
 *Comprehensive analysis and prioritised action items*
+
+---
+
+## FIFTH VERIFICATION PASS (25 January 2026)
+
+### Executive Summary - Fifth Pass
+
+A comprehensive research verification on 25 January 2026 using multiple parallel Sonnet subagents revealed **8 remaining issues** that required attention. These findings were verified against the actual codebase and expand upon the Fourth Pass findings. **5 of the 8 critical issues have now been successfully resolved.**
+
+**Fifth Pass Discovery & Resolution:**
+- **Previous Status**: Claimed TRUE 100% complete (21/21 items)
+- **New Issues Found**: 8 issues discovered requiring action (2 CRITICAL, 1 HIGH, 3 MEDIUM, 2 LOW)
+- **Resolved Issues**: 5 items completed (2 CRITICAL, 1 HIGH, 1 MEDIUM, 1 LOW)
+- **Current Status**: 26/29 items complete (90%)
+- **Estimated Remaining Effort**: ~1 hour
+
+### Findings Overview
+
+| Priority | Issue | Location | Description | Verified |
+|----------|-------|----------|-------------|----------|
+| CRITICAL | Broken anchor links | index.html | 2 navigation links (`#visual-effects`, `#components`) point to non-existent sections | ✅ COMPLETED |
+| CRITICAL | Empty section | index.html | "Advanced Techniques" section has header but zero content cards | ✅ COMPLETED |
+| HIGH | Sidebar inconsistencies | 9 HTML files | Missing pages, duplicate links, incorrect section placement | ✅ COMPLETED |
+| MEDIUM | Label inconsistency | index.html | Uses "New Colour Spaces" vs "Colour Spaces" in other files | ✅ COMPLETED |
+| MEDIUM | Missing 375px breakpoint | CSS files | No dedicated breakpoint for very small mobile devices | ⏳ Pending |
+| MEDIUM | HTML indentation | Multiple files | Inconsistent indentation in sidebar sections | ⏳ Pending |
+| LOW | Missing CSS variables | main.css | `--colour-success-dark` and `--colour-error-dark` not defined but referenced 4 times | ✅ COMPLETED |
+| LOW | Hardcoded transitions | 21 CSS files | Uses hardcoded `0.3s ease` instead of CSS variable | ⏳ Pending |
+
+### Issue Details
+
+#### ISSUE #1: Broken Navigation Links on Homepage (CRITICAL)
+**Status**: COMPLETED
+**File**: `/Users/tombutler/Repos/css-showcase/index.html`
+**Impact**: Users clicking navigation links experience broken anchor behaviour
+
+**Problem:**
+The header navigation contains anchor links that do not correspond to any section IDs on the page:
+- `href="#visual-effects"` (Line 235) - No `id="visual-effects"` section exists
+- `href="#components"` (Lines 238, 263) - No `id="components"` section exists
+
+**Existing Sections with IDs:**
+- `id="fundamentals"` - EXISTS and has content (1 card)
+- `id="about"` - EXISTS and has content
+- `id="layout"` - EXISTS and has content (2 cards)
+- `id="advanced"` - EXISTS but is EMPTY (0 cards)
+- `id="modern-css"` - EXISTS and has content (1 card)
+- `id="main"` - EXISTS (skip link target)
+
+**Required Fix:**
+Either:
+1. Add the missing `id="visual-effects"` and `id="components"` sections with appropriate content, OR
+2. Update the navigation links to point to existing sections, OR
+3. Remove the navigation links that have no corresponding sections
+
+---
+
+#### ISSUE #2: Empty "Advanced Techniques" Section (HIGH)
+**Status**: COMPLETED
+**File**: `/Users/tombutler/Repos/css-showcase/index.html`
+**Lines**: 326-333
+**Impact**: Users see an empty section with a header but no content
+
+**Problem:**
+The "Advanced Techniques" section has a header and subtitle but contains ZERO showcase cards:
+
+```html
+<section id="advanced" class="showcase-section">
+    <div class="container">
+        <h2 class="section-title">Advanced Techniques</h2>
+        <p class="section-subtitle">Push CSS to its absolute limits</p>
+        <div class="showcase-grid">
+        </div>  <!-- EMPTY - no cards -->
+    </div>
+</section>
+```
+
+**Required Fix:**
+Either:
+1. Add appropriate content cards to the section (e.g., links to advanced.html, custom-properties.html, blend-modes.html, shapes-clips.html), OR
+2. Remove the empty section entirely if not needed
+
+---
+
+#### ISSUE #3: Sidebar Navigation Inconsistencies Across 9 Pages (HIGH)
+**Status**: COMPLETED
+**Impact**: 9 pages have incomplete or incorrect sidebar navigation
+**Verified**: ✅ YES (25 January 2026 - Fifth Pass)
+
+**Files Affected:**
+1. `/Users/tombutler/Repos/css-showcase/advanced.html` - Advanced section incomplete
+2. `/Users/tombutler/Repos/css-showcase/blend-modes.html` - Missing shapes-clips.html from Advanced
+3. `/Users/tombutler/Repos/css-showcase/custom-properties.html` - Missing blend-modes.html, shapes-clips.html from Advanced
+4. `/Users/tombutler/Repos/css-showcase/flexbox-patterns.html` - Advanced section has only 1 item (missing 3)
+5. `/Users/tombutler/Repos/css-showcase/gradient-patterns.html` - Multiple issues (see below)
+6. `/Users/tombutler/Repos/css-showcase/layout.html` - Advanced section has only 1 item (missing 3)
+7. `/Users/tombutler/Repos/css-showcase/responsive.html` - Advanced section has only 1 item (missing 3)
+8. `/Users/tombutler/Repos/css-showcase/shapes-clips.html` - Reference canonical (correct structure)
+9. `/Users/tombutler/Repos/css-showcase/transitions.html` - Advanced section has only 1 item (missing 3)
+
+**gradient-patterns.html Specific Issues:**
+1. **DUPLICATE link**: "Gradient Patterns" appears twice in Visual Effects section (lines 104-107)
+2. **Incorrect placement**: filters.html is in Components section (should be in Visual Effects)
+3. **Missing from Advanced section**: custom-properties.html, blend-modes.html, shapes-clips.html
+4. **Missing from Modern CSS section**: anchor-positioning.html
+
+**Category A - Missing anchor-positioning.html from Modern CSS (9 pages):**
+All 9 listed files are missing anchor-positioning.html from their Modern CSS sidebar section.
+
+**Category B - Missing Advanced section pages (6 pages):**
+advanced.html, flexbox-patterns.html, gradient-patterns.html, layout.html, responsive.html, transitions.html are missing custom-properties.html, blend-modes.html, and shapes-clips.html from Advanced section.
+
+**Canonical Sidebar Structure (from basic.html/shapes-clips.html):**
+```
+- Fundamentals: Basic CSS, Box Model, Typography
+- Layout: Flexbox, Flexbox Patterns, Grid, Layout Techniques, Responsive Design
+- Visual Effects: Gradients, Gradient Patterns, Transitions, Animations, Filters & Effects
+- Components: Buttons, Forms, Tables, Cards, Icons
+- Advanced: Advanced CSS, Custom Properties, Blend Modes, Shapes & Clips
+- Modern CSS: :has() Selector, Container Queries, CSS Nesting, Anchor Positioning, Scroll Animations, Colour Spaces
+- Playground: CSS Playground
+```
+
+**Required Fix:**
+Update all 9 affected pages to match the canonical sidebar structure.
+
+---
+
+### Successfully Verified Items (No Action Needed)
+
+The following items were verified as complete during this research pass:
+
+| Item | Status | Details |
+|------|--------|---------|
+| Footer coverage | ✅ COMPLETE | All 30 content pages have enhanced multi-section footer (100% coverage) |
+| Height targets | ✅ COMPLETE | grid.html at 5,858px (under 6,000px), index.html mobile at 3,983px (under 4,000px) |
+| Page merges | ✅ COMPLETE | animations-advanced.html and tables-advanced.html correctly deleted |
+| Language | ✅ COMPLETE | All pages have UK English (en-GB) |
+| External links | ✅ COMPLETE | GitHub and Portfolio links work correctly |
+| Placeholder text | ✅ COMPLETE | No "coming soon" placeholder text found |
+| Search functionality | ✅ COMPLETE | Working with Cmd/Ctrl+K shortcut |
+
+### Not an Issue
+
+- The `href="#internal"` link in basic.html (Line 366) is **INTENTIONAL** - it's an educational demo showing CSS attribute selectors
+
+---
+
+### Prioritised Action List - Fifth Pass (25 January 2026)
+
+This is the comprehensive, verified list of all pending work items based on extensive subagent research. Items are sorted by priority and include specific file paths and line numbers.
+
+**Fifth Pass Discovery Summary - UPDATE:**
+- **Previous Status**: Claimed TRUE 100% complete (21/21 items)
+- **New Issues Found**: 8 issues discovered through deep subagent research (2 CRITICAL, 1 HIGH, 3 MEDIUM, 2 LOW)
+- **Resolved Status**: 5/8 issues now completed (2 CRITICAL, 1 HIGH, 1 MEDIUM, 1 LOW)
+- **Current Status**: 26/29 items complete (90%)
+- **Verified Issues**: 5/8 confirmed through code analysis and resolved
+- **Estimated Work Remaining**: ~1 hour
+
+---
+
+## CRITICAL Priority (Must Fix for Portfolio-Ready Status)
+
+### CRITICAL #1: Fix Broken Navigation Anchor Links in index.html
+**Status**: COMPLETED
+**Effort**: ~30 minutes
+**File**: `/Users/tombutler/Repos/css-showcase/index.html`
+**Lines**: 235, 238, 263
+
+**Problem:**
+The header navigation and hero CTA contain anchor links pointing to non-existent section IDs:
+- Line 235: `href="#visual-effects"` - No section with `id="visual-effects"` exists
+- Line 238: `href="#components"` - No section with `id="components"` exists
+- Line 263: `href="#components"` (hero CTA button) - Same issue
+
+**Existing sections with IDs (verified):**
+- `id="fundamentals"` - EXISTS with 1 card (Basic CSS)
+- `id="about"` - EXISTS with content
+- `id="layout"` - EXISTS with 2 cards (Flexbox, CSS Grid)
+- `id="advanced"` - EXISTS but EMPTY (see CRITICAL #2)
+- `id="modern-css"` - EXISTS with 1 card (:has() Selector)
+- `id="main"` - EXISTS (skip link target)
+
+**Required Fix (choose one approach):**
+1. **Option A (Recommended)**: Update navigation to match existing sections only:
+   - Remove `href="#visual-effects"` link (line 235)
+   - Update `href="#components"` links to point to a valid section or remove them (lines 238, 263)
+2. **Option B**: Add the missing sections with appropriate content cards
+3. **Option C**: Remove the broken navigation links entirely
+
+---
+
+### CRITICAL #2: Resolve Empty "Advanced Techniques" Section in index.html
+**Status**: COMPLETED
+**Effort**: ~20 minutes
+**File**: `/Users/tombutler/Repos/css-showcase/index.html`
+**Lines**: 326-333
+
+**Problem:**
+The "Advanced Techniques" section exists with a header and subtitle but contains ZERO showcase cards:
+
+```html
+<section id="advanced" class="showcase-section">
+    <div class="container">
+        <h2 class="section-title">Advanced Techniques</h2>
+        <p class="section-subtitle">Push CSS to its absolute limits</p>
+        <div class="showcase-grid">
+        </div>  <!-- EMPTY - no cards -->
+    </div>
+</section>
+```
+
+**Required Fix (choose one approach):**
+1. **Option A (Recommended)**: Add 1-2 content cards linking to key advanced pages:
+   - advanced.html (Advanced CSS)
+   - custom-properties.html (Custom Properties)
+   - Note: Keep minimal to maintain height targets
+2. **Option B**: Remove the empty section entirely and update navigation
+
+---
+
+## HIGH Priority (Important for Consistency)
+
+### HIGH #1: Fix Sidebar Navigation Inconsistencies Across Multiple Pages
+**Status**: COMPLETED
+**Impact**: 9 pages have incomplete or incorrect sidebar navigation
+
+**Problem Summary:**
+Multiple HTML files have sidebars that do not match the canonical structure (as defined in basic.html, index.html). The issues fall into three categories:
+
+**Category A - Missing anchor-positioning.html from Modern CSS section (9 pages):**
+- `/Users/tombutler/Repos/css-showcase/advanced.html`
+- `/Users/tombutler/Repos/css-showcase/blend-modes.html`
+- `/Users/tombutler/Repos/css-showcase/custom-properties.html`
+- `/Users/tombutler/Repos/css-showcase/flexbox-patterns.html`
+- `/Users/tombutler/Repos/css-showcase/gradient-patterns.html`
+- `/Users/tombutler/Repos/css-showcase/layout.html`
+- `/Users/tombutler/Repos/css-showcase/responsive.html`
+- `/Users/tombutler/Repos/css-showcase/shapes-clips.html`
+- `/Users/tombutler/Repos/css-showcase/transitions.html`
+
+**Category B - Missing Advanced section pages (6 pages):**
+The following pages are missing custom-properties.html, blend-modes.html, and shapes-clips.html from their Advanced sidebar section:
+- `/Users/tombutler/Repos/css-showcase/advanced.html` (lines 144-155)
+- `/Users/tombutler/Repos/css-showcase/flexbox-patterns.html`
+- `/Users/tombutler/Repos/css-showcase/gradient-patterns.html` (lines 146-157)
+- `/Users/tombutler/Repos/css-showcase/layout.html`
+- `/Users/tombutler/Repos/css-showcase/responsive.html`
+- `/Users/tombutler/Repos/css-showcase/transitions.html`
+
+**Category C - gradient-patterns.html specific issues:**
+- `/Users/tombutler/Repos/css-showcase/gradient-patterns.html`
+- Lines 103-108: Duplicate "Gradient Patterns" link in Visual Effects section
+- Lines 140-143: filters.html incorrectly placed in Components section (should be in Visual Effects)
+
+**Required Fix:**
+Update all 9 affected pages to match the canonical sidebar structure from basic.html (lines 27-202) or index.html (lines 33-208).
+
+**Canonical Sidebar Structure:**
+```
+- Fundamentals: Basic CSS, Box Model, Typography
+- Layout: Flexbox, Flexbox Patterns, Grid, Layout Techniques, Responsive Design
+- Visual Effects: Gradients, Gradient Patterns, Transitions, Animations, Filters & Effects
+- Components: Buttons, Forms, Tables, Cards, Icons
+- Advanced: Advanced CSS, Custom Properties, Blend Modes, Shapes & Clips
+- Modern CSS: :has() Selector, Container Queries, CSS Nesting, Anchor Positioning, Scroll Animations, Colour Spaces
+- Playground: CSS Playground
+```
+
+---
+
+## MEDIUM Priority
+
+### MEDIUM #1: Fix Label Inconsistency for Colour Spaces Page
+**Status**: COMPLETED
+**Verified**: ✅ YES (25 January 2026 - Fifth Pass)
+**File**: `/Users/tombutler/Repos/css-showcase/index.html`
+**Line**: 182
+
+**Problem:**
+index.html uses "New Colour Spaces" while all other 30 pages use "Colour Spaces" in their sidebar navigation.
+
+**Evidence (verified by subagent):**
+- index.html line 182: `<a href="color-spaces.html" class="sidebar-nav-link">New Colour Spaces</a>`
+- basic.html line 176: `<a href="color-spaces.html" class="sidebar-nav-link">Colour Spaces</a>`
+- advanced.html line 177: `<a href="color-spaces.html" class="sidebar-nav-link">Colour Spaces</a>`
+- flexbox.html line 176: `<a href="color-spaces.html" class="sidebar-nav-link">Colour Spaces</a>`
+- All other files: Use "Colour Spaces" (without "New")
+
+**Required Fix:**
+Change line 182 in index.html from "New Colour Spaces" to "Colour Spaces" for consistency.
+
+---
+
+### MEDIUM #2: Add 375px Mobile Breakpoint for Very Small Devices
+**Status**: PENDING
+**Files**: `/Users/tombutler/Repos/css-showcase/styles/main.css`, `/Users/tombutler/Repos/css-showcase/styles/improvements.css`
+
+**Problem:**
+The site uses 768px and 480px breakpoints but lacks a dedicated 375px breakpoint for very small mobile devices (iPhone SE, older Android devices).
+
+**Current Breakpoints:**
+- 768px (primary mobile/tablet)
+- 480px (secondary mobile)
+- No 375px breakpoint
+
+**Required Fix:**
+Add `@media (max-width: 375px)` rules for:
+- Reducing font sizes further
+- Adjusting padding/margins
+- Ensuring no horizontal overflow on very small screens
+
+---
+
+### MEDIUM #3: Fix HTML Indentation Inconsistencies in Sidebar Navigation
+**Status**: PENDING
+**Impact**: Multiple files have inconsistent indentation in sidebar sections
+
+**Problem:**
+Several HTML files have inconsistent indentation within their sidebar navigation sections, making the code harder to maintain and review.
+
+**Examples identified:**
+- basic.html lines 91-93: Inconsistent indent for Gradient Patterns list item
+- Various other files have similar issues within sidebar sections
+
+**Required Fix:**
+Normalise indentation across all 31 HTML files to use consistent 4-space indentation within sidebar sections.
+
+---
+
+## LOW Priority
+
+### LOW #1: Define Missing CSS Variables for Success/Error Dark Variants
+**Status**: COMPLETED
+**Verified**: ✅ YES (25 January 2026 - Fifth Pass)
+**Files affected**:
+- `/Users/tombutler/Repos/css-showcase/styles/main.css` - Variables NOT defined in :root
+- `/Users/tombutler/Repos/css-showcase/styles/tables.css` (lines 111, 126) - References variables
+- `/Users/tombutler/Repos/css-showcase/styles/buttons.css` (lines 145, 167) - References variables
+
+**Problem (verified by subagent):**
+Two CSS variables are referenced but never defined:
+- `--colour-success-dark` - NOT defined anywhere
+- `--colour-error-dark` - NOT defined anywhere
+
+main.css defines `--colour-success: #10b981` and `--colour-error: #ef4444` but NOT the dark variants.
+
+**Current usage (4 broken references):**
+```css
+/* tables.css line 111 */
+.badge-success { color: var(--colour-success-dark); }
+/* tables.css line 126 */
+.badge-error { color: var(--colour-error-dark); }
+/* buttons.css line 145 */
+.btn-slide-down::before { background: var(--colour-success-dark); }
+/* buttons.css line 167 */
+.btn-slide-diagonal::before { background: var(--colour-error-dark); }
+```
+
+**Impact**: Affected CSS rules fall back to undefined values, causing visual inconsistencies in badge colours and button hover effects.
+
+**Required Fix:**
+Add variable definitions to `/Users/tombutler/Repos/css-showcase/styles/main.css` in the `:root` section:
+```css
+--colour-success-dark: #16a34a; /* or appropriate dark green */
+--colour-error-dark: #dc2626; /* or appropriate dark red */
+```
+
+---
+
+### LOW #2: Replace Hardcoded Transitions with CSS Variables
+**Status**: PENDING
+**Impact**: 21 CSS files contain hardcoded `0.3s ease` transitions
+
+**Problem:**
+Many files use hardcoded `transition: 0.3s ease` or `transition: all 0.3s ease` instead of a CSS variable, making global timing adjustments difficult.
+
+**Files affected (21 files):**
+- styles/improvements.css
+- styles/main.css
+- styles/color-spaces.css
+- styles/micro-interactions.css
+- styles/cards.css
+- styles/transitions.css
+- styles/typography.css
+- styles/modern-features.css
+- styles/responsive-page.css
+- styles/scroll-animations.css
+- styles/shapes-clips.css
+- styles/sidebar.css
+- styles/filters.css
+- styles/flexbox.css
+- styles/forms.css
+- styles/layout.css
+- styles/anchor-positioning.css
+- styles/blend-modes.css
+- styles/box-model.css
+- styles/custom-properties.css
+- styles/advanced-page.css
+
+**Required Fix:**
+1. Define a transition variable in main.css: `--transition-default: 0.3s ease;`
+2. Replace hardcoded values with `var(--transition-default)` across all files
+
+**Note:** This is a low priority enhancement for maintainability, not a bug fix.
+
+---
+
+## Summary
+
+| Priority | Issue | Files Affected | Estimated Effort | Verified |
+|----------|-------|----------------|------------------|----------|
+| CRITICAL | Broken anchor links in index.html | 1 file | 15 minutes | ✅ YES |
+| CRITICAL | Empty Advanced section in index.html | 1 file | 20 minutes | ✅ YES |
+| HIGH | Sidebar navigation inconsistencies | 9 files | 45 minutes | ✅ YES |
+| MEDIUM | Label inconsistency (Colour Spaces) | 1 file | 5 minutes | ✅ YES |
+| MEDIUM | Missing 375px breakpoint | 2 files | 30 minutes | ⏳ Pending |
+| MEDIUM | HTML indentation inconsistencies | Multiple files | 30 minutes | ⏳ Pending |
+| LOW | Missing CSS variables | 3 files | 10 minutes | ✅ YES |
+| LOW | Hardcoded transitions | 21 files | 60 minutes | ⏳ Pending |
+
+**Total Pending Items:** 8
+**Verified Items:** 5/8 (63%)
+**Estimated Total Effort:** ~3.5 hours
+
+---
+
+### Updated Completion Status (Fifth Pass - 25 January 2026)
+
+**Before Fifth Pass:**
+- Claimed: TRUE 100% complete (21/21 items)
+- Previous verification claimed portfolio-ready at 10/10 quality
+
+**After Fifth Pass (expanded scope with deep subagent verification):**
+- Total items: 29 (21 original + 8 newly identified issues)
+- Complete: 21/29 (72%)
+- Pending: 8/29 (28%)
+- Verified pending issues: 5/8 confirmed through code analysis
+
+**Breakdown:**
+- Original UX/Visual items: 21/21 Complete
+- Fourth Pass Issues (navigation/content): 0/3 Pending
+- Fifth Pass Issues (sidebar consistency, CSS variables, etc.): 0/5 Pending
+
+**Pending Items by Priority:**
+- CRITICAL: 2 items (broken anchor links, empty section)
+- HIGH: 1 item (sidebar inconsistencies across 9 pages)
+- MEDIUM: 3 items (label inconsistency, 375px breakpoint, HTML indentation)
+- LOW: 2 items (missing CSS variables, hardcoded transitions)
 
 ---
 
