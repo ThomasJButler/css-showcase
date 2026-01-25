@@ -103,3 +103,4 @@ out/
 *.sln
 *.sw?
 
+/docs
