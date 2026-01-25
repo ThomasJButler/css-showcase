@@ -177,18 +177,14 @@ document.addEventListener('DOMContentLoaded', () => new ComponentLoader().init()
 ```
 
 ### Task 2.6: Update All 30 HTML Files
-**Status:** PENDING
-**Action:** Replace inline sidebar/header with placeholders
-
-```html
-<!-- Replace ~190 lines of sidebar HTML with: -->
-<div class="sidebar-skeleton" aria-hidden="true">
-  <div class="skeleton-logo"></div>
-  <div class="skeleton-nav"></div>
-</div>
-<header id="header"></header>
-<aside class="sidebar" id="sidebar"></aside>
-```
+**Status:** COMPLETE ✓
+**Action:** Replaced inline sidebar/header with component placeholders in all 30 HTML files
+**Changes:**
+- All pages now use `<header class="site-header" id="header"></header>`
+- All pages now use `<aside class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation"></aside>`
+- All pages include `<div class="sidebar-skeleton" aria-hidden="true"></div>` for loading state
+- All pages include `<script src="scripts/component-loader.js"></script>` before other scripts
+- Removed ~5,700 lines of duplicated sidebar HTML across all pages
 
 ### Task 2.7: Unify Scroll Management
 **Status:** PENDING
@@ -579,13 +575,13 @@ main {
 |-------|--------|-------|----------|
 | Phase 0: Housekeeping | COMPLETE ✓ | 2 | 2 |
 | Phase 1: CSS Architecture | COMPLETE ✓ | 2 | 2 |
-| Phase 2: Header & Sidebar | PENDING | 8 | 0 |
+| Phase 2: Header & Sidebar | IN PROGRESS | 8 | 6 |
 | Phase 3: Code Box Polish | PENDING | 5 | 0 |
 | Phase 4: Advanced CSS | PENDING | 3 | 0 |
 | Phase 5: File Consolidation | PENDING | 6 | 0 |
 | Phase 6: New Content | PENDING | 3 | 0 |
 | Phase 7: Final Polish | PENDING | 4 | 0 |
-| **TOTAL** | | **33** | **0** |
+| **TOTAL** | | **33** | **10** |
 
 ---
 
