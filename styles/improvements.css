@@ -820,6 +820,50 @@ html {
     }
 }
 
+/* ============================================
+   Scroll Progress Indicator
+   Uses scroll-driven animations (CSS-only)
+   ============================================ */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: var(--z-sticky);
+}
+
+[data-theme="dark"] .progress-container {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, var(--colour-primary), var(--colour-secondary));
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: scroll-progress linear;
+    animation-timeline: scroll(root);
+}
+
+@keyframes scroll-progress {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* Fallback for browsers without scroll-driven animations */
+@supports not (animation-timeline: scroll()) {
+    .progress-bar {
+        animation: none;
+        transform: scaleX(0);
+    }
+}
+
 /* Print Styles */
 @media print {
     .site-header,
@@ -827,7 +871,8 @@ html {
     .nav-backdrop,
     .theme-toggle,
     .search-trigger,
-    .copy-button {
+    .copy-button,
+    .progress-container {
         display: none !important;
     }
     

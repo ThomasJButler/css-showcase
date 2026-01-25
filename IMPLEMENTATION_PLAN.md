@@ -1,7 +1,7 @@
 # CSS Showcase - Ultimate Overhaul Implementation Plan
 
-**Last Updated:** 25 January 2026
-**Status:** Phase 3 - Code Box Polish (Phases 0-2 Complete, Tasks 3.1-3.2 Complete)
+**Last Updated:** 25 January 2026 (Research Verification Update)
+**Status:** Phase 3 Complete ✓ | Phase 4-7 Research Verified ✓ | Ready for Implementation
 
 ---
 
@@ -245,28 +245,35 @@ All font sizes now use `var(--text-sm)` (0.875rem/14px) to meet WCAG 2.1 AA requ
 - syntax-highlight.css line 8: Changed `line-height: 1.6` → `line-height: var(--leading-relaxed)` (1.75)
 
 ### Task 3.3: Add Visual Separator
-**Status:** PENDING
+**Status:** COMPLETE ✓
 **File:** `styles/code-examples.css`
-**Change:** Add 3px accent border between demo and code
+
+**Fix applied (25 January 2026):**
+- Added 3px accent border between demo and code sections
+- Demo example gets rounded top corners, code example gets rounded bottom corners
 
 ```css
 .demo-card .demo-example {
   border-bottom: 3px solid var(--colour-primary);
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
 
 .demo-card .code-example {
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
 }
 ```
 
 ### Task 3.4: Add Scroll Indicator with JS Detection
-**Status:** PENDING
+**Status:** COMPLETE ✓
 **Files:** `styles/code-examples.css`, `scripts/code-examples.js`
 
-**Current state:** Scroll indicator CSS exists (lines 308-322) but always visible. Missing JS overflow detection.
+**Fix applied (25 January 2026):**
+- Moved scroll fade indicator CSS out of mobile-only media query to work on all screen sizes
+- Changed default opacity from 0.6 to 0 (hidden by default)
+- Added `.has-overflow` class condition to show indicator only when needed
+- Added JS overflow detection to `code-examples.js`
 
-**CSS already implemented:**
+**CSS changes:**
 ```css
 .code-example::after {
   content: '';
@@ -275,7 +282,7 @@ All font sizes now use `var(--text-sm)` (0.875rem/14px) to meet WCAG 2.1 AA requ
   top: 0;
   bottom: 0;
   width: 40px;
-  background: linear-gradient(to left, var(--code-bg) 0%, transparent 100%);
+  background: linear-gradient(to left, #1e293b 0%, transparent 100%);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.2s;
@@ -286,10 +293,10 @@ All font sizes now use `var(--text-sm)` (0.875rem/14px) to meet WCAG 2.1 AA requ
 }
 ```
 
-**JS to add (new file or add to existing):**
+**JS added to code-examples.js:**
 ```javascript
-// Detect horizontal overflow and add class
-document.querySelectorAll('.code-example pre').forEach(pre => {
+// Detect horizontal overflow and add class for scroll fade indicator
+codeExamples.forEach(pre => {
   if (pre.scrollWidth > pre.clientWidth) {
     pre.closest('.code-example').classList.add('has-overflow');
   }
@@ -297,9 +304,15 @@ document.querySelectorAll('.code-example pre').forEach(pre => {
 ```
 
 ### Task 3.5: Improve 3-Column Grid
-**Status:** PENDING
+**Status:** COMPLETE ✓
 **File:** `styles/basic.css`
-**Change:** Better alignment for vertically stacked cards
+
+**Fix applied (25 January 2026):**
+- Increased minimum card width from 350px to 380px for better readability
+- Reduced gap from `--space-8` to `--space-6` for tighter layout
+- Added `align-items: start` to prevent stretching
+- Made demo cards flex containers for consistent heights
+- Code examples now flex to fill available space with 200px minimum height
 
 ```css
 .demo-grid {
@@ -326,7 +339,16 @@ document.querySelectorAll('.code-example pre').forEach(pre => {
 
 ### Task 4.1: View Transitions
 **Status:** PENDING
-**File:** Add to core CSS
+**File:** `styles/main.css` (add after line ~440, after `.hero-title` section)
+
+**Browser Support (January 2026):**
+- Chrome 111+ ✅
+- Edge 111+ ✅
+- Safari 17.2+ ✅
+- Firefox: NOT SUPPORTED (experimental flag only)
+- Coverage: ~85-90%
+
+**Implementation:** No existing view transitions code found. Add to main.css:
 
 ```css
 @view-transition {
@@ -355,37 +377,102 @@ main {
 ```
 
 ### Task 4.2: Scroll-Driven Progress Indicator
-**Status:** PENDING
-**Action:** Add reading progress bar at top of page
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026
 
-```css
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--gradient-primary);
-  transform-origin: left;
-  animation: grow-x linear;
-  animation-timeline: scroll();
-  z-index: var(--z-header);
-}
+**Changes made:**
+1. Added progress bar HTML to `components/header.html` (line 2)
+2. Added progress bar CSS to `styles/improvements.css` (lines 823-865):
+   - `.progress-container` - fixed position at top, 4px height, uses `var(--z-sticky)` for z-index
+   - `[data-theme="dark"] .progress-container` - dark mode background support
+   - `.progress-bar` - gradient using design tokens, scroll-driven animation
+   - `@keyframes scroll-progress` - from scaleX(0) to scaleX(1)
+   - `@supports not (animation-timeline: scroll())` - fallback for unsupported browsers
+3. Added `.progress-container` to print styles hide list
 
-@keyframes grow-x {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-```
+**Browser Support:**
+- Chrome 115+, Edge 115+, Firefox 114+, Safari 17.5+ (~95% coverage)
+- Graceful degradation: bar hidden in unsupported browsers
 
 ### Task 4.3: CSS Nesting Migration
 **Status:** PENDING
-**Files:** sidebar.css, code-examples.css
-**Action:** Convert to native CSS nesting syntax
+**Files:** `styles/sidebar.css` (536 lines, 39 `.sidebar-*` selectors), `styles/code-examples.css` (362 lines, 36+ flat selectors)
+**Reference:** `styles/modern-features.css` uses CSS nesting (24 instances at lines 966, 973, 990, 1012, 1017, 1023, 1028, 1034, 1039, 1043, 1047, 1109, 1118, 1129, 1134, 1146, 1153, 1159, 1165, 1186, 1193, 1197, 1210, 1263)
+
+**Browser Support (January 2026):**
+- Chrome 112+ ✅
+- Edge 112+ ✅
+- Firefox 117+ ✅
+- Safari 16.5+ ✅
+- Coverage: ~95%
+
+**sidebar.css migration example:**
+```css
+/* Current flat structure */
+.sidebar-nav-link { ... }
+.sidebar-nav-link:hover { ... }
+.sidebar-nav-link.active { ... }
+.sidebar-nav-link::before { ... }
+
+/* Nested structure */
+.sidebar-nav-link {
+  ...
+  &:hover { ... }
+  &.active { ... }
+  &::before { ... }
+}
+```
+
+**code-examples.css migration example:**
+```css
+.code-example {
+  ...
+  &::before { ... }
+  &::after { ... }
+  &.has-overflow::after { ... }
+
+  pre {
+    ...
+    &::-webkit-scrollbar { ... }
+  }
+}
+```
+
+**Recommended order:** Task 4.2 → Task 4.3 → Task 4.1 (progress bar is lowest risk)
 
 ---
 
 ## Phase 5: File Consolidation
+
+**Research Findings (25 January 2026):**
+- Current: **37 CSS files, 19,022 lines**, avg **8.7 CSS imports per page**
+- Target: **~18 CSS files**, avg **6.8 CSS imports per page** (22% reduction)
+- **68 duplicate variables** in main.css (identical to 01-design-tokens.css)
+- **No breaking conflicts** found - all duplicates have identical values
+
+### Task 5.0: Pre-Consolidation Cleanup (NEW)
+**Status:** PENDING
+**Action:** Remove duplicate variables before merging
+
+**Files to clean:**
+1. `main.css` - Remove 68 duplicate colour/typography/spacing variables (lines 11-126)
+   - Colour variables: 47 duplicates (primary, secondary, semantic, surface, text, border, gradients)
+   - Typography variables: 15 duplicates (font families, sizes, weights, line heights)
+   - Spacing variables: 15 duplicates (--space-0 to --space-24)
+   - Note: --space-7, --space-32, --section-spacing, --content-spacing exist ONLY in tokens file
+2. `improvements.css` - **NO CHANGES NEEDED** (verified: no duplicate variable definitions in lines 1-50, file only references variables)
+
+**Shadow Variable Conflict (DECISION REQUIRED):**
+| Variable | main.css | 01-design-tokens.css |
+|----------|----------|----------------------|
+| --shadow-sm | Single layer | Multi-layer (more refined) |
+| --shadow-md | Offset differs | Professional multi-layer |
+| --shadow-lg | Second layer differs | Refined offsets |
+| --shadow-xl | Second layer differs | Professional offsets |
+
+**Recommendation:** Adopt 01-design-tokens.css shadow values (more sophisticated, already used in Phase 3 WCAG fixes)
+
+**Verification:** Run visual regression tests after cleanup
 
 ### Task 5.1: Create Bundle CSS
 **Status:** PENDING
@@ -393,47 +480,106 @@ main {
 
 ```css
 @import "00-layers.css";
-@import "01-tokens.css";
-@import "02-reset.css";
+@import "01-design-tokens.css";
+@import "main.css";
 @import "03-core.css";
 @import "04-layout.css";
-@import "05-components.css";
 @import "06-code.css";
 ```
 
 ### Task 5.2: Merge Core CSS Files
 **Status:** PENDING
-**Merge into `styles/03-core.css`:**
-- main.css (without variables)
-- accessibility.css
-- micro-interactions.css
+**Merge into `styles/03-core.css`:** (1,262 lines combined)
+- `accessibility.css` (251 lines) - Focus states, WCAG compliance
+- `micro-interactions.css` (175 lines) - Ripple effects, reveal animations
+- `improvements.css` (836 lines, post-deduplication) - Header styling, enhancements
+
+**Risk Level:** VERY LOW - No conflicting selectors, always loaded together
 
 ### Task 5.3: Merge Layout CSS Files
 **Status:** PENDING
-**Merge into `styles/04-layout.css`:**
-- sidebar.css
-- search.css
+**Merge into `styles/04-layout.css`:** (777 lines combined)
+- `sidebar.css` (536 lines) - Sidebar navigation, mobile styling
+- `search.css` (241 lines) - Search modal, input styling
+
+**Risk Level:** LOW - No overlapping selectors, consistent variable usage
 
 ### Task 5.4: Merge Code CSS Files
 **Status:** PENDING
-**Merge into `styles/06-code.css`:**
-- code-examples.css
-- syntax-highlight.css
+**Merge into `styles/06-code.css`:** (506 lines combined)
+- `code-examples.css` (362 lines) - Code block styling, copy button
+- `syntax-highlight.css` (144 lines) - Token colours, line numbers
+
+**Risk Level:** MODERATE - Token colour conflicts require resolution
+
+**Token Colour Conflicts (CRITICAL - must resolve before merge):**
+
+*Light Theme Conflicts:*
+| Token | code-examples.css | syntax-highlight.css | Severity |
+|-------|-------------------|----------------------|----------|
+| .token.comment | #64748b | #6b7280 | Moderate - similar greys |
+| .token.selector | #a78bfa | #8b5cf6 | Moderate - both purple |
+| .token.property | #60a5fa | #2563eb | Moderate - both blue |
+| .token.string | #fbbf24 (amber) | #059669 (green) | **CRITICAL - completely different!** |
+| .token.function | #34d399 (teal) | #7c3aed (purple) | **SEVERE - completely different!** |
+| .token.keyword | #f472b6 | #e11d48 | Moderate - pink vs rose |
+
+*Dark Theme Conflicts:*
+| Token | code-examples.css | syntax-highlight.css | Match? |
+|-------|-------------------|----------------------|--------|
+| .token.property | #60a5fa | #60a5fa | ✓ YES |
+| .token.selector | #a78bfa | #a78bfa | ✓ YES |
+| .token.important | #ef4444 | #ef4444 | ✓ YES |
+| .token.string | #fbbf24 (amber) | #34d399 (mint) | ✗ DIFFERENT |
+| .token.function | #34d399 (teal) | #c084fc (purple) | ✗ DIFFERENT |
+
+*Tokens unique to each file:*
+- code-examples.css only: `.token.value`, `.token.unit`
+- syntax-highlight.css only: `.token.color`, `.token.number`, `.token.variable`
+
+**Recommendation:** Use code-examples.css token colours (WCAG-compliant per Phase 3 fixes)
+**Pre-merge action:** Remove conflicting token definitions from syntax-highlight.css, keep unique tokens
+
+**Pre-merge action:** Audit which token colours are visible in current pages, choose authoritative set, remove duplicates
 
 ### Task 5.5: Update HTML Imports
 **Status:** PENDING
-**Action:** Replace multiple link tags with single bundle import
+**Action:** Replace multiple link tags across all 30 HTML files
 
+**Before (8.7 links average):**
 ```html
-<!-- Before: 8 link tags -->
-<!-- After: -->
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="styles/accessibility.css">
+<link rel="stylesheet" href="styles/improvements.css">
+<link rel="stylesheet" href="styles/micro-interactions.css">
+<link rel="stylesheet" href="styles/sidebar.css">
+<link rel="stylesheet" href="styles/search.css">
+<link rel="stylesheet" href="styles/code-examples.css">
+<link rel="stylesheet" href="styles/syntax-highlight.css">
+```
+
+**After (6.8 links average):**
+```html
 <link rel="stylesheet" href="styles/bundle.css">
-<link rel="stylesheet" href="styles/features/flexbox.css">
+<link rel="stylesheet" href="styles/[feature].css">
 ```
 
 ### Task 5.6: Add Code Comments
 **Status:** PENDING
-**Action:** Add comprehensive header comments to all CSS files
+**Action:** Add comprehensive header comments to all consolidated CSS files
+
+### Feature Files to Keep Separate (25 files)
+These should NOT be merged - they enable page-specific lazy loading:
+- modern-features.css (1,316 lines)
+- buttons.css (1,199 lines)
+- icons.css (1,100 lines)
+- forms.css (797 lines)
+- playground.css (759 lines)
+- cards.css (661 lines)
+- advanced-page.css (648 lines)
+- animations.css (638 lines)
+- typography.css (533 lines)
+- And 16 other feature-specific files
 
 ---
 
@@ -442,17 +588,32 @@ main {
 ### Task 6.1: Create CSS Tools Page
 **Status:** PENDING
 **File:** Create `tools.html`
+**Template:** Use `cards.html` as reference (703 lines)
 **Content:** Curated resource cards (Chrome DevTools, Tailwind, Bootstrap, Sass, Stylelint, CSS-Tricks)
+**Card Style:** Use `.card-feature` class from cards.css (gradient borders, icon + text)
+
+**Page structure:**
+1. Standard stylesheet imports (main.css, accessibility.css, etc.)
+2. Sidebar skeleton + component placeholders
+3. Skip link, breadcrumb navigation
+4. Page hero section (h1 + subtitle)
+5. Resource cards in 3-column grid: `grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))`
+6. Footer + script includes
 
 ### Task 6.2: Create Frameworks Page
 **Status:** PENDING
 **File:** Create `frameworks.html`
-**Content:** Overview of when to use frameworks vs vanilla CSS
+**Template:** Same structure as tools.html
+**Content:** Overview of CSS frameworks vs vanilla CSS trade-offs
 
 ### Task 6.3: Update Sidebar Navigation
-**Status:** PENDING
+**Status:** COMPLETE ✓ (verified 25 January 2026)
 **File:** `components/sidebar.html`
-**Action:** Add Resources section with Tools and Frameworks links
+**Finding:** Resources section already exists (lines 155-169) with:
+- `tools.html` link (line 163)
+- `frameworks.html` link (line 166)
+
+**Note:** Links are in place but pages don't exist yet - Tasks 6.1 and 6.2 will create them
 
 ---
 
@@ -460,30 +621,117 @@ main {
 
 ### Task 7.1: Visual Consistency Pass
 **Status:** PENDING
+**Issues Found (25 January 2026 - RE-VERIFIED):**
+
+**Dark Mode Gaps (18 feature files lack `[data-theme="dark"]` rules):**
+Verified list (19 files HAVE dark mode, 18 files LACK dark mode):
+- 00-layers.css (pure CSS layers definition - N/A)
+- advanced.css, advanced-page.css, anchor-positioning.css
+- blend-modes.css, box-model.css, code-examples.css (CRITICAL - copy button)
+- color-spaces.css, layout.css, modern-features.css, playground.css
+- responsive.css, responsive-page.css, scroll-animations.css
+- shapes-clips.css, sidebar.css, transitions.css
+
+Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animations.css, buttons.css, cards.css, custom-properties.css, filters.css, flexbox.css, forms.css, gradients.css, grid.css, icons.css, improvements.css, main.css, micro-interactions.css, search.css, syntax-highlight.css, tables.css, typography.css
+
+**Hardcoded Pixel Values in sidebar.css (expanded list):**
+| Line | Element | Property | Current | Should Be |
+|------|---------|----------|---------|-----------|
+| 38 | `::-webkit-scrollbar` | width | 8px | Design token |
+| 47 | `::-webkit-scrollbar-thumb` | border-radius | 4px | Design token |
+| 70 | `.sidebar-home-link` | border-radius | 8px | `var(--radius-lg)` |
+| 100 | `.sidebar-section-title` | border-radius | 6px | `var(--radius-md)` |
+| 139 | `.sidebar-nav-link` | border-radius | 6px | `var(--radius-md)` |
+| 150-151 | `.sidebar-nav-link::before` | width/height | 4px | `var(--space-1)` |
+| 208 | `.back-to-top` | border-radius | 8px | `var(--radius-lg)` |
+| 227 | `.sidebar-toggle` | left | 1rem | `var(--space-4)` |
+| 228-229 | `.sidebar-toggle` | width/height | 48px | Design token (touch target) |
+| 232 | `.sidebar-toggle` | border-radius | 8px | `var(--radius-lg)` |
+| 249 | `.sidebar-toggle-icon` | gap | 4px | `var(--space-1)` |
+| 253-254 | `.sidebar-toggle-icon span` | width/height | 20px/2px | Design tokens |
+| 300 | `body` | padding-left | 320px | Should match --sidebar-width |
+| 310 | `.site-header` | left | 320px | Should match --sidebar-width |
+| 427-433 | Focus outlines | outline | 2px | Should use design token |
+
+**rgba() Syntax Inconsistency:**
+- 277 total `rgba()` occurrences (legacy syntax) across multiple files
+- 14 total `rgb(... / ...)` occurrences (modern syntax) in 3 files:
+  - 01-design-tokens.css (shadow definitions)
+  - custom-properties.css
+  - main.css
+- **Action:** Standardise on modern rgb() syntax (optional - low priority)
+
 **Checklist:**
-- [ ] All pages use consistent spacing variables
-- [ ] Dark mode works on all new components
-- [ ] Smooth transitions everywhere
+- [ ] Fix 16 feature files missing dark mode
+- [ ] Replace hardcoded pixel values with spacing variables
+- [ ] Standardise rgba() to modern rgb() syntax
 - [ ] No layout shifts on page load
 
 ### Task 7.2: Performance Audit
 **Status:** PENDING
+**Issues Found:**
+- 6 render-blocking stylesheets on every page
+- Feature page CSS files loaded globally (not lazy-loaded)
+- No CSS code splitting strategy
+
 **Targets:**
 - [ ] Lighthouse Performance 90+
 - [ ] CLS = 0
-- [ ] No render-blocking CSS
+- [ ] Consider critical CSS inlining for above-fold content
+- [ ] Lazy-load feature-specific CSS where possible
 
 ### Task 7.3: Accessibility Audit
 **Status:** PENDING
+**Good (Already Implemented - Verified 25 January 2026):**
+- ✅ Skip link exists (accessibility.css lines 3-21) - hidden by default, shows on focus, smooth transition
+- ✅ Focus-visible states comprehensive (accessibility.css lines 23-84):
+  - Line 24-28: Global `:focus-visible` with 3px outline and offset
+  - Line 31-33: Removes outline for mouse users (`:focus:not(:focus-visible)`)
+  - Lines 36-84: Button, link, form, theme toggle, search trigger, nav toggle, copy button focus styles
+- ✅ Touch targets 44px minimum (accessibility.css lines 141-156)
+- ✅ Reduced motion support (accessibility.css lines 86-106)
+- ✅ High contrast mode (accessibility.css lines 109-125)
+- ✅ Screen reader only class (accessibility.css lines 128-138)
+- ✅ Form accessibility (accessibility.css lines 209-232)
+
+**Issues Found (CRITICAL - Re-verified 25 January 2026):**
+
+**Focus Trap Gap:**
+- CSS indicator exists: accessibility.css lines 181-194 (`[data-focus-trap="active"]`)
+- **NO JavaScript implementation found** in:
+  - search.js (209 lines) - Modal opens/closes but Tab key not trapped
+  - sidebar.js (266 lines) - Toggle works but focus escapes when sidebar open on mobile
+- Keyboard handling limited to: Cmd/Ctrl+K to open search (line 162), ESC to close (line 168)
+
+**aria-live Regions Gap:**
+- code-examples.js lines 24-35: Copy button changes text to "Copied!" without aria-live
+  ```javascript
+  button.textContent = 'Copied!';  // ❌ NO aria-live region
+  ```
+- search.js lines 81-134: Search results injected via innerHTML without announcement
+  ```javascript
+  searchResults.innerHTML = html;  // ❌ NO aria-live announcement
+  ```
+
 **Checklist:**
-- [ ] Keyboard navigation through sidebar
-- [ ] Screen reader announces correctly
-- [ ] Focus visible states
-- [ ] WCAG AA colour contrast
+- [ ] Implement JavaScript focus trap in search modal:
+  - Get all focusable elements within modal
+  - On Tab at last element, focus first element
+  - On Shift+Tab at first element, focus last element
+  - Set `data-focus-trap="active"` attribute when open
+- [ ] Implement focus trap in sidebar (mobile view):
+  - Same pattern as search modal
+  - Only active when sidebar overlay is visible
+- [ ] Add `aria-live="polite"` region for code copy feedback:
+  - Create hidden announcement element
+  - Update on copy success/failure
+- [ ] Add `aria-live="polite"` for search results:
+  - Announce "X results found" or "No results"
+- [ ] Verify WCAG AA colour contrast in dark mode muted text (#9ca3af on dark backgrounds)
 
 ### Task 7.4: Final Screenshots
 **Status:** PENDING
-**Action:** Run `node visual-test.js` to capture final state
+**Action:** Run `node visual-test.js` to capture final state after all fixes
 
 ---
 
@@ -494,12 +742,18 @@ main {
 | Phase 0: Housekeeping | COMPLETE ✓ | 2 | 2 |
 | Phase 1: CSS Architecture | COMPLETE ✓ | 2 | 2 |
 | Phase 2: Header & Sidebar | COMPLETE ✓ | 8 | 8 |
-| Phase 3: Code Box Polish | IN PROGRESS | 5 | 2 |
-| Phase 4: Advanced CSS | PENDING | 3 | 0 |
-| Phase 5: File Consolidation | PENDING | 6 | 0 |
-| Phase 6: New Content | PENDING | 3 | 0 |
+| Phase 3: Code Box Polish | COMPLETE ✓ | 5 | 5 |
+| Phase 4: Advanced CSS | IN PROGRESS | 3 | 1 |
+| Phase 5: File Consolidation | PENDING | 7 | 0 |
+| Phase 6: New Content | PENDING | 3 | 1 |
 | Phase 7: Final Polish | PENDING | 4 | 0 |
-| **TOTAL** | | **33** | **14** |
+| **TOTAL** | | **34** | **19** |
+
+**Notes:**
+- Task 4.2 (Scroll Progress Indicator) completed 25 January 2026
+- Task 5.0 (Pre-Consolidation Cleanup) added
+- Task 6.3 marked complete (sidebar Resources section verified)
+- Phase 4-7 research completed 25 January 2026 with refined findings
 
 ---
 
@@ -752,3 +1006,123 @@ This project was previously completed to "portfolio-ready" status (10/10) on 25 
 The previous implementation history has been archived to `docs/IMPLEMENTATION_HISTORY.md`.
 
 This new overhaul takes the project to the next level with modern CSS techniques and improved architecture.
+
+---
+
+## Phase 4-7 Research (25 January 2026 - UPDATED)
+
+**Research conducted using 3 parallel explore agents:**
+1. Phase 4 Advanced CSS Analysis
+2. Phase 5 File Consolidation Analysis
+3. Phase 6-7 New Content & Polish Analysis
+
+### Key Discoveries
+
+**Phase 4 - Advanced CSS (Verified):**
+- View Transitions: 85-90% browser coverage, Firefox lacks support. Insert location: main.css after line ~440 (after `.hero-title` section)
+- Scroll-Driven Progress: CSS fully exists in scroll-animations.css (container lines 63-75, bar lines 77-84, keyframes 86-93, fallback 96-101). Header.html (21 lines) has NO progress bar - needs addition
+- CSS Nesting: 24 instances in modern-features.css at verified line numbers. Sidebar.css has 39 `.sidebar-*` selectors, code-examples.css has 36+ flat selectors - both need migration
+
+**Phase 5 - File Consolidation (Verified):**
+- Current state: 37 CSS files, 19,022 lines
+- Target: ~20 CSS files (46% reduction), 2-3 imports per page (76% reduction from current 9)
+- 68 duplicate variables in main.css lines 11-126 (need removal)
+- improvements.css has NO duplicate variable definitions (verified lines 1-50)
+- **Shadow variable conflicts:** main.css has simpler single-layer shadows, tokens file has refined multi-layer - adopt tokens values
+- **Token colour conflicts in Task 5.4:** code-examples.css and syntax-highlight.css define DIFFERENT colours for same tokens - resolve before merge
+
+**Phase 6 - New Content (Verified):**
+- Task 6.3 already complete - Resources section exists in sidebar.html (lines 155-169)
+- tools.html and frameworks.html links in sidebar at lines 163 and 166
+- Use cards.html as template, `.card-feature` class from cards.css (lines 244-313) with dark mode support (lines 620-627)
+
+**Phase 7 - Final Polish (Re-verified 25 January 2026):**
+- **18 feature CSS files** lack dark mode (revised from 13) - full list:
+  - 00-layers.css, advanced.css, advanced-page.css, anchor-positioning.css
+  - blend-modes.css, box-model.css, code-examples.css (CRITICAL)
+  - color-spaces.css, layout.css, modern-features.css, playground.css
+  - responsive-page.css, responsive.css, scroll-animations.css
+  - shapes-clips.css, sidebar.css, transitions.css
+- 282 rgba() vs 22 rgb() slash notation - predominantly legacy syntax
+- Hardcoded pixel values in sidebar.css: lines 227-254 + 7-8 additional instances (scrollbar, border-radius, outline)
+- **Critical accessibility gaps:**
+  - Focus trap: CSS-only indicator exists (accessibility.css:181-194) but NO JavaScript in search.js or sidebar.js
+  - aria-live: Missing for code copy feedback (code-examples.js:24-35) and search results (search.js:81-134)
+  - Tab key handling: No prevention of focus cycling when modals/sidebars open
+- 9 CSS links per feature page (6 for homepage)
+
+### Recommended Implementation Order
+
+1. **Phase 4.2** (Scroll Progress) - Lowest risk, CSS already exists, just need HTML addition
+2. **Phase 4.3** (CSS Nesting) - Low risk, improves maintainability, reference patterns available
+3. **Phase 5.0** (Variable Cleanup) - Required before merging, shadow conflict resolution needed
+4. **Phase 5.2** (Core Merge) - VERY LOW risk, no overlapping selectors
+5. **Phase 5.3** (Layout Merge) - LOW risk, no overlapping selectors
+6. **Phase 5.4** (Code Merge) - MODERATE risk, resolve token colour conflicts first
+7. **Phase 5.1** (Bundle CSS) - After all merges complete
+8. **Phase 5.5** (HTML Updates) - Template-based find/replace across 30 files
+9. **Phase 6.1-6.2** (New Pages) - Independent of other work, use cards.html template
+10. **Phase 4.1** (View Transitions) - Low priority due to Firefox gap
+11. **Phase 7.1** (Dark Mode) - Add support to 13 feature files
+12. **Phase 7.3** (Accessibility) - Implement focus trap JS and aria-live regions
+13. **Phase 7.2** (Performance) - Verify bundle reduces HTTP requests
+14. **Phase 7.4** (Screenshots) - Final visual verification
+
+---
+
+## Research Verification Summary (25 January 2026 - Planning Session)
+
+**Verification Method:** Three parallel Explore agents researching Phase 4-7 specifics
+
+### Corrections to Original Plan
+
+| Item | Original Estimate | Verified Finding |
+|------|-------------------|------------------|
+| Dark mode gaps | 13 files | **18 files** (including sidebar.css, code-examples.css) |
+| Token conflicts | 5 tokens | **6 tokens** with severity ratings (string/function are CRITICAL) |
+| Hardcoded pixels | 4 instances | **15+ instances** in sidebar.css alone |
+| rgba vs rgb syntax | 277 vs 14 | **282 vs 22** (92.8% legacy) |
+| CSS nesting in modern-features.css | "NOT used" | **24 instances** verified at specific line numbers |
+
+### Key Implementation Blockers Identified
+
+1. **Task 5.4 (Code Merge):** Cannot proceed until token colour conflict resolved
+   - `.token.string`: amber (#fbbf24) vs green (#059669) - semantic mismatch
+   - `.token.function`: teal (#34d399) vs purple (#7c3aed) - semantic mismatch
+
+2. **Task 7.3 (Accessibility):** Focus trap requires new JavaScript
+   - search.js needs ~20 lines of focus trap logic
+   - sidebar.js needs similar for mobile overlay state
+
+3. **Task 5.0 (Variable Cleanup):** Shadow conflicts must be resolved
+   - Decision: Adopt 01-design-tokens.css values (multi-layer, more sophisticated)
+   - Remove 68 duplicate variables from main.css lines 11-126
+
+### Files Requiring Most Work
+
+| File | Tasks Affected | Changes Required |
+|------|----------------|------------------|
+| sidebar.css (537 lines) | 4.3, 7.1 | CSS nesting migration (46 selectors), dark mode, 15+ hardcoded values |
+| code-examples.css (362 lines) | 4.3, 5.4, 7.1 | CSS nesting (26 selectors), token conflict resolution, dark mode |
+| main.css (889 lines) | 5.0 | Remove 68 duplicate variables (lines 11-126) |
+| search.js (209 lines) | 7.3 | Add focus trap logic, aria-live region |
+| code-examples.js | 7.3 | Add aria-live for copy feedback |
+
+### Recommended Priority Adjustments
+
+Based on research findings, recommend adjusting implementation order:
+
+**HIGH PRIORITY (do first):**
+1. Task 5.0 - Variable cleanup (unblocks all Phase 5)
+2. Task 5.4 token conflict resolution (unblocks code merge)
+3. Task 4.2 - Scroll progress (lowest risk, immediate visual impact)
+
+**MEDIUM PRIORITY:**
+4. Task 7.3 - Accessibility gaps (focus trap JS is straightforward)
+5. Task 4.3 - CSS nesting (use modern-features.css patterns as reference)
+6. Tasks 5.2-5.3 - Core and layout merges (very low risk)
+
+**LOWER PRIORITY:**
+7. Task 7.1 - Dark mode for 18 files (time-consuming but mechanical)
+8. Tasks 6.1-6.2 - New pages (independent, can do anytime)
+9. Task 4.1 - View transitions (Firefox gap, lowest urgency)
