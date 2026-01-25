@@ -1,7 +1,7 @@
 # CSS Showcase - Ultimate Overhaul Implementation Plan
 
-**Last Updated:** 25 January 2026 (Research re-verified with 3 parallel explore agents)
-**Status:** Phase 1 - CSS Architecture Foundation (Phase 0 Complete)
+**Last Updated:** 25 January 2026
+**Status:** Phase 3 - Code Box Polish (Phases 0-2 Complete)
 
 ---
 
@@ -187,80 +187,34 @@ document.addEventListener('DOMContentLoaded', () => new ComponentLoader().init()
 - Removed ~5,700 lines of duplicated sidebar HTML across all pages
 
 ### Task 2.7: Unify Scroll Management
-**Status:** PENDING
+**Status:** COMPLETE ✓
 **Files:**
-- Modify: `scripts/sidebar.js`
-- Modify: `scripts/main.js`
-**Action:** Merge competing auto-hide systems into single scroll observer
+- Created: `scripts/scroll-manager.js` - Unified ScrollManager class
+- Modified: `scripts/sidebar.js` - Removed setupAutoHide() and setupFloatingBackToTop()
+- Modified: `scripts/main.js` - Removed scroll handler (lines 160-232)
+- Modified: All 30 HTML pages - Added scroll-manager.js script include
 
-**Current scroll handlers (3 separate listeners) - VERIFIED:**
-1. **main.js (lines 160-202)**: Header auto-hide with 500ms setTimeout debounce
-   - Uses `setTimeout` (not RAF) - causes timing mismatch with sidebar
-   - Threshold: 200px scroll depth
-   - Mobile-specific: only affects header on ≤768px
-   - Reveals header after scroll stops (500ms timeout)
-
-2. **sidebar.js (lines 267-297)**: Sidebar auto-hide with RAF throttling
-   - Uses `requestAnimationFrame` with `ticking` flag
-   - Threshold: 200px scroll depth
-   - Desktop only: width ≥1024px
-   - Does NOT reveal after scroll stops
-
-3. **sidebar.js (lines 303-344)**: Floating back-to-top with RAF throttling
-   - Creates button dynamically if missing
-   - Updates `--scroll-progress` CSS variable for progress ring
-   - Threshold: 400px to show button
-
-**Issues identified:**
-- **Timing mismatch:** RAF-based sidebar vs setTimeout-based header
-- **Three separate scroll listeners** on window (performance impact)
-- **Inconsistent debounce patterns:** per-frame (sidebar) vs time-based (header)
-
-**Recommended unified approach:**
-```javascript
-// Single scroll manager with RAF throttling
-class ScrollManager {
-  constructor() {
-    this.lastScroll = 0;
-    this.ticking = false;
-  }
-
-  init() {
-    window.addEventListener('scroll', () => this.onScroll(), { passive: true });
-  }
-
-  onScroll() {
-    if (!this.ticking) {
-      requestAnimationFrame(() => {
-        const scrollY = window.scrollY;
-        this.updateHeader(scrollY);
-        this.updateSidebar(scrollY);
-        this.updateBackToTop(scrollY);
-        this.lastScroll = scrollY;
-        this.ticking = false;
-      });
-      this.ticking = true;
-    }
-  }
-}
-```
+**Implementation:**
+- Single scroll listener using requestAnimationFrame for optimal performance
+- Unified handling of header auto-hide, sidebar auto-hide, and floating back-to-top
+- Consistent RAF-based throttling across all scroll behaviours
+- Scroll-stop detection with 500ms timeout for header reveal
+- Initialises via 'components-loaded' event from component-loader.js
 
 ### Task 2.8: Remove CSS Injected via JavaScript
-**Status:** PENDING
-**File:** `scripts/main.js` (lines 204-232)
-**Action:** Move dynamically injected header styles to CSS file
+**Status:** COMPLETE ✓
+**Files:**
+- Modified: `scripts/main.js` - Removed headerStyles injection (was lines 204-232)
+- Modified: `styles/main.css` - Added `.theme-toggle.header-hidden` rule
 
-Currently main.js injects these styles into DOM:
-```javascript
-const headerStyles = document.createElement('style');
-headerStyles.textContent = `
-    .site-header.scrolled { ... }
-    .site-header.header-hidden { ... }  // DUPLICATE of main.css
-    .theme-toggle.header-hidden { ... }
-    .nav-toggle.active span:nth-child(...) { ... }
-`;
-```
-**Issue:** Duplicates `.site-header.header-hidden` from main.css line 272
+**Changes:**
+- Removed JS-injected styles for `.site-header.scrolled`, `.site-header.header-hidden`, `.theme-toggle.header-hidden`, and `.nav-toggle.active` spans
+- All styles now defined in CSS files:
+  - `.site-header.scrolled` in improvements.css (line 29)
+  - `.site-header.header-hidden` in main.css (line 272)
+  - `.theme-toggle.header-hidden` in main.css (newly added)
+  - `.nav-toggle.active` spans in main.css (lines 343-357)
+- Easter egg keyframes (rainbow, bounceIn) remain in JS as they're only used for that feature
 
 ---
 
@@ -575,13 +529,13 @@ main {
 |-------|--------|-------|----------|
 | Phase 0: Housekeeping | COMPLETE ✓ | 2 | 2 |
 | Phase 1: CSS Architecture | COMPLETE ✓ | 2 | 2 |
-| Phase 2: Header & Sidebar | IN PROGRESS | 8 | 6 |
+| Phase 2: Header & Sidebar | COMPLETE ✓ | 8 | 8 |
 | Phase 3: Code Box Polish | PENDING | 5 | 0 |
 | Phase 4: Advanced CSS | PENDING | 3 | 0 |
 | Phase 5: File Consolidation | PENDING | 6 | 0 |
 | Phase 6: New Content | PENDING | 3 | 0 |
 | Phase 7: Final Polish | PENDING | 4 | 0 |
-| **TOTAL** | | **33** | **10** |
+| **TOTAL** | | **33** | **12** |
 
 ---
 

@@ -66,11 +66,7 @@
         // Restore collapsed sections from localStorage
         restoreCollapsedSections();
 
-        // Setup auto-hide on scroll
-        setupAutoHide();
-
-        // Setup floating back-to-top button
-        setupFloatingBackToTop();
+        // Note: Scroll-based auto-hide and floating back-to-top are now managed by scroll-manager.js
     }
 
     /**
@@ -257,89 +253,6 @@
                     sectionTitle.setAttribute('aria-expanded', 'false');
                 }
             }
-        });
-    }
-
-    /**
-     * Auto-hides sidebar when scrolling down, reveals when scrolling up
-     * Uses requestAnimationFrame for performance optimisation on desktop only
-     */
-    function setupAutoHide() {
-        let lastScrollTop = 0;
-        let ticking = false;
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    const sidebar = document.querySelector('.sidebar');
-
-                    if (!sidebar) return;
-
-                    // Only auto-hide on desktop and when sidebar is not manually toggled
-                    if (window.innerWidth >= 1024 && !sidebar.classList.contains('active')) {
-                        if (scrollTop > lastScrollTop && scrollTop > 200) {
-                            sidebar.classList.add('sidebar-hidden');
-                            document.body.classList.add('sidebar-hidden');
-                        } else if (scrollTop < lastScrollTop) {
-                            sidebar.classList.remove('sidebar-hidden');
-                            document.body.classList.remove('sidebar-hidden');
-                        }
-                    }
-
-                    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-                    ticking = false;
-                });
-
-                ticking = true;
-            }
-        }, { passive: true });
-    }
-
-    /**
-     * Creates and manages floating back-to-top button with scroll progress indicator
-     * Button appears after scrolling 400px down the page
-     */
-    function setupFloatingBackToTop() {
-        let floatingBtn = document.querySelector('.floating-back-to-top');
-
-        if (!floatingBtn) {
-            floatingBtn = document.createElement('button');
-            floatingBtn.className = 'floating-back-to-top';
-            floatingBtn.setAttribute('aria-label', 'Back to top');
-            floatingBtn.innerHTML = '↑';
-            document.body.appendChild(floatingBtn);
-        }
-
-        let ticking = false;
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                    const scrollProgress = scrollTop / docHeight;
-
-                    if (scrollTop > 400) {
-                        floatingBtn.classList.add('visible');
-                    } else {
-                        floatingBtn.classList.remove('visible');
-                    }
-
-                    floatingBtn.style.setProperty('--scroll-progress', scrollProgress);
-
-                    ticking = false;
-                });
-
-                ticking = true;
-            }
-        }, { passive: true });
-
-        floatingBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
         });
     }
 

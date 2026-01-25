@@ -248,6 +248,11 @@ a:hover {
     box-shadow: var(--shadow-lg);
 }
 
+.theme-toggle.header-hidden {
+    transform: translateY(-100px);
+    opacity: 0;
+}
+
 .theme-icon {
     font-size: 1.5rem;
     transition: transform var(--transition-base);

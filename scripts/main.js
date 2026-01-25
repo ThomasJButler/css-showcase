@@ -157,79 +157,8 @@ document.addEventListener('DOMContentLoaded', function() {
         sectionObserver.observe(section);
     });
 
-    // Auto-hide header on scroll down, reveal on scroll up
-    const header = document.querySelector('.site-header');
-    const themeToggleEl = document.querySelector('.theme-toggle');
-    let lastScroll = 0;
-    let scrollTimer = null;
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        const isMobile = window.innerWidth <= 768;
-
-        if (currentScroll > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        // Only hide header when mobile menu is closed
-        if (!navList.classList.contains('active')) {
-            if (currentScroll > lastScroll && currentScroll > 200) {
-                header.classList.add('header-hidden');
-                if (isMobile && themeToggleEl) {
-                    themeToggleEl.classList.add('header-hidden');
-                }
-            } else {
-                header.classList.remove('header-hidden');
-                if (isMobile && themeToggleEl) {
-                    themeToggleEl.classList.remove('header-hidden');
-                }
-            }
-        }
-
-        clearTimeout(scrollTimer);
-
-        // Reveal header after scroll stops for better UX
-        scrollTimer = setTimeout(() => {
-            header.classList.remove('header-hidden');
-            if (isMobile && themeToggleEl) {
-                themeToggleEl.classList.remove('header-hidden');
-            }
-        }, 500);
-
-        lastScroll = currentScroll;
-    }, { passive: true });
-
-    const headerStyles = document.createElement('style');
-    headerStyles.textContent = `
-        .site-header.scrolled {
-            box-shadow: var(--shadow-md);
-        }
-
-        .site-header.header-hidden {
-            transform: translateY(-100%);
-        }
-
-        .theme-toggle.header-hidden {
-            transform: translateY(-100px);
-            opacity: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .nav-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .nav-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .nav-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-    `;
-    document.head.appendChild(headerStyles);
+    // Note: Scroll handling (header auto-hide, etc.) is managed by scroll-manager.js
+    // Nav toggle active state styles are defined in main.css
 
     // Staggered fade-in animation for showcase cards
     const cards = document.querySelectorAll('.showcase-card');
