@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "mcp__plugin_playwright_playwright__browser_install",
+      "Bash(npm install:*)",
+      "Bash(npx playwright:*)",
+      "mcp__plugin_playwright_playwright__browser_navigate"
+    ]
+  }
+}

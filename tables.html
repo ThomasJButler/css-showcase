@@ -98,9 +98,6 @@
                     <a href="animations.html" class="sidebar-nav-link">Animations</a>
                 </li>
                 <li class="sidebar-nav-item">
-                    <a href="animations-advanced.html" class="sidebar-nav-link">Advanced Animations</a>
-                </li>
-                <li class="sidebar-nav-item">
                     <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
                 </li>
             </ul>
@@ -121,9 +118,6 @@
                 </li>
                 <li class="sidebar-nav-item">
                     <a href="tables.html" class="sidebar-nav-link active">Tables</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="tables-advanced.html" class="sidebar-nav-link">Advanced Tables</a>
                 </li>
                 <li class="sidebar-nav-item">
                     <a href="cards.html" class="sidebar-nav-link">Cards</a>
@@ -248,9 +242,6 @@
                     </li>
                     <li class="nav-item">
                         <a href="#responsive" class="nav-link">Responsive</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="tables-advanced.html" class="nav-link">Advanced</a>
                     </li>
                 </ul>
             </nav>
@@ -766,24 +757,224 @@
 }</code></pre>
                         </div>
                     </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Sortable Table</h3>
+                        <div class="demo-example">
+                            <table class="table-sortable">
+                                <thead>
+                                    <tr>
+                                        <th class="sortable active-asc">Name <span class="sort-indicator"></span></th>
+                                        <th class="sortable">Score <span class="sort-indicator"></span></th>
+                                        <th class="sortable">Date <span class="sort-indicator"></span></th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Alice Brown</td>
+                                        <td>95</td>
+                                        <td>2024-01-10</td>
+                                        <td>
+                                            <button class="btn-icon">✏️</button>
+                                            <button class="btn-icon">🗑️</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bob Davis</td>
+                                        <td>87</td>
+                                        <td>2024-01-12</td>
+                                        <td>
+                                            <button class="btn-icon">✏️</button>
+                                            <button class="btn-icon">🗑️</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carol White</td>
+                                        <td>92</td>
+                                        <td>2024-01-11</td>
+                                        <td>
+                                            <button class="btn-icon">✏️</button>
+                                            <button class="btn-icon">🗑️</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Sortable headers */
+.sortable {
+    cursor: pointer;
+    position: relative;
+    padding-right: 2rem;
+}
+
+.sortable:hover {
+    background: var(--colour-primary-light);
+}
+
+.sort-indicator::after {
+    content: '↕️';
+    position: absolute;
+    right: 0.5rem;
+    opacity: 0.3;
+}
+
+.active-asc .sort-indicator::after {
+    content: '↑';
+    opacity: 1;
+}
+
+.active-desc .sort-indicator::after {
+    content: '↓';
+    opacity: 1;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Data Table with Filters</h3>
+                        <div class="demo-example">
+                            <div class="table-filters">
+                                <input type="search" class="filter-input" placeholder="Search...">
+                                <select class="filter-select">
+                                    <option>All Categories</option>
+                                    <option>Electronics</option>
+                                    <option>Clothing</option>
+                                    <option>Books</option>
+                                </select>
+                            </div>
+                            <table class="table-data">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Smartphone X</td>
+                                        <td>Electronics</td>
+                                        <td>£699</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Winter Jacket</td>
+                                        <td>Clothing</td>
+                                        <td>£129</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CSS Mastery</td>
+                                        <td>Books</td>
+                                        <td>£35</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Table filters */
+.table-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filter-input,
+.filter-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--colour-border);
+    border-radius: 0.25rem;
+    background: var(--colour-surface);
+}
+
+.filter-input {
+    flex: 1;
+}
+
+/* Highlighted search results */
+.highlight-match {
+    background: var(--colour-warning-light);
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.125rem;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3 class="demo-title">Fixed Header Table</h3>
+                        <div class="demo-example">
+                            <div class="table-fixed-wrapper">
+                                <table class="table-fixed-header">
+                                    <thead>
+                                        <tr>
+                                            <th>Month</th>
+                                            <th>Revenue</th>
+                                            <th>Growth</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>January</td>
+                                            <td>£45,230</td>
+                                            <td class="text-success">+12%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>February</td>
+                                            <td>£48,650</td>
+                                            <td class="text-success">+8%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>March</td>
+                                            <td>£52,180</td>
+                                            <td class="text-success">+7%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>April</td>
+                                            <td>£51,990</td>
+                                            <td class="text-error">-0.4%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>May</td>
+                                            <td>£55,420</td>
+                                            <td class="text-success">+6.6%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>June</td>
+                                            <td>£58,760</td>
+                                            <td class="text-success">+6%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code>/* Fixed header */
+.table-fixed-wrapper {
+    height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--colour-border);
+}
+
+.table-fixed-header thead th {
+    position: sticky;
+    top: 0;
+    background: var(--colour-surface);
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}</code></pre>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="next-steps">
             <div class="container">
-                <h2 class="section-title">Ready for Advanced Features?</h2>
+                <h2 class="section-title">Ready for More?</h2>
                 <p class="section-subtitle">
-                    Now that you've mastered the basics, explore sorting, filtering, and sticky headers.
+                    Now that you've mastered tables, explore other components and layout techniques.
                 </p>
                 <div class="next-links">
-                    <a href="tables-advanced.html" class="next-link">
-                        <span class="next-icon" role="img" aria-label="Advanced features">🚀</span>
-                        <div>
-                            <h3>Advanced Tables</h3>
-                            <p>Sortable columns, filters, sticky headers, and best practices</p>
-                        </div>
-                    </a>
                     <a href="cards.html" class="next-link">
                         <span class="next-icon">🃏</span>
                         <div>

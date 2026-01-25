@@ -20,5 +20,8 @@
   "homepage": "https://github.com/ThomasJButler/css-showcase#readme",
   "devDependencies": {
     "puppeteer": "^24.24.0"
+  },
+  "dependencies": {
+    "playwright": "^1.58.0"
   }
 }

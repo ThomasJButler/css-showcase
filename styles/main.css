@@ -470,7 +470,7 @@ a:hover {
 
 /* Showcase Sections */
 .showcase-section {
-    padding: var(--space-20) 0;
+    padding: var(--space-12) 0;
 }
 
 .showcase-section:nth-child(even) {

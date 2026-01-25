@@ -1,3 +1,5 @@
+0. **START HERE**: Study `docs/visual-testing/summary.md` - this contains the prioritised task list from visual testing with screenshots of all 32 pages. Screenshots are in `docs/visual-testing/screenshots/` (desktop, mobile, dark-mode folders).
+
 0a. Study `specs/*` with up to 500 parallel Sonnet subagents to understand the improvement requirements.
 
 0b. Study @IMPLEMENTATION_PLAN.md to understand what needs to be done.

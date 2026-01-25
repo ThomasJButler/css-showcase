@@ -20,8 +20,8 @@
     --space-32: 8rem;
     
     /* Section spacing */
-    --section-spacing: clamp(4rem, 10vw, 4rem);
-    --content-spacing: clamp(2rem, 5vw, 2rem);
+    --section-spacing: clamp(2rem, 5vw, 3rem);
+    --content-spacing: clamp(1rem, 3vw, 1.5rem);
 
     /* Enhanced shadows */
     --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -33,12 +33,12 @@
 
 /* Content Spacer Utility */
 .content-spacer {
-    margin: var(--space-16) 0;
+    margin: var(--space-8) 0;
 }
 
 @media (min-width: 768px) {
     .content-spacer {
-        margin: var(--space-24) 0;
+        margin: var(--space-12) 0;
     }
 }
 
@@ -258,7 +258,7 @@
 .demo-section,
 .content-section {
     padding: var(--section-spacing) 0;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     position: relative;
 }
 
@@ -267,7 +267,7 @@
 
 .section-title {
     font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     letter-spacing: -0.02em;
     line-height: 1.1;
 }
@@ -276,7 +276,7 @@
 .section-intro {
     font-size: clamp(1.125rem, 2vw, 1.375rem);
     color: var(--colour-text-muted);
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     max-width: 65ch;
     margin-left: auto;
     margin-right: auto;
@@ -285,8 +285,8 @@
 
 /* Improved Cards */
 .showcase-grid {
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .showcase-card {
@@ -415,8 +415,8 @@
     background: var(--colour-background);
     border: 1px solid var(--colour-border);
     border-radius: 1rem;
-    padding: 2rem;
-    margin-bottom: 3rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .demo-title {
@@ -485,8 +485,8 @@ h1, h2, h3, h4, h5, h6 {
 .tips-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .tip-card {
@@ -520,8 +520,8 @@ h1, h2, h3, h4, h5, h6 {
 .next-links {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .next-link {
