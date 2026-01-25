@@ -6,24 +6,19 @@
 /* Sidebar container */
 .sidebar {
     position: fixed;
-    top: 0;
+    top: var(--header-height); /* Below header */
     left: 0;
-    width: 320px;
-    height: 100vh;
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--header-height));
     background: var(--colour-background);
     border-right: 1px solid var(--colour-border);
-    z-index: 90; /* Below header (which is z-index: 100) */
+    z-index: 90;
     overflow-y: auto;
     overflow-x: hidden;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Auto-hide sidebar on scroll down (desktop only) */
-    &.sidebar-hidden {
-        transform: translateX(-100%); /* Fully hide sidebar */
-    }
-
-    /* Active state (mobile) */
-    &.active {
+    /* Open state (mobile toggle) */
+    &.open {
         transform: translateX(0);
     }
 
@@ -127,13 +122,22 @@
     }
 }
 
+/* Sidebar SVG icons */
+.sidebar-icon,
 .sidebar-section-icon {
+    flex-shrink: 0;
     margin-right: 0.5rem;
+    opacity: 0.7;
 }
 
 .sidebar-section-toggle {
-    font-size: 0.75rem;
+    flex-shrink: 0;
     transition: transform 0.2s ease;
+}
+
+/* Collapsed state rotates toggle icon */
+.sidebar-section.collapsed .sidebar-section-toggle {
+    transform: rotate(-90deg);
 }
 
 /* Navigation links */
@@ -237,21 +241,17 @@
     }
 }
 
-/* Sidebar toggle button (mobile hamburger) */
+/* Sidebar toggle button (in header) */
 .sidebar-toggle {
-    position: fixed;
-    top: var(--space-6); /* Aligned with theme toggle */
-    left: 1rem; /* Position on left side */
-    width: 48px; /* Match theme toggle size */
-    height: 48px; /* Match theme toggle size */
-    background: var(--colour-background);
+    width: 40px;
+    height: 40px;
+    background: transparent;
     border: 1px solid var(--colour-border);
-    border-radius: 8px;
-    display: none; /* Hidden on desktop */
+    border-radius: var(--radius-md);
+    display: none; /* Hidden on desktop by default */
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 110;
     transition: all 0.2s ease;
 
     &:hover {
@@ -260,9 +260,9 @@
     }
 
     /* Hamburger animation when open */
-    &.active .sidebar-toggle-icon span {
+    &.open .hamburger-icon span {
         &:nth-child(1) {
-            transform: rotate(45deg) translateY(6px);
+            transform: rotate(45deg) translate(4px, 4px);
         }
 
         &:nth-child(2) {
@@ -270,23 +270,23 @@
         }
 
         &:nth-child(3) {
-            transform: rotate(-45deg) translateY(-6px);
+            transform: rotate(-45deg) translate(4px, -4px);
         }
     }
 }
 
-.sidebar-toggle-icon {
+.hamburger-icon {
     display: flex;
     flex-direction: column;
     gap: 4px;
+}
 
-    span {
-        width: 20px;
-        height: 2px;
-        background: var(--colour-text);
-        border-radius: 2px;
-        transition: all var(--transition-default);
-    }
+.hamburger-icon span {
+    width: 18px;
+    height: 2px;
+    background: var(--colour-text);
+    border-radius: 2px;
+    transition: all 0.2s ease;
 }
 
 /* Mobile backdrop */
@@ -316,38 +316,26 @@
 @media (min-width: 1024px) {
     /* Adjust main content and header for sidebar */
     body {
-        padding-left: 320px;
-        transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-        /* When sidebar is auto-hidden on scroll */
-        &.sidebar-hidden {
-            padding-left: 0;
-
-            .site-header {
-                left: 0;
-                width: 100%;
-            }
-        }
-
-        /* Hide extra nav items when sidebar is open (show only first 4) */
-        &:not(.sidebar-hidden) .nav-list .nav-item:nth-child(n+5) {
-            display: none;
-        }
+        padding-left: var(--sidebar-width);
     }
 
     .site-header {
-        left: 320px;
-        width: calc(100% - 320px);
-        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        left: var(--sidebar-width);
+        width: calc(100% - var(--sidebar-width));
     }
 
     .sidebar {
         transform: translateX(0);
     }
+
+    /* Hide toggle button on desktop - sidebar always visible */
+    .sidebar-toggle {
+        display: none;
+    }
 }
 
 /* ============================================
-   Tablet Layout (768px - 1023px)
+   Tablet and Mobile Layout (< 1024px)
    ============================================ */
 
 @media (max-width: 1023px) {
@@ -355,15 +343,14 @@
         transform: translateX(-100%);
         box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
 
-        &.active {
+        &.open {
             transform: translateX(0);
         }
     }
 
+    /* Show toggle button on mobile/tablet */
     .sidebar-toggle {
         display: flex;
-        left: 1rem; /* Position on left side */
-        right: auto; /* Override default right positioning */
     }
 
     /* Hide old header nav toggle - we use sidebar toggle now */
@@ -374,24 +361,6 @@
     /* Hide header nav items on mobile - sidebar has all navigation */
     .nav-list {
         display: none !important;
-    }
-
-    /* Add padding above Home to make space for toggle buttons */
-    .sidebar-content {
-        padding-top: 5rem; /* Space for toggle buttons */
-    }
-
-    /* Theme toggle positioning adjusted - both toggles now on left */
-    .theme-toggle {
-        top: var(--space-6) !important; /* Align with sidebar toggle */
-        left: 4.5rem !important; /* Position to right of sidebar toggle */
-    }
-
-    /* Hide logo when sidebar is active to prevent overlap */
-    .sidebar.active ~ header .logo {
-        opacity: 0 !important;
-        pointer-events: none;
-        transition: opacity var(--transition-default);
     }
 }
 

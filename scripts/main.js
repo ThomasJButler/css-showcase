@@ -10,7 +10,8 @@
  */
 document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.querySelector('.theme-toggle');
-    const themeIcon = document.querySelector('.theme-icon');
+    const lightIcon = document.querySelector('.theme-icon-light');
+    const darkIcon = document.querySelector('.theme-icon-dark');
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
     const currentTheme = localStorage.getItem('theme') ||
@@ -41,11 +42,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * Updates theme toggle icon based on current theme
+     * Updates theme toggle icon visibility based on current theme
      * @param {string} theme - Current theme ('dark' or 'light')
      */
     function updateThemeIcon(theme) {
-        themeIcon.textContent = theme === 'dark' ? '🌙' : '🌞';
+        if (lightIcon && darkIcon) {
+            if (theme === 'dark') {
+                lightIcon.style.display = 'none';
+                darkIcon.style.display = 'block';
+            } else {
+                lightIcon.style.display = 'block';
+                darkIcon.style.display = 'none';
+            }
+        }
     }
 
     const navToggle = document.querySelector('.nav-toggle');

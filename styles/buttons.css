@@ -1128,7 +1128,7 @@
 /* Code Showcase */
 .code-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: 1fr;  /* Stack vertically - full width for code readability */
     gap: var(--space-6);
     margin-top: var(--space-8);
 }

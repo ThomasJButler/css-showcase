@@ -1,21 +1,27 @@
-<!-- Minimal Header Component -->
-<div class="progress-container"><div class="progress-bar"></div></div>
+<!-- Header Component -->
 <div class="header-content">
-    <a href="index.html" class="logo">
-        <span class="logo-text">CSS</span>
-        <span class="logo-accent">Showcase</span>
-    </a>
-    <div class="header-actions">
-        <button class="theme-toggle-btn" aria-label="Toggle colour theme">
-            <span class="theme-icon theme-icon-light" role="img" aria-label="Light theme">🌞</span>
-            <span class="theme-icon theme-icon-dark" role="img" aria-label="Dark theme">🌙</span>
-        </button>
-        <button class="sidebar-toggle-btn" aria-label="Open navigation menu">
-            <span class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </span>
+    <button class="sidebar-toggle" aria-label="Toggle navigation">
+        <span class="sidebar-toggle-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+    </button>
+    <a href="index.html" class="logo">CSS Showcase</a>
+    <div class="header-controls">
+        <button class="theme-toggle" aria-label="Toggle theme">
+            <!-- Moon icon (shown in light mode) -->
+            <svg class="theme-icon-light" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+            </svg>
+            <!-- Sun icon (shown in dark mode) -->
+            <svg class="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2"/><path d="M12 20v2"/>
+                <path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
+                <path d="M2 12h2"/><path d="M20 12h2"/>
+                <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+            </svg>
         </button>
     </div>
 </div>

@@ -1,60 +1,97 @@
-0. **START HERE**: Study `docs/visual-testing/summary.md` - this contains the prioritised task list from visual testing with screenshots of all 32 pages. Screenshots are in `docs/visual-testing/screenshots/` (desktop, mobile, dark-mode folders).
+# CSS Showcase - Ultimate Overhaul (Build Mode)
 
-0a. Study `specs/*` with up to 500 parallel Sonnet subagents to understand the improvement requirements.
+## Overview
 
-0b. Study @IMPLEMENTATION_PLAN.md to understand what needs to be done.
+Transform the CSS Showcase from "portfolio-ready" to "industry-leading". This is a 7-phase overhaul covering navigation, code boxes, advanced CSS, file consolidation, and new pages.
 
-0c. This is a static HTML/CSS/JS site. Key files:
-    - HTML pages in root directory
-    - `css/` for stylesheets
-    - `js/` for JavaScript
+## Build Tasks
 
-1. Your task is to implement improvements per the specifications using parallel subagents. Follow @IMPLEMENTATION_PLAN.md and choose the most important item to address. Before making changes, search the codebase (don't assume not implemented) using Sonnet subagents. You may use up to 500 parallel Sonnet subagents for searches/reads and only 1 Sonnet subagent for validation. Use Opus subagents when complex reasoning is needed.
+0. **START HERE**: Study @IMPLEMENTATION_PLAN.md to find the current phase and next task.
 
-2. After implementing, open the HTML file in a browser or use a local server to verify your changes work correctly. Check for:
-   - No JavaScript console errors
-   - Responsive design works at mobile widths
-   - Links navigate correctly
-   - Styles render as expected
+0a. The plan has 8 phases. Work through ONE TASK at a time:
+    - Phase 1: CSS Architecture Foundation (layers, tokens, z-index)
+    - Phase 2: Header & Sidebar Redesign (component injection)
+    - Phase 3: Code Box Polish (accessibility, visual separator)
+    - Phase 4: Advanced CSS (view transitions, scroll animations, nesting)
+    - Phase 5: File Consolidation (35 → ~12 CSS files)
+    - Phase 6: New Content Pages (tools.html, frameworks.html)
+    - Phase 7: Final Polish (audits, testing)
+    - Phase 8: Final 5% UX/UI Polish (COMPLETED)
 
-3. When you discover issues, immediately update @IMPLEMENTATION_PLAN.md with your findings using a subagent. When resolved, update and remove the item.
+0b. Before implementing, search the codebase to understand current state. Use up to 3 parallel agents for research.
 
-4. When the implementation is complete and working, update @IMPLEMENTATION_PLAN.md, then `git add -A` then `git commit` with a descriptive message. After the commit, `git push`.
+1. Implement the NEXT INCOMPLETE TASK from @IMPLEMENTATION_PLAN.md:
+   - Follow the specific code examples in the plan
+   - Test changes in browser (localhost:8080)
+   - Check responsive behaviour and dark mode
+   - Verify no console errors
+
+2. After implementing each task:
+   - Update @IMPLEMENTATION_PLAN.md marking task COMPLETE
+   - `git add` specific files changed
+   - `git commit` with descriptive UK English message
+   - `git push` to current branch
+
+3. Move to the next task. Repeat until phase complete.
+
+## Key Decisions (Already Made)
+
+- **Navigation**: Sidebar-only (remove header nav, minimal header)
+- **Tools page**: Curated external links (not detailed tutorials)
+- **Component loading**: Immediate with CSS skeleton
+
+## Critical Files
+
+| File | Action | Phase |
+|------|--------|-------|
+| `styles/00-layers.css` | CREATE | 1 |
+| `styles/01-design-tokens.css` | CREATE | 1 |
+| `styles/main.css` | REFACTOR | 1 |
+| `components/header.html` | CREATE | 2 |
+| `components/sidebar.html` | CREATE | 2 |
+| `scripts/component-loader.js` | CREATE | 2 |
+| `styles/code-examples.css` | MODIFY | 3 |
+| `tools.html` | CREATE | 6 |
+| `frameworks.html` | CREATE | 6 |
+
+## Verification
+
+After each change:
+```bash
+# Start local server
+python -m http.server 8080
+
+# Test in browser at http://localhost:8080
+# Check: navigation, dark mode, mobile view, console errors
+
+# Capture screenshots (optional)
+node visual-test.js
+```
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 STRICT RULES - VIOLATING THESE IS FORBIDDEN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-99. COMMIT MESSAGES: Use UK English spelling (colour, centre, behaviour, organisation, minimise, etc.). Keep messages clear and descriptive.
+99. UK ENGLISH: Use UK spelling in commits (colour, centre, behaviour, organisation, minimise)
 
-999. NO CO-AUTHOR TAGS: Do NOT add "Co-Authored-by", "Co-authored-by", or any similar attribution tags to commit messages. Commits should have a simple message only.
+999. NO CO-AUTHOR TAGS: Do NOT add "Co-Authored-by" or similar to commits
 
-9999. NEVER PUSH TO MAIN: Only push to the current working branch. NEVER run `git push origin main` or `git push origin master`. If you find yourself about to push to main, STOP and push to the current branch instead.
+9999. NEVER PUSH TO MAIN: Only push to current ralph/* branch. Run `git branch --show-current` first.
 
-99999. NO PULL REQUESTS: Do NOT use `gh pr create` or any GitHub CLI commands to create pull requests. Do NOT suggest creating PRs. The human will handle merging manually.
+99999. NO PULL REQUESTS: Do NOT use `gh pr create`. Human handles merging manually.
 
-999999. BRANCH SAFETY: Always verify you're on a ralph/* branch before pushing. Run `git branch --show-current` to check.
+999999. BRANCH SAFETY: Verify on ralph/* branch before any push.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMPLEMENTATION GUIDELINES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-9999999. Important: When creating new CSS showcase pages, follow the existing page structure and design patterns. Maintain consistency with existing pages.
+- Follow existing design patterns and CSS variable naming
+- Maintain dark/light mode compatibility
+- Use semantic HTML with proper ARIA labels
+- Mobile-first responsive design
+- Test at 375px, 768px, and 1920px viewports
+- Update @IMPLEMENTATION_PLAN.md after EACH task completion
+- Implement completely - no placeholders or stubs
 
-99999999. Important: All new pages must include proper navigation breadcrumbs and sidebar links.
-
-999999999. Keep @IMPLEMENTATION_PLAN.md current with learnings using a subagent — future work depends on this to avoid duplicating efforts. Update especially after finishing your turn.
-
-9999999999. When you learn something new about the project structure, update @AGENTS.md using a subagent but keep it brief.
-
-99999999999. For any bugs you notice, resolve them or document them in @IMPLEMENTATION_PLAN.md using a subagent even if unrelated to current work.
-
-999999999999. Implement functionality completely. Placeholders and stubs waste time redoing the same work.
-
-9999999999999. When @IMPLEMENTATION_PLAN.md becomes large, periodically clean out completed items using a subagent.
-
-99999999999999. IMPORTANT: Keep @AGENTS.md operational only — status updates belong in IMPLEMENTATION_PLAN.md.
-
-999999999999999. CSS Best Practices: Use CSS custom properties (variables) where appropriate. Ensure dark/light mode compatibility. Mobile-first responsive design.
-
-9999999999999999. Accessibility: Use semantic HTML, proper ARIA labels, sufficient colour contrast, keyboard navigation support.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

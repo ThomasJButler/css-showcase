@@ -48,16 +48,22 @@
 /* Demo Grid */
 .demo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: var(--space-8);
 }
 
 .demo-card {
+    display: flex;
+    flex-direction: column;
     background: var(--colour-background);
     border: 1px solid var(--colour-border);
     border-radius: var(--radius-xl);
     overflow: hidden;
     transition: all var(--transition-base);
+}
+
+.demo-card .code-example {
+    flex: 1;
+    min-height: 200px;
 }
 
 .demo-card:hover {

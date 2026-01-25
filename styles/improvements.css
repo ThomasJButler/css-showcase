@@ -46,145 +46,9 @@
     }
 }
 
-/* Header Actions - Toggles Side by Side */
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    order: 2;
-}
+/* Legacy header-actions styles removed - using simplified header layout in main.css */
 
-.header-actions .sidebar-toggle,
-.header-actions .theme-toggle {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--colour-surface);
-    border: 1px solid var(--colour-border);
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.header-actions .sidebar-toggle:hover,
-.header-actions .theme-toggle:hover {
-    background: var(--colour-surface-variant);
-    border-color: var(--colour-primary);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
-}
-
-.header-actions .sidebar-toggle:active,
-.header-actions .theme-toggle:active {
-    transform: translateY(0);
-    box-shadow: none;
-}
-
-/* Sidebar toggle icon */
-.header-actions .sidebar-toggle span {
-    display: block;
-    width: 18px;
-    height: 2px;
-    background: var(--colour-text);
-    border-radius: 2px;
-    transition: all var(--transition-default);
-    position: absolute;
-}
-
-.header-actions .sidebar-toggle span:nth-child(1) {
-    transform: translateY(-6px);
-}
-
-.header-actions .sidebar-toggle span:nth-child(2) {
-    transform: translateY(0);
-}
-
-.header-actions .sidebar-toggle span:nth-child(3) {
-    transform: translateY(6px);
-}
-
-.header-actions .sidebar-toggle[aria-expanded="true"] span:nth-child(1) {
-    transform: translateY(0) rotate(45deg);
-}
-
-.header-actions .sidebar-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-}
-
-.header-actions .sidebar-toggle[aria-expanded="true"] span:nth-child(3) {
-    transform: translateY(0) rotate(-45deg);
-}
-
-/* Theme toggle in header */
-.header-actions .theme-toggle {
-    font-size: 1.25rem;
-}
-
-/* Logo should be first, actions second, nav third */
-.logo {
-    order: 1;
-}
-
-.main-nav {
-    order: 3;
-}
-
-/* On mobile, hide nav toggle since we have sidebar toggle */
-@media (max-width: 768px) {
-    .nav-toggle {
-        display: none;
-    }
-
-    .header-content {
-        flex-wrap: wrap;
-        justify-content: flex-end; /* Push logo to right */
-    }
-
-    .logo {
-        order: 2; /* Logo on right */
-        margin-left: auto;
-        font-size: var(--text-xl);
-    }
-
-    .header-actions {
-        order: 1; /* Toggles on left */
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .main-nav {
-        order: 3;
-        width: 100%;
-        flex-basis: 100%;
-    }
-}
-
-@media (min-width: 769px) {
-    /* On desktop, hide sidebar toggle */
-    .header-actions .sidebar-toggle {
-        display: none;
-    }
-}
-
-/* Improved Logo */
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-}
-
-.logo-text {
-    background: linear-gradient(135deg, var(--colour-primary) 0%, var(--colour-secondary) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+/* Legacy logo styles removed - using simplified logo in main.css */
 
 /* Better Mobile Navigation */
 @media (max-width: 768px) {
@@ -214,6 +78,53 @@
     
     .nav-link:active::before {
         opacity: 0.1;
+    }
+}
+
+/* ============================================
+   Mobile Padding Improvements
+   Better breathing room for touch targets
+   ============================================ */
+@media (max-width: 767px) {
+    /* Content sections need more padding */
+    .showcase-section,
+    .content-section,
+    main > section {
+        padding-left: var(--space-5);
+        padding-right: var(--space-5);
+    }
+
+    /* Cards need breathing room */
+    .showcase-card,
+    .card {
+        padding: var(--space-5);
+    }
+
+    /* Hero section padding */
+    .hero {
+        padding: var(--space-8) var(--space-5);
+    }
+
+    /* Better touch targets for buttons */
+    .btn,
+    button:not(.sidebar-toggle):not(.theme-toggle):not(.back-to-top) {
+        min-height: 44px;
+        padding: var(--space-3) var(--space-5);
+    }
+
+    /* Typography spacing on mobile */
+    h1 {
+        margin-bottom: var(--space-4);
+    }
+
+    h2 {
+        margin-bottom: var(--space-3);
+    }
+
+    /* Demo blocks need padding */
+    .demo-block,
+    .code-example {
+        padding: var(--space-4);
     }
 }
 
@@ -262,45 +173,67 @@
 .showcase-card {
     background: var(--colour-surface);
     border: 1px solid var(--colour-border);
-    border-radius: 1rem;
-    padding: 1.25rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    transition:
+        transform 0.4s var(--ease-out-back),
+        box-shadow 0.3s var(--ease-out-expo),
+        border-color 0.3s var(--ease-out-expo);
     position: relative;
     overflow: hidden;
 }
 
+/* Gradient border on hover using pseudo-element */
 .showcase-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--colour-primary), var(--colour-secondary));
-    transform: translateX(-100%);
-    transition: transform var(--transition-default);
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+        135deg,
+        transparent 0%,
+        var(--colour-primary) 50%,
+        transparent 100%
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-out-expo);
+    pointer-events: none;
 }
 
 .showcase-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow:
+        0 20px 40px -12px rgba(0, 0, 0, 0.12),
+        0 0 0 1px var(--colour-primary-light);
     border-color: transparent;
 }
 
 .showcase-card:hover::before {
-    transform: translateX(0);
+    opacity: 0.5;
+}
+
+[data-theme="dark"] .showcase-card:hover {
+    box-shadow:
+        0 20px 50px -15px rgba(0, 0, 0, 0.5),
+        var(--glow-primary);
 }
 
 .card-icon {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     display: inline-block;
-    animation: float 3s ease-in-out infinite;
+    transition: transform 0.4s var(--ease-out-back);
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+/* Replace continuous animation with hover response */
+.showcase-card:hover .card-icon {
+    transform: scale(1.1) rotate(-3deg);
 }
 
 .card-title {
@@ -573,9 +506,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-social-link:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     border-color: var(--colour-primary);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px -8px rgba(37, 99, 235, 0.3);
+    color: var(--colour-primary);
+}
+
+[data-theme="dark"] .footer-social-link:hover {
+    box-shadow: 0 8px 20px -8px rgba(96, 165, 250, 0.3);
 }
 
 .footer-heading {
@@ -598,12 +536,28 @@ h1, h2, h3, h4, h5, h6 {
 .footer-links a {
     color: var(--colour-text-muted);
     text-decoration: none;
-    transition: color 0.2s ease;
     font-size: 0.9375rem;
+    position: relative;
+    transition: color 0.2s var(--ease-out-expo);
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--colour-primary);
+    transition: width 0.3s var(--ease-out-expo);
 }
 
 .footer-links a:hover {
-    color: var(--colour-primary);
+    color: var(--colour-text);
+}
+
+.footer-links a:hover::after {
+    width: 100%;
 }
 
 .footer-bottom {
@@ -666,6 +620,49 @@ html {
     animation: shimmer 2s infinite;
 }
 
+/* ============================================
+   Section Dividers
+   Visual separation between content sections
+   ============================================ */
+
+/* Automatic divider between consecutive sections */
+.showcase-section + .showcase-section,
+.content-section + .content-section {
+    border-top: 1px solid var(--colour-border);
+    padding-top: var(--space-8);
+    margin-top: var(--space-8);
+}
+
+/* Explicit section divider component */
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin: var(--space-8) 0;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--colour-border),
+        transparent
+    );
+}
+
+/* Optional decorative center element */
+.section-divider .divider-icon {
+    width: 8px;
+    height: 8px;
+    background: var(--colour-primary);
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
 /* Responsive Improvements */
 @media (max-width: 768px) {
     .showcase-grid {
@@ -684,6 +681,17 @@ html {
     .code-example pre {
         padding: 1rem;
         font-size: 0.875rem;
+    }
+
+    /* Tighter section dividers on mobile */
+    .showcase-section + .showcase-section,
+    .content-section + .content-section {
+        padding-top: var(--space-6);
+        margin-top: var(--space-6);
+    }
+
+    .section-divider {
+        margin: var(--space-6) 0;
     }
 }
 
@@ -861,6 +869,31 @@ html {
     .progress-bar {
         animation: none;
         transform: scaleX(0);
+    }
+}
+
+/* ============================================
+   Section Entrance Animations
+   Subtle reveal on scroll (CSS-only)
+   ============================================ */
+@supports (animation-timeline: view()) {
+    .showcase-section,
+    .demo-section,
+    .content-section {
+        animation: section-reveal linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 25%;
+    }
+
+    @keyframes section-reveal {
+        from {
+            opacity: 0.3;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }
 

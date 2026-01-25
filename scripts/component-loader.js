@@ -162,7 +162,7 @@ class ComponentLoader {
      * Setup theme toggle button in header
      */
     setupThemeToggle() {
-        const themeBtn = document.querySelector('.theme-toggle-btn');
+        const themeBtn = document.querySelector('.theme-toggle');
         if (!themeBtn) return;
 
         // Check for existing theme preference
@@ -192,9 +192,9 @@ class ComponentLoader {
         if (lightIcon && darkIcon) {
             if (theme === 'dark') {
                 lightIcon.style.display = 'none';
-                darkIcon.style.display = 'inline';
+                darkIcon.style.display = 'block';
             } else {
-                lightIcon.style.display = 'inline';
+                lightIcon.style.display = 'block';
                 darkIcon.style.display = 'none';
             }
         }

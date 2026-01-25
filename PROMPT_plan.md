@@ -1,55 +1,75 @@
-0. **START HERE**: Study `docs/visual-testing/summary.md` - this contains the prioritised task list from visual testing with screenshots of all 32 pages. Screenshots are in `docs/visual-testing/screenshots/` (desktop, mobile, dark-mode folders). 
-These are recently generated and latest versions if they are not comitted in git. Use these as visual source of truths for future improvements.
+# CSS Showcase - Ultimate Overhaul (Planning Mode)
 
-0a. Study `specs/*` with up to 250 parallel Sonnet subagents to understand the improvement requirements and priorities.
+## Overview
 
-0b. Study @IMPLEMENTATION_PLAN.md (if present) to understand the plan so far.
+Transform the CSS Showcase from "portfolio-ready" to "industry-leading" with:
+- Simplified sidebar-only navigation (remove header nav)
+- Polished code boxes with WCAG-compliant sizing
+- Cutting-edge CSS (layers, container queries, view transitions, scroll animations)
+- Consolidated file structure (35 → ~12 CSS files)
+- Component injection to eliminate HTML duplication
+- New Tools & Frameworks pages
 
-0c. Study the project structure - this is a static HTML/CSS/JS site with multiple pages. Key directories:
-    - Root HTML files (index.html, about.html, etc.)
-    - `css/` directory for stylesheets
-    - `js/` directory for JavaScript
-    - Individual page HTML files
+## Planning Tasks
 
-0d. Study existing CSS patterns, class naming conventions, and design system in use.
+0. **START HERE**: Study @IMPLEMENTATION_PLAN.md to understand the 7-phase overhaul plan.
 
-1. Study @IMPLEMENTATION_PLAN.md (if present; it may be incorrect) and use up to 500 Sonnet subagents to study existing source code and compare it against `specs/*`.
+0a. Study `docs/visual-testing/summary.md` and screenshots in `docs/visual-testing/screenshots/` for current visual state.
 
-Use an Opus subagent to analyse findings, prioritise tasks, and create/update @IMPLEMENTATION_PLAN.md as a bullet point list sorted in priority of items yet to be implemented. Ultrathink.
+0b. Study the current architecture:
+    - 30 HTML pages in root directory
+    - `styles/` for CSS (35 files, ~18,800 lines)
+    - `scripts/` for JavaScript (19 files)
+    - Variable duplication between main.css and improvements.css
+    - Sidebar HTML duplicated in every page (~190 lines × 30 = ~5,700 lines)
 
-Consider searching for:
-- Broken links (href="#")
-- Placeholder content
-- Incomplete pages
-- Mobile responsiveness issues
-- Accessibility problems
-- Inconsistent styling patterns
-- JavaScript functionality gaps
+1. Use up to 3 parallel Explore agents to research specific aspects:
+   - Current header/sidebar implementation (sidebar.css, main.js, sidebar.js)
+   - Code box styling (code-examples.css, syntax-highlight.css)
+   - CSS architecture patterns (main.css variables, z-index usage)
 
-Study @IMPLEMENTATION_PLAN.md to determine starting point for research and keep it up to date with items considered complete/incomplete using subagents.
+2. Verify findings against @IMPLEMENTATION_PLAN.md phases. Update the plan with any new discoveries.
 
-IMPORTANT: Plan only. Do NOT implement anything. Do NOT assume functionality is missing; confirm with code search first.
+3. When planning is complete, update @IMPLEMENTATION_PLAN.md with refined task details.
 
-ULTIMATE GOAL: Transform this CSS Showcase into a polished, portfolio-ready demonstration that:
-- Has NO broken links or placeholder content
-- Is fully responsive on mobile and desktop
-- Has consistent visual design language
-- Has working search functionality (or remove it)
-- Scores 8+/10 on portfolio readiness
+## Key Decisions (Already Made)
 
-Priority order:
-1. CRITICAL: Fix broken/placeholder links (Custom Properties, Blend Modes, Shapes & Clips, Anchor Positioning, Scroll Animations, New Colour Spaces)
-2. CRITICAL: Fix or remove non-functional search
-3. CRITICAL: Fix GitHub repository link
-4. HIGH: Mobile responsiveness improvements
-5. HIGH: Footer enhancements
-6. MEDIUM: Visual consistency (icons, hover states)
-7. MEDIUM: Playground improvements
+- **Navigation**: Sidebar-only (remove header nav, minimal header with logo + theme + hamburger)
+- **Tools page**: Curated links to external resources (not tutorials)
+- **Component loading**: Immediate with CSS skeleton (smooth UX)
 
-If an element is missing from specs, search first to confirm it doesn't exist, then if needed author the specification at specs/FILENAME.md. If you create a new element then document the plan to implement it in @IMPLEMENTATION_PLAN.md using a subagent.
+## Critical Files to Study
 
-STRICT RULES:
-- All text content must use UK English spelling (colour, centre, organisation, etc.)
-- Do NOT create pull requests
-- Do NOT push to main branch
-- Do NOT add Co-Authored-by tags to commits
+| File | Purpose | Lines |
+|------|---------|-------|
+| `styles/main.css` | Design tokens, needs refactor | 888 |
+| `styles/improvements.css` | Duplicate variables to merge | 866 |
+| `styles/sidebar.css` | Navigation to simplify | 536 |
+| `styles/code-examples.css` | Code display to enhance | 347 |
+| `scripts/sidebar.js` | Scroll handling to unify | 354 |
+| `scripts/main.js` | Duplicate scroll to remove | 202 |
+
+## Phase 8: Final 5% UX/UI Polish (Completed)
+
+### Tasks Completed:
+- Fixed mobile sidebar class mismatch bug (JS used `.open`, CSS expected `.active`)
+- Fixed stuck "Fixed (viewport-relative)" positioning demo element
+- Redesigned header with SVG icons (removed emojis)
+- Replaced all emojis with Lucide SVG icons throughout sidebar
+- Removed CSS Playground page completely
+- Added mobile padding improvements for better touch targets
+- Added section dividers for visual hierarchy
+
+### Plan Reference:
+See `/Users/tombutler/.claude/plans/logical-splashing-candy.md` for full details
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STRICT RULES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- PLAN ONLY: Do NOT implement anything. Research and document only.
+- UK ENGLISH: All documentation uses UK spelling (colour, centre, behaviour)
+- NO COMMITS: Planning mode does not commit changes
+- UPDATE PLAN: Keep @IMPLEMENTATION_PLAN.md current with findings
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

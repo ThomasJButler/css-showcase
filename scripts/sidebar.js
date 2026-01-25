@@ -58,7 +58,7 @@
 
         // Handle escape key to close sidebar
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+            if (e.key === 'Escape' && sidebar.classList.contains('open')) {
                 closeSidebar();
             }
         });
@@ -78,7 +78,7 @@
 
         const sidebar = document.querySelector('.sidebar');
         const sidebarToggle = document.querySelector('.sidebar-toggle');
-        if (!sidebar || !sidebar.classList.contains('active')) return;
+        if (!sidebar || !sidebar.classList.contains('open')) return;
 
         const focusableElements = sidebar.querySelectorAll(
             'a[href], button, [tabindex]:not([tabindex="-1"])'
@@ -117,19 +117,19 @@
 
         if (!sidebar) return;
 
-        const isActive = sidebar.classList.toggle('active');
+        const isOpen = sidebar.classList.toggle('open');
 
         if (sidebarToggle) {
-            sidebarToggle.classList.toggle('active', isActive);
-            sidebarToggle.setAttribute('aria-expanded', isActive);
+            sidebarToggle.classList.toggle('active', isOpen);
+            sidebarToggle.setAttribute('aria-expanded', isOpen);
         }
 
         if (sidebarBackdrop) {
-            sidebarBackdrop.classList.toggle('active', isActive);
+            sidebarBackdrop.classList.toggle('active', isOpen);
         }
 
         // Manage focus trap for accessibility
-        if (isActive) {
+        if (isOpen) {
             sidebar.setAttribute('data-focus-trap', 'active');
             document.addEventListener('keydown', trapSidebarFocus);
             // Focus first link in sidebar for screen reader users
@@ -143,7 +143,7 @@
         }
 
         // Prevent body scroll when sidebar is open on mobile
-        if (isActive) {
+        if (isOpen) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = '';
@@ -160,7 +160,7 @@
 
         if (!sidebar) return;
 
-        sidebar.classList.remove('active');
+        sidebar.classList.remove('open');
         sidebar.removeAttribute('data-focus-trap');
         document.removeEventListener('keydown', trapSidebarFocus);
 
