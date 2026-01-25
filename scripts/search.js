@@ -76,6 +76,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = searchModal.querySelector('.search-input');
     const searchResults = searchModal.querySelector('.search-results');
     const searchClose = searchModal.querySelector('.search-close');
+
+    // Create aria-live region for screen reader announcements
+    const searchAnnounce = document.createElement('div');
+    searchAnnounce.setAttribute('aria-live', 'polite');
+    searchAnnounce.setAttribute('aria-atomic', 'true');
+    searchAnnounce.className = 'sr-only';
+    searchModal.appendChild(searchAnnounce);
     
     // Search functionality
     function performSearch(query) {
@@ -93,8 +100,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (results.length === 0) {
             searchResults.innerHTML = '<p class="search-empty">No results found. Try different keywords.</p>';
+            searchAnnounce.textContent = 'No results found';
             return;
         }
+
+        // Announce results count for screen readers
+        searchAnnounce.textContent = `${results.length} result${results.length === 1 ? '' : 's'} found`;
         
         // Group results by category
         const grouped = results.reduce((acc, item) => {
@@ -142,18 +153,48 @@ document.addEventListener('DOMContentLoaded', function() {
         return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
     
+    // Focus trap helper - keeps focus within modal when open
+    function trapFocus(e) {
+        if (e.key !== 'Tab') return;
+
+        const focusableElements = searchModal.querySelectorAll(
+            'input, button, [tabindex]:not([tabindex="-1"]), a[href]'
+        );
+        const focusable = Array.from(focusableElements).filter(
+            el => el.offsetParent !== null // Only visible elements
+        );
+
+        if (focusable.length === 0) return;
+
+        const firstElement = focusable[0];
+        const lastElement = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+        }
+    }
+
     // Event handlers
     function openSearch() {
         searchModal.classList.add('active');
+        searchModal.setAttribute('data-focus-trap', 'active');
         searchInput.value = '';
         searchInput.focus();
         searchResults.innerHTML = '<p class="search-empty">Start typing to search...</p>';
+        searchAnnounce.textContent = 'Search opened. Start typing to search.';
         document.body.style.overflow = 'hidden';
+        searchModal.addEventListener('keydown', trapFocus);
     }
-    
+
     function closeSearch() {
         searchModal.classList.remove('active');
+        searchModal.removeAttribute('data-focus-trap');
         document.body.style.overflow = '';
+        searchModal.removeEventListener('keydown', trapFocus);
     }
     
     // Keyboard shortcuts
