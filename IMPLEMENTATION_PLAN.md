@@ -1,7 +1,7 @@
 # CSS Showcase - Ultimate Overhaul Implementation Plan
 
 **Last Updated:** 25 January 2026
-**Status:** Phase 3 - Code Box Polish (Phases 0-2 Complete)
+**Status:** Phase 3 - Code Box Polish (Phases 0-2 Complete, Tasks 3.1-3.2 Complete)
 
 ---
 
@@ -221,64 +221,28 @@ document.addEventListener('DOMContentLoaded', () => new ComponentLoader().init()
 ## Phase 3: Code Box Polish
 
 ### Task 3.1: Fix All WCAG Font Size Violations
-**Status:** PENDING
+**Status:** COMPLETE ✓
 **WCAG 2.1 AA Requirement:** Minimum font size of 14px (0.875rem) for body text
 
-**Complete list of violations found (6 total):**
+**Fixes applied (25 January 2026):**
 
-| File | Line | Current | Element | Severity |
-|------|------|---------|---------|----------|
-| code-examples.css | 20 | 0.75rem (12px) | Language label (::before) | Medium |
-| code-examples.css | 325 | **0.625rem (10px)** | Language label @768px | Critical |
-| code-examples.css | 333 | **0.625rem (10px)** | Copy button @768px | Critical |
-| syntax-highlight.css | 118 | 0.75rem (12px) | Line numbers | Medium |
-| syntax-highlight.css | 143 | **0.7rem (11.2px)** | Line numbers @768px | Critical |
-| improvements.css | 773 | 0.75rem (12px) | Code pre @375px | Medium |
+| File | Element | Before | After |
+|------|---------|--------|-------|
+| code-examples.css:20 | Language label (::before) | var(--text-xs) | var(--text-sm) |
+| code-examples.css:226 | Copy button | var(--text-xs) | var(--text-sm) |
+| code-examples.css:303 | Pre @768px | var(--text-xs) | var(--text-sm) |
+| code-examples.css:325 | Language label @768px | 0.625rem | var(--text-sm) |
+| code-examples.css:333 | Copy button @768px | 0.625rem | var(--text-sm) |
+| syntax-highlight.css:118 | Line numbers | 0.75rem | var(--text-sm) |
+| syntax-highlight.css:143 | Line numbers @768px | 0.7rem | var(--text-sm) |
 
-**Fixes required:**
-
-```css
-/* code-examples.css line 20 */
-.code-example::before {
-  font-size: var(--text-sm); /* 0.875rem instead of var(--text-xs) */
-}
-
-/* code-examples.css line 325 - mobile language label */
-@media (max-width: 768px) {
-  .code-example::before {
-    font-size: var(--text-xs); /* 0.75rem minimum, was 0.625rem */
-  }
-}
-
-/* code-examples.css line 333 - mobile copy button */
-@media (max-width: 768px) {
-  .copy-button {
-    font-size: var(--text-xs); /* 0.75rem minimum, was 0.625rem */
-  }
-}
-
-/* syntax-highlight.css line 118 */
-.line-number {
-  font-size: var(--text-xs); /* Use variable instead of hardcoded 0.75rem */
-}
-
-/* syntax-highlight.css line 143 - mobile line numbers */
-@media (max-width: 768px) {
-  .line-number {
-    font-size: var(--text-xs); /* 0.75rem minimum, was 0.7rem */
-  }
-}
-
-/* improvements.css line 773 - REMOVE this override entirely */
-/* @media (max-width: 375px) { .code-example pre { font-size: 0.75rem; } } */
-```
+All font sizes now use `var(--text-sm)` (0.875rem/14px) to meet WCAG 2.1 AA requirements.
 
 ### Task 3.2: Unify Line Height
-**Status:** PENDING
-**Issue:** syntax-highlight.css uses hardcoded `line-height: 1.6` (line 8) instead of `var(--leading-relaxed)` (1.75)
+**Status:** COMPLETE ✓
 
-**Files to update:**
-- syntax-highlight.css line 8: Change `line-height: 1.6` → `line-height: var(--leading-relaxed)`
+**Fix applied (25 January 2026):**
+- syntax-highlight.css line 8: Changed `line-height: 1.6` → `line-height: var(--leading-relaxed)` (1.75)
 
 ### Task 3.3: Add Visual Separator
 **Status:** PENDING
@@ -530,12 +494,12 @@ main {
 | Phase 0: Housekeeping | COMPLETE ✓ | 2 | 2 |
 | Phase 1: CSS Architecture | COMPLETE ✓ | 2 | 2 |
 | Phase 2: Header & Sidebar | COMPLETE ✓ | 8 | 8 |
-| Phase 3: Code Box Polish | PENDING | 5 | 0 |
+| Phase 3: Code Box Polish | IN PROGRESS | 5 | 2 |
 | Phase 4: Advanced CSS | PENDING | 3 | 0 |
 | Phase 5: File Consolidation | PENDING | 6 | 0 |
 | Phase 6: New Content | PENDING | 3 | 0 |
 | Phase 7: Final Polish | PENDING | 4 | 0 |
-| **TOTAL** | | **33** | **12** |
+| **TOTAL** | | **33** | **14** |
 
 ---
 

@@ -5,7 +5,7 @@ pre code.highlighted {
     display: block;
     font-family: var(--font-mono);
     font-size: 0.875rem;
-    line-height: 1.6;
+    line-height: var(--leading-relaxed); /* Unified with code-examples.css (1.75) */
     tab-size: 4;
     white-space: pre;
     word-break: normal;
@@ -115,7 +115,7 @@ code.line-numbers {
     text-align: right;
     color: var(--colour-text-light);
     user-select: none;
-    font-size: 0.75rem;
+    font-size: var(--text-sm); /* WCAG 2.1 AA minimum: 14px (was 0.75rem/12px) */
     line-height: inherit;
 }
 
@@ -140,6 +140,6 @@ code.highlighted ::selection {
     
     .line-number {
         width: 2rem;
-        font-size: 0.7rem;
+        font-size: var(--text-sm); /* WCAG 2.1 AA minimum: 14px (was 0.7rem/11.2px) */
     }
 }
