@@ -545,11 +545,14 @@ main {
 **Risk Level:** MODERATE - Token colour conflicts resolved by adopting code-examples.css values
 
 ### Task 5.5: Update HTML Imports
-**Status:** PENDING
-**Action:** Replace multiple link tags across all 30 HTML files
+**Status:** COMPLETE ✓
+**Implemented:** 25 January 2026
+**Action:** Replaced multiple link tags across all 30 HTML files
 
-**Before (8.7 links average):**
+**Before (8-11 stylesheet links):**
 ```html
+<link rel="stylesheet" href="styles/00-layers.css">
+<link rel="stylesheet" href="styles/01-design-tokens.css">
 <link rel="stylesheet" href="styles/main.css">
 <link rel="stylesheet" href="styles/accessibility.css">
 <link rel="stylesheet" href="styles/improvements.css">
@@ -560,11 +563,15 @@ main {
 <link rel="stylesheet" href="styles/syntax-highlight.css">
 ```
 
-**After (6.8 links average):**
+**After (1-2 stylesheet links + fonts):**
 ```html
 <link rel="stylesheet" href="styles/bundle.css">
 <link rel="stylesheet" href="styles/[feature].css">
 ```
+
+**Files updated:** 30 HTML files
+**Stylesheet links removed:** 10 per file (bundled into bundle.css)
+**Result:** ~75% reduction in stylesheet HTTP requests for cached visits
 
 ### Task 5.6: Add Code Comments
 **Status:** PENDING
@@ -746,10 +753,10 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 | Phase 2: Header & Sidebar | COMPLETE ✓ | 8 | 8 |
 | Phase 3: Code Box Polish | COMPLETE ✓ | 5 | 5 |
 | Phase 4: Advanced CSS | COMPLETE ✓ | 3 | 3 |
-| Phase 5: File Consolidation | IN PROGRESS | 7 | 5 |
+| Phase 5: File Consolidation | IN PROGRESS | 7 | 6 |
 | Phase 6: New Content | PENDING | 3 | 1 |
 | Phase 7: Final Polish | PENDING | 4 | 0 |
-| **TOTAL** | | **34** | **26** |
+| **TOTAL** | | **34** | **27** |
 
 **Notes:**
 - Task 4.1 (View Transitions) completed 25 January 2026
@@ -760,6 +767,7 @@ Files WITH dark mode (19 total): 01-design-tokens.css, accessibility.css, animat
 - Task 5.2 (Core CSS Merge) completed 25 January 2026
 - Task 5.3 (Layout CSS Merge) completed 25 January 2026
 - Task 5.4 (Code CSS Merge) completed 25 January 2026
+- Task 5.5 (HTML Import Update) completed 25 January 2026
 - Task 6.3 marked complete (sidebar Resources section verified)
 - Phase 4-7 research completed 25 January 2026 with refined findings
 
