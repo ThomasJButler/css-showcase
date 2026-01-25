@@ -1,0 +1,18 @@
+/**
+ * CSS Cascade Layers
+ * ===================
+ * Defines the cascade order for all stylesheet layers.
+ * Lower layers have less specificity; higher layers override lower ones.
+ *
+ * Layer Order (lowest to highest priority):
+ * 1. reset      - CSS reset/normalisation
+ * 2. tokens     - Design tokens (colours, spacing, typography)
+ * 3. base       - Base element styles (html, body, headings, etc.)
+ * 4. layout     - Layout systems (grid, flexbox, sidebar, header)
+ * 5. components - Reusable UI components (buttons, cards, forms)
+ * 6. utilities  - Single-purpose utility classes
+ * 7. features   - Feature-specific page styles
+ * 8. overrides  - Final overrides and fixes
+ */
+
+@layer reset, tokens, base, layout, components, utilities, features, overrides;
