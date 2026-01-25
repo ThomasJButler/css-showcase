@@ -20,237 +20,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- Sidebar Backdrop (Mobile) -->
-<div class="sidebar-backdrop"></div>
+    <!-- Sidebar Skeleton (shown while components load) -->
+    <div class="sidebar-skeleton" aria-hidden="true"></div>
 
-<!-- Sidebar Navigation -->
-<aside class="sidebar" role="navigation" aria-label="Main navigation">
-    <div class="sidebar-content">
-        <!-- Home Link -->
-        <div class="sidebar-header">
-            <a href="index.html" class="sidebar-home-link">
-                <span class="icon" role="img" aria-label="Home">🏠</span>
-                <span>Home</span>
-            </a>
-        </div>
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div class="sidebar-backdrop"></div>
 
-        <!-- Fundamentals Section -->
-        <div class="sidebar-section" data-section="fundamentals">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
-                <span><span class="sidebar-section-icon" role="img" aria-label="Fundamentals section">📚</span>Fundamentals</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="basic.html" class="sidebar-nav-link">Basic CSS</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="box-model.html" class="sidebar-nav-link">Box Model</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="typography.html" class="sidebar-nav-link">Typography</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Layout Section -->
-        <div class="sidebar-section" data-section="layout">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
-                <span><span class="sidebar-section-icon" role="img" aria-label="Layout section">🎯</span>Layout</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="flexbox.html" class="sidebar-nav-link">Flexbox</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="flexbox-patterns.html" class="sidebar-nav-link">Flexbox Patterns</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="grid.html" class="sidebar-nav-link">Grid</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="layout.html" class="sidebar-nav-link">Layout Techniques</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="responsive.html" class="sidebar-nav-link">Responsive Design</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Visual Effects Section -->
-        <div class="sidebar-section" data-section="visual-effects">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
-                <span><span class="sidebar-section-icon" role="img" aria-label="Visual Effects section">✨</span>Visual Effects</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="gradients.html" class="sidebar-nav-link">Gradients</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="gradient-patterns.html" class="sidebar-nav-link">Gradient Patterns</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="transitions.html" class="sidebar-nav-link">Transitions</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="animations.html" class="sidebar-nav-link">Animations</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="filters.html" class="sidebar-nav-link">Filters & Effects</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Components Section -->
-        <div class="sidebar-section" data-section="components">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
-                <span><span class="sidebar-section-icon" role="img" aria-label="Components section">🧩</span>Components</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="buttons.html" class="sidebar-nav-link">Buttons</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="forms.html" class="sidebar-nav-link">Forms</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="tables.html" class="sidebar-nav-link">Tables</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="cards.html" class="sidebar-nav-link">Cards</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="icons.html" class="sidebar-nav-link">Icons</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Advanced Section -->
-        <div class="sidebar-section" data-section="advanced">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
-                <span><span class="sidebar-section-icon" role="img" aria-label="Advanced section">🚀</span>Advanced</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="advanced.html" class="sidebar-nav-link">Advanced CSS</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="custom-properties.html" class="sidebar-nav-link">Custom Properties</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="blend-modes.html" class="sidebar-nav-link">Blend Modes</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="shapes-clips.html" class="sidebar-nav-link">Shapes & Clips</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Modern CSS Section -->
-        <div class="sidebar-section" data-section="modern-css">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
-                <span><span class="sidebar-section-icon" role="img" aria-label="Modern CSS section">🔮</span>Modern CSS</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="has-selector.html" class="sidebar-nav-link">:has() Selector</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="container-queries.html" class="sidebar-nav-link">Container Queries</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="css-nesting.html" class="sidebar-nav-link">CSS Nesting</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="anchor-positioning.html" class="sidebar-nav-link">Anchor Positioning</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="scroll-animations.html" class="sidebar-nav-link">Scroll Animations</a>
-                </li>
-                <li class="sidebar-nav-item">
-                    <a href="color-spaces.html" class="sidebar-nav-link">Colour Spaces</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Playground Section -->
-        <div class="sidebar-section" data-section="playground">
-            <div class="sidebar-section-title" role="button" tabindex="0" aria-expanded="false">
-                <span><span class="sidebar-section-icon" role="img" aria-label="Playground section">🎮</span>Playground</span>
-                <span class="sidebar-section-toggle">▼</span>
-            </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-nav-item">
-                    <a href="playground.html" class="sidebar-nav-link" target="_blank" rel="noopener noreferrer">CSS Playground</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Sidebar Footer -->
-    <div class="sidebar-footer">
-        <button class="back-to-top">
-            <span role="img" aria-label="Up arrow">↑</span>
-            <span>Back to Top</span>
-        </button>
-    </div>
-</aside>
+    <!-- Component Placeholders -->
+    <header class="site-header" id="header"></header>
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation"></aside>
 
     <a href="#main" class="skip-link">Skip to main content</a>
-
-    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle colour theme">
-        <span class="theme-icon" role="img" aria-label="Light theme">🌞</span>
-    </div>
-
-    <header class="site-header">
-        <div class="header-content">
-            <div class="logo">
-                <a href="index.html" style="display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;">
-                    <span class="logo-text">CSS</span>
-                    <span class="logo-accent">Showcase</span>
-                </a>
-            </div>
-
-            <div class="header-actions">
-                <button class="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-
-            </div>
-
-            <nav class="main-nav" aria-label="Main navigation">
-                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#basics" class="nav-link">Basics</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#placement" class="nav-link">Placement</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#areas" class="nav-link">Grid Areas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#layouts" class="nav-link">Layouts</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
     <main id="main">
         <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -551,6 +331,8 @@
         </div>
     </footer>
 
+    <script src="scripts/component-loader.js"></script>
+    <script src="scripts/scroll-manager.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/sidebar.js"></script>
     <script src="scripts/code-examples.js"></script>
