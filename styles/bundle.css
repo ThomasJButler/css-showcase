@@ -13,6 +13,7 @@
    4. 03-core.css      - Accessibility, micro-interactions, improvements
    5. 04-layout.css    - Sidebar navigation, search modal
    6. 06-code.css      - Code blocks, syntax highlighting
+   7. code-examples.css - Collapsible code, copy buttons, toggle functionality
 
    Usage:
    Replace multiple <link> tags with a single import:
@@ -30,3 +31,4 @@
 @import "03-core.css";
 @import "04-layout.css";
 @import "06-code.css";
+@import "code-examples.css";
