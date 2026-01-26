@@ -173,15 +173,24 @@ while true; do
     echo "   ✓ Build phase complete"
 
     # ----------------------------------------
-    # PUSH CHANGES
+    # PUSH CHANGES (only if there are new commits)
     # ----------------------------------------
     echo ""
-    echo "📤 Pushing changes to $CURRENT_BRANCH..."
-    git push origin "$CURRENT_BRANCH" 2>/dev/null || {
-        echo "   Creating remote branch..."
-        git push -u origin "$CURRENT_BRANCH"
-    }
-    echo "   ✓ Pushed"
+
+    # Check if there are unpushed commits
+    UNPUSHED=$(git log origin/"$CURRENT_BRANCH".."$CURRENT_BRANCH" --oneline 2>/dev/null | wc -l | tr -d ' ')
+
+    if [ "$UNPUSHED" -gt 0 ]; then
+        echo "📤 Pushing $UNPUSHED commit(s) to $CURRENT_BRANCH..."
+        git push origin "$CURRENT_BRANCH" 2>/dev/null || {
+            echo "   Creating remote branch..."
+            git push -u origin "$CURRENT_BRANCH"
+        }
+        echo "   ✓ Pushed"
+    else
+        echo "⚠️  No new commits to push (BUILD phase may have exited early)"
+        echo "   Check if IMPLEMENTATION_PLAN.md is marked COMPLETE"
+    fi
 
     # ----------------------------------------
     # PHASE 3: TEST (Screenshots)
