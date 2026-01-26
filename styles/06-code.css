@@ -359,6 +359,12 @@ pre code.highlighted {
         color: white;
         background: rgba(0, 0, 0, 0.4);
         border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0) scale(0.95);
+        transition-duration: 50ms;
     }
 
     &.copied {

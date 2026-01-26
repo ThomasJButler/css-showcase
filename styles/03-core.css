@@ -37,7 +37,7 @@
     text-decoration: none;
     font-weight: 600;
     z-index: 10000;
-    transition: top 0.2s ease;
+    transition: top var(--transition-fast);
 }
 
 .skip-link:focus {
@@ -588,6 +588,11 @@ main {
     border-color: transparent;
 }
 
+.showcase-card:active {
+    transform: translateY(-2px) scale(0.99);
+    transition-duration: 50ms;
+}
+
 .showcase-card:hover::before {
     transform: translateX(0);
 }
@@ -870,7 +875,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--colour-text);
     text-decoration: none;
     font-size: 0.875rem;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
 }
 
 .footer-social-link:hover {
@@ -899,7 +904,7 @@ h1, h2, h3, h4, h5, h6 {
 .footer-links a {
     color: var(--colour-text-muted);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color var(--transition-fast);
     font-size: 0.9375rem;
 }
 

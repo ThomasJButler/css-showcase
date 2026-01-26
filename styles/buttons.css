@@ -107,6 +107,11 @@
     left: 0;
 }
 
+.btn-slide-right:active {
+    transform: scale(0.98);
+    transition-duration: 50ms;
+}
+
 .btn-slide-up {
     background: var(--colour-secondary);
     color: white;
@@ -129,6 +134,11 @@
     bottom: 0;
 }
 
+.btn-slide-up:active {
+    transform: scale(0.98);
+    transition-duration: 50ms;
+}
+
 .btn-slide-down {
     background: var(--colour-success);
     color: white;
@@ -149,6 +159,11 @@
 
 .btn-slide-down:hover::before {
     top: 0;
+}
+
+.btn-slide-down:active {
+    transform: scale(0.98);
+    transition-duration: 50ms;
 }
 
 .btn-slide-diagonal {
@@ -175,6 +190,11 @@
     left: -50%;
 }
 
+.btn-slide-diagonal:active {
+    transform: scale(0.98);
+    transition-duration: 50ms;
+}
+
 /* Gradient Effects */
 .btn-gradient {
     background: linear-gradient(135deg, var(--colour-primary) 0%, var(--colour-secondary) 100%);
@@ -186,6 +206,12 @@
 
 .btn-gradient:hover {
     background-position: 100% 100%;
+}
+
+.btn-gradient:active {
+    transform: scale(0.98);
+    filter: brightness(0.95);
+    transition-duration: 50ms;
 }
 
 .btn-gradient-radial {
@@ -200,6 +226,12 @@
     background-size: 250% 250%;
 }
 
+.btn-gradient-radial:active {
+    transform: scale(0.98);
+    filter: brightness(0.95);
+    transition-duration: 50ms;
+}
+
 .btn-gradient-sweep {
     background: conic-gradient(from 0deg, var(--colour-primary), var(--colour-secondary), var(--colour-primary));
     color: white;
@@ -208,6 +240,11 @@
 
 .btn-gradient-sweep:hover {
     animation-play-state: running;
+}
+
+.btn-gradient-sweep:active {
+    transform: scale(0.98);
+    transition-duration: 50ms;
 }
 
 @keyframes sweep {
@@ -232,6 +269,11 @@
 
 .btn-gradient-rainbow:hover {
     animation-play-state: running;
+}
+
+.btn-gradient-rainbow:active {
+    transform: scale(0.98);
+    transition-duration: 50ms;
 }
 
 @keyframes rainbow {
@@ -365,6 +407,12 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+.btn-shadow-grow:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition-duration: 50ms;
+}
+
 .btn-shadow-inset {
     background: var(--colour-secondary);
     color: white;
@@ -374,6 +422,11 @@
 
 .btn-shadow-inset:hover {
     box-shadow: inset 0 0 20px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-shadow-inset:active {
+    box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.2);
+    transition-duration: 50ms;
 }
 
 .btn-shadow-multiple {
@@ -388,10 +441,16 @@
 
 .btn-shadow-multiple:hover {
     transform: translateY(-4px);
-    box-shadow: 
+    box-shadow:
         0 4px 8px rgba(0, 0, 0, 0.1),
         0 8px 16px rgba(0, 0, 0, 0.1),
         0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.btn-shadow-multiple:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition-duration: 50ms;
 }
 
 .btn-shadow-glow {
@@ -423,6 +482,11 @@
     transform: scale(1.1);
 }
 
+.btn-transform-grow:active {
+    transform: scale(0.98);
+    transition-duration: 50ms;
+}
+
 .btn-transform-shrink {
     background: var(--colour-secondary);
     color: white;
@@ -431,6 +495,11 @@
 
 .btn-transform-shrink:hover {
     transform: scale(0.95);
+}
+
+.btn-transform-shrink:active {
+    transform: scale(0.9);
+    transition-duration: 50ms;
 }
 
 .btn-transform-rotate {
@@ -443,6 +512,11 @@
     transform: rotate(5deg) scale(1.05);
 }
 
+.btn-transform-rotate:active {
+    transform: rotate(0) scale(0.98);
+    transition-duration: 50ms;
+}
+
 .btn-transform-skew {
     background: var(--colour-error);
     color: white;
@@ -451,6 +525,11 @@
 
 .btn-transform-skew:hover {
     transform: skewX(-10deg);
+}
+
+.btn-transform-skew:active {
+    transform: skewX(0) scale(0.98);
+    transition-duration: 50ms;
 }
 
 /* Text Effects */
@@ -915,6 +994,12 @@
     box-shadow: 0 0 40px #00ffff, inset 0 0 20px rgba(0, 255, 255, 0.2);
 }
 
+.btn-neon-blue:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 60px #00ffff, inset 0 0 30px rgba(0, 255, 255, 0.3);
+    transition-duration: 50ms;
+}
+
 .btn-neon-pink {
     color: #ff00ff;
     border-color: #ff00ff;
@@ -927,6 +1012,12 @@
     box-shadow: 0 0 40px #ff00ff, inset 0 0 20px rgba(255, 0, 255, 0.2);
 }
 
+.btn-neon-pink:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 60px #ff00ff, inset 0 0 30px rgba(255, 0, 255, 0.3);
+    transition-duration: 50ms;
+}
+
 .btn-neon-green {
     color: #00ff00;
     border-color: #00ff00;
@@ -937,6 +1028,12 @@
 .btn-neon-green:hover {
     background: rgba(0, 255, 0, 0.1);
     box-shadow: 0 0 40px #00ff00, inset 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+.btn-neon-green:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 60px #00ff00, inset 0 0 30px rgba(0, 255, 0, 0.3);
+    transition-duration: 50ms;
 }
 
 .btn-neon-flicker {
@@ -1182,6 +1279,29 @@
 [data-theme="dark"] .btn-neon-pink,
 [data-theme="dark"] .btn-neon-green {
     background: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode button enhancements - atmospheric glows */
+[data-theme="dark"] .btn-shadow-grow:hover {
+    box-shadow: 0 8px 20px rgba(96, 165, 250, 0.3);
+}
+
+[data-theme="dark"] .btn-shadow-multiple:hover {
+    box-shadow:
+        0 4px 8px rgba(96, 165, 250, 0.15),
+        0 8px 16px rgba(96, 165, 250, 0.15),
+        0 16px 32px rgba(96, 165, 250, 0.15);
+}
+
+[data-theme="dark"] .btn-gradient:hover,
+[data-theme="dark"] .btn-gradient-radial:hover {
+    box-shadow: 0 8px 25px rgba(96, 165, 250, 0.25);
+}
+
+[data-theme="dark"] .btn-slide-right:hover,
+[data-theme="dark"] .btn-slide-up:hover,
+[data-theme="dark"] .btn-slide-down:hover {
+    box-shadow: 0 4px 15px rgba(96, 165, 250, 0.2);
 }
 
 /* Responsive */

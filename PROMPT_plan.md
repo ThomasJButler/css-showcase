@@ -1,75 +1,71 @@
-# CSS Showcase - Ultimate Overhaul (Planning Mode)
+# CSS Showcase - Visual Review (Planning Mode)
 
-## Overview
+## Your Task
 
-Transform the CSS Showcase from "portfolio-ready" to "industry-leading" with:
-- Simplified sidebar-only navigation (remove header nav)
-- Polished code boxes with WCAG-compliant sizing
-- Cutting-edge CSS (layers, container queries, view transitions, scroll animations)
-- Consolidated file structure (35 → ~12 CSS files)
-- Component injection to eliminate HTML duplication
-- New Tools & Frameworks pages
+Examine the latest screenshots and plan visual improvements.
 
-## Planning Tasks
+### Step 1: LOOK AT SCREENSHOTS
 
-0. **START HERE**: Study @IMPLEMENTATION_PLAN.md to understand the 7-phase overhaul plan.
+Study the screenshots in `docs/visual-testing/screenshots/`:
 
-0a. Study `docs/visual-testing/summary.md` and screenshots in `docs/visual-testing/screenshots/` for current visual state.
+- **Desktop** (1920×1080): `screenshots/desktop/*.png`
+- **Mobile** (375×667): `screenshots/mobile/*.png`
+- **Dark mode**: `screenshots/dark-mode/*.png`
 
-0b. Study the current architecture:
-    - 30 HTML pages in root directory
-    - `styles/` for CSS (35 files, ~18,800 lines)
-    - `scripts/` for JavaScript (19 files)
-    - Variable duplication between main.css and improvements.css
-    - Sidebar HTML duplicated in every page (~190 lines × 30 = ~5,700 lines)
+Use the Read tool to examine these images directly.
 
-1. Use up to 3 parallel Explore agents to research specific aspects:
-   - Current header/sidebar implementation (sidebar.css, main.js, sidebar.js)
-   - Code box styling (code-examples.css, syntax-highlight.css)
-   - CSS architecture patterns (main.css variables, z-index usage)
+### Step 2: SPOT ISSUES
 
-2. Verify findings against @IMPLEMENTATION_PLAN.md phases. Update the plan with any new discoveries.
+Look for:
+- Visual inconsistencies between pages
+- Spacing/alignment problems
+- Dark mode contrast issues
+- Mobile responsiveness problems
+- Typography issues
+- Component styling inconsistencies
+- Anything that looks off or unprofessional
 
-3. When planning is complete, update @IMPLEMENTATION_PLAN.md with refined task details.
+### Step 3: UPDATE PLAN
 
-## Key Decisions (Already Made)
+Add findings to @IMPLEMENTATION_PLAN.md:
+- Be specific: "buttons.html - gap between cards too large on mobile"
+- Reference which screenshot shows the issue
+- Plan small, focused fixes (not massive overhauls)
+- Include notes for useful code comments where appropriate
 
-- **Navigation**: Sidebar-only (remove header nav, minimal header with logo + theme + hamburger)
-- **Tools page**: Curated links to external resources (not tutorials)
-- **Component loading**: Immediate with CSS skeleton (smooth UX)
+### Step 4: KNOW WHEN DONE
 
-## Critical Files to Study
+If everything looks good:
+- Mark all visual tasks COMPLETE in @IMPLEMENTATION_PLAN.md
+- Write `## STATUS: COMPLETE - NO FURTHER IMPROVEMENTS NEEDED` at top of plan
+- **Don't invent work for the sake of it**
 
-| File | Purpose | Lines |
-|------|---------|-------|
-| `styles/main.css` | Design tokens, needs refactor | 888 |
-| `styles/improvements.css` | Duplicate variables to merge | 866 |
-| `styles/sidebar.css` | Navigation to simplify | 536 |
-| `styles/code-examples.css` | Code display to enhance | 347 |
-| `scripts/sidebar.js` | Scroll handling to unify | 354 |
-| `scripts/main.js` | Duplicate scroll to remove | 202 |
+## Code Comments Philosophy
 
-## Phase 8: Final 5% UX/UI Polish (Completed)
+When planning changes, include notes for useful code comments:
+- Explain WHY, not WHAT
+- Document non-obvious decisions
+- Mark areas that might need future attention
+- Note accessibility considerations
 
-### Tasks Completed:
-- Fixed mobile sidebar class mismatch bug (JS used `.open`, CSS expected `.active`)
-- Fixed stuck "Fixed (viewport-relative)" positioning demo element
-- Redesigned header with SVG icons (removed emojis)
-- Replaced all emojis with Lucide SVG icons throughout sidebar
-- Removed CSS Playground page completely
-- Added mobile padding improvements for better touch targets
-- Added section dividers for visual hierarchy
+## Reference Files
 
-### Plan Reference:
-See `/Users/tombutler/.claude/plans/logical-splashing-candy.md` for full details
+| File | Purpose |
+|------|---------|
+| `docs/visual-testing/screenshots/` | Current visual state |
+| `IMPLEMENTATION_PLAN.md` | Task tracking |
+| `styles/` | CSS files to potentially modify |
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-STRICT RULES
+STRICT RULES - VIOLATING THESE IS FORBIDDEN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-- PLAN ONLY: Do NOT implement anything. Research and document only.
-- UK ENGLISH: All documentation uses UK spelling (colour, centre, behaviour)
-- NO COMMITS: Planning mode does not commit changes
-- UPDATE PLAN: Keep @IMPLEMENTATION_PLAN.md current with findings
+99. UK ENGLISH: Use UK spelling (colour, centre, behaviour, organisation, minimise)
+
+999. PLAN ONLY: Do NOT implement anything. Research and document only.
+
+9999. NO COMMITS: Planning mode does not create commits.
+
+99999. DON'T INVENT WORK: If it looks good, it IS good. Stop.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

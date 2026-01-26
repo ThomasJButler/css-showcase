@@ -22,6 +22,11 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+.card:active {
+    transform: translateY(-2px) scale(0.99);
+    transition-duration: 50ms;
+}
+
 /* Simple Card */
 .card-simple {
     border: 1px solid var(--colour-border);
@@ -44,11 +49,17 @@
     color: var(--colour-primary);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: color var(--transition-fast);
 }
 
 .card-link:hover {
     color: var(--colour-primary-dark);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.card-link:active {
+    opacity: 0.8;
 }
 
 /* Image Card */
@@ -233,11 +244,16 @@
     border-radius: 0.5rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background var(--transition-fast);
 }
 
 .btn-add-cart:hover {
     background: var(--colour-primary-dark);
+}
+
+.btn-add-cart:active {
+    transform: scale(0.98);
+    transition-duration: 50ms;
 }
 
 /* Feature Card */
@@ -250,6 +266,11 @@
 
 .card-feature:hover {
     transform: translateY(-4px);
+}
+
+.card-feature:active {
+    transform: translateY(-2px) scale(0.99);
+    transition-duration: 50ms;
 }
 
 .feature-icon {
@@ -296,7 +317,7 @@
     color: var(--colour-primary);
     text-decoration: none;
     font-weight: 600;
-    transition: gap 0.2s ease;
+    transition: gap var(--transition-fast);
 }
 
 .feature-link:hover {
@@ -304,7 +325,7 @@
 }
 
 .link-arrow {
-    transition: transform 0.2s ease;
+    transition: transform var(--transition-fast);
 }
 
 .feature-link:hover .link-arrow {
@@ -538,11 +559,16 @@
     cursor: pointer;
     font-weight: 600;
     padding: 0.5rem 0;
-    transition: color 0.2s ease;
+    transition: color var(--transition-fast);
 }
 
 .expand-toggle:hover {
     color: var(--colour-primary-dark);
+}
+
+.expand-toggle:active {
+    transform: scale(0.98);
+    transition-duration: 50ms;
 }
 
 .card-expand.expanded .expand-toggle::after {
@@ -609,11 +635,16 @@
     border-radius: 2rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform var(--transition-fast);
 }
 
 .reveal-button:hover {
     transform: scale(1.05);
+}
+
+.reveal-button:active {
+    transform: scale(0.98);
+    transition-duration: 50ms;
 }
 
 /* Dark theme adjustments */
@@ -623,7 +654,12 @@
 }
 
 [data-theme="dark"] .card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(96, 165, 250, 0.1);
+}
+
+[data-theme="dark"] .card-feature:hover {
+    box-shadow: 0 4px 20px rgba(96, 165, 250, 0.2);
 }
 
 [data-theme="dark"] .layout-demo {
