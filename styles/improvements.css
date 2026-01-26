@@ -164,6 +164,105 @@
     line-height: 1.6;
 }
 
+/* ============================================
+   Information Hierarchy (Phase 10.3)
+   Clear visual separation between sections
+   ============================================ */
+
+/* Section header with subtle visual separator */
+.demo-section .section-title {
+    position: relative;
+    padding-bottom: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.demo-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+}
+
+/* Centred sections get centred underline */
+.demo-section.text-center .section-title::after,
+.text-center .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Visual breathing room between demo sections */
+.demo-section + .demo-section {
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--colour-border);
+}
+
+/* Demo grid spacing improvements */
+.demo-grid {
+    display: grid;
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+}
+
+/* Demo card title hierarchy */
+.demo-card .demo-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--colour-text);
+    margin-bottom: var(--space-2);
+    line-height: var(--leading-tight);
+}
+
+/* Demo descriptions - concise, one line */
+.demo-card .demo-description {
+    font-size: var(--text-sm);
+    color: var(--colour-text-muted);
+    margin-bottom: var(--space-4);
+    line-height: var(--leading-normal);
+}
+
+/* ============================================
+   Reading Flow Optimisation (Phase 10.6)
+   Comfortable reading and scanning
+   ============================================ */
+
+/* Optimal reading line length */
+.demo-description,
+.section-description,
+.section-intro,
+.page-subtitle {
+    max-width: 65ch; /* ~65 characters per line is optimal for reading */
+}
+
+/* Comfortable line height for body text */
+body {
+    line-height: 1.6;
+}
+
+/* Tighter line height for headings */
+h1, h2, h3, h4, h5, h6,
+.page-title,
+.section-title,
+.demo-title {
+    line-height: 1.2;
+}
+
+/* Lead paragraphs - slightly larger for emphasis */
+.lead,
+.section-intro {
+    font-size: var(--text-lg);
+    line-height: 1.7;
+}
+
+/* Visual breathing room between demo sections */
+.demo-section + .demo-section {
+    margin-top: var(--space-12);
+}
+
 /* Improved Cards - reduced padding for height optimization */
 .showcase-grid {
     gap: 1rem;

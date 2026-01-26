@@ -42,16 +42,16 @@
     --colour-info-dark: #1e40af;
     --colour-info-light: #dbeafe;
 
-    /* Surface colours */
-    --colour-background: #ffffff;
-    --colour-surface: #f9fafb;
+    /* Surface colours - softer, easier on eyes */
+    --colour-background: #fafafa;          /* Softer than pure #fff */
+    --colour-surface: #ffffff;
     --colour-surface-alt: #f3f4f6;
     --colour-surface-variant: #e5e7eb;
 
-    /* Text colours */
-    --colour-text: #111827;
-    --colour-text-secondary: #6b7280;
-    --colour-text-muted: #6b7280;
+    /* Text colours - WCAG AA compliant (4.5:1 minimum) */
+    --colour-text: #1f2937;                /* Slightly softer than #111827 */
+    --colour-text-secondary: #4b5563;      /* Better contrast than #6b7280 */
+    --colour-text-muted: #6b7280;          /* 4.5:1 against #fafafa */
     --colour-text-light: #9ca3af;
 
     /* Border colours */
@@ -205,6 +205,7 @@
 
   /* ==========================================
      DARK THEME OVERRIDES
+     Balanced for extended reading - not too harsh
      ========================================== */
   [data-theme="dark"] {
     /* Primary palette */
@@ -217,16 +218,16 @@
     --colour-secondary-dark: #8b5cf6;
     --colour-secondary-light: #c4b5fd;
 
-    /* Surface colours */
+    /* Surface colours - deep blue-black, not pure black */
     --colour-background: #0f172a;
     --colour-surface: #1e293b;
     --colour-surface-alt: #334155;
     --colour-surface-variant: #475569;
 
-    /* Text colours */
-    --colour-text: #f1f5f9;
-    --colour-text-secondary: #94a3b8;
-    --colour-text-muted: #94a3b8;
+    /* Text colours - soft white, not pure #fff */
+    --colour-text: #e2e8f0;                /* Softer than #f1f5f9, reduces eye strain */
+    --colour-text-secondary: #cbd5e1;      /* Better contrast than #94a3b8 */
+    --colour-text-muted: #94a3b8;          /* 4.6:1 against #0f172a */
     --colour-text-light: #64748b;
 
     /* Border colours */

@@ -1,14 +1,66 @@
 /**
  * @author Tom Butler
  * @date 2025-10-23
- * @description Adds copy-to-clipboard functionality to code examples throughout the showcase
+ * @description Adds copy-to-clipboard and collapsible code functionality to code examples
  */
 
 /**
- * @constructs - Initialises copy buttons for all code examples
+ * @constructs - Initialises copy buttons and toggle functionality for all code examples
  */
 document.addEventListener('DOMContentLoaded', function() {
     const codeExamples = document.querySelectorAll('.code-example pre');
+
+    // ============================================
+    // Collapsible Code Blocks (Phase 10.1)
+    // ============================================
+
+    /**
+     * Add toggle buttons to all code examples within demo cards
+     * Code is collapsed by default for cleaner page scanning
+     */
+    function initCodeToggles() {
+        const demoCards = document.querySelectorAll('.demo-card');
+
+        demoCards.forEach(card => {
+            const codeExample = card.querySelector('.code-example');
+
+            // Skip if no code example or toggle already exists
+            if (!codeExample || card.querySelector('.code-toggle')) return;
+
+            // Collapse code by default
+            codeExample.classList.add('collapsed');
+
+            // Create toggle button
+            const toggleBtn = document.createElement('button');
+            toggleBtn.className = 'code-toggle';
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            toggleBtn.setAttribute('aria-controls', `code-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`);
+            toggleBtn.innerHTML = '<span class="toggle-icon">▶</span> View Code';
+
+            // Give code example an ID for aria-controls
+            codeExample.id = toggleBtn.getAttribute('aria-controls');
+
+            // Insert toggle button before code example
+            codeExample.parentNode.insertBefore(toggleBtn, codeExample);
+
+            // Toggle functionality
+            toggleBtn.addEventListener('click', () => {
+                const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+
+                toggleBtn.setAttribute('aria-expanded', !isExpanded);
+                codeExample.classList.toggle('collapsed');
+
+                if (isExpanded) {
+                    toggleBtn.innerHTML = '<span class="toggle-icon">▶</span> View Code';
+                } else {
+                    toggleBtn.innerHTML = '<span class="toggle-icon">▼</span> Hide Code';
+                }
+            });
+        });
+    }
+
+    // Initialise code toggles
+    initCodeToggles();
 
     // Create aria-live region for copy feedback announcements
     const copyAnnounce = document.createElement('div');
