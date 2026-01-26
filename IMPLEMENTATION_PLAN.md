@@ -38,16 +38,18 @@ Comprehensive review identified 18 issues to address. Tasks organised by priorit
 ---
 
 #### Task 11.2: Increase Header Height & Visual Weight
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** CRITICAL
-**Files:** `styles/03-core.css` or `styles/improvements.css`
+**Files:** `styles/main.css`
 
 **Issue:** Header is too small/minimal (currently ~45px). Only shows "CSS Showcase" text + theme toggle.
 
-**Fix:**
-- Increase height/padding to 60-70px
-- Consider adding a subtle logo or icon
-- Add more visual weight as the consistent anchor across pages
+**Fix Applied:**
+- Increased header height from 56px to 64px
+- Added `{ }` CSS icon before logo text (using ::before pseudo-element)
+- Increased logo font size from `--text-lg` to `--text-xl`
+- Changed font weight from `--font-semibold` to `--font-bold`
+- Added subtle letter-spacing for better readability
 
 ---
 

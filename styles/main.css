@@ -106,7 +106,7 @@ a:hover {
 .site-header {
     position: sticky;
     top: 0;
-    height: 56px;
+    height: 64px;
     background-color: var(--colour-background);
     border-bottom: 1px solid var(--colour-border);
     backdrop-filter: blur(10px);
@@ -128,16 +128,26 @@ a:hover {
 }
 
 .logo {
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
     color: var(--colour-text);
     text-decoration: none;
     transition: color var(--transition-base);
     order: 0 !important; /* Ensure logo stays first in flex order */
+    letter-spacing: -0.02em;
 }
 
 .logo:hover {
     color: var(--colour-primary);
+}
+
+.logo::before {
+    content: "{ }";
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+    margin-right: 0.5rem;
+    color: var(--colour-primary);
+    font-weight: var(--font-medium);
 }
 
 /* Theme Toggle (in header) */
