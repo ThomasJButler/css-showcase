@@ -68,11 +68,17 @@
     color: var(--colour-text);
     font-weight: 600;
     border-radius: 8px;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
 
     &:hover {
         background: var(--colour-surface);
         transform: translateX(2px);
+    }
+
+    &:active {
+        background: var(--colour-active-overlay);
+        transform: translateX(0);
+        transition-duration: 50ms;
     }
 
     .icon {
@@ -109,7 +115,7 @@
     cursor: pointer;
     user-select: none;
     border-radius: 6px;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
 
     &:hover {
         background: var(--colour-surface);
@@ -119,6 +125,11 @@
     &:focus {
         outline: 2px solid var(--colour-primary);
         outline-offset: 2px;
+    }
+
+    &:active {
+        background: var(--colour-active-overlay);
+        transition-duration: 50ms;
     }
 }
 
@@ -132,7 +143,7 @@
 
 .sidebar-section-toggle {
     flex-shrink: 0;
-    transition: transform 0.2s ease;
+    transition: transform var(--transition-fast);
 }
 
 /* Collapsed state rotates toggle icon */
@@ -158,7 +169,7 @@
     text-decoration: none;
     font-size: 0.9375rem;
     border-radius: 6px;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     position: relative;
 
     &::before {
@@ -172,7 +183,7 @@
         background: var(--colour-text-muted);
         border-radius: 50%;
         opacity: 0.5;
-        transition: all 0.2s ease;
+        transition: all var(--transition-fast);
     }
 
     &:hover {
@@ -190,6 +201,12 @@
     &:focus {
         outline: 2px solid var(--colour-primary);
         outline-offset: 2px;
+    }
+
+    &:active:not(.active) {
+        background: var(--colour-active-overlay);
+        transform: translateX(0);
+        transition-duration: 50ms;
     }
 
     /* Active/current page */
@@ -231,13 +248,18 @@
     font-size: 0.875rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
 
     &:hover {
         background: var(--colour-primary);
         color: white;
         border-color: var(--colour-primary);
         transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: translateY(0) scale(0.98);
+        transition-duration: 50ms;
     }
 }
 
@@ -252,11 +274,16 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
 
     &:hover {
         background: var(--colour-surface);
         border-color: var(--colour-primary);
+    }
+
+    &:active {
+        transform: scale(0.95);
+        transition-duration: 50ms;
     }
 
     /* Hamburger animation when open */
@@ -286,7 +313,7 @@
     height: 2px;
     background: var(--colour-text);
     border-radius: 2px;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
 }
 
 /* Mobile backdrop */

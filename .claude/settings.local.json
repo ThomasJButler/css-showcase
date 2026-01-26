@@ -5,7 +5,18 @@
       "mcp__plugin_playwright_playwright__browser_install",
       "Bash(npm install:*)",
       "Bash(npx playwright:*)",
-      "mcp__plugin_playwright_playwright__browser_navigate"
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "Bash(ls:*)",
+      "Bash(wc:*)",
+      "Bash(grep:*)",
+      "Bash(xargs -I {} sh -c 'echo \"\"=== {} ===\"\" && grep \"\"stylesheet\"\" {}')",
+      "Bash(xargs -I {} sh -c 'echo \"\"=== {} ===\"\" && grep \"\"<script\"\" {}')",
+      "Bash(node visual-test.js:*)",
+      "mcp__puppeteer__puppeteer_navigate",
+      "mcp__puppeteer__puppeteer_screenshot",
+      "mcp__puppeteer__puppeteer_evaluate",
+      "mcp__browser-tools__takeScreenshot",
+      "Bash(find:*)"
     ]
   }
 }

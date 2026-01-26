@@ -1,71 +1,80 @@
-# CSS Showcase - Ultimate Overhaul (Build Mode)
+# CSS Showcase - Build Mode
 
-## Overview
+## Your Task
 
-Transform the CSS Showcase from "portfolio-ready" to "industry-leading". This is a 7-phase overhaul covering navigation, code boxes, advanced CSS, file consolidation, and new pages.
+Implement ONE task from @IMPLEMENTATION_PLAN.md with quality code.
 
-## Build Tasks
+### Step 0: CHECK IF DONE
 
-0. **START HERE**: Study @IMPLEMENTATION_PLAN.md to find the current phase and next task.
+First, read @IMPLEMENTATION_PLAN.md. If it shows:
+```
+## STATUS: COMPLETE - NO FURTHER IMPROVEMENTS NEEDED
+```
+Then **do NOT make changes**. Simply exit - the work is complete.
 
-0a. The plan has 8 phases. Work through ONE TASK at a time:
-    - Phase 1: CSS Architecture Foundation (layers, tokens, z-index)
-    - Phase 2: Header & Sidebar Redesign (component injection)
-    - Phase 3: Code Box Polish (accessibility, visual separator)
-    - Phase 4: Advanced CSS (view transitions, scroll animations, nesting)
-    - Phase 5: File Consolidation (35 → ~12 CSS files)
-    - Phase 6: New Content Pages (tools.html, frameworks.html)
-    - Phase 7: Final Polish (audits, testing)
-    - Phase 8: Final 5% UX/UI Polish (COMPLETED)
+### Step 1: FIND NEXT TASK
 
-0b. Before implementing, search the codebase to understand current state. Use up to 3 parallel agents for research.
+Study @IMPLEMENTATION_PLAN.md to find the next incomplete task.
 
-1. Implement the NEXT INCOMPLETE TASK from @IMPLEMENTATION_PLAN.md:
-   - Follow the specific code examples in the plan
-   - Test changes in browser (localhost:8080)
-   - Check responsive behaviour and dark mode
-   - Verify no console errors
+### Step 2: RESEARCH
 
-2. After implementing each task:
-   - Update @IMPLEMENTATION_PLAN.md marking task COMPLETE
-   - `git add` specific files changed
-   - `git commit` with descriptive UK English message
-   - `git push` to current branch
+Before implementing, search the codebase to understand current state. Use up to 3 parallel Explore agents if needed.
 
-3. Move to the next task. Repeat until phase complete.
+### Step 3: IMPLEMENT
 
-## Key Decisions (Already Made)
+- Follow specific code examples in the plan
+- Test changes in browser (localhost:8080)
+- Check responsive behaviour and dark mode
+- Verify no console errors
+- Add useful code comments (see below)
 
-- **Navigation**: Sidebar-only (remove header nav, minimal header)
-- **Tools page**: Curated external links (not detailed tutorials)
-- **Component loading**: Immediate with CSS skeleton
+### Step 4: COMMIT & PUSH
 
-## Critical Files
+After implementing:
+- Update @IMPLEMENTATION_PLAN.md marking task COMPLETE
+- `git add` specific files changed
+- `git commit` with descriptive UK English message
+- `git push` to current branch
 
-| File | Action | Phase |
-|------|--------|-------|
-| `styles/00-layers.css` | CREATE | 1 |
-| `styles/01-design-tokens.css` | CREATE | 1 |
-| `styles/main.css` | REFACTOR | 1 |
-| `components/header.html` | CREATE | 2 |
-| `components/sidebar.html` | CREATE | 2 |
-| `scripts/component-loader.js` | CREATE | 2 |
-| `styles/code-examples.css` | MODIFY | 3 |
-| `tools.html` | CREATE | 6 |
-| `frameworks.html` | CREATE | 6 |
+## Code Quality Standards
+
+### Comments
+
+Add comments that explain WHY, not WHAT:
+
+**Good comment:**
+```css
+/* Offset for fixed header height - prevents anchor links hiding behind header */
+scroll-padding-top: var(--header-height);
+```
+
+**Bad comment:**
+```css
+/* Set the colour to blue */
+color: blue;
+```
+
+**Comment guidance:**
+- Document non-obvious CSS decisions
+- Mark browser-specific workarounds
+- Note accessibility considerations
+- Explain magic numbers
+
+### Implementation Standards
+
+- Follow existing design patterns and CSS variable naming
+- Maintain dark/light mode compatibility
+- Use semantic HTML with proper ARIA labels
+- Mobile-first responsive design
+- Test at 375px, 768px, and 1920px viewports
+- Implement completely - no placeholders or stubs
 
 ## Verification
 
 After each change:
 ```bash
-# Start local server
-python -m http.server 8080
-
 # Test in browser at http://localhost:8080
 # Check: navigation, dark mode, mobile view, console errors
-
-# Capture screenshots (optional)
-node visual-test.js
 ```
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -82,16 +91,6 @@ STRICT RULES - VIOLATING THESE IS FORBIDDEN
 
 999999. BRANCH SAFETY: Verify on ralph/* branch before any push.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMPLEMENTATION GUIDELINES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-- Follow existing design patterns and CSS variable naming
-- Maintain dark/light mode compatibility
-- Use semantic HTML with proper ARIA labels
-- Mobile-first responsive design
-- Test at 375px, 768px, and 1920px viewports
-- Update @IMPLEMENTATION_PLAN.md after EACH task completion
-- Implement completely - no placeholders or stubs
+9999999. WHEN DONE, STOP: If plan shows COMPLETE, do nothing. Don't invent work.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

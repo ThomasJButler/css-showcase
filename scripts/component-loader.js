@@ -29,7 +29,7 @@ class ComponentLoader {
 
             // Post-load setup
             this.highlightCurrentPage();
-            this.initSidebarSections();
+            // Note: Section expand/collapse is handled by sidebar.js
             this.setupThemeToggle();
 
             // Dispatch event for other scripts to know components are ready
@@ -86,16 +86,13 @@ class ComponentLoader {
                 link.classList.add('active');
                 link.setAttribute('aria-current', 'page');
 
-                // Ensure parent section is expanded
+                // Ensure parent section is expanded (use class-based approach to match sidebar.js)
                 const section = link.closest('.sidebar-section');
                 if (section) {
+                    section.classList.remove('collapsed');
                     const title = section.querySelector('.sidebar-section-title');
                     if (title) {
                         title.setAttribute('aria-expanded', 'true');
-                    }
-                    const nav = section.querySelector('.sidebar-nav');
-                    if (nav) {
-                        nav.style.display = 'block';
                     }
                 }
             }
@@ -108,53 +105,6 @@ class ComponentLoader {
                 homeLink.classList.add('active');
                 homeLink.setAttribute('aria-current', 'page');
             }
-        }
-    }
-
-    /**
-     * Initialise sidebar section expand/collapse functionality
-     */
-    initSidebarSections() {
-        const sectionTitles = document.querySelectorAll('.sidebar-section-title');
-
-        sectionTitles.forEach(title => {
-            title.addEventListener('click', () => this.toggleSection(title));
-            title.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    this.toggleSection(title);
-                }
-            });
-        });
-    }
-
-    /**
-     * Toggle a sidebar section's expanded state
-     * @param {HTMLElement} title - The section title element
-     */
-    toggleSection(title) {
-        const section = title.closest('.sidebar-section');
-        const nav = section.querySelector('.sidebar-nav');
-        const isExpanded = title.getAttribute('aria-expanded') === 'true';
-
-        title.setAttribute('aria-expanded', !isExpanded);
-
-        if (nav) {
-            if (isExpanded) {
-                nav.style.maxHeight = '0';
-                nav.style.opacity = '0';
-                nav.style.overflow = 'hidden';
-            } else {
-                nav.style.maxHeight = nav.scrollHeight + 'px';
-                nav.style.opacity = '1';
-                nav.style.overflow = 'visible';
-            }
-        }
-
-        // Update toggle icon
-        const toggle = title.querySelector('.sidebar-section-toggle');
-        if (toggle) {
-            toggle.textContent = isExpanded ? '▶' : '▼';
         }
     }
 

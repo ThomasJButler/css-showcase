@@ -79,6 +79,11 @@
     color: var(--colour-text);
 }
 
+.search-close:active {
+    transform: scale(0.95);
+    transition-duration: 50ms;
+}
+
 /* Search Results */
 .search-results {
     flex: 1;
@@ -130,6 +135,11 @@
 
 .search-link:hover {
     background: var(--colour-surface);
+}
+
+.search-link:active {
+    background: var(--colour-active-overlay);
+    transition-duration: 50ms;
 }
 
 .search-item-title {
@@ -192,6 +202,11 @@
 
 .search-trigger:hover {
     color: var(--colour-primary);
+}
+
+.search-trigger:active {
+    transform: scale(0.95);
+    transition-duration: 50ms;
 }
 
 .search-trigger svg {
