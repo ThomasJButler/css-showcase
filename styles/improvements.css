@@ -724,12 +724,76 @@ html {
    Visual separation between content sections
    ============================================ */
 
+/* Homepage-specific section spacing for clear visual breaks */
+.hero + .showcase-section {
+    margin-top: var(--space-16);
+    padding-top: var(--space-8);
+}
+
 /* Automatic divider between consecutive sections */
 .showcase-section + .showcase-section,
 .content-section + .content-section {
-    border-top: 1px solid var(--colour-border);
+    padding-top: var(--space-12);
+    margin-top: var(--space-12);
+    position: relative;
+}
+
+/* Gradient separator line between sections */
+.showcase-section + .showcase-section::before,
+.content-section + .content-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(80%, 600px);
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--colour-border) 20%,
+        var(--colour-primary-light) 50%,
+        var(--colour-border) 80%,
+        transparent 100%
+    );
+    opacity: 0.6;
+}
+
+[data-theme="dark"] .showcase-section + .showcase-section::before,
+[data-theme="dark"] .content-section + .content-section::before {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--colour-border) 20%,
+        var(--colour-primary) 50%,
+        var(--colour-border) 80%,
+        transparent 100%
+    );
+    opacity: 0.4;
+}
+
+/* About section spacing when not first */
+.about-section {
+    margin-top: var(--space-16);
     padding-top: var(--space-8);
-    margin-top: var(--space-8);
+    position: relative;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(60%, 400px);
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--colour-border) 30%,
+        var(--colour-border) 70%,
+        transparent 100%
+    );
 }
 
 /* Explicit section divider component */
@@ -785,8 +849,18 @@ html {
     /* Tighter section dividers on mobile */
     .showcase-section + .showcase-section,
     .content-section + .content-section {
+        padding-top: var(--space-8);
+        margin-top: var(--space-8);
+    }
+
+    .hero + .showcase-section {
+        margin-top: var(--space-10);
         padding-top: var(--space-6);
-        margin-top: var(--space-6);
+    }
+
+    .about-section {
+        margin-top: var(--space-10);
+        padding-top: var(--space-6);
     }
 
     .section-divider {
