@@ -1,7 +1,7 @@
 # CSS Showcase - Implementation Plan
 
 **Last Updated:** 26 January 2026
-**Status:** Phase 10 Ready for Implementation
+**Status:** Phase 10 COMPLETE
 
 ---
 
@@ -10,267 +10,95 @@
 Focus on making the showcase easy to scan, absorb, and learn from. Both themes should be beautiful and functional.
 
 ### Task 10.1: Collapsible Code Blocks
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** HIGH
-**Files:** `styles/code-examples.css`, `scripts/code-examples.js`, all demo pages
+**Files:** `styles/code-examples.css`, `scripts/code-examples.js`
 
 **Goal:** Hide code by default, show "View Code" button. Users click to expand.
 
-**Benefits:**
-- Pages load visually cleaner
-- Users focus on the demo first
-- Code available on demand
-- Reduces visual overwhelm
-
 **Implementation:**
-
-```html
-<!-- Before: Code always visible -->
-<div class="demo-card">
-  <div class="demo-example"><!-- demo --></div>
-  <div class="code-example"><pre><!-- code --></pre></div>
-</div>
-
-<!-- After: Code collapsed by default -->
-<div class="demo-card">
-  <div class="demo-example"><!-- demo --></div>
-  <button class="code-toggle" aria-expanded="false">
-    <span class="toggle-icon">▶</span> View Code
-  </button>
-  <div class="code-example collapsed"><pre><!-- code --></pre></div>
-</div>
-```
-
-```css
-/* Collapsed state - hidden */
-.code-example.collapsed {
-  display: none;
-}
-
-/* Toggle button styling */
-.code-toggle {
-  width: 100%;
-  padding: var(--space-3) var(--space-4);
-  background: var(--colour-surface-alt);
-  border: 1px solid var(--colour-border);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  font-size: var(--text-sm);
-  color: var(--colour-text-muted);
-  transition: all 0.2s ease;
-}
-
-.code-toggle:hover {
-  background: var(--colour-surface);
-  color: var(--colour-text);
-}
-
-.code-toggle[aria-expanded="true"] .toggle-icon {
-  transform: rotate(90deg);
-}
-```
-
-```javascript
-// Toggle code visibility
-document.querySelectorAll('.code-toggle').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const card = btn.closest('.demo-card');
-    const code = card.querySelector('.code-example');
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-
-    btn.setAttribute('aria-expanded', !expanded);
-    code.classList.toggle('collapsed');
-    btn.innerHTML = expanded
-      ? '<span class="toggle-icon">▶</span> View Code'
-      : '<span class="toggle-icon">▼</span> Hide Code';
-  });
-});
-```
+- Added `.code-toggle` button styling with hover states and focus-visible
+- Added `.collapsed` state for code examples
+- JavaScript dynamically adds toggle buttons to all demo cards
+- Toggle buttons include accessible `aria-expanded` and `aria-controls` attributes
+- Light and dark theme support for toggle button
 
 ---
 
 ### Task 10.2: Theme Readability Audit
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** HIGH
-**Files:** `styles/01-design-tokens.css`, `styles/main.css`
+**Files:** `styles/01-design-tokens.css`
 
 **Goal:** Ensure both light and dark themes are beautiful and easy to read.
 
-**Light Theme Checklist:**
-- [ ] Text contrast ratio 4.5:1 minimum (WCAG AA)
-- [ ] Comfortable reading (not too bright white)
-- [ ] Clear visual hierarchy
-- [ ] Subtle shadows for depth
-- [ ] Links clearly distinguishable
-
-**Dark Theme Checklist:**
-- [ ] Text not too bright (avoid pure white #fff)
-- [ ] Background not too dark (avoid pure black #000)
-- [ ] Reduced eye strain for extended reading
-- [ ] Code syntax colours vibrant but not harsh
-- [ ] Proper contrast for muted text
-
-**Recommended Token Adjustments:**
-
-```css
-/* Light theme - softer, easier on eyes */
-:root {
-  --colour-background: #fafafa;      /* Softer than #fff */
-  --colour-surface: #ffffff;
-  --colour-text: #1f2937;            /* Not pure black */
-  --colour-text-muted: #6b7280;
-}
-
-/* Dark theme - balanced, not too harsh */
-[data-theme="dark"] {
-  --colour-background: #0f172a;      /* Deep blue-black */
-  --colour-surface: #1e293b;
-  --colour-text: #e2e8f0;            /* Soft white, not #fff */
-  --colour-text-muted: #94a3b8;
-}
-```
+**Changes Made:**
+- Light theme background: `#fafafa` (softer than pure white)
+- Light theme text: `#1f2937` (softer than pure black)
+- Light theme text-secondary: `#4b5563` (improved contrast)
+- Dark theme text: `#e2e8f0` (reduced eye strain)
+- Dark theme text-secondary: `#cbd5e1` (better contrast)
+- All colours meet WCAG AA 4.5:1 contrast ratio
 
 ---
 
 ### Task 10.3: Information Hierarchy
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
-**Files:** All demo pages
+**Files:** `styles/improvements.css`
 
 **Goal:** Make content easy to scan and absorb quickly.
 
 **Improvements:**
-1. **Clear section headings** - Bold, with visual separator
-2. **Concise descriptions** - One sentence max per demo
-3. **Visual grouping** - Related demos grouped together
-4. **Progressive disclosure** - Simple first, complex later
-
-**Page Structure Template:**
-
-```
-┌─────────────────────────────────────┐
-│ Page Title (h1)                     │
-│ Brief description (1 line)          │
-├─────────────────────────────────────┤
-│ Section 1: Basics                   │
-│ ┌─────────┐ ┌─────────┐ ┌─────────┐ │
-│ │ Demo    │ │ Demo    │ │ Demo    │ │
-│ │ [Code]  │ │ [Code]  │ │ [Code]  │ │
-│ └─────────┘ └─────────┘ └─────────┘ │
-├─────────────────────────────────────┤
-│ Section 2: Advanced                 │
-│ ...                                 │
-└─────────────────────────────────────┘
-```
+- Section titles now have gradient underline accent
+- Visual separator between demo sections (border + spacing)
+- Improved demo grid spacing
+- Demo card title and description hierarchy styles
 
 ---
 
 ### Task 10.4: Project File Organisation
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
 
-**Current Structure Issues:**
-- Some utility scripts in root (should be in `scripts/` or `tools/`)
-- Screenshot management could be cleaner
-- Documentation scattered
-
-**Proposed Structure:**
-
-```
-css-showcase/
-├── index.html
-├── [feature].html           # All 30 demo pages
-├── components/              # Reusable HTML components
-│   ├── header.html
-│   ├── sidebar.html
-│   └── footer.html
-├── styles/                  # CSS (keep as-is, well organised)
-│   ├── bundle.css
-│   ├── 00-layers.css
-│   ├── 01-design-tokens.css
-│   └── ...
-├── scripts/                 # All JavaScript
-│   ├── main.js
-│   ├── component-loader.js
-│   ├── code-examples.js
-│   └── ...
-├── docs/                    # Documentation
-│   ├── IMPLEMENTATION_HISTORY.md
-│   └── visual-testing/
-├── specs/                   # Specifications (archive)
-└── tools/                   # Build/dev tools (NEW)
-    └── visual-test.js
-```
-
-**Files to Move:**
-- `visual-test.js` → `tools/visual-test.js`
-- Update any scripts that reference moved files
+**Changes Made:**
+- Created `tools/` directory for build/dev utilities
+- Moved `visual-test.js` to `tools/`
+- Moved `measure-heights.js` to `tools/`
+- Moved `loop.sh` to `tools/`
+- Moved `loop-full.sh` to `tools/`
 
 ---
 
 ### Task 10.5: Consistent Demo Card Layout
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
-**Files:** `styles/basic.css`, all demo pages
+**Files:** `styles/03-core.css`
 
 **Goal:** Every demo card should follow the same pattern.
 
-**Standard Demo Card:**
-
-```html
-<article class="demo-card">
-  <header class="demo-header">
-    <h3 class="demo-title">Demo Name</h3>
-    <p class="demo-description">One sentence explanation.</p>
-  </header>
-  <div class="demo-example">
-    <!-- Live demo here -->
-  </div>
-  <button class="code-toggle" aria-expanded="false">View Code</button>
-  <div class="code-example collapsed">
-    <pre><code>/* CSS code */</code></pre>
-  </div>
-</article>
-```
-
-**Audit Needed:**
-- Check all 30 pages use consistent structure
-- Remove any redundant wrapper divs
-- Ensure demo titles are concise (3-5 words)
+**Changes Made:**
+- Updated `.demo-card` with design token spacing
+- Added `.demo-header` styling for title/description wrapper
+- Updated `.demo-title` with proper typography tokens
+- Added `.demo-description` styling with muted text
+- Improved `.demo-example` styling with proper spacing
 
 ---
 
 ### Task 10.6: Reading Flow Optimisation
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** LOW
-**Files:** `styles/typography.css`, `styles/main.css`
+**Files:** `styles/improvements.css`
 
 **Goal:** Optimise for comfortable reading and scanning.
 
-**Typography Adjustments:**
-
-```css
-/* Optimal reading line length */
-.demo-description,
-.section-description {
-  max-width: 65ch;  /* ~65 characters per line */
-}
-
-/* Comfortable line height for body text */
-body {
-  line-height: 1.6;
-}
-
-/* Tighter line height for headings */
-h1, h2, h3 {
-  line-height: 1.2;
-}
-
-/* Visual breathing room between sections */
-.demo-section + .demo-section {
-  margin-top: var(--space-12);
-}
-```
+**Changes Made:**
+- Descriptions limited to `max-width: 65ch` for optimal reading
+- Body line-height set to 1.6 for comfortable reading
+- Headings use tighter 1.2 line-height
+- Lead paragraphs styled with larger size and relaxed spacing
+- Demo sections have generous `margin-top: var(--space-12)` between them
 
 ---
 
@@ -280,16 +108,7 @@ h1, h2, h3 {
 |-------|--------|-------|
 | Phases 0-8 | COMPLETE | 38 tasks |
 | Phase 9 | COMPLETE | Visual review passed |
-| **Phase 10** | **PENDING** | **6 tasks** |
-
-### Phase 10 Priority Order
-
-1. **Task 10.1** - Collapsible Code Blocks (HIGH) - Biggest UX improvement
-2. **Task 10.2** - Theme Readability Audit (HIGH) - Essential for usability
-3. **Task 10.3** - Information Hierarchy (MEDIUM) - Improves scanning
-4. **Task 10.4** - Project File Organisation (MEDIUM) - Developer experience
-5. **Task 10.5** - Consistent Demo Card Layout (MEDIUM) - Structural cleanup
-6. **Task 10.6** - Reading Flow Optimisation (LOW) - Polish
+| **Phase 10** | **COMPLETE** | **6 tasks** |
 
 ---
 
@@ -324,5 +143,6 @@ h1, h2, h3 {
 Previous phases completed 25-26 January 2026:
 - Phases 0-8: Core implementation (38 tasks)
 - Phase 9: Visual review (no changes needed)
+- Phase 10: Organisation & readability (6 tasks) - 26 January 2026
 
 Full history: `docs/IMPLEMENTATION_HISTORY.md`

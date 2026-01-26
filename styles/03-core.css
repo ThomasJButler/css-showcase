@@ -686,28 +686,49 @@ main {
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
 
-/* Demo Cards Enhancement - reduced for height optimization */
+/* ============================================
+   Demo Cards - Consistent Layout (Phase 10.5)
+   Standard structure across all demo pages
+   ============================================ */
 .demo-card {
     background: var(--colour-background);
     border: 1px solid var(--colour-border);
-    border-radius: 1rem;
-    padding: 1rem;
-    margin-bottom: 1rem;
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    margin-bottom: var(--space-4);
+    overflow: hidden;
+}
+
+/* Demo card header section */
+.demo-card .demo-header {
+    margin-bottom: var(--space-4);
 }
 
 .demo-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--colour-text);
+    margin: 0 0 var(--space-2) 0;
+    line-height: var(--leading-tight);
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--space-3);
+}
+
+/* Demo description - concise, one sentence max */
+.demo-card .demo-description {
+    font-size: var(--text-sm);
+    color: var(--colour-text-muted);
+    margin: 0;
+    line-height: var(--leading-normal);
+    max-width: 60ch;
 }
 
 .demo-example {
     background: var(--colour-surface);
-    border-radius: 0.75rem;
-    padding: 1.25rem;
-    margin-bottom: 1rem;
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    margin-bottom: var(--space-4);
     border: 1px solid var(--colour-border);
 }
 

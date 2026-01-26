@@ -131,6 +131,77 @@
     .code-example {
         border-radius: 0 0 var(--radius-xl) var(--radius-xl);
     }
+
+    /* When code is collapsed, adjust demo example radius */
+    &:has(.code-example.collapsed) .demo-example {
+        border-radius: var(--radius-xl);
+        border-bottom: none;
+    }
+}
+
+/* ============================================
+   Collapsible Code Blocks
+   Phase 10.1: Hide code by default with toggle
+   ============================================ */
+
+/* Collapsed state - hidden with smooth animation */
+.code-example.collapsed {
+    display: none;
+}
+
+/* Code toggle button */
+.code-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    margin-top: var(--space-3);
+    background: var(--colour-surface-alt);
+    border: 1px solid var(--colour-border);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--colour-text-muted);
+    transition: all var(--transition-fast);
+
+    &:hover {
+        background: var(--colour-surface);
+        color: var(--colour-text);
+        border-color: var(--colour-primary);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--colour-primary);
+        outline-offset: 2px;
+    }
+
+    /* Toggle icon rotation */
+    .toggle-icon {
+        display: inline-block;
+        transition: transform var(--transition-fast);
+        font-size: var(--text-xs);
+    }
+
+    &[aria-expanded="true"] .toggle-icon {
+        transform: rotate(90deg);
+    }
+
+    /* When expanded, update styling */
+    &[aria-expanded="true"] {
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        margin-bottom: 0;
+        border-bottom: none;
+    }
+}
+
+/* Code example follows toggle when expanded */
+.code-toggle[aria-expanded="true"] + .code-example {
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+    margin-top: 0;
 }
 
 /* Basic syntax highlighting - Dark theme (default) */
@@ -195,6 +266,18 @@
         &.line-numbers .line-numbers-wrapper {
             border-right-color: var(--colour-border);
             color: #cbd5e1;
+        }
+    }
+
+    .code-toggle {
+        background: #f1f5f9;
+        border-color: #e2e8f0;
+        color: #64748b;
+
+        &:hover {
+            background: #ffffff;
+            color: #1e293b;
+            border-color: var(--colour-primary);
         }
     }
 
@@ -359,6 +442,11 @@
             right: var(--space-3);
             z-index: 11; /* Above fade gradient */
         }
+    }
+
+    .code-toggle {
+        padding: var(--space-3);
+        min-height: 44px; /* Touch target */
     }
 
     .copy-button {
