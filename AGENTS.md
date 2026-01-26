@@ -65,13 +65,11 @@ css-showcase/
 
 ## Pages That Need Creating
 
-These link to "#" and need actual pages:
-- custom-properties.html
-- blend-modes.html
-- shapes-clips.html
-- anchor-positioning.html
-- scroll-animations.html
-- colour-spaces.html
+No additions, just UX and UI refinement.
+
+Tweaking theme and making sure things are perfect, symmetrical, minamislic, easy to read and learn from and most imporatntly they are worthy of public display in a nice portfolio. Project structure needs amending and more constistency across the board. Use font awesome logos and not any emojis. 
+
+Make it epic and a lovely showcase of CSS, and use the latest modern CSS sttles and techniques. Make it accessible and responsive, and simple.
 
 ## Styling Patterns
 
