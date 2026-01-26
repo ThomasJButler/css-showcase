@@ -228,18 +228,18 @@ Comprehensive review identified 18 issues to address. Tasks organised by priorit
 ---
 
 #### Task 11.16: Verify Playground Link
-**Status:** PENDING - BROKEN LINK CONFIRMED
+**Status:** COMPLETE
 **Priority:** LOW → HIGH
-**Files:** `index.html`, footer on all pages, `sidebar-snippet.html`
+**Files:** `index.html`, footer on all pages, `sidebar-snippet.html`, `scripts/search.js`
 
 **Issue:** "Playground" link in footer Quick Links - page does NOT exist.
 
-**Confirmed:** `playground.html` does not exist but is linked from:
-- Footer "Quick Links" on all 31 HTML pages
-- Sidebar navigation
-- Multiple CTA buttons (buttons.html, cards.html, etc.)
-
-**Fix:** Either create `playground.html` or remove all references to it.
+**Fix Applied:**
+- Removed Playground section from `sidebar-snippet.html`
+- Removed `<li><a href="playground.html">Playground</a></li>` from footer Quick Links in all 31 HTML files
+- Removed "Open in Playground" CTA button from `buttons.html`
+- Removed playground "next-link" navigation blocks from `cards.html`, `frameworks.html`, `tools.html`
+- Removed playground entry from search index in `scripts/search.js`
 
 ---
 
@@ -369,7 +369,7 @@ Focus on making the showcase easy to scan, absorb, and learn from. Both themes s
 | Phases 0-8 | COMPLETE | 38 tasks |
 | Phase 9 | COMPLETE | Visual review passed |
 | Phase 10 | COMPLETE | 6 tasks |
-| **Phase 11** | **IN PROGRESS** | **11/18 complete** |
+| **Phase 11** | **IN PROGRESS** | **12/18 complete** |
 
 ### Phase 11 Remaining Work
 
@@ -381,7 +381,6 @@ Focus on making the showcase easy to scan, absorb, and learn from. Both themes s
 | 11.8 | Back to Top button position | MEDIUM |
 | 11.10 | Hero gradient bleed | MEDIUM |
 | 11.12 | Theme toggle animation | LOW |
-| 11.16 | Playground link broken | HIGH (upgraded) |
 
 ---
 
