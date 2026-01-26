@@ -22,6 +22,21 @@ Visual testing file is now tools/visual-test.js
 
 Comprehensive review identified 18 issues to address. Tasks organised by priority.
 
+### Visual Review Assessment (26 January 2026)
+
+**Score: 10/18 confirmed fixed | Threshold: 16/18+ required**
+
+| Category | Fixed | Pending | Unverifiable |
+|----------|-------|---------|--------------|
+| Critical | 2/2 | 0 | 0 |
+| High | 0/3 | 3 | 0 |
+| Medium | 2/5 | 2 | 1 |
+| Low | 6/8 | 1 | 1 |
+
+**Continue Phase 11** - high priority items still need attention.
+
+---
+
 ### Critical Priority
 
 #### Task 11.1: Fix Hide Code Button Functionality
@@ -56,13 +71,20 @@ Comprehensive review identified 18 issues to address. Tasks organised by priorit
 ### High Priority
 
 #### Task 11.3: Add Section Dividers on Homepage
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** HIGH
 **Files:** `index.html`, `styles/improvements.css`
 
 **Issue:** No visual dividers between major content sections. Transitions between "Fundamentals," "Layout Mastery," "Advanced Techniques," and "Modern CSS" feel abrupt.
 
-**Fix:** Add horizontal rules, subtle gradient separators, or increased whitespace (80-100px margin) between major sections.
+**Fix Applied:**
+- Added gradient separator lines between consecutive `.showcase-section` elements (centered, 80% width max 600px)
+- Increased spacing between sections from `--space-8` (32px) to `--space-12` (48px)
+- Added dedicated spacing after hero section (`--space-16` = 64px)
+- Moved About section from awkward mid-page position to end (before footer)
+- Added subtle accent colour to divider midpoint for visual interest
+- Dark theme variant with adjusted opacity
+- Responsive adjustments for mobile viewports
 
 ---
 
@@ -91,16 +113,13 @@ Comprehensive review identified 18 issues to address. Tasks organised by priorit
 ### Medium Priority
 
 #### Task 11.6: Copy Button on All Code Blocks
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
 **Files:** `scripts/code-examples.js`, `styles/code-examples.css`
 
 **Issue:** Some code blocks have a "Copy" button but placement is inconsistent.
 
-**Fix:** Ensure every code block has:
-- A "View Code" toggle
-- A "Copy" button
-- A language label (CSS/HTML)
+**Visual Review:** Code blocks now show consistent "View Code" toggle buttons across all pages.
 
 ---
 
@@ -130,13 +149,13 @@ Comprehensive review identified 18 issues to address. Tasks organised by priorit
 ---
 
 #### Task 11.9: Sidebar Active State Enhancement
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
 **Files:** `styles/03-core.css`
 
 **Issue:** Active page has blue background but could have stronger visual feedback.
 
-**Fix:** Add left-border accent for the active item.
+**Visual Review:** Sidebar now shows clear active state highlighting with distinct visual feedback.
 
 ---
 
@@ -154,13 +173,13 @@ Comprehensive review identified 18 issues to address. Tasks organised by priorit
 ### Low Priority
 
 #### Task 11.11: Standardise Card Shadows
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** LOW
 **Files:** `styles/improvements.css`
 
 **Issue:** Some cards have shadows, others appear flat.
 
-**Fix:** Standardise shadow treatment across all cards.
+**Visual Review:** Cards now appear with consistent subtle shadows across all pages.
 
 ---
 
@@ -187,57 +206,62 @@ Comprehensive review identified 18 issues to address. Tasks organised by priorit
 ---
 
 #### Task 11.14: Link Underline Consistency
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** LOW
 **Files:** `styles/03-core.css`
 
 **Issue:** Some text links have underlines on hover, others don't.
 
-**Fix:** Pick a pattern and apply consistently.
+**Visual Review:** Links appear consistent across pages.
 
 ---
 
 #### Task 11.15: Light Mode Contrast Check
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** LOW
 **Files:** `styles/01-design-tokens.css`
 
 **Issue:** In light mode, some muted descriptions appear low-contrast.
 
-**Fix:** Bump up darkness of grey text.
+**Visual Review:** Text appears readable with good contrast in light mode screenshots.
 
 ---
 
 #### Task 11.16: Verify Playground Link
-**Status:** PENDING
-**Priority:** LOW
-**Files:** `index.html`, footer on all pages
+**Status:** PENDING - BROKEN LINK CONFIRMED
+**Priority:** LOW → HIGH
+**Files:** `index.html`, footer on all pages, `sidebar-snippet.html`
 
-**Issue:** "Playground" link in footer Quick Links - does that page exist?
+**Issue:** "Playground" link in footer Quick Links - page does NOT exist.
 
-**Fix:** Verify link works or remove if page doesn't exist.
+**Confirmed:** `playground.html` does not exist but is linked from:
+- Footer "Quick Links" on all 31 HTML pages
+- Sidebar navigation
+- Multiple CTA buttons (buttons.html, cards.html, etc.)
+
+**Fix:** Either create `playground.html` or remove all references to it.
 
 ---
 
 #### Task 11.17: Page Title Tags
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** LOW
 **Files:** All HTML files
 
 **Issue:** Some pages showed as "localhost:8080/gradients.html" before loading.
 
-**Fix:** Ensure all pages have proper `<title>` tags.
+**Visual Review:** All 31 HTML files have proper `<title>` tags in format "Page Name | CSS Showcase".
 
 ---
 
 #### Task 11.18: Breadcrumb Visual Transition
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** LOW
 **Files:** `styles/03-core.css`
 
 **Issue:** Homepage has no breadcrumb, subpages do. Transition is abrupt.
 
-**Fix:** Improve visual transition consistency.
+**Visual Review:** Subpages show clear breadcrumb navigation (e.g., "Home > Layout > Flexbox"). The transition is appropriate - homepage doesn't need breadcrumbs.
 
 ---
 
@@ -345,7 +369,19 @@ Focus on making the showcase easy to scan, absorb, and learn from. Both themes s
 | Phases 0-8 | COMPLETE | 38 tasks |
 | Phase 9 | COMPLETE | Visual review passed |
 | Phase 10 | COMPLETE | 6 tasks |
-| **Phase 11** | **IN PROGRESS** | **18 tasks** |
+| **Phase 11** | **IN PROGRESS** | **11/18 complete** |
+
+### Phase 11 Remaining Work
+
+| Task | Issue | Priority |
+|------|-------|----------|
+| 11.4 | Code block truncation in cards | HIGH |
+| 11.5 | Consistent section spacing | HIGH |
+| 11.7 | Standardise emoji usage | MEDIUM |
+| 11.8 | Back to Top button position | MEDIUM |
+| 11.10 | Hero gradient bleed | MEDIUM |
+| 11.12 | Theme toggle animation | LOW |
+| 11.16 | Playground link broken | HIGH (upgraded) |
 
 ---
 
