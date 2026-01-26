@@ -50,10 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: 'CSS Nesting', url: 'css-nesting.html', category: 'Modern CSS', tags: ['nesting', 'nested', 'modern', 'sass-like'] },
         { title: 'Anchor Positioning', url: 'anchor-positioning.html', category: 'Modern CSS', tags: ['anchor', 'positioning', 'tooltips', 'popovers'] },
         { title: 'Scroll Animations', url: 'scroll-animations.html', category: 'Modern CSS', tags: ['scroll', 'animation-timeline', 'scroll-driven'] },
-        { title: 'Colour Spaces', url: 'color-spaces.html', category: 'Modern CSS', tags: ['oklch', 'lab', 'lch', 'colour-mix', 'p3'] },
-
-        // Tools
-        { title: 'CSS Playground', url: 'playground.html', category: 'Tools', tags: ['playground', 'experiment', 'try', 'code', 'editor'] }
+        { title: 'Colour Spaces', url: 'color-spaces.html', category: 'Modern CSS', tags: ['oklch', 'lab', 'lch', 'colour-mix', 'p3'] }
     ];
     
     // Create search modal
