@@ -89,13 +89,19 @@ Comprehensive review identified 18 issues to address. Tasks organised by priorit
 ---
 
 #### Task 11.4: Fix Code Block Truncation in Card Layouts
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** HIGH
-**Files:** `styles/code-examples.css`, `cards.html`
+**Files:** `styles/code-examples.css`, `scripts/code-examples.js`
 
 **Issue:** On the Cards page, code blocks display side-by-side and code is horizontally cut off (visible truncation of CSS property text).
 
-**Fix:** Either ensure container is wide enough, add horizontal scrolling, or reduce columns for code blocks.
+**Fix Applied:**
+- Added `min-width: 0` to `.demo-card` and `.code-example` in grid contexts to allow proper overflow handling
+- Enhanced horizontal scrollbar styling for better visibility (14px height, improved contrast)
+- Added visual scroll indicator (`⟩` arrow with fade) that appears when code has overflow
+- Scroll indicator automatically hides when user scrolls to end of content
+- Works in both light and dark themes
+- Improved overflow detection when code blocks are expanded from collapsed state
 
 ---
 
@@ -369,13 +375,12 @@ Focus on making the showcase easy to scan, absorb, and learn from. Both themes s
 | Phases 0-8 | COMPLETE | 38 tasks |
 | Phase 9 | COMPLETE | Visual review passed |
 | Phase 10 | COMPLETE | 6 tasks |
-| **Phase 11** | **IN PROGRESS** | **12/18 complete** |
+| **Phase 11** | **IN PROGRESS** | **13/18 complete** |
 
 ### Phase 11 Remaining Work
 
 | Task | Issue | Priority |
 |------|-------|----------|
-| 11.4 | Code block truncation in cards | HIGH |
 | 11.5 | Consistent section spacing | HIGH |
 | 11.7 | Standardise emoji usage | MEDIUM |
 | 11.8 | Back to Top button position | MEDIUM |

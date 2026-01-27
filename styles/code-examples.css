@@ -4,12 +4,31 @@
    CSS Nesting Migration: 25 January 2026
    ============================================ */
 
+/* ============================================
+   Grid Layout Fix for Code Blocks
+   Prevents code truncation in multi-column grids
+   ============================================ */
+
+/* Demo cards in grid layouts need min-width: 0 to allow proper overflow handling */
+.card-grid .demo-card,
+.demo-grid .demo-card {
+    min-width: 0;
+}
+
+/* Ensure code examples don't overflow their containers */
+.card-grid .code-example,
+.demo-grid .code-example {
+    max-width: 100%;
+    overflow: hidden; /* Container clips, pre scrolls */
+}
+
 /* Code Syntax Highlighting */
 .code-example {
     position: relative;
     background: #1e293b;
     border-radius: 0 0 var(--radius-xl) var(--radius-xl);
     overflow: hidden;
+    min-width: 0; /* Allows shrinking in flex/grid contexts */
 
     /* Language label */
     &::before {
@@ -25,15 +44,20 @@
         letter-spacing: 0.1em;
     }
 
-    /* Scroll fade indicator - shows there's more content to scroll (JS adds .has-overflow class) */
+    /* Right edge fade with scroll hint */
     &::after {
-        content: '';
+        content: '⟩';
         position: absolute;
-        top: 0;
         right: 0;
+        top: 0;
         bottom: 0;
-        width: 40px;
-        background: linear-gradient(to left, #1e293b 0%, transparent 100%);
+        width: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.6);
+        background: linear-gradient(to left, #1e293b 60%, transparent);
         pointer-events: none;
         opacity: 0;
         transition: opacity 0.2s;
@@ -41,6 +65,11 @@
 
     &.has-overflow::after {
         opacity: 1;
+    }
+
+    /* Hide indicator when scrolled to the end */
+    &.scrolled-end::after {
+        opacity: 0;
     }
 
     &.html::before {
@@ -55,30 +84,38 @@
     pre {
         margin: 0;
         padding: var(--space-6);
+        padding-bottom: var(--space-4); /* Slightly less padding at bottom for scrollbar */
         overflow-x: auto;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         max-width: 100%;
+        min-width: 0; /* Allows shrinking in flex/grid contexts */
 
         /* Enhanced scrollbar for better horizontal scroll visibility */
         &::-webkit-scrollbar {
-            height: 12px; /* Slightly larger for better visibility */
+            height: 14px; /* Larger for better visibility */
         }
 
         &::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             border-radius: var(--radius-sm);
+            margin: 0 var(--space-2); /* Inset from edges */
         }
 
         &::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.4);
             border-radius: var(--radius-full);
-            border: 2px solid rgba(0, 0, 0, 0.3); /* Better definition */
+            border: 3px solid rgba(0, 0, 0, 0.4); /* Better definition */
+            min-width: 40px; /* Minimum thumb size for usability */
 
             &:hover {
-                background: rgba(255, 255, 255, 0.5);
+                background: rgba(255, 255, 255, 0.6);
             }
         }
+
+        /* Firefox scrollbar styling */
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.4) rgba(0, 0, 0, 0.4);
     }
 
     /* Code always displays in single line - no wrapping */
@@ -256,7 +293,8 @@
         }
 
         &::after {
-            background: linear-gradient(to left, #f8fafc 0%, transparent 100%);
+            color: rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to left, #f8fafc 60%, transparent);
         }
 
         code {

@@ -54,6 +54,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     toggleBtn.innerHTML = '<span class="toggle-icon">▶</span> View Code';
                 } else {
                     toggleBtn.innerHTML = '<span class="toggle-icon">▼</span> Hide Code';
+                    // Check for overflow when code is expanded
+                    requestAnimationFrame(() => {
+                        const pre = codeExample.querySelector('pre');
+                        if (pre && pre.scrollWidth > pre.clientWidth) {
+                            codeExample.classList.add('has-overflow');
+                        }
+                    });
                 }
             });
         });
@@ -126,11 +133,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Detect horizontal overflow and add class for scroll fade indicator
+    // Detect horizontal overflow and add class for scroll indicator
     codeExamples.forEach(pre => {
+        const codeExample = pre.closest('.code-example');
+
+        // Check initial overflow
         if (pre.scrollWidth > pre.clientWidth) {
-            pre.closest('.code-example').classList.add('has-overflow');
+            codeExample.classList.add('has-overflow');
         }
+
+        // Track scroll position to hide indicator when at end
+        pre.addEventListener('scroll', () => {
+            const isAtEnd = pre.scrollLeft + pre.clientWidth >= pre.scrollWidth - 5;
+            codeExample.classList.toggle('scrolled-end', isAtEnd);
+        });
     });
 
     // Basic syntax highlighting (if not using a library)
