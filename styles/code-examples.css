@@ -455,23 +455,42 @@
     }
 }
 
-/* Responsive */
+/* Responsive - Enhanced mobile readability (Phase 12.3) */
 @media (max-width: 768px) {
     .code-example {
         position: relative;
 
         pre {
-            padding: var(--space-4);
+            padding: var(--space-5); /* Increased from space-4 for better breathing room */
+            padding-bottom: var(--space-4); /* Slightly less at bottom for scrollbar */
             font-size: var(--text-sm); /* WCAG 2.1 AA minimum: 14px */
             position: relative;
 
             &::-webkit-scrollbar {
-                height: 12px;
+                height: 14px; /* Larger scrollbar for easier touch scrolling */
+            }
+
+            &::-webkit-scrollbar-track {
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: var(--radius-sm);
             }
 
             &::-webkit-scrollbar-thumb {
-                background: rgba(255, 255, 255, 0.3);
+                background: rgba(255, 255, 255, 0.5); /* More visible thumb */
+                border-radius: var(--radius-full);
+                border: 2px solid rgba(0, 0, 0, 0.3);
             }
+        }
+
+        code {
+            line-height: 1.7; /* Improved line-height for mobile readability */
+        }
+
+        /* More prominent scroll indicator on mobile */
+        &::after {
+            width: 40px;
+            font-size: 1.125rem;
+            background: linear-gradient(to left, #1e293b 70%, transparent);
         }
 
         &::before {
@@ -494,5 +513,12 @@
         min-height: 44px;
         top: var(--space-2);
         right: var(--space-2);
+    }
+}
+
+/* Light theme mobile scroll indicator adjustment */
+@media (max-width: 768px) {
+    [data-theme="light"] .code-example::after {
+        background: linear-gradient(to left, #f8fafc 70%, transparent);
     }
 }
