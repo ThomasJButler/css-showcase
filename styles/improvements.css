@@ -720,7 +720,7 @@ html {
 }
 
 /* ============================================
-   Section Dividers
+   Section Dividers & Consistent Spacing
    Visual separation between content sections
    ============================================ */
 
@@ -728,6 +728,18 @@ html {
 .hero + .showcase-section {
     margin-top: var(--space-16);
     padding-top: var(--space-8);
+}
+
+/* Subpage spacing: page-hero to first demo-section */
+.page-hero + .demo-section {
+    margin-top: var(--space-8);
+}
+
+/* Consistent spacing from section header to content grid */
+.demo-section .section-intro + .demo-grid,
+.demo-section .section-subtitle + .demo-grid,
+.showcase-section .section-subtitle + .showcase-grid {
+    margin-top: var(--space-8);
 }
 
 /* Automatic divider between consecutive sections */
@@ -856,6 +868,18 @@ html {
     .hero + .showcase-section {
         margin-top: var(--space-10);
         padding-top: var(--space-6);
+    }
+
+    /* Subpage page-hero to demo-section - tighter on mobile */
+    .page-hero + .demo-section {
+        margin-top: var(--space-6);
+    }
+
+    /* Section header to grid - tighter on mobile */
+    .demo-section .section-intro + .demo-grid,
+    .demo-section .section-subtitle + .demo-grid,
+    .showcase-section .section-subtitle + .showcase-grid {
+        margin-top: var(--space-6);
     }
 
     .about-section {
