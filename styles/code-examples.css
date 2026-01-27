@@ -205,6 +205,11 @@
     color: var(--colour-text-muted);
     transition: all var(--transition-fast);
 
+    /* Subtle pulse hint for first-time visitors (Phase 12.5) */
+    &.hint-pulse {
+        animation: code-toggle-pulse 2s ease-in-out 3;
+    }
+
     &:hover {
         background: var(--colour-surface);
         color: var(--colour-text);
@@ -520,5 +525,33 @@
 @media (max-width: 768px) {
     [data-theme="light"] .code-example::after {
         background: linear-gradient(to left, #f8fafc 70%, transparent);
+    }
+}
+
+/* ============================================
+   Code Toggle Pulse Animation (Phase 12.5)
+   Subtle hint for first-time visitors
+   ============================================ */
+
+@keyframes code-toggle-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(37, 99, 235, 0);
+    }
+}
+
+/* Dark mode uses a lighter pulse colour */
+[data-theme="dark"] .code-toggle.hint-pulse {
+    animation-name: code-toggle-pulse-dark;
+}
+
+@keyframes code-toggle-pulse-dark {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(96, 165, 250, 0);
     }
 }
