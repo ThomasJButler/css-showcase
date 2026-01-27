@@ -438,6 +438,7 @@
 .floating-back-to-top {
     position: fixed;
     bottom: 2rem;
+    right: 2rem; /* Positioned in bottom-right corner (conventional placement) */
     width: 56px;
     height: 56px;
     background: var(--colour-primary);
@@ -494,6 +495,7 @@
         width: 48px;
         height: 48px;
         bottom: 1.5rem;
+        right: 1rem; /* Closer to edge on mobile for better reach */
         font-size: 1.25rem;
     }
 }

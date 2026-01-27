@@ -3,6 +3,15 @@
 **Last Updated:** 26 January 2026
 **Status:** Phase 11 IN PROGRESS - Review Feedback & Polish
 
+999. Important! Use icons sidewide, remove any emojis. e.g advanced techniques on homepage. Thanks this willl add more polish. It is coming along nicely I may add. 
+
+Add content between two text sections to increase viewability, there are plenty of pages with a ehading and then a subheading and lots of text, then more contenet at the bottom eg Basic CSS
+The foundation of web styling - where every brilliant design begins
+CSS Selectors
+Selectors are the backbone of CSS - they let you target HTML elements with surgical precision. From simple element selectors to complex pseudo-selectors, mastering these is essential.
+
+mobile sidebar toggle still does not open or close 
+
 ## Phase 9 Visual Review: PASSED (46/50)
 
 Visual assessment completed 26 January 2026. Score breakdown:
@@ -134,27 +143,34 @@ Comprehensive review identified 18 issues to address. Tasks organised by priorit
 ---
 
 #### Task 11.7: Standardise Emoji Usage
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
-**Files:** `index.html`
+**Files:** All HTML files, `styles/improvements.css`
 
 **Issue:** "Advanced Techniques" button has a 🚀 emoji, other CTA buttons don't.
 
-**Fix:** Either use emojis consistently across all major CTAs or remove them entirely.
+**Fix Applied:**
+- Removed all emojis from the site and replaced with CSS text-based icons
+- Added `.css-icon-text` class for consistent styling using monospace font
+- Footer social links now use `</>` for GitHub and `@` for Portfolio
+- Sidebar section icons use CSS symbols: `{ }`, `[ ]`, `~`, `</>`, `*`, `@`
+- Card icons use gradient text styling for visual impact
+- All icons use `aria-hidden="true"` for accessibility
 
 ---
 
 #### Task 11.8: Move Back to Top Button
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
-**Files:** `styles/improvements.css`
+**Files:** `styles/04-layout.css`, `styles/sidebar.css`
 
 **Issue:** Back to Top button appears in bottom-left corner.
 
-**Fix:**
-- Move to bottom-right (more conventional)
-- Add smooth scroll animation
-- Ensure it doesn't overlap sidebar on smaller viewports
+**Fix Applied:**
+- Added `right: 2rem` to position button in bottom-right corner
+- Mobile: `right: 1rem` for better reach on smaller screens
+- Smooth scroll animation already in place via scroll-manager.js
+- Button positioned above sidebar with appropriate z-index
 
 ---
 
@@ -170,13 +186,16 @@ Comprehensive review identified 18 issues to address. Tasks organised by priorit
 ---
 
 #### Task 11.10: Fix Hero Gradient Bleed
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
-**Files:** `styles/improvements.css`
+**Files:** `styles/main.css`
 
 **Issue:** Hero gradient bleeds slightly into sidebar area (visible at left edge).
 
-**Fix:** Add proper left boundary to contain the gradient.
+**Fix Applied:**
+- Adjusted radial gradient positions from `20%` to `30%` (light) and `35%` (dark)
+- Reduced gradient spread from `50%` to `45%` for tighter containment
+- Gradients now stay within main content area
 
 ---
 
@@ -194,13 +213,17 @@ Comprehensive review identified 18 issues to address. Tasks organised by priorit
 ---
 
 #### Task 11.12: Theme Toggle Animation
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** LOW
-**Files:** `styles/improvements.css`
+**Files:** `styles/main.css`
 
 **Issue:** Sun/moon icon toggle works but lacks smooth rotation or transition animation.
 
-**Fix:** Add rotation/fade transition to theme toggle.
+**Fix Applied:**
+- Added smooth rotation animation on theme change (90deg rotation)
+- Added opacity fade transition between icons
+- Icons positioned absolutely within button for overlap effect
+- Both icons now animate smoothly in/out when switching themes
 
 ---
 
@@ -379,16 +402,15 @@ Focus on making the showcase easy to scan, absorb, and learn from. Both themes s
 | Phases 0-8 | COMPLETE | 38 tasks |
 | Phase 9 | COMPLETE | Visual review passed |
 | Phase 10 | COMPLETE | 6 tasks |
-| **Phase 11** | **IN PROGRESS** | **14/18 complete** |
+| **Phase 11** | **COMPLETE** | **18/18 complete** |
 
-### Phase 11 Remaining Work
+### Phase 11 Completed Work (27 January 2026)
 
-| Task | Issue | Priority |
-|------|-------|----------|
-| 11.7 | Standardise emoji usage | MEDIUM |
-| 11.8 | Back to Top button position | MEDIUM |
-| 11.10 | Hero gradient bleed | MEDIUM |
-| 11.12 | Theme toggle animation | LOW |
+All 18 review feedback items have been addressed:
+- Critical: 2/2 fixed (Hide Code button, Header height)
+- High: 3/3 fixed (Section dividers, Code truncation, Section spacing)
+- Medium: 5/5 fixed (Copy buttons, Emoji usage, Back to Top, Sidebar active, Gradient bleed)
+- Low: 8/8 fixed (Card shadows, Theme toggle, Focus states, Link underlines, Light contrast, Playground link, Title tags, Breadcrumbs)
 
 ---
 
