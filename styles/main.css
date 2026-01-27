@@ -182,28 +182,41 @@ a:hover {
 .theme-toggle svg {
     width: 20px;
     height: 20px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
 .theme-toggle:hover svg {
     transform: rotate(15deg);
 }
 
+/* Smooth icon transition animation */
 .theme-icon-light,
 .theme-icon-dark {
     display: block;
+    position: absolute;
+    opacity: 1;
+    transform: rotate(0deg);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .theme-icon-dark {
-    display: none;
+    opacity: 0;
+    transform: rotate(-90deg);
 }
 
 [data-theme="dark"] .theme-icon-light {
-    display: none;
+    opacity: 0;
+    transform: rotate(90deg);
 }
 
 [data-theme="dark"] .theme-icon-dark {
-    display: block;
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+/* Ensure icons are positioned correctly */
+.theme-toggle {
+    position: relative;
 }
 
 /* Navigation */
@@ -318,8 +331,8 @@ a:hover {
     justify-content: center;
     padding: var(--space-16) var(--space-6);
     background:
-        radial-gradient(ellipse at 20% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(124, 58, 237, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 45%),
+        radial-gradient(ellipse at 75% 20%, rgba(124, 58, 237, 0.06) 0%, transparent 45%),
         var(--gradient-subtle);
     position: relative;
     overflow: hidden;
@@ -342,8 +355,8 @@ a:hover {
 
 [data-theme="dark"] .hero {
     background:
-        radial-gradient(ellipse at 30% 70%, rgba(96, 165, 250, 0.12) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 30%, rgba(167, 139, 250, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 35% 70%, rgba(96, 165, 250, 0.12) 0%, transparent 45%),
+        radial-gradient(ellipse at 70% 30%, rgba(167, 139, 250, 0.08) 0%, transparent 45%),
         var(--gradient-subtle);
 }
 

@@ -1,6 +1,63 @@
 /* Final Design Improvements */
 /* Note: Design tokens (spacing, shadows) are now in 01-design-tokens.css */
 
+/* ============================================
+   CSS Text Icons - Replacing Emojis
+   Clean, accessible, consistent iconography
+   ============================================ */
+
+/* Card icons using CSS/text symbols */
+.card-icon.css-icon-text {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: var(--font-bold);
+    color: var(--colour-primary);
+    background: linear-gradient(135deg, var(--colour-primary) 0%, var(--colour-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    letter-spacing: -0.05em;
+}
+
+/* Sidebar section icons */
+.sidebar-section-icon.css-icon-text {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: var(--font-medium);
+    color: var(--colour-primary);
+    margin-right: var(--space-2);
+}
+
+/* Tip and next section icons */
+.tip-icon.css-icon-text,
+.next-icon.css-icon-text {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: var(--font-bold);
+    color: var(--colour-primary);
+}
+
+/* Footer link icons */
+.footer-link-icon {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: var(--font-semibold);
+    color: var(--colour-primary);
+}
+
+/* Feature icons for cards */
+.feature-icon.css-icon-text {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: var(--font-bold);
+    color: var(--colour-primary);
+    background: linear-gradient(135deg, var(--colour-primary) 0%, var(--colour-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 /* Content Spacer Utility - reduced for height optimisation */
 .content-spacer {
     margin: var(--space-4) 0;
