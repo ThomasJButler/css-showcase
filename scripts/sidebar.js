@@ -8,13 +8,26 @@
 (function() {
     'use strict';
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSidebar);
-    } else {
-        initSidebar();
+    let sidebarInitialised = false;
+
+    // Wait for components to be loaded (header + sidebar are loaded dynamically)
+    // The component-loader.js dispatches 'components-loaded' when ready
+    document.addEventListener('components-loaded', initSidebar);
+
+    // Fallback: If components are already loaded or not using component loader
+    if (document.readyState !== 'loading') {
+        // Check if sidebar already exists (components already loaded)
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        if (sidebar && sidebarToggle) {
+            initSidebar();
+        }
     }
 
     function initSidebar() {
+        // Prevent double initialisation
+        if (sidebarInitialised) return;
+        sidebarInitialised = true;
         const sidebar = document.querySelector('.sidebar');
         const sidebarToggle = document.querySelector('.sidebar-toggle');
         const sidebarBackdrop = document.querySelector('.sidebar-backdrop');

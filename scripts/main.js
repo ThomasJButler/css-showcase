@@ -9,120 +9,17 @@
  * @constructs - Initialises theme, navigation, scroll observers, and interactive features
  */
 document.addEventListener('DOMContentLoaded', function() {
-    const themeToggle = document.querySelector('.theme-toggle');
-    const lightIcon = document.querySelector('.theme-icon-light');
-    const darkIcon = document.querySelector('.theme-icon-dark');
+    // Apply theme early (before components load) to prevent flash
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
     const currentTheme = localStorage.getItem('theme') ||
                         (prefersDarkScheme.matches ? 'dark' : 'light');
-
     document.documentElement.setAttribute('data-theme', currentTheme);
-    updateThemeIcon(currentTheme);
 
-    themeToggle.addEventListener('click', toggleTheme);
-    themeToggle.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleTheme();
-        }
-    });
+    // Note: Theme toggle functionality is handled by component-loader.js
+    // after the header component is loaded
 
-    /**
-     * Toggles between light and dark theme
-     * Persists preference to localStorage for consistency across pages
-     */
-    function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-    }
-
-    /**
-     * Updates theme toggle icon visibility based on current theme
-     * @param {string} theme - Current theme ('dark' or 'light')
-     */
-    function updateThemeIcon(theme) {
-        if (lightIcon && darkIcon) {
-            if (theme === 'dark') {
-                lightIcon.style.display = 'none';
-                darkIcon.style.display = 'block';
-            } else {
-                lightIcon.style.display = 'block';
-                darkIcon.style.display = 'none';
-            }
-        }
-    }
-
-    const navToggle = document.querySelector('.nav-toggle');
-    const navList = document.querySelector('.nav-list');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    const backdrop = document.createElement('div');
-    backdrop.className = 'nav-backdrop';
-    if (navToggle && navList) {
-        navToggle.parentElement.appendChild(backdrop);
-    }
-
-    navToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = navList.classList.contains('active');
-        navList.classList.toggle('active');
-        backdrop.classList.toggle('active');
-        navToggle.setAttribute('aria-expanded', !isOpen);
-        navToggle.classList.toggle('active');
-
-        // Prevent background scrolling when mobile menu is open
-        document.body.style.overflow = isOpen ? '' : 'hidden';
-    });
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            closeMobileMenu();
-        });
-    });
-
-    document.addEventListener('click', (e) => {
-        if (navList.classList.contains('active') &&
-            !navList.contains(e.target) &&
-            !navToggle.contains(e.target)) {
-            closeMobileMenu();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && navList.classList.contains('active')) {
-            closeMobileMenu();
-            navToggle.focus();
-        }
-    });
-
-    // Debounced resize handler to close mobile menu on desktop
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            if (window.innerWidth > 768 && navList.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        }, 250);
-    });
-
-    /**
-     * Closes mobile navigation menu and resets all related states
-     */
-    function closeMobileMenu() {
-        navList.classList.remove('active');
-        navToggle.classList.remove('active');
-        backdrop.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-    }
-
-    backdrop.addEventListener('click', closeMobileMenu);
+    // Note: Navigation is handled by sidebar.js after components are loaded
+    // The sidebar toggle in the header controls the mobile sidebar navigation
 
     // Smooth scrolling with header offset calculation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -144,27 +41,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Highlights active navigation link based on visible section
     const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
     const observerOptions = {
         rootMargin: '-25% 0px -70% 0px'
     };
 
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const id = entry.target.getAttribute('id');
-            const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
+    if (navLinks.length > 0) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
 
-            if (navLink) {
-                if (entry.isIntersecting) {
-                    navLinks.forEach(link => link.classList.remove('active'));
-                    navLink.classList.add('active');
+                if (navLink) {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        navLink.classList.add('active');
+                    }
                 }
-            }
-        });
-    }, observerOptions);
+            });
+        }, observerOptions);
 
-    sections.forEach(section => {
-        sectionObserver.observe(section);
-    });
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+    }
 
     // Note: Scroll handling (header auto-hide, etc.) is managed by scroll-manager.js
     // Nav toggle active state styles are defined in main.css

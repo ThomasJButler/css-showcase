@@ -152,7 +152,7 @@ button.primary {
                 </div>
 
                 <div class="tip-box">
-                    <h4>💡 Specificity Tip</h4>
+                    <h4><span class="css-icon-text tip-icon" aria-hidden="true">*</span> Specificity Tip</h4>
                     <p><strong>:is()</strong> takes the specificity of its most specific argument, while <strong>:where()</strong> always has zero specificity. Use <code>:where()</code> for reusable base styles and <code>:is()</code> when you need more control.</p>
                 </div>
             </div>
@@ -412,7 +412,7 @@ a[href*="image"]::before {
                 </div>
 
                 <div class="tip-box">
-                    <h4>💡 Attribute Selector Operators</h4>
+                    <h4><span class="css-icon-text tip-icon" aria-hidden="true">*</span> Attribute Selector Operators</h4>
                     <p><code>^=</code> starts with, <code>$=</code> ends with, <code>*=</code> contains, <code>~=</code> word match, <code>|=</code> starts with (dash-separated). These operators make attribute selectors incredibly flexible!</p>
                 </div>
             </div>
@@ -561,7 +561,7 @@ div#special.text { color: purple; }</code></pre>
                 <p>Keep specificity low and consistent. Use classes over IDs, avoid nesting too deeply, and reserve <code>!important</code> for truly exceptional cases.</p>
 
                 <div class="tip-box">
-                    <h4>💡 Specificity Tips</h4>
+                    <h4><span class="css-icon-text tip-icon" aria-hidden="true">*</span> Specificity Tips</h4>
                     <p><strong>1.</strong> Prefer classes over IDs for styling<br>
                     <strong>2.</strong> Keep selector chains short (2-3 levels max)<br>
                     <strong>3.</strong> Use <code>:where()</code> for zero-specificity base styles<br>
