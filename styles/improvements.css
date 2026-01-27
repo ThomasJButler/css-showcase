@@ -315,6 +315,31 @@ h1, h2, h3, h4, h5, h6,
     line-height: 1.7;
 }
 
+/* Visual separator between intro text and content grid */
+.section-intro {
+    position: relative;
+    padding-bottom: var(--space-8);
+    margin-bottom: var(--space-8);
+}
+
+.section-intro::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(50%, 200px);
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        var(--colour-border) 20%,
+        var(--colour-primary) 50%,
+        var(--colour-border) 80%,
+        transparent
+    );
+    opacity: 0.6;
+}
+
 /* Visual breathing room between demo sections */
 .demo-section + .demo-section {
     margin-top: var(--space-12);
