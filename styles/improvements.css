@@ -255,24 +255,28 @@
 }
 
 /* ============================================
-   Information Hierarchy (Phase 10.3)
+   Information Hierarchy (Phase 10.3 + 12.4)
    Clear visual separation between sections
    ============================================ */
 
-/* Section header with subtle visual separator */
+/* Section header with visual separator */
 .demo-section .section-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--colour-text);
     position: relative;
     padding-bottom: var(--space-3);
     margin-bottom: var(--space-4);
 }
 
+/* Prominent accent underline for section titles */
 .demo-section .section-title::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 60px;
-    height: 3px;
+    width: 80px;
+    height: 4px;
     background: var(--gradient-primary);
     border-radius: var(--radius-full);
 }
@@ -284,11 +288,25 @@
     transform: translateX(-50%);
 }
 
+/* Alternating section backgrounds for visual rhythm (Phase 12.4) */
+.demo-section:nth-child(even) {
+    background: var(--colour-surface-alt);
+    margin-left: calc(-1 * var(--space-6));
+    margin-right: calc(-1 * var(--space-6));
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+    border-radius: var(--radius-lg);
+}
+
+[data-theme="dark"] .demo-section:nth-child(even) {
+    background: var(--colour-surface);
+}
+
 /* Visual breathing room between demo sections */
 .demo-section + .demo-section {
     margin-top: var(--space-8);
     padding-top: var(--space-6);
-    border-top: 1px solid var(--colour-border);
+    border-top: 2px solid var(--colour-border);
 }
 
 /* Demo grid spacing improvements */
@@ -1004,6 +1022,15 @@ html {
 
     .section-divider {
         margin: var(--space-6) 0;
+    }
+
+    /* Alternating section backgrounds - full width on mobile */
+    .demo-section:nth-child(even) {
+        margin-left: calc(-1 * var(--space-5));
+        margin-right: calc(-1 * var(--space-5));
+        padding-left: var(--space-5);
+        padding-right: var(--space-5);
+        border-radius: 0;
     }
 }
 
