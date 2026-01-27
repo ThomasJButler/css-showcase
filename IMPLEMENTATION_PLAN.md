@@ -10,7 +10,7 @@
 **Goal:** Improve readability and ease of use as the final round of polish.
 
 ### Task 12.1: Add Page Links to Homepage Sections
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** HIGH
 **Files:** `index.html`, `styles/improvements.css`
 
@@ -88,7 +88,7 @@ Style as subtle pill/chip links or a compact grid.
 | Phase | Status | Tasks |
 |-------|--------|-------|
 | Phases 0-11 | COMPLETE | 62 tasks |
-| **Phase 12** | **IN PROGRESS** | **0/5 complete** |
+| **Phase 12** | **IN PROGRESS** | **1/5 complete** |
 
 ---
 

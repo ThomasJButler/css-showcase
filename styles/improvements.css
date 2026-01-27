@@ -2,6 +2,39 @@
 /* Note: Design tokens (spacing, shadows) are now in 01-design-tokens.css */
 
 /* ============================================
+   Section Page Links (Phase 12.1)
+   Quick navigation links within homepage sections
+   ============================================ */
+.section-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+}
+
+.section-link {
+    padding: var(--space-1) var(--space-3);
+    background: var(--colour-surface);
+    border: 1px solid var(--colour-border);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    color: var(--colour-text-muted);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.section-link:hover {
+    background: var(--colour-primary);
+    border-color: var(--colour-primary);
+    color: white;
+    transform: translateY(-1px);
+}
+
+[data-theme="dark"] .section-link:hover {
+    box-shadow: 0 2px 8px rgba(96, 165, 250, 0.3);
+}
+
+/* ============================================
    CSS Text Icons - Replacing Emojis
    Clean, accessible, consistent iconography
    ============================================ */
