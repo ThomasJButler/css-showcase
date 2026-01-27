@@ -106,13 +106,17 @@ Comprehensive review identified 18 issues to address. Tasks organised by priorit
 ---
 
 #### Task 11.5: Consistent Section Spacing
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** HIGH
 **Files:** `styles/improvements.css`
 
 **Issue:** Hero section flows directly into "Fundamentals" with no clear break. Spacing between section header and content varies across pages.
 
-**Fix:** Add consistent spacing after hero and between all major sections.
+**Fix Applied:**
+- Added `.page-hero + .demo-section` spacing rule (`--space-8` = 32px) for clear break after subpage heroes
+- Standardised section header to grid spacing with `.section-intro + .demo-grid` and `.section-subtitle + .demo-grid` rules (`--space-8`)
+- Mobile-responsive variants (`--space-6` = 24px on smaller screens)
+- Homepage already had proper hero-to-section spacing via `.hero + .showcase-section`
 
 ---
 
@@ -375,13 +379,12 @@ Focus on making the showcase easy to scan, absorb, and learn from. Both themes s
 | Phases 0-8 | COMPLETE | 38 tasks |
 | Phase 9 | COMPLETE | Visual review passed |
 | Phase 10 | COMPLETE | 6 tasks |
-| **Phase 11** | **IN PROGRESS** | **13/18 complete** |
+| **Phase 11** | **IN PROGRESS** | **14/18 complete** |
 
 ### Phase 11 Remaining Work
 
 | Task | Issue | Priority |
 |------|-------|----------|
-| 11.5 | Consistent section spacing | HIGH |
 | 11.7 | Standardise emoji usage | MEDIUM |
 | 11.8 | Back to Top button position | MEDIUM |
 | 11.10 | Hero gradient bleed | MEDIUM |
