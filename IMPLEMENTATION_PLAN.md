@@ -56,7 +56,7 @@ Style as subtle pill/chip links or a compact grid.
 ---
 
 ### Task 12.4: Enhance Section Visual Hierarchy
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
 **Files:** `styles/improvements.css`
 
@@ -88,7 +88,7 @@ Style as subtle pill/chip links or a compact grid.
 | Phase | Status | Tasks |
 |-------|--------|-------|
 | Phases 0-11 | COMPLETE | 62 tasks |
-| **Phase 12** | **IN PROGRESS** | **3/5 complete** |
+| **Phase 12** | **IN PROGRESS** | **4/5 complete** |
 
 ---
 
