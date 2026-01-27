@@ -27,7 +27,7 @@ Style as subtle pill/chip links or a compact grid.
 ---
 
 ### Task 12.2: Add "On This Page" Navigation for Long Pages
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** HIGH
 **Files:** `scripts/page-nav.js` (new), `styles/improvements.css`, long content pages
 
@@ -88,7 +88,7 @@ Style as subtle pill/chip links or a compact grid.
 | Phase | Status | Tasks |
 |-------|--------|-------|
 | Phases 0-11 | COMPLETE | 62 tasks |
-| **Phase 12** | **IN PROGRESS** | **1/5 complete** |
+| **Phase 12** | **IN PROGRESS** | **2/5 complete** |
 
 ---
 
