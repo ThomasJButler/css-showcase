@@ -69,6 +69,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialise code toggles
     initCodeToggles();
 
+    // ============================================
+    // Code Toggle Hint Animation (Phase 12.5)
+    // Show pulse animation to first-time visitors
+    // ============================================
+
+    /**
+     * Add subtle pulse animation to first visible code toggle
+     * Only shown once per session to avoid annoyance
+     */
+    function initCodeToggleHint() {
+        // Skip if user has already seen the hint
+        if (sessionStorage.getItem('codeToggleHintSeen')) return;
+
+        const firstToggle = document.querySelector('.code-toggle');
+        if (!firstToggle) return;
+
+        // Add pulse hint class
+        firstToggle.classList.add('hint-pulse');
+
+        // Mark as seen after animation ends or user clicks any toggle
+        firstToggle.addEventListener('animationend', () => {
+            sessionStorage.setItem('codeToggleHintSeen', 'true');
+            firstToggle.classList.remove('hint-pulse');
+        });
+
+        // Also mark as seen if user clicks any toggle before animation ends
+        document.addEventListener('click', function handleToggleClick(e) {
+            if (e.target.closest('.code-toggle')) {
+                sessionStorage.setItem('codeToggleHintSeen', 'true');
+                firstToggle.classList.remove('hint-pulse');
+                document.removeEventListener('click', handleToggleClick);
+            }
+        });
+    }
+
+    // Initialise code toggle hint
+    initCodeToggleHint();
+
     // Create aria-live region for copy feedback announcements
     const copyAnnounce = document.createElement('div');
     copyAnnounce.setAttribute('aria-live', 'polite');

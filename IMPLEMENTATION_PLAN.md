@@ -70,7 +70,7 @@ Style as subtle pill/chip links or a compact grid.
 ---
 
 ### Task 12.5: Subtle Code Block Expansion Hint
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** LOW
 **Files:** `styles/code-examples.css`, `scripts/code-examples.js`
 
@@ -88,7 +88,7 @@ Style as subtle pill/chip links or a compact grid.
 | Phase | Status | Tasks |
 |-------|--------|-------|
 | Phases 0-11 | COMPLETE | 62 tasks |
-| **Phase 12** | **IN PROGRESS** | **4/5 complete** |
+| **Phase 12** | **COMPLETE** | **5/5 complete** |
 
 ---
 
