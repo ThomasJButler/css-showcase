@@ -771,6 +771,32 @@ input[type="datetime-local"]:hover::-webkit-calendar-picker-indicator {
 [data-theme="dark"] .checkbox-mark,
 [data-theme="dark"] .radio-mark {
     background: var(--colour-surface-alt);
+    border-color: #475569;
+}
+
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-textarea,
+[data-theme="dark"] .form-select {
+    border-color: #475569;
+}
+
+[data-theme="dark"] .form-underline .form-input {
+    border-bottom-color: #475569;
+}
+
+[data-theme="dark"] .form-input:focus,
+[data-theme="dark"] .form-textarea:focus,
+[data-theme="dark"] .form-select:focus {
+    border-color: var(--colour-primary);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+}
+
+[data-theme="dark"] .file-drop-area {
+    border-color: #475569;
+}
+
+[data-theme="dark"] .form-footer {
+    border-top-color: #475569;
 }
 
 /* Responsive */

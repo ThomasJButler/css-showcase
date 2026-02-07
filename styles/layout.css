@@ -5,7 +5,7 @@
 /* Display Property Demo */
 .display-demo {
     padding: 24px;
-    background: var(--color-surface, #f8fafc);
+    background: var(--colour-surface, #f8fafc);
     border-radius: 12px;
 }
 
@@ -36,7 +36,7 @@
 /* Position Property Demo */
 .position-demo-container {
     padding: 24px;
-    background: var(--color-surface, #f8fafc);
+    background: var(--colour-surface, #f8fafc);
     border-radius: 12px;
     min-height: 400px;
 }
@@ -44,7 +44,7 @@
 .position-context {
     position: relative;
     min-height: 350px;
-    border: 2px dashed var(--color-border, #e2e8f0);
+    border: 2px dashed var(--colour-border, #e2e8f0);
     border-radius: 8px;
     padding: 16px;
 }
@@ -98,7 +98,7 @@
 .z-index-demo {
     position: relative;
     height: 200px;
-    background: var(--color-surface, #f8fafc);
+    background: var(--colour-surface, #f8fafc);
     border-radius: 12px;
     padding: 24px;
 }
@@ -141,9 +141,9 @@
 .multi-column-demo {
     column-count: 2;
     column-gap: 32px;
-    column-rule: 2px solid var(--color-border, #e2e8f0);
+    column-rule: 2px solid var(--colour-border, #e2e8f0);
     padding: 24px;
-    background: var(--color-surface, #f8fafc);
+    background: var(--colour-surface, #f8fafc);
     border-radius: 12px;
 }
 
@@ -156,7 +156,7 @@
 .centered-demo {
     position: relative;
     height: 250px;
-    background: var(--color-surface, #f8fafc);
+    background: var(--colour-surface, #f8fafc);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -178,7 +178,7 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     height: 300px;
-    border: 2px solid var(--color-border, #e2e8f0);
+    border: 2px solid var(--colour-border, #e2e8f0);
     border-radius: 12px;
     overflow: hidden;
     font-size: 0.875rem;
@@ -198,7 +198,7 @@
     grid-template-columns: 100px 1fr 100px;
     gap: 16px;
     padding: 16px;
-    background: var(--color-surface, #f8fafc);
+    background: var(--colour-surface, #f8fafc);
 }
 
 .hg-sidebar {
@@ -213,18 +213,14 @@
 }
 
 .hg-main {
-    background: white;
+    background: var(--colour-surface, white);
     padding: 16px;
     border-radius: 8px;
-    border: 2px solid var(--color-border, #e2e8f0);
+    border: 2px solid var(--colour-border, #e2e8f0);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
-}
-
-.dark .hg-main {
-    background: var(--color-background, #0f172a);
 }
 
 .hg-footer {
@@ -243,7 +239,7 @@
     gap: 24px;
     min-height: 400px;
     padding: 24px;
-    background: var(--color-surface, #f8fafc);
+    background: var(--colour-surface, #f8fafc);
     border-radius: 12px;
 }
 
@@ -268,13 +264,9 @@
 
 .sticky-content {
     padding: 24px;
-    background: white;
+    background: var(--colour-surface, white);
     border-radius: 8px;
-    border: 2px solid var(--color-border, #e2e8f0);
-}
-
-.dark .sticky-content {
-    background: var(--color-background, #0f172a);
+    border: 2px solid var(--colour-border, #e2e8f0);
 }
 
 .sticky-content p {
@@ -292,7 +284,7 @@
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 16px;
     padding: 24px;
-    background: var(--color-surface, #f8fafc);
+    background: var(--colour-surface, #f8fafc);
     border-radius: 12px;
 }
 
@@ -318,7 +310,7 @@
 /* Float Demo */
 .float-demo {
     padding: 24px;
-    background: var(--color-surface, #f8fafc);
+    background: var(--colour-surface, #f8fafc);
     border-radius: 12px;
 }
 
@@ -361,8 +353,8 @@
 
 .related-card {
     padding: 32px;
-    background: var(--color-surface, #f8fafc);
-    border: 2px solid var(--color-border, #e2e8f0);
+    background: var(--colour-surface, #f8fafc);
+    border: 2px solid var(--colour-border, #e2e8f0);
     border-radius: 12px;
     text-decoration: none;
     transition: all var(--transition-default);
@@ -374,20 +366,65 @@
     border-color: #2563eb;
 }
 
-.dark .related-card:hover {
+[data-theme="dark"] .related-card:hover {
     border-color: #60a5fa;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .related-card h3 {
     margin: 0 0 12px 0;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
     font-size: 1.25rem;
 }
 
 .related-card p {
     margin: 0;
-    color: var(--color-text-secondary, #64748b);
+    color: var(--colour-text-secondary, #64748b);
     line-height: 1.6;
+}
+
+/* ===============================================
+   Dark Mode Overrides
+   =============================================== */
+[data-theme="dark"] .display-demo,
+[data-theme="dark"] .position-demo-container,
+[data-theme="dark"] .z-index-demo,
+[data-theme="dark"] .multi-column-demo,
+[data-theme="dark"] .centered-demo,
+[data-theme="dark"] .sticky-layout-demo,
+[data-theme="dark"] .card-grid-demo,
+[data-theme="dark"] .float-demo,
+[data-theme="dark"] .related-card,
+[data-theme="dark"] .hg-content {
+    background: var(--colour-surface, #1e293b);
+    color: var(--colour-text, #e2e8f0);
+}
+
+[data-theme="dark"] .hg-main,
+[data-theme="dark"] .sticky-content {
+    background: var(--colour-background, #0f172a);
+    color: var(--colour-text, #e2e8f0);
+    border-color: var(--colour-border, #334155);
+}
+
+[data-theme="dark"] .position-context {
+    border-color: var(--colour-border, #334155);
+}
+
+[data-theme="dark"] .holy-grail-demo {
+    border-color: var(--colour-border, #334155);
+}
+
+[data-theme="dark"] .multi-column-demo {
+    column-rule-color: var(--colour-border, #334155);
+}
+
+[data-theme="dark"] .related-card h3 {
+    color: var(--colour-text, #e2e8f0);
+}
+
+[data-theme="dark"] .related-card p {
+    color: var(--colour-text-secondary, #cbd5e1);
 }
 
 /* Responsive Design */

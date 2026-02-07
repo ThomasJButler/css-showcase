@@ -549,4 +549,29 @@
             0 0 40px rgba(96, 165, 250, 0.3);
         border-color: rgba(96, 165, 250, 0.5);
     }
+
+    /* Improve border visibility for demo containers */
+    .content-layer {
+        border-color: #475569;
+    }
+
+    .padding-demo {
+        border-color: #475569;
+    }
+
+    .margin-examples {
+        border-color: #475569;
+    }
+
+    .controls-panel {
+        border-color: #475569;
+    }
+
+    .playground-code {
+        border-color: #475569;
+    }
+
+    .border-demo {
+        border-color: #475569;
+    }
 }
