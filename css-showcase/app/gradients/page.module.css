@@ -1,0 +1,408 @@
+/* ============================================
+   Gradients Page — Demo Styles
+   Scoped via CSS Modules
+   ============================================ */
+
+/* --- Gradient Showcase Layout --- */
+
+.gradientRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.gradientShowcase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gradientBox {
+  width: 150px;
+  height: 150px;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px oklch(0 0 0 / 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dark .gradientBox {
+  box-shadow: 0 4px 6px oklch(0 0 0 / 0.3);
+}
+
+.gradientBox:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px oklch(0 0 0 / 0.15);
+}
+
+.gradientLabel {
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ─── Linear Gradients ─── */
+
+.linearBasic {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+}
+
+.linearMulti {
+  background: linear-gradient(
+    to right,
+    #ff0000,
+    #ff8800,
+    #ffff00,
+    #00ff00,
+    #0088ff,
+    #8800ff
+  );
+}
+
+.linearDiagonal {
+  background: linear-gradient(45deg, #f06, #48f);
+}
+
+.linearStops {
+  background: linear-gradient(
+    to right,
+    #3b82f6 0%,
+    #3b82f6 20%,
+    #8b5cf6 80%,
+    #8b5cf6 100%
+  );
+}
+
+.linearHard {
+  background: linear-gradient(
+    to right,
+    #f06 50%,
+    #48f 50%
+  );
+}
+
+.linearRepeating {
+  background: repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 10px,
+    #e5e7eb 10px,
+    #e5e7eb 20px
+  );
+}
+
+.dark .linearRepeating {
+  background: repeating-linear-gradient(
+    45deg,
+    #374151,
+    #374151 10px,
+    #4b5563 10px,
+    #4b5563 20px
+  );
+}
+
+.linearOverlay {
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.3)
+    ),
+    linear-gradient(
+      45deg,
+      #3b82f6,
+      #8b5cf6
+    );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.linearAnimated {
+  background: linear-gradient(
+    -45deg,
+    #ee7752,
+    #e73c7e,
+    #23a6d5,
+    #23d5ab
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.linearMesh {
+  background:
+    linear-gradient(45deg, rgba(240, 102, 102, 0.8) 30%, transparent 30%),
+    linear-gradient(-45deg, rgba(72, 136, 255, 0.8) 60%, transparent 60%),
+    linear-gradient(90deg, rgba(253, 208, 0, 0.8) 20%, transparent 20%),
+    #f3f4f6;
+}
+
+.dark .linearMesh {
+  background:
+    linear-gradient(45deg, rgba(240, 102, 102, 0.6) 30%, transparent 30%),
+    linear-gradient(-45deg, rgba(72, 136, 255, 0.6) 60%, transparent 60%),
+    linear-gradient(90deg, rgba(253, 208, 0, 0.6) 20%, transparent 20%),
+    #1f2937;
+}
+
+/* ─── Radial Gradients ─── */
+
+.radialCircle {
+  background: radial-gradient(circle, #3b82f6, #1e40af);
+}
+
+.radialEllipse {
+  background: radial-gradient(ellipse, #ec4899, #7c3aed);
+}
+
+.radialPositioned {
+  background: radial-gradient(circle at top right, #fbbf24, #92400e);
+}
+
+.radialClosest {
+  background: radial-gradient(circle closest-side, #10b981, #064e3b);
+}
+
+.radialFarthest {
+  background: radial-gradient(ellipse farthest-corner at center, #f59e0b, #7c2d12);
+}
+
+.radialFixed {
+  background: radial-gradient(100px 50px at center, #8b5cf6, #4c1d95);
+}
+
+.radialSunburst {
+  background: radial-gradient(
+    circle,
+    #fbbf24 0%,
+    #f59e0b 25%,
+    #d97706 50%,
+    #92400e 75%,
+    #451a03 100%
+  );
+}
+
+.radialBubble {
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.4) 30%,
+    rgba(59, 130, 246, 0.6)
+  );
+  border-radius: 50%;
+}
+
+.radialRepeating {
+  background: repeating-radial-gradient(
+    circle,
+    #3b82f6,
+    #3b82f6 10px,
+    #60a5fa 10px,
+    #60a5fa 20px
+  );
+}
+
+/* ─── Conic Gradients ─── */
+
+.conicWheel {
+  background: conic-gradient(
+    red,
+    yellow,
+    lime,
+    aqua,
+    blue,
+    magenta,
+    red
+  );
+  border-radius: 50%;
+}
+
+.conicPie {
+  background: conic-gradient(
+    #3b82f6 0deg 90deg,
+    #8b5cf6 90deg 180deg,
+    #ec4899 180deg 270deg,
+    #f59e0b 270deg
+  );
+  border-radius: 50%;
+}
+
+.conicPositioned {
+  background: conic-gradient(
+    from 45deg at 25% 25%,
+    #f06,
+    #48f,
+    #f06
+  );
+}
+
+.conicCheckerboard {
+  background: conic-gradient(
+    #000 0deg 90deg,
+    #fff 90deg 180deg,
+    #000 180deg 270deg,
+    #fff 270deg
+  );
+  background-size: 40px 40px;
+}
+
+.dark .conicCheckerboard {
+  background: conic-gradient(
+    #e5e7eb 0deg 90deg,
+    #374151 90deg 180deg,
+    #e5e7eb 180deg 270deg,
+    #374151 270deg
+  );
+  background-size: 40px 40px;
+}
+
+.conicStarburst {
+  background: repeating-conic-gradient(
+    from 0deg,
+    #3b82f6 0deg 10deg,
+    #1e40af 10deg 20deg
+  );
+  border-radius: 50%;
+}
+
+.conicSpiral {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    hsl(0deg 100% 50%),
+    hsl(180deg 100% 50%),
+    hsl(360deg 100% 50%)
+  );
+  filter: blur(15px);
+  border-radius: 50%;
+}
+
+/* ─── CTA Banner ─── */
+
+.ctaBanner {
+  background: linear-gradient(135deg, oklch(from var(--primary) l c h / 0.08), oklch(from var(--secondary) l c h / 0.08));
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.ctaBanner h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--foreground);
+}
+
+.ctaBanner p {
+  font-size: 1.0625rem;
+  color: var(--muted-foreground);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.ctaLink {
+  display: inline-block;
+  padding: 0.875rem 1.75rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ctaLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px oklch(from var(--primary) l c h / 0.3);
+}
+
+/* ─── Next Steps ─── */
+
+.nextGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 700px;
+}
+
+.nextLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  color: inherit;
+}
+
+.nextLink:hover {
+  border-color: var(--primary);
+  transform: translateX(4px);
+  box-shadow: 0 8px 25px oklch(0 0 0 / 0.08);
+}
+
+.nextIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--primary);
+}
+
+.nextLink h3 {
+  font-size: 1.125rem;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.nextLink p {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+/* ─── Animations ─── */
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 768px) {
+  .gradientBox {
+    width: 120px;
+    height: 120px;
+  }
+
+  .nextGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .gradientBox {
+    width: 100px;
+    height: 100px;
+  }
+
+  .gradientRow {
+    gap: 0.5rem;
+  }
+}

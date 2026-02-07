@@ -1,7 +1,7 @@
 # CSS Showcase - Implementation Plan (Next.js Migration)
 
 **Last Updated:** 7 February 2026
-**Status:** Phase 3 - Layout (COMPLETE)
+**Status:** Phase 4 - Visual Effects (IN PROGRESS)
 
 ### Architecture
 
@@ -16,6 +16,7 @@ All frontend implementation must use the `/frontend-design` skill. Invoke it bef
 ---
 
 999. Do NOT include Claude as co-author when commiting to git.
+9999. Ensure all sections on desktop are in columns and have a divider. Don't group grids together in a row, as it causes UX issues and cannot read the code snippets. 
 
 ## Phase 1: Foundation — App Shell and ShadCN Setup
 
@@ -200,8 +201,9 @@ Run `npm run dev` and verify:
 ## Phase 4: Content Migration — Visual Effects (5 pages)
 
 ### Task 4.1: Gradients Page
-**Status:** PENDING
-**Source:** `../gradients.html`
+**Status:** COMPLETE
+**Files:** `css-showcase/app/gradients/page.tsx`, `css-showcase/app/gradients/page.module.css`
+**Source:** `../gradients.html`, `../styles/gradients.css`
 
 ### Task 4.2: Gradient Patterns Page
 **Status:** PENDING
@@ -347,7 +349,7 @@ Skip links, keyboard nav, focus management, landmarks.
 | Phase 1: Foundation | COMPLETE | 10/10 |
 | Phase 2: Fundamentals | COMPLETE | 3/3 |
 | Phase 3: Layout | COMPLETE | 5/5 |
-| Phase 4: Visual Effects | PENDING | 0/5 |
+| Phase 4: Visual Effects | IN PROGRESS | 1/5 |
 | Phase 5: Components | PENDING | 0/5 |
 | Phase 6: Advanced | PENDING | 0/4 |
 | Phase 7: Modern CSS | PENDING | 0/6 |
