@@ -159,7 +159,7 @@
                 <div class="demo-block">
                     <div class="demo-content">
                         <div class="dropdown-demo">
-                            <button class="dropdown-trigger">Open Menu ▼</button>
+                            <button class="dropdown-trigger">Open Menu <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
                             <div class="dropdown-menu">
                                 <a href="javascript:void(0)" aria-label="View profile">Profile</a>
                                 <a href="javascript:void(0)" aria-label="Open settings">Settings</a>
@@ -201,7 +201,7 @@
                     <div class="demo-content">
                         <div class="badge-demo">
                             <button class="icon-button" aria-label="Notifications">
-                                <span role="img" aria-label="Bell icon">🔔</span>
+                                <span class="icon icon-bell" aria-hidden="true"></span>
                             </button>
                             <span class="notification-badge">3</span>
                         </div>
@@ -232,12 +232,12 @@
             <div class="container">
                 <h2>Browser Support</h2>
                 <div class="tip-box warning-box">
-                    <h3>⚠️ Cutting-Edge Feature</h3>
+                    <h3><span class="icon icon-warning" aria-hidden="true"></span> Cutting-Edge Feature</h3>
                     <p><strong>CSS Anchor Positioning is brand new!</strong></p>
                     <ul>
-                        <li><strong>Chrome 125+:</strong> Supported behind flag ✅</li>
-                        <li><strong>Firefox:</strong> In development 🚧</li>
-                        <li><strong>Safari:</strong> In development 🚧</li>
+                        <li><strong>Chrome 125+:</strong> Supported behind flag <span class="icon icon-check" aria-hidden="true"></span></li>
+                        <li><strong>Firefox:</strong> In development <span class="icon icon-wip" aria-hidden="true"></span></li>
+                        <li><strong>Safari:</strong> In development <span class="icon icon-wip" aria-hidden="true"></span></li>
                     </ul>
                     <p><strong>For production:</strong> Use JavaScript fallbacks or wait for broader support. Consider using a polyfill or CSS feature detection.</p>
                 </div>
@@ -273,10 +273,10 @@
                 <div class="explanation">
                     <p>Anchor Positioning removes the need for thousands of lines of JavaScript positioning logic. No more:</p>
                     <ul>
-                        <li>❌ Calculating element positions with getBoundingClientRect()</li>
-                        <li>❌ Handling scroll events to reposition tooltips</li>
-                        <li>❌ Detecting viewport edges and flipping positions</li>
-                        <li>❌ Heavy libraries like Popper.js for simple tooltips</li>
+                        <li><span class="icon icon-cross" aria-hidden="true"></span> Calculating element positions with getBoundingClientRect()</li>
+                        <li><span class="icon icon-cross" aria-hidden="true"></span> Handling scroll events to reposition tooltips</li>
+                        <li><span class="icon icon-cross" aria-hidden="true"></span> Detecting viewport edges and flipping positions</li>
+                        <li><span class="icon icon-cross" aria-hidden="true"></span> Heavy libraries like Popper.js for simple tooltips</li>
                     </ul>
                     <p><strong>It's all declarative CSS now.</strong> Define relationships between elements and let the browser handle the rest.</p>
                 </div>
