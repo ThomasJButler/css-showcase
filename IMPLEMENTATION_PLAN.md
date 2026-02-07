@@ -216,7 +216,8 @@ Run `npm run dev` and verify:
 **Source:** `../transitions.html`, `../styles/transitions.css`
 
 ### Task 4.4: Animations Page
-**Status:** PENDING
+**Status:** COMPLETE
+**Files:** `css-showcase/app/animations/page.tsx`, `css-showcase/app/animations/page.module.css`
 **Source:** `../animations.html`
 
 ### Task 4.5: Filters and Effects Page
@@ -351,7 +352,7 @@ Skip links, keyboard nav, focus management, landmarks.
 | Phase 1: Foundation | COMPLETE | 10/10 |
 | Phase 2: Fundamentals | COMPLETE | 3/3 |
 | Phase 3: Layout | COMPLETE | 5/5 |
-| Phase 4: Visual Effects | IN PROGRESS | 3/5 |
+| Phase 4: Visual Effects | IN PROGRESS | 4/5 |
 | Phase 5: Components | PENDING | 0/5 |
 | Phase 6: Advanced | PENDING | 0/4 |
 | Phase 7: Modern CSS | PENDING | 0/6 |
