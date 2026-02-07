@@ -1,7 +1,7 @@
 # CSS Showcase - Implementation Plan (Next.js Migration)
 
 **Last Updated:** 7 February 2026
-**Status:** Phase 4 - Visual Effects (IN PROGRESS)
+**Status:** Phase 5 - Components (IN PROGRESS)
 
 ### Architecture
 
@@ -221,7 +221,8 @@ Run `npm run dev` and verify:
 **Source:** `../animations.html`
 
 ### Task 4.5: Filters and Effects Page
-**Status:** PENDING
+**Status:** COMPLETE
+**Files:** `css-showcase/app/filters/page.tsx`, `css-showcase/app/filters/page.module.css`, `css-showcase/app/filters/filter-playground.tsx`
 **Source:** `../filters.html`
 
 ---
@@ -352,7 +353,7 @@ Skip links, keyboard nav, focus management, landmarks.
 | Phase 1: Foundation | COMPLETE | 10/10 |
 | Phase 2: Fundamentals | COMPLETE | 3/3 |
 | Phase 3: Layout | COMPLETE | 5/5 |
-| Phase 4: Visual Effects | IN PROGRESS | 4/5 |
+| Phase 4: Visual Effects | COMPLETE | 5/5 |
 | Phase 5: Components | PENDING | 0/5 |
 | Phase 6: Advanced | PENDING | 0/4 |
 | Phase 7: Modern CSS | PENDING | 0/6 |
