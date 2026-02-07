@@ -15,6 +15,8 @@ All frontend implementation must use the `/frontend-design` skill. Invoke it bef
 
 ---
 
+999. Do NOT include Claude as co-author when commiting to git.
+
 ## Phase 1: Foundation — App Shell and ShadCN Setup
 
 **Goal:** Set up the complete app shell with ShadCN sidebar, header, theme toggle, search, and shared layout — before any content pages.
@@ -57,7 +59,7 @@ Configure via `next/font/google`:
 ---
 
 ### Task 1.4: Root Layout with Theme Provider
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** HIGH
 **Files:** `css-showcase/app/layout.tsx`
 
@@ -336,7 +338,7 @@ Skip links, keyboard nav, focus management, landmarks.
 
 | Phase | Status | Tasks |
 |-------|--------|-------|
-| Phase 1: Foundation | IN PROGRESS | 3/10 |
+| Phase 1: Foundation | IN PROGRESS | 4/10 |
 | Phase 2: Fundamentals | PENDING | 0/3 |
 | Phase 3: Layout | PENDING | 0/5 |
 | Phase 4: Visual Effects | PENDING | 0/5 |
