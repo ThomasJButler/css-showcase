@@ -122,18 +122,18 @@
                         <h3>Icon Inputs</h3>
                         <form class="demo-form">
                             <div class="form-group form-icon">
-                                <span class="form-icon-left" role="img" aria-label="User icon">👤</span>
+                                <span class="form-icon-left" role="img" aria-label="User icon"><span class="icon icon-user" aria-hidden="true"></span></span>
                                 <input type="text" class="form-input" placeholder="Username">
                             </div>
                             <div class="form-group form-icon">
-                                <span class="form-icon-left" role="img" aria-label="Email icon">✉️</span>
+                                <span class="form-icon-left" role="img" aria-label="Email icon"><span class="icon icon-mail" aria-hidden="true"></span></span>
                                 <input type="email" class="form-input" placeholder="Email address">
                             </div>
                             <div class="form-group form-icon">
-                                <span class="form-icon-left" role="img" aria-label="Lock icon">🔒</span>
+                                <span class="form-icon-left" role="img" aria-label="Lock icon"><span class="icon icon-lock" aria-hidden="true"></span></span>
                                 <input type="password" class="form-input" placeholder="Password">
                                 <button type="button" class="form-icon-right password-toggle" aria-label="Toggle password visibility">
-                                    <span role="img" aria-label="Eye icon">👁️</span>
+                                    <span role="img" aria-label="Eye icon"><span class="icon icon-eye" aria-hidden="true"></span></span>
                                 </button>
                             </div>
                         </form>
@@ -165,10 +165,10 @@
                                 <label for="select-basic">Country</label>
                                 <select id="select-basic" class="form-select">
                                     <option value="">Choose a country...</option>
-                                    <option value="uk">United Kingdom 🇬🇧</option>
-                                    <option value="us">United States 🇺🇸</option>
-                                    <option value="ca">Canada 🇨🇦</option>
-                                    <option value="au">Australia 🇦🇺</option>
+                                    <option value="uk">United Kingdom</option>
+                                    <option value="us">United States</option>
+                                    <option value="ca">Canada</option>
+                                    <option value="au">Australia</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -176,9 +176,9 @@
                                 <div class="form-select-wrapper">
                                     <select id="select-custom" class="form-select custom-select">
                                         <option value="">Select option...</option>
-                                        <option value="tea">Tea Time ☕</option>
-                                        <option value="coffee">Coffee Break ☕</option>
-                                        <option value="biscuits">Biscuits 🍪</option>
+                                        <option value="tea">Tea Time</option>
+                                        <option value="coffee">Coffee Break</option>
+                                        <option value="biscuits">Biscuits</option>
                                     </select>
                                 </div>
                             </div>
@@ -247,12 +247,12 @@
                             <div class="form-group success">
                                 <label for="success-input">Valid Input</label>
                                 <input type="text" id="success-input" class="form-input" value="Perfect input!" readonly>
-                                <span class="form-message">✓ Looking good!</span>
+                                <span class="form-message"><span class="icon icon-check" aria-hidden="true"></span> Looking good!</span>
                             </div>
                             <div class="form-group success">
                                 <label for="success-email">Valid Email</label>
                                 <input type="email" id="success-email" class="form-input" value="valid@email.com" readonly>
-                                <span class="form-message">✓ Email verified</span>
+                                <span class="form-message"><span class="icon icon-check" aria-hidden="true"></span> Email verified</span>
                             </div>
                         </form>
                     </div>
@@ -263,12 +263,12 @@
                             <div class="form-group error">
                                 <label for="error-input">Invalid Input</label>
                                 <input type="text" id="error-input" class="form-input" value="Bad input!" readonly>
-                                <span class="form-message">✗ Please check this field</span>
+                                <span class="form-message"><span class="icon icon-cross" aria-hidden="true"></span> Please check this field</span>
                             </div>
                             <div class="form-group error">
                                 <label for="error-required">Required Field</label>
                                 <input type="text" id="error-required" class="form-input" placeholder="This field is required" readonly>
-                                <span class="form-message">✗ This field is required</span>
+                                <span class="form-message"><span class="icon icon-cross" aria-hidden="true"></span> This field is required</span>
                             </div>
                         </form>
                     </div>
@@ -393,7 +393,7 @@
                                 <label class="file-upload">
                                     <input type="file" class="form-file">
                                     <span class="file-button">
-                                        <span class="file-icon">📁</span>
+                                        <span class="file-icon"><span class="icon icon-folder" aria-hidden="true"></span></span>
                                         <span class="file-text">Choose File</span>
                                     </span>
                                     <span class="file-name">No file chosen</span>
@@ -403,7 +403,7 @@
                                 <label class="file-upload file-drop">
                                     <input type="file" class="form-file" multiple>
                                     <div class="file-drop-area">
-                                        <span class="file-drop-icon">📤</span>
+                                        <span class="file-drop-icon"><span class="icon icon-upload" aria-hidden="true"></span></span>
                                         <span class="file-drop-text">Drop files here or click to browse</span>
                                         <span class="file-drop-hint">Multiple files allowed</span>
                                     </div>
