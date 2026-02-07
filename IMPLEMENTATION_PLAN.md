@@ -1,8 +1,8 @@
 # CSS Showcase - Implementation Plan (Next.js Migration)
 
 **Last Updated:** 7 February 2026
-**Status:** Phase 5 - Components (NEXT UP)
-**Visual Review:** Phases 1-4 PASSED (see review notes below)
+**Status:** Phase 5 - Components (IN PROGRESS — 2/5 complete)
+**Visual Review:** Phases 1-4 PASSED | Phase 5.1 (Buttons) PASSED (see review notes below)
 
 ### Architecture
 
@@ -228,7 +228,7 @@ Run `npm run dev` and verify:
 
 ---
 
-## Visual Review Notes (7 February 2026)
+## Visual Review Notes — Review 1 (7 February 2026)
 
 ### Review Checklist
 
@@ -264,7 +264,7 @@ RESPONSIVE
 MIGRATED PAGES: 13/30
 ```
 
-### Issues Found
+### Issues Found (Review 1)
 
 ```text
 ROUTE: /layout-techniques (visual-test.js line 19)
@@ -274,9 +274,83 @@ FIX: Update visual-test.js line 19 to { name: 'layout-techniques', path: '/layou
 NOTE: The page itself works fine at /layout — this is purely a test config bug
 ```
 
-### Summary
+### Summary (Review 1)
 
 Phases 1-4 are visually complete and consistent across desktop, mobile, and dark mode. All 13 migrated pages render correctly. The only issue is a route mismatch in the visual test script for the Layout Techniques page. All remaining 404s are expected pending pages (Phases 5-9).
+
+---
+
+## Visual Review Notes — Review 2 (7 February 2026)
+
+### Review Checklist
+
+```text
+SHELL / LAYOUT
+  [x] Sidebar renders with all 7 sections and 30 links
+  [x] Header shows logo, breadcrumbs, theme toggle, search trigger (⌘K badge)
+  [x] Footer renders cleanly with 4-column layout (desktop) / stacked (mobile)
+  [x] Theme toggle works (sun icon light, moon icon dark)
+  [x] Pending pages show 404 within the app shell (sidebar + header still visible)
+
+BUTTONS PAGE (Phase 5.1 — newly migrated)
+  [x] Page hero renders: "Brilliant Buttons" with subtitle
+  [x] 7 sections visible: Base Button Styles, Hover Effects, Animated Buttons,
+      Creative Buttons, Button Recipes, Button Best Practices, Disabled State Journey
+  [x] Demo cards show live button demos with code blocks
+  [x] Code blocks have syntax highlighting and are collapsible
+  [x] Desktop: single-column DemoGrid layout (correct per design rules)
+  [x] Dark mode: fully themed, no white blocks, code blocks dark
+  [x] Mobile: content readable, single-column flow, no horizontal overflow
+
+BASIC CSS PAGE (verified still working)
+  [x] Page hero, sections, demo cards all rendering correctly
+  [x] Dark mode: properly themed throughout
+  [x] Mobile: clean single-column layout, readable at 375px
+
+BUILD VERIFICATION
+  [x] `npm run build` succeeds with 0 errors
+  [x] All 15 migrated routes listed in build output (14 pages + homepage)
+
+MIGRATED PAGES: 14/30
+```
+
+### Issues Found (Review 2)
+
+```text
+ISSUE 1: VISUAL TEST SCRIPT — DEV SERVER TIMING (CRITICAL)
+ROUTE: All pages except /index, /basic, /buttons
+ISSUE: Screenshots show 404 for 11 of 14 migrated pages. The dev server had not
+       finished compiling these routes when Playwright captured screenshots. Evidence:
+       grid screenshot shows "Compiling" badge in bottom-left corner. Pages that 404'd
+       show bare Next.js 404 (no app shell), while genuinely pending pages show 404
+       within the app shell.
+SCREENSHOT: desktop/box-model.png, desktop/typography.png, desktop/flexbox.png,
+            desktop/flexbox-patterns.png, desktop/grid.png, desktop/layout-techniques.png,
+            desktop/responsive.png, desktop/gradients.png, desktop/gradient-patterns.png,
+            desktop/transitions.png, desktop/animations.png, desktop/filters.png
+            (same for mobile/ and dark-mode/ variants)
+FIX: Update visual-test.js to use `next build && next start` (production server)
+     instead of dev server, OR add a warm-up step that visits each page and waits
+     for compilation before capturing screenshots. The current 500ms wait after
+     networkidle is insufficient for dev mode cold-starts on large pages.
+NOTE: `npm run build` passes cleanly — all routes compile. This is purely a test
+      infrastructure issue, not a code problem.
+
+ISSUE 2: VISUAL TEST SCRIPT — ROUTE MISMATCH (carried from Review 1)
+ROUTE: /layout-techniques (visual-test.js line 19)
+ISSUE: Visual test script uses path '/layout-techniques' but actual route is '/layout'
+FIX: Update visual-test.js line 19 to { name: 'layout-techniques', path: '/layout' }
+```
+
+### Summary (Review 2)
+
+**Task 5.1 (Buttons)** is visually complete across desktop, mobile, and dark mode. The page is comprehensive with 7 sections covering base styles, hover effects, animated buttons, creative demos, recipes, best practices, and disabled states. Build passes cleanly with all 15 routes.
+
+**Critical blocker for visual testing:** The visual test script captures screenshots against the dev server, which does not pre-compile all routes. Most pages show false 404s because they hadn't compiled by the time Playwright took the screenshot. This must be fixed before the next visual review by either:
+1. Running against a production build (`next build && next start`), or
+2. Adding a warm-up phase to the test script
+
+**Phase 5 status:** 1/5 complete (Buttons). Next up: Forms, Tables, Cards, Icons.
 
 ---
 
@@ -288,7 +362,8 @@ Phases 1-4 are visually complete and consistent across desktop, mobile, and dark
 **Source:** `../buttons.html`
 
 ### Task 5.2: Forms Page
-**Status:** PENDING
+**Status:** COMPLETE
+**Files:** `css-showcase/app/forms/page.tsx`, `css-showcase/app/forms/page.module.css`
 **Source:** `../forms.html`, `../styles/forms.css`
 
 ### Task 5.3: Tables Page
@@ -408,8 +483,9 @@ Skip links, keyboard nav, focus management, landmarks.
 | Phase 2: Fundamentals | COMPLETE | 3/3 |
 | Phase 3: Layout | COMPLETE | 5/5 |
 | Phase 4: Visual Effects | COMPLETE | 5/5 |
-| **Visual Review** | **PASSED** | **13/13 pages OK** |
-| Phase 5: Components | **NEXT UP** | 0/5 |
+| Visual Review 1 | PASSED | 13/13 pages OK |
+| Phase 5: Components | **IN PROGRESS** | **2/5** |
+| Visual Review 2 | PASSED (test infra issue) | 14/14 build OK, screenshots unreliable |
 | Phase 6: Advanced | PENDING | 0/4 |
 | Phase 7: Modern CSS | PENDING | 0/6 |
 | Phase 8: Resources | PENDING | 0/2 |
