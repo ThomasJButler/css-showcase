@@ -171,7 +171,8 @@ Run `npm run dev` and verify:
 ## Phase 3: Content Migration — Layout (5 pages)
 
 ### Task 3.1: Flexbox Page
-**Status:** PENDING
+**Status:** COMPLETE
+**Files:** `css-showcase/app/flexbox/page.tsx`, `css-showcase/app/flexbox/page.module.css`, `css-showcase/app/flexbox/flexbox-playground.tsx`
 **Source:** `../flexbox.html`, `../styles/flexbox.css`
 
 ### Task 3.2: Flexbox Patterns Page
@@ -341,7 +342,7 @@ Skip links, keyboard nav, focus management, landmarks.
 |-------|--------|-------|
 | Phase 1: Foundation | COMPLETE | 10/10 |
 | Phase 2: Fundamentals | COMPLETE | 3/3 |
-| Phase 3: Layout | PENDING | 0/5 |
+| Phase 3: Layout | IN PROGRESS | 1/5 |
 | Phase 4: Visual Effects | PENDING | 0/5 |
 | Phase 5: Components | PENDING | 0/5 |
 | Phase 6: Advanced | PENDING | 0/4 |
