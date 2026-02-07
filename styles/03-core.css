@@ -474,7 +474,7 @@ main {
 
 [data-theme="dark"] .site-header {
     background: rgba(17, 24, 39, 0.95);
-    border-bottom-color: rgba(255, 255, 255, 0.08);
+    border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
 .site-header.scrolled {
