@@ -157,7 +157,7 @@ Run `npm run dev` and verify:
 **Source:** `../basic.html`, `../styles/basic.css`
 
 ### Task 2.2: Box Model Page
-**Status:** PENDING
+**Status:** COMPLETE
 **Files:** `css-showcase/app/box-model/page.tsx`, `css-showcase/app/box-model/page.module.css`
 **Source:** `../box-model.html`, `../styles/box-model.css`
 
@@ -340,7 +340,7 @@ Skip links, keyboard nav, focus management, landmarks.
 | Phase | Status | Tasks |
 |-------|--------|-------|
 | Phase 1: Foundation | COMPLETE | 10/10 |
-| Phase 2: Fundamentals | IN PROGRESS | 1/3 |
+| Phase 2: Fundamentals | IN PROGRESS | 2/3 |
 | Phase 3: Layout | PENDING | 0/5 |
 | Phase 4: Visual Effects | PENDING | 0/5 |
 | Phase 5: Components | PENDING | 0/5 |
