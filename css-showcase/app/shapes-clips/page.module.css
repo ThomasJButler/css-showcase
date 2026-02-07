@@ -1,0 +1,478 @@
+/* ===============================================
+   CSS Shapes & Clipping Page — Demo Styles
+   =============================================== */
+
+/* ─── Introduction Shapes Grid ─── */
+.introGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.introShape {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.introShape:hover {
+  transform: scale(1.08);
+}
+
+.introCircle {
+  clip-path: circle(50%);
+}
+
+.introTriangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.introHexagon {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.introStar {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* ─── Basic Shapes Grid ─── */
+.basicShapesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 1.5rem;
+}
+
+.basicShape {
+  text-align: center;
+}
+
+.shapeBox {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 0.75rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: transform 0.3s ease;
+}
+
+.shapeBox:hover {
+  transform: scale(1.06);
+}
+
+.clipCircle {
+  clip-path: circle(50%);
+}
+
+.clipEllipse {
+  clip-path: ellipse(50% 30%);
+}
+
+.clipInset {
+  clip-path: inset(20px round 20px);
+}
+
+.shapeLabel {
+  display: block;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+/* ─── Polygon Gallery ─── */
+.polygonGallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.polygonCard {
+  text-align: center;
+}
+
+.polyShape {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 0.75rem;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  transition: transform 0.3s ease;
+}
+
+.polyShape:hover {
+  transform: scale(1.1);
+}
+
+.polyTriangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.polyDiamond {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.polyHexagon {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.polyOctagon {
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.polyStar {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.polyArrow {
+  clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+}
+
+.polyName {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+/* ─── Diagonal Hero Demo ─── */
+.diagonalHero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 4rem 2rem 7rem;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  text-align: center;
+  color: white;
+  border-radius: 12px 12px 0 0;
+}
+
+.diagonalHero h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 2rem;
+  color: white;
+  font-weight: 800;
+}
+
+.diagonalHero p {
+  margin: 0;
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+/* ─── Profile Shapes Demo ─── */
+.profileDemo {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.profileShape {
+  width: 110px;
+  height: 110px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.75rem;
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+
+.profileShape:hover {
+  transform: scale(1.08);
+}
+
+.profileCircle {
+  clip-path: circle(50%);
+}
+
+.profileHexagon {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.profileSquircle {
+  clip-path: inset(0 round 30%);
+}
+
+.profileLabel {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--foreground);
+  font-family: var(--font-mono, monospace);
+}
+
+/* ─── Image Reveal Demo ─── */
+.revealDemo {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.revealImage {
+  width: 280px;
+  height: 280px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  clip-path: circle(20% at 50% 50%);
+  transition: clip-path 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.revealImage:hover {
+  clip-path: circle(70% at 50% 50%);
+}
+
+/* ─── Text Wrap (shape-outside) Demos ─── */
+.textWrapDemo {
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.8;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.floatCircle {
+  width: 160px;
+  height: 160px;
+  float: left;
+  margin: 0 1.5rem 1rem 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  shape-outside: circle(50%);
+}
+
+.floatDiamond {
+  width: 160px;
+  height: 160px;
+  float: left;
+  margin: 0 1.5rem 1rem 0;
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  shape-outside: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.wrapText {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 0.95rem;
+}
+
+/* ─── Animated Shapes ─── */
+.animatedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.animatedShape {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.morphShape {
+  clip-path: circle(50%);
+  transition: clip-path 0.5s ease;
+}
+
+.morphShape:hover {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+@keyframes pulseClip {
+  0%, 100% { clip-path: circle(40%); }
+  50% { clip-path: circle(50%); }
+}
+
+.pulseShape {
+  clip-path: circle(40%);
+  animation: pulseClip 2s ease-in-out infinite;
+}
+
+@keyframes rotatePolygon {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.rotateShape {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  animation: rotatePolygon 3s linear infinite;
+}
+
+/* ─── Property Explanation Cards ─── */
+.propertyList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.propertyItem {
+  padding: 0.75rem 1rem;
+  background: var(--surface, #f8fafc);
+  border-radius: 10px;
+  border: 1px solid var(--border, #e2e8f0);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--foreground);
+}
+
+.propertyItem strong {
+  font-family: var(--font-mono, monospace);
+  color: #7c3aed;
+  font-size: 0.85em;
+}
+
+:global(.dark) .propertyItem strong {
+  color: #a78bfa;
+}
+
+/* ─── Tips List ─── */
+.tipsList {
+  margin: 1rem 0;
+  padding-left: 1.25rem;
+}
+
+.tipsList li {
+  margin: 0.5rem 0;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+
+.tipsList li strong {
+  color: var(--foreground);
+}
+
+.tipsList li code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85em;
+  background: var(--surface, #f1f5f9);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+/* ─── Browser Support ─── */
+.supportList {
+  margin: 1rem 0;
+  padding-left: 1.25rem;
+}
+
+.supportList li {
+  margin: 0.5rem 0;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+
+.supportList li strong {
+  color: var(--foreground);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .introGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .basicShapesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .shapeBox {
+    width: 100px;
+    height: 100px;
+  }
+
+  .polygonGallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .polyShape {
+    width: 80px;
+    height: 80px;
+  }
+
+  .diagonalHero {
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  .diagonalHero h3 {
+    font-size: 1.5rem;
+  }
+
+  .profileDemo {
+    gap: 1.5rem;
+  }
+
+  .profileShape {
+    width: 90px;
+    height: 90px;
+    font-size: 1.5rem;
+  }
+
+  .floatCircle,
+  .floatDiamond {
+    width: 120px;
+    height: 120px;
+    margin-right: 1rem;
+  }
+
+  .animatedGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .propertyList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .basicShapesGrid {
+    gap: 0.75rem;
+  }
+
+  .shapeBox {
+    width: 80px;
+    height: 80px;
+  }
+
+  .polygonGallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .revealImage {
+    width: 220px;
+    height: 220px;
+  }
+
+  .floatCircle,
+  .floatDiamond {
+    width: 100px;
+    height: 100px;
+  }
+}
