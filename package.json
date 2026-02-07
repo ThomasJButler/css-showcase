@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "audit": "node test-audit.js",
-    "test": "node test-audit.js"
+    "test": "node test-audit.js",
+    "visual-test": "node visual-test.js",
+    "screenshots": "node visual-test.js"
   },
   "repository": {
     "type": "git",

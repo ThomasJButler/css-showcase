@@ -1,169 +1,271 @@
-# CSS Showcase - Build Mode (Phase 12: Final UX Polish)
+# CSS Showcase - Build Mode (Phase 14: Dark Mode & Consistency Fix)
 
 ## Design Philosophy
 
-**Goal:** Improve readability and ease of use as the final polish pass.
+**Goal:** Fix critical dark mode failures and cross-page consistency issues identified through a thorough screenshot audit.
 
-**Approach:** Enhance navigation and scanability without changing the core design.
+**Approach:** Systematically theme all unthemed demo sections in dark mode, then fix navigation and layout consistency issues.
 
-> "Good design is as little design as possible." - Dieter Rams
+> "The details are not the details. They make the design." - Charles Eames
+
+
+9999. IMPORTANT - Use the FRONTEND DESIGN SKILL for all frontend implementation by invoking `/frontend-design`. This skill produces distinctive, production-grade HTML/CSS/JS with high design quality. Always summon it before writing frontend code.
 
 ---
 
 ## Your Task
 
-Implement ONE task from @IMPLEMENTATION_PLAN.md Phase 12, prioritising by severity.
+Implement ONE task from @IMPLEMENTATION_PLAN.md Phase 14, prioritising by severity.
 
-### Phase 12 Tasks (Priority Order)
+### Phase 14 Tasks (Priority Order)
 
 **HIGH (Implement First)**
 
-1. **12.1 Homepage Page Links** - Add clickable links within each category section
-2. **12.2 On This Page Nav** - Floating section navigation for long pages
+1. **14.1 Dark Mode: Layout Page Demos** - Multiple large white-background demo sections completely unthemed
+2. **14.2 Dark Mode: Advanced CSS Page Demos** - Nearly every demo section retains white background
+3. **14.3 Dark Mode: Transitions & Custom Properties Demos** - White timing bars and demo panels
+4. **14.4 Dark Mode: Warning Boxes & Info Panels** - Bright yellow boxes on Responsive, Anchor Positioning; white panels on Blend Modes, Color Spaces
+5. **14.5 Sidebar Navigation Consistency** - Half the pages lack the left sidebar nav
 
 **MEDIUM (Then These)**
 
-3. **12.3 Mobile Code Readability** - Larger font and padding on mobile
-4. **12.4 Section Hierarchy** - Stronger visual distinction between sections
+6. **14.6 On This Page Nav Footer Overlap** - Still overlapping footer on multiple pages
+7. **14.7 Homepage Section Spacing & Density** - Excessive whitespace, small pill links
+8. **14.8 Dark Mode: Form/Table/Box-Model Borders** - Borders nearly invisible in dark mode
+9. **14.9 Code Block Width & Overflow** - Truncated on desktop, subtle scroll indicators on mobile
 
 **LOW (Final Polish)**
 
-5. **12.5 Code Expansion Hint** - Subtle visual cue for "View Code" buttons
+10. **14.10 Mobile Table Overflow Refinement** - Tables still overflow, badges too small
 
 ---
 
 ## Implementation Guidelines
 
-### Task 12.1: Homepage Page Links
+### Task 14.1: Dark Mode — Layout Page Demo Sections
+
+The core problem: demo containers on the Layout page use default white backgrounds and were never given dark mode overrides.
+
+```css
+/* styles/improvements.css — add dark mode for layout demo containers */
+[data-theme="dark"] .layout-demo,
+[data-theme="dark"] .demo-container,
+[data-theme="dark"] .position-demo,
+[data-theme="dark"] .display-demo,
+[data-theme="dark"] .stacking-demo {
+  background: var(--surface-secondary);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .layout-demo * {
+  /* Ensure child elements also inherit dark colours where needed */
+  border-color: var(--border);
+}
+```
+
+Inspect `layout.html` for all demo container class names and ensure each has a dark mode override.
+
+### Task 14.2: Dark Mode — Advanced CSS Page Demo Sections
+
+Same pattern as 14.1, but for the Advanced CSS page. Nearly all `.demo-*` containers need dark theming.
+
+```css
+/* styles/advanced-page.css or styles/improvements.css */
+[data-theme="dark"] .selector-demo,
+[data-theme="dark"] .pseudo-demo,
+[data-theme="dark"] .counter-demo,
+[data-theme="dark"] .specificity-demo,
+[data-theme="dark"] .combinator-demo {
+  background: var(--surface-secondary);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+```
+
+Check `advanced.html` for exact class names. Ensure social media icon demos, coloured badges, and code blocks all have appropriate contrast.
+
+### Task 14.3: Dark Mode — Transitions & Custom Properties Demos
+
+```css
+/* Transitions page */
+[data-theme="dark"] .timing-demo,
+[data-theme="dark"] .transition-bar,
+[data-theme="dark"] .timing-comparison {
+  background: var(--surface-secondary);
+  border-color: var(--border);
+}
+
+/* Custom Properties page */
+[data-theme="dark"] .theme-demo,
+[data-theme="dark"] .swatch-panel,
+[data-theme="dark"] .browser-support-table {
+  background: var(--surface-secondary);
+  color: var(--text-primary);
+}
+```
+
+Check both pages for exact container class names.
+
+### Task 14.4: Dark Mode — Warning Boxes & Info Panels
+
+```css
+/* Dark mode for warning/info boxes */
+[data-theme="dark"] .warning-box,
+[data-theme="dark"] .info-banner,
+[data-theme="dark"] .browser-support-warning {
+  background: rgba(217, 119, 6, 0.15); /* Muted amber */
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  color: var(--text-primary);
+}
+
+/* Blend modes / Color spaces demo panels */
+[data-theme="dark"] .logo-demo,
+[data-theme="dark"] .swatch-container,
+[data-theme="dark"] .blend-demo-panel {
+  background: var(--surface-secondary);
+}
+```
+
+### Task 14.5: Sidebar Navigation Consistency
+
+Audit all content pages. Pages with sidebar use `components/sidebar.html` via the component loader. Pages missing it need the sidebar added to their HTML structure.
 
 ```html
-<!-- Add within each .showcase-section on index.html -->
-<div class="section-links">
-  <a href="basic.html" class="section-link">Basic CSS</a>
-  <a href="box-model.html" class="section-link">Box Model</a>
-  <a href="typography.html" class="section-link">Typography</a>
+<!-- Pattern: ensure all content pages include -->
+<div class="layout-wrapper">
+  <aside class="sidebar" id="sidebar">
+    <!-- loaded by component-loader.js -->
+  </aside>
+  <main class="main-content">
+    <!-- page content -->
+  </main>
 </div>
 ```
 
-```css
-/* styles/improvements.css */
-.section-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
-}
+Check which pages are missing this wrapper and add it. Affected pages likely include: layout.html, responsive.html, transitions.html, advanced.html, custom-properties.html, blend-modes.html, color-spaces.html, shapes-clips.html, filters.html.
 
-.section-link {
-  padding: var(--space-1) var(--space-3);
-  background: var(--surface-secondary);
-  border-radius: var(--radius-full);
-  font-size: var(--text-sm);
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.section-link:hover {
-  background: var(--accent);
-  color: white;
-}
-```
-
-### Task 12.2: On This Page Navigation
+### Task 14.6: On This Page Nav — Footer Overlap
 
 ```javascript
-// scripts/page-nav.js
-document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('.demo-section[id]');
-  if (sections.length < 3) return; // Only show for pages with 3+ sections
-
-  const nav = createPageNav(sections);
-  document.body.appendChild(nav);
-
-  // Highlight current section on scroll
-  observeSections(sections, nav);
-});
+// scripts/page-nav.js — add footer collision detection
+const footer = document.querySelector('.site-footer');
+if (footer && nav) {
+  const footerObserver = new IntersectionObserver(([entry]) => {
+    nav.classList.toggle('hidden', entry.isIntersecting);
+  }, { threshold: 0.1 });
+  footerObserver.observe(footer);
+}
 ```
 
 ```css
 /* styles/improvements.css */
-.page-nav {
-  position: fixed;
-  right: var(--space-4);
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--surface);
-  padding: var(--space-3);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  z-index: 100;
-  max-height: 60vh;
-  overflow-y: auto;
-}
-
-@media (max-width: 1200px) {
-  .page-nav { display: none; } /* Hide on smaller screens */
+.page-nav.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 ```
 
-### Task 12.3: Mobile Code Readability
+Also verify that at mobile widths, `display: none` is applied and the JS does not override it.
+
+### Task 14.7: Homepage Section Spacing & Density
 
 ```css
-/* styles/code-examples.css */
+/* styles/improvements.css — mobile homepage adjustments */
 @media (max-width: 768px) {
-  .code-example pre {
-    font-size: 14px; /* Up from 12-13px */
-    padding: var(--space-4);
+  .hero-section {
+    padding: var(--space-8) var(--space-4); /* Reduce from clamp() */
+    min-height: auto; /* Don't force full viewport */
   }
 
-  .code-example code {
-    line-height: 1.6;
+  .showcase-section {
+    padding: var(--space-4) var(--space-3);
+    margin-top: var(--space-4); /* Reduce from --space-8 */
+  }
+
+  .section-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--text-base); /* Up from --text-sm */
   }
 }
 ```
 
-### Task 12.4: Section Visual Hierarchy
+### Task 14.8: Dark Mode — Form/Table/Box-Model Borders
 
 ```css
 /* styles/improvements.css */
-.demo-section:nth-child(even) {
-  background: var(--surface-secondary);
-  margin-left: calc(-1 * var(--space-6));
-  margin-right: calc(-1 * var(--space-6));
-  padding: var(--space-8) var(--space-6);
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  border-color: #475569; /* slate-600 — visible against dark bg */
 }
 
-/* Or stronger section headings */
-.section-title {
-  font-size: var(--text-2xl);
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: var(--space-2);
+[data-theme="dark"] table td,
+[data-theme="dark"] table th {
+  border-color: #334155; /* slate-700 */
+}
+
+[data-theme="dark"] .box-model-controls input[type="range"] {
+  border-color: #475569;
 }
 ```
 
-### Task 12.5: Code Expansion Hint
+### Task 14.9: Code Block Width & Overflow
 
 ```css
-/* styles/code-examples.css */
-.code-toggle:not(.seen) {
-  animation: pulse 2s ease-in-out;
+/* Desktop: ensure multi-column code blocks don't clip */
+.code-columns .code-example pre {
+  overflow-x: auto;
+  max-width: 100%;
 }
 
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(var(--accent-rgb), 0); }
+/* Mobile: more prominent scroll indicator */
+@media (max-width: 768px) {
+  .code-example::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 30px; /* Wider than before */
+    background: linear-gradient(to left, var(--surface), transparent);
+    pointer-events: none;
+    opacity: 0.9;
+  }
 }
 ```
 
-```javascript
-// Mark as seen after first interaction
-if (!localStorage.getItem('codeToggleSeen')) {
-  toggleButtons.forEach(btn => btn.classList.add('not-seen'));
-  toggleButtons[0]?.addEventListener('click', () => {
-    localStorage.setItem('codeToggleSeen', 'true');
-    toggleButtons.forEach(btn => btn.classList.remove('not-seen'));
-  }, { once: true });
+### Task 14.10: Mobile Table Overflow Refinement
+
+```css
+/* styles/tables.css */
+@media (max-width: 480px) {
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+  }
+
+  /* Right-edge scroll shadow */
+  .table-wrapper::after {
+    content: '';
+    position: sticky;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 24px;
+    background: linear-gradient(to left, var(--surface), transparent);
+    pointer-events: none;
+  }
+
+  .status-badge {
+    min-width: 60px;
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-2);
+  }
 }
 ```
 
@@ -173,22 +275,33 @@ if (!localStorage.getItem('codeToggleSeen')) {
 
 Before marking a task complete, verify:
 
-- [ ] Does the fix improve readability/navigation as intended?
+- [ ] Does the fix address the specific visual issue identified?
 - [ ] Does it work in both light and dark mode?
-- [ ] Does it work on desktop AND mobile viewports?
+- [ ] Does it work on desktop (1920px) AND mobile (375px) viewports?
 - [ ] Does it maintain the minimalist aesthetic?
-- [ ] Is the implementation minimal - not over-engineered?
+- [ ] Is the implementation minimal — not over-engineered?
 
 ---
 
 ## Key Files
 
 ```text
-index.html                    # 12.1 Homepage links
-scripts/page-nav.js           # 12.2 On This Page nav (new file)
-styles/improvements.css       # 12.1, 12.2, 12.4 Styling
-styles/code-examples.css      # 12.3, 12.5 Code block styles
-scripts/code-examples.js      # 12.5 Expansion hint logic
+styles/improvements.css       # Primary stylesheet for fixes
+styles/advanced-page.css      # Advanced page dark mode
+styles/tables.css             # Table overflow + dark borders
+styles/code-examples.css      # Code block width/overflow
+styles/04-layout.css          # Sidebar layout
+scripts/page-nav.js           # On This Page nav fixes
+layout.html                   # Dark mode demo theming
+advanced.html                 # Dark mode demo theming
+transitions.html              # Dark mode demo theming
+custom-properties.html        # Dark mode demo theming
+responsive.html               # Dark mode warning box + sidebar
+anchor-positioning.html       # Dark mode warning box
+blend-modes.html              # Dark mode panels + sidebar
+color-spaces.html             # Dark mode panels + sidebar
+index.html                    # Homepage spacing
+Content pages (*.html)        # Sidebar consistency
 ```
 
 ---
@@ -204,11 +317,11 @@ After implementing each task:
 
 **Example commit messages:**
 
-- "Add page links within homepage category sections"
-- "Add floating On This Page navigation for long pages"
-- "Improve mobile code block readability with larger font"
-- "Enhance section visual hierarchy with alternating backgrounds"
-- "Add subtle pulse animation to View Code buttons"
+- "Fix dark mode demo backgrounds on Layout Techniques page"
+- "Theme Advanced CSS page demo sections for dark mode"
+- "Add dark mode variants for warning boxes and info panels"
+- "Add sidebar navigation to pages that were missing it"
+- "Fix On This Page nav overlap with footer via IntersectionObserver"
 
 ---
 
@@ -219,4 +332,4 @@ After implementing each task:
 - NEVER PUSH TO MAIN
 - NO PULL REQUESTS
 - ONE TASK PER COMMIT - keep changes focused
-- WHEN DONE WITH ALL 5, STOP - don't invent work
+- WHEN DONE WITH ALL 10, STOP - don't invent work
