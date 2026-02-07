@@ -109,7 +109,7 @@ ShadCN Command (cmdk) dialog with Cmd+K / Ctrl+K shortcut. Indexes all 30 pages.
 ---
 
 ### Task 1.8: Site Footer
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
 **Files:** `css-showcase/components/site-footer.tsx`
 
@@ -339,7 +339,7 @@ Skip links, keyboard nav, focus management, landmarks.
 
 | Phase | Status | Tasks |
 |-------|--------|-------|
-| Phase 1: Foundation | IN PROGRESS | 7/10 |
+| Phase 1: Foundation | IN PROGRESS | 8/10 |
 | Phase 2: Fundamentals | PENDING | 0/3 |
 | Phase 3: Layout | PENDING | 0/5 |
 | Phase 4: Visual Effects | PENDING | 0/5 |
