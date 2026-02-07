@@ -1,0 +1,409 @@
+/* ============================================
+   Basic CSS Page — Demo Styles
+   Scoped via CSS Modules to prevent leaking
+   ============================================ */
+
+/* --- Selectors Section --- */
+
+/* Element Selectors Demo */
+.elementDemo {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.spanDemo {
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* Class Selectors Demo */
+.highlight {
+  background: oklch(0.85 0.1 85);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  margin: 0.25rem 0;
+}
+
+.dark .highlight {
+  background: oklch(0.35 0.08 85);
+}
+
+.highlightImportant {
+  border-left: 4px solid var(--destructive);
+  font-weight: bold;
+}
+
+.subtle {
+  opacity: 0.7;
+  font-size: 0.875rem;
+}
+
+/* ID Selector Demo */
+.uniqueElement {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: var(--radius);
+}
+
+.note {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+
+/* Attribute Selectors Demo */
+.attrInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.attrInput {
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: var(--background);
+  color: var(--foreground);
+  max-width: 250px;
+}
+
+.attrInput:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px oklch(from var(--primary) l c h / 0.15);
+}
+
+.attrInputEmail {
+  border-color: var(--primary);
+}
+
+.attrLink {
+  display: inline-block;
+  margin: 0.25rem 0.5rem;
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.externalLink {
+  padding-right: 1.25rem;
+  position: relative;
+}
+
+.externalLink::after {
+  content: "\2197";
+  position: absolute;
+  right: 0;
+  top: -2px;
+}
+
+/* Pseudo-class Selectors Demo */
+.interactiveList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pseudoBtn {
+  padding: 0.75rem 1rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.pseudoBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px oklch(from var(--primary) l c h / 0.3);
+}
+
+.pseudoBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.pseudoBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pseudoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pseudoList li {
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid transparent;
+  transition: all 0.2s;
+}
+
+.pseudoList li:first-child {
+  color: var(--primary);
+  font-weight: bold;
+  border-left-color: var(--primary);
+}
+
+.pseudoList li:last-child {
+  color: var(--secondary);
+  border-left-color: var(--secondary);
+}
+
+.pseudoList li:hover {
+  background-color: var(--muted);
+  padding-left: 1rem;
+}
+
+/* Combinators Demo */
+.parentDemo {
+  border: 2px dashed var(--border);
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+
+.parentDemo > p {
+  border-left: 3px solid var(--primary);
+  padding-left: 1rem;
+  margin: 0.75rem 0;
+}
+
+.parentDemoNested {
+  background-color: var(--muted);
+  padding: 0.75rem;
+  margin: 0.75rem 0;
+  border-radius: calc(var(--radius) - 2px);
+}
+
+.adjacentSibling {
+  color: var(--accent);
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* --- Properties Section --- */
+
+/* Colour Showcase */
+.colourShowcase p {
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border-radius: calc(var(--radius) - 2px);
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+}
+
+/* Typography Showcase */
+.typographyShowcase p {
+  margin: 0.75rem 0;
+}
+
+/* Display Showcase */
+.displayShowcase {
+  font-size: 0.875rem;
+}
+
+.displayBlock {
+  display: block;
+  background: var(--muted);
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid var(--border);
+}
+
+.displayInline {
+  display: inline;
+  background: oklch(from var(--primary) l c h / 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: calc(var(--radius) - 4px);
+  margin: 0 0.25rem;
+}
+
+.displayInlineBlock {
+  display: inline-block;
+  background: oklch(from var(--secondary) l c h / 0.1);
+  padding: 0.5rem 0.75rem;
+  margin: 0.5rem;
+  border-radius: calc(var(--radius) - 2px);
+}
+
+.displayNone {
+  display: none;
+}
+
+/* --- Cascade Section --- */
+
+/* Specificity Demo */
+.specificityDemo {
+  padding: 1.5rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.specificityDemo p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Inheritance Demo */
+.inheritanceDemo {
+  padding: 1rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.inheritanceDemo p {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+}
+
+/* Important Demo */
+.importantDemo {
+  color: var(--destructive) !important;
+  padding: 1rem;
+  background: var(--muted);
+  border-radius: calc(var(--radius) - 2px);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* --- Units Section --- */
+
+.unitsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.unitBox {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chDemo {
+  width: 20ch;
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+}
+
+/* --- Tips Section --- */
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.tipCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.tipCard:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px oklch(0 0 0 / 0.08);
+}
+
+.tipIcon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--primary);
+}
+
+.tipCard h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.tipCard p {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --- Next Steps Section --- */
+
+.nextGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 700px;
+}
+
+.nextLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  color: inherit;
+}
+
+.nextLink:hover {
+  border-color: var(--primary);
+  transform: translateX(4px);
+  box-shadow: 0 8px 25px oklch(0 0 0 / 0.08);
+}
+
+.nextIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--primary);
+}
+
+.nextLink h3 {
+  font-size: 1.125rem;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.nextLink p {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 768px) {
+  .unitBox {
+    font-size: 0.75rem;
+  }
+
+  .tipsGrid,
+  .nextGrid {
+    grid-template-columns: 1fr;
+  }
+}

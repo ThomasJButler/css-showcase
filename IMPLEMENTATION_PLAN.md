@@ -152,7 +152,7 @@ Run `npm run dev` and verify:
 **Goal:** Migrate the 3 simplest content pages to establish the pattern for all remaining pages.
 
 ### Task 2.1: Basic CSS Page
-**Status:** PENDING
+**Status:** COMPLETE
 **Files:** `css-showcase/app/basic/page.tsx`, `css-showcase/app/basic/page.module.css`
 **Source:** `../basic.html`, `../styles/basic.css`
 
@@ -340,7 +340,7 @@ Skip links, keyboard nav, focus management, landmarks.
 | Phase | Status | Tasks |
 |-------|--------|-------|
 | Phase 1: Foundation | COMPLETE | 10/10 |
-| Phase 2: Fundamentals | PENDING | 0/3 |
+| Phase 2: Fundamentals | IN PROGRESS | 1/3 |
 | Phase 3: Layout | PENDING | 0/5 |
 | Phase 4: Visual Effects | PENDING | 0/5 |
 | Phase 5: Components | PENDING | 0/5 |
