@@ -58,30 +58,28 @@
         </section>
 
         <!-- Modern Complex Selectors -->
-        <section id="selectors" class="content-section">
+        <section id="selectors" class="demo-section">
             <div class="container">
-                <h2>Modern Complex Selectors</h2>
-                <p>CSS has evolved with powerful new selectors that make targeting elements easier and more maintainable. Let's explore <code>:is()</code>, <code>:where()</code>, and <code>:not()</code>.</p>
+                <h2 class="section-title">Modern Complex Selectors</h2>
+                <p class="section-intro">CSS has evolved with powerful new selectors that make targeting elements easier and more maintainable. Explore <code>:is()</code>, <code>:where()</code>, and <code>:not()</code>.</p>
 
-                <h3>The :is() Selector</h3>
-                <p>The <code>:is()</code> selector simplifies complex selector lists. Instead of repeating selectors, you can group them together. It's a huge time-saver!</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="is-demo">
-                            <h4>Heading in Section</h4>
-                            <article>
-                                <h4>Heading in Article</h4>
-                            </article>
-                            <aside>
-                                <h4>Heading in Aside</h4>
-                            </aside>
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">The :is() Selector</h3>
+                        <p>Simplifies complex selector lists by grouping them together — a huge time-saver.</p>
+                        <div class="demo-example">
+                            <div class="is-demo">
+                                <h4>Heading in Section</h4>
+                                <article>
+                                    <h4>Heading in Article</h4>
+                                </article>
+                                <aside>
+                                    <h4>Heading in Aside</h4>
+                                </aside>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="code-example">
-                    <pre><code class="language-css">/* Without :is() - repetitive */
+                        <div class="code-example">
+                            <pre><code class="language-css">/* Without :is() - repetitive */
 section h4,
 article h4,
 aside h4 {
@@ -94,22 +92,20 @@ aside h4 {
   color: #2563eb;
   font-weight: 700;
 }</code></pre>
-                </div>
-
-                <h3>The :where() Selector</h3>
-                <p>The <code>:where()</code> selector works like <code>:is()</code> but with zero specificity. This makes it perfect for base styles that you want to easily override.</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="where-demo">
-                            <a href="javascript:void(0)" class="link-default" aria-label="Demo link showing default link styling">Default Link</a>
-                            <a href="javascript:void(0)" class="link-special" aria-label="Demo link showing special link styling override">Special Link (Overridden)</a>
                         </div>
                     </div>
-                </div>
 
-                <div class="code-example">
-                    <pre><code class="language-css">/* :where() has zero specificity - easy to override */
+                    <div class="demo-card">
+                        <h3 class="demo-title">The :where() Selector</h3>
+                        <p>Works like <code>:is()</code> but with zero specificity — perfect for base styles you want to easily override.</p>
+                        <div class="demo-example">
+                            <div class="where-demo">
+                                <a href="javascript:void(0)" class="link-default" aria-label="Demo link showing default link styling">Default Link</a>
+                                <a href="javascript:void(0)" class="link-special" aria-label="Demo link showing special link styling override">Special Link (Overridden)</a>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* :where() has zero specificity */
 :where(a) {
   color: #64748b;
   text-decoration: none;
@@ -120,24 +116,22 @@ aside h4 {
   color: #7c3aed;
   font-weight: 600;
 }</code></pre>
-                </div>
-
-                <h3>The :not() Selector</h3>
-                <p>The <code>:not()</code> selector is your exclusion tool. Style everything except certain elements - incredibly powerful for edge cases.</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="not-demo">
-                            <button>Regular Button</button>
-                            <button>Regular Button</button>
-                            <button class="primary">Primary Button (Excluded)</button>
-                            <button>Regular Button</button>
                         </div>
                     </div>
-                </div>
 
-                <div class="code-example">
-                    <pre><code class="language-css">/* Style all buttons except .primary */
+                    <div class="demo-card">
+                        <h3 class="demo-title">The :not() Selector</h3>
+                        <p>Your exclusion tool — style everything except certain elements.</p>
+                        <div class="demo-example">
+                            <div class="not-demo">
+                                <button>Regular Button</button>
+                                <button>Regular Button</button>
+                                <button class="primary">Primary Button (Excluded)</button>
+                                <button>Regular Button</button>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* Style all buttons except .primary */
 button:not(.primary) {
   background: #f1f5f9;
   color: #334155;
@@ -149,6 +143,8 @@ button.primary {
   color: white;
   border: none;
 }</code></pre>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="tip-box">
@@ -159,28 +155,26 @@ button.primary {
         </section>
 
         <!-- Pseudo-elements Deep Dive -->
-        <section id="pseudo-elements" class="content-section">
+        <section id="pseudo-elements" class="demo-section">
             <div class="container">
-                <h2>Pseudo-elements Deep Dive</h2>
-                <p>Pseudo-elements let you style specific parts of an element or add decorative content without extra HTML. They're your secret weapon for clean, semantic markup.</p>
+                <h2 class="section-title">Pseudo-elements Deep Dive</h2>
+                <p class="section-intro">Pseudo-elements let you style specific parts of an element or add decorative content without extra HTML. They're your secret weapon for clean, semantic markup.</p>
 
-                <h3>::before and ::after</h3>
-                <p>These are the workhorses of pseudo-elements. Create decorative elements, badges, tooltips, and more - all with CSS.</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="pseudo-demo">
-                            <div class="badge-demo">
-                                <span class="badge">New</span>
-                                <span class="badge badge-success">Pro</span>
-                                <span class="badge badge-warning">Beta</span>
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">::before and ::after</h3>
+                        <p>The workhorses of pseudo-elements — create decorative elements, badges, and tooltips with CSS alone.</p>
+                        <div class="demo-example">
+                            <div class="pseudo-demo">
+                                <div class="badge-demo">
+                                    <span class="badge">New</span>
+                                    <span class="badge badge-success">Pro</span>
+                                    <span class="badge badge-warning">Beta</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="code-example">
-                    <pre><code class="language-css">.badge::before {
+                        <div class="code-example">
+                            <pre><code class="language-css">.badge::before {
   content: '★ ';
   opacity: 0.7;
 }
@@ -190,22 +184,20 @@ button.primary {
   opacity: 0.7;
 }
 
-/* Badges with icons - no extra HTML needed! */</code></pre>
-                </div>
-
-                <h3>::first-letter and ::first-line</h3>
-                <p>Style the first letter or line of text differently - perfect for drop caps, magazine-style layouts, and typographic effects.</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="dropcap-demo">
-                            <p class="dropcap-text">Once upon a time, in a web far, far away, there lived a developer who discovered the magic of CSS pseudo-elements. With just a few lines of code, entire design systems came to life, creating beautiful typography without touching a single line of HTML.</p>
+/* Badges with icons - no extra HTML! */</code></pre>
                         </div>
                     </div>
-                </div>
 
-                <div class="code-example">
-                    <pre><code class="language-css">.dropcap-text::first-letter {
+                    <div class="demo-card">
+                        <h3 class="demo-title">::first-letter and ::first-line</h3>
+                        <p>Style the first letter or line of text differently — perfect for drop caps and magazine-style layouts.</p>
+                        <div class="demo-example">
+                            <div class="dropcap-demo">
+                                <p class="dropcap-text">Once upon a time, in a web far, far away, there lived a developer who discovered the magic of CSS pseudo-elements. With just a few lines of code, entire design systems came to life, creating beautiful typography without touching a single line of HTML.</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code class="language-css">.dropcap-text::first-letter {
   font-size: 3.5em;
   font-weight: 700;
   float: left;
@@ -219,21 +211,19 @@ button.primary {
   font-weight: 600;
   color: #475569;
 }</code></pre>
-                </div>
-
-                <h3>::selection</h3>
-                <p>Style the appearance of selected text. A small touch that can significantly improve your site's personality.</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="selection-demo">
-                            <p>Try selecting this text - notice the custom selection colour! This works on any text element and can match your brand colours.</p>
                         </div>
                     </div>
-                </div>
 
-                <div class="code-example">
-                    <pre><code class="language-css">::selection {
+                    <div class="demo-card">
+                        <h3 class="demo-title">::selection</h3>
+                        <p>Style the appearance of selected text — a small touch that gives your site personality.</p>
+                        <div class="demo-example">
+                            <div class="selection-demo">
+                                <p>Try selecting this text — notice the custom selection colour! This works on any text element and can match your brand colours.</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code class="language-css">::selection {
   background: #2563eb;
   color: white;
 }
@@ -243,33 +233,33 @@ button.primary {
   background: #2563eb;
   color: white;
 }</code></pre>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- CSS Counters -->
-        <section id="counters" class="content-section">
+        <section id="counters" class="demo-section">
             <div class="container">
-                <h2>CSS Counters</h2>
-                <p>CSS counters let you create automatic numbering without JavaScript. They're perfect for step-by-step guides, nested lists, and numbered sections.</p>
+                <h2 class="section-title">CSS Counters</h2>
+                <p class="section-intro">CSS counters let you create automatic numbering without JavaScript. Perfect for step-by-step guides, nested lists, and numbered sections.</p>
 
-                <h3>Basic Counter</h3>
-                <p>Create numbered items that update automatically when you add or remove elements. No manual renumbering required!</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="counter-demo">
-                            <div class="step-item">Set up your project structure</div>
-                            <div class="step-item">Install dependencies</div>
-                            <div class="step-item">Configure your build tools</div>
-                            <div class="step-item">Write your first component</div>
-                            <div class="step-item">Test and deploy</div>
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Basic Counter</h3>
+                        <p>Create numbered items that update automatically when you add or remove elements. No manual renumbering required!</p>
+                        <div class="demo-example">
+                            <div class="counter-demo">
+                                <div class="step-item">Set up your project structure</div>
+                                <div class="step-item">Install dependencies</div>
+                                <div class="step-item">Configure your build tools</div>
+                                <div class="step-item">Write your first component</div>
+                                <div class="step-item">Test and deploy</div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="code-example">
-                    <pre><code class="language-css">.counter-demo {
+                        <div class="code-example">
+                            <pre><code class="language-css">.counter-demo {
   counter-reset: step;
 }
 
@@ -279,34 +269,32 @@ button.primary {
   font-weight: 700;
   color: #2563eb;
 }</code></pre>
-                </div>
-
-                <h3>Nested Counters</h3>
-                <p>Counters can be nested to create hierarchical numbering like 1.1, 1.2, 2.1, etc. Great for documentation and specifications.</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="nested-counter-demo">
-                            <div class="section-item">
-                                Introduction
-                                <div class="subsection-item">Overview</div>
-                                <div class="subsection-item">Prerequisites</div>
-                            </div>
-                            <div class="section-item">
-                                Setup
-                                <div class="subsection-item">Installation</div>
-                                <div class="subsection-item">Configuration</div>
-                            </div>
-                            <div class="section-item">
-                                Advanced Topics
-                                <div class="subsection-item">Optimization</div>
-                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="code-example">
-                    <pre><code class="language-css">.nested-counter-demo {
+                    <div class="demo-card">
+                        <h3 class="demo-title">Nested Counters</h3>
+                        <p>Counters can be nested to create hierarchical numbering like 1.1, 1.2, 2.1. Great for documentation and specifications.</p>
+                        <div class="demo-example">
+                            <div class="nested-counter-demo">
+                                <div class="section-item">
+                                    Introduction
+                                    <div class="subsection-item">Overview</div>
+                                    <div class="subsection-item">Prerequisites</div>
+                                </div>
+                                <div class="section-item">
+                                    Setup
+                                    <div class="subsection-item">Installation</div>
+                                    <div class="subsection-item">Configuration</div>
+                                </div>
+                                <div class="section-item">
+                                    Advanced Topics
+                                    <div class="subsection-item">Optimisation</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code class="language-css">.nested-counter-demo {
   counter-reset: section;
 }
 
@@ -322,36 +310,37 @@ button.primary {
 
 .subsection-item::before {
   counter-increment: subsection;
-  content: counter(section) '.' counter(subsection) ' ';
+  content: counter(section) '.'
+    counter(subsection) ' ';
   font-weight: 600;
   color: #7c3aed;
 }</code></pre>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Attribute Selectors -->
-        <section class="content-section">
+        <section id="attribute-selectors" class="demo-section">
             <div class="container">
-                <h2>Attribute Selectors</h2>
-                <p>Target elements based on their attributes and attribute values. These selectors are incredibly powerful for styling forms, links, and dynamic content.</p>
+                <h2 class="section-title">Attribute Selectors</h2>
+                <p class="section-intro">Target elements based on their attributes and attribute values. Incredibly powerful for styling forms, links, and dynamic content.</p>
 
-                <h3>Basic Attribute Selectors</h3>
-                <p>Match elements that have specific attributes, or attributes with specific values.</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="attribute-demo">
-                            <input type="text" placeholder="Text input">
-                            <input type="email" placeholder="Email input">
-                            <input type="password" placeholder="Password input">
-                            <button disabled>Disabled Button</button>
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Basic Attribute Selectors</h3>
+                        <p>Match elements that have specific attributes, or attributes with specific values.</p>
+                        <div class="demo-example">
+                            <div class="attribute-demo">
+                                <input type="text" placeholder="Text input">
+                                <input type="email" placeholder="Email input">
+                                <input type="password" placeholder="Password input">
+                                <button disabled>Disabled Button</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="code-example">
-                    <pre><code class="language-css">/* Style all inputs with type attribute */
+                        <div class="code-example">
+                            <pre><code class="language-css">/* Style all inputs with type attribute */
 input[type] {
   padding: 8px 12px;
   border: 2px solid #cbd5e1;
@@ -372,24 +361,22 @@ button[disabled] {
   opacity: 0.5;
   cursor: not-allowed;
 }</code></pre>
-                </div>
-
-                <h3>Advanced Attribute Matching</h3>
-                <p>Use powerful operators to match attribute values partially - perfect for styling external links, file types, or data attributes.</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="advanced-attribute-demo">
-                            <a href="https://example.com">External Link</a>
-                            <a href="/internal">Internal Link</a>
-                            <a href="document.pdf">PDF Document</a>
-                            <a href="image.jpg">Image File</a>
                         </div>
                     </div>
-                </div>
 
-                <div class="code-example">
-                    <pre><code class="language-css">/* Starts with https:// */
+                    <div class="demo-card">
+                        <h3 class="demo-title">Advanced Attribute Matching</h3>
+                        <p>Use powerful operators to match attribute values partially — perfect for styling external links, file types, or data attributes.</p>
+                        <div class="demo-example">
+                            <div class="advanced-attribute-demo">
+                                <a href="https://example.com">External Link</a>
+                                <a href="/internal">Internal Link</a>
+                                <a href="document.pdf">PDF Document</a>
+                                <a href="image.jpg">Image File</a>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* Starts with https:// */
 a[href^="https://"]::after {
   content: ' ↗';
   font-size: 0.85em;
@@ -403,12 +390,9 @@ a[href$=".pdf"]::before {
 /* Contains 'image' */
 a[href*="image"]::before {
   content: '🖼️ ';
-}
-
-/* Matches word in space-separated list */
-[class~="special"] {
-  background: #fef3c7;
 }</code></pre>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="tip-box">
@@ -419,78 +403,74 @@ a[href*="image"]::before {
         </section>
 
         <!-- Combinators -->
-        <section class="content-section">
+        <section id="combinators" class="demo-section">
             <div class="container">
-                <h2>Combinators & Relationship Selectors</h2>
-                <p>Combinators let you select elements based on their relationship to other elements. Master these and you'll write cleaner, more maintainable CSS.</p>
+                <h2 class="section-title">Combinators &amp; Relationship Selectors</h2>
+                <p class="section-intro">Combinators let you select elements based on their relationship to other elements. Master these and you'll write cleaner, more maintainable CSS.</p>
 
-                <h3>Descendant Combinator (space)</h3>
-                <p>Selects all descendants, no matter how deeply nested. The most common combinator you'll use.</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="combinator-demo descendant-demo">
-                            <div>
-                                <p>Styled paragraph</p>
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3 class="demo-title">Descendant Combinator (space)</h3>
+                        <p>Selects all descendants, no matter how deeply nested. The most common combinator.</p>
+                        <div class="demo-example">
+                            <div class="combinator-demo descendant-demo">
                                 <div>
-                                    <p>Nested styled paragraph</p>
+                                    <p>Styled paragraph</p>
+                                    <div>
+                                        <p>Nested styled paragraph</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="code-example">
-                    <pre><code class="language-css">/* Space = descendant combinator */
+                        <div class="code-example">
+                            <pre><code class="language-css">/* Space = descendant combinator */
 .descendant-demo p {
   color: #2563eb;
   font-weight: 600;
 }
 
-/* Matches ALL paragraphs inside, no matter how nested */</code></pre>
-                </div>
-
-                <h3>Child Combinator (>)</h3>
-                <p>Selects only direct children, not deeper descendants. Great for precise targeting.</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="combinator-demo child-demo">
-                            <p>Direct child (styled)</p>
-                            <div>
-                                <p>Grandchild (not styled)</p>
-                            </div>
-                            <p>Direct child (styled)</p>
+/* Matches ALL paragraphs inside,
+   no matter how nested */</code></pre>
                         </div>
                     </div>
-                </div>
 
-                <div class="code-example">
-                    <pre><code class="language-css">/* > = child combinator */
+                    <div class="demo-card">
+                        <h3 class="demo-title">Child Combinator (&gt;)</h3>
+                        <p>Selects only direct children, not deeper descendants. Great for precise targeting.</p>
+                        <div class="demo-example">
+                            <div class="combinator-demo child-demo">
+                                <p>Direct child (styled)</p>
+                                <div>
+                                    <p>Grandchild (not styled)</p>
+                                </div>
+                                <p>Direct child (styled)</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* > = child combinator */
 .child-demo > p {
   color: #7c3aed;
   font-weight: 600;
 }
 
-/* Only matches DIRECT children, not grandchildren */</code></pre>
-                </div>
-
-                <h3>Adjacent Sibling (+) and General Sibling (~)</h3>
-                <p>Select elements based on their sibling relationships. Perfect for spacing, alternating styles, and contextual design.</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="combinator-demo sibling-demo">
-                            <h4>Heading</h4>
-                            <p>First paragraph (adjacent to h4)</p>
-                            <p>Second paragraph (general sibling)</p>
-                            <p>Third paragraph (general sibling)</p>
+/* Only matches DIRECT children,
+   not grandchildren */</code></pre>
                         </div>
                     </div>
-                </div>
 
-                <div class="code-example">
-                    <pre><code class="language-css">/* + = adjacent sibling (immediately follows) */
+                    <div class="demo-card wide">
+                        <h3 class="demo-title">Adjacent (+) and General (~) Siblings</h3>
+                        <p>Select elements based on their sibling relationships. Perfect for spacing, alternating styles, and contextual design.</p>
+                        <div class="demo-example">
+                            <div class="combinator-demo sibling-demo">
+                                <h4>Heading</h4>
+                                <p>First paragraph (adjacent to h4)</p>
+                                <p>Second paragraph (general sibling)</p>
+                                <p>Third paragraph (general sibling)</p>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* + = adjacent sibling (immediately follows) */
 h4 + p {
   font-weight: 700;
   color: #2563eb;
@@ -502,46 +482,46 @@ h4 ~ p {
   border-left: 3px solid #cbd5e1;
   padding-left: 16px;
 }</code></pre>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Specificity Management -->
-        <section id="specificity" class="content-section">
+        <section id="specificity" class="demo-section">
             <div class="container">
-                <h2>Understanding & Managing Specificity</h2>
-                <p>Specificity determines which CSS rules win when multiple rules target the same element. Master it to avoid <code>!important</code> hell.</p>
+                <h2 class="section-title">Understanding &amp; Managing Specificity</h2>
+                <p class="section-intro">Specificity determines which CSS rules win when multiple rules target the same element. Master it to avoid <code>!important</code> hell.</p>
 
-                <h3>Specificity Hierarchy</h3>
-                <p>CSS specificity is calculated based on four categories (inline, IDs, classes, elements). Understanding this hierarchy is crucial.</p>
-
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="specificity-demo">
-                            <div class="specificity-visual">
-                                <div class="spec-level spec-inline">
-                                    <span class="spec-number">1000</span>
-                                    <span class="spec-label">Inline Styles</span>
-                                </div>
-                                <div class="spec-level spec-id">
-                                    <span class="spec-number">100</span>
-                                    <span class="spec-label">IDs</span>
-                                </div>
-                                <div class="spec-level spec-class">
-                                    <span class="spec-number">10</span>
-                                    <span class="spec-label">Classes, Attributes, Pseudo-classes</span>
-                                </div>
-                                <div class="spec-level spec-element">
-                                    <span class="spec-number">1</span>
-                                    <span class="spec-label">Elements, Pseudo-elements</span>
+                <div class="demo-grid">
+                    <div class="demo-card wide">
+                        <h3 class="demo-title">Specificity Hierarchy</h3>
+                        <p>CSS specificity is calculated based on four categories. Understanding this hierarchy is crucial.</p>
+                        <div class="demo-example">
+                            <div class="specificity-demo">
+                                <div class="specificity-visual">
+                                    <div class="spec-level spec-inline">
+                                        <span class="spec-number">1000</span>
+                                        <span class="spec-label">Inline Styles</span>
+                                    </div>
+                                    <div class="spec-level spec-id">
+                                        <span class="spec-number">100</span>
+                                        <span class="spec-label">IDs</span>
+                                    </div>
+                                    <div class="spec-level spec-class">
+                                        <span class="spec-number">10</span>
+                                        <span class="spec-label">Classes, Attributes, Pseudo-classes</span>
+                                    </div>
+                                    <div class="spec-level spec-element">
+                                        <span class="spec-number">1</span>
+                                        <span class="spec-label">Elements, Pseudo-elements</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="code-example">
-                    <pre><code class="language-css">/* Specificity: 1 (one element) */
+                        <div class="code-example">
+                            <pre><code class="language-css">/* Specificity: 1 (one element) */
 p { color: gray; }
 
 /* Specificity: 10 (one class) */
@@ -553,12 +533,31 @@ p { color: gray; }
 /* Specificity: 11 (one class + one element) */
 div.text { color: green; }
 
-/* Specificity: 111 (one ID + one class + one element) */
+/* Specificity: 111 (ID + class + element) */
 div#special.text { color: purple; }</code></pre>
-                </div>
+                        </div>
+                    </div>
 
-                <h3>Specificity Best Practices</h3>
-                <p>Keep specificity low and consistent. Use classes over IDs, avoid nesting too deeply, and reserve <code>!important</code> for truly exceptional cases.</p>
+                    <div class="demo-card wide">
+                        <h3 class="demo-title">Good vs Bad Specificity</h3>
+                        <p>Keep specificity low and consistent. Use classes over IDs, avoid nesting too deeply, and reserve <code>!important</code> for truly exceptional cases.</p>
+                        <div class="demo-example">
+                            <div class="specificity-examples">
+                                <div class="good-example">
+                                    <h4>✅ Good</h4>
+                                    <pre><code class="language-css">.button { }
+.button-primary { }
+.button-large { }</code></pre>
+                                </div>
+                                <div class="bad-example">
+                                    <h4>❌ Avoid</h4>
+                                    <pre><code class="language-css">#header div.nav ul li a.button { }
+.button { color: blue !important; }</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="tip-box">
                     <h4><span class="css-icon-text tip-icon" aria-hidden="true">*</span> Specificity Tips</h4>
@@ -568,43 +567,61 @@ div#special.text { color: purple; }</code></pre>
                     <strong>4.</strong> Avoid <code>!important</code> unless absolutely necessary<br>
                     <strong>5.</strong> Organise CSS from low to high specificity</p>
                 </div>
+            </div>
+        </section>
 
-                <div class="demo-block">
-                    <div class="demo-content">
-                        <div class="specificity-examples">
-                            <div class="good-example">
-                                <h4>✅ Good</h4>
-                                <pre><code class="language-css">.button { }
-.button-primary { }
-.button-large { }</code></pre>
-                            </div>
-                            <div class="bad-example">
-                                <h4>❌ Avoid</h4>
-                                <pre><code class="language-css">#header div.nav ul li a.button { }
-.button { color: blue !important; }</code></pre>
-                            </div>
-                        </div>
+        <!-- Best Practices -->
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Best Practices</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon css-icon-text" aria-hidden="true">*</span>
+                        <h3>Keep Specificity Low</h3>
+                        <p>Use classes for styling, reserve IDs for JavaScript hooks. Flat selectors are easier to maintain and override.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon css-icon-text" aria-hidden="true">#</span>
+                        <h3>Use Modern Selectors</h3>
+                        <p>Embrace <code>:is()</code>, <code>:where()</code>, and <code>:has()</code> to write cleaner, more maintainable selectors.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon css-icon-text" aria-hidden="true">[ ]</span>
+                        <h3>Leverage Pseudo-elements</h3>
+                        <p>Use <code>::before</code> and <code>::after</code> for decorative content instead of adding extra HTML elements.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Related Links -->
-        <section class="content-section">
+        <!-- Continue Your Journey -->
+        <section class="next-steps">
             <div class="container">
-                <h2>Related Topics</h2>
-                <div class="related-links">
-                    <a href="has-selector.html" class="related-card">
-                        <h3>:has() Selector</h3>
-                        <p>Learn about the revolutionary :has() pseudo-class that lets you style parent elements based on their children.</p>
+                <h2 class="section-title">Continue Your Journey</h2>
+                <p class="section-subtitle">
+                    You've explored advanced selectors and techniques. Now discover more modern CSS features!
+                </p>
+                <div class="next-links">
+                    <a href="has-selector.html" class="next-link">
+                        <span class="next-icon css-icon-text" aria-hidden="true">#</span>
+                        <div>
+                            <h3>:has() Selector</h3>
+                            <p>The revolutionary parent selector that changes everything</p>
+                        </div>
                     </a>
-                    <a href="css-nesting.html" class="related-card">
-                        <h3>CSS Nesting</h3>
-                        <p>Explore native CSS nesting to write more maintainable, organised stylesheets without preprocessors.</p>
+                    <a href="css-nesting.html" class="next-link">
+                        <span class="next-icon css-icon-text" aria-hidden="true">{ }</span>
+                        <div>
+                            <h3>CSS Nesting</h3>
+                            <p>Write cleaner CSS with native nesting — no preprocessor needed</p>
+                        </div>
                     </a>
-                    <a href="basic.html" class="related-card">
-                        <h3>CSS Fundamentals</h3>
-                        <p>Review the basics of CSS selectors, cascade, and inheritance to build a strong foundation.</p>
+                    <a href="container-queries.html" class="next-link">
+                        <span class="next-icon css-icon-text" aria-hidden="true">[ ]</span>
+                        <div>
+                            <h3>Container Queries</h3>
+                            <p>Responsive components that adapt to their container, not the viewport</p>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -632,7 +649,7 @@ div#special.text { color: purple; }</code></pre>
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        
+
                         <li><a href="https://github.com/ThomasJButler/css-showcase" target="_blank" rel="noopener noreferrer">View on GitHub</a></li>
                         <li><a href="https://thomasjbutler.me" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
                     </ul>
