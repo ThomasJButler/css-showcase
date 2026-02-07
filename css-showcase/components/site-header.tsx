@@ -1,20 +1,139 @@
 "use client"
 
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { Search } from "lucide-react"
+
+import { navigationSections } from "@/lib/navigation"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Separator } from "@/components/ui/separator"
+import { Button } from "@/components/ui/button"
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+  TooltipProvider,
+} from "@/components/ui/tooltip"
+import { ThemeToggle } from "@/components/theme-toggle"
+
+/** Resolve the current pathname to a section + page breadcrumb trail. */
+function useBreadcrumbs() {
+  const pathname = usePathname()
+
+  if (pathname === "/") return null
+
+  for (const section of navigationSections) {
+    const item = section.items.find((i) => i.href === pathname)
+    if (item) {
+      return { section: section.title, page: item.title }
+    }
+  }
+
+  // Fallback: derive from the slug
+  const slug = pathname.replace(/^\//, "")
+  const title = slug
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ")
+
+  return { section: null, page: title }
+}
 
 export function SiteHeader() {
+  const breadcrumbs = useBreadcrumbs()
+
   return (
-    <header className="flex h-14 shrink-0 items-center gap-2 border-b px-4">
+    <header className="sticky top-0 z-30 flex h-14 shrink-0 items-center gap-2 border-b bg-background/80 px-4 backdrop-blur-md">
       <SidebarTrigger className="-ml-1" />
       <Separator orientation="vertical" className="mr-2 h-4!" />
-      <div className="flex flex-1 items-center justify-between">
-        <span className="text-sm font-medium text-muted-foreground">
-          {/* Breadcrumbs will be added in Task 1.6 */}
-        </span>
-        <div className="flex items-center gap-2">
-          {/* Theme toggle and search trigger will be added in Task 1.6 */}
-        </div>
+
+      {/* Breadcrumbs — contextual navigation */}
+      <div className="flex flex-1 items-center">
+        {breadcrumbs ? (
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              {breadcrumbs.section && (
+                <>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <span className="text-muted-foreground">
+                      {breadcrumbs.section}
+                    </span>
+                  </BreadcrumbItem>
+                </>
+              )}
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{breadcrumbs.page}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        ) : (
+          <span className="text-sm font-medium text-foreground font-display">
+            CSS Showcase
+          </span>
+        )}
+      </div>
+
+      {/* Right-side actions */}
+      <div className="flex items-center gap-1">
+        {/* Search trigger — opens Cmd+K dialog (Task 1.7) */}
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                variant="outline"
+                size="sm"
+                className="hidden h-8 gap-2 px-2 text-muted-foreground sm:flex"
+                aria-label="Search (⌘K)"
+              >
+                <Search className="size-3.5" aria-hidden />
+                <span className="text-xs">Search…</span>
+                <kbd className="pointer-events-none ml-1 hidden select-none items-center gap-0.5 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-60 sm:inline-flex">
+                  <span className="text-xs">⌘</span>K
+                </kbd>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="bottom">
+              Search pages (⌘K)
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+
+        {/* Mobile search — icon only */}
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon-sm"
+                className="sm:hidden"
+                aria-label="Search"
+              >
+                <Search className="size-4" aria-hidden />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="bottom">Search</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+
+        <Separator orientation="vertical" className="mx-1 hidden h-4! sm:block" />
+
+        {/* Theme toggle */}
+        <ThemeToggle />
       </div>
     </header>
   )

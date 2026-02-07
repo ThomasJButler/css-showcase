@@ -87,14 +87,15 @@ ShadCN Sidebar with 7 collapsible sections (30 links):
 ---
 
 ### Task 1.6: Site Header
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** HIGH
-**Files:** `css-showcase/components/site-header.tsx`
+**Files:** `css-showcase/components/site-header.tsx`, `css-showcase/components/theme-toggle.tsx`
 
 - SidebarTrigger (hamburger) for mobile
-- Logo/title link to home
-- Theme toggle (sun/moon via next-themes)
-- Search trigger (Cmd+K)
+- Dynamic breadcrumbs from navigation data
+- Theme toggle (sun/moon via next-themes) with icon morph animation
+- Search trigger (Cmd+K) with keyboard shortcut badge
+- Sticky header with backdrop blur
 
 ---
 
@@ -338,7 +339,7 @@ Skip links, keyboard nav, focus management, landmarks.
 
 | Phase | Status | Tasks |
 |-------|--------|-------|
-| Phase 1: Foundation | IN PROGRESS | 5/10 |
+| Phase 1: Foundation | IN PROGRESS | 6/10 |
 | Phase 2: Fundamentals | PENDING | 0/3 |
 | Phase 3: Layout | PENDING | 0/5 |
 | Phase 4: Visual Effects | PENDING | 0/5 |
