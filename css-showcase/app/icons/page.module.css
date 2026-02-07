@@ -1,0 +1,1239 @@
+/* ============================================
+   Icons Page — Demo Styles
+   Scoped via CSS Modules
+   ============================================ */
+
+/* ─── Icon Grid ─── */
+
+.iconsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.25rem;
+}
+
+.iconCard {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.iconCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.iconWrapper {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.iconCard h3 {
+  margin: 0 0 0.375rem 0;
+  color: var(--foreground);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.iconCard code {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  background: var(--accent);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-mono);
+}
+
+/* ─── Base Icon ─── */
+
+.cssIcon {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  transition: transform var(--transition-fast);
+}
+
+.cssIcon:hover {
+  transform: scale(1.1);
+}
+
+/* ─── Hamburger Menu ─── */
+
+.hamburgerMenu {
+  composes: cssIcon;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 8px 0;
+}
+
+.hamburgerMenu::before,
+.hamburgerMenu::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+}
+
+.hamburgerMenu::after {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ─── Close Icon ─── */
+
+.closeIcon {
+  composes: cssIcon;
+}
+
+.closeIcon::before,
+.closeIcon::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: var(--destructive);
+  top: 50%;
+  left: 0;
+  transform-origin: center;
+}
+
+.closeIcon::before {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.closeIcon::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+/* ─── Arrow Right ─── */
+
+.arrowRight {
+  composes: cssIcon;
+  width: 30px;
+  height: 30px;
+}
+
+.arrowRight::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-top: 4px solid var(--primary);
+  border-right: 4px solid var(--primary);
+  transform: rotate(45deg);
+  top: 50%;
+  left: 25%;
+  margin-top: -10px;
+}
+
+/* ─── Heart Icon ─── */
+
+.heartIcon {
+  composes: cssIcon;
+  width: 36px;
+  height: 32px;
+  transform: rotate(-45deg);
+  background: var(--destructive);
+}
+
+.heartIcon:hover {
+  transform: rotate(-45deg) scale(1.1);
+}
+
+.heartIcon::before,
+.heartIcon::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 40px;
+  background: var(--destructive);
+  border-radius: 50px 50px 0 0;
+}
+
+.heartIcon::before {
+  left: 18px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heartIcon::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+/* ─── Star Icon ─── */
+
+.starIcon {
+  composes: cssIcon;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 15px solid #f59e0b;
+  transform: rotate(35deg);
+}
+
+.starIcon:hover {
+  transform: rotate(35deg) scale(1.1);
+}
+
+.starIcon::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: -12px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 15px solid #f59e0b;
+  transform: rotate(-70deg);
+}
+
+.starIcon::after {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 3px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 15px solid #f59e0b;
+  transform: rotate(70deg);
+}
+
+/* ─── Envelope Icon ─── */
+
+.envelopeIcon {
+  composes: cssIcon;
+  width: 40px;
+  height: 30px;
+  background: var(--primary);
+  overflow: hidden;
+}
+
+.envelopeIcon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 20px 15px 20px;
+  border-color: transparent transparent var(--background) transparent;
+}
+
+.envelopeIcon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 20px 0 20px;
+  border-color: var(--ring) transparent transparent transparent;
+}
+
+/* ─── Check Icon ─── */
+
+.checkIcon {
+  composes: cssIcon;
+}
+
+.checkIcon::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 28px;
+  border: solid var(--color-success);
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+  left: 14px;
+  top: 2px;
+}
+
+/* ─── Search Icon ─── */
+
+.searchIcon {
+  composes: cssIcon;
+  width: 30px;
+  height: 30px;
+  border: 4px solid var(--primary);
+  border-radius: 50%;
+}
+
+.searchIcon::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 15px;
+  background: var(--primary);
+  transform: rotate(-45deg);
+  bottom: -10px;
+  right: -2px;
+}
+
+/* ─── Home Icon ─── */
+
+.homeIcon {
+  composes: cssIcon;
+  width: 36px;
+  height: 30px;
+  background: var(--primary);
+  margin-top: 15px;
+}
+
+.homeIcon::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 15px solid var(--primary);
+}
+
+.homeIcon::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 20px;
+  background: var(--background);
+}
+
+/* ─── User Icon ─── */
+
+.userIcon {
+  composes: cssIcon;
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  border-radius: 50%;
+  top: -8px;
+}
+
+.userIcon::after {
+  content: "";
+  position: absolute;
+  width: 36px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50px 50px 0 0;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ─── Settings Icon (Gear) ─── */
+
+.settingsIcon {
+  composes: cssIcon;
+  border: 8px solid var(--primary);
+  border-radius: 50%;
+}
+
+.settingsIcon::before,
+.settingsIcon::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 48px;
+  background: var(--primary);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.settingsIcon::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.settingsGearExtra::before,
+.settingsGearExtra::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 48px;
+  background: var(--primary);
+  left: 50%;
+  top: 50%;
+}
+
+.settingsGearExtra::before {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.settingsGearExtra::after {
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+
+/* ─── Download Icon ─── */
+
+.downloadIcon {
+  composes: cssIcon;
+  width: 30px;
+  height: 35px;
+  border: 4px solid var(--primary);
+  border-top: none;
+  margin-top: 10px;
+}
+
+.downloadIcon::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 20px;
+  background: var(--primary);
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.downloadIcon::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--primary);
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ============================================
+   Animated Icons
+   ============================================ */
+
+/* Spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinnerIcon {
+  composes: cssIcon;
+  border: 4px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.spinnerIcon:hover {
+  transform: none;
+}
+
+/* Pulse Heart */
+@keyframes pulse {
+  0% {
+    transform: rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.15);
+  }
+  100% {
+    transform: rotate(-45deg) scale(1);
+  }
+}
+
+.pulseHeart {
+  composes: cssIcon;
+  width: 36px;
+  height: 32px;
+  background: var(--destructive);
+  transform: rotate(-45deg);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.pulseHeart:hover {
+  transform: rotate(-45deg);
+}
+
+.pulseHeart::before,
+.pulseHeart::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 40px;
+  background: var(--destructive);
+  border-radius: 50px 50px 0 0;
+}
+
+.pulseHeart::before {
+  left: 18px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.pulseHeart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+/* Bell Icon */
+@keyframes ring {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  10%,
+  30% {
+    transform: rotate(-10deg);
+  }
+  20%,
+  40% {
+    transform: rotate(10deg);
+  }
+}
+
+.bellIcon {
+  composes: cssIcon;
+  width: 35px;
+  height: 35px;
+  background: #f59e0b;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: ring 2s ease-in-out infinite;
+}
+
+.bellIcon:hover {
+  transform: none;
+}
+
+.bellIcon::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 8px;
+  background: #f59e0b;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bellIcon::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #f59e0b;
+  border-radius: 50%;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Loading Dots */
+@keyframes bounceDelay {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.loadingDots {
+  composes: cssIcon;
+  width: 70px;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loadingDots:hover {
+  transform: none;
+}
+
+.loadingDots::before,
+.loadingDots::after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: bounceDelay 1.4s infinite ease-in-out both;
+}
+
+.loadingDots::before {
+  animation-delay: -0.32s;
+}
+
+.loadingDots::after {
+  animation-delay: -0.16s;
+}
+
+.loadingDotMiddle {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: bounceDelay 1.4s infinite ease-in-out both;
+}
+
+/* WiFi Icon */
+@keyframes wifiWave {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.wifiIcon {
+  composes: cssIcon;
+}
+
+.wifiIcon:hover {
+  transform: none;
+}
+
+.wifiIcon::before,
+.wifiIcon::after {
+  content: "";
+  position: absolute;
+  border: 3px solid var(--primary);
+  border-bottom: none;
+  border-radius: 50% 50% 0 0;
+}
+
+.wifiIcon::before {
+  width: 40px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  animation: wifiWave 2s infinite;
+}
+
+.wifiIcon::after {
+  width: 26px;
+  height: 13px;
+  top: 7px;
+  left: 7px;
+  animation: wifiWave 2s 0.3s infinite;
+}
+
+.wifiInner {
+  position: absolute;
+  width: 12px;
+  height: 6px;
+  border: 3px solid var(--primary);
+  border-bottom: none;
+  border-radius: 50% 50% 0 0;
+  top: 14px;
+  left: 14px;
+  animation: wifiWave 2s 0.6s infinite;
+}
+
+/* Battery Icon */
+@keyframes charge {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 26px;
+  }
+}
+
+.batteryIcon {
+  composes: cssIcon;
+  width: 35px;
+  height: 20px;
+  border: 3px solid var(--primary);
+  border-radius: 4px;
+}
+
+.batteryIcon:hover {
+  transform: none;
+}
+
+.batteryIcon::before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 10px;
+  background: var(--primary);
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.batteryIcon::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 14px;
+  background: var(--color-success);
+  left: 0;
+  top: 0;
+  animation: charge 2s infinite;
+}
+
+/* ============================================
+   Interactive Icons
+   ============================================ */
+
+/* Menu to Close */
+.menuToClose {
+  background: none;
+  border: none;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.menuToClose::before,
+.menuToClose::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: var(--primary);
+  left: 0;
+  transition: all var(--transition-base);
+}
+
+.menuToClose::before {
+  top: 8px;
+}
+
+.menuToClose::after {
+  bottom: 8px;
+}
+
+.menuMiddleBar {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: var(--primary);
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: opacity var(--transition-base);
+}
+
+.menuToCloseActive::before {
+  transform: rotate(45deg);
+  top: 50%;
+  margin-top: -2px;
+}
+
+.menuToCloseActive .menuMiddleBar {
+  opacity: 0;
+}
+
+.menuToCloseActive::after {
+  transform: rotate(-45deg);
+  bottom: 50%;
+  margin-bottom: -2px;
+}
+
+/* Play/Pause */
+.playPause {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.playPause::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 20px solid var(--primary);
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all var(--transition-base);
+}
+
+.playPausePlaying::before {
+  width: 8px;
+  height: 24px;
+  border: none;
+  background: var(--primary);
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.playPausePlaying::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 24px;
+  background: var(--primary);
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Like Button */
+@keyframes likeBounce {
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.likeButton {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 36px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.likeButton::before {
+  content: "";
+  position: absolute;
+  width: 36px;
+  height: 32px;
+  background: var(--text-secondary);
+  transform: rotate(-45deg);
+  left: 2px;
+  top: 5px;
+  transition: background var(--transition-base);
+}
+
+.likeButton::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 40px;
+  background: var(--text-secondary);
+  border-radius: 50px 50px 0 0;
+  left: 20px;
+  top: -2px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  transition: background var(--transition-base);
+}
+
+.likeSpan {
+  position: absolute;
+  width: 26px;
+  height: 40px;
+  background: var(--text-secondary);
+  border-radius: 50px 50px 0 0;
+  left: 2px;
+  top: -2px;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+  transition: background var(--transition-base);
+}
+
+.likeButtonLiked {
+  animation: likeBounce 0.5s ease-out;
+}
+
+.likeButtonLiked::before,
+.likeButtonLiked::after {
+  background: var(--destructive);
+}
+
+.likeButtonLiked .likeSpan {
+  background: var(--destructive);
+}
+
+/* Share Icon */
+.shareIcon {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.shareIcon::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--primary);
+  border-radius: 50%;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.shareIcon::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--primary);
+  border-radius: 50%;
+  bottom: 5px;
+  left: 5px;
+}
+
+.shareNode {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--primary);
+  border-radius: 50%;
+  bottom: 5px;
+  right: 5px;
+}
+
+.shareLines::before,
+.shareLines::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: var(--primary);
+  top: 12px;
+  left: 50%;
+  transform-origin: top;
+}
+
+.shareLines::before {
+  transform: translateX(-50%) rotate(-30deg);
+}
+
+.shareLines::after {
+  transform: translateX(-50%) rotate(30deg);
+}
+
+/* Hover Mail */
+.hoverMail {
+  composes: cssIcon;
+  width: 40px;
+  height: 30px;
+  background: var(--primary);
+  overflow: hidden;
+}
+
+.hoverMail::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 15px solid var(--background);
+  top: 0;
+  left: 0;
+  transition: transform var(--transition-base);
+}
+
+.hoverMail:hover::before {
+  transform: translateY(-15px);
+}
+
+/* Expand Icon */
+.expandIcon {
+  composes: cssIcon;
+}
+
+.expandIcon::before,
+.expandIcon::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 3px solid var(--primary);
+  transition: transform var(--transition-fast);
+}
+
+.expandIcon::before {
+  border-right: none;
+  border-bottom: none;
+  top: 5px;
+  left: 5px;
+}
+
+.expandIcon::after {
+  border-left: none;
+  border-top: none;
+  bottom: 5px;
+  right: 5px;
+}
+
+.expandIcon:hover::before {
+  transform: translate(-3px, -3px);
+}
+
+.expandIcon:hover::after {
+  transform: translate(3px, 3px);
+}
+
+/* ============================================
+   Fun Icon Collection
+   ============================================ */
+
+/* Tea Cup */
+.teaCup {
+  composes: cssIcon;
+  width: 30px;
+  height: 25px;
+  background: var(--primary);
+  border-radius: 0 0 15px 15px;
+}
+
+.teaCup:hover {
+  transform: none;
+}
+
+.teaCup::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 15px;
+  border: 3px solid var(--primary);
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  right: -10px;
+  top: 0;
+}
+
+.teaCup::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  background: var(--primary);
+  bottom: -8px;
+  left: -5px;
+}
+
+/* Steam animation */
+@keyframes steam {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20px) scaleX(1.5);
+    opacity: 0;
+  }
+}
+
+.steamLines::before,
+.steamLines::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  background: var(--text-secondary);
+  top: -15px;
+  animation: steam 2s infinite;
+}
+
+.steamLines::before {
+  left: 10px;
+  animation-delay: 0.5s;
+}
+
+.steamLines::after {
+  left: 18px;
+  animation-delay: 1s;
+}
+
+/* Umbrella */
+.umbrellaIcon {
+  composes: cssIcon;
+  width: 40px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 40px 40px 0 0;
+  top: 10px;
+}
+
+.umbrellaIcon::before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 20px;
+  background: var(--primary);
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -15px;
+}
+
+.umbrellaIcon::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 3px solid var(--primary);
+  border-top: none;
+  border-right: none;
+  border-radius: 0 0 0 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -20px;
+}
+
+/* Crown */
+.crownIcon {
+  composes: cssIcon;
+  width: 40px;
+  height: 25px;
+  background: #f59e0b;
+  top: 15px;
+}
+
+.crownIcon:hover {
+  transform: none;
+}
+
+.crownIcon::before,
+.crownIcon::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 20px solid #f59e0b;
+  top: -15px;
+}
+
+.crownIcon::before {
+  left: -4px;
+}
+
+.crownIcon::after {
+  right: -4px;
+}
+
+.crownMiddle::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 20px solid #f59e0b;
+  top: -15px;
+  left: 12px;
+}
+
+/* ─── Interactive Button States ─── */
+
+.menuToClose:hover,
+.playPause:hover,
+.likeButton:hover,
+.shareIcon:hover {
+  opacity: 0.8;
+}
+
+.menuToClose:focus-visible,
+.playPause:focus-visible,
+.likeButton:focus-visible,
+.shareIcon:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+/* ─── Tips Grid ─── */
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.tipCard {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.tipCard:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.tipIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  color: var(--primary);
+  border-radius: var(--radius);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+}
+
+.tipCard h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.tipCard p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 768px) {
+  .iconsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+}
