@@ -157,6 +157,7 @@ a:hover {
     border-radius: var(--radius-md);
     background-color: transparent;
     border: 1px solid var(--colour-border);
+    color: var(--colour-text);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -167,6 +168,16 @@ a:hover {
 
 .theme-toggle:hover {
     background-color: var(--colour-surface);
+    border-color: var(--colour-primary);
+}
+
+[data-theme="dark"] .theme-toggle {
+    color: var(--colour-text);
+    border-color: #475569;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background-color: var(--colour-surface-alt);
     border-color: var(--colour-primary);
 }
 
@@ -811,13 +822,9 @@ main {
         flex: 0 0 44px !important;
     }
 
-    /* Sidebar toggle - override 04-layout.css fixed positioning */
     .sidebar-toggle {
-        position: static !important;
-        left: auto !important;
-        top: auto !important;
-        flex: 0 0 44px !important;
-        min-width: 44px !important;
+        width: 44px;
+        height: 44px;
     }
     
     .nav-list {
