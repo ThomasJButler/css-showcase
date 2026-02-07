@@ -1,0 +1,685 @@
+/* ============================================
+   Advanced CSS Techniques — Demo Styles
+   Scoped via CSS Modules
+   ============================================ */
+
+/* ─── Modern Complex Selectors ─── */
+
+.isDemo {
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.isDemo h4 {
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.isDemoArticle,
+.isDemoAside {
+  padding: 1rem;
+  background: var(--background);
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
+  border: 2px solid var(--border);
+}
+
+.isDemoArticle h4,
+.isDemoAside h4 {
+  color: var(--color-brand-blue);
+  font-weight: 700;
+  margin: 0;
+}
+
+/* :where() Demo */
+.whereDemo {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  flex-wrap: wrap;
+}
+
+.whereLink {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  font-size: 0.95rem;
+}
+
+.whereLink:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.whereLinkSpecial {
+  composes: whereLink;
+  color: var(--color-brand-purple);
+  font-weight: 600;
+  border-color: var(--color-brand-purple);
+}
+
+/* :not() Demo */
+.notDemo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.notBtn {
+  background: var(--surface-alt);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.notBtn:hover {
+  background: var(--surface-variant);
+}
+
+.notBtnPrimary {
+  background: var(--color-brand-blue);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.notBtnPrimary:hover {
+  background: var(--color-brand-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* ─── Pseudo-elements Deep Dive ─── */
+
+.badgeDemo {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.badge {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  color: white;
+  border-radius: 1.25rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.badge::before {
+  content: '\2605\00a0';
+  opacity: 0.7;
+}
+
+.badge::after {
+  content: '\00a0\2605';
+  opacity: 0.7;
+}
+
+.badgeSuccess {
+  composes: badge;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.badgeWarning {
+  composes: badge;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+/* Drop Cap Demo */
+.dropcapDemo {
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.dropcapText {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.dropcapText::first-letter {
+  font-size: 3.5em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.9;
+  margin: 0.1em 0.15em 0 0;
+  color: var(--color-brand-blue);
+}
+
+.dropcapText::first-line {
+  font-variant: small-caps;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Selection Demo */
+.selectionDemo {
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.selectionDemo p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.selectionDemo ::selection {
+  background: var(--color-brand-blue);
+  color: white;
+}
+
+/* ─── CSS Counters ─── */
+
+.counterDemo {
+  counter-reset: step;
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.stepItem {
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  background: var(--background);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border);
+  transition: all var(--transition-base);
+  color: var(--foreground);
+}
+
+.stepItem:last-child {
+  margin-bottom: 0;
+}
+
+.stepItem:hover {
+  transform: translateX(8px);
+  border-color: var(--color-brand-blue);
+}
+
+.stepItem::before {
+  counter-increment: step;
+  content: 'Step ' counter(step) ': ';
+  font-weight: 700;
+  color: var(--color-brand-blue);
+}
+
+/* Nested Counters Demo */
+.nestedCounterDemo {
+  counter-reset: section;
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.sectionItem {
+  counter-reset: subsection;
+  counter-increment: section;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  background: var(--background);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border);
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.sectionItem:last-child {
+  margin-bottom: 0;
+}
+
+.sectionItem::before {
+  content: counter(section) '. ';
+  font-weight: 700;
+  color: var(--color-brand-blue);
+}
+
+.subsectionItem {
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0 0.5rem 2rem;
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-brand-purple);
+  font-weight: 400;
+}
+
+.subsectionItem::before {
+  counter-increment: subsection;
+  content: counter(section) '.' counter(subsection) ' ';
+  font-weight: 600;
+  color: var(--color-brand-purple);
+}
+
+/* ─── Attribute Selectors ─── */
+
+.attributeDemo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.attrInput {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  transition: all var(--transition-base);
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.attrInput:focus {
+  outline: none;
+  border-color: var(--color-brand-blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.attrInputEmail {
+  composes: attrInput;
+  border-color: var(--color-brand-blue);
+}
+
+.attrInputPassword {
+  composes: attrInput;
+  border-color: var(--color-brand-purple);
+}
+
+.attrDisabledBtn {
+  padding: 0.75rem 1.5rem;
+  background: var(--surface-alt);
+  color: var(--muted-foreground);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Advanced Attribute Demo */
+.advancedAttributeDemo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.attrLink {
+  padding: 0.75rem 1rem;
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--foreground);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  display: block;
+}
+
+.attrLink:hover {
+  border-color: var(--color-brand-blue);
+  transform: translateX(4px);
+}
+
+.attrLinkExternal::after {
+  content: ' \2197';
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
+.attrLinkPdf::before {
+  content: '\1F4C4\00a0';
+}
+
+.attrLinkImage::before {
+  content: '\1F5BC\FE0F\00a0';
+}
+
+/* ─── Combinators ─── */
+
+.combinatorDemo {
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.descendantP {
+  color: var(--color-brand-blue);
+  font-weight: 600;
+  padding: 0.75rem;
+  background: var(--background);
+  border-radius: var(--radius-sm);
+  margin: 0.5rem 0;
+  border: 2px solid var(--border);
+}
+
+.childDirect {
+  color: var(--color-brand-purple);
+  font-weight: 600;
+  padding: 0.75rem;
+  background: var(--background);
+  border-radius: var(--radius-sm);
+  margin: 0.5rem 0;
+  border: 2px solid var(--color-brand-purple);
+}
+
+.childNested {
+  color: var(--text-secondary);
+  font-weight: 400;
+  padding: 0.75rem;
+  background: var(--background);
+  border-radius: var(--radius-sm);
+  margin: 0.5rem 0;
+  border: 2px solid var(--border);
+}
+
+.siblingHeading {
+  margin: 0 0 1rem 0;
+  color: var(--foreground);
+  font-size: 1rem;
+}
+
+.siblingAdjacent {
+  font-weight: 700;
+  color: var(--color-brand-blue);
+  padding: 0.75rem;
+  background: var(--background);
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-brand-blue);
+  margin: 0.5rem 0;
+}
+
+.siblingGeneral {
+  margin: 0.5rem 0 0.5rem 1rem;
+  border-left: 3px solid var(--border);
+  padding: 0.5rem 0 0.5rem 1rem;
+  color: var(--foreground);
+}
+
+/* ─── Specificity ─── */
+
+.specificityDemo {
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.specificityVisual {
+  display: grid;
+  gap: 1rem;
+}
+
+.specLevel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--background);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border);
+  transition: all var(--transition-base);
+}
+
+.specLevel:hover {
+  transform: translateX(8px);
+  box-shadow: var(--shadow-md);
+}
+
+.specNumber {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  min-width: 5rem;
+}
+
+.specInline .specNumber {
+  color: #dc2626;
+}
+
+.specId .specNumber {
+  color: var(--color-brand-blue);
+}
+
+.specClass .specNumber {
+  color: var(--color-brand-purple);
+}
+
+.specElement .specNumber {
+  color: #10b981;
+}
+
+.specLabel {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+/* Good vs Bad Specificity Examples */
+.specificityExamples {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.goodExample,
+.badExample {
+  padding: 1.25rem;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border);
+}
+
+.goodExample {
+  border-color: #10b981;
+}
+
+.badExample {
+  border-color: #ef4444;
+}
+
+.exampleHeading {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.goodExample .exampleHeading {
+  color: #10b981;
+}
+
+.badExample .exampleHeading {
+  color: #ef4444;
+}
+
+.exampleCode {
+  margin: 0;
+  padding: 0.75rem;
+  background: var(--background);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  color: var(--foreground);
+  white-space: pre-wrap;
+  line-height: 1.7;
+}
+
+/* ─── Tip Box ─── */
+
+.tipBox {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, oklch(0.95 0.02 240) 0%, oklch(0.93 0.03 240) 100%);
+  border-left: 4px solid var(--color-brand-blue);
+  border-radius: var(--radius-md);
+}
+
+:global(.dark) .tipBox {
+  background: linear-gradient(135deg, oklch(0.25 0.03 240) 0%, oklch(0.20 0.02 240) 100%);
+  border-left-color: var(--color-brand-blue-light);
+}
+
+.tipBox h4 {
+  margin: 0 0 0.75rem 0;
+  color: var(--foreground);
+  font-size: 1.05rem;
+}
+
+.tipBox p {
+  margin: 0;
+  color: var(--foreground);
+  line-height: 1.8;
+}
+
+.tipBox code {
+  background: rgba(37, 99, 235, 0.1);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875em;
+  font-family: var(--font-mono);
+}
+
+/* ─── Best Practices ─── */
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.tipCard {
+  padding: 2rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.tipCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-brand-blue);
+}
+
+.tipIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, var(--color-brand-blue) 0%, var(--color-brand-purple) 100%);
+  color: white;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.tipCard h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.tipCard p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.tipCard code {
+  background: rgba(37, 99, 235, 0.1);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875em;
+  font-family: var(--font-mono);
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 768px) {
+  .whereDemo,
+  .notDemo {
+    flex-direction: column;
+  }
+
+  .specificityExamples {
+    grid-template-columns: 1fr;
+  }
+
+  .siblingGeneral {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .specLevel {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .specNumber {
+    min-width: auto;
+  }
+}
+
+/* ─── Reduced Motion ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  .stepItem,
+  .notBtn,
+  .notBtnPrimary,
+  .attrInput,
+  .attrLink,
+  .specLevel,
+  .tipCard,
+  .whereLink,
+  .whereLinkSpecial {
+    transition: none !important;
+  }
+
+  .stepItem:hover,
+  .specLevel:hover,
+  .attrLink:hover,
+  .tipCard:hover {
+    transform: none !important;
+  }
+}
