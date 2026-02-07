@@ -88,6 +88,12 @@ Use British spelling in all content:
 - minimise (not minimize)
 - optimise (not optimize)
 
+## Frontend Implementation
+
+- Always use the `/frontend-design` skill when implementing frontend changes (HTML/CSS/JS)
+- This skill produces distinctive, production-grade interfaces with high design quality
+- Summon it before writing any frontend code to ensure polished, non-generic output
+
 ## Git Rules
 
 - ONLY push to current branch (ralph/*)

@@ -83,6 +83,7 @@ echo "  ✓ No main/master pushes"
 echo "  ✓ No pull requests"
 echo "  ✓ UK English commits"
 echo "  ✓ No Co-Author tags"
+echo "  ✓ Uses /frontend-design skill for implementation"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
