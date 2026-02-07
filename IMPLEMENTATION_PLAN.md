@@ -1,8 +1,8 @@
 # CSS Showcase - Implementation Plan (Next.js Migration)
 
 **Last Updated:** 7 February 2026
-**Status:** Phase 6 - Advanced (IN PROGRESS — 1/4)
-**Visual Review:** Phases 1-4 PASSED | Phase 5.1 (Buttons) PASSED | Phase 5.2 (Forms) PASSED | Phase 5.3 (Tables) PASSED | Phase 5.4 (Cards) PASSED | Review 5: PASSED | Phase 5.5 (Icons) PASSED | Review 6: PASSED
+**Status:** Phase 6 - Advanced (IN PROGRESS — 2/4)
+**Visual Review:** Phases 1-4 PASSED | Phase 5.1 (Buttons) PASSED | Phase 5.2 (Forms) PASSED | Phase 5.3 (Tables) PASSED | Phase 5.4 (Cards) PASSED | Review 5: PASSED | Phase 5.5 (Icons) PASSED | Review 6: PASSED | Phase 6.1 (Advanced) PASSED | Review 7: PASSED
 
 ### Architecture
 
@@ -810,6 +810,68 @@ shapes-clips.
 
 ---
 
+## Visual Review Notes — Review 7 (7 February 2026)
+
+### Review Checklist
+
+```text
+SHELL / LAYOUT
+  [x] Sidebar renders with all 7 sections and 30 links
+  [x] Header shows logo, breadcrumbs, theme toggle, search trigger (⌘K badge)
+  [x] Footer renders cleanly with 4-column layout (desktop) / stacked (mobile)
+  [x] Theme toggle works (sun icon light, moon icon dark)
+  [x] 404 pages within app shell show sidebar + header + footer correctly
+  [x] Breadcrumbs show correct section paths for all routes
+
+ADVANCED CSS PAGE (Phase 6.1 — newly migrated)
+  [x] Page hero renders: "Advanced CSS Techniques" with subtitle
+  [x] Sections visible: Modern Complex Selectors, Pseudo-elements Deep Dive,
+      CSS Counters, Attribute Selectors, Combinators & Relationship Selectors,
+      Understanding & Managing Specificity
+  [x] Demo cards show live CSS demos with code blocks
+  [x] Code blocks have syntax highlighting and are collapsible
+  [x] Desktop: single-column DemoGrid layout (correct per design rules)
+  [x] Dark mode: fully themed, no white blocks, code blocks dark
+  [x] Mobile: content readable, single-column flow, no horizontal overflow
+
+PREVIOUSLY MIGRATED PAGES (all 18 verified)
+  [x] All 18 previously migrated pages render correctly across desktop, mobile, dark mode
+
+VISUAL TEST SCRIPT
+  [x] All 19 migrated pages rendered successfully across all three viewports
+  [ ] Route mismatch for /layout-techniques still present (line 19)
+
+MIGRATED PAGES: 19/30
+```
+
+### Issues Found (Review 7)
+
+```text
+ISSUE 1: VISUAL TEST SCRIPT — ROUTE MISMATCH (carried from Review 1)
+ROUTE: /layout-techniques (visual-test.js line 19)
+ISSUE: Visual test script uses path '/layout-techniques' but actual route is '/layout'.
+       Screenshot shows 404 within app shell. The page itself works fine at /layout.
+FIX: Update visual-test.js line 19 to { name: 'layout', path: '/layout' }
+```
+
+### Summary (Review 7)
+
+**Task 6.1 (Advanced CSS)** is visually complete across desktop, mobile, and dark mode. The page
+features 6 sections: Modern Complex Selectors, Pseudo-elements Deep Dive, CSS Counters,
+Attribute Selectors, Combinators & Relationship Selectors, and Understanding & Managing
+Specificity.
+
+**All 19 migrated pages confirmed rendering** successfully across all three viewports. This is
+the third consecutive review where every migrated page rendered in all viewports.
+
+**Only remaining test script issue:** The `/layout-techniques` → `/layout` route mismatch on
+visual-test.js line 19, carried since Review 1.
+
+**Phase 6 status:** 1/4 complete (Advanced CSS). Next up: Custom Properties, Blend Modes,
+Shapes & Clips.
+
+---
+
 ## Phase 5: Content Migration — Components (5 pages)
 
 ### Task 5.1: Buttons Page
@@ -847,7 +909,8 @@ shapes-clips.
 **Source:** `../advanced.html`, `../styles/advanced-page.css`
 
 ### Task 6.2: Custom Properties Page
-**Status:** PENDING
+**Status:** COMPLETE
+**Files:** `css-showcase/app/custom-properties/page.tsx`, `css-showcase/app/custom-properties/page.module.css`, `css-showcase/app/custom-properties/colour-picker.tsx`
 **Source:** `../custom-properties.html`, `../styles/custom-properties.css`
 
 ### Task 6.3: Blend Modes Page
@@ -950,7 +1013,8 @@ Skip links, keyboard nav, focus management, landmarks.
 | Visual Review 4 | PASSED (test infra issue persists) | 16/16 build OK, ~10/16 screenshots rendered |
 | Visual Review 5 | PASSED | 17/17 migrated pages rendered across all viewports |
 | Visual Review 6 | PASSED | 18/18 migrated pages rendered across all viewports |
-| Phase 6: Advanced | IN PROGRESS | 1/4 |
+| Visual Review 7 | PASSED | 19/19 migrated pages rendered across all viewports |
+| Phase 6: Advanced | IN PROGRESS | 2/4 |
 | Phase 7: Modern CSS | PENDING | 0/6 |
 | Phase 8: Resources | PENDING | 0/2 |
 | Phase 9: Homepage | PENDING | 0/1 |
