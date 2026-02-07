@@ -1,7 +1,8 @@
 # CSS Showcase - Implementation Plan (Next.js Migration)
 
 **Last Updated:** 7 February 2026
-**Status:** Phase 5 - Components (IN PROGRESS)
+**Status:** Phase 5 - Components (NEXT UP)
+**Visual Review:** Phases 1-4 PASSED (see review notes below)
 
 ### Architecture
 
@@ -227,10 +228,63 @@ Run `npm run dev` and verify:
 
 ---
 
+## Visual Review Notes (7 February 2026)
+
+### Review Checklist
+
+```text
+SHELL / LAYOUT
+  [x] Sidebar renders with all 7 sections and 30 links
+  [x] Sidebar collapses properly on mobile (sheet/overlay)
+  [x] Header shows logo, theme toggle, and search trigger
+  [x] Footer renders cleanly
+  [x] Theme toggle works (light/dark mode)
+  [x] Search dialog opens and finds pages
+  [x] Breadcrumbs show correct section paths for all routes
+
+CONTENT PAGES (Phases 2-4)
+  [x] Page hero sections render with title and subtitle
+  [x] Demo cards show live CSS demos correctly
+  [x] Code blocks have syntax highlighting
+  [x] Code blocks are collapsible with copy button
+  [x] Breadcrumb navigation shows correct path
+  [x] Demo grids are responsive (2 cols desktop, 1 col mobile)
+
+DARK MODE
+  [x] No white blocks visible in dark mode screenshots
+  [x] All demo sections properly themed
+  [x] Code blocks have dark backgrounds
+  [x] Sidebar and header are properly themed
+
+RESPONSIVE
+  [x] All content readable at 375px
+  [x] Code blocks scroll horizontally on mobile
+  [x] No horizontal overflow on any page
+
+MIGRATED PAGES: 13/30
+```
+
+### Issues Found
+
+```text
+ROUTE: /layout-techniques (visual-test.js line 19)
+ISSUE: Visual test script uses path '/layout-techniques' but actual route is '/layout'
+SCREENSHOT: desktop/layout-techniques.png shows 404
+FIX: Update visual-test.js line 19 to { name: 'layout-techniques', path: '/layout' }
+NOTE: The page itself works fine at /layout — this is purely a test config bug
+```
+
+### Summary
+
+Phases 1-4 are visually complete and consistent across desktop, mobile, and dark mode. All 13 migrated pages render correctly. The only issue is a route mismatch in the visual test script for the Layout Techniques page. All remaining 404s are expected pending pages (Phases 5-9).
+
+---
+
 ## Phase 5: Content Migration — Components (5 pages)
 
 ### Task 5.1: Buttons Page
-**Status:** PENDING
+**Status:** COMPLETE
+**Files:** `css-showcase/app/buttons/page.tsx`, `css-showcase/app/buttons/page.module.css`
 **Source:** `../buttons.html`
 
 ### Task 5.2: Forms Page
@@ -354,7 +408,8 @@ Skip links, keyboard nav, focus management, landmarks.
 | Phase 2: Fundamentals | COMPLETE | 3/3 |
 | Phase 3: Layout | COMPLETE | 5/5 |
 | Phase 4: Visual Effects | COMPLETE | 5/5 |
-| Phase 5: Components | PENDING | 0/5 |
+| **Visual Review** | **PASSED** | **13/13 pages OK** |
+| Phase 5: Components | **NEXT UP** | 0/5 |
 | Phase 6: Advanced | PENDING | 0/4 |
 | Phase 7: Modern CSS | PENDING | 0/6 |
 | Phase 8: Resources | PENDING | 0/2 |
