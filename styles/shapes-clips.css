@@ -73,7 +73,7 @@
     font-family: var(--font-mono);
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
 }
 
 /* Polygon Gallery */
@@ -123,7 +123,7 @@
     display: block;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
 }
 
 /* Diagonal Hero */
@@ -294,14 +294,14 @@
     border-radius: 8px;
 }
 
-.dark .tip-box {
+[data-theme="dark"] .tip-box {
     background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%);
     border-left-color: #60a5fa;
 }
 
 .tip-box h4 {
     margin: 0 0 1rem 0;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
     font-size: 1.125rem;
 }
 
@@ -312,13 +312,13 @@
 
 .tip-box li {
     margin: 0.5rem 0;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
     line-height: 1.6;
 }
 
 .tip-box p {
     margin: 1rem 0 0 0;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
     line-height: 1.6;
 }
 
@@ -332,8 +332,8 @@
 
 .related-card {
     padding: 2rem;
-    background: var(--color-surface, #f8fafc);
-    border: 2px solid var(--color-border, #e2e8f0);
+    background: var(--colour-surface, #f8fafc);
+    border: 2px solid var(--colour-border, #e2e8f0);
     border-radius: 12px;
     text-decoration: none;
     transition: all var(--transition-default);
@@ -345,24 +345,24 @@
     border-color: #2563eb;
 }
 
-.dark .related-card {
-    background: var(--color-surface, #1e293b);
-    border-color: var(--color-border, #334155);
+[data-theme="dark"] .related-card {
+    background: var(--colour-surface, #1e293b);
+    border-color: var(--colour-border, #334155);
 }
 
-.dark .related-card:hover {
+[data-theme="dark"] .related-card:hover {
     border-color: #60a5fa;
 }
 
 .related-card h3 {
     margin: 0 0 0.75rem 0;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
     font-size: 1.25rem;
 }
 
 .related-card p {
     margin: 0;
-    color: var(--color-text-secondary, #64748b);
+    color: var(--colour-text-secondary, #64748b);
     line-height: 1.6;
 }
 

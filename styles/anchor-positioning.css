@@ -126,7 +126,7 @@
     left: 0;
     min-width: 180px;
     background: white;
-    border: 1px solid var(--color-border, #e2e8f0);
+    border: 1px solid var(--colour-border, #e2e8f0);
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     opacity: 0;
@@ -134,7 +134,7 @@
     transition: opacity 0.2s;
 }
 
-.dark .dropdown-menu {
+[data-theme="dark"] .dropdown-menu {
     background: #1e293b;
     border-color: #334155;
 }
@@ -148,13 +148,13 @@
 .dropdown-menu a {
     display: block;
     padding: 0.75rem 1rem;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
     text-decoration: none;
     transition: background 0.2s;
 }
 
 .dropdown-menu a:hover {
-    background: var(--color-surface, #f8fafc);
+    background: var(--colour-surface, #f8fafc);
 }
 
 .badge-demo {
@@ -199,7 +199,7 @@
     border-left-color: #f59e0b;
 }
 
-.dark .warning-box {
+[data-theme="dark"] .warning-box {
     background: linear-gradient(135deg, #78350f 0%, #451a03 100%);
     border-left-color: #fbbf24;
 }
@@ -235,8 +235,8 @@
 
 .related-card {
     padding: 2rem;
-    background: var(--color-surface, #f8fafc);
-    border: 2px solid var(--color-border, #e2e8f0);
+    background: var(--colour-surface, #f8fafc);
+    border: 2px solid var(--colour-border, #e2e8f0);
     border-radius: 12px;
     text-decoration: none;
     transition: all var(--transition-default);
@@ -250,14 +250,48 @@
 
 .related-card h3 {
     margin: 0 0 0.75rem 0;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
     font-size: 1.25rem;
 }
 
 .related-card p {
     margin: 0;
-    color: var(--color-text-secondary, #64748b);
+    color: var(--colour-text-secondary, #64748b);
     line-height: 1.6;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] .related-card {
+    background: var(--colour-surface, #1e293b);
+    border-color: var(--colour-border, #334155);
+}
+
+[data-theme="dark"] .related-card:hover {
+    border-color: #60a5fa;
+}
+
+[data-theme="dark"] .related-card h3 {
+    color: var(--colour-text, #e2e8f0);
+}
+
+[data-theme="dark"] .related-card p {
+    color: var(--colour-text-secondary, #cbd5e1);
+}
+
+[data-theme="dark"] .dropdown-menu a:hover {
+    background: var(--colour-surface-alt, #334155);
+}
+
+[data-theme="dark"] .tip-box {
+    color: var(--colour-text, #e2e8f0);
+}
+
+[data-theme="dark"] .tip-box h4 {
+    color: var(--colour-text, #e2e8f0);
+}
+
+[data-theme="dark"] .tip-box li {
+    color: var(--colour-text, #e2e8f0);
 }
 
 @media (max-width: 768px) {

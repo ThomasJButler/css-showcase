@@ -159,20 +159,20 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    background: var(--color-surface, #f8fafc);
+    background: var(--colour-surface, #f8fafc);
     padding: 2rem;
     border-radius: 12px;
 }
 
-.dark .color-controls {
-    background: var(--color-surface, #1e293b);
+[data-theme="dark"] .color-controls {
+    background: var(--colour-surface, #1e293b);
 }
 
 .color-controls label {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
     font-weight: 600;
     font-size: 0.875rem;
 }
@@ -181,7 +181,7 @@
     width: 100%;
     height: 8px;
     border-radius: 4px;
-    background: var(--color-border, #e2e8f0);
+    background: var(--colour-border, #e2e8f0);
     outline: none;
     -webkit-appearance: none;
 }
@@ -210,7 +210,7 @@
     display: inline-block;
     min-width: 3ch;
     text-align: right;
-    color: var(--color-primary, #2563eb);
+    color: var(--colour-primary, #2563eb);
     font-weight: 700;
 }
 
@@ -219,12 +219,12 @@
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    background: var(--color-surface, #f8fafc);
+    background: var(--colour-surface, #f8fafc);
     border-radius: 12px;
 }
 
-.dark .spacing-demo {
-    background: var(--color-surface, #1e293b);
+[data-theme="dark"] .spacing-demo {
+    background: var(--colour-surface, #1e293b);
 }
 
 .spacing-item {
@@ -279,14 +279,14 @@
     border-radius: 8px;
 }
 
-.dark .tip-box {
+[data-theme="dark"] .tip-box {
     background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%);
     border-left-color: #60a5fa;
 }
 
 .tip-box h4 {
     margin: 0 0 1rem 0;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
     font-size: 1.125rem;
 }
 
@@ -297,13 +297,13 @@
 
 .tip-box li {
     margin: 0.5rem 0;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
     line-height: 1.6;
 }
 
 .tip-box p {
     margin: 1rem 0 0 0;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
     line-height: 1.6;
 }
 
@@ -319,18 +319,18 @@
 }
 
 .ds-card {
-    --color-primary-50: #eff6ff;
-    --color-primary-500: #3b82f6;
-    --color-primary-900: #1e3a8a;
-    --color-background: var(--color-primary-50);
-    --color-text: var(--color-primary-900);
-    --color-accent: var(--color-primary-500);
+    --colour-primary-50: #eff6ff;
+    --colour-primary-500: #3b82f6;
+    --colour-primary-900: #1e3a8a;
+    --colour-background: var(--colour-primary-50);
+    --colour-text: var(--colour-primary-900);
+    --colour-accent: var(--colour-primary-500);
     --space-6: 1.5rem;
     --radius-lg: 12px;
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 
-    background: var(--color-background);
-    color: var(--color-text);
+    background: var(--colour-background);
+    color: var(--colour-text);
     padding: var(--space-6);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
@@ -340,7 +340,7 @@
 .ds-card h3 {
     margin: 0 0 1rem 0;
     font-size: 1.5rem;
-    color: var(--color-text);
+    color: var(--colour-text);
 }
 
 .ds-card p {
@@ -350,13 +350,13 @@
 }
 
 .ds-button {
-    --color-accent: #3b82f6;
+    --colour-accent: #3b82f6;
     --space-3: 0.75rem;
     --space-6: 1.5rem;
     --font-size-base: 1rem;
     --radius-md: 8px;
 
-    background: var(--color-accent);
+    background: var(--colour-accent);
     color: white;
     padding: var(--space-3) var(--space-6);
     font-size: var(--font-size-base);
@@ -383,8 +383,8 @@
 
 .related-card {
     padding: 2rem;
-    background: var(--color-surface, #f8fafc);
-    border: 2px solid var(--color-border, #e2e8f0);
+    background: var(--colour-surface, #f8fafc);
+    border: 2px solid var(--colour-border, #e2e8f0);
     border-radius: 12px;
     text-decoration: none;
     transition: all var(--transition-default);
@@ -396,24 +396,24 @@
     border-color: #2563eb;
 }
 
-.dark .related-card {
-    background: var(--color-surface, #1e293b);
-    border-color: var(--color-border, #334155);
+[data-theme="dark"] .related-card {
+    background: var(--colour-surface, #1e293b);
+    border-color: var(--colour-border, #334155);
 }
 
-.dark .related-card:hover {
+[data-theme="dark"] .related-card:hover {
     border-color: #60a5fa;
 }
 
 .related-card h3 {
     margin: 0 0 0.75rem 0;
-    color: var(--color-text, #1e293b);
+    color: var(--colour-text, #1e293b);
     font-size: 1.25rem;
 }
 
 .related-card p {
     margin: 0;
-    color: var(--color-text-secondary, #64748b);
+    color: var(--colour-text-secondary, #64748b);
     line-height: 1.6;
 }
 

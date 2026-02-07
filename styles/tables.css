@@ -476,6 +476,38 @@ th, td {
 [data-theme="dark"] .filter-select {
     background: var(--colour-surface);
     color: var(--colour-text);
+    border-color: #475569;
+}
+
+/* Dark mode border visibility */
+[data-theme="dark"] .table-basic th,
+[data-theme="dark"] .table-basic td,
+[data-theme="dark"] .table-hover th,
+[data-theme="dark"] .table-hover td,
+[data-theme="dark"] .table-compact tbody tr,
+[data-theme="dark"] .table-minimal td {
+    border-color: #475569;
+}
+
+[data-theme="dark"] .table-hover,
+[data-theme="dark"] .table-bordered,
+[data-theme="dark"] .table-compact,
+[data-theme="dark"] .table-scroll,
+[data-theme="dark"] .table-sortable {
+    border-color: #475569;
+}
+
+[data-theme="dark"] .table-bordered th,
+[data-theme="dark"] .table-bordered td {
+    border-color: #475569;
+}
+
+[data-theme="dark"] .table-responsive tbody tr {
+    border-color: #475569;
+}
+
+[data-theme="dark"] .table-responsive td {
+    border-bottom-color: rgba(71, 85, 105, 0.5);
 }
 
 /* Responsive */
@@ -483,9 +515,64 @@ th, td {
     .table-filters {
         flex-direction: column;
     }
-    
+
     .filter-input,
     .filter-select {
         width: 100%;
+    }
+}
+
+/* Mobile table overflow — scroll shadow & touch targets */
+@media (max-width: 768px) {
+    .table-wrapper {
+        margin: 0;
+        padding: 0;
+        border-radius: var(--radius-md, 0.5rem);
+        position: relative;
+    }
+
+    /* Right-edge scroll shadow indicator */
+    .table-wrapper::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 24px;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.08), transparent);
+        pointer-events: none;
+        border-radius: 0 var(--radius-md, 0.5rem) var(--radius-md, 0.5rem) 0;
+    }
+
+    [data-theme="dark"] .table-wrapper::after {
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.3), transparent);
+    }
+
+    /* Ensure all tables with potential overflow are wrapped */
+    .table-basic,
+    .table-striped,
+    .table-hover,
+    .table-bordered,
+    .table-compact,
+    .table-scroll,
+    .table-sortable,
+    .table-data,
+    .table-fixed-header {
+        min-width: 500px;
+    }
+
+    /* Larger badges for readability */
+    .badge {
+        font-size: 0.8125rem;
+        padding: 0.3rem 0.875rem;
+        min-height: 28px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Compact cell padding on narrow screens */
+    th, td {
+        padding: 0.625rem 0.75rem;
+        font-size: 0.875rem;
     }
 }
