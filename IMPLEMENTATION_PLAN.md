@@ -186,7 +186,8 @@ Run `npm run dev` and verify:
 **Source:** `../grid.html`, `../styles/grid.css`
 
 ### Task 3.4: Layout Techniques Page
-**Status:** PENDING
+**Status:** COMPLETE
+**Files:** `css-showcase/app/layout/page.tsx`, `css-showcase/app/layout/page.module.css`
 **Source:** `../layout.html`, `../styles/layout.css`
 
 ### Task 3.5: Responsive Design Page
@@ -344,7 +345,7 @@ Skip links, keyboard nav, focus management, landmarks.
 |-------|--------|-------|
 | Phase 1: Foundation | COMPLETE | 10/10 |
 | Phase 2: Fundamentals | COMPLETE | 3/3 |
-| Phase 3: Layout | IN PROGRESS | 3/5 |
+| Phase 3: Layout | IN PROGRESS | 4/5 |
 | Phase 4: Visual Effects | PENDING | 0/5 |
 | Phase 5: Components | PENDING | 0/5 |
 | Phase 6: Advanced | PENDING | 0/4 |

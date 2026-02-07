@@ -1,0 +1,565 @@
+/* ============================================
+   Layout Techniques Page — Demo Styles
+   Scoped via CSS Modules to prevent leaking
+   ============================================ */
+
+/* --- Display Property Demos --- */
+
+.displayDemo {
+  padding: 0.75rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+}
+
+.displayItem {
+  padding: 0.75rem 1rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.875rem;
+}
+
+.displayBlock {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.displayInline {
+  display: inline;
+  margin: 0 0.25rem;
+}
+
+.displayInlineBlock {
+  display: inline-block;
+  width: 180px;
+  margin: 0.5rem 0.25rem;
+  text-align: center;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.displayLabel {
+  display: block;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted-foreground);
+  margin-bottom: 0.25rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+/* --- Position Property Demos --- */
+
+.positionContainer {
+  position: relative;
+  min-height: 320px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  background: var(--muted);
+}
+
+.positionBox {
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  color: white;
+  font-weight: 600;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.8125rem;
+}
+
+.posStatic {
+  position: static;
+  background: var(--primary);
+}
+
+.posRelative {
+  position: relative;
+  top: 8px;
+  left: 16px;
+  background: oklch(0.55 0.22 290);
+}
+
+.posAbsolute {
+  position: absolute;
+  top: 70px;
+  right: 16px;
+  background: oklch(0.65 0.2 145);
+}
+
+/* Simulate fixed within demo (uses absolute) */
+.posFixed {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: oklch(0.75 0.18 85);
+  color: oklch(0.25 0.05 85);
+  z-index: 10;
+}
+
+.posSticky {
+  position: sticky;
+  top: 16px;
+  background: oklch(0.65 0.25 350);
+  z-index: 10;
+}
+
+/* --- Z-Index Demo --- */
+
+.zIndexDemo {
+  position: relative;
+  height: 180px;
+  background: var(--muted);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.zBox {
+  position: absolute;
+  width: 130px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: 0 4px 12px oklch(0 0 0 / 0.15);
+  font-size: 0.8125rem;
+  transition: transform 0.2s ease;
+}
+
+.zBox:hover {
+  transform: scale(1.05);
+}
+
+.zBox1 {
+  background: var(--primary);
+  top: 16px;
+  left: 16px;
+  z-index: 1;
+}
+
+.zBox2 {
+  background: oklch(0.55 0.22 290);
+  top: 44px;
+  left: 60px;
+  z-index: 2;
+}
+
+.zBox3 {
+  background: oklch(0.65 0.2 145);
+  top: 72px;
+  left: 104px;
+  z-index: 3;
+}
+
+/* --- Multi-Column Demo --- */
+
+.multiColumnDemo {
+  column-count: 2;
+  column-gap: 2rem;
+  column-rule: 2px solid var(--border);
+  padding: 1rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+
+.multiColumnDemo p {
+  margin: 0 0 1rem;
+}
+
+.multiColumnDemo p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Centred Content Demo --- */
+
+.centredDemo {
+  position: relative;
+  height: 220px;
+  background: var(--muted);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centredBox {
+  padding: 1.5rem 2.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 700;
+  font-size: 1.125rem;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px oklch(0 0 0 / 0.15);
+}
+
+/* --- Holy Grail Layout Demo --- */
+
+.holyGrailDemo {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 280px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 0.8125rem;
+}
+
+.hgHeader {
+  grid-column: 1 / -1;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.hgContent {
+  display: grid;
+  grid-template-columns: 90px 1fr 90px;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--muted);
+}
+
+.hgSidebar {
+  background: oklch(0.55 0.22 290);
+  color: white;
+  padding: 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hgMain {
+  background: var(--card);
+  color: var(--card-foreground);
+  padding: 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.hgFooter {
+  grid-column: 1 / -1;
+  background: oklch(0.65 0.2 145);
+  color: white;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* --- Sticky Sidebar Layout Demo --- */
+
+.stickyLayoutDemo {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  min-height: 300px;
+  padding: 1rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+}
+
+.stickySidebar {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+  height: fit-content;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 1rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.8125rem;
+}
+
+.stickySidebar p {
+  margin: 0 0 0.75rem;
+}
+
+.stickySidebar p:last-child {
+  margin-bottom: 0;
+}
+
+.stickyContent {
+  padding: 1rem;
+  background: var(--card);
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid var(--border);
+  color: var(--card-foreground);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.stickyContent p {
+  margin: 0 0 1rem;
+}
+
+.stickyContent p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Card Grid Demo --- */
+
+.cardGridDemo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+}
+
+.cardGridItem {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, var(--primary), oklch(0.55 0.22 290));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: 0 4px 12px oklch(0 0 0 / 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cardGridItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px oklch(0 0 0 / 0.15);
+}
+
+/* --- Float Demo --- */
+
+.floatDemo {
+  padding: 1rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+
+.floatDemo::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.floatBox {
+  float: left;
+  width: 120px;
+  height: 120px;
+  margin: 0 1rem 0.75rem 0;
+  background: oklch(0.65 0.2 145);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.8125rem;
+}
+
+.floatDemo p {
+  margin: 0 0 1rem;
+}
+
+.floatDemo p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Pro Tips Section --- */
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.tipCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.tipCard:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.tipIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: calc(var(--radius) - 2px);
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.tipCard h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.tipCard p {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- Next Steps Section --- */
+
+.nextGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+}
+
+.nextLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  color: inherit;
+}
+
+.nextLink:hover {
+  border-color: var(--primary);
+  transform: translateX(4px);
+  box-shadow: 0 8px 25px oklch(0 0 0 / 0.08);
+}
+
+.nextIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--primary);
+}
+
+.nextLink h3 {
+  font-size: 1.125rem;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.nextLink p {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 768px) {
+  .displayInlineBlock {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .multiColumnDemo {
+    column-count: 1;
+  }
+
+  .holyGrailDemo {
+    height: auto;
+  }
+
+  .hgContent {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .stickyLayoutDemo {
+    grid-template-columns: 1fr;
+  }
+
+  .stickySidebar {
+    position: static;
+  }
+
+  .cardGridDemo {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .floatBox {
+    width: 100px;
+    height: 100px;
+    margin: 0 0.75rem 0.5rem 0;
+  }
+
+  .nextGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tipsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .positionContainer {
+    min-height: 260px;
+  }
+
+  .positionBox {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .zBox {
+    width: 100px;
+    height: 70px;
+    font-size: 0.75rem;
+  }
+
+  .cardGridDemo {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
+  .floatBox {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cardGridItem,
+  .tipCard,
+  .nextLink,
+  .zBox {
+    transition: none !important;
+  }
+}
