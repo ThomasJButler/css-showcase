@@ -1,0 +1,511 @@
+/* ============================================
+   CSS Grid Page — Demo Styles
+   Scoped via CSS Modules to prevent leaking
+   ============================================ */
+
+/* --- Shared grid demo base --- */
+
+.gridDemo {
+  background: var(--muted);
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  min-height: 150px;
+}
+
+.gridItem {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+}
+
+.demoLabel {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+/* --- Basic Grid --- */
+
+.basicGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+/* --- Auto-fit Responsive Grid --- */
+
+.autoFitGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+}
+
+/* --- Mixed Columns Grid --- */
+
+.mixedColumns {
+  display: grid;
+  grid-template-columns: 150px 1fr 100px;
+  gap: 0.75rem;
+}
+
+.fixedItem {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.flexibleItem {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* --- Gap Demo --- */
+
+.gapDemo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* --- Placement Grid --- */
+
+.placementGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 80px);
+  gap: 0.75rem;
+}
+
+.span2 {
+  grid-column: span 2;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.tallSpan {
+  grid-row: span 2;
+  background: oklch(0.65 0.2 145);
+  color: white;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+  background: oklch(0.55 0.15 250);
+  color: white;
+}
+
+/* --- Grid Template Areas --- */
+
+.areaGrid {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav    main   sidebar"
+    "nav    main   sidebar"
+    "footer footer footer";
+  grid-template-columns: 140px 1fr 140px;
+  grid-template-rows: 60px 1fr auto 50px;
+  gap: 0.75rem;
+  min-height: 320px;
+}
+
+.areaHeader {
+  grid-area: header;
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.areaNav {
+  grid-area: nav;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.areaMain {
+  grid-area: main;
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+}
+
+.areaSidebar {
+  grid-area: sidebar;
+  background: oklch(0.75 0.15 75);
+  color: oklch(0.25 0.05 75);
+}
+
+.areaFooter {
+  grid-area: footer;
+  background: oklch(0.35 0.1 260);
+  color: white;
+}
+
+/* All area items share base styling */
+.areaHeader,
+.areaNav,
+.areaMain,
+.areaSidebar,
+.areaFooter {
+  padding: 0.75rem 1rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+}
+
+/* --- Masonry Grid --- */
+
+.masonryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 70px;
+  grid-auto-flow: dense;
+  gap: 0.75rem;
+}
+
+.masonryItem {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.masonryTall {
+  grid-row: span 2;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.masonryWide {
+  grid-column: span 2;
+  background: oklch(0.75 0.15 75);
+  color: oklch(0.25 0.05 75);
+}
+
+.masonryBig {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: oklch(0.65 0.2 145);
+  color: white;
+}
+
+/* --- Dashboard Grid --- */
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(80px, auto);
+  gap: 0.75rem;
+}
+
+.dashboardItem {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--card-foreground);
+}
+
+.dashStats {
+  grid-column: span 2;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+}
+
+.dashChart {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  border: none;
+}
+
+.dashActivity {
+  grid-column: span 4;
+  background: var(--muted);
+  border: none;
+}
+
+.dashUsers {
+  background: oklch(0.65 0.2 145);
+  color: white;
+  border: none;
+}
+
+.dashNotifications {
+  background: oklch(0.6 0.22 25);
+  color: white;
+  border: none;
+}
+
+/* --- Magazine Layout --- */
+
+.magazineGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, minmax(50px, auto));
+  gap: 0.75rem;
+}
+
+.magazineFeature {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 1.5rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.magazineSub {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  padding: 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.magazineSidebar {
+  grid-column: 4;
+  grid-row: 1 / 4;
+  background: var(--card);
+  color: var(--card-foreground);
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.magazineAd {
+  grid-column: 3 / 4;
+  grid-row: 3;
+  background: oklch(0.75 0.15 75);
+  color: oklch(0.25 0.05 75);
+  padding: 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.magazineBottom {
+  grid-column: 1 / 3;
+  background: oklch(0.55 0.15 250);
+  color: white;
+  padding: 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Pro Tips Section --- */
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.tipCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.tipCard:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.tipIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: calc(var(--radius) - 2px);
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.tipCard h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.tipCard p {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- Next Steps Section --- */
+
+.nextGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+}
+
+.nextLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  color: inherit;
+}
+
+.nextLink:hover {
+  border-color: var(--primary);
+  transform: translateX(4px);
+  box-shadow: 0 8px 25px oklch(0 0 0 / 0.08);
+}
+
+.nextIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--primary);
+}
+
+.nextLink h3 {
+  font-size: 1.125rem;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.nextLink p {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 768px) {
+  .mixedColumns {
+    grid-template-columns: 1fr;
+  }
+
+  .placementGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .areaGrid {
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "sidebar"
+      "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto auto;
+    min-height: 350px;
+  }
+
+  .masonryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashStats,
+  .dashChart,
+  .dashActivity {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .magazineGrid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(60px, auto);
+  }
+
+  .magazineFeature,
+  .magazineSidebar,
+  .magazineAd,
+  .magazineBottom {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .nextGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tipsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .basicGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .masonryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .masonryWide,
+  .masonryBig {
+    grid-column: span 1;
+  }
+}

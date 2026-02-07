@@ -181,8 +181,9 @@ Run `npm run dev` and verify:
 **Source:** `../flexbox-patterns.html`
 
 ### Task 3.3: Grid Page
-**Status:** PENDING
-**Source:** `../grid.html`
+**Status:** COMPLETE
+**Files:** `css-showcase/app/grid/page.tsx`, `css-showcase/app/grid/page.module.css`
+**Source:** `../grid.html`, `../styles/grid.css`
 
 ### Task 3.4: Layout Techniques Page
 **Status:** PENDING
@@ -343,7 +344,7 @@ Skip links, keyboard nav, focus management, landmarks.
 |-------|--------|-------|
 | Phase 1: Foundation | COMPLETE | 10/10 |
 | Phase 2: Fundamentals | COMPLETE | 3/3 |
-| Phase 3: Layout | IN PROGRESS | 2/5 |
+| Phase 3: Layout | IN PROGRESS | 3/5 |
 | Phase 4: Visual Effects | PENDING | 0/5 |
 | Phase 5: Components | PENDING | 0/5 |
 | Phase 6: Advanced | PENDING | 0/4 |
