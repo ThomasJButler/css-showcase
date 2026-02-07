@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Note: Scroll handling (header auto-hide, etc.) is managed by scroll-manager.js
     // Nav toggle active state styles are defined in main.css
 
     // Staggered fade-in animation for showcase cards

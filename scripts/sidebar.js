@@ -32,8 +32,6 @@
         const sidebarToggle = document.querySelector('.sidebar-toggle');
         const sidebarBackdrop = document.querySelector('.sidebar-backdrop');
         const sectionTitles = document.querySelectorAll('.sidebar-section-title');
-        const backToTop = document.querySelector('.back-to-top');
-
         if (!sidebar) return;
 
         // Mobile sidebar toggle
@@ -61,11 +59,6 @@
             });
         });
 
-        // Back to top button
-        if (backToTop) {
-            backToTop.addEventListener('click', scrollToTop);
-        }
-
         // Highlight current page
         highlightCurrentPage();
 
@@ -79,7 +72,6 @@
         // Restore collapsed sections from localStorage
         restoreCollapsedSections();
 
-        // Note: Scroll-based auto-hide and floating back-to-top are now managed by scroll-manager.js
     }
 
     /**
@@ -214,16 +206,6 @@
             e.preventDefault();
             toggleSection(e);
         }
-    }
-
-    /**
-     * Scroll to top of page
-     */
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
     }
 
     /**
