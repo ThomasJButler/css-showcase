@@ -1,0 +1,559 @@
+/* ============================================
+   Responsive Design Page — Demo Styles
+   Scoped via CSS Modules
+   ============================================ */
+
+/* --- Units Comparison Demo --- */
+
+.unitsComparison {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+}
+
+.unitBox {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: 0 4px 12px oklch(0 0 0 / 0.1);
+  font-size: 0.875rem;
+}
+
+.unitPx {
+  width: 100px;
+  background: var(--primary);
+}
+
+.unitPercent {
+  width: 50%;
+  background: oklch(0.55 0.22 290);
+}
+
+.unitRem {
+  width: 5rem;
+  background: oklch(0.65 0.2 145);
+}
+
+.unitVw {
+  width: 25vw;
+  background: oklch(0.75 0.18 85);
+  color: oklch(0.25 0.05 85);
+}
+
+/* --- Breakpoint Visualiser Demo --- */
+
+.breakpointVisualiser {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+}
+
+.bpIndicator {
+  padding: 1rem 1.5rem;
+  background: var(--card);
+  border-radius: calc(var(--radius) - 2px);
+  border: 2px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0.45;
+  transition: opacity 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.bpActive {
+  opacity: 1;
+  border-color: var(--primary);
+  transform: scale(1.02);
+}
+
+.bpLabel {
+  font-weight: 700;
+  color: var(--foreground);
+  font-size: 0.9375rem;
+}
+
+.bpRange {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+}
+
+.bpIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: calc(var(--radius) - 2px);
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-weight: 700;
+  font-size: 0.75rem;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.bpActive .bpIcon {
+  background: var(--primary);
+}
+
+/* --- Fluid Heading Demo --- */
+
+.fluidHeading {
+  font-size: clamp(1.5rem, 4vw + 1rem, 3rem);
+  line-height: 1.2;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--primary), oklch(0.55 0.22 290));
+  color: white;
+  border-radius: var(--radius);
+  margin: 0;
+  font-weight: 700;
+}
+
+/* --- Object-Fit Demo --- */
+
+.objectFitDemo {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+}
+
+.fitBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.fitBox span {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+.fitItem {
+  width: 150px;
+  height: 100px;
+  border: 2px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--card);
+}
+
+.fitImage {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.fitCover {
+  background: linear-gradient(135deg, oklch(0.6 0.18 250), oklch(0.5 0.2 280));
+  width: 200%;
+  height: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.fitContain {
+  background: linear-gradient(135deg, oklch(0.65 0.2 145), oklch(0.55 0.18 160));
+  width: 60%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+.fitFill {
+  background: linear-gradient(135deg, oklch(0.75 0.18 85), oklch(0.65 0.2 60));
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: oklch(0.25 0.05 85);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+/* --- Responsive Grid Demo --- */
+
+.responsiveGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+}
+
+@media (min-width: 768px) {
+  .responsiveGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsiveGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.gridCard {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, var(--primary), oklch(0.55 0.22 290));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: 0 4px 12px oklch(0 0 0 / 0.1);
+  transition: transform 0.2s ease;
+}
+
+.gridCard:hover {
+  transform: translateY(-4px);
+}
+
+/* --- Responsive Nav Demo --- */
+
+.responsiveNavDemo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+}
+
+.demoNavMobile,
+.demoNavDesktop {
+  padding: 1.25rem;
+  background: var(--card);
+  border-radius: calc(var(--radius) - 2px);
+  border: 2px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.demoNavMobile span,
+.demoNavDesktop span {
+  font-weight: 600;
+  color: var(--foreground);
+  font-size: 0.875rem;
+}
+
+.demoHamburger {
+  width: 44px;
+  height: 44px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demoHamburger:hover {
+  transform: scale(1.05);
+}
+
+.demoNavLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.demoNavLinks a {
+  color: var(--foreground);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: calc(var(--radius) - 2px);
+  transition: background 0.2s ease, color 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.demoNavLinks a:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* --- Tip Box --- */
+
+.tipBox {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+}
+
+.tipBox h4 {
+  margin: 0 0 0.75rem 0;
+  color: var(--foreground);
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.tipBox p {
+  margin: 0.5rem 0 0 0;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.tipBox p:first-of-type {
+  margin-top: 0;
+}
+
+.tipBox code {
+  background: var(--muted);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+/* --- Best Practices Lists --- */
+
+.practicesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.practicesList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--foreground);
+}
+
+.practiceIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: oklch(0.65 0.2 145);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.checkIcon {
+  composes: practiceIcon;
+  background: var(--primary);
+}
+
+/* --- Related Links / Keep Learning --- */
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.relatedCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  color: inherit;
+}
+
+.relatedCard:hover {
+  border-color: var(--primary);
+  transform: translateX(4px);
+  box-shadow: 0 8px 25px oklch(0 0 0 / 0.08);
+}
+
+.relatedIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--primary);
+}
+
+.relatedCard h3 {
+  font-size: 1.125rem;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.relatedCard p {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+/* --- Pro Tips Section --- */
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.tipCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.tipCard:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.tipCardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: calc(var(--radius) - 2px);
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.tipCard h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.tipCard p {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 768px) {
+  .unitsComparison {
+    flex-direction: column;
+  }
+
+  .unitBox {
+    width: 100% !important;
+  }
+
+  .objectFitDemo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .demoNavLinks {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .demoNavLinks a {
+    text-align: center;
+  }
+
+  .relatedGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tipsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .bpIndicator {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .bpIcon {
+    margin-right: 0;
+    margin-bottom: 0.25rem;
+  }
+
+  .fluidHeading {
+    padding: 1.5rem 1rem;
+  }
+
+  .fitItem {
+    width: 120px;
+    height: 80px;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bpIndicator,
+  .gridCard,
+  .demoHamburger,
+  .demoNavLinks a,
+  .relatedCard,
+  .tipCard {
+    transition: none !important;
+  }
+}
