@@ -211,7 +211,8 @@ Run `npm run dev` and verify:
 **Source:** `../gradient-patterns.html`
 
 ### Task 4.3: Transitions Page
-**Status:** PENDING
+**Status:** COMPLETE
+**Files:** `css-showcase/app/transitions/page.tsx`, `css-showcase/app/transitions/page.module.css`, `css-showcase/app/transitions/timing-demo.tsx`
 **Source:** `../transitions.html`, `../styles/transitions.css`
 
 ### Task 4.4: Animations Page
@@ -350,7 +351,7 @@ Skip links, keyboard nav, focus management, landmarks.
 | Phase 1: Foundation | COMPLETE | 10/10 |
 | Phase 2: Fundamentals | COMPLETE | 3/3 |
 | Phase 3: Layout | COMPLETE | 5/5 |
-| Phase 4: Visual Effects | IN PROGRESS | 2/5 |
+| Phase 4: Visual Effects | IN PROGRESS | 3/5 |
 | Phase 5: Components | PENDING | 0/5 |
 | Phase 6: Advanced | PENDING | 0/4 |
 | Phase 7: Modern CSS | PENDING | 0/6 |
