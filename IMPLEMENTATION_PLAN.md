@@ -1,7 +1,7 @@
 # CSS Showcase - Implementation Plan (Next.js Migration)
 
-**Last Updated:** 8 February 2026 (Visual Audit #17)
-**Status:** Phase 8.5 (5/7) + Phase 9 COMPLETE → Phase 10 - Polish (10.0–10.5 COMPLETE)
+**Last Updated:** 8 February 2026 (Visual Audit #18)
+**Status:** Phase 8.5 (5/7) + Phase 9 COMPLETE → Phase 10 - Polish (10.0–10.6 COMPLETE)
 
 ### Architecture
 
@@ -277,14 +277,15 @@ Apply premium components globally across all pages:
 - `/responsive` — **Device Preview** (new `DevicePreview` client component): Mobile (375px) / Tablet (768px) / Desktop (1200px) selector with animated browser frame. Content inside uses CSS `container-type: inline-size` + `@container` queries so navigation, hero, and card grid genuinely respond to the preview width — not faked with media queries.
 
 ### Task 10.6: Page Enhancements — Visual Effects
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
 **Files:** `css-showcase/app/gradients/`, `css-showcase/app/gradient-patterns/`, `css-showcase/app/transitions/`, `css-showcase/app/animations/`, `css-showcase/app/filters/`
 
-- `/gradients` — keep multi-column gradient swatches (collapsible code)
-- `/transitions` — **Comparison** slider showing before/after transition states
-- `/animations` — keep existing live demos, add **Motion Effect** entrance animations
-- `/filters` — **Comparison** slider for before/after filter effects
+- `/gradients` — **Interactive Gradient Builder** (new `GradientBuilder` client component): Controls for gradient type (linear/radial/conic), angle slider, colour pickers with hex display, up to 3 colour stops with percentage sliders, live preview swatch, real-time CSS code generation via CodeBlock. Sidebar + preview layout matching FilterPlayground pattern.
+- `/gradient-patterns` — **Interactive Pattern Builder** (new `PatternCustomiser` client component): Pattern type selector (stripes/dots/checkerboard/grid), colour pickers, size and angle controls, live preview swatch with real-time CSS code generation.
+- `/transitions` — **Before & After Comparison** (new `TransitionCompare` client component): 4 property scenarios (Transform, Box Shadow, Background, Opacity+Filter) with tabbed selection, Before/After toggle that applies live CSS transitions to demo elements, generated code display.
+- `/animations` — **Animation Lab** (new `AnimationTimeline` client component): 5 animation presets (Bounce, Spin, Pulse, Morph, Slide) with real-time controls for duration (0.2–6s) and timing function (6 easing options), play/pause toggle, animated progress bar with keyframe dot markers, generated animation CSS code.
+- `/filters` — **Before & After Comparison** (new `FilterCompare` client component): 5 filter presets (Vintage, Noir, Dream, Cyberpunk, Faded) with draggable slider over live gradient demo, Original vs Filtered labels, generated filter CSS code. Touch-friendly for mobile.
 
 ### Task 10.7: Page Enhancements — Components
 **Status:** PENDING
@@ -361,15 +362,15 @@ Mobile (375px) verification:
 
 ---
 
-## Screenshot Audit Observations (8 February 2026 — Audit #17)
+## Screenshot Audit Observations (8 February 2026 — Audit #18)
 
 ### Overall Status: EXCELLENT — STABLE, NO REGRESSIONS
 
-Phase 8.5 is 5/7 complete. Phase 9 (Homepage) is COMPLETE. Tasks 10.0–10.4 are COMPLETE. All 30 content pages + homepage migrated and rendering. Shell fully functional. Ghibli theme applied. Streamline Freehand Colour icons migrated. Mobile responsive at 375px. **All 93 screenshots reviewed — zero new issues, zero regressions since Audit #16.**
+Phase 8.5 is 5/7 complete. Phase 9 (Homepage) is COMPLETE. Tasks 10.0–10.5 are COMPLETE. All 30 content pages + homepage migrated and rendering. Shell fully functional. Ghibli theme applied. Streamline Freehand Colour icons migrated. Mobile responsive at 375px. **All 93 screenshots reviewed — zero new issues, zero regressions since Audit #17.**
 
-### What's Changed Since Audit #16
+### What's Changed Since Audit #17
 
-No new commits since `de7dd1f`. This is a verification audit confirming continued stability.
+Commits `de7dd1f` (Fundamentals enhancements) and `e9dbdf6` (Layout enhancements) confirmed stable. Task 10.5 additions (PatternCard3D, GridPlayground, FlexVsGrid, DevicePreview) all rendering correctly across viewports.
 
 ### What's Working Well
 
@@ -407,11 +408,18 @@ No new commits since `de7dd1f`. This is a verification audit confirming continue
 - `/box-model` — ShadCN Slider and Switch components in BoxModelPlayground. Themed green track/thumb.
 - `/typography` — "Interactive Font Preview" with Select dropdown, Sliders for size/weight, live pangram preview.
 
+**Task 10.5 Enhancements — STABLE**
+- `/flexbox-patterns` — 3D Card tilt effect on all 6 pattern showcase cards. Custom `PatternCard3D` client component with mouse-tracking perspective transforms. Cards render cleanly at rest in screenshots.
+- `/grid` — Interactive Grid Playground visible with controls sidebar (columns, rows, gap, auto-flow, alignment). FlexVsGrid comparison component with tabbed scenarios.
+- `/responsive` — DevicePreview component with Mobile/Tablet/Desktop selector and animated browser frame. Container query-based content genuinely responds to preview width.
+- `/flexbox` — Existing interactive playground retained (already excellent). Demo grids render well in 2-column on desktop.
+
 **Dark Mode — TWILIGHT FOREST AESTHETIC (excellent)**
 - Deep forest green page backgrounds (`oklch(0.18 0.03 155)`) — confirmed across all 31 pages
 - Card backgrounds slightly lighter forest (`oklch(0.23 0.03 150)`) creating depth
 - Code blocks: dark indigo/navy with purple-tinted syntax highlighting
-- Gradient demos pop beautifully against dark backgrounds
+- Gradient demos pop beautifully against dark backgrounds (especially `/gradients` and `/gradient-patterns`)
+- `/shapes-clips` shapes render in purple/pink tones — visually striking against dark forest
 - No white blocks or unthemed areas (except intentional `/basic` HtmlCompare unstyled demo)
 - Streamline icons render well on dark backgrounds
 
@@ -421,6 +429,9 @@ No new commits since `de7dd1f`. This is a verification audit confirming continue
 - Touch targets adequate (44px+)
 - Code blocks contained within viewport
 - Navigation hamburger functional
+- `/icons` grid wraps to 3-across on mobile — good density
+- `/buttons` stacks all button groups vertically — readable
+- `/forms` input fields full-width, complete forms render cleanly
 
 ### What Still Needs Work
 
@@ -428,9 +439,9 @@ No new commits since `de7dd1f`. This is a verification audit confirming continue
 
 2. **LONG PAGES — SCROLL FATIGUE (MEDIUM)**: `/forms` (~17 DemoCards), `/buttons` (~19 DemoCards). Code blocks are now collapsible but raw content volume is substantial. Tabbed sections or progressive disclosure could help. **Task 10.7.**
 
-3. **`/responsive` PLACEHOLDER DEMOS (MEDIUM)**: "Responsive Grid Pattern" section shows coloured bars but doesn't visually demonstrate responsive behaviour. **Task 10.5.**
+3. ~~**`/responsive` PLACEHOLDER DEMOS (MEDIUM)**~~ — RESOLVED by Task 10.5. DevicePreview component added with genuine container-query responsiveness.
 
-4. **`/css-nesting` DARK MODE CONTRAST (LOW)**: Code blocks and demo areas blend together slightly — low contrast between card background and code background in dark mode. Confirmed still present. **Task 10.12.**
+4. **`/css-nesting` DARK MODE CONTRAST (LOW)**: Code blocks and demo areas blend together slightly — low contrast between card background and code background in dark mode. Confirmed still present in Audit #18. **Task 10.12.**
 
 ### Bugs Found (Carried Forward — No Change)
 
@@ -440,16 +451,16 @@ No new commits since `de7dd1f`. This is a verification audit confirming continue
 
 3. **Homepage stats animation timing**: Screenshots capture mid-animation values (25/5/303+ instead of 30/7/450+). Not a bug — NumberTicker animates from 0 to target. Playwright captures mid-animation.
 
-### NEW Issues Found in Audit #17
+### NEW Issues Found in Audit #18
 
-**No new issues found.** All 93 screenshots (31 pages × 3 viewports) reviewed systematically. Zero regressions. Site is stable.
+**No new issues found.** All 93 screenshots (31 pages × 3 viewports) reviewed systematically. Zero regressions. Task 10.5 layout enhancements confirmed stable across all viewports and themes.
 
-### Recommended Implementation Order (Updated for Audit #17)
+### Recommended Implementation Order (Updated for Audit #18)
 
-Phase 9 is COMPLETE. Tasks 10.0–10.5 are COMPLETE. Next up is **Task 10.6 (Visual Effects page enhancements)**:
+Phase 9 is COMPLETE. Tasks 10.0–10.6 are COMPLETE. Next up is **Task 10.7 (Components page enhancements)**:
 
 1. ~~**Task 10.5** — Layout page enhancements~~ COMPLETE
-2. **Task 10.6** — Visual Effects page enhancements: `/gradients`, `/gradient-patterns`, `/transitions`, `/animations`, `/filters` (MEDIUM)
+2. ~~**Task 10.6** — Visual Effects page enhancements~~ COMPLETE
 3. **Task 10.7** — Components page enhancements: `/buttons`, `/forms`, `/tables`, `/cards`, `/icons` (MEDIUM — address scroll fatigue)
 4. **Task 10.8** — Advanced page enhancements (MEDIUM)
 5. **Task 10.9** — Modern CSS page enhancements (MEDIUM)

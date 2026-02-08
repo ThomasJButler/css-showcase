@@ -5,6 +5,7 @@ import { Section } from "@/components/section"
 import { DemoGrid } from "@/components/demo-grid"
 import { DemoCard } from "@/components/demo-card"
 import { TimingDemo } from "./timing-demo"
+import { TransitionCompare } from "./transition-compare"
 import styles from "./page.module.css"
 
 export const metadata: Metadata = {
@@ -427,6 +428,15 @@ export default function TransitionsPage() {
             </div>
           </DemoCard>
         </DemoGrid>
+      </Section>
+
+      {/* ───── Interactive Comparison ───── */}
+      <Section
+        title="Before & After Comparison"
+        intro="See transition effects side by side. Toggle between the resting state and the transitioned state for each property type."
+        id="compare"
+      >
+        <TransitionCompare />
       </Section>
 
       {/* ───── Continue Your Journey ───── */}

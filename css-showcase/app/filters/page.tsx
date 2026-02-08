@@ -5,6 +5,7 @@ import { Section } from "@/components/section"
 import { DemoGrid } from "@/components/demo-grid"
 import { DemoCard } from "@/components/demo-card"
 import { FilterPlayground } from "./filter-playground"
+import { FilterCompare } from "./filter-compare"
 import styles from "./page.module.css"
 
 export const metadata: Metadata = {
@@ -320,6 +321,15 @@ export default function FiltersPage() {
         id="playground"
       >
         <FilterPlayground />
+      </Section>
+
+      {/* ───── Filter Comparison ───── */}
+      <Section
+        title="Before & After Comparison"
+        intro="Drag the slider to compare the original image with popular filter presets. See how combined filters create distinct moods."
+        id="compare"
+      >
+        <FilterCompare />
       </Section>
 
       {/* ───── Creative Filter Effects ───── */}

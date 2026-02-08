@@ -4,6 +4,7 @@ import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/section"
 import { DemoGrid } from "@/components/demo-grid"
 import { DemoCard } from "@/components/demo-card"
+import { AnimationTimeline } from "./animation-timeline"
 import styles from "./page.module.css"
 
 export const metadata: Metadata = {
@@ -512,6 +513,15 @@ element.style.animationPlayState = 'paused';`}
             </div>
           </DemoCard>
         </DemoGrid>
+      </Section>
+
+      {/* ───── Animation Timeline ───── */}
+      <Section
+        title="Animation Lab"
+        intro="Experiment with animation presets, adjust duration and easing in real time, and watch the progress timeline visualise each keyframe cycle."
+        id="lab"
+      >
+        <AnimationTimeline />
       </Section>
 
       {/* ───── Continue Your Journey ───── */}

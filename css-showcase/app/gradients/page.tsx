@@ -4,6 +4,7 @@ import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/section"
 import { DemoGrid } from "@/components/demo-grid"
 import { DemoCard } from "@/components/demo-card"
+import { GradientBuilder } from "./gradient-builder"
 import styles from "./page.module.css"
 
 export const metadata: Metadata = {
@@ -460,6 +461,15 @@ export default function GradientsPage() {
             </div>
           </DemoCard>
         </DemoGrid>
+      </Section>
+
+      {/* ───── Interactive Gradient Builder ───── */}
+      <Section
+        title="Interactive Gradient Builder"
+        intro="Experiment with gradient types, colours, angles, and colour stops in real time. Copy the generated CSS to use in your projects."
+        id="builder"
+      >
+        <GradientBuilder />
       </Section>
 
       {/* ───── Gradient Patterns CTA ───── */}

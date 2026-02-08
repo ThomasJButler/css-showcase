@@ -463,6 +463,148 @@
   filter: blur(0);
 }
 
+/* ─── Filter Compare ─── */
+
+.filterCompareContainer {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.filterCompareTabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.filterCompareTab {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filterCompareTab:hover {
+  border-color: var(--primary);
+  color: var(--foreground);
+}
+
+.filterCompareTabActive {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.filterCompareDescription {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.filterCompareSlider {
+  position: relative;
+  height: 300px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  cursor: col-resize;
+  user-select: none;
+  margin-bottom: 1rem;
+}
+
+.filterCompareLayer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+}
+
+.filterCompareLayer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 35%, rgba(255, 255, 255, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.15) 0%, transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 30%);
+}
+
+.filterCompareHandle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: white;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.filterCompareHandleGrip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  color: #333;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.filterCompareLabelLeft,
+.filterCompareLabelRight {
+  position: absolute;
+  bottom: 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.filterCompareLabelLeft {
+  left: 0.75rem;
+}
+
+.filterCompareLabelRight {
+  right: 0.75rem;
+}
+
+.filterCompareCode {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  overflow-x: auto;
+  margin: 0;
+}
+
+:global(.dark) .filterCompareLayer {
+  background: linear-gradient(135deg, #1e40af 0%, #4c1d95 50%, #9d174d 100%);
+}
+
 /* ─── Best Practices Tips ─── */
 
 .tipsGrid {
@@ -625,6 +767,10 @@
 
   .playgroundImage {
     height: 280px;
+  }
+
+  .filterCompareSlider {
+    height: 220px;
   }
 
   .tipsGrid {

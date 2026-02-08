@@ -642,6 +642,15 @@
     grid-template-columns: 1fr;
   }
 
+  .compareTabs {
+    gap: 0.375rem;
+  }
+
+  .compareTab {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
   .nextGrid {
     grid-template-columns: 1fr;
   }
@@ -660,6 +669,101 @@
   }
 }
 
+/* ─── Transition Compare ─── */
+
+.compareContainer {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.compareTabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.compareTab {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.compareTab:hover {
+  border-color: var(--primary);
+  color: var(--foreground);
+}
+
+.compareTabActive {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.compareDescription {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.compareToggleRow {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.25rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  width: fit-content;
+}
+
+.compareStateBtn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.compareStateBtnActive {
+  background: var(--primary);
+  color: white;
+}
+
+.comparePreview {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--muted);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
+
+.compareCode {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  overflow-x: auto;
+  margin: 0;
+}
+
 /* ─── Respect reduced motion ─── */
 
 @media (prefers-reduced-motion: reduce) {
@@ -675,6 +779,10 @@
   .timingRunner,
   .timingRunnerActive,
   .nextLink {
+    transition: none !important;
+  }
+
+  .comparePreview * {
     transition: none !important;
   }
 }

@@ -658,6 +658,208 @@
   margin: 0;
 }
 
+/* ─── Animation Timeline ─── */
+
+.timelineContainer {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.timelinePresets {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.timelinePresetBtn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.timelinePresetBtn:hover {
+  border-color: var(--primary);
+  color: var(--foreground);
+}
+
+.timelinePresetBtnActive {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.timelineDescription {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.timelinePreview {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--muted);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.timelineElement {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px oklch(from var(--primary) l c h / 0.3);
+}
+
+.timelineBar {
+  position: relative;
+  height: 8px;
+  background: var(--muted);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  overflow: visible;
+}
+
+.timelineProgress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 4px;
+  transition: none;
+}
+
+.timelineKeyframeDots {
+  position: absolute;
+  inset: 0;
+}
+
+.timelineKeyframeDot {
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--foreground);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+}
+
+.timelineControls {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.timelinePlayBtn {
+  padding: 0.5rem 1.25rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px oklch(from var(--primary) l c h / 0.25);
+  white-space: nowrap;
+}
+
+.timelinePlayBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px oklch(from var(--primary) l c h / 0.35);
+}
+
+.timelineControlGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timelineControlLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+
+.timelineSlider {
+  width: 100px;
+  height: 4px;
+  appearance: none;
+  background: var(--muted);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.timelineSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.timelineSlider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.timelineControlValue {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.75rem;
+  color: var(--foreground);
+  background: var(--muted);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  min-width: 3rem;
+  text-align: center;
+}
+
+.timelineSelect {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--foreground);
+  font-size: 0.75rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  cursor: pointer;
+}
+
+.timelineCode {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  overflow-x: auto;
+  margin: 0;
+}
+
 /* ─── Demo Hint ─── */
 
 .demoHint {
@@ -682,6 +884,14 @@
   .flipCard {
     width: 180px;
     height: 140px;
+  }
+
+  .timelineControls {
+    gap: 0.75rem;
+  }
+
+  .timelineSlider {
+    width: 80px;
   }
 
   .nextGrid {

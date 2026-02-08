@@ -4,6 +4,7 @@ import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/section"
 import { DemoGrid } from "@/components/demo-grid"
 import { DemoCard } from "@/components/demo-card"
+import { PatternCustomiser } from "./pattern-customiser"
 import styles from "./page.module.css"
 
 export const metadata: Metadata = {
@@ -291,6 +292,15 @@ export default function GradientPatternsPage() {
             for rotation animations to hint to the browser about optimisation.
           </p>
         </div>
+      </Section>
+
+      {/* ───── Pattern Customiser ───── */}
+      <Section
+        title="Interactive Pattern Builder"
+        intro="Mix and match pattern types, colours, sizes, and angles to create your own custom CSS patterns."
+        id="customiser"
+      >
+        <PatternCustomiser />
       </Section>
 
       {/* ───── Best Practices ───── */}

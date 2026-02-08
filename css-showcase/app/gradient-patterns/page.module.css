@@ -299,6 +299,194 @@
   100% { background-position: 0% 50%; }
 }
 
+/* ─── Pattern Customiser ─── */
+
+.customiserContainer {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+}
+
+.customiserControls {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.customiserTitle {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.customiserField {
+  margin-bottom: 0.875rem;
+}
+
+.customiserFieldHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.375rem;
+}
+
+.customiserLabel {
+  font-weight: 500;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  display: block;
+  margin-bottom: 0.375rem;
+}
+
+.customiserFieldHeader .customiserLabel {
+  margin-bottom: 0;
+}
+
+.customiserValue {
+  background: var(--muted);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.75rem;
+  color: var(--foreground);
+}
+
+.customiserSegmented {
+  display: flex;
+  gap: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.customiserSegBtn {
+  flex: 1;
+  padding: 0.4rem 0.25rem;
+  border: none;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-weight: 600;
+  font-size: 0.6875rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-transform: capitalize;
+}
+
+.customiserSegBtnActive {
+  background: var(--primary);
+  color: white;
+}
+
+.customiserColourRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.customiserColourPicker {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+  padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+}
+
+.customiserColourInput {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+}
+
+.customiserColourInput::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.customiserColourInput::-webkit-color-swatch {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.customiserColourHex {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.6875rem;
+  color: var(--muted-foreground);
+}
+
+.customiserSlider {
+  width: 100%;
+  height: 6px;
+  appearance: none;
+  background: var(--muted);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.customiserSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.customiserSlider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.customiserSlider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.customiserReset {
+  width: 100%;
+  padding: 0.625rem;
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.customiserReset:hover {
+  opacity: 0.9;
+}
+
+.customiserPreview {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.customiserSwatch {
+  height: 300px;
+  border-radius: var(--radius);
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 12px oklch(0 0 0 / 0.1);
+  border: 1px solid var(--border);
+}
+
+:global(.dark) .customiserSwatch {
+  box-shadow: 0 4px 12px oklch(0 0 0 / 0.3);
+}
+
 /* ─── Best Practices (Tip Cards) ─── */
 
 .tipsGrid {
@@ -425,6 +613,14 @@
 
   .animatedGrid {
     grid-template-columns: 1fr;
+  }
+
+  .customiserContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .customiserSwatch {
+    height: 200px;
   }
 
   .tipsGrid {
