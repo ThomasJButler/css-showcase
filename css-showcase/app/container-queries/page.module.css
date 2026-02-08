@@ -533,7 +533,7 @@
 }
 
 .containerCard {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+  background: linear-gradient(135deg, oklch(0.52 0.12 145 / 0.06) 0%, transparent 70%);
   border-color: var(--primary);
 }
 

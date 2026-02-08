@@ -125,14 +125,18 @@ npx shadcn@latest add progress alert label switch slider select hover-card aspec
 - These enhance specific content pages (forms, custom-properties, responsive)
 
 ### Task 8.5.5: Update Extended Colour Tokens
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
-**Files:** `css-showcase/app/globals.css`
+**Files:** `css-showcase/app/globals.css`, `css-showcase/app/advanced/page.module.css`, `css-showcase/app/custom-properties/page.module.css`, `css-showcase/app/cards/page.module.css`, `css-showcase/app/container-queries/page.module.css`, `css-showcase/app/anchor-positioning/page.module.css`, `css-showcase/app/transitions/page.module.css`, `css-showcase/app/has-selector/page.module.css`
 
-- Update `--color-brand-*` values in `@theme` block to Ghibli greens/browns/blues
-- Update success/warning/error/info colours for consistency with Ghibli palette
-- Grep all files for old brand colour references (e.g., `#2563eb`) and update
-- Use semantic tokens (`var(--primary)`, `bg-primary`) — never hardcode old hex values
+- `--color-brand-*` values already set to Ghibli forest/earth/sky in `@theme` block
+- Success/warning/error/info colours already consistent with Ghibli palette
+- Replaced all `--color-brand-blue` → `--color-brand-forest` references in demo CSS
+- Replaced all `--color-brand-purple` → `--color-brand-earth` references in demo CSS
+- Updated `rgba(37, 99, 235, ...)` overlays to `oklch(0.52 0.12 145 / ...)` in page styles
+- Updated tip box gradients from blue hue (240) to forest green hue (145)
+- Updated hardcoded slate theme colours to Ghibli oklch equivalents in custom-properties demos
+- Educational code strings in `.tsx` files preserved (teach standard CSS, not brand tokens)
 
 ### Task 8.5.6: Dark Mode Audit
 **Status:** PENDING

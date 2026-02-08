@@ -369,7 +369,7 @@
 
 .iconButton:hover {
   transform: scale(1.08);
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 4px 16px oklch(0.52 0.12 145 / 0.35);
 }
 
 .notificationBadge {

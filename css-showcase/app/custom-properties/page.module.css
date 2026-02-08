@@ -13,7 +13,7 @@
 }
 
 .demoBox {
-  --demo-primary: #2563eb;
+  --demo-primary: oklch(0.52 0.12 145);
   --demo-spacing: 2rem;
   --demo-radius: 12px;
 
@@ -23,7 +23,7 @@
   border-radius: var(--demo-radius);
   font-size: 1.25rem;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 12px oklch(0.52 0.12 145 / 0.3);
   transition: transform var(--transition-base);
 }
 
@@ -61,7 +61,7 @@
 }
 
 .syntaxBreakdown code {
-  background: rgba(37, 99, 235, 0.1);
+  background: oklch(0.52 0.12 145 / 0.1);
   padding: 0.125rem 0.375rem;
   border-radius: var(--radius-sm);
   font-size: 0.875em;
@@ -85,12 +85,12 @@
 }
 
 .scopeGlobal {
-  background: var(--color-brand-blue);
+  background: var(--color-brand-forest);
   color: white;
 }
 
 .scopeLocal {
-  background: #10b981;
+  background: var(--color-success);
   color: white;
   display: flex;
   flex-direction: column;
@@ -120,13 +120,13 @@
 }
 
 .themeDemoLight {
-  background: #ffffff;
-  border-color: #e2e8f0;
+  background: oklch(0.99 0.005 90);
+  border-color: oklch(0.88 0.02 85);
 }
 
 .themeDemodark {
-  background: #0f172a;
-  border-color: #334155;
+  background: oklch(0.18 0.03 155);
+  border-color: oklch(0.32 0.03 145);
 }
 
 .themeCard h3 {
@@ -135,11 +135,11 @@
 }
 
 .themeDemoLight .themeCard h3 {
-  color: #1e293b;
+  color: oklch(0.25 0.03 55);
 }
 
 .themeDemodark .themeCard h3 {
-  color: #f1f5f9;
+  color: oklch(0.90 0.015 100);
 }
 
 .themeCard p {
@@ -149,15 +149,15 @@
 }
 
 .themeDemoLight .themeCard p {
-  color: #1e293b;
+  color: oklch(0.25 0.03 55);
 }
 
 .themeDemodark .themeCard p {
-  color: #f1f5f9;
+  color: oklch(0.90 0.015 100);
 }
 
 .themeButton {
-  background: #2563eb;
+  background: oklch(0.52 0.12 145);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -174,7 +174,7 @@
 }
 
 .themeButtonDark {
-  background: #60a5fa;
+  background: oklch(0.72 0.12 145);
 }
 
 /* ─── Colour Picker Demo ─── */
@@ -233,7 +233,7 @@
   font-weight: 700;
   font-family: var(--font-mono);
   font-size: 0.875rem;
-  color: var(--color-brand-blue);
+  color: var(--color-brand-forest);
   min-width: 4ch;
   text-align: right;
 }
@@ -253,7 +253,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--color-brand-blue);
+  background: var(--color-brand-forest);
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: transform 0.15s ease;
@@ -267,7 +267,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--color-brand-blue);
+  background: var(--color-brand-forest);
   cursor: pointer;
   border: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -289,7 +289,7 @@
 }
 
 .codeExplanation code {
-  background: rgba(37, 99, 235, 0.1);
+  background: oklch(0.52 0.12 145 / 0.1);
   padding: 0.125rem 0.375rem;
   border-radius: var(--radius-sm);
   font-size: 0.875em;
@@ -310,7 +310,7 @@
   --base-spacing: 0.5rem;
   --multiplier: 1;
 
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, var(--color-brand-forest) 0%, var(--color-brand-earth) 100%);
   color: white;
   margin-bottom: calc(var(--base-spacing) * var(--multiplier));
   padding: calc(var(--base-spacing) * var(--multiplier));
@@ -333,7 +333,7 @@
 }
 
 .apiButton {
-  --button-color: #2563eb;
+  --button-color: oklch(0.52 0.12 145);
   --button-size: 1;
 
   background: var(--button-color);
@@ -362,8 +362,8 @@
 }
 
 .dsCard {
-  background: #eff6ff;
-  color: #1e3a8a;
+  background: oklch(0.95 0.02 145);
+  color: oklch(0.30 0.08 145);
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
@@ -374,7 +374,7 @@
 .dsCard h3 {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
-  color: #1e3a8a;
+  color: oklch(0.30 0.08 145);
 }
 
 .dsCard p {
@@ -384,7 +384,7 @@
 }
 
 .dsButton {
-  background: #3b82f6;
+  background: var(--color-brand-forest);
   color: white;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
@@ -398,7 +398,7 @@
 
 .dsButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px oklch(0.52 0.12 145 / 0.3);
 }
 
 /* ─── Browser Support Demo ─── */
@@ -431,7 +431,7 @@
 }
 
 .browserSupported {
-  border-color: #10b981;
+  border-color: var(--color-success);
 }
 
 .browserIcon {
@@ -440,7 +440,7 @@
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, var(--color-success) 0%, #059669 100%);
   color: white;
   border-radius: 50%;
   font-weight: 700;
@@ -460,14 +460,14 @@
 .tipBox {
   margin-top: 1.5rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, oklch(0.95 0.02 240) 0%, oklch(0.93 0.03 240) 100%);
-  border-left: 4px solid var(--color-brand-blue);
+  background: linear-gradient(135deg, oklch(0.95 0.02 145) 0%, oklch(0.93 0.03 145) 100%);
+  border-left: 4px solid var(--color-brand-forest);
   border-radius: var(--radius-md);
 }
 
 :global(.dark) .tipBox {
-  background: linear-gradient(135deg, oklch(0.25 0.03 240) 0%, oklch(0.20 0.02 240) 100%);
-  border-left-color: var(--color-brand-blue-light);
+  background: linear-gradient(135deg, oklch(0.25 0.03 145) 0%, oklch(0.20 0.02 145) 100%);
+  border-left-color: var(--color-brand-forest-light);
 }
 
 .tipBox h4 {
@@ -483,7 +483,7 @@
 }
 
 .tipBox code {
-  background: rgba(37, 99, 235, 0.1);
+  background: oklch(0.52 0.12 145 / 0.1);
   padding: 0.125rem 0.375rem;
   border-radius: var(--radius-sm);
   font-size: 0.875em;
@@ -509,7 +509,7 @@
 .tipCard:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
-  border-color: var(--color-brand-blue);
+  border-color: var(--color-brand-forest);
 }
 
 .tipIcon {
@@ -518,7 +518,7 @@
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  background: linear-gradient(135deg, var(--color-brand-blue) 0%, var(--color-brand-purple) 100%);
+  background: linear-gradient(135deg, var(--color-brand-forest) 0%, var(--color-brand-earth) 100%);
   color: white;
   border-radius: var(--radius-md);
   font-weight: 700;
@@ -542,7 +542,7 @@
 }
 
 .tipCard code {
-  background: rgba(37, 99, 235, 0.1);
+  background: oklch(0.52 0.12 145 / 0.1);
   padding: 0.125rem 0.375rem;
   border-radius: var(--radius-sm);
   font-size: 0.875em;

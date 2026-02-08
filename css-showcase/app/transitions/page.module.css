@@ -64,7 +64,7 @@
   border-radius: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 4px 12px oklch(0.52 0.12 145 / 0.2);
 }
 
 .basicBox:hover {
@@ -259,12 +259,12 @@
   background: #1d4ed8;
   border-color: #1d4ed8;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 6px 16px oklch(0.52 0.12 145 / 0.3);
 }
 
 .btnPrimary:active {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 2px 8px oklch(0.52 0.12 145 / 0.2);
 }
 
 .btnGhost {

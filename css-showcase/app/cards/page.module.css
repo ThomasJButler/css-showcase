@@ -446,7 +446,7 @@
 .cardMasonryShort {
   composes: cardMasonry;
   height: 80px;
-  background: var(--color-brand-purple);
+  background: var(--color-brand-earth);
   color: white;
 }
 
@@ -524,7 +524,7 @@
 }
 
 .cardBack {
-  background: var(--color-brand-purple);
+  background: var(--color-brand-earth);
   color: white;
   transform: rotateY(180deg);
 }
