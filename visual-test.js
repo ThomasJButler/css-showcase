@@ -47,21 +47,18 @@ const pages = [
   { name: 'frameworks', path: '/frameworks' },
 ];
 
-// CSS to disable scroll-driven animations for fullPage screenshots.
-// Without this, elements using animation-timeline: view() start at opacity: 0
-// and never reveal because Playwright doesn't simulate scrolling.
-const DISABLE_SCROLL_ANIMATIONS_CSS = `
-  .animate-on-scroll,
-  .animate-on-scroll-card {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-`;
-
+// Disable scroll-driven animations for fullPage screenshots.
+// Uses page.evaluate() to set inline styles directly on each element,
+// which reliably overrides animation-timeline: view() keyframe state
+// (addStyleTag CSS injection alone is insufficient — Chromium may have
+// already computed the animation's initial opacity: 0 / translateY state).
 async function disableScrollAnimations(page) {
-  await page.addStyleTag({ content: DISABLE_SCROLL_ANIMATIONS_CSS });
-  await page.waitForTimeout(100);
+  await page.evaluate(() => {
+    document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-card').forEach(el => {
+      el.style.cssText += 'animation: none !important; opacity: 1 !important; transform: none !important;';
+    });
+  });
+  await page.waitForTimeout(200);
 }
 
 async function captureScreenshots() {
