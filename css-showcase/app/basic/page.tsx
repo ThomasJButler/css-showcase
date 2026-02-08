@@ -4,6 +4,7 @@ import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/section"
 import { DemoGrid } from "@/components/demo-grid"
 import { DemoCard } from "@/components/demo-card"
+import { HtmlCompare } from "./html-compare"
 import styles from "./page.module.css"
 
 export const metadata: Metadata = {
@@ -19,6 +20,15 @@ export default function BasicCSSPage() {
         title="Basic CSS"
         subtitle="The foundation of web styling — where every brilliant design begins"
       />
+
+      {/* ───── HTML vs CSS Comparison ───── */}
+      <Section
+        title="Why CSS Matters"
+        intro="Toggle between raw HTML and styled HTML to see the dramatic difference CSS makes. The same content, transformed by a few dozen lines of styling."
+        id="why-css"
+      >
+        <HtmlCompare />
+      </Section>
 
       {/* ───── Selectors Section ───── */}
       <Section

@@ -703,9 +703,122 @@
   margin: 0;
 }
 
+/* --- Font Preview Interactive --- */
+
+.fontPreviewContainer {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.fontPreviewControls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  background: var(--card);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.fontPreviewControl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fontSelect {
+  width: 100%;
+}
+
+.sliderHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fontPreviewValue {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  background: var(--muted);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.fontPreviewOutput {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.fontPreviewMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.fontPreviewLabel {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--primary);
+}
+
+.fontPreviewDetail {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.fontPreviewText {
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+  transition: font-family 0.15s ease, font-size 0.15s ease, font-weight 0.15s ease;
+}
+
+.fontPreviewAlphabet {
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border);
+}
+
+.fontPreviewAlphabet p {
+  font-size: 1.25rem;
+  margin: 0.25rem 0;
+  letter-spacing: 0.08em;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  transition: font-family 0.15s ease, font-weight 0.15s ease;
+}
+
+.fontPreviewCode {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.fontPreviewCode pre {
+  margin: 0;
+  padding: 1rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
 /* --- Responsive --- */
 
 @media (max-width: 768px) {
+  .fontPreviewControls {
+    grid-template-columns: 1fr;
+  }
+
   .specimen {
     padding: 2rem;
   }

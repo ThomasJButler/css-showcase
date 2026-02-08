@@ -4,6 +4,7 @@ import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/section"
 import { DemoGrid } from "@/components/demo-grid"
 import { DemoCard } from "@/components/demo-card"
+import { FontPreview } from "./font-preview"
 import styles from "./page.module.css"
 
 export const metadata: Metadata = {
@@ -120,6 +121,15 @@ body {
             </div>
           </DemoCard>
         </DemoGrid>
+      </Section>
+
+      {/* ───── Interactive Font Preview ───── */}
+      <Section
+        title="Interactive Font Preview"
+        intro="Experiment with different font families, sizes, and weights to see how they affect the look and feel of text."
+        id="font-preview"
+      >
+        <FontPreview />
       </Section>
 
       {/* ───── Text Styling Properties ───── */}

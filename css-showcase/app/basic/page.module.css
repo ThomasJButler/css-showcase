@@ -413,6 +413,216 @@
   margin: 0;
 }
 
+/* --- HTML Compare Section --- */
+
+.compareContainer {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.compareControls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  background: var(--muted);
+  padding: 0.375rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.compareBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border: none;
+  border-radius: calc(var(--radius) - 2px);
+  background: transparent;
+  color: var(--muted-foreground);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.compareBtn:hover {
+  color: var(--foreground);
+}
+
+.compareBtnActive {
+  background: var(--card);
+  color: var(--primary);
+  box-shadow: 0 1px 3px oklch(0 0 0 / 0.08);
+}
+
+.compareBtnIcon {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.compareViewport {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: white;
+  min-height: 320px;
+  transition: background 0.3s ease;
+}
+
+:global(.dark) .compareViewport {
+  background: oklch(0.95 0.005 90);
+}
+
+/* Plain HTML — browser defaults only */
+.comparePlain {
+  padding: 1rem;
+  font-family: "Times New Roman", Times, serif;
+  color: #000;
+  animation: compareFade 0.3s ease;
+}
+
+.comparePlain h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0.67em 0;
+}
+
+.comparePlain p {
+  margin: 1em 0;
+}
+
+.comparePlain nav ul {
+  padding-left: 40px;
+}
+
+.comparePlain nav li {
+  list-style: disc;
+}
+
+.comparePlain a {
+  color: #0000ee;
+  text-decoration: underline;
+}
+
+.comparePlain blockquote {
+  margin: 1em 40px;
+}
+
+.comparePlain button {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
+}
+
+/* Styled with CSS */
+.compareStyled {
+  padding: 2.5rem;
+  font-family: var(--font-sans);
+  color: var(--foreground);
+  background: linear-gradient(165deg, oklch(0.97 0.01 90), oklch(0.95 0.02 145 / 0.3));
+  animation: compareFade 0.3s ease;
+}
+
+:global(.dark) .compareStyled {
+  background: linear-gradient(165deg, oklch(0.95 0.005 90), oklch(0.92 0.015 145 / 0.2));
+  color: oklch(0.25 0.02 155);
+}
+
+.compareStyled h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--primary), oklch(0.60 0.14 230));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.compareStyled p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0 0 1.5rem 0;
+  max-width: 55ch;
+  color: oklch(0.45 0.03 155);
+}
+
+.compareStyled nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0.25rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.compareStyled nav li {
+  list-style: none;
+}
+
+.compareStyled nav a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: calc(var(--radius) - 2px);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--primary);
+  background: oklch(from var(--primary) l c h / 0.08);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.compareStyled nav a:hover {
+  background: oklch(from var(--primary) l c h / 0.15);
+  transform: translateY(-1px);
+}
+
+.compareStyled blockquote {
+  margin: 0 0 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid var(--primary);
+  background: oklch(from var(--primary) l c h / 0.05);
+  border-radius: 0 calc(var(--radius) - 2px) calc(var(--radius) - 2px) 0;
+  font-style: italic;
+  color: oklch(0.50 0.05 155);
+}
+
+.compareStyled button {
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.compareStyled button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px oklch(from var(--primary) l c h / 0.3);
+}
+
+@keyframes compareFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.compareCaption {
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  text-align: center;
+  line-height: 1.5;
+  font-style: italic;
+}
+
 /* --- Responsive --- */
 
 @media (max-width: 768px) {

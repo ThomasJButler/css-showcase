@@ -1,6 +1,9 @@
 "use client"
 
 import { useState, useCallback } from "react"
+import { Slider } from "@/components/ui/slider"
+import { Label } from "@/components/ui/label"
+import { Switch } from "@/components/ui/switch"
 import styles from "./page.module.css"
 
 interface PlaygroundValues {
@@ -11,6 +14,14 @@ interface PlaygroundValues {
   margin: number
   borderBox: boolean
 }
+
+const sliderConfig = [
+  { key: "contentWidth" as const, label: "Content Width", min: 100, max: 400, unit: "px" },
+  { key: "contentHeight" as const, label: "Content Height", min: 50, max: 200, unit: "px" },
+  { key: "padding" as const, label: "Padding", min: 0, max: 50, unit: "px" },
+  { key: "borderWidth" as const, label: "Border Width", min: 0, max: 20, unit: "px" },
+  { key: "margin" as const, label: "Margin", min: 0, max: 50, unit: "px" },
+]
 
 export function BoxModelPlayground() {
   const [values, setValues] = useState<PlaygroundValues>({
@@ -51,79 +62,32 @@ export function BoxModelPlayground() {
       <div className={styles.controlsPanel}>
         <h3>Adjust Properties</h3>
 
-        <div className={styles.controlGroup}>
-          <label htmlFor="content-width">Content Width</label>
-          <input
-            type="range"
-            id="content-width"
-            min={100}
-            max={400}
-            value={values.contentWidth}
-            onChange={(e) => update("contentWidth", Number(e.target.value))}
-          />
-          <span className={styles.valueDisplay}>{values.contentWidth}px</span>
-        </div>
-
-        <div className={styles.controlGroup}>
-          <label htmlFor="content-height">Content Height</label>
-          <input
-            type="range"
-            id="content-height"
-            min={50}
-            max={200}
-            value={values.contentHeight}
-            onChange={(e) => update("contentHeight", Number(e.target.value))}
-          />
-          <span className={styles.valueDisplay}>{values.contentHeight}px</span>
-        </div>
-
-        <div className={styles.controlGroup}>
-          <label htmlFor="padding-value">Padding</label>
-          <input
-            type="range"
-            id="padding-value"
-            min={0}
-            max={50}
-            value={values.padding}
-            onChange={(e) => update("padding", Number(e.target.value))}
-          />
-          <span className={styles.valueDisplay}>{values.padding}px</span>
-        </div>
-
-        <div className={styles.controlGroup}>
-          <label htmlFor="border-width">Border Width</label>
-          <input
-            type="range"
-            id="border-width"
-            min={0}
-            max={20}
-            value={values.borderWidth}
-            onChange={(e) => update("borderWidth", Number(e.target.value))}
-          />
-          <span className={styles.valueDisplay}>{values.borderWidth}px</span>
-        </div>
-
-        <div className={styles.controlGroup}>
-          <label htmlFor="margin-value">Margin</label>
-          <input
-            type="range"
-            id="margin-value"
-            min={0}
-            max={50}
-            value={values.margin}
-            onChange={(e) => update("margin", Number(e.target.value))}
-          />
-          <span className={styles.valueDisplay}>{values.margin}px</span>
-        </div>
-
-        <div className={styles.controlGroup}>
-          <label className={styles.checkboxLabel}>
-            <input
-              type="checkbox"
-              checked={values.borderBox}
-              onChange={(e) => update("borderBox", e.target.checked)}
+        {sliderConfig.map(({ key, label, min, max, unit }) => (
+          <div className={styles.controlGroup} key={key}>
+            <div className={styles.sliderHeader}>
+              <Label htmlFor={key}>{label}</Label>
+              <span className={styles.valueDisplay}>
+                {values[key]}{unit}
+              </span>
+            </div>
+            <Slider
+              id={key}
+              min={min}
+              max={max}
+              step={1}
+              value={[values[key]]}
+              onValueChange={([v]) => update(key, v)}
             />
-            Use border-box
+          </div>
+        ))}
+
+        <div className={styles.controlGroup}>
+          <label className={styles.switchLabel}>
+            <Switch
+              checked={values.borderBox}
+              onCheckedChange={(checked) => update("borderBox", checked)}
+            />
+            <span>Use border-box</span>
           </label>
         </div>
       </div>

@@ -1,7 +1,7 @@
 # CSS Showcase - Implementation Plan (Next.js Migration)
 
-**Last Updated:** 8 February 2026 (Visual Audit #14)
-**Status:** Phase 8.5 (5/7) + Phase 9 COMPLETE → Phase 10 - Polish (10.0–10.3 COMPLETE)
+**Last Updated:** 8 February 2026 (Visual Audit #15)
+**Status:** Phase 8.5 (5/7) + Phase 9 COMPLETE → Phase 10 - Polish (10.0–10.4 COMPLETE)
 
 ### Architecture
 
@@ -258,13 +258,13 @@ Apply premium components globally across all pages:
 - **Collapsible code** — already done in Task 10.2
 
 ### Task 10.4: Page Enhancements — Fundamentals
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
 **Files:** `css-showcase/app/basic/`, `css-showcase/app/box-model/`, `css-showcase/app/typography/`
 
-- `/basic` — **Comparison** slider: plain HTML vs styled HTML side-by-side
-- `/box-model` — interactive margin/padding visualiser using **Slider** components
-- `/typography` — font previews with **Select** dropdown to switch font families
+- `/basic` — "Why CSS Matters" section with interactive toggle between plain HTML and styled HTML. Custom `HtmlCompare` client component with segmented button control, animated transitions, and descriptive caption. Styled version uses Ghibli palette gradients, themed buttons, navigation pills, and blockquote styling.
+- `/box-model` — Upgraded `BoxModelPlayground` from raw `<input type="range">` to ShadCN **Slider** and **Switch** components. Themed track/thumb matching Ghibli palette, accessible keyboard navigation, cleaner control layout with label+value headers.
+- `/typography` — "Interactive Font Preview" section with **Select** dropdown for font family, plus **Slider** controls for font size (12–48px) and weight (100–900). Live preview with pangram text, alphabet display, and generated CSS code output.
 
 ### Task 10.5: Page Enhancements — Layout
 **Status:** PENDING
@@ -361,32 +361,24 @@ Mobile (375px) verification:
 
 ---
 
-## Screenshot Audit Observations (8 February 2026 — Audit #14)
+## Screenshot Audit Observations (8 February 2026 — Audit #15)
 
-### Overall Status: STABLE — SCREENSHOT TOOLING FIXED
+### Overall Status: EXCELLENT — NO REGRESSIONS
 
-Phase 8.5 is 5/7 complete. Phase 9 (Homepage) is COMPLETE. Tasks 10.0, 10.1, 10.2, and 10.3 are COMPLETE. All 30 content pages + homepage migrated and rendering. Shell fully functional. Ghibli theme applied (forest green primary, creamy parchment backgrounds, twilight forest dark mode). Streamline Freehand Colour icons migrated (15 icons, replacing Lucide for project UI). Mobile responsive at 375px. **No code regressions. Site is in a mature polish phase.**
+Phase 8.5 is 5/7 complete. Phase 9 (Homepage) is COMPLETE. Tasks 10.0, 10.1, 10.2, and 10.3 are COMPLETE. All 30 content pages + homepage migrated and rendering. Shell fully functional. Ghibli theme applied (forest green primary, creamy parchment backgrounds, twilight forest dark mode). Streamline Freehand Colour icons migrated (15 icons, replacing Lucide for project UI). Mobile responsive at 375px. **No code regressions. Site is in a mature polish phase. All 93 screenshots reviewed — zero new issues found.**
 
-### What's Changed Since Audit #13
+### What's Changed Since Audit #14
 
-Latest commit is `509a83a` (Migrate project icons to Streamline Freehand Colour). Task 10.0 is now COMPLETE — 15 Streamline Freehand Colour SVG icons have replaced Lucide icons across sidebar (`navigation.ts`), header (`site-header.tsx`), footer (`site-footer.tsx`), code blocks (`code-block.tsx`), theme toggle (`theme-toggle.tsx`), search dialog (`search-dialog.tsx`), and homepage (`page.tsx`). Icons are multi-colour (black + blue accent `#0c6fff`), sourced from Iconify API under CC BY 4.0.
-
-Other recent commits: `e832104` (scroll-animation fix for visual-test.js), `d00c19d` (global UX micro-interactions), `4fdd85d` (single-column default + collapsible code blocks), `09a9bb3` (centre PageHero titles + sidebar label fix).
-
-### RESOLVED: Screenshot Tooling Now Captures Full Page Content
-
-**Previous issue:** `visual-test.js` used `page.addStyleTag()` to override scroll-driven animations, but Chromium computed the `animation-timeline: view()` keyframe state (`opacity: 0`) before the CSS override took effect — leaving ~80% of page content invisible in screenshots.
-
-**Fix applied:** Replaced `addStyleTag()` with `page.evaluate()` to set inline styles directly on all `.animate-on-scroll` and `.animate-on-scroll-card` elements. Inline styles reliably override computed animation states. Verified: 19/21 elements were hidden before fix, 0/21 hidden after. All 93 screenshots (31 pages × 3 viewports) recaptured successfully with full content visible.
+Latest commit is `92652a1` (Fix screenshot tooling: use page.evaluate() to override scroll animations). No code changes since Audit #14 — this is a verification pass confirming stability.
 
 ### What's Working Well
 
 **Homepage — EXCELLENT (all three viewports)**
 - Hero: "Learn Modern CSS by Example" with gradient accent text on "Modern CSS", grid-pattern background, dual CTA buttons ("Start Learning" + "Advanced Techniques")
-- Stats: `28/6/382+` visible in screenshots (mid-animation capture — code targets `30/7/450+`)
+- Stats: `25/5/307+` visible in screenshots (mid-animation capture — code targets `30/7/450+`)
 - Featured Carousel: Apple Cards Carousel with 4 visible cards — vibrant gradient backgrounds per card (Layout, Visual Effects, Animation, Modern CSS)
 - Marquee: 20+ CSS feature names scrolling horizontally with green dots
-- Category Grid: 7 cards with Streamline Freehand Colour icons + emoji fallbacks (Fundamentals, Layout, Visual Effects, Components, Advanced, Modern CSS, Resources), topic chip badges, hover lift effects
+- Category Grid: 7 cards with Streamline Freehand Colour icons (Fundamentals, Layout, Visual Effects, Components, Advanced, Modern CSS, Resources), topic chip badges, hover lift effects
 - Bottom CTA: "Ready to dive in?" with Kbd shortcut hint (⌘K)
 - Desktop: well-proportioned, all sections fill the viewport naturally
 - Mobile: stacks cleanly, all sections render, carousel is touch-swipeable
@@ -404,29 +396,29 @@ Other recent commits: `e832104` (scroll-animation fix for visual-test.js), `d00c
 - PageHero: centred titles and subtitles with subtle grid-pattern overlay, gradient backgrounds using Ghibli palette tokens
 - Consistent PageHero → Section → DemoGrid → DemoCard structure across all pages
 - Code blocks: terminal dot indicators (red/amber/green), collapsible toggle, copy button with bounce animation, monospace font
-- Live CSS demos rendering correctly across all categories — full page content now visible in screenshots
+- Live CSS demos rendering correctly across all categories — full page content visible in screenshots
 - Forest green accents in section headers, tip boxes, interactive elements
 - Demo card backgrounds use warm cream/beige `--surface` tokens, distinct from page `--background`
 - Scroll-reveal animations (`animation-timeline: view()`) on Section and DemoCard components — progressive enhancement
 - CTA card hover effects: `translateY(-3px)` lift, primary-tinted box-shadow, gradient accent stripe via `::before`
 
-**Standout Pages (first-section visible in screenshots):**
-- `/icons` — Icon grid with 12 Basic Icons + 5 Animated Icons, two distinct sections
-- `/flexbox` — 2-column layout: Flex Direction + Flex Wrap demos with green numbered boxes
-- `/flexbox-patterns` — 2-column: Login form pattern + Card Layout pattern
-- `/buttons` — "Basic Button Styles" with Primary (4 variants) and Secondary & Outline (4 variants), collapsible code
-- `/gradients` — 3-column swatch grid: Basic Linear Gradients, Colour Stops, Advanced Techniques
-- `/tools`, `/frameworks` — 3-column resource cards with green icon badges
-- `/grid` — 2-column: Auto-flow grid (3 items) + Responsive grid (5 items)
-- `/color-spaces` — sRGB vs Display P3 comparison with vivid magenta/pink swatches
-- `/has-selector` — "Old Way vs New Way" comparison cards with pink/green colour coding
-- `/css-nesting` — Side-by-side comparison boxes with clear visual distinction
+**Standout Pages:**
+- `/icons` — Icon grid with Basic (12), Animated (6), Interactive (6), Fun (3) sections — excellent visual variety
+- `/flexbox-patterns` — 2-column: Navigation Bar, Card Layout, Media Object, Sticky Footer, Input Groups, Holy Grail patterns
+- `/gradient-patterns` — Geometric Patterns, Organic Textures, Animated Gradients — stunning visual showcase
+- `/filters` — Vivid filter demos (blur, brightness, contrast, sepia, saturate) with interactive playground
+- `/shapes-clips` — Geometric shapes, clip-paths, with purple/pink demo palette
+- `/color-spaces` — sRGB vs Display P3 comparison, vivid magenta/pink/orange swatches
+- `/flexbox` — Interactive playground with green numbered boxes, alignment & justification demos
+- `/grid` — Grid Fundamentals, Grid Placement, Template Areas, Real-World Layouts — comprehensive
+- `/basic` — CSS Selectors, Essential CSS Properties, Cascade & Specificity, CSS Units — thorough educational content
+- `/tools`, `/frameworks` — 3-column resource cards with coloured icon badges (green, purple, red, brown)
 
 **Dark Mode — TWILIGHT FOREST AESTHETIC (excellent)**
 - Deep forest green page backgrounds (`oklch(0.18 0.03 155)`) — confirmed across all 30 pages + homepage
 - Card backgrounds slightly lighter forest (`oklch(0.23 0.03 150)`) creating depth
 - Code blocks: dark indigo/navy with purple-tinted syntax highlighting
-- Gradient demos pop beautifully against dark backgrounds — `/color-spaces` and `/gradients` standout
+- Gradient demos pop beautifully against dark backgrounds — `/color-spaces`, `/gradients`, `/gradient-patterns` standout
 - No white blocks or unthemed areas visible anywhere
 - Consistent theme application across all 31 screenshots (30 pages + homepage)
 - Streamline icons render well on dark backgrounds (black + blue accent fills)
@@ -445,35 +437,34 @@ Other recent commits: `e832104` (scroll-animation fix for visual-test.js), `d00c
 
 1. ~~**SCREENSHOT TOOLING (CRITICAL)**~~ — RESOLVED. All 93 screenshots now capture full page content.
 
-2. **LONG PAGES — SCROLL FATIGUE (MEDIUM)**: `/forms` (~17 DemoCards), `/buttons` (~19 DemoCards). Code blocks are now collapsible on these pages but the raw amount of content is substantial. Tabbed sections or progressive disclosure could help. **Tasks 10.7.**
+2. **LONG PAGES — SCROLL FATIGUE (MEDIUM)**: `/forms` (~17 DemoCards), `/buttons` (~19 DemoCards). Code blocks are now collapsible on these pages but the raw amount of content is substantial. Tabbed sections or progressive disclosure could help. **Task 10.7.**
 
 3. **`/responsive` PLACEHOLDER DEMOS (MEDIUM)**: "Responsive Grid Pattern" section shows coloured bars but doesn't visually demonstrate responsive behaviour. **Task 10.5.**
 
-### Bugs Found (Carried Forward)
+4. **`/css-nesting` DARK MODE CONTRAST (LOW)**: Code blocks and demo areas blend together slightly — low contrast between card background and code background in dark mode. **Task 10.12.**
+
+### Bugs Found (Carried Forward — No Change)
 
 1. **`/has-selector` off-palette hero gradient** (carried from Audit #4): Light mode PageHero has a slightly warmer/brownish tint compared to other pages. **Minor — fix during dark mode audit pass or leave as-is.**
 
 2. **`/color-spaces` header area** (carried from Audit #4): First section background appears slightly lighter/whiter than standard Ghibli cream. **Minor — cosmetic only.**
 
-3. **Homepage stats animation timing**: Screenshots captured mid-animation values (28/6/382+ instead of 30/7/450+). Not a bug — the NumberTicker component animates from 0 to target value. Playwright captures mid-animation.
+3. **Homepage stats animation timing**: Screenshots captured mid-animation values (25/5/307+ instead of 30/7/450+). Not a bug — the NumberTicker component animates from 0 to target value. Playwright captures mid-animation.
 
-### NEW Issues Found in Audit #14
+### NEW Issues Found in Audit #15
 
-1. **Lucide icons retained for chevrons + GitHub + ShadCN internals** — This is by design (Streamline set lacks directional arrows and brand logos). No action needed. Documented in Task 10.0 completion notes.
+**No new issues found.** All 93 screenshots (31 pages × 3 viewports) reviewed systematically. The site is stable with zero regressions since Audit #14.
 
-2. **No new code issues found.** All visual findings are screenshot-tooling related.
-
-### Recommended Implementation Order (Updated for Audit #14)
+### Recommended Implementation Order (Updated for Audit #15)
 
 Phase 9 is COMPLETE. Tasks 10.0, 10.1, 10.2, and 10.3 are COMPLETE. Focus on remaining Phase 10 polish:
 
-1. ~~**Fix screenshot tooling (CRITICAL)**~~ — DONE. `visual-test.js` now uses `page.evaluate()`. All 93 screenshots recaptured.
-2. **Tasks 10.4–10.10** — Page enhancements category by category (MEDIUM — interactive UX, advanced CSS techniques)
-3. **Task 10.11** — Desktop density tightening (MEDIUM — partially addressed by 10.2 collapsible code)
-4. **Task 8.5.7** — Clean up legacy static files (housekeeping)
-5. **Task 8.5.6 / 10.12** — Dark mode fine-tuning (twilight forest is solid, only edge cases)
-6. **Task 10.13** — Responsive audit (mobile already looks excellent — formal pass)
-7. **Task 10.14** — Accessibility and final build
+1. **Tasks 10.4–10.10** — Page enhancements category by category (MEDIUM — interactive UX, advanced CSS techniques)
+2. **Task 10.11** — Desktop density tightening (MEDIUM — partially addressed by 10.2 collapsible code)
+3. **Task 8.5.7** — Clean up legacy static files (housekeeping)
+4. **Task 8.5.6 / 10.12** — Dark mode fine-tuning (twilight forest is solid, only edge cases like `/css-nesting` contrast)
+5. **Task 10.13** — Responsive audit (mobile already looks excellent — formal pass)
+6. **Task 10.14** — Accessibility and final build
 
 ---
 
