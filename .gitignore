@@ -110,3 +110,5 @@ out/
 *.png
 /docs/visual-testing
 docs/visual-testing/screenshots/dark-mode/advanced.png
+/css-showcase/playwright-report
+/css-showcase/test-results
