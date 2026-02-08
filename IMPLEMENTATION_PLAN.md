@@ -1,7 +1,7 @@
 # CSS Showcase - Implementation Plan (Next.js Migration)
 
-**Last Updated:** 8 February 2026 (Visual Audit #3)
-**Status:** Phase 8.5 - Ghibli Visual Refresh → Phase 9 - Homepage → Phase 10 - Polish
+**Last Updated:** 8 February 2026 (Visual Audit #4)
+**Status:** Phase 8.5 NEARLY COMPLETE (5/7) → Phase 9 - Homepage → Phase 10 - Polish
 
 ### Architecture
 
@@ -179,9 +179,9 @@ The project was originally a static HTML/CSS/JS site. All content has been migra
 ## Phase 9: Homepage Redesign
 
 ### Task 9.1: Build a Distinctive Homepage
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** HIGH
-**Files:** `css-showcase/app/page.tsx`
+**Files:** `css-showcase/app/page.tsx`, `css-showcase/app/page.module.css`
 
 The current homepage is extremely bare — just a title, one-line subtitle, and a massive empty white area before the footer. It needs to become a proper landing page worthy of a CSS showcase.
 
@@ -366,149 +366,151 @@ Mobile (375px) verification:
 
 ---
 
-## Screenshot Audit Observations (8 February 2026 — Audit #3)
+## Screenshot Audit Observations (8 February 2026 — Audit #4)
 
-### Overall Status: MIGRATION COMPLETE — POLISH PHASE
+### Overall Status: GHIBLI THEME APPLIED — POLISH PHASE
 
-All 30 content pages + homepage migrated and rendering. Shell (sidebar, header, footer, search, theme toggle) fully functional. Dark mode working across all pages. Mobile responsive. No broken routes or 404s. No regressions since Audit #2.
+Phase 8.5 is 5/7 complete. The Ghibli theme, Nunito fonts, premium components, base components, and extended colour tokens are all applied. All 30 content pages + homepage migrated and rendering. Shell fully functional. Dark mode uses twilight forest tones. Mobile responsive. No broken routes or 404s. **Major visual improvement since Audit #3.**
+
+### What's Changed Since Audit #3
+
+**RESOLVED — Ghibli Theme (was Issue #5)**
+- Creamy parchment backgrounds throughout (`oklch(0.97 0.01 90)`) — no more zinc grey
+- Forest green primary visible in sidebar badge, active state highlighting, primary buttons
+- Earth brown secondary tones in borders and subtle accents
+- Warm, cohesive colour palette across all 30 pages
+- Dark mode: twilight forest tones (deep forest green `~#0a1f15` backgrounds, indigo code blocks) — not old slate/zinc
+
+**RESOLVED — Fonts (was implicit in Issue #5)**
+- Nunito Sans body text rendering with rounded, friendly letterforms
+- Nunito display font on headings — softer, warmer than geometric Inter
+- JetBrains Mono preserved for code blocks
+- Font rendering is clean and consistent across all pages
+
+**RESOLVED — Premium + Base Components Installed (was Issue #6)**
+- Apple Cards Carousel, 3D Card, Compare, Animated Tooltip installed from Aceternity UI
+- Marquee, Number Ticker, Terminal, Typing Animation installed from Magic UI
+- Kbd component installed from core shadcn/ui
+- Progress, Alert, Label, Switch, Slider, Select, Hover Card, Aspect Ratio, Popover installed
+- Components are installed but NOT YET USED on pages — that's Tasks 9.1 and 10.3–10.10
 
 ### What's Working Well
 
-**Shell & Navigation — EXCELLENT**
-- Sidebar: 7 collapsible sections, all 30 links present, Lucide icons, active state highlighting (blue background on Home)
-- Header: Breadcrumbs with separator icons, search trigger (Cmd+K badge), theme toggle (sun/moon)
-- Footer: 4-column grid (Categories, Resources, Quick Links), GitHub + Portfolio links, copyright + "Built with Next.js" credit
-- Mobile header: Hamburger menu, search icon, theme toggle — compact and functional
-- Breadcrumb navigation renders correctly on every content page (e.g., "Home > Visual Effects > Gradients")
+**Shell & Navigation — EXCELLENT (Ghibli themed)**
+- Sidebar: 7 collapsible sections, 30 links, Lucide icons, forest green active state on Home
+- Header: Breadcrumbs, search trigger (Cmd+K badge), sun/moon theme toggle
+- Footer: 4-column grid (Categories, Resources, Quick Links), GitHub + Portfolio links, copyright
+- Mobile header: Hamburger, search icon, theme toggle — compact and functional
+- Creamy parchment background throughout sidebar and main content area
+- Breadcrumb navigation correct on every content page
 
 **Content Pages (30/30 — ALL RENDERING CORRECTLY)**
 - PageHero + Section + DemoGrid + DemoCard structure consistent across all pages
-- Code blocks: Shiki syntax highlighting with dot indicators (red/yellow/green), collapsible toggle, copy button — working everywhere
-- Live CSS demos rendering correctly across all categories:
-  - **Fundamentals:** Basic CSS selectors/properties, box model visualiser with margin/padding/border diagram, typography font stacks and sizing scales
-  - **Layout:** Flexbox blue demo boxes + interactive playground with controls, flexbox patterns (nav bar, card layout, media object, sticky footer, holy grail), grid coloured area layouts, layout techniques (display, positioning, multi-column, float), responsive media queries + fluid typography
-  - **Visual Effects:** Gradients 3-column grid (linear, radial, conic), gradient patterns (geometric, organic, animated), transitions (hover effects, timing functions, credit card flip), animations (spinning circle, bouncing diamond, pulsing square, glitch text, loading spinner, morphing shapes), filters (blur, brightness, sepia, grayscale with blue spheres)
-  - **Components:** Buttons (primary, outline, ghost, gradient, 3D, icon, animated), forms (input fields, validation states with green/red borders, file upload, complex layouts), tables (zebra striping, status badges, sticky headers), cards (gradient header, profile, pricing, feature, interactive hover, flip-to-expand), icons (basic CSS shapes, animated, interactive, fun collection — all rendering as pure CSS)
-  - **Advanced:** Complex selectors, pseudo-elements (colourful circles), CSS counters (numbered lists), attribute selectors, combinators, specificity diagram
-  - **Modern CSS:** :has() selector with browser support badges, container queries with responsive card demos, CSS nesting syntax comparison, anchor positioning tooltips/dropdowns, scroll animations (scroll-down demo, progress indicator, reveal cards), colour spaces (OKLCH palette, Display P3, color-mix demos)
-  - **Resources:** Frameworks 3-column cards with coloured icons (Tailwind teal, Bootstrap purple, etc.), Tools 3-column cards (DevTools, preprocessors, linters, generators)
+- Code blocks: Shiki syntax highlighting with dot indicators, collapsible toggle, copy button
+- Live CSS demos rendering correctly across all categories — unchanged from Audit #3
+- Forest green accents visible in section headers, tip boxes, and interactive elements
+- Demo card backgrounds use warm cream/beige surfaces, distinct from page background
+- All page-specific demo CSS colours preserved (educational content unchanged)
 
-**Dark Mode — SOLID, NO REGRESSIONS**
-- No white blocks visible on any dark mode screenshot
-- Sidebar and header: dark slate/navy backgrounds, readable text, blue active state still visible
-- Code blocks: dark backgrounds with proper syntax colours, dot indicators still visible
-- Demo cards: darker surface colours with subtle borders — all 30 pages checked
-- Gradient demos maintain vibrancy (the gradient swatches look even better against dark backgrounds)
-- Animation demos: spinning/bouncing shapes clearly visible on dark grey demo areas
-- Cards page: gradient cards vivid (pink-to-coral, blue-to-purple, yellow-to-orange)
-- Tools/Frameworks: coloured icon squares pop nicely against dark card backgrounds
+**Dark Mode — TWILIGHT FOREST AESTHETIC**
+- Deep forest green page backgrounds (not old slate/zinc) — confirmed across all pages
+- Code blocks: dark indigo/navy backgrounds with bright syntax highlighting — excellent contrast
+- Demo cards: olive-tinted dark surfaces, clearly distinct from page background
+- Sidebar: deep forest green with readable light text, green active state
+- Gradient demos: **spectacular** against dark backgrounds — colours pop beautifully
+- Cards page: gradient cards vivid (pink-to-coral, blue-to-purple, yellow-to-orange) on dark surface
+- Animations: spinning shapes, glitch text, loading spinners all clearly visible on dark demo areas
 - Colour spaces: OKLCH/P3 swatches remain vivid and accurate
-- Shapes & Clips: purple/pink shapes clearly distinct from dark background
+- Buttons: coloured variants (green, red, orange) stand out well against dark forest background
+- No white blocks or unthemed areas visible on any dark mode screenshot
 
 **Mobile (375px) — GOOD, NO REGRESSIONS**
 - All content readable, single-column stack
+- Creamy parchment background consistent on mobile
+- Nunito fonts rendering cleanly at mobile sizes
 - Code blocks fit within viewport (horizontal scroll where needed)
-- Flexbox Patterns: patterns stack vertically with full code visible
-- Frameworks/Tools: cards stack single-column with complete descriptions
-- Forms: long page but all elements render correctly in single column
-- Buttons: all button variants visible, code blocks readable
-- Footer: stacks vertically with clear section headings
+- Footer stacks vertically with clear section headings
 - No horizontal overflow observed on any page
+- Homepage on mobile: title + subtitle centred, then straight to footer (still needs content — Task 9.1)
 
-### What Needs Work (Unchanged from Audit #2)
+### What Still Needs Work
 
-1. **HOMEPAGE (CRITICAL)**: Desktop is nearly empty — "CSS Showcase" title, one-line subtitle, then ~500px of white void before the footer. Mobile shows title + subtitle → immediately jumps to footer with no content. Dark mode identical issue. This is the #1 priority.
+1. **HOMEPAGE (CRITICAL)**: Desktop is nearly empty — "CSS Showcase" title, one-line subtitle, then ~500px of creamy void before the footer. Mobile identical. Dark mode identical. The Ghibli theme makes it look warmer but doesn't solve the emptiness. **This is the #1 priority — Task 9.1.**
 
-2. **PAGE TITLES LEFT-ALIGNED (CRITICAL)**: PageHero titles are left-aligned on all 30 pages. Should be centred for a polished editorial look. Visible on every desktop screenshot — title and subtitle sit in a `max-w-3xl` div, leaving the right 60% of the viewport empty.
+2. **PAGE TITLES LEFT-ALIGNED (CRITICAL)**: PageHero titles are left-aligned on all 30 pages. Title and subtitle sit in a `max-w-3xl` div, leaving the right 60% empty on desktop. Should be centred for editorial polish. **Task 10.1.**
 
-3. **DOUBLE-TITLE EFFECT (CRITICAL)**: Some pages have redundant first-section headings that echo the hero title. Detailed audit:
-   - **NEEDS FIX:** `/flexbox` ("Flexbox" → "Flexbox Fundamentals"), `/grid` ("CSS Grid" → "Grid Fundamentals"), `/has-selector` ("The :has() Selector" → "What is :has()?"), `/container-queries` ("Container Queries" → "What are Container Queries?"), `/box-model` ("The Box Model" → "Box Model Fundamentals"), `/custom-properties` ("CSS Custom Properties" → first section echoes), `/css-nesting` ("Native CSS Nesting" → "Understanding CSS Nesting")
-   - **ALREADY GOOD:** `/basic` ("Basic CSS" → "CSS Selectors"), `/responsive` ("Responsive Design" → "Mobile-First Development"), `/animations` ("CSS Animations" → "Keyframe Basics"), `/buttons` ("Brilliant Buttons" → "Base Button Styles"), `/gradients` ("CSS Gradients" → "Linear Gradients"), `/typography` ("Typography" → "Font Families & Loading"), `/layout` ("CSS Layout Techniques" → "The Display Property"), `/filters` ("CSS Filters" → "Blur Filter Functions"), `/shapes-clips` ("CSS Shapes & Clipping" → "Shapes to Be"), `/blend-modes` ("CSS Blend Modes" → "What are Blend Modes?"), `/color-spaces` ("Modern CSS Colour Spaces" → "What are Modern Colour Spaces?"), `/anchor-positioning` ("CSS Anchor Positioning" → "The Modern Anchor Positioning Rules"), `/scroll-animations` ("CSS Scroll-Driven Animations" → "The Future of Scroll Effects"), `/frameworks` ("CSS Frameworks" → "Utility-First Frameworks"), `/tools` ("CSS Tools" → "Browser Developer Tools"), `/icons` ("Pure CSS Icons" → "Basic Icons"), `/cards` ("Card Components" → "Basic Card Patterns"), `/forms` ("Forms Made Beautiful" → "Input Fields"), `/tables` ("Tables That Tell Stories" → "Built Your Story"), `/flexbox-patterns` ("Flexbox Patterns" → "Common Flexbox Patterns"), `/gradient-patterns` ("Gradient Patterns" → "Geometric Patterns"), `/transitions` ("CSS Transitions" → "Transition Basics"), `/advanced` ("Advanced CSS Techniques" → "Modern Complex Selectors")
+3. **DOUBLE-TITLE EFFECT (CRITICAL)**: Unchanged from Audit #3. 7 pages need fix:
+   - `/flexbox` ("Flexbox" → "Flexbox Fundamentals"), `/grid` ("CSS Grid" → "Grid Fundamentals"), `/has-selector` ("The :has() Selector" → "What is :has()?"), `/container-queries` ("Container Queries" → "What are Container Queries?"), `/box-model` ("The Box Model" → "Box Model Fundamentals"), `/custom-properties` ("CSS Custom Properties" → echoes), `/css-nesting` ("Native CSS Nesting" → "Understanding CSS Nesting")
+   - 23 pages already good — no change needed. **Task 10.1.**
 
-4. **DEMO LAYOUT — SIDE-BY-SIDE CRAMPED (CRITICAL)**: On desktop, 2-column DemoGrid puts demo + code side-by-side, making code blocks too narrow. Most affected:
-   - `/basic` — worst offender, tiny code snippets in narrow columns
-   - `/box-model` — visualiser + code cramped side-by-side
-   - `/typography` — font previews + code side-by-side, hard to read
-   - `/transitions` — demo + code equally cramped
-   - `/custom-properties` — interactive demos lose impact at narrow width
-   - `/css-nesting` — code comparison needs full width to be readable
-   - **Works well as multi-column:** `/gradients` (visual swatches), `/flexbox-patterns` (pattern cards), `/frameworks` (info cards), `/tools` (info cards), `/icons` (icon grids)
+4. **DEMO LAYOUT — SIDE-BY-SIDE CRAMPED (CRITICAL)**: Unchanged. `/basic`, `/box-model`, `/typography`, `/transitions`, `/custom-properties`, `/css-nesting` all cramped in 2-column. Multi-column works well for: `/gradients`, `/flexbox-patterns`, `/frameworks`, `/tools`, `/icons`. **Task 10.2.**
 
-5. **GHIBLI THEME NOT YET APPLIED**: Current theme is default ShadCN — zinc grey backgrounds, blue-600 primary buttons/links, white card surfaces. No forest greens, earth browns, or creamy neutrals. Fonts are Inter (body) + Satoshi (display), not Nunito. Expected — Task 8.5.1 hasn't started.
+5. **NO INTERACTIVE UX (HIGH)**: Pages are static — no scroll-triggered animations, no hover lift effects, no micro-interactions. Premium components installed but not yet integrated. **Task 10.3.**
 
-6. **NO PREMIUM COMPONENTS**: No Apple Cards Carousel, 3D Card, Marquee, Terminal, or other premium interactive components installed. Expected — Tasks 8.5.3/8.5.4 pending.
+6. **DESKTOP CONTENT DENSITY (MEDIUM)**: Long pages unchanged: `/forms` (~18700px), `/buttons` (~18000px), `/advanced` (~14600px). Collapsible code + tabbed sections would help. **Task 10.11.**
 
-7. **NO INTERACTIVE UX**: Pages are entirely static — no scroll-triggered entrance animations, no hover lift effects on cards, no route transitions, no micro-interactions. Content loads and sits. Expected — Task 10.3 pending.
+### Bugs Found (Carried Forward + New)
 
-8. **DESKTOP CONTENT DENSITY**: Some pages are extremely long with vertical gaps between sections:
-   - `/forms` (~18700px) — extremely long, needs collapsible sections or tabbed grouping
-   - `/buttons` (~18000px) — many button variants, long vertical scroll
-   - `/advanced` (~14600px) — needs sub-navigation or TOC
-   - `/animations` (~13800px) — long but rich content, acceptable
-   - `/cards` (~13100px) — many card patterns, could benefit from grouping
-   - `/box-model` (~12000px) — decent length, some vertical gaps between sections
+1. **Sidebar label mismatch**: Sidebar says "Layout Techniques" but page title is "CSS Layout Techniques". Minor — tidy during Task 10.1.
 
-### Bugs Found
+2. **Forms page extremely long**: ~18700px on desktop. Needs collapsible sections or tabbed grouping. **Task 10.7.**
 
-1. **Layout page screenshots NOW PRESENT**: The layout.png screenshots that were deleted are now regenerated and present in all three directories (desktop, mobile, dark-mode). The `layout-techniques.png` files also exist. **RESOLVED.**
+3. **Buttons page long on mobile**: ~20000px at 375px. Collapsible code blocks would help. **Task 10.7.**
 
-2. **Sidebar label "Layout Techniques"**: Sidebar says "Layout Techniques" but page title is "CSS Layout Techniques". Minor mismatch — not a blocker but should be tidied.
-
-3. **Forms page extremely long**: Needs collapsible sections or tabbed grouping for Input Fields → Form Controls → Form Validation → Advanced Controls → Complex Form Examples.
-
-4. **Advanced page very long**: Could use a floating TOC or accordion sections for Modern Complex Selectors → Pseudo-elements → CSS Counters → Attribute Selectors → Combinators → Specificity.
-
-5. **NEW — Buttons page mobile**: At 375px width, the buttons page is extremely long (~20000px mobile). Each button variant has a code block that takes significant vertical space. Collapsible code blocks would help immensely here.
-
-### NEW Issues Found in Audit #3
+### NEW Issues Found in Audit #4
 
 ```text
-ROUTE: /icons
-ISSUE: Icons page uses full-width single-column layout for icon grids (Basic Icons, Animated, Interactive, Fun) — this is actually great and looks polished. However, the "Icon Techniques" section at the bottom has large code blocks that would benefit from collapsible code.
-SCREENSHOT: desktop/icons.png
-FIX: Add collapsibleCode to DemoCards in the Icon Techniques section.
-
-ROUTE: /gradient-patterns
-ISSUE: "Organic Textures" section shows 4 gradient pattern swatches but 2 of them render as plain white/light grey — the polka dot and noise textures may not be rendering properly in the screenshot (could be a timing issue with CSS background-image).
-SCREENSHOT: desktop/gradient-patterns.png
-FIX: Verify organic texture demos render correctly in browser. May need background-size or background-image fixes.
-
-ROUTE: /transitions
-ISSUE: "Transition Basics" section is one of the most cramped 2-column layouts. The hover demo area is narrow and the code block next to it is barely readable.
-SCREENSHOT: desktop/transitions.png
-FIX: Task 10.2 will address this — switch to single-column.
-
 ROUTE: /has-selector
-ISSUE: The PageHero has a very light pinkish/salmon gradient background that differs from the blue-tinted gradient on other pages. Inconsistent hero styling.
+ISSUE: The PageHero has a pinkish/salmon tinted gradient background that doesn't match the forest green Ghibli palette. Other pages use neutral/warm gradients. This page stands out as inconsistent.
 SCREENSHOT: desktop/has-selector.png
-FIX: Standardise PageHero gradient backgrounds across all pages, or make the colour intentionally themed per category.
+FIX: Update the PageHero gradient on /has-selector to use Ghibli forest/earth tones. Check if any other pages have off-palette hero gradients. Could be addressed during Task 10.1 (centre titles) since it touches PageHero.
+
+ROUTE: /color-spaces
+ISSUE: Page background at the very top appears to have a white/light section before the Ghibli cream kicks in. The vibrant color swatches (hot pink, red, green, blue) render excellently, but the page header area looks slightly off compared to other pages.
+SCREENSHOT: desktop/color-spaces.png
+FIX: Verify the PageHero background matches other pages. May be a CSS specificity issue with the color-spaces page module CSS overriding the global background.
+
+ROUTE: /flexbox
+ISSUE: The 2-column layout here actually works reasonably well because the demos are compact green boxes. However, the "Flexbox Fundamentals" title directly echoes the "Flexbox" PageHero — classic double-title. The Interactive Flexbox Playground at the bottom is excellent and well-spaced.
+SCREENSHOT: desktop/flexbox.png
+FIX: Task 10.1 will fix the double-title. Layout is acceptable here — consider keeping 2-column for this page's compact box demos.
+
+ROUTE: /animations
+ISSUE: The "Keyframe Basics" demos (spinning circle, bouncing diamond, pulsing square) each occupy a single-column full-width card — this looks GREAT. The section spacing is generous and the demos breathe. This is the ideal layout that other pages should follow.
+SCREENSHOT: desktop/animations.png
+FIX: No fix needed — use /animations as the reference layout for Task 10.2 single-column migration.
+
+ROUTE: /cards
+ISSUE: The gradient cards (blue-to-purple header, green gradient, pink-to-coral) look spectacular in both light and dark mode. The card layout patterns section shows a proper grid of preview cards. Excellent page overall.
+SCREENSHOT: desktop/cards.png, dark-mode/cards.png
+FIX: No fix needed. Cards page is a visual highlight.
+
+ROUTE: /tools, /frameworks
+ISSUE: The 3-column card grids with coloured icon squares look polished and professional. Consistent spacing, clear hierarchy, good information density. These pages are model resource layouts.
+SCREENSHOT: desktop/tools.png, desktop/frameworks.png
+FIX: No fix needed. These are template-quality resource pages.
 
 ROUTE: ALL PAGES
-ISSUE: The "Continue Your Journey" / "Ready for X?" footer sections at the bottom of each page use a simple 2-3 card link layout that works but looks bland. No hover effects, no visual interest.
-SCREENSHOT: All desktop screenshots — visible at the bottom of every page
-FIX: Task 10.3 will address this — add hover lift effects and better card styling to "Continue" sections.
+ISSUE: "Continue Your Journey" / "Ready for X?" footer sections still bland — simple link cards with no hover effects or visual interest. The Ghibli cream background makes them blend in rather than stand out as CTAs.
+SCREENSHOT: All desktop screenshots — bottom of every page
+FIX: Task 10.3 — add hover lift effects, subtle gradients, or card borders to make these sections more inviting.
 ```
 
-### Recommended Implementation Order (Updated)
+### Recommended Implementation Order (Updated for Post-Ghibli)
 
-Given the current state — no regressions, stable build, all 30 pages rendering — the recommended order remains:
+Phase 8.5 is 5/7 complete. The visual identity is established. Next priorities:
 
-1. **Task 8.5.1** — Ghibli theme (changes the entire visual identity)
-2. **Task 8.5.2** — Nunito fonts (completes the visual refresh)
-3. **Task 8.5.5** — Update extended colour tokens (consistency)
-4. **Task 10.1** — Centre page titles + fix double-title (quick win, affects all 30 pages)
-5. **Task 10.2** — Fix demo layout to single-column (readability improvement)
-6. **Task 8.5.3** — Install premium components (needed for homepage)
-7. **Task 8.5.4** — Install base ShadCN components (needed for page enhancements)
-8. **Task 9.1** — Homepage redesign (biggest visual impact)
-9. **Task 10.0** — Streamline Freehand Colour icons (personality)
-10. **Task 10.3** — Global UX polish (scroll reveals, code tabs, copy button)
-11. **Tasks 10.4–10.10** — Page enhancements (category by category)
-12. **Task 8.5.7** — Clean up legacy files (housekeeping)
-13. **Task 8.5.6 / 10.12** — Dark mode audit (after all visual changes)
-14. **Task 10.11** — Desktop density tightening
-15. **Task 10.13** — Responsive audit
-16. **Task 10.14** — Accessibility and final build
+1. **Task 9.1** — Homepage redesign (CRITICAL — biggest visible gap, use installed premium components)
+2. **Task 10.1** — Centre page titles + fix 7 double-titles + standardise hero gradients
+3. **Task 10.2** — Fix demo layout to single-column (use /animations as reference)
+4. **Task 10.0** — Streamline Freehand Colour icons (personality, warmth)
+5. **Task 10.3** — Global UX polish (scroll reveals, hover lifts, micro-interactions)
+6. **Tasks 10.4–10.10** — Page enhancements (category by category)
+7. **Task 8.5.7** — Clean up legacy static files (housekeeping)
+8. **Task 8.5.6 / 10.12** — Dark mode fine-tuning (twilight forest is solid, just edge cases)
+9. **Task 10.11** — Desktop density tightening
+10. **Task 10.13** — Responsive audit
+11. **Task 10.14** — Accessibility and final build
 
 ---
 
