@@ -1,13 +1,13 @@
+import type { ComponentType, SVGProps } from "react"
 import {
-  BookOpen,
-  LayoutGrid,
-  Sparkles,
-  FileStack,
-  FlaskConical,
-  Rocket,
-  Library,
-  type LucideIcon,
-} from "lucide-react"
+  BookFlipPage,
+  LayoutsArray,
+  MagicWand,
+  OrganizationFiles,
+  ProgrammingCodeIdea,
+  ProductLaunchLaptop,
+  BookLibraryShelf,
+} from "@/components/icons/streamline-icons"
 
 export type NavItem = {
   title: string
@@ -16,14 +16,14 @@ export type NavItem = {
 
 export type NavSection = {
   title: string
-  icon: LucideIcon
+  icon: ComponentType<SVGProps<SVGSVGElement>>
   items: NavItem[]
 }
 
 export const navigationSections: NavSection[] = [
   {
     title: "Fundamentals",
-    icon: BookOpen,
+    icon: BookFlipPage,
     items: [
       { title: "Basic CSS", href: "/basic" },
       { title: "Box Model", href: "/box-model" },
@@ -32,7 +32,7 @@ export const navigationSections: NavSection[] = [
   },
   {
     title: "Layout",
-    icon: LayoutGrid,
+    icon: LayoutsArray,
     items: [
       { title: "Flexbox", href: "/flexbox" },
       { title: "Flexbox Patterns", href: "/flexbox-patterns" },
@@ -43,7 +43,7 @@ export const navigationSections: NavSection[] = [
   },
   {
     title: "Visual Effects",
-    icon: Sparkles,
+    icon: MagicWand,
     items: [
       { title: "Gradients", href: "/gradients" },
       { title: "Gradient Patterns", href: "/gradient-patterns" },
@@ -54,7 +54,7 @@ export const navigationSections: NavSection[] = [
   },
   {
     title: "Components",
-    icon: FileStack,
+    icon: OrganizationFiles,
     items: [
       { title: "Buttons", href: "/buttons" },
       { title: "Forms", href: "/forms" },
@@ -65,7 +65,7 @@ export const navigationSections: NavSection[] = [
   },
   {
     title: "Advanced",
-    icon: FlaskConical,
+    icon: ProgrammingCodeIdea,
     items: [
       { title: "Advanced CSS", href: "/advanced" },
       { title: "Custom Properties", href: "/custom-properties" },
@@ -75,7 +75,7 @@ export const navigationSections: NavSection[] = [
   },
   {
     title: "Modern CSS",
-    icon: Rocket,
+    icon: ProductLaunchLaptop,
     items: [
       { title: ":has() Selector", href: "/has-selector" },
       { title: "Container Queries", href: "/container-queries" },
@@ -87,7 +87,7 @@ export const navigationSections: NavSection[] = [
   },
   {
     title: "Resources",
-    icon: Library,
+    icon: BookLibraryShelf,
     items: [
       { title: "CSS Tools", href: "/tools" },
       { title: "Frameworks", href: "/frameworks" },

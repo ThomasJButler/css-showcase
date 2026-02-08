@@ -7,14 +7,14 @@ import { NumberTicker } from "@/components/ui/number-ticker"
 import { Marquee } from "@/components/ui/marquee"
 import { Kbd } from "@/components/ui/kbd"
 import {
-  BookOpen,
-  LayoutGrid,
-  Sparkles,
-  FileStack,
-  FlaskConical,
-  Rocket,
-  Library,
-} from "lucide-react"
+  BookFlipPage,
+  LayoutsArray,
+  MagicWand,
+  OrganizationFiles,
+  ProgrammingCodeIdea,
+  ProductLaunchLaptop,
+  BookLibraryShelf,
+} from "@/components/icons/streamline-icons"
 import styles from "./page.module.css"
 
 /* ─── Carousel card data ─── */
@@ -173,37 +173,37 @@ const featuredCards = [
 
 const categoryMeta = [
   {
-    icon: BookOpen,
+    icon: BookFlipPage,
     iconClass: styles.iconForest,
     emoji: "📖",
   },
   {
-    icon: LayoutGrid,
+    icon: LayoutsArray,
     iconClass: styles.iconSky,
     emoji: "📐",
   },
   {
-    icon: Sparkles,
+    icon: MagicWand,
     iconClass: styles.iconWarm,
     emoji: "✨",
   },
   {
-    icon: FileStack,
+    icon: OrganizationFiles,
     iconClass: styles.iconEarth,
     emoji: "🧩",
   },
   {
-    icon: FlaskConical,
+    icon: ProgrammingCodeIdea,
     iconClass: styles.iconRose,
     emoji: "🧪",
   },
   {
-    icon: Rocket,
+    icon: ProductLaunchLaptop,
     iconClass: styles.iconTeal,
     emoji: "🚀",
   },
   {
-    icon: Library,
+    icon: BookLibraryShelf,
     iconClass: styles.iconAmber,
     emoji: "📚",
   },

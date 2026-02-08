@@ -2,7 +2,8 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ChevronRight, Home } from "lucide-react"
+import { ChevronRight } from "lucide-react"
+import { HomeIcon } from "@/components/icons/streamline-icons"
 
 import { navigationSections } from "@/lib/navigation"
 import {
@@ -60,7 +61,7 @@ export function AppSidebar() {
             <SidebarMenuItem>
               <SidebarMenuButton asChild isActive={pathname === "/"} tooltip="Home">
                 <Link href="/">
-                  <Home />
+                  <HomeIcon className="size-4" />
                   <span>Home</span>
                 </Link>
               </SidebarMenuButton>

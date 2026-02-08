@@ -2,16 +2,17 @@
 
 import * as React from "react"
 import { useRouter } from "next/navigation"
+
 import {
-  BookOpen,
-  LayoutGrid,
-  Sparkles,
-  FileStack,
-  FlaskConical,
-  Rocket,
-  Library,
-  FileText,
-} from "lucide-react"
+  BookFlipPage,
+  LayoutsArray,
+  MagicWand,
+  OrganizationFiles,
+  ProgrammingCodeIdea,
+  ProductLaunchLaptop,
+  BookLibraryShelf,
+  AppWindowSourceCode,
+} from "@/components/icons/streamline-icons"
 
 import { navigationSections, type NavSection } from "@/lib/navigation"
 import {
@@ -26,13 +27,13 @@ import {
 
 /** Map section titles to their icons for display in search results. */
 const sectionIcons: Record<string, React.ElementType> = {
-  Fundamentals: BookOpen,
-  Layout: LayoutGrid,
-  "Visual Effects": Sparkles,
-  Components: FileStack,
-  Advanced: FlaskConical,
-  "Modern CSS": Rocket,
-  Resources: Library,
+  Fundamentals: BookFlipPage,
+  Layout: LayoutsArray,
+  "Visual Effects": MagicWand,
+  Components: OrganizationFiles,
+  Advanced: ProgrammingCodeIdea,
+  "Modern CSS": ProductLaunchLaptop,
+  Resources: BookLibraryShelf,
 }
 
 interface SearchDialogProps {
@@ -62,12 +63,12 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
       <CommandList>
         <CommandEmpty>
           <div className="flex flex-col items-center gap-1.5 py-4">
-            <FileText className="size-10 text-muted-foreground/40" />
+            <AppWindowSourceCode className="size-10 text-muted-foreground/40" />
             <p className="text-muted-foreground">No pages found.</p>
           </div>
         </CommandEmpty>
         {navigationSections.map((section: NavSection, idx: number) => {
-          const Icon = sectionIcons[section.title] ?? FileText
+          const Icon = sectionIcons[section.title] ?? AppWindowSourceCode
           return (
             <React.Fragment key={section.title}>
               {idx > 0 && <CommandSeparator />}

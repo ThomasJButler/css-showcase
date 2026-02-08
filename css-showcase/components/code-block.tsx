@@ -1,7 +1,8 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { Check, Copy, ChevronDown, ChevronUp } from "lucide-react"
+import { ChevronDown, ChevronUp } from "lucide-react"
+import { CheckSquare, CopyPasteClipboard } from "@/components/icons/streamline-icons"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -109,9 +110,9 @@ export function CodeBlock({
             )}
           >
             {copied ? (
-              <Check className="size-3.5" />
+              <CheckSquare className="size-3.5" />
             ) : (
-              <Copy className="size-3.5" />
+              <CopyPasteClipboard className="size-3.5" />
             )}
           </span>
           <span

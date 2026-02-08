@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Github, Globe } from "lucide-react"
+import { WebBrowser } from "@/components/icons/streamline-icons"
+import { Github } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 
 const categoryLinks = [
@@ -57,7 +58,7 @@ export function SiteFooter() {
                 aria-label="Portfolio"
                 className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
-                <Globe className="size-4" />
+                <WebBrowser className="size-4" />
                 <span>Portfolio</span>
               </a>
             </div>

@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Search } from "lucide-react"
+import { SearchMagnifier } from "@/components/icons/streamline-icons"
 
 import { navigationSections } from "@/lib/navigation"
 import { SidebarTrigger } from "@/components/ui/sidebar"
@@ -117,7 +117,7 @@ export function SiteHeader() {
                   aria-label="Search (⌘K)"
                   onClick={() => setSearchOpen(true)}
                 >
-                  <Search className="size-3.5" aria-hidden />
+                  <SearchMagnifier className="size-3.5" aria-hidden />
                   <span className="text-xs">Search…</span>
                   <kbd className="pointer-events-none ml-1 hidden select-none items-center gap-0.5 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-60 sm:inline-flex">
                     <span className="text-xs">⌘</span>K
@@ -141,7 +141,7 @@ export function SiteHeader() {
                   aria-label="Search"
                   onClick={() => setSearchOpen(true)}
                 >
-                  <Search className="size-4" aria-hidden />
+                  <SearchMagnifier className="size-4" aria-hidden />
                 </Button>
               </TooltipTrigger>
               <TooltipContent side="bottom">Search</TooltipContent>

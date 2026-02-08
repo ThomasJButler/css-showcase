@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useTheme } from "next-themes"
-import { Moon, Sun } from "lucide-react"
+import { NightMode, BrightnessHalf } from "@/components/icons/streamline-icons"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -34,12 +34,12 @@ export function ThemeToggle() {
             className="relative overflow-hidden"
           >
             {/* Sun icon — visible in light mode */}
-            <Sun
+            <BrightnessHalf
               className="size-4 rotate-0 scale-100 transition-transform duration-300 ease-out dark:-rotate-90 dark:scale-0"
               aria-hidden
             />
             {/* Moon icon — visible in dark mode */}
-            <Moon
+            <NightMode
               className="absolute size-4 rotate-90 scale-0 transition-transform duration-300 ease-out dark:rotate-0 dark:scale-100"
               aria-hidden
             />
