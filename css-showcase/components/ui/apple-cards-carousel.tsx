@@ -26,6 +26,8 @@ type Card = {
   title: string;
   category: string;
   content: React.ReactNode;
+  bgClass?: string;
+  icon?: React.ComponentType<{ className?: string }>;
 };
 
 export const CarouselContext = createContext<{
@@ -238,29 +240,35 @@ export const Card = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 md:h-[40rem] md:w-96 dark:bg-neutral-900"
+        className="relative z-10 flex h-56 w-48 flex-col items-start justify-between overflow-hidden rounded-3xl md:h-72 md:w-80"
       >
+        {/* Gradient background */}
+        {card.bgClass ? (
+          <div className={`${card.bgClass} absolute inset-0 z-0 rounded-3xl`} />
+        ) : (
+          <div className="absolute inset-0 z-0 rounded-3xl bg-gray-100 dark:bg-neutral-900" />
+        )}
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
-        <div className="relative z-40 p-8">
+        <div className="relative z-40 p-6 md:p-8">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-left font-sans text-sm font-medium text-white md:text-base"
+            className="text-left font-sans text-xs font-medium text-white/80 md:text-sm"
           >
             {card.category}
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="mt-2 max-w-xs text-left font-sans text-xl font-semibold [text-wrap:balance] text-white md:text-3xl"
+            className="mt-1 max-w-xs text-left font-sans text-lg font-semibold [text-wrap:balance] text-white md:text-2xl"
           >
             {card.title}
           </motion.p>
         </div>
-        <BlurImage
-          src={card.src}
-          alt={card.title}
-          fill
-          className="absolute inset-0 z-10 object-cover"
-        />
+        {/* Decorative icon */}
+        {card.icon && (
+          <div className="relative z-10 self-end p-4 md:p-6">
+            <card.icon className="h-12 w-12 text-white/20 md:h-16 md:w-16" />
+          </div>
+        )}
       </motion.button>
     </>
   );
@@ -272,6 +280,8 @@ export const BlurImage = ({
   src,
   className,
   alt,
+  fill: _fill,
+  blurDataURL: _blurDataURL,
   ...rest
 }: ImageProps) => {
   const [isLoading, setLoading] = useState(true);
@@ -288,7 +298,6 @@ export const BlurImage = ({
       height={height}
       loading="lazy"
       decoding="async"
-      blurDataURL={typeof src === "string" ? src : undefined}
       alt={alt ? alt : "Background of a beautiful view"}
       {...rest}
     />

@@ -23,8 +23,9 @@ const featuredCards = [
   {
     category: "Layout",
     title: "CSS Grid & Flexbox",
-    src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    src: "",
     bgClass: styles.cardBg1,
+    icon: LayoutsArray,
     content: (
       <div className={styles.cardContent}>
         <h3>Master Modern Layout</h3>
@@ -48,8 +49,9 @@ const featuredCards = [
   {
     category: "Visual Effects",
     title: "Gradients & Blending",
-    src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    src: "",
     bgClass: styles.cardBg2,
+    icon: MagicWand,
     content: (
       <div className={styles.cardContent}>
         <h3>Colour That Captivates</h3>
@@ -72,8 +74,9 @@ const featuredCards = [
   {
     category: "Animation",
     title: "Transitions & Motion",
-    src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    src: "",
     bgClass: styles.cardBg3,
+    icon: BookFlipPage,
     content: (
       <div className={styles.cardContent}>
         <h3>Bring Interfaces to Life</h3>
@@ -96,8 +99,9 @@ const featuredCards = [
   {
     category: "Modern CSS",
     title: "Container Queries & :has()",
-    src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    src: "",
     bgClass: styles.cardBg4,
+    icon: ProductLaunchLaptop,
     content: (
       <div className={styles.cardContent}>
         <h3>The Future is Now</h3>
@@ -120,8 +124,9 @@ const featuredCards = [
   {
     category: "Components",
     title: "Buttons, Forms & Cards",
-    src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    src: "",
     bgClass: styles.cardBg5,
+    icon: OrganizationFiles,
     content: (
       <div className={styles.cardContent}>
         <h3>Production-Ready Patterns</h3>
@@ -145,8 +150,9 @@ const featuredCards = [
   {
     category: "Advanced",
     title: "Custom Properties & Filters",
-    src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    src: "",
     bgClass: styles.cardBg6,
+    icon: ProgrammingCodeIdea,
     content: (
       <div className={styles.cardContent}>
         <h3>Power User Techniques</h3>
@@ -244,17 +250,11 @@ function CarouselCardWrapper({
   index: number
 }) {
   return (
-    <div className="relative">
-      <Card
-        card={card}
-        index={index}
-        layout
-      />
-      {/* Gradient background overlay for the card thumbnail */}
-      <div
-        className={`${card.bgClass} pointer-events-none absolute inset-0 z-[5] rounded-3xl`}
-      />
-    </div>
+    <Card
+      card={card}
+      index={index}
+      layout
+    />
   )
 }
 
