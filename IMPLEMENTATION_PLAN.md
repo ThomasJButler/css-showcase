@@ -74,7 +74,7 @@ Create a Studio Ghibli-inspired colour palette manually in `globals.css`. The Gh
 - Verify headings and body text render correctly
 
 ### Task 8.5.3: Install Interactive Components from External Registries
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** HIGH
 **Files:** `css-showcase/components/`, `css-showcase/components/ui/`
 

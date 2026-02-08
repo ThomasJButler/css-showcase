@@ -2,6 +2,11 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* Exclude the cloned shadcn/ui repo from Tailwind's automatic content detection.
+   Without this, Tailwind scans ui/ and finds classes with nested brackets
+   (e.g. [&>div.min-h-[350px]]:p-6) that produce invalid CSS. */
+@source not "../ui";
+
 @custom-variant dark (&:is(.dark *));
 
 /* ==========================================================================
@@ -101,7 +106,31 @@
   --animate-duration-base: 250ms;
   --animate-duration-slow: 350ms;
   --animate-duration-bounce: 400ms;
-}
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+  --animate-blink-cursor: blink-cursor 1.2s step-end infinite
+;
+  @keyframes blink-cursor {
+  0%, 49% {
+    opacity: 1;}
+  50%, 100% {
+    opacity: 0;}}}
 
 /* ==========================================================================
    LIGHT THEME — Studio Ghibli
