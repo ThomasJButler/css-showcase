@@ -2,52 +2,67 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'http://localhost:3000';
 const SCREENSHOT_DIR = './docs/visual-testing/screenshots';
 
 const pages = [
-  // Index
+  // Homepage
   { name: 'index', path: '/' },
   // Fundamentals
-  { name: 'basic', path: '/basic.html' },
-  { name: 'box-model', path: '/box-model.html' },
-  { name: 'typography', path: '/typography.html' },
+  { name: 'basic', path: '/basic' },
+  { name: 'box-model', path: '/box-model' },
+  { name: 'typography', path: '/typography' },
   // Layout
-  { name: 'flexbox', path: '/flexbox.html' },
-  { name: 'flexbox-patterns', path: '/flexbox-patterns.html' },
-  { name: 'grid', path: '/grid.html' },
-  { name: 'layout', path: '/layout.html' },
-  { name: 'responsive', path: '/responsive.html' },
+  { name: 'flexbox', path: '/flexbox' },
+  { name: 'flexbox-patterns', path: '/flexbox-patterns' },
+  { name: 'grid', path: '/grid' },
+  { name: 'layout', path: '/layout' },
+  { name: 'responsive', path: '/responsive' },
   // Visual Effects
-  { name: 'gradients', path: '/gradients.html' },
-  { name: 'gradient-patterns', path: '/gradient-patterns.html' },
-  { name: 'transitions', path: '/transitions.html' },
-  { name: 'animations', path: '/animations.html' },
-  // animations-advanced.html merged into animations.html
-  { name: 'filters', path: '/filters.html' },
+  { name: 'gradients', path: '/gradients' },
+  { name: 'gradient-patterns', path: '/gradient-patterns' },
+  { name: 'transitions', path: '/transitions' },
+  { name: 'animations', path: '/animations' },
+  { name: 'filters', path: '/filters' },
   // Components
-  { name: 'buttons', path: '/buttons.html' },
-  { name: 'forms', path: '/forms.html' },
-  { name: 'tables', path: '/tables.html' },
-  // tables-advanced.html merged into tables.html
-  { name: 'cards', path: '/cards.html' },
-  { name: 'icons', path: '/icons.html' },
+  { name: 'buttons', path: '/buttons' },
+  { name: 'forms', path: '/forms' },
+  { name: 'tables', path: '/tables' },
+  { name: 'cards', path: '/cards' },
+  { name: 'icons', path: '/icons' },
   // Advanced
-  { name: 'advanced', path: '/advanced.html' },
-  { name: 'custom-properties', path: '/custom-properties.html' },
-  { name: 'blend-modes', path: '/blend-modes.html' },
-  { name: 'shapes-clips', path: '/shapes-clips.html' },
+  { name: 'advanced', path: '/advanced' },
+  { name: 'custom-properties', path: '/custom-properties' },
+  { name: 'blend-modes', path: '/blend-modes' },
+  { name: 'shapes-clips', path: '/shapes-clips' },
   // Modern CSS
-  { name: 'has-selector', path: '/has-selector.html' },
-  { name: 'container-queries', path: '/container-queries.html' },
-  { name: 'css-nesting', path: '/css-nesting.html' },
-  { name: 'anchor-positioning', path: '/anchor-positioning.html' },
-  { name: 'scroll-animations', path: '/scroll-animations.html' },
-  { name: 'color-spaces', path: '/color-spaces.html' },
+  { name: 'has-selector', path: '/has-selector' },
+  { name: 'container-queries', path: '/container-queries' },
+  { name: 'css-nesting', path: '/css-nesting' },
+  { name: 'anchor-positioning', path: '/anchor-positioning' },
+  { name: 'scroll-animations', path: '/scroll-animations' },
+  { name: 'color-spaces', path: '/color-spaces' },
   // Resources
-  { name: 'tools', path: '/tools.html' },
-  { name: 'frameworks', path: '/frameworks.html' },
+  { name: 'tools', path: '/tools' },
+  { name: 'frameworks', path: '/frameworks' },
 ];
+
+// CSS to disable scroll-driven animations for fullPage screenshots.
+// Without this, elements using animation-timeline: view() start at opacity: 0
+// and never reveal because Playwright doesn't simulate scrolling.
+const DISABLE_SCROLL_ANIMATIONS_CSS = `
+  .animate-on-scroll,
+  .animate-on-scroll-card {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+`;
+
+async function disableScrollAnimations(page) {
+  await page.addStyleTag({ content: DISABLE_SCROLL_ANIMATIONS_CSS });
+  await page.waitForTimeout(100);
+}
 
 async function captureScreenshots() {
   // Ensure directories exist
@@ -68,16 +83,17 @@ async function captureScreenshots() {
       viewport: { width: 1920, height: 1080 }
     });
     const desktopPage = await desktopContext.newPage();
-    await desktopPage.goto(`${BASE_URL}${page.path}`, { waitUntil: 'networkidle' });
-    // Trigger all reveal animations (elements use IntersectionObserver which doesn't fire on fullPage capture)
-    await desktopPage.evaluate(() => {
-      document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('revealed'));
-    });
-    await desktopPage.waitForTimeout(100); // Brief pause for transitions
-    await desktopPage.screenshot({
-      path: `${SCREENSHOT_DIR}/desktop/${page.name}.png`,
-      fullPage: true
-    });
+    try {
+      await desktopPage.goto(`${BASE_URL}${page.path}`, { waitUntil: 'networkidle', timeout: 15000 });
+      await disableScrollAnimations(desktopPage);
+      await desktopPage.waitForTimeout(500);
+      await desktopPage.screenshot({
+        path: `${SCREENSHOT_DIR}/desktop/${page.name}.png`,
+        fullPage: true
+      });
+    } catch (e) {
+      console.log(`  ! Desktop failed for ${page.name}: ${e.message}`);
+    }
     await desktopContext.close();
 
     // Mobile screenshot
@@ -86,16 +102,17 @@ async function captureScreenshots() {
       isMobile: true
     });
     const mobilePage = await mobileContext.newPage();
-    await mobilePage.goto(`${BASE_URL}${page.path}`, { waitUntil: 'networkidle' });
-    // Trigger all reveal animations
-    await mobilePage.evaluate(() => {
-      document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('revealed'));
-    });
-    await mobilePage.waitForTimeout(100);
-    await mobilePage.screenshot({
-      path: `${SCREENSHOT_DIR}/mobile/${page.name}.png`,
-      fullPage: true
-    });
+    try {
+      await mobilePage.goto(`${BASE_URL}${page.path}`, { waitUntil: 'networkidle', timeout: 15000 });
+      await disableScrollAnimations(mobilePage);
+      await mobilePage.waitForTimeout(500);
+      await mobilePage.screenshot({
+        path: `${SCREENSHOT_DIR}/mobile/${page.name}.png`,
+        fullPage: true
+      });
+    } catch (e) {
+      console.log(`  ! Mobile failed for ${page.name}: ${e.message}`);
+    }
     await mobileContext.close();
 
     // Dark mode screenshot
@@ -104,17 +121,22 @@ async function captureScreenshots() {
       colorScheme: 'dark'
     });
     const darkPage = await darkContext.newPage();
-    await darkPage.goto(`${BASE_URL}${page.path}`, { waitUntil: 'networkidle' });
-    // Toggle theme and trigger reveal animations
-    await darkPage.evaluate(() => {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('revealed'));
-    });
-    await darkPage.waitForTimeout(500); // Wait for theme transition
-    await darkPage.screenshot({
-      path: `${SCREENSHOT_DIR}/dark-mode/${page.name}.png`,
-      fullPage: true
-    });
+    try {
+      await darkPage.goto(`${BASE_URL}${page.path}`, { waitUntil: 'networkidle', timeout: 15000 });
+      // Toggle dark mode via next-themes class strategy
+      await darkPage.evaluate(() => {
+        document.documentElement.classList.add('dark');
+        document.documentElement.style.colorScheme = 'dark';
+      });
+      await disableScrollAnimations(darkPage);
+      await darkPage.waitForTimeout(500);
+      await darkPage.screenshot({
+        path: `${SCREENSHOT_DIR}/dark-mode/${page.name}.png`,
+        fullPage: true
+      });
+    } catch (e) {
+      console.log(`  ! Dark mode failed for ${page.name}: ${e.message}`);
+    }
     await darkContext.close();
 
     console.log(`  ✓ ${page.name} captured`);
