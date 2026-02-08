@@ -1,7 +1,7 @@
 # CSS Showcase - Implementation Plan (Next.js Migration)
 
 **Last Updated:** 7 February 2026
-**Status:** Phase 7 - Modern CSS (IN PROGRESS — 4/6)
+**Status:** Phase 7 - Modern CSS (IN PROGRESS — 5/6)
 **Visual Review:** Phases 1-4 PASSED | Phase 5.1 (Buttons) PASSED | Phase 5.2 (Forms) PASSED | Phase 5.3 (Tables) PASSED | Phase 5.4 (Cards) PASSED | Review 5: PASSED | Phase 5.5 (Icons) PASSED | Review 6: PASSED | Phase 6.1 (Advanced) PASSED | Review 7: PASSED | Phase 6.2 (Custom Properties) PASSED | Review 8: PASSED | Review 9: PASSED | Review 10: PASSED | Review 11: PASSED | Review 12: PASSED | Review 13: PASSED | Review 14: PASSED | Review 15: PASSED
 
 ### Architecture
@@ -2203,7 +2203,8 @@ Shapes & Clips.
 **Source:** `../anchor-positioning.html`, `../styles/anchor-positioning.css`
 
 ### Task 7.5: Scroll Animations Page
-**Status:** PENDING
+**Status:** COMPLETE
+**Files:** `css-showcase/app/scroll-animations/page.tsx`, `css-showcase/app/scroll-animations/page.module.css`
 **Source:** `../scroll-animations.html`, `../styles/scroll-animations.css`
 
 ### Task 7.6: Colour Spaces Page
