@@ -56,13 +56,13 @@ export function CodeBlock({
   }, [copied])
 
   const header = (
-    <div className="flex items-center justify-between px-4 py-2 border-b border-[var(--border)]">
+    <div className="flex items-center justify-between px-4 py-2 border-b border-[var(--border)] bg-[var(--surface-variant)]/30">
       <div className="flex items-center gap-2">
         {/* Terminal dots */}
         <div className="flex gap-1.5">
-          <span className="size-2.5 rounded-full bg-red-400/80 dark:bg-red-500/60" />
-          <span className="size-2.5 rounded-full bg-amber-400/80 dark:bg-amber-500/60" />
-          <span className="size-2.5 rounded-full bg-emerald-400/80 dark:bg-emerald-500/60" />
+          <span className="size-2.5 rounded-full bg-red-400/80 dark:bg-red-500/60 transition-transform group-hover:scale-110" />
+          <span className="size-2.5 rounded-full bg-amber-400/80 dark:bg-amber-500/60 transition-transform group-hover:scale-110" />
+          <span className="size-2.5 rounded-full bg-emerald-400/80 dark:bg-emerald-500/60 transition-transform group-hover:scale-110" />
         </div>
         {title && (
           <span className="ml-2 text-xs font-medium text-[var(--text-muted)] font-mono uppercase tracking-wider">
@@ -70,7 +70,7 @@ export function CodeBlock({
           </span>
         )}
         {!title && language && (
-          <span className="ml-2 text-xs font-medium text-[var(--text-muted)] font-mono uppercase tracking-wider">
+          <span className="ml-2 rounded-md bg-[var(--primary)]/10 px-1.5 py-0.5 text-[10px] font-semibold text-[var(--primary)] font-mono uppercase tracking-wider">
             {language}
           </span>
         )}

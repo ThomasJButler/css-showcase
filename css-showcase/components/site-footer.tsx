@@ -19,7 +19,20 @@ const resourceLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-border/60 bg-muted/30">
+    <footer className="mt-auto relative bg-muted/30">
+      {/* Gradient separator */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
+      {/* Decorative forest silhouette */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-16 opacity-[0.04] dark:opacity-[0.06]"
+        style={{
+          clipPath:
+            "polygon(0% 100%, 2% 85%, 5% 90%, 8% 70%, 12% 80%, 15% 60%, 18% 75%, 22% 55%, 25% 65%, 28% 45%, 32% 60%, 35% 40%, 38% 55%, 42% 35%, 45% 50%, 48% 30%, 52% 45%, 55% 25%, 58% 40%, 62% 30%, 65% 45%, 68% 35%, 72% 50%, 75% 40%, 78% 55%, 82% 45%, 85% 60%, 88% 50%, 92% 65%, 95% 55%, 98% 70%, 100% 100%)",
+          background: "var(--primary)",
+        }}
+      />
+
       <div className="px-4 py-10 sm:px-6 lg:px-8">
         {/* Main footer grid */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -147,9 +160,17 @@ export function SiteFooter() {
             &copy; {new Date().getFullYear()} Tom Butler. Crafted with passion
             and CSS.
           </p>
-          <p className="text-xs text-muted-foreground/60">
-            Built with Next.js, Tailwind CSS &amp; ShadCN UI
-          </p>
+          <div className="flex items-center gap-1.5">
+            <span className="text-xs text-muted-foreground/60">Built with</span>
+            {["Next.js", "Tailwind CSS", "ShadCN UI"].map((tech) => (
+              <span
+                key={tech}
+                className="rounded-md border border-border/40 bg-muted/50 px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground/70"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

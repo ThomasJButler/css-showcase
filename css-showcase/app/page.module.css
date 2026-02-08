@@ -29,15 +29,51 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.03;
+  opacity: 0.05;
   background-image:
     linear-gradient(var(--primary) 1px, transparent 1px),
     linear-gradient(90deg, var(--primary) 1px, transparent 1px);
-  background-size: 64px 64px;
+  background-size: 48px 48px;
 }
 
 .dark .heroGrid {
-  opacity: 0.05;
+  opacity: 0.08;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -6rem;
+  right: -4rem;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.52 0.12 145 / 0.10) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -4rem;
+  left: -3rem;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.55 0.08 65 / 0.08) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.heroFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  background: linear-gradient(to bottom, transparent, var(--surface));
+  pointer-events: none;
 }
 
 .heroTitle {
@@ -123,13 +159,12 @@
 
 /* --- Stats Section --- */
 .stats {
+  position: relative;
   display: flex;
   justify-content: center;
   gap: 2rem;
   padding: 3rem 1.5rem;
   background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
 }
 
 @media (min-width: 768px) {
@@ -139,15 +174,42 @@
   }
 }
 
+.stats::before,
+.stats::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border) 20%, oklch(0.52 0.12 145 / 0.15) 50%, var(--border) 80%, transparent);
+}
+
+.stats::before { top: 0; }
+.stats::after { bottom: 0; }
+
 .statItem {
   text-align: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-lg);
+  transition: background var(--transition-base);
+}
+
+.statItem:hover {
+  background: oklch(0.52 0.12 145 / 0.04);
+}
+
+:global(.dark) .statItem:hover {
+  background: oklch(0.72 0.12 145 / 0.06);
 }
 
 .statNumber {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
-  color: var(--foreground);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .statLabel {
@@ -157,6 +219,22 @@
   margin-top: 0.25rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
+
+.statIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 auto 0.5rem;
+  border-radius: var(--radius-lg);
+  background: oklch(0.52 0.12 145 / 0.08);
+  color: var(--primary);
+}
+
+:global(.dark) .statIcon {
+  background: oklch(0.72 0.12 145 / 0.12);
 }
 
 /* --- Carousel Section --- */
@@ -329,6 +407,22 @@
   transform: translateY(-3px);
 }
 
+.categoryCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--card-accent, var(--primary));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.categoryCard:hover::before {
+  opacity: 1;
+}
+
 .categoryIcon {
   width: 2.75rem;
   height: 2.75rem;
@@ -367,6 +461,7 @@
   border-radius: var(--radius-sm);
   background: var(--surface-alt);
   color: var(--text-secondary);
+  border: 1px solid transparent;
   transition: all var(--transition-fast);
 }
 
@@ -386,17 +481,20 @@
   border-bottom: 1px solid var(--border);
   background: var(--background);
   overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
 }
 
 .marqueeItem {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1.25rem;
+  padding: 0.6rem 1.5rem;
   border-radius: var(--radius-xl);
-  background: var(--surface);
+  background: linear-gradient(135deg, var(--surface), var(--surface-alt));
   border: 1px solid var(--border);
-  font-size: 0.85rem;
+  border-left: 2px solid oklch(0.52 0.12 145 / 0.30);
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-secondary);
   white-space: nowrap;
@@ -409,11 +507,12 @@
 }
 
 .marqueeDot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--primary);
-  opacity: 0.5;
+  opacity: 0.6;
+  box-shadow: 0 0 6px oklch(0.52 0.12 145 / 0.30);
 }
 
 /* --- Bottom CTA --- */

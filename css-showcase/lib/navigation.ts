@@ -17,6 +17,7 @@ export type NavItem = {
 export type NavSection = {
   title: string
   icon: ComponentType<SVGProps<SVGSVGElement>>
+  accentColor: string
   items: NavItem[]
 }
 
@@ -24,6 +25,7 @@ export const navigationSections: NavSection[] = [
   {
     title: "Fundamentals",
     icon: BookFlipPage,
+    accentColor: "oklch(0.52 0.12 145)",
     items: [
       { title: "Basic CSS", href: "/basic" },
       { title: "Box Model", href: "/box-model" },
@@ -33,6 +35,7 @@ export const navigationSections: NavSection[] = [
   {
     title: "Layout",
     icon: LayoutsArray,
+    accentColor: "oklch(0.58 0.10 230)",
     items: [
       { title: "Flexbox", href: "/flexbox" },
       { title: "Flexbox Patterns", href: "/flexbox-patterns" },
@@ -44,6 +47,7 @@ export const navigationSections: NavSection[] = [
   {
     title: "Visual Effects",
     icon: MagicWand,
+    accentColor: "oklch(0.65 0.15 40)",
     items: [
       { title: "Gradients", href: "/gradients" },
       { title: "Gradient Patterns", href: "/gradient-patterns" },
@@ -55,6 +59,7 @@ export const navigationSections: NavSection[] = [
   {
     title: "Components",
     icon: OrganizationFiles,
+    accentColor: "oklch(0.55 0.08 65)",
     items: [
       { title: "Buttons", href: "/buttons" },
       { title: "Forms", href: "/forms" },
@@ -66,6 +71,7 @@ export const navigationSections: NavSection[] = [
   {
     title: "Advanced",
     icon: ProgrammingCodeIdea,
+    accentColor: "oklch(0.60 0.16 350)",
     items: [
       { title: "Advanced CSS", href: "/advanced" },
       { title: "Custom Properties", href: "/custom-properties" },
@@ -76,6 +82,7 @@ export const navigationSections: NavSection[] = [
   {
     title: "Modern CSS",
     icon: ProductLaunchLaptop,
+    accentColor: "oklch(0.55 0.12 180)",
     items: [
       { title: ":has() Selector", href: "/has-selector" },
       { title: "Container Queries", href: "/container-queries" },
@@ -88,6 +95,7 @@ export const navigationSections: NavSection[] = [
   {
     title: "Resources",
     icon: BookLibraryShelf,
+    accentColor: "oklch(0.65 0.14 75)",
     items: [
       { title: "CSS Tools", href: "/tools" },
       { title: "Frameworks", href: "/frameworks" },

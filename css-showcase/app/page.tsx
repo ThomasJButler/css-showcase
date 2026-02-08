@@ -181,37 +181,37 @@ const categoryMeta = [
   {
     icon: BookFlipPage,
     iconClass: styles.iconForest,
-    emoji: "📖",
+    accentColor: "oklch(0.52 0.12 145)",
   },
   {
     icon: LayoutsArray,
     iconClass: styles.iconSky,
-    emoji: "📐",
+    accentColor: "oklch(0.58 0.10 230)",
   },
   {
     icon: MagicWand,
     iconClass: styles.iconWarm,
-    emoji: "✨",
+    accentColor: "oklch(0.65 0.15 40)",
   },
   {
     icon: OrganizationFiles,
     iconClass: styles.iconEarth,
-    emoji: "🧩",
+    accentColor: "oklch(0.55 0.08 65)",
   },
   {
     icon: ProgrammingCodeIdea,
     iconClass: styles.iconRose,
-    emoji: "🧪",
+    accentColor: "oklch(0.60 0.16 350)",
   },
   {
     icon: ProductLaunchLaptop,
     iconClass: styles.iconTeal,
-    emoji: "🚀",
+    accentColor: "oklch(0.55 0.12 180)",
   },
   {
     icon: BookLibraryShelf,
     iconClass: styles.iconAmber,
-    emoji: "📚",
+    accentColor: "oklch(0.65 0.14 75)",
   },
 ]
 
@@ -270,6 +270,7 @@ export default function Home() {
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroGrid} />
+        <div className={styles.heroFade} />
         <div className="relative z-10">
           <h1 className={styles.heroTitle}>
             Learn{" "}
@@ -296,18 +297,27 @@ export default function Home() {
       {/* Stats */}
       <section className={styles.stats}>
         <div className={styles.statItem}>
+          <div className={styles.statIcon}>
+            <BookFlipPage className="size-5" />
+          </div>
           <div className={styles.statNumber}>
             <NumberTicker value={30} delay={0.3} />
           </div>
           <div className={styles.statLabel}>Topics</div>
         </div>
         <div className={styles.statItem}>
+          <div className={styles.statIcon}>
+            <OrganizationFiles className="size-5" />
+          </div>
           <div className={styles.statNumber}>
             <NumberTicker value={7} delay={0.5} />
           </div>
           <div className={styles.statLabel}>Categories</div>
         </div>
         <div className={styles.statItem}>
+          <div className={styles.statIcon}>
+            <ProgrammingCodeIdea className="size-5" />
+          </div>
           <div className={styles.statNumber}>
             <NumberTicker value={450} delay={0.7} />
             <span className="text-[var(--primary)]">+</span>
@@ -360,9 +370,10 @@ export default function Home() {
                 key={section.title}
                 href={firstHref}
                 className={styles.categoryCard}
+                style={{ "--card-accent": meta.accentColor } as React.CSSProperties}
               >
                 <div className={`${styles.categoryIcon} ${meta.iconClass}`}>
-                  {meta.emoji}
+                  <meta.icon className="size-5" />
                 </div>
                 <div className={styles.categoryName}>{section.title}</div>
                 <div className={styles.categoryCount}>

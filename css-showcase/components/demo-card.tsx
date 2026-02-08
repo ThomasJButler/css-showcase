@@ -42,20 +42,15 @@ export function DemoCard({
         {/* Live demo area */}
         <div
           className={cn(
-            "relative rounded-lg border border-dashed border-[var(--border)] p-4",
-            "bg-[var(--surface)] dark:bg-[var(--surface)]",
+            "relative rounded-lg border border-[var(--border)]/60 p-4",
+            "bg-[var(--surface-alt)] dark:bg-[oklch(0.20_0.025_150)]",
+            "shadow-[inset_0_2px_4px_0_oklch(0.30_0.02_55/0.05)] dark:shadow-[inset_0_2px_4px_0_oklch(0.10_0.02_155/0.15)]",
+            "border-l-[3px] border-l-[var(--primary)]/15",
             "overflow-x-auto"
           )}
         >
-          {/* Dotted background pattern for demo area */}
-          <div
-            className="pointer-events-none absolute inset-0 rounded-lg opacity-[0.03] dark:opacity-[0.06]"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle, var(--foreground) 0.5px, transparent 0.5px)",
-              backgroundSize: "16px 16px",
-            }}
-          />
+          {/* Top-edge gradient highlight */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--primary)]/10 to-transparent" />
           <div className="relative">{children}</div>
         </div>
 

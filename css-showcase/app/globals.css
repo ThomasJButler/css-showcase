@@ -441,12 +441,37 @@
   .animate-on-scroll {
     animation: section-reveal linear both;
     animation-timeline: view();
-    animation-range: entry 0% entry 25%;
+    animation-range: entry 5% entry 30%;
   }
 
   .animate-on-scroll-card {
     animation: card-reveal linear both;
     animation-timeline: view();
-    animation-range: entry 0% entry 20%;
+    animation-range: entry 5% entry 25%;
   }
+}
+
+/* Gradient section divider for smooth visual flow between sections */
+.section-divider {
+  height: 1px;
+  margin: 0 auto;
+  max-width: 80%;
+  background: linear-gradient(90deg, transparent, var(--border) 20%, oklch(0.52 0.12 145 / 0.15) 50%, var(--border) 80%, transparent);
+}
+
+/* Code block left-edge primary glow */
+pre {
+  position: relative;
+}
+
+pre::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, oklch(0.52 0.12 145 / 0.20), oklch(0.52 0.12 145 / 0.05));
+  border-radius: 1px;
+  pointer-events: none;
 }

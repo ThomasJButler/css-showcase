@@ -135,18 +135,18 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         </div>
         <div className="mr-10 flex justify-end gap-2">
           <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 disabled:opacity-50"
+            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--surface-alt)] border border-[var(--border)] disabled:opacity-50"
             onClick={scrollLeft}
             disabled={!canScrollLeft}
           >
-            <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
+            <IconArrowNarrowLeft className="h-6 w-6 text-[var(--text-secondary)]" />
           </button>
           <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 disabled:opacity-50"
+            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--surface-alt)] border border-[var(--border)] disabled:opacity-50"
             onClick={scrollRight}
             disabled={!canScrollRight}
           >
-            <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
+            <IconArrowNarrowRight className="h-6 w-6 text-[var(--text-secondary)]" />
           </button>
         </div>
       </div>
@@ -246,7 +246,7 @@ export const Card = ({
         {card.bgClass ? (
           <div className={`${card.bgClass} absolute inset-0 z-0 rounded-3xl`} />
         ) : (
-          <div className="absolute inset-0 z-0 rounded-3xl bg-gray-100 dark:bg-neutral-900" />
+          <div className="absolute inset-0 z-0 rounded-3xl bg-[var(--surface-alt)] dark:bg-[var(--surface)]" />
         )}
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
         <div className="relative z-40 p-6 md:p-8">
