@@ -2217,7 +2217,7 @@ Shapes & Clips.
 ## Phase 8: Content Migration — Resources (2 pages)
 
 ### Task 8.1: CSS Tools Page
-**Status:** PENDING
+**Status:** COMPLETE
 **Source:** `../tools.html`
 
 ### Task 8.2: Frameworks Page
