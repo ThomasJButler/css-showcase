@@ -32,7 +32,7 @@ export function DemoCard({
   children,
 }: DemoCardProps) {
   return (
-    <Card className={cn("overflow-hidden", className)}>
+    <Card className={cn("overflow-hidden animate-on-scroll-card", className)}>
       <CardHeader>
         <CardTitle className="text-base font-semibold">{title}</CardTitle>
         {description && <CardDescription>{description}</CardDescription>}

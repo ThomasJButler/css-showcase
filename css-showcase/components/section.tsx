@@ -21,7 +21,11 @@ export function Section({
   return (
     <section
       id={sectionId}
-      className={cn("scroll-mt-20 px-6 py-10 md:px-10 md:py-14", className)}
+      className={cn(
+        "scroll-mt-20 px-6 py-10 md:px-10 md:py-14",
+        "animate-on-scroll",
+        className
+      )}
     >
       <div className="mb-8">
         <h2 className="font-display text-2xl font-bold tracking-tight text-foreground md:text-3xl">

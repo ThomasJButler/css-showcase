@@ -95,15 +95,35 @@ export function CodeBlock({
         )}
         <Button
           variant="ghost"
-          size="icon"
-          className="size-7 text-[var(--text-muted)] hover:text-foreground"
+          size="sm"
+          className={cn(
+            "h-7 gap-1.5 text-[var(--text-muted)] hover:text-foreground transition-all duration-300",
+            copied && "text-emerald-500 dark:text-emerald-400"
+          )}
           onClick={handleCopy}
         >
-          {copied ? (
-            <Check className="size-3.5 text-emerald-500" />
-          ) : (
-            <Copy className="size-3.5" />
-          )}
+          <span
+            className={cn(
+              "inline-flex transition-transform duration-300",
+              copied && "animate-[copy-bounce_0.4s_ease-out]"
+            )}
+          >
+            {copied ? (
+              <Check className="size-3.5" />
+            ) : (
+              <Copy className="size-3.5" />
+            )}
+          </span>
+          <span
+            className={cn(
+              "text-xs font-medium transition-all duration-300 overflow-hidden",
+              copied
+                ? "max-w-[4rem] opacity-100"
+                : "max-w-0 opacity-0"
+            )}
+          >
+            Copied!
+          </span>
           <span className="sr-only">Copy code</span>
         </Button>
       </div>
