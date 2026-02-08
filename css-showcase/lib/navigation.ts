@@ -37,7 +37,7 @@ export const navigationSections: NavSection[] = [
       { title: "Flexbox", href: "/flexbox" },
       { title: "Flexbox Patterns", href: "/flexbox-patterns" },
       { title: "Grid", href: "/grid" },
-      { title: "Layout Techniques", href: "/layout" },
+      { title: "CSS Layout Techniques", href: "/layout" },
       { title: "Responsive Design", href: "/responsive" },
     ],
   },
