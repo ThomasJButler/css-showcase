@@ -63,7 +63,7 @@ Create a Studio Ghibli-inspired colour palette manually in `globals.css`. The Gh
 - `npm run build` must pass
 
 ### Task 8.5.2: Switch Fonts to Nunito Family
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** HIGH
 **Files:** `css-showcase/app/layout.tsx`, `css-showcase/app/globals.css`, `css-showcase/app/fonts/`
 
