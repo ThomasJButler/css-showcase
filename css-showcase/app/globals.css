@@ -6,8 +6,11 @@
 
 /* ==========================================================================
    TAILWIND v4 THEME — CSS Showcase Design Tokens
-   Ported from ../styles/01-design-tokens.css
-   Primary blue (#2563eb), Secondary purple (#7c3aed), Accent amber (#f59e0b)
+   Studio Ghibli Palette
+   Primary: forest green — Totoro's forest
+   Secondary: earth brown — woodland paths
+   Accent: sky blue — Laputa skies
+   Background: creamy parchment — aged paper warmth
    ========================================================================== */
 
 @theme inline {
@@ -58,35 +61,35 @@
   --radius-4xl: calc(var(--radius) + 16px);
 
   /* --- Font families (overridden via next/font CSS vars) --- */
-  --font-sans: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-nunito-sans), "Nunito Sans", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", "Fira Code",
     monospace;
-  --font-display: var(--font-satoshi), "Satoshi", "Inter", -apple-system,
+  --font-display: var(--font-nunito), "Nunito", "Nunito Sans", -apple-system,
     BlinkMacSystemFont, sans-serif;
 
-  /* --- Extended colour palette (Tailwind utility classes) --- */
-  --color-brand-blue: #2563eb;
-  --color-brand-blue-dark: #1d4ed8;
-  --color-brand-blue-light: #60a5fa;
-  --color-brand-purple: #7c3aed;
-  --color-brand-purple-dark: #6d28d9;
-  --color-brand-purple-light: #a78bfa;
-  --color-brand-amber: #f59e0b;
-  --color-brand-amber-dark: #d97706;
-  --color-brand-amber-light: #fbbf24;
-  --color-success: #10b981;
-  --color-success-dark: #059669;
-  --color-success-light: #d1fae5;
-  --color-warning: #f59e0b;
-  --color-warning-dark: #92400e;
-  --color-warning-light: #fef3c7;
-  --color-error: #ef4444;
-  --color-error-dark: #dc2626;
-  --color-error-light: #fee2e2;
-  --color-info: #3b82f6;
-  --color-info-dark: #1e40af;
-  --color-info-light: #dbeafe;
+  /* --- Extended colour palette — Ghibli-inspired (Tailwind utility classes) --- */
+  --color-brand-forest: oklch(0.52 0.12 145);
+  --color-brand-forest-dark: oklch(0.42 0.10 145);
+  --color-brand-forest-light: oklch(0.72 0.12 145);
+  --color-brand-earth: oklch(0.55 0.08 65);
+  --color-brand-earth-dark: oklch(0.45 0.07 65);
+  --color-brand-earth-light: oklch(0.75 0.06 65);
+  --color-brand-sky: oklch(0.68 0.10 230);
+  --color-brand-sky-dark: oklch(0.58 0.09 230);
+  --color-brand-sky-light: oklch(0.82 0.07 230);
+  --color-success: oklch(0.72 0.17 155);
+  --color-success-dark: oklch(0.60 0.15 155);
+  --color-success-light: oklch(0.93 0.04 155);
+  --color-warning: oklch(0.80 0.15 80);
+  --color-warning-dark: oklch(0.55 0.12 55);
+  --color-warning-light: oklch(0.95 0.04 90);
+  --color-error: oklch(0.63 0.21 25);
+  --color-error-dark: oklch(0.55 0.22 25);
+  --color-error-light: oklch(0.93 0.04 25);
+  --color-info: oklch(0.68 0.10 230);
+  --color-info-dark: oklch(0.50 0.12 245);
+  --color-info-light: oklch(0.93 0.03 230);
 
   /* --- Easing functions --- */
   --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
@@ -101,80 +104,98 @@
 }
 
 /* ==========================================================================
-   LIGHT THEME (default)
-   Primary blue palette with warm neutral surfaces
+   LIGHT THEME — Studio Ghibli
+   Creamy parchment surfaces, forest green primary, earth & sky accents
+   Inspired by the warm, sunlit meadows of My Neighbour Totoro
    ========================================================================== */
 
 :root {
   --radius: 0.625rem;
 
-  /* ShadCN semantic colours — blue-primary, warm neutrals */
-  --background: #fafafa;
-  --foreground: #1f2937;
-  --card: #ffffff;
-  --card-foreground: #1f2937;
-  --popover: #ffffff;
-  --popover-foreground: #1f2937;
-  --primary: #2563eb;
-  --primary-foreground: #ffffff;
-  --secondary: #f3f4f6;
-  --secondary-foreground: #1f2937;
-  --muted: #f3f4f6;
-  --muted-foreground: #6b7280;
-  --accent: #f3f4f6;
-  --accent-foreground: #1f2937;
-  --destructive: #ef4444;
-  --border: #e5e7eb;
-  --input: #e5e7eb;
-  --ring: #2563eb;
+  /* ShadCN semantic colours — Ghibli light */
+  --background: oklch(0.97 0.01 90);
+  --foreground: oklch(0.25 0.03 55);
+  --card: oklch(0.99 0.005 90);
+  --card-foreground: oklch(0.25 0.03 55);
+  --popover: oklch(0.99 0.005 90);
+  --popover-foreground: oklch(0.25 0.03 55);
+  --primary: oklch(0.52 0.12 145);
+  --primary-foreground: oklch(0.98 0.005 145);
+  --secondary: oklch(0.93 0.015 90);
+  --secondary-foreground: oklch(0.30 0.03 55);
+  --muted: oklch(0.93 0.015 90);
+  --muted-foreground: oklch(0.55 0.03 55);
+  --accent: oklch(0.93 0.02 75);
+  --accent-foreground: oklch(0.30 0.03 55);
+  --destructive: oklch(0.58 0.22 25);
+  --border: oklch(0.88 0.02 85);
+  --input: oklch(0.88 0.02 85);
+  --ring: oklch(0.52 0.12 145);
 
-  /* Chart colours — derived from brand palette */
-  --chart-1: #2563eb;
-  --chart-2: #7c3aed;
-  --chart-3: #f59e0b;
-  --chart-4: #10b981;
-  --chart-5: #ef4444;
+  /* Chart colours — Ghibli nature palette */
+  --chart-1: oklch(0.52 0.12 145);
+  --chart-2: oklch(0.65 0.08 65);
+  --chart-3: oklch(0.78 0.10 230);
+  --chart-4: oklch(0.72 0.17 155);
+  --chart-5: oklch(0.70 0.15 45);
 
-  /* Sidebar */
-  --sidebar: #fafafa;
-  --sidebar-foreground: #1f2937;
-  --sidebar-primary: #2563eb;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f3f4f6;
-  --sidebar-accent-foreground: #1f2937;
-  --sidebar-border: #e5e7eb;
-  --sidebar-ring: #2563eb;
+  /* Sidebar — warm parchment */
+  --sidebar: oklch(0.96 0.012 88);
+  --sidebar-foreground: oklch(0.25 0.03 55);
+  --sidebar-primary: oklch(0.52 0.12 145);
+  --sidebar-primary-foreground: oklch(0.98 0.005 145);
+  --sidebar-accent: oklch(0.92 0.025 130);
+  --sidebar-accent-foreground: oklch(0.25 0.03 55);
+  --sidebar-border: oklch(0.88 0.02 85);
+  --sidebar-ring: oklch(0.52 0.12 145);
 
   /* --- Extended tokens (not in @theme, used via var() in CSS) --- */
 
-  /* Surface variants */
-  --surface: #ffffff;
-  --surface-alt: #f3f4f6;
-  --surface-variant: #e5e7eb;
+  /* Surface variants — warm parchment tones */
+  --surface: oklch(0.99 0.005 90);
+  --surface-alt: oklch(0.95 0.015 88);
+  --surface-variant: oklch(0.90 0.02 85);
 
-  /* Text hierarchy */
-  --text-primary: #1f2937;
-  --text-secondary: #4b5563;
-  --text-muted: #6b7280;
-  --text-light: #9ca3af;
+  /* Text hierarchy — warm charcoal to soft stone */
+  --text-primary: oklch(0.25 0.03 55);
+  --text-secondary: oklch(0.40 0.03 55);
+  --text-muted: oklch(0.55 0.03 55);
+  --text-light: oklch(0.68 0.02 70);
 
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-  --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-  --gradient-cool: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-  --gradient-subtle: linear-gradient(180deg, #ffffff 0%, #f3f4f6 100%);
+  /* Gradients — forest to sky, earth to amber */
+  --gradient-primary: linear-gradient(
+    135deg,
+    oklch(0.52 0.12 145) 0%,
+    oklch(0.60 0.10 180) 100%
+  );
+  --gradient-warm: linear-gradient(
+    135deg,
+    oklch(0.75 0.12 70) 0%,
+    oklch(0.65 0.15 45) 100%
+  );
+  --gradient-cool: linear-gradient(
+    135deg,
+    oklch(0.72 0.10 200) 0%,
+    oklch(0.68 0.10 230) 100%
+  );
+  --gradient-subtle: linear-gradient(
+    180deg,
+    oklch(0.99 0.005 90) 0%,
+    oklch(0.95 0.015 88) 100%
+  );
 
-  /* Shadows */
-  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px 0 rgb(0 0 0 / 0.06);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -1px rgb(0 0 0 / 0.06);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-    0 4px 6px -2px rgb(0 0 0 / 0.05);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 10px 10px -5px rgb(0 0 0 / 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  /* Shadows — warm-tinted for parchment surfaces */
+  --shadow-xs: 0 1px 2px 0 oklch(0.30 0.02 55 / 0.06);
+  --shadow-sm: 0 1px 3px 0 oklch(0.30 0.02 55 / 0.10),
+    0 1px 2px 0 oklch(0.30 0.02 55 / 0.06);
+  --shadow-md: 0 4px 6px -1px oklch(0.30 0.02 55 / 0.10),
+    0 2px 4px -1px oklch(0.30 0.02 55 / 0.06);
+  --shadow-lg: 0 10px 15px -3px oklch(0.30 0.02 55 / 0.10),
+    0 4px 6px -2px oklch(0.30 0.02 55 / 0.05);
+  --shadow-xl: 0 20px 25px -5px oklch(0.30 0.02 55 / 0.10),
+    0 10px 10px -5px oklch(0.30 0.02 55 / 0.04);
+  --shadow-2xl: 0 25px 50px -12px oklch(0.30 0.02 55 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 oklch(0.30 0.02 55 / 0.05);
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -182,10 +203,10 @@
   --transition-slow: 350ms cubic-bezier(0.19, 1, 0.22, 1);
   --transition-bounce: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Interaction overlays */
-  --hover-overlay: rgba(37, 99, 235, 0.08);
-  --active-overlay: rgba(37, 99, 235, 0.12);
-  --focus-ring-colour: rgba(37, 99, 235, 0.4);
+  /* Interaction overlays — forest green tinted */
+  --hover-overlay: oklch(0.52 0.12 145 / 0.08);
+  --active-overlay: oklch(0.52 0.12 145 / 0.12);
+  --focus-ring-colour: oklch(0.52 0.12 145 / 0.40);
 
   /* Responsive spacing */
   --section-spacing: clamp(1rem, 3vw, 1.5rem);
@@ -193,84 +214,102 @@
 }
 
 /* ==========================================================================
-   DARK THEME
-   Deep blue-slate surfaces, softer text for extended reading
+   DARK THEME — Twilight Forest
+   Deep forest greens with indigo undertones, moonlit moss surfaces
+   Inspired by the enchanted forests at dusk in Princess Mononoke
    ========================================================================== */
 
 .dark {
-  /* ShadCN semantic colours — dark mode */
-  --background: #0f172a;
-  --foreground: #e2e8f0;
-  --card: #1e293b;
-  --card-foreground: #e2e8f0;
-  --popover: #1e293b;
-  --popover-foreground: #e2e8f0;
-  --primary: #60a5fa;
-  --primary-foreground: #0f172a;
-  --secondary: #334155;
-  --secondary-foreground: #e2e8f0;
-  --muted: #334155;
-  --muted-foreground: #94a3b8;
-  --accent: #334155;
-  --accent-foreground: #e2e8f0;
-  --destructive: #f87171;
-  --border: #334155;
-  --input: #334155;
-  --ring: #60a5fa;
+  /* ShadCN semantic colours — twilight forest */
+  --background: oklch(0.18 0.03 155);
+  --foreground: oklch(0.90 0.015 100);
+  --card: oklch(0.23 0.03 150);
+  --card-foreground: oklch(0.90 0.015 100);
+  --popover: oklch(0.23 0.03 150);
+  --popover-foreground: oklch(0.90 0.015 100);
+  --primary: oklch(0.72 0.12 145);
+  --primary-foreground: oklch(0.18 0.03 155);
+  --secondary: oklch(0.30 0.03 145);
+  --secondary-foreground: oklch(0.88 0.015 100);
+  --muted: oklch(0.30 0.03 145);
+  --muted-foreground: oklch(0.65 0.02 120);
+  --accent: oklch(0.30 0.035 130);
+  --accent-foreground: oklch(0.88 0.015 100);
+  --destructive: oklch(0.70 0.19 22);
+  --border: oklch(0.32 0.03 145);
+  --input: oklch(0.32 0.03 145);
+  --ring: oklch(0.72 0.12 145);
 
-  /* Chart colours — brighter for dark backgrounds */
-  --chart-1: #60a5fa;
-  --chart-2: #a78bfa;
-  --chart-3: #fbbf24;
-  --chart-4: #34d399;
-  --chart-5: #f87171;
+  /* Chart colours — luminous for dark backgrounds */
+  --chart-1: oklch(0.72 0.12 145);
+  --chart-2: oklch(0.75 0.08 65);
+  --chart-3: oklch(0.78 0.10 230);
+  --chart-4: oklch(0.80 0.15 80);
+  --chart-5: oklch(0.70 0.15 45);
 
-  /* Sidebar — dark */
-  --sidebar: #1e293b;
-  --sidebar-foreground: #e2e8f0;
-  --sidebar-primary: #60a5fa;
-  --sidebar-primary-foreground: #0f172a;
-  --sidebar-accent: #334155;
-  --sidebar-accent-foreground: #e2e8f0;
-  --sidebar-border: #334155;
-  --sidebar-ring: #60a5fa;
+  /* Sidebar — deep forest */
+  --sidebar: oklch(0.22 0.03 150);
+  --sidebar-foreground: oklch(0.88 0.015 100);
+  --sidebar-primary: oklch(0.72 0.12 145);
+  --sidebar-primary-foreground: oklch(0.18 0.03 155);
+  --sidebar-accent: oklch(0.28 0.04 140);
+  --sidebar-accent-foreground: oklch(0.88 0.015 100);
+  --sidebar-border: oklch(0.30 0.03 145);
+  --sidebar-ring: oklch(0.72 0.12 145);
 
-  /* Surface variants — dark */
-  --surface: #1e293b;
-  --surface-alt: #334155;
-  --surface-variant: #475569;
+  /* Surface variants — layered forest depths */
+  --surface: oklch(0.23 0.03 150);
+  --surface-alt: oklch(0.28 0.03 145);
+  --surface-variant: oklch(0.35 0.03 140);
 
-  /* Text hierarchy — dark */
-  --text-primary: #e2e8f0;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --text-light: #64748b;
+  /* Text hierarchy — moonlit parchment to mossy stone */
+  --text-primary: oklch(0.90 0.015 100);
+  --text-secondary: oklch(0.80 0.015 110);
+  --text-muted: oklch(0.65 0.02 120);
+  --text-light: oklch(0.50 0.02 130);
 
-  /* Gradients — dark */
-  --gradient-primary: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-  --gradient-warm: linear-gradient(135deg, #fbbf24 0%, #f87171 100%);
-  --gradient-cool: linear-gradient(135deg, #22d3ee 0%, #60a5fa 100%);
-  --gradient-subtle: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  /* Gradients — twilight forest tones */
+  --gradient-primary: linear-gradient(
+    135deg,
+    oklch(0.72 0.12 145) 0%,
+    oklch(0.65 0.10 180) 100%
+  );
+  --gradient-warm: linear-gradient(
+    135deg,
+    oklch(0.80 0.12 80) 0%,
+    oklch(0.70 0.15 45) 100%
+  );
+  --gradient-cool: linear-gradient(
+    135deg,
+    oklch(0.72 0.08 200) 0%,
+    oklch(0.68 0.10 240) 100%
+  );
+  --gradient-subtle: linear-gradient(
+    180deg,
+    oklch(0.23 0.03 150) 0%,
+    oklch(0.18 0.03 155) 100%
+  );
 
-  /* Shadows — stronger for dark surfaces */
-  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.2);
-  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px 0 rgb(0 0 0 / 0.2);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3),
-    0 2px 4px -1px rgb(0 0 0 / 0.2);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3),
-    0 4px 6px -2px rgb(0 0 0 / 0.2);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.3),
-    0 10px 10px -5px rgb(0 0 0 / 0.2);
-  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.5);
-  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.2);
+  /* Shadows — deeper for twilight surfaces */
+  --shadow-xs: 0 1px 2px 0 oklch(0.10 0.02 155 / 0.25);
+  --shadow-sm: 0 1px 3px 0 oklch(0.10 0.02 155 / 0.35),
+    0 1px 2px 0 oklch(0.10 0.02 155 / 0.25);
+  --shadow-md: 0 4px 6px -1px oklch(0.10 0.02 155 / 0.35),
+    0 2px 4px -1px oklch(0.10 0.02 155 / 0.25);
+  --shadow-lg: 0 10px 15px -3px oklch(0.10 0.02 155 / 0.35),
+    0 4px 6px -2px oklch(0.10 0.02 155 / 0.25);
+  --shadow-xl: 0 20px 25px -5px oklch(0.10 0.02 155 / 0.35),
+    0 10px 10px -5px oklch(0.10 0.02 155 / 0.25);
+  --shadow-2xl: 0 25px 50px -12px oklch(0.10 0.02 155 / 0.55);
+  --shadow-inner: inset 0 2px 4px 0 oklch(0.10 0.02 155 / 0.25);
 
-  /* Interaction overlays — dark */
-  --hover-overlay: rgba(96, 165, 250, 0.1);
-  --active-overlay: rgba(96, 165, 250, 0.15);
-  --focus-ring-colour: rgba(96, 165, 250, 0.5);
+  /* Interaction overlays — forest glow */
+  --hover-overlay: oklch(0.72 0.12 145 / 0.10);
+  --active-overlay: oklch(0.72 0.12 145 / 0.15);
+  --focus-ring-colour: oklch(0.72 0.12 145 / 0.50);
 
-  /* Atmospheric glow for dark mode */
-  --glow-primary: 0 0 80px -20px rgba(96, 165, 250, 0.3);
+  /* Atmospheric glow — firefly-like forest luminescence */
+  --glow-primary: 0 0 80px -20px oklch(0.72 0.12 145 / 0.25);
 }
 
 /* ==========================================================================
@@ -284,7 +323,6 @@
 
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -315,14 +353,14 @@
     outline-offset: 2px;
   }
 
-  /* Selection colours */
+  /* Selection colours — forest green tint */
   ::selection {
-    background: rgba(37, 99, 235, 0.2);
+    background: oklch(0.52 0.12 145 / 0.20);
     color: inherit;
   }
 
   .dark ::selection {
-    background: rgba(96, 165, 250, 0.3);
+    background: oklch(0.72 0.12 145 / 0.30);
     color: inherit;
   }
 }

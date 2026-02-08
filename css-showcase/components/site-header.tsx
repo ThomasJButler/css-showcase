@@ -30,7 +30,7 @@ import { SearchDialog } from "@/components/search-dialog"
 function useBreadcrumbs() {
   const pathname = usePathname()
 
-  if (pathname === "/") return null
+  if (!pathname || pathname === "/") return null
 
   for (const section of navigationSections) {
     const item = section.items.find((i) => i.href === pathname)
