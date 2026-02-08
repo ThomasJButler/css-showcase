@@ -79,6 +79,7 @@ export default function GradientPatternsPage() {
         );
 }`}
             collapsibleCode
+            codeDefaultOpen={false}
           >
             <div className={styles.patternRow}>
               <div className={styles.patternShowcase}>
@@ -166,6 +167,7 @@ export default function GradientPatternsPage() {
         #e5e7eb;
 }`}
             collapsibleCode
+            codeDefaultOpen={false}
           >
             <div className={styles.patternRow}>
               <div className={styles.patternShowcase}>
@@ -257,6 +259,7 @@ export default function GradientPatternsPage() {
     animation: wave 4s linear infinite;
 }`}
             collapsibleCode
+            codeDefaultOpen={false}
           >
             <div className={styles.animatedGrid}>
               <div className={`${styles.animatedBox} ${styles.gradientWave}`}>

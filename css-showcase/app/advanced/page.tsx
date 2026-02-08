@@ -29,6 +29,8 @@ export default function AdvancedPage() {
           <DemoCard
             title="The :is() Selector"
             description="Simplifies complex selector lists by grouping them together — a huge time-saver."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Without :is() — repetitive */
 section h4,
 article h4,
@@ -57,6 +59,8 @@ aside h4 {
           <DemoCard
             title="The :where() Selector"
             description="Works like :is() but with zero specificity — perfect for base styles you want to easily override."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`:where(a) {
     color: #64748b;
     text-decoration: none;
@@ -80,6 +84,8 @@ aside h4 {
           <DemoCard
             title="The :not() Selector"
             description="Your exclusion tool — style everything except certain elements."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Style all buttons except .primary */
 button:not(.primary) {
     background: #f1f5f9;
@@ -125,6 +131,8 @@ button.primary {
           <DemoCard
             title="::before and ::after"
             description="The workhorses of pseudo-elements — create decorative elements, badges, and tooltips with CSS alone."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.badge::before {
     content: '\\2605\\00a0';
     opacity: 0.7;
@@ -147,6 +155,8 @@ button.primary {
           <DemoCard
             title="::first-letter and ::first-line"
             description="Style the first letter or line of text differently — perfect for drop caps and magazine-style layouts."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.dropcap-text::first-letter {
     font-size: 3.5em;
     font-weight: 700;
@@ -176,6 +186,8 @@ button.primary {
           <DemoCard
             title="::selection"
             description="Style the appearance of selected text — a small touch that gives your site personality."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`::selection {
     background: #2563eb;
     color: white;
@@ -207,6 +219,8 @@ button.primary {
           <DemoCard
             title="Basic Counter"
             description="Create numbered items that update automatically when you add or remove elements. No manual renumbering required!"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.counter-demo {
     counter-reset: step;
 }
@@ -236,6 +250,8 @@ button.primary {
           <DemoCard
             title="Nested Counters"
             description="Counters can be nested to create hierarchical numbering like 1.1, 1.2, 2.1. Great for documentation and specifications."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.nested-counter-demo {
     counter-reset: section;
 }
@@ -288,6 +304,8 @@ button.primary {
           <DemoCard
             title="Basic Attribute Selectors"
             description="Match elements that have specific attributes, or attributes with specific values."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Style all inputs with type attribute */
 input[type] {
     padding: 8px 12px;
@@ -335,6 +353,8 @@ button[disabled] {
           <DemoCard
             title="Advanced Attribute Matching"
             description="Use powerful operators to match attribute values partially — perfect for styling external links, file types, or data attributes."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Starts with https:// */
 a[href^="https://"]::after {
     content: ' \\2197';
@@ -387,6 +407,8 @@ a[href*="image"]::before {
           <DemoCard
             title="Descendant Combinator (space)"
             description="Selects all descendants, no matter how deeply nested. The most common combinator."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Space = descendant combinator */
 .descendant-demo p {
     color: #2563eb;
@@ -409,6 +431,8 @@ a[href*="image"]::before {
           <DemoCard
             title="Child Combinator (>)"
             description="Selects only direct children, not deeper descendants. Great for precise targeting."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* > = child combinator */
 .child-demo > p {
     color: #7c3aed;
@@ -430,6 +454,8 @@ a[href*="image"]::before {
           <DemoCard
             title="Adjacent (+) and General (~) Siblings"
             description="Select elements based on their sibling relationships. Perfect for spacing, alternating styles, and contextual design."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* + = adjacent sibling (immediately follows) */
 h4 + p {
     font-weight: 700;
@@ -469,6 +495,8 @@ h4 ~ p {
           <DemoCard
             title="Specificity Hierarchy"
             description="CSS specificity is calculated based on four categories. Understanding this hierarchy is crucial."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Specificity: 1 (one element) */
 p { color: gray; }
 
@@ -513,6 +541,8 @@ div#special.text { color: purple; }`}
           <DemoCard
             title="Good vs Bad Specificity"
             description="Keep specificity low and consistent. Use classes over IDs, avoid nesting too deeply, and reserve !important for truly exceptional cases."
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Good — flat, predictable specificity */
 .button { }
 .button-primary { }

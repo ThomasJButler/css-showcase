@@ -68,7 +68,7 @@ export default function BoxModelPage() {
           </DemoCard>
         </DemoGrid>
 
-        <DemoGrid columns={2} className="mt-6">
+        <DemoGrid columns={1} className="mt-6">
           {/* Padding */}
           <DemoCard
             title="Padding"
@@ -148,7 +148,6 @@ export default function BoxModelPage() {
           {/* Borders */}
           <DemoCard
             title="Borders"
-            className="lg:col-span-2"
             code={`/* Border styles */
 .solid {
     border: 3px solid var(--colour-primary);
@@ -238,11 +237,10 @@ export default function BoxModelPage() {
           </DemoCard>
         </DemoGrid>
 
-        <DemoGrid columns={2} className="mt-6">
+        <DemoGrid columns={1} className="mt-6">
           {/* Practical Example */}
           <DemoCard
             title="Practical Example"
-            className="lg:col-span-2"
             code={`/* With border-box, maths is easy! */
 .layout-grid {
     display: flex;
@@ -281,7 +279,7 @@ export default function BoxModelPage() {
         intro="Take your box model skills to the next level with these advanced techniques and edge cases."
         id="advanced"
       >
-        <DemoGrid columns={2}>
+        <DemoGrid columns={1}>
           {/* Margin Collapse */}
           <DemoCard
             title="Margin Collapse"

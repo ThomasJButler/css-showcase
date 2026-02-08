@@ -29,6 +29,8 @@ export default function FormsPage() {
         <DemoGrid columns={1}>
           <DemoCard
             title="Classic Inputs"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.form-input {
     width: 100%;
     padding: 0.75rem;
@@ -64,6 +66,8 @@ export default function FormsPage() {
 
           <DemoCard
             title="Floating Labels"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.form-floating {
     position: relative;
 }
@@ -106,6 +110,8 @@ export default function FormsPage() {
 
           <DemoCard
             title="Underline Style"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.form-underline input {
     background: transparent;
     border: none;
@@ -149,6 +155,8 @@ export default function FormsPage() {
 
           <DemoCard
             title="Textareas"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.form-textarea {
     width: 100%;
     min-height: 100px;
@@ -191,6 +199,8 @@ export default function FormsPage() {
 
           <DemoCard
             title="Select & Dropdowns"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.form-select {
     width: 100%;
     padding: 0.75rem;
@@ -246,6 +256,8 @@ export default function FormsPage() {
         <DemoGrid columns={1}>
           <DemoCard
             title="Real-time Validation"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* CSS-only validation states */
 .form-input:valid:not(:placeholder-shown) {
     border-color: var(--colour-success);
@@ -328,6 +340,8 @@ export default function FormsPage() {
 
           <DemoCard
             title="Success States"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.form-group.success .form-input {
     border-color: var(--colour-success);
 }
@@ -353,6 +367,8 @@ export default function FormsPage() {
 
           <DemoCard
             title="Error States"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.form-group.error .form-input {
     border-color: var(--colour-error);
 }
@@ -387,6 +403,8 @@ export default function FormsPage() {
         <DemoGrid columns={1}>
           <DemoCard
             title="Checkboxes"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.form-checkbox {
     position: absolute;
     opacity: 0;
@@ -449,6 +467,8 @@ export default function FormsPage() {
 
           <DemoCard
             title="Radio Buttons"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.form-radio {
     position: absolute;
     opacity: 0;
@@ -508,6 +528,8 @@ export default function FormsPage() {
 
           <DemoCard
             title="Toggle Switches"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.form-toggle {
     position: absolute;
     opacity: 0;
@@ -567,6 +589,8 @@ export default function FormsPage() {
 
           <DemoCard
             title="Range Sliders"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.form-range {
     width: 100%;
     height: 6px;
@@ -623,6 +647,8 @@ export default function FormsPage() {
 
           <DemoCard
             title="File Upload"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.form-file {
     position: absolute;
     opacity: 0;
@@ -680,6 +706,8 @@ export default function FormsPage() {
 
           <DemoCard
             title="Date & Time"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`input[type="date"],
 input[type="time"],
 input[type="datetime-local"] {
@@ -723,6 +751,8 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
         <DemoGrid columns={1}>
           <DemoCard
             title="Contact Form"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Contact form layout */
 .contact-form .form-row {
     display: grid;
@@ -779,6 +809,8 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
 
           <DemoCard
             title="Sign Up Form"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Sign-up form with header & footer */
 .form-header {
     text-align: center;
@@ -865,6 +897,8 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
         <DemoGrid columns={1}>
           <DemoCard
             title="Best Practices for Beautiful Forms"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Ensure good focus states */
 input:focus-visible {
     outline: 2px solid var(--colour-primary);

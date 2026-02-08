@@ -26,7 +26,7 @@ export default function TypographyPage() {
         intro="Choosing the right typeface sets the tone for your entire design. Learn how to load and use fonts effectively."
         id="font-families"
       >
-        <DemoGrid columns={3}>
+        <DemoGrid columns={1}>
           {/* System Font Stacks */}
           <DemoCard
             title="System Font Stacks"
@@ -128,7 +128,7 @@ body {
         intro="Transform plain text into visually appealing content with these essential CSS properties."
         id="text-styling"
       >
-        <DemoGrid columns={2}>
+        <DemoGrid columns={1}>
           {/* Font Weight & Style */}
           <DemoCard
             title="Font Weight & Style"
@@ -272,7 +272,6 @@ h1 {
           {/* Text Alignment & Indentation */}
           <DemoCard
             title="Text Alignment & Indentation"
-            className="lg:col-span-2"
             code={`/* Text alignment */
 .align-left { text-align: left; }
 .align-center { text-align: center; }
@@ -317,7 +316,7 @@ p:first-child::first-letter {
         intro="Take your typography to the next level with these advanced CSS features and techniques."
         id="advanced"
       >
-        <DemoGrid columns={2}>
+        <DemoGrid columns={1}>
           {/* Variable Fonts */}
           <DemoCard
             title="Variable Fonts"

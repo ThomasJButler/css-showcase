@@ -29,6 +29,8 @@ export default function ButtonsPage() {
         <DemoGrid columns={1}>
           <DemoCard
             title="Primary Buttons"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.btn-primary {
     background: var(--colour-primary);
     color: white;
@@ -54,6 +56,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Secondary & Outline Buttons"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.btn-secondary {
     background: var(--colour-secondary);
     color: white;
@@ -90,6 +94,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Icon Buttons"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`.btn-icon {
     display: inline-flex;
     align-items: center;
@@ -132,6 +138,8 @@ export default function ButtonsPage() {
         <DemoGrid columns={1}>
           <DemoCard
             title="Slide Effects"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Slide right fill */
 .btn-slide-right {
     background: var(--colour-primary);
@@ -165,6 +173,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Gradient Effects"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Gradient shift on hover */
 .btn-gradient {
     background: linear-gradient(
@@ -202,6 +212,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Border Effects"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Animated border draw */
 .btn-border-draw {
     background: transparent;
@@ -234,6 +246,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Shadow Effects"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Growing shadow */
 .btn-shadow-grow {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -266,6 +280,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Transform Effects"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Scale on hover */
 .btn-grow:hover {
     transform: scale(1.1);
@@ -295,6 +311,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Text Effects"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Text slide replacement */
 .btn-text-slide span {
     position: relative;
@@ -342,6 +360,8 @@ export default function ButtonsPage() {
         <DemoGrid columns={1}>
           <DemoCard
             title="Pulse & Breathe"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Pulsing ring effect */
 @keyframes pulse {
     0% {
@@ -379,6 +399,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Loading States"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Spinner animation */
 @keyframes spin {
     to { transform: rotate(360deg); }
@@ -420,6 +442,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Morphing Buttons"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Round morph on hover */
 .btn-morph-round {
     border-radius: 0.5rem;
@@ -448,6 +472,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Particle Effects"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Confetti burst on click */
 .btn-confetti::before {
     content: '🎉';
@@ -499,6 +525,8 @@ export default function ButtonsPage() {
         <DemoGrid columns={1}>
           <DemoCard
             title="3D Buttons"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* 3D push button */
 .btn-3d {
     transform: translateY(-4px);
@@ -531,6 +559,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Neon Buttons"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Neon glow button */
 .btn-neon-blue {
     background: transparent;
@@ -561,6 +591,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Liquid Buttons"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Liquid fill from bottom */
 .btn-liquid {
     position: relative;
@@ -599,6 +631,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Special Buttons"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Union Jack reveal */
 .btn-union-jack::before {
     content: '';
@@ -644,6 +678,8 @@ export default function ButtonsPage() {
         <DemoGrid columns={1}>
           <DemoCard
             title="Basic Button Structure"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Base button styles */
 .btn {
     display: inline-block;
@@ -678,6 +714,8 @@ export default function ButtonsPage() {
 
           <DemoCard
             title="Loading Animation"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Spinner button */
 @keyframes spin {
     to { transform: rotate(360deg); }
@@ -736,6 +774,8 @@ export default function ButtonsPage() {
         <DemoGrid columns={1}>
           <DemoCard
             title="Accessibility & Performance Tips"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Ensure good focus states */
 .btn:focus-visible {
     outline: 2px solid var(--colour-primary);

@@ -15,6 +15,7 @@ interface DemoCardProps {
   language?: string
   codeTitle?: string
   collapsibleCode?: boolean
+  codeDefaultOpen?: boolean
   className?: string
   children: React.ReactNode
 }
@@ -26,6 +27,7 @@ export function DemoCard({
   language = "css",
   codeTitle,
   collapsibleCode = false,
+  codeDefaultOpen = true,
   className,
   children,
 }: DemoCardProps) {
@@ -64,6 +66,7 @@ export function DemoCard({
             language={language}
             title={codeTitle}
             collapsible={collapsibleCode}
+            defaultOpen={codeDefaultOpen}
           />
         )}
       </CardContent>

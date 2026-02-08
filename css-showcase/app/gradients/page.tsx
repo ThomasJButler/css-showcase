@@ -30,6 +30,8 @@ export default function GradientsPage() {
           {/* Basic Linear Gradients */}
           <DemoCard
             title="Basic Linear Gradients"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Two colour gradient */
 .gradient {
     background: linear-gradient(
@@ -80,6 +82,8 @@ export default function GradientsPage() {
           {/* Colour Stops */}
           <DemoCard
             title="Colour Stops"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Custom colour stops */
 .custom-stops {
     background: linear-gradient(
@@ -130,6 +134,8 @@ export default function GradientsPage() {
           {/* Advanced Techniques */}
           <DemoCard
             title="Advanced Techniques"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Overlay gradient */
 .overlay {
     background:
@@ -191,6 +197,8 @@ export default function GradientsPage() {
           {/* Basic Radial Gradients */}
           <DemoCard
             title="Basic Radial Gradients"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Circle gradient */
 .circle {
     background: radial-gradient(
@@ -237,6 +245,8 @@ export default function GradientsPage() {
           {/* Size & Shape Control */}
           <DemoCard
             title="Size & Shape Control"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Size keywords */
 .closest {
     background: radial-gradient(
@@ -282,6 +292,8 @@ export default function GradientsPage() {
           {/* Creative Effects */}
           <DemoCard
             title="Creative Effects"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Sunburst effect */
 .sunburst {
     background: radial-gradient(
@@ -343,6 +355,8 @@ export default function GradientsPage() {
           {/* Basic Conic Gradients */}
           <DemoCard
             title="Basic Conic Gradients"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Colour wheel */
 .wheel {
     background: conic-gradient(
@@ -397,6 +411,8 @@ export default function GradientsPage() {
           {/* Advanced Conic Effects */}
           <DemoCard
             title="Advanced Conic Effects"
+            collapsibleCode
+            codeDefaultOpen={false}
             code={`/* Checkerboard */
 .checkerboard {
     background: conic-gradient(

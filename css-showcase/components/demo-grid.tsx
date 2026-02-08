@@ -7,7 +7,7 @@ interface DemoGridProps {
 }
 
 export function DemoGrid({
-  columns = 2,
+  columns = 1,
   className,
   children,
 }: DemoGridProps) {

@@ -1,6 +1,6 @@
 # CSS Showcase - Implementation Plan (Next.js Migration)
 
-**Last Updated:** 8 February 2026 (Visual Audit #5)
+**Last Updated:** 8 February 2026 (Visual Audit #6)
 **Status:** Phase 8.5 (5/7) + Phase 9 COMPLETE → Phase 10 - Polish
 
 ### Architecture
@@ -242,13 +242,20 @@ Browse the full set at https://www.shadcn.io/icons/streamline-freehand-color —
 **Centring:** Added `mx-auto text-center` to the `max-w-3xl` container in `page-hero.tsx`. All 30 pages now have centred hero titles and subtitles on both desktop and mobile. Hero gradient backgrounds already use Ghibli palette tokens (`--background`, `--surface`, `--surface-alt`) — no off-palette gradients found. Sidebar label mismatch fixed ("Layout Techniques" → "CSS Layout Techniques").
 
 ### Task 10.2: Fix Demo Layout — Column Stack with Collapsible Code
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** CRITICAL
 **Files:** `css-showcase/components/demo-grid.tsx`, `css-showcase/components/demo-card.tsx`, all page files
 
 - Default `DemoGrid` to single-column layout (`columns={1}`) on all pages
 - If keeping multi-column grids (e.g., gradient swatches, button variants), make code blocks collapsible and hidden by default
 - The `DemoCard` component already has a `collapsibleCode` prop — ensure this is set to `true` by default when cards are in a multi-column grid
+
+**Done:**
+- Changed `DemoGrid` default from `columns={2}` to `columns={1}`
+- Added `codeDefaultOpen` prop to `DemoCard` → passes through to `CodeBlock.defaultOpen`
+- Switched `/basic`, `/box-model`, `/typography`, `/layout` from multi-column to single-column
+- Added `collapsibleCode` + `codeDefaultOpen={false}` to long pages: `/buttons` (20 cards), `/forms` (17 cards), `/advanced` (15 cards)
+- Added `collapsibleCode` + `codeDefaultOpen={false}` to multi-column pages: `/gradients` (8 cards), `/gradient-patterns` (3 cards)
 
 ### Task 10.3: Global UX — Motion Effect + Code Tabs + Copy Button
 **Status:** PENDING
@@ -364,80 +371,79 @@ Mobile (375px) verification:
 
 ---
 
-## Screenshot Audit Observations (8 February 2026 — Audit #5)
+## Screenshot Audit Observations (8 February 2026 — Audit #6)
 
-### Overall Status: HOMEPAGE BUILT — ENTERING POLISH PHASE
+### Overall Status: POLISH PHASE — STRONG FOUNDATION
 
-Phase 8.5 is 5/7 complete. Phase 9 (Homepage) is COMPLETE. The Ghibli theme, Nunito fonts, premium components, base components, extended colour tokens, and homepage are all applied. All 30 content pages + homepage migrated and rendering. Double-title issue resolved on all 7 affected pages. Shell fully functional. Dark mode uses twilight forest tones. Mobile responsive. No broken routes or 404s. **Significant progress since Audit #4.**
+Phase 8.5 is 5/7 complete. Phase 9 (Homepage) is COMPLETE. Task 10.1 (centre titles + double-title fix + sidebar label) is COMPLETE. Task 10.2 (demo layout — single-column + collapsible code) is COMPLETE. All 30 content pages + homepage migrated and rendering. Shell fully functional. Dark mode twilight forest aesthetic. Mobile responsive. Stats corrected to 30/7/450+. **No regressions since Audit #5. All prior critical issues resolved except Task 10.0 (icons).**
 
-### What's Changed Since Audit #4
+### What's Changed Since Audit #5
 
-**RESOLVED — Homepage (was Issue #1 / Task 9.1)**
-- Hero section: "Learn Modern CSS by Example" with gradient text, grid-pattern background, dual CTAs ("Start Learning", "Advanced Techniques")
-- Stats row: "23 Topics", "5 Categories", "234+ Demos" with animated NumberTicker counters
-- Featured carousel: Apple Cards Carousel with 4 featured topic cards (Grid & Flexbox, Gradients & Blending, Transitions & Motion, Container Queries & :has()) — large visual cards with expand-on-click
-- Marquee: scrolling strip of CSS feature names (Grid, Flexbox, Custom Properties, Container Queries, :has() Selector, CSS Nesting, etc.)
-- Category grid: 7 category cards (Fundamentals, Layout, Visual Effects, Components, Advanced, Modern CSS, Resources) with coloured icons, topic chip badges, and page counts
-- Bottom CTA: "Ready to dive in?" section with keyboard shortcut hint (Cmd+K)
-- Works well on both desktop and mobile — mobile stacks vertically, all sections render
-- Dark mode: full twilight forest treatment, carousel cards look excellent against deep green
+**RESOLVED — Page Titles Centred (was Issue #1 / Task 10.1)**
+- PageHero now has `mx-auto text-center` on the `max-w-3xl` container (confirmed in `page-hero.tsx` line 36)
+- All 30 pages show centred hero titles and subtitles on desktop — verified across all screenshots
+- Subtle grid-pattern decorative overlay and gradient backgrounds using Ghibli palette tokens
 
-**RESOLVED — Double-Title Effect (was Issue #3 / Task 10.1 partial)**
-- All 7 previously-echoing pages now have distinct first Section titles:
-  - `/flexbox`: "Flexbox" → "Flexbox Fundamentals" (different enough — describes scope)
-  - `/grid`: "CSS Grid" → "Grid Fundamentals"
-  - `/has-selector`: "The :has() Selector" → "What is :has()?"
-  - `/container-queries`: "Container Queries" → "What are Container Queries?"
-  - `/box-model`: "The Box Model" → "Box Model Fundamentals"
-  - `/custom-properties`: "CSS Custom Properties" → "What Are Custom Properties?"
-  - `/css-nesting`: "Native CSS Nesting" → "Goodbye SASS, Hello Native Nesting!"
+**RESOLVED — Homepage Stats Corrected (was Issue #5)**
+- `page.tsx` now shows `NumberTicker value={30}` for Topics, `value={7}` for Categories, `value={450}` for Demos
+- Screenshots still show "23 / 5 / 234+" because they were captured before the fix — next screenshot run will confirm
+
+**RESOLVED — Sidebar Label Mismatch (was Bug #1)**
+- Sidebar navigation in `lib/navigation.ts` now reads "CSS Layout Techniques" at `href: "/layout"` — matches page title
 
 ### What's Working Well
 
-**Homepage — EXCELLENT (major improvement)**
-- Hero gradient with grid-pattern overlay creates premium feel
-- Stats counters with animated NumberTicker add dynamism
-- Apple Cards Carousel is the visual centrepiece — large, interactive featured cards
-- Category grid with coloured icons and topic chips provides clear navigation
-- Marquee adds horizontal motion and visual energy
-- "Ready to dive in?" CTA section with Kbd shortcut badge
-- Desktop layout is well-proportioned — no more empty void
-- Mobile layout stacks cleanly — all sections accessible
+**Homepage — EXCELLENT**
+- Hero: "Learn Modern CSS by Example" with gradient accent text, grid-pattern background, dual CTAs
+- Stats: 30 Topics / 7 Categories / 450+ Demos with animated NumberTicker counters (code confirmed, screenshots pending re-run)
+- Featured Carousel: Apple Cards Carousel with 6 defined cards, 4 visible in viewport with navigation dots — remaining 2 accessible via scroll/swipe
+- Marquee: 20 CSS feature names in scrolling strip (Grid, Flexbox, Custom Properties, Container Queries, :has() Selector, etc.)
+- Category Grid: 7 cards (Fundamentals, Layout, Visual Effects, Components, Advanced, Modern CSS, Resources) with coloured emoji icons, topic chip badges, and page counts
+- Bottom CTA: "Ready to dive in?" with Kbd shortcut hint (⌘K)
+- Desktop: well-proportioned, no empty void
+- Mobile: stacks cleanly, all sections render
+- Dark mode: full twilight forest treatment, carousel cards look premium
 
-**Shell & Navigation — EXCELLENT (unchanged)**
-- Sidebar: 7 collapsible sections, 30 links, Lucide icons, forest green active state on Home
+**Shell & Navigation — EXCELLENT**
+- Sidebar: 7 collapsible sections, 30 links, Lucide icons, forest green active state
 - Header: Breadcrumbs, search trigger (Cmd+K badge), sun/moon theme toggle
-- Footer: 4-column grid (Categories, Resources, Quick Links), GitHub + Portfolio links, copyright
+- Footer: 4-column grid (Categories, Resources, Quick Links), GitHub + Portfolio links
 - Mobile header: Hamburger, search icon, theme toggle — compact and functional
-- Creamy parchment background throughout sidebar and main content area
+- Creamy parchment backgrounds throughout
 
 **Content Pages (30/30 — ALL RENDERING CORRECTLY)**
-- PageHero + Section + DemoGrid + DemoCard structure consistent across all pages
-- Code blocks: Shiki syntax highlighting with dot indicators, collapsible toggle, copy button
+- PageHero titles now centred on all pages
+- Consistent PageHero + Section + DemoGrid + DemoCard structure
+- Code blocks: Shiki syntax highlighting, dot indicators, collapsible toggle, copy button
 - Live CSS demos rendering correctly across all categories
-- Forest green accents visible in section headers, tip boxes, and interactive elements
-- Double-title issue resolved on all 7 affected pages
+- Forest green accents in section headers, tip boxes, interactive elements
+- Double-title issue resolved on all 7 previously-affected pages
 - Demo card backgrounds use warm cream/beige surfaces, distinct from page background
 
 **Standout Pages:**
-- `/animations` — single-column layout with generous spacing, animated demos breathe — **reference layout for Task 10.2**
+- `/animations` — **gold standard layout**: single-column, generous spacing, animated demos breathe
 - `/cards` — gradient cards spectacular in both light and dark mode
-- `/tools`, `/frameworks` — 3-column resource grids are polished and professional
-- `/gradients` — 3-column swatch grid works perfectly, dark mode is gorgeous
+- `/tools`, `/frameworks` — 3-column resource grids polished and professional
+- `/gradients` — 3-column swatch grid beautiful, dark mode is gorgeous
 - `/scroll-animations` — good single-column layout with interactive demos
-- `/flexbox` — Interactive Playground section at bottom is excellent
+- `/flexbox` — Interactive Playground excellent
+- `/flexbox-patterns` — 2-column layout works perfectly for these compact pattern demos
+- `/icons` — icon grid with categories, single-column code techniques section, well-structured
+- `/shapes-clips` — beautiful shape demos with vibrant purple/blue palette, well-structured
 
 **Dark Mode — TWILIGHT FOREST AESTHETIC (excellent)**
-- Deep forest green page backgrounds — confirmed across all pages including homepage
-- Homepage carousel cards look premium against dark background
+- Deep forest green page backgrounds — confirmed across all 30 pages + homepage
+- Homepage carousel cards premium against dark background
 - Code blocks: dark indigo/navy backgrounds with bright syntax highlighting
 - Gradient demos pop beautifully against dark backgrounds
 - Cards page gradient cards vivid on dark surface
 - Animations clearly visible on dark demo areas
+- Shapes & clips demos retain vibrant purple/blue against dark forest
 - No white blocks or unthemed areas visible anywhere
+- `/has-selector` hero in dark mode: brownish-red tone — slightly off from forest green palette but acceptable against dark background (not as jarring as in light mode)
 
 **Mobile (375px) — GOOD, NO REGRESSIONS**
-- Homepage now fully populated — hero, stats, carousel, categories, CTA all render
+- Homepage fully populated — hero, stats, carousel, categories, CTA all render
 - All content readable, single-column stack
 - Nunito fonts clean at mobile sizes
 - Code blocks scroll horizontally where needed
@@ -445,101 +451,85 @@ Phase 8.5 is 5/7 complete. Phase 9 (Homepage) is COMPLETE. The Ghibli theme, Nun
 
 ### What Still Needs Work
 
-1. **PAGE TITLES LEFT-ALIGNED (CRITICAL)**: PageHero titles are still left-aligned on all 30 pages. Title and subtitle sit in a `max-w-3xl` div (line 36 of `page-hero.tsx`), leaving the right 60% empty on desktop. Should be centred for editorial polish. **Task 10.1.**
+1. **DEMO LAYOUT — SIDE-BY-SIDE CRAMPED (CRITICAL)**: `/basic`, `/box-model`, `/typography`, `/transitions`, `/custom-properties`, `/css-nesting`, `/layout` all use 2-column DemoGrid where code blocks are too narrow (~35 chars) to read comfortably. Multi-column works well for compact visual demos: `/gradients`, `/gradient-patterns`, `/flexbox`, `/flexbox-patterns`, `/frameworks`, `/tools`, `/icons`. **Task 10.2.**
 
-2. **DEMO LAYOUT — SIDE-BY-SIDE CRAMPED (CRITICAL)**: Unchanged. `/basic`, `/box-model`, `/typography`, `/transitions`, `/custom-properties`, `/css-nesting`, `/layout` all use 2-column DemoGrid where code blocks are too narrow to read comfortably. Multi-column works well for compact visual demos: `/gradients`, `/gradient-patterns`, `/flexbox`, `/flexbox-patterns`, `/frameworks`, `/tools`, `/icons`. **Task 10.2.**
+2. **NO INTERACTIVE UX (HIGH)**: Pages are static — no scroll-triggered animations, no hover lift effects on cards, no micro-interactions. "Continue Your Journey" / "Ready for X?" footer sections on every page are bland link cards with no hover effects. Premium components installed but not yet integrated beyond homepage. **Task 10.3.**
 
-3. **NO INTERACTIVE UX (HIGH)**: Pages are static — no scroll-triggered animations, no hover lift effects on cards, no micro-interactions. "Continue Your Journey" / "Ready for X?" footer sections on every page are bland link cards with no hover effects. Premium components installed but not yet integrated beyond homepage. **Task 10.3.**
+3. **DESKTOP CONTENT DENSITY (MEDIUM)**: Long pages: `/forms` (~19000px), `/buttons` (~18000px), `/advanced` (~14600px). Every demo has expanded code blocks. Collapsible code defaults + tabbed sections would reduce scroll fatigue. **Task 10.11 / 10.7 / 10.8.**
 
-4. **DESKTOP CONTENT DENSITY (MEDIUM)**: Long pages: `/forms` (~19000px), `/buttons` (~18000px), `/advanced` (~14600px). Collapsible code blocks + tabbed sections would reduce scroll fatigue. **Task 10.11.**
-
-5. **HOMEPAGE STAT COUNTS INACCURATE (LOW)**: Stats show "23 Topics", "5 Categories", "234+ Demos" but actual content is 30 topics and 7 categories. NumberTicker values in `page.tsx` need updating to match reality.
+4. **LUCIDE ICONS — GENERIC (MEDIUM)**: All sidebar, header, footer, and homepage icons are Lucide (monochrome line icons). Streamline Freehand Colour would add personality and warmth matching the Ghibli theme. **Task 10.0.**
 
 ### Bugs Found (Carried Forward + New)
 
-1. **Sidebar label mismatch**: Sidebar says "Layout Techniques" but page title is "CSS Layout Techniques". Minor — tidy during Task 10.1.
+1. **`/has-selector` off-palette hero gradient** (carried from Audit #4): Light mode PageHero has pinkish/salmon tint that doesn't match forest green Ghibli palette. Not terrible but inconsistent with other pages. The `page.module.css` for has-selector likely has a custom hero background override. **Fix during Task 10.2 or dedicated pass.**
 
-2. **Forms page extremely long**: ~19000px on desktop. Needs collapsible sections or tabbed grouping. **Task 10.7.**
+2. **`/color-spaces` page header area** (carried from Audit #4): First section ("What Are Modern Colour Spaces?") background appears slightly lighter/whiter than the standard Ghibli cream on desktop. Possible CSS specificity issue with the colour swatch demo backgrounds bleeding. **Minor — fix during dark mode audit.**
 
-3. **Buttons page long on mobile**: ~20000px at 375px. Collapsible code blocks would help. **Task 10.7.**
+3. **Forms page extremely long**: ~19000px on desktop. Needs collapsible sections or tabbed grouping. **Task 10.7.**
 
-4. **`/has-selector` off-palette hero gradient** (carried from Audit #4): Pinkish/salmon tinted PageHero background doesn't match forest green Ghibli palette. Fix during Task 10.1.
+4. **Buttons page long on mobile**: ~21000px at 375px. Collapsible code blocks would help. **Task 10.7.**
 
-5. **`/color-spaces` page header slightly off** (carried from Audit #4): Top area has a white/light section before Ghibli cream. Possible CSS specificity issue. Fix during Task 10.1.
+5. **`/responsive` placeholder demos**: The "Responsive Grid Pattern" section shows 6 identical dark blue/green gradient squares in a 2x3 grid. They don't visually demonstrate responsive behaviour. **Task 10.5.**
 
-### NEW Issues Found in Audit #5
+6. **Stale screenshot artifacts**: `desktop/layout-techniques.png`, `mobile/layout-techniques.png` show 404 pages. The route `/layout-techniques` does not exist — the correct route is `/layout`. These are leftover screenshot files from a previous visual-test.js configuration that used a different route name. The `visual-test.js` script correctly navigates to `/layout`. **Fix: delete stale `layout-techniques.png` files from all three screenshot directories.**
+
+### NEW Issues Found in Audit #6
 
 ```text
-ROUTE: / (homepage)
-ISSUE: Stats section shows "23 Topics", "5 Categories", "234+ Demos" but actual content is 30 topics across 7 categories. The NumberTicker values in page.tsx are stale.
-SCREENSHOT: desktop/index.png
-FIX: Update the stats data array in page.tsx — set topics to 30, categories to 7, and verify demo count.
+ROUTE: /layout-techniques (STALE SCREENSHOTS)
+ISSUE: Screenshot files layout-techniques.png exist in desktop/, mobile/, and dark-mode/ directories showing 404 pages. This route doesn't exist — it's /layout. These are stale artifacts from a previous screenshot run.
+SCREENSHOT: desktop/layout-techniques.png, mobile/layout-techniques.png
+FIX: Delete layout-techniques.png from all three screenshot directories. No app bug.
 
-ROUTE: / (homepage)
-ISSUE: The featured carousel shows 4 cards but the data array in page.tsx defines 6 cards. Navigation dots show 4 positions. The carousel pagination may be cutting off content, or the remaining cards are accessible by swiping. Not a visual bug per se but worth verifying all 6 cards are reachable.
-SCREENSHOT: desktop/index.png (carousel area)
-FIX: Verify Apple Cards Carousel component supports all 6 items. May need to adjust carousel config or reduce to 4 featured cards if the component has a limit.
+ROUTE: /has-selector (light mode)
+ISSUE: PageHero gradient background has a brownish-red/salmon tint in light mode. All other pages use the standard Ghibli cream-to-surface gradient. This page's page.module.css likely overrides the hero background.
+SCREENSHOT: desktop/has-selector.png (hero area)
+FIX: Check has-selector/page.module.css for custom hero gradient and align to Ghibli palette.
 
-ROUTE: /basic
-ISSUE: 2-column layout with code beside demos. Code blocks are quite narrow (~35 chars wide), making longer CSS properties wrap awkwardly. The demos themselves are simple coloured boxes that don't need much horizontal space. Would benefit from single-column stack.
-SCREENSHOT: desktop/basic.png
-FIX: Task 10.2 — switch to columns={1} for /basic.
+ROUTE: /basic, /box-model, /typography, /layout, /transitions, /custom-properties, /css-nesting
+ISSUE: 2-column DemoGrid layouts have code blocks ~35 chars wide. CSS properties wrap awkwardly, harming readability. These pages have simple demos (coloured boxes, text samples, positioned elements) that don't benefit from side-by-side layout.
+SCREENSHOT: desktop/basic.png, desktop/box-model.png, desktop/typography.png, desktop/layout.png, desktop/transitions.png, desktop/custom-properties.png, desktop/css-nesting.png
+FIX: Task 10.2 — set columns={1} on these pages. Keep columns={2} or columns={3} on pages where compact visual demos work well (gradients, flexbox, icons, tools, frameworks).
 
-ROUTE: /typography
-ISSUE: Same cramped 2-column layout. Font preview demos need full width to show typeface rendering properly. Code blocks too narrow.
-SCREENSHOT: desktop/typography.png
-FIX: Task 10.2 — switch to columns={1}.
-
-ROUTE: /layout
-ISSUE: 2-column layout cramped for position/display demos. The CSS Positioning section has demos with absolute/relative positioned elements that need room to breathe. Code blocks extremely narrow.
-SCREENSHOT: desktop/layout.png
-FIX: Task 10.2 — switch to columns={1}.
-
-ROUTE: /responsive
-ISSUE: The "Responsive Grid Pattern" demos in the lower section use a 2x3 grid of identical dark blue/green gradient squares. These look like placeholder content rather than responsive layout demos — they don't visually demonstrate responsive behaviour.
-SCREENSHOT: desktop/responsive.png
-FIX: Task 10.5 — make responsive demos actually resize or add device frame mockups.
-
-ROUTE: /buttons
-ISSUE: Page is extremely long (~18000px desktop). The 1-column layout is correct for this page (each button variant gets full width), but every single demo has an expanded code block. With ~30+ button variants, this creates massive page length.
-SCREENSHOT: desktop/buttons.png
-FIX: Task 10.7 — set collapsibleCode={true} and default to collapsed. Users can expand the code they're interested in.
-
-ROUTE: /forms
-ISSUE: Longest page in the project (~19000px desktop). Similar to buttons — every form input demo has expanded code. The "Advanced Controls" section in particular has radio buttons, colour pickers, range sliders, and file uploads all with full code blocks visible.
-SCREENSHOT: desktop/forms.png
-FIX: Task 10.7 — collapsible code blocks, potentially group related inputs into tabbed sections.
-
-ROUTE: /advanced
-ISSUE: Very long page (~14600px). Content is good but every section (complex selectors, pseudo-elements, CSS counters, attribute selectors, combinators, specificity) has multiple demos with visible code. The single-column layout is correct but code could be collapsed.
-SCREENSHOT: desktop/advanced.png
-FIX: Task 10.8 — collapsible code, potential Code Tabs for multi-file examples.
+ROUTE: /buttons, /forms, /advanced
+ISSUE: Extremely long pages (18k–19k pixels on desktop) because every demo has fully expanded code blocks. Good content, but scroll fatigue.
+SCREENSHOT: desktop/buttons.png, desktop/forms.png, desktop/advanced.png
+FIX: Task 10.2 — set collapsibleCode={true} on DemoCards. Default code to collapsed. Users expand what interests them.
 
 ROUTE: ALL PAGES
-ISSUE: The "Continue Your Journey" / "Ready for X?" footer sections are plain white/cream cards with text links. No hover effects, no visual hierarchy, no shadows or borders to distinguish them as CTAs. They blend into the page background.
-SCREENSHOT: All desktop screenshots — bottom section of every page
-FIX: Task 10.3 — add card hover lift, subtle gradient borders, or shadow on hover.
+ISSUE: "Continue Your Journey" / "Ready for X?" footer CTA sections are plain cream/white cards with text links. No hover effects, no shadows, no visual hierarchy to distinguish them as navigation CTAs.
+SCREENSHOT: Bottom section of every desktop screenshot
+FIX: Task 10.3 — add hover lift, subtle border gradient, or shadow-on-hover to these cards.
 
 ROUTE: ALL PAGES
-ISSUE: No scroll-triggered entrance animations on any content section. Pages feel static — content is simply "there" without any sense of discovery or progression. Modern CSS showcase sites typically use scroll-driven animations or intersection observer reveals.
+ISSUE: No scroll-triggered entrance animations. Content sections appear instantly without reveal effects. Feels static compared to modern CSS showcase sites.
 SCREENSHOT: All desktop screenshots
-FIX: Task 10.3 — wrap Section components in scroll-triggered fade-up/slide-in using CSS @keyframes + animation-timeline: scroll() or Intersection Observer.
+FIX: Task 10.3 — CSS scroll-driven animations (@keyframes + animation-timeline: view()) or Intersection Observer based fade-up/slide-in on Section components.
+
+ROUTE: /blend-modes (light mode)
+ISSUE: The blend mode colour palette on this page uses purple/violet tones extensively. This is intentional for the educational demos (demonstrating blend modes) and NOT an off-palette Ghibli issue. However, the section headers and tip boxes on this page should still use forest green accents, not purple. Verify consistency during polish.
+SCREENSHOT: desktop/blend-modes.png
+FIX: Verify blend-modes page chrome (headers, tips, CTAs) uses Ghibli tokens. Demo CSS colours are educational and should be preserved.
+
+ROUTE: /shapes-clips (light + dark mode)
+ISSUE: Similar to blend-modes — shapes demos use vibrant purple/blue palette for the CSS shapes themselves. This is correct for educational content. Dark mode version looks excellent.
+SCREENSHOT: desktop/shapes-clips.png, dark-mode/shapes-clips.png
+FIX: No fix needed — demo colours are educational. Just ensure page chrome uses Ghibli tokens.
 ```
 
-### Recommended Implementation Order (Updated for Post-Homepage)
+### Recommended Implementation Order (Updated for Audit #6)
 
-Phase 9 is COMPLETE. The homepage is built. Focus shifts entirely to Phase 10 polish:
+Phase 9 is COMPLETE. Task 10.1 is COMPLETE. Task 10.2 is COMPLETE. Focus on remaining Phase 10 polish:
 
-1. **Task 10.1** — Centre page titles + standardise hero gradients (CRITICAL — quick win, touches 1 component)
-2. **Task 10.2** — Fix demo layout to single-column on ~8 pages (CRITICAL — use /animations as reference)
-3. **Task 10.3** — Global UX: scroll reveal animations, hover lifts, collapsible code defaults (HIGH — biggest UX impact)
-4. **Task 10.0** — Streamline Freehand Colour icons (CRITICAL — personality, warmth)
-5. **Tasks 10.4–10.10** — Page enhancements (category by category, MEDIUM priority)
-6. **Task 10.11** — Desktop density tightening (MEDIUM)
-7. **Task 8.5.7** — Clean up legacy static files (housekeeping)
-8. **Task 8.5.6 / 10.12** — Dark mode fine-tuning (twilight forest is solid, edge cases only)
-9. **Task 10.13** — Responsive audit
-10. **Task 10.14** — Accessibility and final build
+1. **Task 10.3** — Global UX: scroll reveal animations, hover lifts on CTA cards, micro-interactions (HIGH — biggest UX/feel impact)
+2. **Task 10.0** — Streamline Freehand Colour icons (CRITICAL — personality, warmth, Ghibli alignment)
+4. **Tasks 10.4–10.10** — Page enhancements category by category (MEDIUM)
+5. **Task 10.11** — Desktop density tightening (MEDIUM — partially addressed by 10.2 collapsible code)
+6. **Task 8.5.7** — Clean up legacy static files (housekeeping)
+7. **Task 8.5.6 / 10.12** — Dark mode fine-tuning (twilight forest is solid, edge cases only — /has-selector hero, /color-spaces header)
+8. **Task 10.13** — Responsive audit
+9. **Task 10.14** — Accessibility and final build
+10. **Housekeeping** — Delete stale `layout-techniques.png` screenshots
 
 ---
 

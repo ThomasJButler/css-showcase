@@ -108,7 +108,7 @@ export default function LayoutTechniquesPage() {
         intro="The position property controls how elements are placed in the document. Each value completely changes how the element behaves and interacts with others."
         id="positioning"
       >
-        <DemoGrid columns={2}>
+        <DemoGrid columns={1}>
           <DemoCard
             title="Position Values"
             code={`/* Static: default, follows document flow */
@@ -287,7 +287,7 @@ export default function LayoutTechniquesPage() {
         intro="Essential layout patterns you'll use constantly. These demonstrate how different positioning and display properties work together to create real-world layouts."
         id="patterns"
       >
-        <DemoGrid columns={2}>
+        <DemoGrid columns={1}>
           {/* Centred Content */}
           <DemoCard
             title="Centred Content"

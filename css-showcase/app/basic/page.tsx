@@ -26,7 +26,7 @@ export default function BasicCSSPage() {
         intro="Selectors are the backbone of CSS — they let you target HTML elements with surgical precision. From simple element selectors to complex pseudo-selectors, mastering these is essential."
         id="selectors"
       >
-        <DemoGrid columns={2}>
+        <DemoGrid columns={1}>
           {/* Element Selectors */}
           <DemoCard
             title="Element Selectors"
@@ -222,7 +222,7 @@ p + span {
         intro="CSS properties are the tools that bring your designs to life. Here are the fundamental properties every developer should master."
         id="properties"
       >
-        <DemoGrid columns={2}>
+        <DemoGrid columns={1}>
           {/* Colour Properties */}
           <DemoCard
             title="Colour Properties"
@@ -309,7 +309,6 @@ p + span {
           {/* Display Properties */}
           <DemoCard
             title="Display Properties"
-            className="lg:col-span-2"
             code={`/* Display values */
 .display-block {
     display: block;
@@ -386,7 +385,7 @@ style="color: green;"
           </DemoCard>
         </DemoGrid>
 
-        <DemoGrid columns={2} className="mt-6">
+        <DemoGrid columns={1} className="mt-6">
           {/* Inheritance */}
           <DemoCard
             title="Inheritance"
@@ -455,7 +454,7 @@ p.important-demo.override-attempt {
         intro="Choosing the right unit is like picking the right tool for the job. From pixels to percentages, each has its perfect use case."
         id="units"
       >
-        <DemoGrid columns={3}>
+        <DemoGrid columns={1}>
           {/* Absolute Units */}
           <DemoCard
             title="Absolute Units"
