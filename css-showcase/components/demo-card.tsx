@@ -26,8 +26,8 @@ export function DemoCard({
   code,
   language = "css",
   codeTitle,
-  collapsibleCode = false,
-  codeDefaultOpen = true,
+  collapsibleCode = true,
+  codeDefaultOpen = false,
   className,
   children,
 }: DemoCardProps) {

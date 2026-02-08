@@ -48,11 +48,11 @@ export default function RootLayout({
         >
           <SidebarProvider>
             <AppSidebar />
-            <SidebarInset>
+            <SidebarInset className="overflow-x-hidden">
               <SiteHeader />
-              <main className="flex-1">
+              <div className="flex-1">
                 {children}
-              </main>
+              </div>
               <SiteFooter />
             </SidebarInset>
           </SidebarProvider>

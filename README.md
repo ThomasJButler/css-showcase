@@ -1,105 +1,110 @@
-# The Ultimate CSS Showcase
+# CSS Showcase
 
-Interactive showcase of CSS capabilities from fundamentals to cutting-edge features. Pure CSS, no frameworks.
+Interactive showcase of CSS capabilities from fundamentals to cutting-edge features. Built with Next.js and shadcn/ui — a quick reference for checking CSS details and implementation patterns.
 
 **Live:** https://thomasjbutler.github.io/css-showcase/
 
 ## What It Is
 
-A comprehensive CSS learning resource with live demos, interactive playgrounds, and real code examples. Everything from basic selectors to modern features like container queries and the :has() selector. Built with pure HTML, CSS, and vanilla JavaScript.
+A comprehensive CSS learning resource with 30+ pages of live demos, interactive playgrounds, and real code examples. Everything from basic selectors to modern features like container queries, the :has() selector, scroll-driven animations, and colour spaces. Also built as a practice project for the shadcn/ui component framework.
 
-## Installation
+## Getting Started
 
 ```bash
 git clone https://github.com/ThomasJButler/css-showcase.git
-cd css-showcase
+cd css-showcase/css-showcase
+npm install
+npm run dev
 ```
 
-Open index.html in your browser or serve it:
-
-```bash
-python -m http.server 8000
-# Visit http://localhost:8000
-```
-
-No build process. No dependencies. Just open and go.
+Visit <http://localhost:3000>
 
 ## What's Included
 
 ### Fundamentals
+
 - Selectors, cascade, specificity, units
 - Box model with visual playground
 - Typography and text styling
+
+### Layout
+
 - Flexbox and Grid with interactive controls
+- Flexbox design patterns
+- CSS layout techniques (positioned, absolute, relative)
+- Responsive design and media queries
 
 ### Visual Effects
-- Gradients (linear, radial, conic)
-- Transitions and keyframe animations
-- Filters and blend modes
-- 3D transforms
 
-### Modern CSS (2024-2025)
-- :has() selector - parent selection finally works
-- Container queries - responsive components
-- CSS nesting - no preprocessor needed
-- Scroll animations - effects driven by scroll position
-- Anchor positioning - position relative to other elements
-- New colour spaces - OKLCH, LAB
-- Subgrid - nested grid alignment
+- Gradients (linear, radial, conic) with interactive builder
+- Gradient composition patterns
+- Transitions and keyframe animations
+- Filters and blend modes with interactive playground
 
 ### Components
+
 - 50+ button styles
 - Form designs
-- Pure CSS icons (no icon fonts)
 - Card layouts
 - Data tables
+- CSS-based icon systems
+
+### Modern CSS
+
+- :has() selector — parent selection
+- Container queries — responsive components
+- CSS nesting — no preprocessor needed
+- Scroll-driven animations
+- Anchor positioning
+- Colour spaces — OKLCH, LAB, Display P3
 
 ### Interactive Playgrounds
-- Flexbox - adjust container and item properties live
-- Grid - build grid layouts visually
-- Filters - Instagram-style effects
-- Box Model - see padding/border/margin calculations
+- Flexbox — adjust container and item properties live
+- Grid — build grid layouts visually
+- Filters — compose filter chains in real time
+- Gradients — build and preview gradient combinations
 
 ## Key Features
 
 - Dark/light mode with system preference detection
 - Global search (Cmd/Ctrl + K)
+- Collapsible code snippets with syntax highlighting
+- Copy-to-clipboard for all code examples
 - Fully responsive mobile-first design
 - WCAG AA compliant accessibility
-- Copy-to-clipboard for all code examples
-- Syntax highlighting
 - British English throughout (proper spelling)
 
 ## Tech Stack
 
-- Pure HTML, CSS, JavaScript
-- No frameworks or libraries
-- No build process
-- No runtime dependencies
-- CSS custom properties for theming
-- BEM-inspired naming
-- Progressive enhancement
+- **Framework:** Next.js 16 with React 19
+- **UI Components:** shadcn/ui (Radix UI primitives)
+- **Styling:** Tailwind CSS 4 + CSS Modules for page-specific demos
+- **Syntax Highlighting:** Shiki
+- **Animations:** Motion (Framer Motion)
+- **Theming:** next-themes with CSS custom properties
+- **Fonts:** Nunito Sans, Nunito, JetBrains Mono
 
 ## Browser Support
 
 - Chrome/Edge 106+
 - Firefox 110+
 - Safari 16+
-- Graceful fallbacks for older browsers
 
 ## Project Structure
 
-```
+```text
 css-showcase/
-├── index.html
-├── playground.html
-├── *.html (feature pages)
-├── styles/
-│   ├── main.css (theming and design system)
-│   └── *.css (page-specific styles)
-└── scripts/
-    ├── main.js (core functionality)
-    └── *.js (page-specific scripts)
+├── app/                 # Next.js App Router (30+ page routes)
+│   ├── basic/           # Example: Basic CSS page
+│   ├── buttons/         # Example: Buttons showcase
+│   └── ...              # One directory per topic
+├── components/          # Shared React components
+│   ├── ui/              # shadcn/ui components
+│   ├── demo-card.tsx    # Live demo + code block card
+│   ├── code-block.tsx   # Syntax-highlighted code display
+│   └── page-hero.tsx    # Page header component
+├── lib/                 # Utilities and navigation config
+└── public/              # Static assets
 ```
 
 ## Contributing
@@ -108,11 +113,10 @@ Pull requests welcome. For major changes, open an issue first.
 
 ## License
 
-MIT License - use anything you want from this project.
+MIT License — use anything you want from this project.
 
 ## Notes
 
-- Contains Konami code easter egg (↑↑↓↓←→←→BA)
 - All CSS properties use British spelling (colour not color)
 - Designed for learning, not production use
 - No tracking or analytics

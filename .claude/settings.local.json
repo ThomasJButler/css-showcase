@@ -16,7 +16,10 @@
       "mcp__puppeteer__puppeteer_screenshot",
       "mcp__puppeteer__puppeteer_evaluate",
       "mcp__browser-tools__takeScreenshot",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nPhase 11 complete: updated screenshots, refactored scripts, moved tools to root\n\n- Updated visual testing screenshots across desktop, mobile, and dark-mode\n- Refactored main.js and sidebar.js for improved functionality\n- Added styling improvements to improvements.css\n- Minor HTML updates to advanced, color-spaces, css-nesting, gradients, responsive pages\n- Moved loop.sh, loop-full.sh, measure-heights.js, visual-test.js from tools/ to root\nEOF\n\\)\")",
+      "Bash(git push)"
     ]
   }
 }

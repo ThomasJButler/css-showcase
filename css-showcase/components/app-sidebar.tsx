@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ChevronRight } from "lucide-react"
 import { HomeIcon } from "@/components/icons/streamline-icons"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 import { navigationSections } from "@/lib/navigation"
 import {
@@ -78,7 +79,7 @@ export function AppSidebar() {
           return (
             <Collapsible
               key={section.title}
-              defaultOpen={isAnyChildActive || true}
+              defaultOpen={isAnyChildActive}
               className="group/collapsible"
             >
               <SidebarGroup>
@@ -112,8 +113,9 @@ export function AppSidebar() {
       </SidebarContent>
 
       <SidebarFooter>
-        <div className="px-2 py-1 text-xs text-muted-foreground">
-          <span className="opacity-60">A comprehensive guide to modern CSS</span>
+        <div className="flex items-center justify-between px-2 py-1">
+          <span className="text-xs text-muted-foreground opacity-60">A comprehensive guide to modern CSS</span>
+          <ThemeToggle />
         </div>
       </SidebarFooter>
 
