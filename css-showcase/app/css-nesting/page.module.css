@@ -1,0 +1,654 @@
+/* ===============================================
+   CSS Nesting Page — Demo Styles
+   =============================================== */
+
+/* ─── Browser Support Badges ─── */
+.supportBadges {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.supportBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  background: var(--surface-alt);
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  transition: transform var(--transition-fast);
+}
+
+.supportBadge:hover {
+  transform: translateY(-1px);
+}
+
+.chrome { border-color: #4285f4; color: #4285f4; }
+.firefox { border-color: #ff9a00; color: #c77800; }
+.safari { border-color: #00aaff; color: #0088cc; }
+.edge { border-color: #0078d4; color: #0078d4; }
+
+:global(.dark) .chrome { color: #6ea8ff; }
+:global(.dark) .firefox { color: #ffb84d; }
+:global(.dark) .safari { color: #4dc4ff; }
+:global(.dark) .edge { color: #47a3e8; }
+
+/* ─── Comparison Cards (Old Way vs New Way) ─── */
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.comparisonCard {
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.comparisonCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.oldWay {
+  border-color: #ef4444;
+}
+
+.oldWay::before {
+  background: rgba(239, 68, 68, 0.04);
+}
+
+.newWay {
+  border-color: #10b981;
+}
+
+.newWay::before {
+  background: rgba(16, 185, 129, 0.04);
+}
+
+:global(.dark) .oldWay::before {
+  background: rgba(239, 68, 68, 0.08);
+}
+
+:global(.dark) .newWay::before {
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.comparisonTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconCross {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.iconCheck {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.iconWarning {
+  color: #f59e0b;
+  font-weight: 700;
+}
+
+.iconStar {
+  color: #8b5cf6;
+  font-weight: 700;
+}
+
+.comparisonCode {
+  margin: 0;
+  padding: 1rem;
+  background: var(--surface-alt);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--foreground);
+}
+
+/* ─── Basic Nesting — Navigation Demo ─── */
+.demoNav {
+  background: var(--surface-alt);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+.demoNav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.demoNav li {
+  position: relative;
+}
+
+.demoNav li.active {
+  font-weight: 600;
+}
+
+.demoNav .active a {
+  color: var(--primary);
+}
+
+.demoNav .active::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+}
+
+.demoNav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.demoNav a:hover {
+  color: var(--foreground);
+}
+
+/* ─── The & Selector — Button Demo ─── */
+.buttonGroup {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btnNested {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--border);
+  background: var(--background);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.btnNested:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btnNested:active {
+  transform: translateY(0);
+}
+
+.btnNested.primary {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: white;
+}
+
+.btnNested.primary:hover {
+  background: #1d4ed8;
+}
+
+.btnNested.secondary {
+  background: #7c3aed;
+  border-color: #7c3aed;
+  color: white;
+}
+
+.btnNested.secondary:hover {
+  background: #6d28d9;
+}
+
+.btnNested:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btnNested:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ─── Media Queries & Nesting — Responsive Card Demo ─── */
+.responsiveCard {
+  padding: 1.5rem;
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.responsiveCard h4 {
+  margin: 0 0 0.5rem;
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.responsiveCardText {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.cardGrid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cardGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cardItem {
+  padding: 1rem;
+  background: var(--surface-alt);
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+@media (min-width: 640px) {
+  .cardItem {
+    padding: 1.5rem;
+  }
+}
+
+/* ─── Complex Component — Blog Card Demo ─── */
+.blogCard {
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.3s;
+  border: 1px solid var(--border);
+  max-width: 400px;
+}
+
+.blogCard:hover {
+  transform: translateY(-4px);
+}
+
+.blogCard:hover .blogCardImage {
+  transform: scale(1.05);
+}
+
+.blogCardImage {
+  height: 200px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  position: relative;
+  transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.blogCardEmoji {
+  font-size: 2rem;
+}
+
+.blogCardCategory {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #764ba2;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.blogCardContent {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.blogCardTitle {
+  margin: 0 0 0.5rem;
+  color: var(--foreground);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.blogCardExcerpt {
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 0.875rem;
+  flex: 1;
+}
+
+.blogCardFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* ─── Nested Animations Demo ─── */
+.animationDemo {
+  text-align: center;
+  padding: 2rem;
+}
+
+.loader {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.loaderDot {
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.loaderDot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loaderDot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.animationText {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  transition: all 0.3s;
+  display: inline-block;
+  cursor: default;
+}
+
+.animationText:hover {
+  color: var(--primary);
+  transform: scale(1.1) rotate(2deg);
+  animation: wiggle 0.5s ease-in-out;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg) scale(1.1); }
+  25% { transform: rotate(-5deg) scale(1.1); }
+  75% { transform: rotate(5deg) scale(1.1); }
+}
+
+/* ─── Migration Guide Cards ─── */
+.migrationGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.migrationCard {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+}
+
+.migrationSame {
+  border-color: #10b981;
+}
+
+.migrationSame::before {
+  background: rgba(16, 185, 129, 0.04);
+}
+
+.migrationDifferent {
+  border-color: #f59e0b;
+}
+
+.migrationBest {
+  border-color: #8b5cf6;
+}
+
+:global(.dark) .migrationSame {
+  border-color: #34d399;
+}
+
+:global(.dark) .migrationDifferent {
+  border-color: #fbbf24;
+}
+
+:global(.dark) .migrationBest {
+  border-color: #a78bfa;
+}
+
+.migrationCardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.migrationList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.migrationList li {
+  padding: 0.375rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.migrationList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+/* ─── SASS to CSS Code Comparison ─── */
+.codeComparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.codeBlock {
+  overflow: hidden;
+}
+
+.codeBlockTitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Nesting Rules Cards ─── */
+.rulesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.ruleCard {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.ruleTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+}
+
+.ruleCode {
+  margin: 0;
+  padding: 1rem;
+  background: var(--background);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+/* ─── Pro Tips ─── */
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.tipCard {
+  background: var(--surface-alt);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: transform var(--transition-fast);
+}
+
+.tipCard:hover {
+  transform: translateY(-2px);
+}
+
+.tipIcon {
+  display: inline-block;
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.tipTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+}
+
+.tipText {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .codeComparison {
+    grid-template-columns: 1fr;
+  }
+
+  .migrationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .rulesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tipsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .comparisonCode {
+    font-size: 0.75rem;
+  }
+
+  .ruleCode {
+    font-size: 0.75rem;
+  }
+
+  .demoNav ul {
+    gap: 1rem;
+  }
+}
+
+/* ─── Accessibility ─── */
+@media (prefers-reduced-motion: reduce) {
+  .supportBadge:hover,
+  .tipCard:hover,
+  .blogCard:hover {
+    transform: none;
+  }
+
+  .btnNested:hover {
+    transform: none;
+  }
+
+  .loaderDot {
+    animation: none;
+  }
+
+  .animationText:hover {
+    transform: none;
+    animation: none;
+  }
+}
