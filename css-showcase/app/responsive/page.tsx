@@ -5,6 +5,7 @@ import { Section } from "@/components/section"
 import { DemoGrid } from "@/components/demo-grid"
 import { DemoCard } from "@/components/demo-card"
 import { CodeBlock } from "@/components/code-block"
+import { DevicePreview } from "./device-preview"
 import styles from "./page.module.css"
 
 export const metadata: Metadata = {
@@ -475,6 +476,15 @@ img {
             </DemoCard>
           </DemoGrid>
         </div>
+      </Section>
+
+      {/* ───── Device Preview Section ───── */}
+      <Section
+        title="Device Preview"
+        intro="See how the same layout adapts across mobile, tablet, and desktop. The preview uses container queries to respond to its actual width — just like real responsive components."
+        id="device-preview"
+      >
+        <DevicePreview />
       </Section>
 
       {/* ───── Container Queries Section ───── */}

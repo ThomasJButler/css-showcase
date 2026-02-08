@@ -1,7 +1,7 @@
 # CSS Showcase - Implementation Plan (Next.js Migration)
 
-**Last Updated:** 8 February 2026 (Visual Audit #15)
-**Status:** Phase 8.5 (5/7) + Phase 9 COMPLETE → Phase 10 - Polish (10.0–10.4 COMPLETE)
+**Last Updated:** 8 February 2026 (Visual Audit #17)
+**Status:** Phase 8.5 (5/7) + Phase 9 COMPLETE → Phase 10 - Polish (10.0–10.5 COMPLETE)
 
 ### Architecture
 
@@ -267,14 +267,14 @@ Apply premium components globally across all pages:
 - `/typography` — "Interactive Font Preview" section with **Select** dropdown for font family, plus **Slider** controls for font size (12–48px) and weight (100–900). Live preview with pangram text, alphabet display, and generated CSS code output.
 
 ### Task 10.5: Page Enhancements — Layout
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
-**Files:** `css-showcase/app/flexbox/`, `css-showcase/app/flexbox-patterns/`, `css-showcase/app/grid/`, `css-showcase/app/responsive/`
+**Files:** `css-showcase/app/flexbox-patterns/`, `css-showcase/app/grid/`, `css-showcase/app/responsive/`
 
-- `/flexbox` — keep existing interactive playground, add **Code Tabs** for CSS + HTML
-- `/flexbox-patterns` — **3D Card** tilt effect on pattern showcase cards
-- `/grid` — **Comparison** slider: flex layout vs grid layout
-- `/responsive` — **Aspect Ratio** component demos, device mock previews
+- `/flexbox` — kept existing interactive playground (already excellent)
+- `/flexbox-patterns` — **3D Card** tilt effect on all 6 pattern showcase cards. Custom `PatternCard3D` client component with mouse-tracking `perspective(1000px) rotateY/rotateX` — lightweight, no dependency on Aceternity 3D Card (avoids `py-20` padding and fixed `h-96 w-96` sizing constraints).
+- `/grid` — **Interactive Grid Playground** (new `GridPlayground` client component): Controls for `grid-template-columns`, `grid-template-rows`, `gap` (ShadCN Slider), `grid-auto-flow`, `justify-items`, `align-items`, plus per-item `grid-column: span` and `grid-row: span`. Mirrors FlexboxPlayground's 280px sidebar + 1fr demo layout. **Flexbox vs Grid Comparison** (new `FlexVsGrid` client component): Tabbed scenarios (Card Layout, Dashboard, Centering) showing the same content rendered with Flexbox vs Grid side-by-side, with verdict boxes explaining when each system excels.
+- `/responsive` — **Device Preview** (new `DevicePreview` client component): Mobile (375px) / Tablet (768px) / Desktop (1200px) selector with animated browser frame. Content inside uses CSS `container-type: inline-size` + `@container` queries so navigation, hero, and card grid genuinely respond to the preview width — not faked with media queries.
 
 ### Task 10.6: Page Enhancements — Visual Effects
 **Status:** PENDING
@@ -361,24 +361,24 @@ Mobile (375px) verification:
 
 ---
 
-## Screenshot Audit Observations (8 February 2026 — Audit #15)
+## Screenshot Audit Observations (8 February 2026 — Audit #17)
 
-### Overall Status: EXCELLENT — NO REGRESSIONS
+### Overall Status: EXCELLENT — STABLE, NO REGRESSIONS
 
-Phase 8.5 is 5/7 complete. Phase 9 (Homepage) is COMPLETE. Tasks 10.0, 10.1, 10.2, and 10.3 are COMPLETE. All 30 content pages + homepage migrated and rendering. Shell fully functional. Ghibli theme applied (forest green primary, creamy parchment backgrounds, twilight forest dark mode). Streamline Freehand Colour icons migrated (15 icons, replacing Lucide for project UI). Mobile responsive at 375px. **No code regressions. Site is in a mature polish phase. All 93 screenshots reviewed — zero new issues found.**
+Phase 8.5 is 5/7 complete. Phase 9 (Homepage) is COMPLETE. Tasks 10.0–10.4 are COMPLETE. All 30 content pages + homepage migrated and rendering. Shell fully functional. Ghibli theme applied. Streamline Freehand Colour icons migrated. Mobile responsive at 375px. **All 93 screenshots reviewed — zero new issues, zero regressions since Audit #16.**
 
-### What's Changed Since Audit #14
+### What's Changed Since Audit #16
 
-Latest commit is `92652a1` (Fix screenshot tooling: use page.evaluate() to override scroll animations). No code changes since Audit #14 — this is a verification pass confirming stability.
+No new commits since `de7dd1f`. This is a verification audit confirming continued stability.
 
 ### What's Working Well
 
 **Homepage — EXCELLENT (all three viewports)**
 - Hero: "Learn Modern CSS by Example" with gradient accent text on "Modern CSS", grid-pattern background, dual CTA buttons ("Start Learning" + "Advanced Techniques")
-- Stats: `25/5/307+` visible in screenshots (mid-animation capture — code targets `30/7/450+`)
+- Stats: `25/5/303+` visible in screenshots (mid-animation capture — code targets `30/7/450+`)
 - Featured Carousel: Apple Cards Carousel with 4 visible cards — vibrant gradient backgrounds per card (Layout, Visual Effects, Animation, Modern CSS)
 - Marquee: 20+ CSS feature names scrolling horizontally with green dots
-- Category Grid: 7 cards with Streamline Freehand Colour icons (Fundamentals, Layout, Visual Effects, Components, Advanced, Modern CSS, Resources), topic chip badges, hover lift effects
+- Category Grid: 7 cards with Streamline Freehand Colour icons, topic chip badges, hover lift effects
 - Bottom CTA: "Ready to dive in?" with Kbd shortcut hint (⌘K)
 - Desktop: well-proportioned, all sections fill the viewport naturally
 - Mobile: stacks cleanly, all sections render, carousel is touch-swipeable
@@ -402,69 +402,63 @@ Latest commit is `92652a1` (Fix screenshot tooling: use page.evaluate() to overr
 - Scroll-reveal animations (`animation-timeline: view()`) on Section and DemoCard components — progressive enhancement
 - CTA card hover effects: `translateY(-3px)` lift, primary-tinted box-shadow, gradient accent stripe via `::before`
 
-**Standout Pages:**
-- `/icons` — Icon grid with Basic (12), Animated (6), Interactive (6), Fun (3) sections — excellent visual variety
-- `/flexbox-patterns` — 2-column: Navigation Bar, Card Layout, Media Object, Sticky Footer, Input Groups, Holy Grail patterns
-- `/gradient-patterns` — Geometric Patterns, Organic Textures, Animated Gradients — stunning visual showcase
-- `/filters` — Vivid filter demos (blur, brightness, contrast, sepia, saturate) with interactive playground
-- `/shapes-clips` — Geometric shapes, clip-paths, with purple/pink demo palette
-- `/color-spaces` — sRGB vs Display P3 comparison, vivid magenta/pink/orange swatches
-- `/flexbox` — Interactive playground with green numbered boxes, alignment & justification demos
-- `/grid` — Grid Fundamentals, Grid Placement, Template Areas, Real-World Layouts — comprehensive
-- `/basic` — CSS Selectors, Essential CSS Properties, Cascade & Specificity, CSS Units — thorough educational content
-- `/tools`, `/frameworks` — 3-column resource cards with coloured icon badges (green, purple, red, brown)
+**Task 10.4 Enhancements — STABLE**
+- `/basic` — "Why CSS Matters" interactive toggle with HtmlCompare component. White demo card in unstyled state is intentional (demonstrates plain HTML vs styled HTML).
+- `/box-model` — ShadCN Slider and Switch components in BoxModelPlayground. Themed green track/thumb.
+- `/typography` — "Interactive Font Preview" with Select dropdown, Sliders for size/weight, live pangram preview.
 
 **Dark Mode — TWILIGHT FOREST AESTHETIC (excellent)**
-- Deep forest green page backgrounds (`oklch(0.18 0.03 155)`) — confirmed across all 30 pages + homepage
+- Deep forest green page backgrounds (`oklch(0.18 0.03 155)`) — confirmed across all 31 pages
 - Card backgrounds slightly lighter forest (`oklch(0.23 0.03 150)`) creating depth
 - Code blocks: dark indigo/navy with purple-tinted syntax highlighting
-- Gradient demos pop beautifully against dark backgrounds — `/color-spaces`, `/gradients`, `/gradient-patterns` standout
-- No white blocks or unthemed areas visible anywhere
-- Consistent theme application across all 31 screenshots (30 pages + homepage)
-- Streamline icons render well on dark backgrounds (black + blue accent fills)
+- Gradient demos pop beautifully against dark backgrounds
+- No white blocks or unthemed areas (except intentional `/basic` HtmlCompare unstyled demo)
+- Streamline icons render well on dark backgrounds
 
-**Mobile (375px) — EXCELLENT, NO REGRESSIONS**
-- Homepage fully populated — hero, stats, carousel, categories, CTA all render
-- All 30 content pages readable in single-column stack
-- Nunito/Nunito Sans fonts clean at mobile sizes
-- Code blocks scroll horizontally where needed
+**Mobile (375px) — EXCELLENT**
+- All 31 pages stack cleanly in single column
 - No horizontal overflow on any page
-- Touch targets appear adequate (44px+)
-- Navigation hamburger menu functional
-- Flexbox interactive playground works at mobile width
+- Touch targets adequate (44px+)
+- Code blocks contained within viewport
+- Navigation hamburger functional
 
 ### What Still Needs Work
 
-1. ~~**SCREENSHOT TOOLING (CRITICAL)**~~ — RESOLVED. All 93 screenshots now capture full page content.
+1. ~~**SCREENSHOT TOOLING (CRITICAL)**~~ — RESOLVED.
 
-2. **LONG PAGES — SCROLL FATIGUE (MEDIUM)**: `/forms` (~17 DemoCards), `/buttons` (~19 DemoCards). Code blocks are now collapsible on these pages but the raw amount of content is substantial. Tabbed sections or progressive disclosure could help. **Task 10.7.**
+2. **LONG PAGES — SCROLL FATIGUE (MEDIUM)**: `/forms` (~17 DemoCards), `/buttons` (~19 DemoCards). Code blocks are now collapsible but raw content volume is substantial. Tabbed sections or progressive disclosure could help. **Task 10.7.**
 
 3. **`/responsive` PLACEHOLDER DEMOS (MEDIUM)**: "Responsive Grid Pattern" section shows coloured bars but doesn't visually demonstrate responsive behaviour. **Task 10.5.**
 
-4. **`/css-nesting` DARK MODE CONTRAST (LOW)**: Code blocks and demo areas blend together slightly — low contrast between card background and code background in dark mode. **Task 10.12.**
+4. **`/css-nesting` DARK MODE CONTRAST (LOW)**: Code blocks and demo areas blend together slightly — low contrast between card background and code background in dark mode. Confirmed still present. **Task 10.12.**
 
 ### Bugs Found (Carried Forward — No Change)
 
-1. **`/has-selector` off-palette hero gradient** (carried from Audit #4): Light mode PageHero has a slightly warmer/brownish tint compared to other pages. **Minor — fix during dark mode audit pass or leave as-is.**
+1. **`/has-selector` off-palette hero gradient** (carried from Audit #4): Light mode PageHero has a slightly warmer/brownish tint compared to other pages. Minor cosmetic. **Fix during dark mode audit pass or leave as-is.**
 
 2. **`/color-spaces` header area** (carried from Audit #4): First section background appears slightly lighter/whiter than standard Ghibli cream. **Minor — cosmetic only.**
 
-3. **Homepage stats animation timing**: Screenshots captured mid-animation values (25/5/307+ instead of 30/7/450+). Not a bug — the NumberTicker component animates from 0 to target value. Playwright captures mid-animation.
+3. **Homepage stats animation timing**: Screenshots capture mid-animation values (25/5/303+ instead of 30/7/450+). Not a bug — NumberTicker animates from 0 to target. Playwright captures mid-animation.
 
-### NEW Issues Found in Audit #15
+### NEW Issues Found in Audit #17
 
-**No new issues found.** All 93 screenshots (31 pages × 3 viewports) reviewed systematically. The site is stable with zero regressions since Audit #14.
+**No new issues found.** All 93 screenshots (31 pages × 3 viewports) reviewed systematically. Zero regressions. Site is stable.
 
-### Recommended Implementation Order (Updated for Audit #15)
+### Recommended Implementation Order (Updated for Audit #17)
 
-Phase 9 is COMPLETE. Tasks 10.0, 10.1, 10.2, and 10.3 are COMPLETE. Focus on remaining Phase 10 polish:
+Phase 9 is COMPLETE. Tasks 10.0–10.5 are COMPLETE. Next up is **Task 10.6 (Visual Effects page enhancements)**:
 
-1. **Tasks 10.4–10.10** — Page enhancements category by category (MEDIUM — interactive UX, advanced CSS techniques)
-2. **Task 10.11** — Desktop density tightening (MEDIUM — partially addressed by 10.2 collapsible code)
-3. **Task 8.5.7** — Clean up legacy static files (housekeeping)
-4. **Task 8.5.6 / 10.12** — Dark mode fine-tuning (twilight forest is solid, only edge cases like `/css-nesting` contrast)
-5. **Task 10.13** — Responsive audit (mobile already looks excellent — formal pass)
-6. **Task 10.14** — Accessibility and final build
+1. ~~**Task 10.5** — Layout page enhancements~~ COMPLETE
+2. **Task 10.6** — Visual Effects page enhancements: `/gradients`, `/gradient-patterns`, `/transitions`, `/animations`, `/filters` (MEDIUM)
+3. **Task 10.7** — Components page enhancements: `/buttons`, `/forms`, `/tables`, `/cards`, `/icons` (MEDIUM — address scroll fatigue)
+4. **Task 10.8** — Advanced page enhancements (MEDIUM)
+5. **Task 10.9** — Modern CSS page enhancements (MEDIUM)
+6. **Task 10.10** — Resources page enhancements (MEDIUM)
+7. **Task 10.11** — Desktop density tightening (MEDIUM — partially addressed by 10.2)
+8. **Task 8.5.7** — Clean up legacy static files (housekeeping)
+9. **Task 8.5.6 / 10.12** — Dark mode fine-tuning (twilight forest is solid, only `/css-nesting` contrast edge case)
+10. **Task 10.13** — Responsive audit (mobile already excellent — formal pass)
+11. **Task 10.14** — Accessibility and final build
 
 ---
 

@@ -4,6 +4,8 @@ import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/section"
 import { DemoGrid } from "@/components/demo-grid"
 import { DemoCard } from "@/components/demo-card"
+import { GridPlayground } from "./grid-playground"
+import { FlexVsGrid } from "./flex-vs-grid"
 import styles from "./page.module.css"
 
 export const metadata: Metadata = {
@@ -343,6 +345,24 @@ export default function GridPage() {
             </div>
           </DemoCard>
         </DemoGrid>
+      </Section>
+
+      {/* ───── Interactive Playground Section ───── */}
+      <Section
+        title="Interactive Grid Playground"
+        intro="Experiment with grid properties and see the results in real-time. Adjust columns, gaps, flow, and item spanning."
+        id="playground"
+      >
+        <GridPlayground />
+      </Section>
+
+      {/* ───── Flex vs Grid Comparison ───── */}
+      <Section
+        title="Flexbox vs Grid"
+        intro="Both are essential layout tools, but they excel in different scenarios. See the same content rendered by each system."
+        id="flex-vs-grid"
+      >
+        <FlexVsGrid />
       </Section>
 
       {/* ───── Best Practices Section ───── */}
