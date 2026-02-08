@@ -114,7 +114,7 @@ npx shadcn@latest add kbd
 - Check component files appear in `components/ui/` or `components/`
 
 ### Task 8.5.4: Install shadcn/ui Base Components
-**Status:** PENDING
+**Status:** COMPLETE
 **Priority:** MEDIUM
 **Files:** `css-showcase/components/ui/`
 
