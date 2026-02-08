@@ -1,0 +1,806 @@
+/* ===============================================
+   Container Queries Page — Demo Styles
+   =============================================== */
+
+/* ─── Browser Support Badges ─── */
+.supportBadges {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.supportBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  background: var(--surface-alt);
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  transition: transform var(--transition-fast);
+}
+
+.supportBadge:hover {
+  transform: translateY(-1px);
+}
+
+.chrome { border-color: #4285f4; color: #4285f4; }
+.firefox { border-color: #ff9a00; color: #c77800; }
+.safari { border-color: #00aaff; color: #0088cc; }
+.edge { border-color: #0078d4; color: #0078d4; }
+
+:global(.dark) .chrome { color: #6ea8ff; }
+:global(.dark) .firefox { color: #ffb84d; }
+:global(.dark) .safari { color: #4dc4ff; }
+:global(.dark) .edge { color: #47a3e8; }
+
+/* ─── Comparison Cards (Old Way vs New Way) ─── */
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.comparisonCard {
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.comparisonCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.oldWay {
+  border-color: #ef4444;
+}
+
+.oldWay::before {
+  background: rgba(239, 68, 68, 0.04);
+}
+
+.newWay {
+  border-color: #10b981;
+}
+
+.newWay::before {
+  background: rgba(16, 185, 129, 0.04);
+}
+
+:global(.dark) .oldWay::before {
+  background: rgba(239, 68, 68, 0.08);
+}
+
+:global(.dark) .newWay::before {
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.comparisonTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconCross {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.iconCheck {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.comparisonCode {
+  margin: 0;
+  padding: 1rem;
+  background: var(--surface-alt);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--foreground);
+}
+
+/* ─── Responsive Card — Container Query Demo ─── */
+.containerDemoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.resizableContainer {
+  position: relative;
+  min-width: 250px;
+  resize: horizontal;
+  overflow: auto;
+  background: var(--surface-alt);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  padding-top: 2.5rem;
+}
+
+.resizeHandle {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--background);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+  border: 1px solid var(--border);
+}
+
+.fixedContainer {
+  width: 300px;
+  background: var(--surface-alt);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+
+.containerLabel {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+/* Product Card — CQ target */
+.productCardContainer {
+  container-type: inline-size;
+  container-name: card;
+}
+
+.productCardCq {
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  border: 1px solid var(--border);
+}
+
+.productImage {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  flex-shrink: 0;
+}
+
+.productImageText {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.productContent {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.productCategory {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.productTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.productDescription {
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-size: 0.8125rem;
+}
+
+.productMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.productPrice {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.productButton {
+  padding: 0.5rem 1rem;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.productButton:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Container query breakpoints for product card */
+@container card (max-width: 399px) {
+  .productImage {
+    height: 120px;
+  }
+
+  .productDescription {
+    display: none;
+  }
+
+  .productMeta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .productButton {
+    width: 100%;
+  }
+}
+
+@container card (min-width: 400px) {
+  .productCardCq {
+    flex-direction: row;
+  }
+
+  .productImage {
+    width: 200px;
+    height: auto;
+    min-height: 150px;
+  }
+
+  .productButton {
+    padding: 0.625rem 1.25rem;
+  }
+}
+
+@container card (min-width: 600px) {
+  .productContent {
+    padding: 1.5rem;
+  }
+
+  .productTitle {
+    font-size: 1.375rem;
+  }
+
+  .productDescription {
+    font-size: 0.875rem;
+  }
+}
+
+/* ─── Container Size Units Demo ─── */
+.unitsContainer {
+  container-type: size;
+  height: 280px;
+  background: var(--surface-alt);
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.unitDemo {
+  margin-bottom: 1.25rem;
+}
+
+.unitDemoTitle {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.cqwText {
+  font-size: clamp(1rem, 5cqw, 2rem);
+  color: var(--primary);
+  font-weight: 700;
+  transition: font-size var(--transition-base);
+}
+
+.cqhBox {
+  height: 30cqh;
+  min-height: 50px;
+  display: grid;
+  place-items: center;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+/* ─── Named Containers Demo ─── */
+.namedDemo {
+  background: var(--surface-alt);
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.outerContainer {
+  container-type: inline-size;
+  container-name: outer;
+  padding: 1.5rem;
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--border);
+}
+
+.innerContainer {
+  container-type: inline-size;
+  container-name: inner;
+  padding: 1.25rem;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
+  border: 2px dashed var(--primary);
+}
+
+.containerTitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.responsiveBox {
+  padding: 1rem;
+  background: var(--surface-alt);
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: all var(--transition-base);
+  font-size: 0.875rem;
+  color: var(--foreground);
+}
+
+@container inner (min-width: 300px) {
+  .responsiveBox {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+  }
+}
+
+/* ─── Style Queries Demo ─── */
+.styleQueryDemo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.themeContainer {
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.themeDark {
+  background: #1e293b;
+}
+
+.themeLight {
+  background: #f8fafc;
+}
+
+:global(.dark) .themeLight {
+  background: #334155;
+}
+
+.themeCard {
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+}
+
+.themeDark .themeCard {
+  background: #0f172a;
+  border: 1px solid #334155;
+}
+
+.themeLight .themeCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+:global(.dark) .themeLight .themeCard {
+  background: #1e293b;
+  border-color: #475569;
+}
+
+.themeCardTitle {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin-bottom: 0.375rem;
+}
+
+.themeDark .themeCardTitle {
+  color: #f1f5f9;
+}
+
+.themeLight .themeCardTitle {
+  color: #1e293b;
+}
+
+:global(.dark) .themeLight .themeCardTitle {
+  color: #e2e8f0;
+}
+
+.themeCardText {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.themeDark .themeCardText {
+  color: #94a3b8;
+}
+
+.themeLight .themeCardText {
+  color: #64748b;
+}
+
+:global(.dark) .themeLight .themeCardText {
+  color: #94a3b8;
+}
+
+/* ─── Comparison Table ─── */
+.comparisonTable {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.comparisonRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.875rem;
+  color: var(--foreground);
+  align-items: center;
+}
+
+.comparisonRow:last-child {
+  border-bottom: none;
+}
+
+.comparisonHeader {
+  background: var(--surface-alt);
+  font-weight: 600;
+}
+
+.featureLabel {
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.highlight {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ─── Practice Cards (When to Use Each) ─── */
+.practiceGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.practiceCard {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.mediaCard {
+  background: var(--surface-alt);
+}
+
+.containerCard {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+  border-color: var(--primary);
+}
+
+:global(.dark) .containerCard {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, transparent 70%);
+}
+
+.practiceTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--foreground);
+}
+
+.practiceList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.practiceList li {
+  padding: 0.375rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.practiceList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: 700;
+}
+
+:global(.dark) .practiceList li::before {
+  color: #34d399;
+}
+
+/* ─── Article Layout Demo ─── */
+.articleLayoutDemo {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1.25rem;
+  background: var(--surface-alt);
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.articleMain {
+  min-width: 0;
+}
+
+.articleSidebar {
+  min-width: 0;
+}
+
+.articleContainer {
+  container-type: inline-size;
+  container-name: article;
+}
+
+.articleCq {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.articleHeader {
+  margin-bottom: 1rem;
+}
+
+.articleCategory {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #7c3aed;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+:global(.dark) .articleCategory {
+  color: #a78bfa;
+}
+
+.articleTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0.375rem 0;
+}
+
+.articleMeta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.articleContent {
+  line-height: 1.6;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.articleContent p {
+  margin-bottom: 0.75rem;
+}
+
+.articleBlockquote {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--surface-alt);
+  border-left: 3px solid var(--primary);
+  font-style: italic;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 0.875rem;
+  color: var(--foreground);
+}
+
+/* Container query breakpoints for article */
+@container article (max-width: 400px) {
+  .articleCq {
+    padding: 1rem;
+  }
+
+  .articleHeader {
+    text-align: center;
+  }
+
+  .articleTitle {
+    font-size: 1.0625rem;
+  }
+
+  .articleMeta {
+    display: none;
+  }
+
+  .articleBlockquote {
+    margin: 0.75rem 0;
+    padding: 0.75rem;
+    font-size: 0.8125rem;
+  }
+}
+
+@container article (min-width: 500px) {
+  .articleCq {
+    padding: 2rem;
+  }
+
+  .articleTitle {
+    font-size: 1.75rem;
+  }
+
+  .articleContent {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .articleBlockquote {
+    margin: 1.5rem -0.5rem;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.0625rem;
+  }
+}
+
+/* ─── Pro Tips ─── */
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.tipCard {
+  background: var(--surface-alt);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: transform var(--transition-fast);
+}
+
+.tipCard:hover {
+  transform: translateY(-2px);
+}
+
+.tipIcon {
+  display: inline-block;
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.tipTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+}
+
+.tipText {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.tipText code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.125rem 0.375rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .styleQueryDemo {
+    grid-template-columns: 1fr;
+  }
+
+  .practiceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .articleLayoutDemo {
+    grid-template-columns: 1fr;
+  }
+
+  .fixedContainer {
+    width: 100%;
+  }
+
+  .tipsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparisonRow {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .comparisonHeader {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .comparisonCode {
+    font-size: 0.75rem;
+  }
+}
+
+/* ─── Accessibility ─── */
+@media (prefers-reduced-motion: reduce) {
+  .supportBadge:hover,
+  .tipCard:hover {
+    transform: none;
+  }
+
+  .productButton:hover {
+    transform: none;
+  }
+}
