@@ -4,6 +4,8 @@ Interactive showcase of CSS capabilities from fundamentals to cutting-edge featu
 
 **Live:** https://thomasjbutler.github.io/css-showcase/
 
+<img width="1511" height="893" alt="image" src="https://github.com/user-attachments/assets/339b305e-a22a-4a53-8c4f-6ed96be9bf9b" />
+
 ## What It Is
 
 A comprehensive CSS learning resource with 30+ pages of live demos, interactive playgrounds, and real code examples. Everything from basic selectors to modern features like container queries, the :has() selector, scroll-driven animations, and colour spaces. Also built as a practice project for the shadcn/ui component framework.
@@ -18,15 +20,6 @@ A comprehensive CSS learning resource with 30+ pages of live demos, interactive 
 - Gradient composition patterns
 - Transitions and keyframe animations
 - Filters and blend modes with interactive playground
-
-### Modern CSS
-
-- :has() selector — parent selection
-- Container queries — responsive components
-- CSS nesting — no preprocessor needed
-- Scroll-driven animations
-- Anchor positioning
-- Colour spaces — OKLCH, LAB, Display P3
 
 ## Key Features
 
