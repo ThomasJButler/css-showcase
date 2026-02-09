@@ -1,0 +1,610 @@
+/* ============================================
+   CSS Custom Properties — Demo Styles
+   Scoped via CSS Modules
+   ============================================ */
+
+/* ─── Basic Demo ─── */
+
+.basicDemo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.demoBox {
+  --demo-primary: oklch(0.52 0.12 145);
+  --demo-spacing: 2rem;
+  --demo-radius: 12px;
+
+  background: var(--demo-primary);
+  color: white;
+  padding: var(--demo-spacing);
+  border-radius: var(--demo-radius);
+  font-size: 1.25rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px oklch(0.52 0.12 145 / 0.3);
+  transition: transform var(--transition-base);
+}
+
+.demoBox:hover {
+  transform: scale(1.05);
+}
+
+/* ─── Syntax Breakdown ─── */
+
+.syntaxBreakdown {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.syntaxBreakdown h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.syntaxBreakdown ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+.syntaxBreakdown li {
+  margin: 0.5rem 0;
+  color: var(--foreground);
+  line-height: 1.7;
+}
+
+.syntaxBreakdown code {
+  background: oklch(0.52 0.12 145 / 0.1);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875em;
+  font-family: var(--font-mono);
+}
+
+/* ─── Scope Demo ─── */
+
+.scopeDemo {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.scopeBox {
+  flex: 1;
+  min-width: 200px;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+}
+
+.scopeGlobal {
+  background: var(--color-brand-forest);
+  color: white;
+}
+
+.scopeLocal {
+  background: var(--color-success);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.scopeChild {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ─── Theme Demo ─── */
+
+.themeDemoContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.themeDemo {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border);
+}
+
+.themeDemoLight {
+  background: oklch(0.99 0.005 90);
+  border-color: oklch(0.88 0.02 85);
+}
+
+.themeDemodark {
+  background: oklch(0.18 0.03 155);
+  border-color: oklch(0.32 0.03 145);
+}
+
+.themeCard h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.25rem;
+}
+
+.themeDemoLight .themeCard h3 {
+  color: oklch(0.25 0.03 55);
+}
+
+.themeDemodark .themeCard h3 {
+  color: oklch(0.90 0.015 100);
+}
+
+.themeCard p {
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.themeDemoLight .themeCard p {
+  color: oklch(0.25 0.03 55);
+}
+
+.themeDemodark .themeCard p {
+  color: oklch(0.90 0.015 100);
+}
+
+.themeButton {
+  background: oklch(0.52 0.12 145);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.themeButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.themeButtonDark {
+  background: oklch(0.72 0.12 145);
+}
+
+/* ─── Colour Picker Demo ─── */
+
+.colourPickerDemo {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.colourPreview {
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: background 0.1s ease;
+}
+
+.colourPreview p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.colourControls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+}
+
+.colourControlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.colourControlHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.colourControlLabel {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--foreground);
+}
+
+.colourControlValue {
+  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-brand-forest);
+  min-width: 4ch;
+  text-align: right;
+}
+
+.colourSlider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--border);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.colourSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-brand-forest);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease;
+}
+
+.colourSlider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.colourSlider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-brand-forest);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ─── Code Explanation ─── */
+
+.codeExplanation {
+  padding: 1rem;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border);
+}
+
+.codeExplanation p {
+  margin: 0;
+  color: var(--foreground);
+  line-height: 1.7;
+}
+
+.codeExplanation code {
+  background: oklch(0.52 0.12 145 / 0.1);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875em;
+  font-family: var(--font-mono);
+}
+
+/* ─── Spacing Demo ─── */
+
+.spacingDemo {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.spacingItem {
+  --base-spacing: 0.5rem;
+  --multiplier: 1;
+
+  background: linear-gradient(135deg, var(--color-brand-forest) 0%, var(--color-brand-earth) 100%);
+  color: white;
+  margin-bottom: calc(var(--base-spacing) * var(--multiplier));
+  padding: calc(var(--base-spacing) * var(--multiplier));
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.spacingItem:last-child {
+  margin-bottom: 0;
+}
+
+/* ─── Component API Demo ─── */
+
+.componentApiDemo {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.apiButton {
+  --button-color: oklch(0.52 0.12 145);
+  --button-size: 1;
+
+  background: var(--button-color);
+  padding: calc(0.75rem * var(--button-size)) calc(1.5rem * var(--button-size));
+  font-size: calc(1rem * var(--button-size));
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.apiButton:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ─── Design System Demo ─── */
+
+.designSystemDemo {
+  display: flex;
+  justify-content: center;
+}
+
+.dsCard {
+  background: oklch(0.95 0.02 145);
+  color: oklch(0.30 0.08 145);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.dsCard h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  color: oklch(0.30 0.08 145);
+}
+
+.dsCard p {
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.dsButton {
+  background: var(--color-brand-forest);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.dsButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px oklch(0.52 0.12 145 / 0.3);
+}
+
+/* ─── Browser Support Demo ─── */
+
+.browserSupportDemo {
+  padding: 1rem;
+}
+
+.browserGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.browserItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.browserItem:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.browserSupported {
+  border-color: var(--color-success);
+}
+
+.browserIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, var(--color-success) 0%, #059669 100%);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: var(--font-mono);
+}
+
+.browserName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--foreground);
+  text-align: center;
+}
+
+/* ─── Tip Box ─── */
+
+.tipBox {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, oklch(0.95 0.02 145) 0%, oklch(0.93 0.03 145) 100%);
+  border-left: 4px solid var(--color-brand-forest);
+  border-radius: var(--radius-md);
+}
+
+:global(.dark) .tipBox {
+  background: linear-gradient(135deg, oklch(0.25 0.03 145) 0%, oklch(0.20 0.02 145) 100%);
+  border-left-color: var(--color-brand-forest-light);
+}
+
+.tipBox h4 {
+  margin: 0 0 0.75rem 0;
+  color: var(--foreground);
+  font-size: 1.05rem;
+}
+
+.tipBox p {
+  margin: 0;
+  color: var(--foreground);
+  line-height: 1.8;
+}
+
+.tipBox code {
+  background: oklch(0.52 0.12 145 / 0.1);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875em;
+  font-family: var(--font-mono);
+}
+
+/* ─── Best Practices ─── */
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.tipCard {
+  padding: 2rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.tipCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-brand-forest);
+}
+
+.tipIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, var(--color-brand-forest) 0%, var(--color-brand-earth) 100%);
+  color: white;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.tipCard h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.tipCard p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.tipCard code {
+  background: oklch(0.52 0.12 145 / 0.1);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875em;
+  font-family: var(--font-mono);
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 768px) {
+  .scopeDemo {
+    flex-direction: column;
+  }
+
+  .themeDemoContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .colourPickerDemo {
+    max-width: 100%;
+  }
+
+  .colourPreview {
+    padding: 2rem 1.5rem;
+  }
+
+  .colourPreview p {
+    font-size: 1.25rem;
+  }
+
+  .componentApiDemo {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .apiButton {
+    width: 100%;
+  }
+
+  .browserGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ─── Reduced Motion ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  .demoBox,
+  .themeButton,
+  .apiButton,
+  .dsButton,
+  .browserItem,
+  .tipCard,
+  .colourPreview {
+    transition: none !important;
+  }
+
+  .demoBox:hover,
+  .themeButton:hover,
+  .apiButton:hover,
+  .dsButton:hover,
+  .browserItem:hover,
+  .tipCard:hover {
+    transform: none !important;
+  }
+}

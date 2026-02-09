@@ -1,0 +1,632 @@
+/* ===============================================
+   Anchor Positioning Page — Demo Styles
+   =============================================== */
+
+/* ─── Browser Support Badges ─── */
+.supportBadges {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.supportBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  background: var(--surface-alt);
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  transition: transform var(--transition-fast);
+}
+
+.supportBadge:hover {
+  transform: translateY(-1px);
+}
+
+.chrome { border-color: #4285f4; color: #4285f4; }
+.firefoxDev { border-color: #ff9a00; color: #c77800; }
+.safariDev { border-color: #00aaff; color: #0088cc; }
+
+:global(.dark) .chrome { color: #6ea8ff; }
+:global(.dark) .firefoxDev { color: #ffb84d; }
+:global(.dark) .safariDev { color: #4dc4ff; }
+
+/* ─── Intro Tooltip Demo ─── */
+.introDemo {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 2rem;
+}
+
+.introAnchorWrap {
+  position: relative;
+  display: inline-block;
+}
+
+.anchorButton {
+  padding: 0.875rem 1.75rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.anchorButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.35);
+}
+
+.simpleTooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  padding: 0.5rem 1rem;
+  background: #1e293b;
+  color: white;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.simpleTooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #1e293b;
+}
+
+.introAnchorWrap:hover .simpleTooltip {
+  opacity: 1;
+  transform: translate(-50%, -12px);
+}
+
+/* ─── Key Concepts ─── */
+.conceptsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.conceptCard {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  text-align: center;
+  transition: transform var(--transition-fast);
+}
+
+.conceptCard:hover {
+  transform: translateY(-2px);
+}
+
+.conceptProp {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
+.conceptDesc {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ─── Directional Positioning Demo ─── */
+.positioningDemo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.anchorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 140px;
+}
+
+.posButton {
+  padding: 0.625rem 1.25rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.posButton:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-md);
+}
+
+.posTooltip {
+  position: absolute;
+  padding: 0.375rem 0.75rem;
+  background: #1e293b;
+  color: white;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.anchorContainer:hover .posTooltip {
+  opacity: 1;
+}
+
+/* Top tooltip */
+.posTop {
+  bottom: calc(100% - 20px);
+  left: 50%;
+  transform: translate(-50%, -8px);
+}
+
+.posTop::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: #1e293b;
+}
+
+.anchorContainer:hover .posTop {
+  transform: translate(-50%, -12px);
+}
+
+/* Bottom tooltip */
+.posBottom {
+  top: calc(100% - 20px);
+  left: 50%;
+  transform: translate(-50%, 8px);
+}
+
+.posBottom::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-bottom-color: #1e293b;
+}
+
+.anchorContainer:hover .posBottom {
+  transform: translate(-50%, 12px);
+}
+
+/* Right tooltip */
+.posRight {
+  left: calc(100% - 20px);
+  top: 50%;
+  transform: translate(8px, -50%);
+}
+
+.posRight::after {
+  content: '';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 4px solid transparent;
+  border-right-color: #1e293b;
+}
+
+.anchorContainer:hover .posRight {
+  transform: translate(12px, -50%);
+}
+
+/* Left tooltip */
+.posLeft {
+  right: calc(100% - 20px);
+  top: 50%;
+  transform: translate(-8px, -50%);
+}
+
+.posLeft::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 4px solid transparent;
+  border-left-color: #1e293b;
+}
+
+.anchorContainer:hover .posLeft {
+  transform: translate(-12px, -50%);
+}
+
+/* ─── Dropdown Menu Demo ─── */
+.dropdownDemo {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 2rem 6rem;
+}
+
+.dropdownWrap {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.dropdownTrigger:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 180px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 0.375rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(-4px);
+  z-index: 10;
+}
+
+.dropdownTrigger:hover + .dropdownMenu,
+.dropdownMenu:hover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.dropdownItem {
+  display: block;
+  padding: 0.625rem 0.875rem;
+  color: var(--foreground);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.dropdownItem:hover {
+  background: var(--surface-alt);
+  color: var(--primary);
+}
+
+/* ─── Notification Badge Demo ─── */
+.badgeDemo {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 2rem;
+}
+
+.badgeWrap {
+  position: relative;
+  display: inline-block;
+}
+
+.iconButton {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.iconButton:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 16px oklch(0.52 0.12 145 / 0.35);
+}
+
+.notificationBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 5px;
+  background: #ef4444;
+  color: white;
+  border-radius: 11px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--background);
+  animation: badgePop 0.4s ease-out;
+}
+
+@keyframes badgePop {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* ─── Browser Support / Warning Box ─── */
+.supportInfo {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.warningBox {
+  padding: 1.75rem;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-left: 4px solid #f59e0b;
+  border-radius: var(--radius-lg);
+  color: #78350f;
+}
+
+:global(.dark) .warningBox {
+  background: linear-gradient(135deg, rgba(120, 53, 15, 0.4) 0%, rgba(69, 26, 3, 0.5) 100%);
+  border-left-color: #fbbf24;
+  color: #fde68a;
+}
+
+.warningTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.warningIntro {
+  margin-bottom: 0.75rem;
+}
+
+.supportList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.supportList li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.statusIcon {
+  color: #10b981;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+:global(.dark) .statusIcon {
+  color: #34d399;
+}
+
+.statusIconWip {
+  color: #f59e0b;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+:global(.dark) .statusIconWip {
+  color: #fbbf24;
+}
+
+.warningNote {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.warningNote code {
+  padding: 0.125rem 0.375rem;
+  background: rgba(120, 53, 15, 0.15);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+:global(.dark) .warningNote code {
+  background: rgba(251, 191, 36, 0.15);
+}
+
+/* ─── Benefits Grid ─── */
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.benefitCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-fast);
+}
+
+.benefitCard:hover {
+  transform: translateY(-2px);
+}
+
+.benefitCross {
+  color: #ef4444;
+  font-size: 1.125rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+:global(.dark) .benefitCross {
+  color: #f87171;
+}
+
+.benefitText {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--foreground);
+}
+
+.benefitText code {
+  padding: 0.125rem 0.375rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--primary);
+}
+
+/* ─── Related Links ─── */
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.relatedCard {
+  padding: 1.5rem;
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.relatedCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+:global(.dark) .relatedCard:hover {
+  border-color: #60a5fa;
+}
+
+.relatedTitle {
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.relatedDesc {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .conceptsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .positioningDemo {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .relatedGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .dropdownDemo {
+    padding-bottom: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .positioningDemo {
+    grid-template-columns: 1fr;
+  }
+
+  .introDemo {
+    padding: 2rem 1rem;
+  }
+}
+
+/* ─── Accessibility ─── */
+@media (prefers-reduced-motion: reduce) {
+  .supportBadge:hover,
+  .conceptCard:hover,
+  .benefitCard:hover,
+  .relatedCard:hover {
+    transform: none;
+  }
+
+  .notificationBadge {
+    animation: none;
+  }
+
+  .simpleTooltip,
+  .posTooltip,
+  .dropdownMenu {
+    transition: opacity 0.1s;
+  }
+
+  .anchorButton:hover,
+  .posButton:hover,
+  .dropdownTrigger:hover,
+  .iconButton:hover {
+    transform: none;
+  }
+}

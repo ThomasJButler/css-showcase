@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "audit": "node test-audit.js",
-    "test": "node test-audit.js"
+    "test": "node test-audit.js",
+    "visual-test": "node visual-test.js",
+    "screenshots": "node visual-test.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,8 @@
   "homepage": "https://github.com/ThomasJButler/css-showcase#readme",
   "devDependencies": {
     "puppeteer": "^24.24.0"
+  },
+  "dependencies": {
+    "playwright": "^1.58.0"
   }
 }

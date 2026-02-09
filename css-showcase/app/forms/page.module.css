@@ -1,0 +1,895 @@
+/* ============================================
+   Forms Page — Demo Styles
+   Scoped via CSS Modules
+   ============================================ */
+
+/* ─── Demo Form Layout ─── */
+
+.demoForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.formGroup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ─── Labels ─── */
+
+.formLabel {
+  font-weight: 500;
+  color: var(--foreground);
+  font-size: 0.875rem;
+}
+
+/* ─── Base Input Styles ─── */
+
+.formInput,
+.formTextarea,
+.formSelect {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formInput:focus,
+.formTextarea:focus,
+.formSelect:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px oklch(from var(--primary) l c h / 0.1);
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: var(--muted-foreground);
+}
+
+/* ─── Floating Labels ─── */
+
+.formFloating {
+  position: relative;
+}
+
+.formFloating label {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: var(--background);
+  padding: 0 0.25rem;
+  z-index: 1;
+}
+
+.formFloating .formInput {
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.formFloating .formInput:focus ~ label,
+.formFloating .formInput:not(:placeholder-shown) ~ label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: var(--primary);
+}
+
+/* ─── Underline Style ─── */
+
+.formUnderline {
+  position: relative;
+  padding-top: 1rem;
+}
+
+.formUnderline label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.formUnderline .formInput {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--border);
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.formUnderline .formInput:focus {
+  box-shadow: none;
+}
+
+.formUnderlineBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.formUnderline .formInput:focus ~ .formUnderlineBar {
+  width: 100%;
+}
+
+/* ─── Textareas ─── */
+
+.formTextarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.autoExpand {
+  overflow: hidden;
+  resize: none;
+}
+
+.charCount {
+  display: block;
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  margin-top: 0.25rem;
+}
+
+/* ─── Select Dropdowns ─── */
+
+.formSelect {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 20px;
+  padding-right: 2.5rem;
+}
+
+.formSelectWrapper {
+  position: relative;
+}
+
+.customSelect {
+  font-weight: 500;
+}
+
+/* ─── Validation States ─── */
+
+.formMessage {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+
+.formMessageVisible {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Success State */
+.success .formInput,
+.success .formTextarea {
+  border-color: #22c55e;
+}
+
+.success .formMessageVisible {
+  color: #22c55e;
+}
+
+/* Error State */
+.error .formInput,
+.error .formTextarea {
+  border-color: #ef4444;
+}
+
+.error .formMessageVisible {
+  color: #ef4444;
+}
+
+/* Real-time CSS Validation */
+.validationForm .formInput:valid:not(:placeholder-shown) {
+  border-color: #22c55e;
+}
+
+.validationForm .formInput:invalid:not(:placeholder-shown):not(:focus) {
+  border-color: #ef4444;
+}
+
+/* Password Strength Indicator */
+.passwordStrength {
+  margin-top: 0.5rem;
+  height: 4px;
+  background: var(--border);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.strengthBar {
+  height: 100%;
+  width: 0;
+  background: #ef4444;
+  transition: all 0.3s ease;
+}
+
+/* Password Requirements */
+.passwordRequirements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.requirement {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+  color: var(--muted-foreground);
+  transition: all 0.2s ease;
+}
+
+/* ─── Checkboxes ─── */
+
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.formCheckbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkboxMark {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: 0.25rem;
+  margin-right: 0.75rem;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.checkboxMark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.formCheckbox:checked ~ .checkboxMark {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.formCheckbox:checked ~ .checkboxMark::after {
+  display: block;
+}
+
+.checkboxWrapper:hover .checkboxMark {
+  border-color: var(--primary);
+}
+
+.checkboxLabel {
+  color: var(--foreground);
+  font-size: 0.875rem;
+}
+
+/* Fancy Checkbox Animation */
+.checkboxFancy .checkboxMark {
+  border-radius: 50%;
+}
+
+.checkboxFancy .formCheckbox:checked ~ .checkboxMark {
+  animation: checkboxPop 0.3s ease-out;
+}
+
+@keyframes checkboxPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* ─── Radio Buttons ─── */
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.radioWrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.formRadio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radioMark {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.radioMark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.formRadio:checked ~ .radioMark {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.formRadio:checked ~ .radioMark::after {
+  display: block;
+}
+
+.radioWrapper:hover .radioMark {
+  border-color: var(--primary);
+}
+
+.radioLabel {
+  color: var(--foreground);
+  font-size: 0.875rem;
+}
+
+/* ─── Toggle Switches ─── */
+
+.toggleWrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.formToggle {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.toggleSlider {
+  width: 48px;
+  min-width: 48px;
+  height: 24px;
+  background: var(--border);
+  border-radius: 9999px;
+  margin-right: 0.75rem;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.toggleSlider::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: all 0.2s ease;
+}
+
+.formToggle:checked ~ .toggleSlider {
+  background: var(--primary);
+}
+
+.formToggle:checked ~ .toggleSlider::after {
+  transform: translateX(24px);
+}
+
+.toggleLabel {
+  color: var(--foreground);
+  font-size: 0.875rem;
+}
+
+/* Fancy Toggle */
+.toggleFancy .toggleSlider {
+  width: 60px;
+  min-width: 60px;
+  height: 30px;
+}
+
+.toggleFancy .toggleSlider::after {
+  width: 24px;
+  height: 24px;
+}
+
+.toggleFancy .formToggle:checked ~ .toggleSlider::after {
+  transform: translateX(30px);
+}
+
+/* ─── Range Sliders ─── */
+
+.rangeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.formRange {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 9999px;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.formRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.formRange::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.formRange:hover::-webkit-slider-thumb {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 8px oklch(from var(--primary) l c h / 0.1);
+}
+
+.formRange:hover::-moz-range-thumb {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 8px oklch(from var(--primary) l c h / 0.1);
+}
+
+.rangeValue {
+  display: inline-block;
+  min-width: 2rem;
+  font-weight: 500;
+  color: var(--primary);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Range Styles */
+.rangeCustom {
+  background: linear-gradient(to right, var(--primary) 0%, var(--border) 0%);
+}
+
+.rangeGradient {
+  background: linear-gradient(
+    to right,
+    #3b82f6 0%,
+    #8b5cf6 25%,
+    #ec4899 50%,
+    #ef4444 75%,
+    #f59e0b 100%
+  );
+}
+
+/* ─── File Upload ─── */
+
+.fileUpload {
+  display: block;
+  cursor: pointer;
+}
+
+.formFile {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.fileButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.fileButton:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.fileIcon {
+  font-size: 1.25rem;
+}
+
+.fileText {
+  font-size: 0.875rem;
+}
+
+.fileName {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+/* File Drop Area */
+.fileDrop {
+  width: 100%;
+}
+
+.fileDropArea {
+  padding: 2rem;
+  background: var(--background);
+  border: 2px dashed var(--border);
+  border-radius: 0.75rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.fileDropArea:hover {
+  border-color: var(--primary);
+  background: var(--muted);
+}
+
+.fileDropIcon {
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+.fileDropText {
+  display: block;
+  font-weight: 500;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.fileDropHint {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+/* ─── Date & Time ─── */
+
+.formInput[type="date"],
+.formInput[type="time"],
+.formInput[type="datetime-local"] {
+  cursor: pointer;
+}
+
+/* ─── Complete Forms ─── */
+
+.contactForm,
+.signupForm {
+  max-width: 100%;
+}
+
+.formHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.formHeader h4 {
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.formHeader p {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.formFooter {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.formFooter p {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.footerLink {
+  color: var(--primary);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+}
+
+/* ─── Submit Buttons ─── */
+
+.btnSubmit {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnSubmit:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px oklch(from var(--primary) l c h / 0.3);
+}
+
+.btnBlock {
+  width: 100%;
+  text-align: center;
+}
+
+/* ─── Tips Grid ─── */
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.tipCard {
+  padding: 1.5rem;
+  background: oklch(from var(--primary) l c h / 0.06);
+  border-radius: var(--radius);
+  border: 1px solid oklch(from var(--primary) l c h / 0.1);
+}
+
+.tipIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+.tipCard h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--foreground);
+}
+
+.tipCard p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+/* ─── Next Steps ─── */
+
+.nextGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 700px;
+}
+
+.nextLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.nextLink::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--primary), oklch(0.68 0.10 230));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nextLink:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px oklch(0.52 0.12 145 / 0.12), 0 4px 10px oklch(0 0 0 / 0.06);
+}
+
+.nextLink:hover::before {
+  opacity: 1;
+}
+
+.nextIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--primary);
+}
+
+.nextLink h3 {
+  font-size: 1.125rem;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.nextLink p {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+/* ─── Dark Mode ─── */
+
+:global(.dark) .formInput,
+:global(.dark) .formTextarea,
+:global(.dark) .formSelect {
+  background: var(--muted);
+  border-color: oklch(from var(--border) calc(l + 0.05) c h);
+}
+
+:global(.dark) .formFloating label {
+  background: var(--muted);
+}
+
+:global(.dark) .checkboxMark,
+:global(.dark) .radioMark {
+  background: var(--muted);
+  border-color: oklch(from var(--border) calc(l + 0.05) c h);
+}
+
+:global(.dark) .formInput:focus,
+:global(.dark) .formTextarea:focus,
+:global(.dark) .formSelect:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px oklch(from var(--primary) l c h / 0.15);
+}
+
+:global(.dark) .formUnderline .formInput {
+  border-bottom-color: oklch(from var(--border) calc(l + 0.05) c h);
+}
+
+:global(.dark) .fileDropArea {
+  border-color: oklch(from var(--border) calc(l + 0.05) c h);
+}
+
+:global(.dark) .formFooter {
+  border-top-color: oklch(from var(--border) calc(l + 0.05) c h);
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 768px) {
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .tipsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .nextGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .passwordRequirements {
+    flex-direction: column;
+  }
+
+  .requirement {
+    text-align: center;
+  }
+}
+
+/* ─── Respect reduced motion ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  .formInput,
+  .formTextarea,
+  .formSelect,
+  .formUnderlineBar,
+  .checkboxMark,
+  .radioMark,
+  .toggleSlider,
+  .toggleSlider::after,
+  .fileButton,
+  .fileDropArea,
+  .btnSubmit,
+  .nextLink {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .checkboxFancy .formCheckbox:checked ~ .checkboxMark {
+    animation: none !important;
+  }
+}

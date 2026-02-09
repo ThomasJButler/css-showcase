@@ -1,0 +1,266 @@
+/* ============================================
+   Flexbox Page — Demo Styles
+   Scoped via CSS Modules to prevent leaking
+   ============================================ */
+
+/* --- Shared flex demo base --- */
+
+.flexDemo {
+  display: flex;
+  background: var(--muted);
+  padding: 1rem;
+  border-radius: var(--radius);
+  min-height: 80px;
+  position: relative;
+}
+
+.flexItem {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-weight: 600;
+  text-align: center;
+  min-width: 50px;
+  font-size: 0.875rem;
+}
+
+.demoLabel {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+/* --- Direction demos --- */
+
+.directionRow {
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.directionColumn {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.directionColumn .flexItem {
+  width: 100%;
+}
+
+/* --- Wrap demo --- */
+
+.wrapDemo {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.wrapDemo .flexItem {
+  flex: 0 0 calc(33.333% - 0.5rem);
+}
+
+@media (max-width: 480px) {
+  .wrapDemo .flexItem {
+    flex: 0 0 100%;
+  }
+}
+
+/* --- Grow demo --- */
+
+.growDemo {
+  gap: 0.5rem;
+}
+
+.growNone {
+  flex-grow: 0;
+  background: var(--muted-foreground);
+}
+
+.growOne {
+  flex-grow: 1;
+}
+
+.growTwo {
+  flex-grow: 2;
+  background: var(--secondary);
+}
+
+/* --- Gap demo --- */
+
+.gapDemo {
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* --- Alignment section --- */
+
+.alignmentDemos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.alignContainer {
+  background: var(--card);
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+/* Justify content demos */
+.justifyStart {
+  justify-content: flex-start;
+  gap: 0.375rem;
+}
+
+.justifyCenter {
+  justify-content: center;
+  gap: 0.375rem;
+}
+
+.justifyEnd {
+  justify-content: flex-end;
+  gap: 0.375rem;
+}
+
+.justifyBetween {
+  justify-content: space-between;
+}
+
+.justifyAround {
+  justify-content: space-around;
+}
+
+.justifyEvenly {
+  justify-content: space-evenly;
+}
+
+/* Align items demos */
+.tall {
+  min-height: 120px;
+  gap: 0.375rem;
+}
+
+.tallItem {
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.alignStart {
+  align-items: flex-start;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.alignEnd {
+  align-items: flex-end;
+}
+
+.alignStretch {
+  align-items: stretch;
+}
+
+.alignStretch .flexItem {
+  height: auto;
+}
+
+.alignBaseline {
+  align-items: baseline;
+}
+
+/* Center demo */
+.centerDemo {
+  min-height: 180px;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerDemo .flexItem {
+  background: var(--secondary);
+  padding: 1.5rem 2rem;
+  font-size: 1rem;
+}
+
+/* --- Next Steps Section --- */
+
+.nextGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+}
+
+.nextLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.nextLink::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--primary), oklch(0.68 0.10 230));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nextLink:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px oklch(0.52 0.12 145 / 0.12), 0 4px 10px oklch(0 0 0 / 0.06);
+}
+
+.nextLink:hover::before {
+  opacity: 1;
+}
+
+.nextIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--primary);
+}
+
+.nextLink h3 {
+  font-size: 1.125rem;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.nextLink p {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 768px) {
+  .alignmentDemos {
+    grid-template-columns: 1fr;
+  }
+
+  .nextGrid {
+    grid-template-columns: 1fr;
+  }
+}

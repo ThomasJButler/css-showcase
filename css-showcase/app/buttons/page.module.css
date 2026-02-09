@@ -1,0 +1,1369 @@
+/* ============================================
+   Buttons Page — Demo Styles
+   Scoped via CSS Modules
+   ============================================ */
+
+/* ─── Shared Button Base ─── */
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: inherit;
+  white-space: nowrap;
+  line-height: 1.5;
+  color: white;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ─── Button Group Layout ─── */
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* ─── Basic Button Styles ─── */
+
+.btnPrimary {
+  background: var(--primary);
+  color: white;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px oklch(from var(--primary) l c h / 0.3);
+}
+
+.btnSecondary {
+  background: var(--secondary);
+  color: white;
+}
+
+.btnSecondary:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px oklch(from var(--secondary) l c h / 0.3);
+}
+
+.btnOutline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btnOutline:hover:not(:disabled) {
+  background: var(--primary);
+  color: white;
+}
+
+.btnGhost {
+  background: transparent;
+  color: var(--foreground);
+}
+
+.btnGhost:hover:not(:disabled) {
+  background: var(--muted);
+}
+
+.btnSmall {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+.btnLarge {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.btnRounded {
+  border-radius: 9999px;
+}
+
+/* ─── Icon Buttons ─── */
+
+.btnIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btnIconOnly {
+  padding: 0.75rem;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Slide Effects ─── */
+
+.btnSlideRight {
+  background: var(--primary);
+  color: white;
+  z-index: 1;
+}
+
+.btnSlideRight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: oklch(from var(--primary) calc(l - 0.1) c h);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.btnSlideRight:hover::before {
+  left: 0;
+}
+
+.btnSlideUp {
+  background: var(--secondary);
+  color: white;
+  z-index: 1;
+}
+
+.btnSlideUp::before {
+  content: "";
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: oklch(from var(--secondary) calc(l - 0.1) c h);
+  transition: bottom 0.3s ease;
+  z-index: -1;
+}
+
+.btnSlideUp:hover::before {
+  bottom: 0;
+}
+
+.btnSlideDown {
+  background: #16a34a;
+  color: white;
+  z-index: 1;
+}
+
+.btnSlideDown::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #15803d;
+  transition: top 0.3s ease;
+  z-index: -1;
+}
+
+.btnSlideDown:hover::before {
+  top: 0;
+}
+
+.btnSlideDiagonal {
+  background: #dc2626;
+  color: white;
+  z-index: 1;
+}
+
+.btnSlideDiagonal::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: #b91c1c;
+  transition: all 0.3s ease;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.btnSlideDiagonal:hover::before {
+  top: -50%;
+  left: -50%;
+}
+
+/* ─── Gradient Effects ─── */
+
+.btnGradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  color: white;
+  transition: background-position 0.6s ease;
+}
+
+.btnGradient:hover {
+  background-position: 100% 100%;
+}
+
+.btnGradientRadial {
+  background: radial-gradient(circle at center, var(--primary) 0%, var(--secondary) 100%);
+  background-size: 200% 200%;
+  background-position: 50% 50%;
+  color: white;
+  transition: background-size 0.3s ease;
+}
+
+.btnGradientRadial:hover {
+  background-size: 250% 250%;
+}
+
+.btnGradientSweep {
+  background: conic-gradient(from 0deg, var(--primary), var(--secondary), var(--primary));
+  color: white;
+  animation: sweep 4s linear infinite paused;
+}
+
+.btnGradientSweep:hover {
+  animation-play-state: running;
+}
+
+@keyframes sweep {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btnGradientRainbow {
+  background: linear-gradient(
+    90deg,
+    #ff0000 0%,
+    #ff8800 14%,
+    #ffff00 28%,
+    #00ff00 42%,
+    #0088ff 56%,
+    #0000ff 70%,
+    #8800ff 84%,
+    #ff0088 100%
+  );
+  background-size: 400% 100%;
+  color: white;
+  animation: rainbow 3s linear infinite paused;
+}
+
+.btnGradientRainbow:hover {
+  animation-play-state: running;
+}
+
+@keyframes rainbow {
+  to {
+    background-position: -400% 0;
+  }
+}
+
+/* ─── Border Effects ─── */
+
+.btnBorderDraw {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.btnBorderDraw::before,
+.btnBorderDraw::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  transition: all 0.3s ease;
+}
+
+.btnBorderDraw::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--primary);
+  border-right: 2px solid var(--primary);
+}
+
+.btnBorderDraw::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid var(--primary);
+  border-left: 2px solid var(--primary);
+}
+
+.btnBorderDraw:hover::before,
+.btnBorderDraw:hover::after {
+  width: 100%;
+  height: 100%;
+}
+
+.btnBorderSpin {
+  background: transparent;
+  color: var(--secondary);
+  border: 2px solid var(--secondary);
+  position: relative;
+}
+
+.btnBorderSpin::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent 30%, var(--secondary) 50%, transparent 70%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btnBorderSpin:hover::before {
+  opacity: 1;
+  animation: borderSpin 2s linear infinite;
+}
+
+@keyframes borderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btnBorderScale {
+  background: transparent;
+  color: #16a34a;
+  border: 2px solid #16a34a;
+  transition: all 0.3s ease;
+}
+
+.btnBorderScale:hover {
+  border-width: 4px;
+  font-weight: bold;
+}
+
+.btnBorderCorners {
+  background: transparent;
+  color: #dc2626;
+  position: relative;
+  padding: 0.75rem 1.5rem;
+}
+
+.btnBorderCorners::before,
+.btnBorderCorners::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.btnBorderCorners::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid #dc2626;
+  border-left: 2px solid #dc2626;
+}
+
+.btnBorderCorners::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid #dc2626;
+  border-right: 2px solid #dc2626;
+}
+
+.btnBorderCorners:hover::before,
+.btnBorderCorners:hover::after {
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Shadow Effects ─── */
+
+.btnShadowGrow {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btnShadowGrow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btnShadowGrow:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btnShadowInset {
+  background: var(--secondary);
+  color: white;
+  box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btnShadowInset:hover {
+  box-shadow: inset 0 0 20px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btnShadowMultiple {
+  background: #16a34a;
+  color: white;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btnShadowMultiple:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.1),
+    0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.btnShadowGlow {
+  background: #dc2626;
+  color: white;
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  transition: all 0.3s ease;
+}
+
+.btnShadowGlow:hover {
+  box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+  animation: glowPulse 1.5s infinite;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+/* ─── Transform Effects ─── */
+
+.btnTransformGrow {
+  background: var(--primary);
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.btnTransformGrow:hover {
+  transform: scale(1.1);
+}
+
+.btnTransformShrink {
+  background: var(--secondary);
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.btnTransformShrink:hover {
+  transform: scale(0.95);
+}
+
+.btnTransformRotate {
+  background: #16a34a;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.btnTransformRotate:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.btnTransformSkew {
+  background: #dc2626;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.btnTransformSkew:hover {
+  transform: skewX(-10deg);
+}
+
+/* ─── Text Effects ─── */
+
+.btnTextSlide {
+  background: var(--primary);
+  color: white;
+  position: relative;
+}
+
+.btnTextSlide span {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.btnTextSlide:hover span {
+  color: transparent;
+}
+
+.btnTextSlide span::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: -100%;
+  color: white;
+  transition: top 0.3s ease;
+}
+
+.btnTextSlide:hover span::after {
+  top: 0;
+}
+
+.btnTextReveal {
+  background: var(--secondary);
+  color: transparent;
+  position: relative;
+}
+
+.btnTextReveal::before {
+  content: "Reveal";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: white;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnTextReveal:hover::before {
+  width: 100%;
+}
+
+.btnTextRotate {
+  background: #16a34a;
+  color: white;
+  position: relative;
+}
+
+.btnTextRotate span {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.btnTextRotate span:last-child {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btnTextRotate:hover span:first-child {
+  transform: translateY(-100%);
+}
+
+.btnTextRotate:hover span:last-child {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btnTextGlitch {
+  background: #000;
+  color: #fff;
+  position: relative;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.btnTextGlitch:hover {
+  animation: glitch 0.3s infinite;
+}
+
+.btnTextGlitch::before,
+.btnTextGlitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnTextGlitch::before {
+  animation: glitch1 0.3s infinite;
+  color: #00ffff;
+  z-index: -1;
+}
+
+.btnTextGlitch::after {
+  animation: glitch2 0.3s infinite;
+  color: #ff00ff;
+  z-index: -2;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch1 {
+  0%, 100% { clip-path: inset(0 0 0 0); }
+  25% { clip-path: inset(0 100% 0 0); }
+  50% { clip-path: inset(0 0 100% 0); }
+  75% { clip-path: inset(100% 0 0 0); }
+}
+
+@keyframes glitch2 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(-2px, 2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(-2px, -2px); }
+}
+
+/* ─── Animated Buttons ─── */
+
+.btnPulse {
+  background: var(--primary);
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 oklch(from var(--primary) l c h / 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px oklch(from var(--primary) l c h / 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 oklch(from var(--primary) l c h / 0);
+  }
+}
+
+.btnBreathe {
+  background: var(--secondary);
+  color: white;
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.btnHeartbeat {
+  background: #dc2626;
+  color: white;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+.btnShake {
+  background: #f59e0b;
+  color: white;
+}
+
+.btnShake:hover {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* ─── Loading States ─── */
+
+.btnLoading {
+  background: var(--primary);
+  color: white;
+  min-width: 120px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btnSpinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btnDots span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  margin: 0 2px;
+  animation: dotBounce 1.4s infinite ease-in-out both;
+}
+
+.btnDots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.btnDots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes dotBounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+.btnProgress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: rgba(255, 255, 255, 0.5);
+  animation: progress 2s ease-out infinite;
+}
+
+@keyframes progress {
+  to {
+    width: 100%;
+  }
+}
+
+/* ─── Morphing Buttons ─── */
+
+.btnMorphRound {
+  background: var(--primary);
+  color: white;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btnMorphRound:hover {
+  border-radius: 9999px;
+}
+
+.btnMorphSquare {
+  background: var(--secondary);
+  color: white;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.btnMorphSquare:hover {
+  border-radius: 0;
+}
+
+/* ─── Particle Effects ─── */
+
+.btnConfetti {
+  background: var(--primary);
+  color: white;
+  position: relative;
+  overflow: visible;
+}
+
+.btnConfetti::before {
+  content: "\1F389";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btnConfetti:active::before {
+  animation: confettiBurst 0.5s ease-out;
+}
+
+@keyframes confettiBurst {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -150%) scale(1.5);
+  }
+}
+
+.btnSparkle {
+  background: var(--secondary);
+  color: white;
+  position: relative;
+  overflow: visible;
+}
+
+.btnSparkle::before {
+  content: "\2728";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.2em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.btnSparkle:hover::before {
+  opacity: 1;
+  animation: sparkleFloat 1s ease-in-out infinite;
+}
+
+@keyframes sparkleFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(15deg); }
+}
+
+.btnRipple {
+  background: #16a34a;
+  color: white;
+  overflow: hidden;
+}
+
+.btnRipple::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btnRipple:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* ─── 3D Effects ─── */
+
+.btn3d {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 0 oklch(from var(--primary) calc(l - 0.15) c h);
+  transition: all 0.1s;
+}
+
+.btn3d:active {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 0 oklch(from var(--primary) calc(l - 0.15) c h);
+}
+
+.btn3dFlip {
+  background: var(--secondary);
+  color: white;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.btn3dFlip:hover {
+  transform: rotateX(180deg);
+}
+
+.btn3dRotate {
+  background: #16a34a;
+  color: white;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.btn3dRotate:hover {
+  transform: rotateY(180deg);
+}
+
+.btn3dFloat {
+  background: #dc2626;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn3dFloat:hover {
+  transform: translateY(-8px) rotateX(20deg) rotateY(-20deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Neon Buttons ─── */
+
+.btnNeon {
+  background: transparent;
+  border: 2px solid;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.btnNeonBlue {
+  color: #00ffff;
+  border-color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+  box-shadow: 0 0 20px #00ffff, inset 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.btnNeonBlue:hover {
+  background: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 40px #00ffff, inset 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.btnNeonPink {
+  color: #ff00ff;
+  border-color: #ff00ff;
+  text-shadow: 0 0 10px #ff00ff;
+  box-shadow: 0 0 20px #ff00ff, inset 0 0 20px rgba(255, 0, 255, 0.1);
+}
+
+.btnNeonPink:hover {
+  background: rgba(255, 0, 255, 0.1);
+  box-shadow: 0 0 40px #ff00ff, inset 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+.btnNeonGreen {
+  color: #00ff00;
+  border-color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+  box-shadow: 0 0 20px #00ff00, inset 0 0 20px rgba(0, 255, 0, 0.1);
+}
+
+.btnNeonGreen:hover {
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: 0 0 40px #00ff00, inset 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+.btnNeonFlicker {
+  color: #fff;
+  border-color: #fff;
+  animation: neonFlicker 2s infinite;
+}
+
+@keyframes neonFlicker {
+  0%, 100% {
+    text-shadow: 0 0 10px #fff;
+    box-shadow: 0 0 20px #fff, inset 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff;
+    box-shadow: 0 0 40px #fff, inset 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* ─── Liquid Buttons ─── */
+
+.btnLiquid {
+  background: var(--primary);
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.btnLiquid::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: oklch(from var(--primary) calc(l - 0.1) c h);
+  transition: height 0.3s ease;
+  z-index: -1;
+}
+
+.btnLiquid:hover::before {
+  height: 100%;
+}
+
+.btnBlob {
+  background: var(--secondary);
+  color: white;
+  border-radius: 50% 40% 50% 40%;
+  animation: blobMorph 8s ease-in-out infinite;
+}
+
+@keyframes blobMorph {
+  0%, 100% { border-radius: 50% 40% 50% 40%; }
+  25% { border-radius: 40% 50% 40% 50%; }
+  50% { border-radius: 50% 40% 50% 40%; }
+  75% { border-radius: 40% 50% 40% 50%; }
+}
+
+.btnWave {
+  background: linear-gradient(90deg, var(--primary) 50%, oklch(from var(--primary) calc(l - 0.1) c h) 50%);
+  background-size: 200% 100%;
+  background-position: 0% 0%;
+  color: white;
+  transition: background-position 0.6s ease;
+}
+
+.btnWave:hover {
+  background-position: -100% 0%;
+}
+
+.btnBubble {
+  background: #16a34a;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.btnBubble::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btnBubble:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ─── British Special Buttons ─── */
+
+.btnUnionJack {
+  background: #012169;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.btnUnionJack::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(to right, transparent 45%, #fff 45%, #fff 55%, transparent 55%),
+    linear-gradient(to bottom, transparent 45%, #fff 45%, #fff 55%, transparent 55%),
+    linear-gradient(45deg, transparent 40%, #c8102e 40%, #c8102e 60%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, #c8102e 40%, #c8102e 60%, transparent 60%);
+  transition: left 0.3s ease;
+}
+
+.btnUnionJack:hover::before {
+  left: 0;
+}
+
+.btnTea {
+  background: #8b4513;
+  color: white;
+  position: relative;
+  overflow: visible;
+}
+
+.btnTea::after {
+  content: "\2615";
+  position: absolute;
+  top: -20px;
+  right: 10px;
+  font-size: 1.5em;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.btnTea:hover::after {
+  top: -10px;
+  opacity: 1;
+  animation: steam 2s infinite;
+}
+
+@keyframes steam {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5px) scale(1.1); }
+}
+
+.btnMindTheGap {
+  background: #fff;
+  color: #000080;
+  border: 3px solid #dc241f;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+}
+
+.btnMindTheGap::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: #000080;
+  transition: left 1s;
+}
+
+.btnMindTheGap:hover::before {
+  left: 100%;
+}
+
+.btnQueue {
+  background: var(--primary);
+  color: white;
+  position: relative;
+  overflow: visible;
+}
+
+.btnQueue::after {
+  content: " \1F9CD\1F9CD\1F9CD";
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btnQueue:hover::after {
+  opacity: 1;
+}
+
+/* ─── Neon Section Background ─── */
+
+.neonBg {
+  background: #0a0a0a;
+  padding: 2rem;
+  border-radius: 0.75rem;
+}
+
+/* ─── Best Practices Tips ─── */
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.tipCard {
+  padding: 1.5rem;
+  background: oklch(from var(--primary) l c h / 0.06);
+  border-radius: var(--radius);
+  border: 1px solid oklch(from var(--primary) l c h / 0.1);
+}
+
+.tipIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+.tipCard h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--foreground);
+}
+
+.tipCard p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.tipCard code {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+  background: var(--muted);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+}
+
+/* ─── Next Steps ─── */
+
+.nextGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 700px;
+}
+
+.nextLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.nextLink::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--primary), oklch(0.68 0.10 230));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nextLink:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px oklch(0.52 0.12 145 / 0.12), 0 4px 10px oklch(0 0 0 / 0.06);
+}
+
+.nextLink:hover::before {
+  opacity: 1;
+}
+
+.nextIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--primary);
+}
+
+.nextLink h3 {
+  font-size: 1.125rem;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.nextLink p {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+/* ─── Dark Mode ─── */
+
+:global(.dark) .btnNeon {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+:global(.dark) .btnShadowGrow:hover {
+  box-shadow: 0 8px 20px rgba(96, 165, 250, 0.3);
+}
+
+:global(.dark) .btnShadowMultiple:hover {
+  box-shadow:
+    0 4px 8px rgba(96, 165, 250, 0.15),
+    0 8px 16px rgba(96, 165, 250, 0.15),
+    0 16px 32px rgba(96, 165, 250, 0.15);
+}
+
+:global(.dark) .btnMindTheGap {
+  background: #1a1a2e;
+  color: #93c5fd;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 768px) {
+  .tipsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .nextGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .neonBg {
+    padding: 1.25rem;
+  }
+}
+
+/* ─── Respect reduced motion ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  .btnPulse,
+  .btnBreathe,
+  .btnHeartbeat,
+  .btnShake,
+  .btnGradientSweep,
+  .btnGradientRainbow,
+  .btnBlob,
+  .btnNeonFlicker,
+  .btnSpinner,
+  .btnDots span,
+  .btnProgress,
+  .btnConfetti::before,
+  .btnSparkle::before,
+  .btn3dFlip,
+  .btn3dRotate,
+  .btn3dFloat,
+  .btnSlideRight,
+  .btnSlideUp,
+  .btnSlideDown,
+  .btnSlideDiagonal,
+  .btnTextGlitch,
+  .nextLink {
+    animation: none !important;
+    transition: none !important;
+  }
+}

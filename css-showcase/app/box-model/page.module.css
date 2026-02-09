@@ -1,0 +1,703 @@
+/* ============================================
+   Box Model Page — Demo Styles
+   Scoped via CSS Modules to prevent leaking
+   ============================================ */
+
+/* --- Box Model Anatomy Visual --- */
+
+.boxModelVisual {
+  max-width: 600px;
+  margin: 1rem auto;
+  font-size: 0.875rem;
+}
+
+.marginLayer,
+.borderLayer,
+.paddingLayer,
+.contentLayer {
+  position: relative;
+  text-align: center;
+}
+
+.marginLayer {
+  background: rgba(255, 193, 7, 0.1);
+  border: 2px dashed rgba(255, 193, 7, 0.5);
+  padding: 30px;
+}
+
+.borderLayer {
+  background: rgba(220, 53, 69, 0.1);
+  border: 5px solid rgba(220, 53, 69, 0.8);
+  padding: 0;
+}
+
+.paddingLayer {
+  background: rgba(40, 167, 69, 0.1);
+  border: 2px dashed rgba(40, 167, 69, 0.5);
+  padding: 20px;
+}
+
+.contentLayer {
+  background: var(--card);
+  border: 2px solid var(--border);
+  padding: 2rem;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.layerLabel {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: var(--background);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--foreground);
+}
+
+:global(.dark) .marginLayer {
+  background: rgba(251, 191, 36, 0.15);
+  border-color: rgba(251, 191, 36, 0.6);
+}
+
+:global(.dark) .borderLayer {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.8);
+}
+
+:global(.dark) .paddingLayer {
+  background: rgba(52, 211, 153, 0.15);
+  border-color: rgba(52, 211, 153, 0.6);
+}
+
+:global(.dark) .contentLayer {
+  border-color: #475569;
+}
+
+/* --- Padding Examples --- */
+
+.paddingExamples {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.paddingDemo {
+  background: var(--card);
+  border: 2px solid var(--border);
+  color: var(--foreground);
+  font-size: 0.875rem;
+}
+
+.uniform {
+  padding: 20px;
+}
+
+.directional {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+}
+
+.shorthand {
+  padding: 20px 40px;
+}
+
+/* --- Margin Examples --- */
+
+.marginExamples {
+  background: var(--muted);
+  padding: 1rem;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.marginDemo {
+  background: var(--card);
+  border: 2px solid var(--primary);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.basic {
+  margin: 20px;
+}
+
+.auto {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.negative {
+  margin-top: -10px;
+  margin-left: -20px;
+  position: relative;
+  z-index: 1;
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* --- Border Examples --- */
+
+.borderExamples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.borderDemo {
+  padding: 1rem;
+  text-align: center;
+  background: var(--card);
+  font-size: 0.875rem;
+  border-radius: var(--radius);
+}
+
+.solid {
+  border: 3px solid var(--primary);
+}
+
+.dashed {
+  border: 2px dashed var(--secondary);
+}
+
+.gradient {
+  border: 4px solid transparent;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(45deg, #f06, #48f) border-box;
+}
+
+.rounded {
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  border-top-left-radius: 20px;
+}
+
+/* --- Box Sizing Comparison --- */
+
+.boxSizingComparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 1rem 0 2rem;
+}
+
+.sizingDemo {
+  background: var(--card);
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.sizingDemo h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.sizingDemo p {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+}
+
+.contentBox {
+  box-sizing: content-box;
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  border: 5px solid var(--primary);
+}
+
+.borderBox {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  border: 5px solid var(--secondary);
+}
+
+.sizeIndicator {
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  font-weight: 600;
+}
+
+/* --- Layout Grid Practical Example --- */
+
+.layoutGrid {
+  display: flex;
+  gap: 20px;
+  background: var(--muted);
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+
+.gridItem {
+  box-sizing: border-box;
+  flex: 1;
+  padding: 20px;
+  border: 2px solid var(--primary);
+  background: var(--card);
+  text-align: center;
+  font-weight: 600;
+  border-radius: calc(var(--radius) - 2px);
+}
+
+/* --- Interactive Playground --- */
+
+.playgroundContainer {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+}
+
+.controlsPanel {
+  background: var(--card);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.controlsPanel h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.controlGroup {
+  margin-bottom: 1rem;
+}
+
+.sliderHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.switchLabel {
+  display: flex !important;
+  align-items: center;
+  gap: 0.625rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--foreground);
+}
+
+.valueDisplay {
+  display: inline-block;
+  background: var(--muted);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+}
+
+.playgroundDemo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.playgroundWrapper {
+  background: var(--muted);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.playgroundBox {
+  background: var(--card);
+  border: 5px solid var(--primary);
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+.boxContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--foreground);
+}
+
+.labelTop {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+.playgroundCode {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.playgroundCode pre {
+  margin: 0;
+  padding: 1rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+/* --- Advanced: Margin Collapse --- */
+
+.collapseDemo {
+  background: var(--muted);
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+
+.collapseBox {
+  background: var(--card);
+  border: 2px solid var(--primary);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  border-radius: calc(var(--radius) - 2px);
+}
+
+.first {
+  margin-bottom: 30px;
+}
+
+.second {
+  margin-top: 20px;
+}
+
+.collapseNote {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  font-style: italic;
+}
+
+/* --- Outline Examples --- */
+
+.outlineExamples {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.outlineDemo {
+  padding: 0.75rem 1.5rem;
+  background: var(--card);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  transition: all 0.2s ease;
+  border-radius: var(--radius);
+}
+
+.borderStyle {
+  border: 3px solid var(--primary);
+}
+
+.outlineStyle {
+  border: none;
+  outline: 3px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+.focusStyle {
+  border: 1px solid var(--border);
+}
+
+.focusStyle:focus {
+  outline: 2px dashed currentColor;
+  outline-offset: 4px;
+}
+
+/* --- Percentage Examples --- */
+
+.percentageParent {
+  width: 100%;
+  min-height: 200px;
+  background: var(--muted);
+  padding: 1rem;
+  position: relative;
+  border-radius: var(--radius);
+}
+
+.percentageChild {
+  background: var(--card);
+  border: 2px solid var(--primary);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  border-radius: calc(var(--radius) - 2px);
+}
+
+.widthDemo {
+  width: 50%;
+  padding: 1rem;
+}
+
+.paddingPercentDemo {
+  width: auto;
+  padding: 10%;
+}
+
+.marginPercentDemo {
+  width: auto;
+  margin: 0 25% 0.75rem 25%;
+  padding: 1rem;
+}
+
+/* --- Shadow Examples --- */
+
+.shadowExamples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: var(--muted);
+  border-radius: var(--radius);
+}
+
+.shadowDemo {
+  background: var(--card);
+  padding: 1.25rem;
+  text-align: center;
+  border-radius: var(--radius);
+  font-size: 0.8125rem;
+}
+
+.basicShadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.insetShadow {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.multipleShadows {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.glowEffect {
+  box-shadow:
+    0 0 20px rgba(59, 130, 246, 0.5),
+    0 0 40px rgba(59, 130, 246, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+:global(.dark) .basicShadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+:global(.dark) .insetShadow {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+:global(.dark) .multipleShadows {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+:global(.dark) .glowEffect {
+  box-shadow:
+    0 0 20px rgba(96, 165, 250, 0.5),
+    0 0 40px rgba(96, 165, 250, 0.3);
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+/* --- Tips Section --- */
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.tipCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.tipCard:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px oklch(0 0 0 / 0.08);
+}
+
+.tipIcon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--primary);
+}
+
+.tipCard h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.tipCard p {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --- Next Steps Section --- */
+
+.nextGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 700px;
+}
+
+.nextLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.nextLink::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--primary), oklch(0.68 0.10 230));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nextLink:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px oklch(0.52 0.12 145 / 0.12), 0 4px 10px oklch(0 0 0 / 0.06);
+}
+
+.nextLink:hover::before {
+  opacity: 1;
+}
+
+.nextIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--primary);
+}
+
+.nextLink h3 {
+  font-size: 1.125rem;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.nextLink p {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 768px) {
+  .boxSizingComparison {
+    grid-template-columns: 1fr;
+  }
+
+  .playgroundContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .controlsPanel {
+    order: 2;
+  }
+
+  .playgroundDemo {
+    order: 1;
+  }
+
+  .borderExamples,
+  .shadowExamples {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tipsGrid,
+  .nextGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .playgroundWrapper {
+    padding: 1.5rem;
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentBox,
+  .borderBox {
+    max-width: 100%;
+  }
+
+  .borderExamples,
+  .shadowExamples {
+    grid-template-columns: 1fr;
+  }
+}

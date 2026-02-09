@@ -1,0 +1,250 @@
+/* ===============================================
+   CSS Frameworks Page — Card Styles
+   =============================================== */
+
+/* ─── Tool Card Grid ─── */
+.toolGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* ─── Individual Tool Card ─── */
+.toolCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.toolCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+:global(.dark) .toolCard:hover {
+  border-color: #60a5fa;
+}
+
+/* ─── Comparison Card (non-link variant) ─── */
+.comparisonCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+/* ─── Tool Icon ─── */
+.toolIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.25rem;
+  border-radius: var(--radius-md);
+  background: var(--primary);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.iconComponent {
+  background: #7c3aed;
+}
+
+.iconMethodology {
+  background: #059669;
+}
+
+.iconCssInJs {
+  background: #d97706;
+}
+
+.iconUseFramework {
+  background: #059669;
+}
+
+.iconUseVanilla {
+  background: #e11d48;
+}
+
+.iconHybrid {
+  background: #7c3aed;
+}
+
+:global(.dark) .toolIcon {
+  opacity: 0.9;
+}
+
+/* ─── Tool Body ─── */
+.toolBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.toolTitle {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.toolDesc {
+  margin: 0 0 1rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ─── Feature List ─── */
+.toolFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  flex: 1;
+}
+
+.toolFeatures li {
+  position: relative;
+  padding-left: 1.125rem;
+  margin-bottom: 0.375rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.toolFeatures li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+:global(.dark) .toolFeatures li::before {
+  color: #60a5fa;
+}
+
+/* ─── Tool Link ─── */
+.toolLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: auto;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--primary);
+  transition: gap var(--transition-fast);
+}
+
+:global(.dark) .toolLink {
+  color: #60a5fa;
+}
+
+.toolCard:hover .toolLink {
+  gap: 0.625rem;
+}
+
+.linkArrow {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.toolCard:hover .linkArrow {
+  transform: translateX(2px);
+}
+
+/* ─── Related Links ─── */
+.relatedLinksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.relatedCard {
+  padding: 1.5rem;
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.relatedCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+:global(.dark) .relatedCard:hover {
+  border-color: #60a5fa;
+}
+
+.relatedTitle {
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.relatedDesc {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .toolGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .toolGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .relatedLinksGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolCard {
+    padding: 1.25rem;
+  }
+
+  .comparisonCard {
+    padding: 1.25rem;
+  }
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .toolCard:hover {
+    transform: none;
+  }
+
+  .relatedCard:hover {
+    transform: none;
+  }
+
+  .toolCard:hover .linkArrow {
+    transform: none;
+  }
+}

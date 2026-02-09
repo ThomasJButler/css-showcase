@@ -1,0 +1,633 @@
+/* ============================================
+   Tables Page — Demo Styles
+   Scoped via CSS Modules
+   ============================================ */
+
+/* ─── Shared Table Base ─── */
+
+.tableWrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius);
+}
+
+.tableWrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableWrapper th,
+.tableWrapper td {
+  text-align: left;
+}
+
+/* ─── Basic Table ─── */
+
+.tableBasic {
+  background: var(--card);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tableBasic th,
+.tableBasic td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tableBasic thead th {
+  background: var(--muted);
+  font-weight: 600;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+}
+
+.tableBasic tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ─── Striped Table ─── */
+
+.tableStriped {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tableStriped th,
+.tableStriped td {
+  padding: 0.875rem 1rem;
+}
+
+.tableStriped thead th {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
+}
+
+.tableStriped tbody tr:nth-child(even) {
+  background: oklch(from var(--foreground) l c h / 0.025);
+}
+
+/* ─── Hover Table ─── */
+
+.tableHover {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tableHover th,
+.tableHover td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tableHover thead th {
+  background: var(--muted);
+  font-weight: 600;
+}
+
+.tableHover tbody tr {
+  transition: all 0.2s ease;
+}
+
+.tableHover tbody tr:hover {
+  background: oklch(from var(--primary) l c h / 0.06);
+  transform: scale(1.005);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.tableHover tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ─── Badges ─── */
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.badgeSuccess {
+  background: oklch(0.85 0.15 145);
+  color: oklch(0.3 0.12 145);
+}
+
+.badgeWarning {
+  background: oklch(0.9 0.12 85);
+  color: oklch(0.35 0.12 60);
+}
+
+.badgeInfo {
+  background: oklch(0.9 0.1 240);
+  color: oklch(0.35 0.12 240);
+}
+
+:global(.dark) .badgeSuccess {
+  background: oklch(0.35 0.12 145);
+  color: oklch(0.85 0.15 145);
+}
+
+:global(.dark) .badgeWarning {
+  background: oklch(0.35 0.1 60);
+  color: oklch(0.85 0.12 85);
+}
+
+:global(.dark) .badgeInfo {
+  background: oklch(0.3 0.1 240);
+  color: oklch(0.85 0.1 240);
+}
+
+/* ─── Minimal Table ─── */
+
+.tableMinimal {
+  background: transparent;
+}
+
+.tableMinimal th {
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--primary);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.tableMinimal td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tableMinimal tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ─── Bordered Table ─── */
+
+.tableBordered {
+  border: 2px solid var(--border);
+  background: var(--card);
+}
+
+.tableBordered th,
+.tableBordered td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+}
+
+.tableBordered thead th {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
+}
+
+/* ─── Compact Table ─── */
+
+.tableCompact {
+  background: var(--card);
+  border: 1px solid var(--border);
+  font-size: 0.875rem;
+}
+
+.tableCompact th,
+.tableCompact td {
+  padding: 0.5rem 0.75rem;
+}
+
+.tableCompact thead th {
+  background: var(--muted);
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+.tableCompact tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.tableCompact tbody tr:last-child {
+  border-bottom: none;
+}
+
+.tableCompact th:first-child,
+.tableCompact td:first-child {
+  width: 3rem;
+  text-align: center;
+}
+
+/* ─── Utility Colours ─── */
+
+.textSuccess {
+  color: oklch(0.55 0.18 145);
+  font-weight: 600;
+}
+
+.textError {
+  color: oklch(0.55 0.22 25);
+  font-weight: 600;
+}
+
+:global(.dark) .textSuccess {
+  color: oklch(0.75 0.18 145);
+}
+
+:global(.dark) .textError {
+  color: oklch(0.75 0.2 25);
+}
+
+/* ─── Scroll Wrapper (for wide tables) ─── */
+
+.scrollWrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  border-radius: var(--radius);
+}
+
+.scrollWrapper::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 24px;
+  background: linear-gradient(to left, oklch(from var(--background) l c h / 0.5), transparent);
+  pointer-events: none;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  z-index: 1;
+}
+
+.tableScroll {
+  width: 100%;
+  min-width: 700px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-collapse: collapse;
+}
+
+.tableScroll th,
+.tableScroll td {
+  padding: 0.875rem 1rem;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.tableScroll thead th {
+  background: var(--muted);
+  font-weight: 600;
+  border-bottom: 2px solid var(--border);
+}
+
+.tableScroll tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+/* ─── Responsive Stack Table ─── */
+
+.tableResponsive {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tableResponsive th,
+.tableResponsive td {
+  padding: 0.875rem 1rem;
+  text-align: left;
+}
+
+.tableResponsive thead th {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
+}
+
+.tableResponsive tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.tableResponsive tbody tr:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 640px) {
+  .tableResponsive thead {
+    display: none;
+  }
+
+  .tableResponsive tbody tr {
+    display: block;
+    margin-bottom: 0.75rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .tableResponsive td {
+    display: block;
+    text-align: right;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .tableResponsive td:last-child {
+    border-bottom: none;
+  }
+
+  .tableResponsive td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    text-align: left;
+  }
+}
+
+/* ─── Sortable Table ─── */
+
+.tableSortable {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tableSortable th,
+.tableSortable td {
+  padding: 0.875rem 1rem;
+  text-align: left;
+}
+
+.tableSortable thead th {
+  background: var(--muted);
+  font-weight: 600;
+}
+
+.tableSortable tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.tableSortable tbody tr:last-child {
+  border-bottom: none;
+}
+
+.sortable {
+  cursor: pointer;
+  position: relative;
+  padding-right: 2rem !important;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.sortable:hover {
+  background: oklch(from var(--primary) l c h / 0.08);
+}
+
+.sortIndicator {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sortIndicator::after {
+  content: '↕';
+  opacity: 0.3;
+  font-size: 0.875rem;
+}
+
+.activeAsc .sortIndicator::after {
+  content: '↑';
+  opacity: 1;
+  color: var(--primary);
+}
+
+/* ─── Icon Buttons ─── */
+
+.btnIcon {
+  background: none;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-right: 0.25rem;
+}
+
+.btnIcon:hover {
+  background: oklch(from var(--primary) l c h / 0.1);
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+/* ─── Data Table with Filters ─── */
+
+.tableFilters {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filterInput,
+.filterSelect {
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--background);
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filterInput {
+  flex: 1;
+  min-width: 180px;
+}
+
+.filterInput:focus,
+.filterSelect:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px oklch(from var(--primary) l c h / 0.1);
+}
+
+.tableData {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tableData th,
+.tableData td {
+  padding: 0.875rem 1rem;
+  text-align: left;
+}
+
+.tableData thead th {
+  background: var(--muted);
+  font-weight: 600;
+  border-bottom: 2px solid var(--border);
+}
+
+.tableData tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.tableData tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* ─── Fixed Header Table ─── */
+
+.fixedWrapper {
+  height: 220px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.fixedWrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.fixedWrapper::-webkit-scrollbar-track {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+.fixedWrapper::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.fixedWrapper::-webkit-scrollbar-thumb:hover {
+  filter: brightness(0.9);
+}
+
+.tableFixed {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+}
+
+.tableFixed th,
+.tableFixed td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.tableFixed thead th {
+  position: sticky;
+  top: 0;
+  background: var(--card);
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+/* ─── Next Steps Links ─── */
+
+.nextGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.nextLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--foreground);
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  background: var(--card);
+  position: relative;
+  overflow: hidden;
+}
+
+.nextLink::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--primary), oklch(0.68 0.10 230));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nextLink:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px oklch(0.52 0.12 145 / 0.12), 0 4px 10px oklch(0 0 0 / 0.06);
+}
+
+.nextLink:hover::before {
+  opacity: 1;
+}
+
+.nextLink h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.nextLink p {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.nextIcon {
+  font-size: 1.75rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--muted);
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+/* ─── Mobile Responsive ─── */
+
+@media (max-width: 640px) {
+  .tableFilters {
+    flex-direction: column;
+  }
+
+  .filterInput,
+  .filterSelect {
+    width: 100%;
+  }
+
+  .nextGrid {
+    grid-template-columns: 1fr;
+  }
+}

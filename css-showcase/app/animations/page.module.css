@@ -1,0 +1,943 @@
+/* ============================================
+   Animations Page — Demo Styles
+   Scoped via CSS Modules
+   ============================================ */
+
+/* ─── Shared Animation Demo Container ─── */
+
+.animationDemo {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--muted);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.animationDemoDark {
+  composes: animationDemo;
+  background: #111113;
+}
+
+/* ─── Keyframe Basics ─── */
+
+/* Bounce Ball */
+.bounceBall {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary), #60a5fa);
+  border-radius: 50%;
+  animation: bounce 1s ease-in-out infinite;
+  box-shadow: 0 4px 16px oklch(from var(--primary) l c h / 0.35);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+}
+
+/* Rotate Square */
+.rotateSquare {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--secondary), #a78bfa);
+  border-radius: 0.375rem;
+  animation: rotate 2s linear infinite;
+  box-shadow: 0 4px 16px oklch(from var(--secondary) l c h / 0.35);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulse Circle */
+.pulseCircle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 4px 16px oklch(from #f59e0b l c h / 0.35);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Colour Shift */
+.colorShift {
+  width: 100px;
+  height: 100px;
+  border-radius: 0.75rem;
+  animation: colorShift 4s ease infinite;
+}
+
+@keyframes colorShift {
+  0% { background: #3b82f6; }
+  25% { background: #8b5cf6; }
+  50% { background: #ec4899; }
+  75% { background: #f59e0b; }
+  100% { background: #3b82f6; }
+}
+
+/* ─── Animation Properties: Timing Functions ─── */
+
+.timingDemos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.timingRow {
+  position: relative;
+  height: 2.75rem;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 0.625rem;
+  overflow: hidden;
+}
+
+.timingLabel {
+  position: absolute;
+  top: 50%;
+  left: 0.875rem;
+  transform: translateY(-50%);
+  font-weight: 600;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  z-index: 1;
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+.timingBox {
+  position: absolute;
+  left: 0;
+  top: 3px;
+  bottom: 3px;
+  width: 80px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 0.5rem;
+  animation: timingSlide 3s infinite;
+  opacity: 0.85;
+}
+
+@keyframes timingSlide {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(100cqi - 80px));
+  }
+}
+
+.timingLinear { animation-timing-function: linear; }
+.timingEase { animation-timing-function: ease; }
+.timingEaseIn { animation-timing-function: ease-in; }
+.timingEaseOut { animation-timing-function: ease-out; }
+.timingEaseInOut { animation-timing-function: ease-in-out; }
+.timingCubic {
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  background: linear-gradient(135deg, var(--secondary), #c084fc);
+}
+
+/* ─── Direction & Fill Mode ─── */
+
+.directionDemos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.directionCell {
+  height: 70px;
+  background: var(--muted);
+  border-radius: 0.625rem;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.directionBox {
+  padding: 0.5rem 1rem;
+  color: white;
+  border-radius: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+.dirNormal {
+  composes: directionBox;
+  background: var(--primary);
+  animation: fadeScale 2s ease-in-out infinite normal;
+}
+
+.dirReverse {
+  composes: directionBox;
+  background: var(--secondary);
+  animation: fadeScale 2s ease-in-out infinite reverse;
+}
+
+.dirAlternate {
+  composes: directionBox;
+  background: #f59e0b;
+  animation: fadeScale 2s ease-in-out infinite alternate;
+}
+
+.dirFillBoth {
+  composes: directionBox;
+  background: #10b981;
+  animation: fadeScale 2s ease-in-out both;
+}
+
+@keyframes fadeScale {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* ─── Play State Demo ─── */
+
+.playStateBox {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  animation: slideRotate 3s ease-in-out infinite;
+  cursor: pointer;
+  box-shadow: 0 4px 16px oklch(from var(--primary) l c h / 0.25);
+}
+
+.playStateBox:hover {
+  animation-play-state: paused;
+}
+
+@keyframes slideRotate {
+  0%, 100% {
+    transform: translateX(-50px) rotate(-5deg);
+  }
+  50% {
+    transform: translateX(50px) rotate(5deg);
+  }
+}
+
+/* ─── Creative Effects: Loading Spinner ─── */
+
+.loadingSpinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Typing Effect ─── */
+
+.typingText {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--primary);
+  color: var(--foreground);
+  animation:
+    typing 3s steps(13) infinite,
+    blink 1s infinite;
+}
+
+@keyframes typing {
+  0%, 90% {
+    width: 0;
+  }
+  40%, 60% {
+    width: 13ch;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ─── Floating Elements ─── */
+
+.floatingContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 2rem;
+}
+
+.floatingElement {
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
+  line-height: 1;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+}
+
+/* ─── Morphing Shape ─── */
+
+.morphShape {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  animation: morph 4s ease-in-out infinite;
+  box-shadow: 0 4px 16px oklch(from var(--primary) l c h / 0.3);
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 50%;
+    transform: rotate(0deg);
+  }
+  25% {
+    border-radius: 0%;
+    transform: rotate(90deg);
+  }
+  50% {
+    border-radius: 50% 0%;
+    transform: rotate(180deg);
+  }
+  75% {
+    border-radius: 0% 50%;
+    transform: rotate(270deg);
+  }
+  100% {
+    border-radius: 50%;
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Wave Animation ─── */
+
+.waveContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.waveDot {
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 50%;
+  animation: wave 1.5s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-18px);
+  }
+}
+
+/* ─── Glitch Effect ─── */
+
+.glitchText {
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  position: relative;
+  color: white;
+  letter-spacing: 0.1em;
+  animation: glitch 0.5s infinite;
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+.glitchText::before,
+.glitchText::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitchText::before {
+  animation: glitch1 0.5s infinite;
+  color: #ff00ff;
+  z-index: -1;
+}
+
+.glitchText::after {
+  animation: glitch2 0.5s infinite;
+  color: #00ffff;
+  z-index: -2;
+}
+
+@keyframes glitch {
+  0%, 100% {
+    text-shadow:
+      2px 2px 0 #ff00ff,
+      -2px -2px 0 #00ffff;
+  }
+  25% {
+    text-shadow:
+      -2px 2px 0 #ff00ff,
+      2px -2px 0 #00ffff;
+  }
+  50% {
+    text-shadow:
+      2px -2px 0 #ff00ff,
+      -2px 2px 0 #00ffff;
+  }
+}
+
+@keyframes glitch1 {
+  0%, 100% {
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    transform: translate(2px, -2px);
+  }
+  25% {
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    transform: translate(-2px, 2px);
+  }
+}
+
+@keyframes glitch2 {
+  0%, 100% {
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    transform: translate(-2px, 2px);
+  }
+  25% {
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    transform: translate(2px, -2px);
+  }
+}
+
+/* ─── 3D Card Flip ─── */
+
+.flipCard {
+  width: 220px;
+  height: 160px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flipCard:hover .flipCardInner {
+  transform: rotateY(180deg);
+}
+
+.flipCardFront,
+.flipCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.flipCardFront {
+  background: linear-gradient(135deg, var(--primary), #3b82f6);
+  color: white;
+}
+
+.flipCardBack {
+  background: linear-gradient(135deg, var(--secondary), #a78bfa);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.flipCard h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.flipCard p {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+/* ─── Property Explanations ─── */
+
+.propertyList {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  background: oklch(from var(--muted) l c h / 0.5);
+  border-radius: var(--radius);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+
+.propertyList h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.propertyList ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.propertyList li {
+  margin-bottom: 0.25rem;
+}
+
+.propertyList code {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+  background: var(--muted);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+}
+
+/* ─── Tip / Note Boxes ─── */
+
+.tipBox {
+  padding: 1.25rem 1.5rem;
+  background: oklch(from var(--primary) l c h / 0.06);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.tipBox h4 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.tipBox p {
+  margin: 0.5rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--foreground);
+}
+
+.tipBox p:first-of-type {
+  margin-top: 0;
+}
+
+.inlineLink {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.15s ease;
+}
+
+.inlineLink:hover {
+  opacity: 0.8;
+}
+
+/* ─── Next Steps ─── */
+
+.nextGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 700px;
+}
+
+.nextLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.nextLink::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--primary), oklch(0.68 0.10 230));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nextLink:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px oklch(0.52 0.12 145 / 0.12), 0 4px 10px oklch(0 0 0 / 0.06);
+}
+
+.nextLink:hover::before {
+  opacity: 1;
+}
+
+.nextIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--primary);
+}
+
+.nextLink h3 {
+  font-size: 1.125rem;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.nextLink p {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+/* ─── Animation Timeline ─── */
+
+.timelineContainer {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.timelinePresets {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.timelinePresetBtn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.timelinePresetBtn:hover {
+  border-color: var(--primary);
+  color: var(--foreground);
+}
+
+.timelinePresetBtnActive {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.timelineDescription {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.timelinePreview {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--muted);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.timelineElement {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px oklch(from var(--primary) l c h / 0.3);
+}
+
+.timelineBar {
+  position: relative;
+  height: 8px;
+  background: var(--muted);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  overflow: visible;
+}
+
+.timelineProgress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 4px;
+  transition: none;
+}
+
+.timelineKeyframeDots {
+  position: absolute;
+  inset: 0;
+}
+
+.timelineKeyframeDot {
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--foreground);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+}
+
+.timelineControls {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.timelinePlayBtn {
+  padding: 0.5rem 1.25rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px oklch(from var(--primary) l c h / 0.25);
+  white-space: nowrap;
+}
+
+.timelinePlayBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px oklch(from var(--primary) l c h / 0.35);
+}
+
+.timelineControlGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timelineControlLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+
+.timelineSlider {
+  width: 100px;
+  height: 4px;
+  appearance: none;
+  background: var(--muted);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.timelineSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.timelineSlider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.timelineControlValue {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.75rem;
+  color: var(--foreground);
+  background: var(--muted);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  min-width: 3rem;
+  text-align: center;
+}
+
+.timelineSelect {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--foreground);
+  font-size: 0.75rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  cursor: pointer;
+}
+
+.timelineCode {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  overflow-x: auto;
+  margin: 0;
+}
+
+/* ─── Demo Hint ─── */
+
+.demoHint {
+  text-align: center;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  font-style: italic;
+  margin: 0.75rem 0 0;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 768px) {
+  .directionDemos {
+    grid-template-columns: 1fr;
+  }
+
+  .glitchText {
+    font-size: 2rem;
+  }
+
+  .flipCard {
+    width: 180px;
+    height: 140px;
+  }
+
+  .timelineControls {
+    gap: 0.75rem;
+  }
+
+  .timelineSlider {
+    width: 80px;
+  }
+
+  .nextGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .timingDemos {
+    font-size: 0.625rem;
+  }
+
+  .typingText {
+    font-size: 1.125rem;
+  }
+
+  .glitchText {
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* ─── Respect reduced motion ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  .bounceBall,
+  .rotateSquare,
+  .pulseCircle,
+  .colorShift,
+  .timingBox,
+  .dirNormal,
+  .dirReverse,
+  .dirAlternate,
+  .dirFillBoth,
+  .playStateBox,
+  .loadingSpinner,
+  .typingText,
+  .floatingElement,
+  .morphShape,
+  .waveDot,
+  .glitchText,
+  .glitchText::before,
+  .glitchText::after,
+  .flipCardInner,
+  .nextLink {
+    animation: none !important;
+    transition: none !important;
+  }
+}

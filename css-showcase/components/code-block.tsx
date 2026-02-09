@@ -1,0 +1,166 @@
+"use client"
+
+import { useState, useRef, useEffect } from "react"
+import { ChevronDown, ChevronUp } from "lucide-react"
+import { CheckSquare, CopyPasteClipboard } from "@/components/icons/streamline-icons"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+
+interface CodeBlockProps {
+  code: string
+  language?: string
+  title?: string
+  collapsible?: boolean
+  defaultOpen?: boolean
+  className?: string
+}
+
+export function CodeBlock({
+  code,
+  language = "css",
+  title,
+  collapsible = false,
+  defaultOpen = true,
+  className,
+}: CodeBlockProps) {
+  const [copied, setCopied] = useState(false)
+  const [isOpen, setIsOpen] = useState(defaultOpen)
+  const codeRef = useRef<HTMLPreElement>(null)
+
+  async function handleCopy() {
+    try {
+      await navigator.clipboard.writeText(code)
+      setCopied(true)
+    } catch {
+      // Fallback for older browsers
+      const textArea = document.createElement("textarea")
+      textArea.value = code
+      document.body.appendChild(textArea)
+      textArea.select()
+      document.execCommand("copy")
+      document.body.removeChild(textArea)
+      setCopied(true)
+    }
+  }
+
+  useEffect(() => {
+    if (copied) {
+      const timer = setTimeout(() => setCopied(false), 2000)
+      return () => clearTimeout(timer)
+    }
+  }, [copied])
+
+  const header = (
+    <div className="flex items-center justify-between px-4 py-2 border-b border-[var(--border)] bg-[var(--surface-variant)]/30">
+      <div className="flex items-center gap-2">
+        {/* Terminal dots */}
+        <div className="flex gap-1.5">
+          <span className="size-2.5 rounded-full bg-red-400/80 dark:bg-red-500/60 transition-transform group-hover:scale-110" />
+          <span className="size-2.5 rounded-full bg-amber-400/80 dark:bg-amber-500/60 transition-transform group-hover:scale-110" />
+          <span className="size-2.5 rounded-full bg-emerald-400/80 dark:bg-emerald-500/60 transition-transform group-hover:scale-110" />
+        </div>
+        {title && (
+          <span className="ml-2 text-xs font-medium text-[var(--text-muted)] font-mono uppercase tracking-wider">
+            {title}
+          </span>
+        )}
+        {!title && language && (
+          <span className="ml-2 rounded-md bg-[var(--primary)]/10 px-1.5 py-0.5 text-[10px] font-semibold text-[var(--primary)] font-mono uppercase tracking-wider">
+            {language}
+          </span>
+        )}
+      </div>
+      <div className="flex items-center gap-1">
+        {collapsible && (
+          <CollapsibleTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-7 text-[var(--text-muted)] hover:text-foreground"
+            >
+              {isOpen ? (
+                <ChevronUp className="size-3.5" />
+              ) : (
+                <ChevronDown className="size-3.5" />
+              )}
+              <span className="sr-only">
+                {isOpen ? "Collapse code" : "Expand code"}
+              </span>
+            </Button>
+          </CollapsibleTrigger>
+        )}
+        <Button
+          variant="ghost"
+          size="sm"
+          className={cn(
+            "h-7 gap-1.5 text-[var(--text-muted)] hover:text-foreground transition-all duration-300",
+            copied && "text-emerald-500 dark:text-emerald-400"
+          )}
+          onClick={handleCopy}
+        >
+          <span
+            className={cn(
+              "inline-flex transition-transform duration-300",
+              copied && "animate-[copy-bounce_0.4s_ease-out]"
+            )}
+          >
+            {copied ? (
+              <CheckSquare className="size-3.5" />
+            ) : (
+              <CopyPasteClipboard className="size-3.5" />
+            )}
+          </span>
+          <span
+            className={cn(
+              "text-xs font-medium transition-all duration-300 overflow-hidden",
+              copied
+                ? "max-w-[4rem] opacity-100"
+                : "max-w-0 opacity-0"
+            )}
+          >
+            Copied!
+          </span>
+          <span className="sr-only">Copy code</span>
+        </Button>
+      </div>
+    </div>
+  )
+
+  const codeContent = (
+    <pre
+      ref={codeRef}
+      className="overflow-x-auto p-4 text-[13px] leading-relaxed font-mono"
+    >
+      <code className={`language-${language}`}>{code}</code>
+    </pre>
+  )
+
+  const wrapper = cn(
+    "group relative rounded-lg border border-[var(--border)] overflow-hidden",
+    "bg-[var(--surface-alt)] dark:bg-[#1a1b26]",
+    "text-[var(--text-primary)] dark:text-[#c0caf5]",
+    "shadow-xs",
+    className
+  )
+
+  if (collapsible) {
+    return (
+      <Collapsible open={isOpen} onOpenChange={setIsOpen} className={wrapper}>
+        {header}
+        <CollapsibleContent>{codeContent}</CollapsibleContent>
+      </Collapsible>
+    )
+  }
+
+  return (
+    <div className={wrapper}>
+      {header}
+      {codeContent}
+    </div>
+  )
+}

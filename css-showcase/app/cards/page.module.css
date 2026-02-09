@@ -1,0 +1,735 @@
+/* ============================================
+   Cards Page — Demo Styles
+   Scoped via CSS Modules
+   ============================================ */
+
+/* ─── Base Card ─── */
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ─── Simple Card ─── */
+
+.cardSimple {
+  composes: card;
+  border: 1px solid var(--border);
+}
+
+.cardTitle {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.cardText {
+  margin: 0 0 1rem 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.cardLink {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.cardLink:hover {
+  color: var(--ring);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ─── Image Card ─── */
+
+.cardImage {
+  composes: card;
+  padding: 0;
+  overflow: hidden;
+}
+
+.cardImageTop {
+  height: 200px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.cardBody {
+  padding: 1.5rem;
+}
+
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.cardTag {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  font-size: 0.8125rem;
+}
+
+/* ─── Profile Card ─── */
+
+.cardProfile {
+  composes: card;
+  text-align: center;
+}
+
+.profileAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profileName {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.profileRole {
+  margin: 0 0 1rem 0;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.profileBio {
+  margin: 0 0 1.5rem 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.profileStats {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.stat {
+  text-align: center;
+}
+
+.statValue {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.statLabel {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+/* ─── Product Card ─── */
+
+.cardProduct {
+  composes: card;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.productBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--destructive);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.productImage {
+  height: 250px;
+  background: linear-gradient(135deg, #fa709a, #fee140);
+}
+
+.productDetails {
+  padding: 1.5rem;
+}
+
+.productTitle {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.productDescription {
+  margin: 0 0 1rem 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.productRating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.stars {
+  color: #f59e0b;
+  font-size: 1.125rem;
+}
+
+.ratingCount {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.productPrice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.priceCurrent {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.priceOriginal {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-decoration: line-through;
+}
+
+.btnAddCart {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.btnAddCart:hover {
+  filter: brightness(1.1);
+}
+
+.btnAddCart:active {
+  transform: scale(0.98);
+}
+
+/* ─── Feature Card ─── */
+
+.cardFeature {
+  composes: card;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(135deg, #667eea, #764ba2) border-box;
+}
+
+.featureIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.featureTitle {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.featureText {
+  margin: 0 0 1rem 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.featureList li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--foreground);
+}
+
+.featureList li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: bold;
+}
+
+.featureLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: gap var(--transition-fast);
+}
+
+.featureLink:hover {
+  gap: 0.75rem;
+}
+
+.linkArrow {
+  transition: transform var(--transition-fast);
+}
+
+.featureLink:hover .linkArrow {
+  transform: translateX(4px);
+}
+
+/* ─── Testimonial Card ─── */
+
+.cardTestimonial {
+  composes: card;
+  background: var(--muted);
+  border: none;
+  position: relative;
+}
+
+.quoteIcon {
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.2;
+  font-family: Georgia, serif;
+}
+
+.testimonialText {
+  font-style: italic;
+  line-height: 1.8;
+  margin: 1rem 0 1.5rem;
+  color: var(--foreground);
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.authorAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  flex-shrink: 0;
+}
+
+.authorName {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.authorRole {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* ─── Card Layouts Section ─── */
+
+.layoutDemo {
+  background: var(--muted);
+  padding: 2rem;
+  border-radius: var(--radius);
+}
+
+.layoutDemoTitle {
+  margin: 0 0 1.5rem 0;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+/* Grid Layout */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cardSmall {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--foreground);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--transition-fast);
+}
+
+.cardSmall:hover {
+  transform: translateY(-2px);
+}
+
+/* Masonry Layout */
+.cardsMasonry {
+  columns: 3;
+  column-gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cardMasonry {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--foreground);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardMasonryTall {
+  composes: cardMasonry;
+  height: 200px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.cardMasonryRegular {
+  composes: cardMasonry;
+  height: 120px;
+}
+
+.cardMasonryShort {
+  composes: cardMasonry;
+  height: 80px;
+  background: var(--color-brand-earth);
+  color: white;
+}
+
+/* Horizontal Scroll */
+.cardsScroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+}
+
+.cardsScroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.cardsScroll::-webkit-scrollbar-track {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+.cardsScroll::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.cardScroll {
+  flex: 0 0 250px;
+  scroll-snap-align: start;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ─── Flip Card ─── */
+
+.cardFlipContainer {
+  perspective: 1000px;
+  height: 200px;
+}
+
+.cardFlip {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.cardFlipContainer:hover .cardFlip {
+  transform: rotateY(180deg);
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: var(--radius);
+}
+
+.cardFront {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.cardBack {
+  background: var(--color-brand-earth);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.cardFront h4,
+.cardBack h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.cardFront p,
+.cardBack p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ─── Expanding Card ─── */
+
+.cardExpand {
+  composes: card;
+  cursor: default;
+}
+
+.cardExpand:hover {
+  transform: none;
+}
+
+.cardExpand h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.expandPreview {
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+}
+
+.expandContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, margin 0.3s ease;
+}
+
+.expandContentOpen {
+  max-height: 300px;
+  margin: 1rem 0;
+}
+
+.expandToggle {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  transition: color var(--transition-fast);
+  font-size: 0.9375rem;
+}
+
+.expandToggle:hover {
+  color: var(--ring);
+}
+
+/* ─── Hover Reveal Card ─── */
+
+.cardHoverReveal {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  height: 300px;
+  box-shadow: var(--shadow-sm);
+}
+
+.revealImage {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  transition: transform var(--transition-base);
+}
+
+.cardHoverReveal:hover .revealImage {
+  transform: scale(1.1);
+}
+
+.revealOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.cardHoverReveal:hover .revealOverlay {
+  opacity: 1;
+}
+
+.revealOverlay h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.revealOverlay p {
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.revealButton {
+  background: white;
+  color: black;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.revealButton:hover {
+  transform: scale(1.05);
+}
+
+/* ─── Tips Grid ─── */
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.tipCard {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.tipCard:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.tipIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  color: var(--primary);
+  border-radius: var(--radius);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+}
+
+.tipCard h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.tipCard p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 768px) {
+  .cardsMasonry {
+    columns: 2;
+  }
+
+  .cardScroll {
+    flex: 0 0 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardsMasonry {
+    columns: 1;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .productPrice {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}

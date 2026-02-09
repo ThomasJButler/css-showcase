@@ -1,0 +1,812 @@
+/* ============================================
+   Filters Page — Demo Styles
+   Scoped via CSS Modules
+   ============================================ */
+
+/* ─── Filter Grid (shared for basic & combined demos) ─── */
+
+.filterGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.filterItem {
+  text-align: center;
+}
+
+.filterImage {
+  width: 100%;
+  height: 120px;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.3s ease;
+}
+
+.filterImage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.2) 0%, transparent 40%);
+}
+
+.filterLabel {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--muted-foreground);
+}
+
+/* ─── Basic Filter Classes ─── */
+
+.original {
+  filter: none;
+}
+
+.blur {
+  filter: blur(5px);
+}
+
+.brightness {
+  filter: brightness(1.5);
+}
+
+.brightnessDark {
+  filter: brightness(0.5);
+}
+
+.contrastHigh {
+  filter: contrast(2);
+}
+
+.contrastLow {
+  filter: contrast(0.5);
+}
+
+.grayscale {
+  filter: grayscale(1);
+}
+
+.grayscalePartial {
+  filter: grayscale(0.5);
+}
+
+.hueRotate90 {
+  filter: hue-rotate(90deg);
+}
+
+.hueRotate180 {
+  filter: hue-rotate(180deg);
+}
+
+.invert {
+  filter: invert(1);
+}
+
+.invertPartial {
+  filter: invert(0.5);
+}
+
+.saturate {
+  filter: saturate(2);
+}
+
+.desaturate {
+  filter: saturate(0.5);
+}
+
+.sepia {
+  filter: sepia(1);
+}
+
+.sepiaPartial {
+  filter: sepia(0.5);
+}
+
+/* ─── Drop Shadow Demos ─── */
+
+.shadowGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.shadowItem {
+  text-align: center;
+}
+
+.shadowDemo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.basicShadow {
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+.colourShadow {
+  filter: drop-shadow(0 0 20px #3b82f6);
+}
+
+.multiShadow {
+  filter:
+    drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3))
+    drop-shadow(-5px -5px 5px rgba(255, 255, 255, 0.3));
+}
+
+/* ─── Instagram-like Combined Filters ─── */
+
+.instagram1 {
+  filter: contrast(1.2) brightness(1.1) sepia(0.3) saturate(1.4);
+}
+
+.instagram2 {
+  filter: brightness(1.1) hue-rotate(180deg) saturate(0.7);
+}
+
+.instagram3 {
+  filter: brightness(1.2) hue-rotate(-20deg) saturate(1.3);
+}
+
+.instagram4 {
+  filter: contrast(1.5) brightness(0.9) grayscale(0.3);
+}
+
+/* ─── SVG Goo Filter Demo ─── */
+
+.svgFilterDemo {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--muted);
+  border-radius: 0.75rem;
+  position: relative;
+}
+
+.gooEffect {
+  filter: url(#goo);
+  display: flex;
+  gap: 2rem;
+}
+
+.gooBall {
+  width: 60px;
+  height: 60px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: gooMove 3s ease-in-out infinite;
+}
+
+.gooBall:nth-child(2) {
+  animation-delay: -1s;
+  background: var(--secondary);
+}
+
+.gooBall:nth-child(3) {
+  animation-delay: -2s;
+  background: #f59e0b;
+}
+
+@keyframes gooMove {
+  0%, 100% {
+    transform: translateX(-30px);
+  }
+  50% {
+    transform: translateX(30px);
+  }
+}
+
+/* ─── Filter Playground ─── */
+
+.playgroundContainer {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1.5rem;
+}
+
+.controlsPanel {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.controlsTitle {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.controlGroup {
+  margin-bottom: 0.875rem;
+}
+
+.controlHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.375rem;
+}
+
+.controlLabel {
+  font-weight: 500;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+}
+
+.valueDisplay {
+  background: var(--muted);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.75rem;
+  color: var(--foreground);
+}
+
+.rangeSlider {
+  width: 100%;
+  height: 6px;
+  appearance: none;
+  background: var(--muted);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.rangeSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.rangeSlider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.rangeSlider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.resetButton {
+  width: 100%;
+  padding: 0.625rem;
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.resetButton:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.resetButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.playgroundPreview {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.playgroundImage {
+  height: 350px;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.2s ease;
+}
+
+.playgroundImage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 35%, rgba(255, 255, 255, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.15) 0%, transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 30%);
+}
+
+/* ─── Hover Effects ─── */
+
+.hoverGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.hoverItem {
+  padding: 2rem 1rem;
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+.hoverBlur:hover {
+  filter: blur(3px);
+}
+
+.hoverBright:hover {
+  filter: brightness(1.3);
+}
+
+.hoverRotate:hover {
+  filter: hue-rotate(90deg);
+}
+
+.hoverGray:hover {
+  filter: grayscale(1);
+}
+
+/* ─── Animated Filters ─── */
+
+.animatedFilters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.animatedFilter {
+  padding: 3rem 1rem;
+  background: var(--secondary);
+  color: white;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+.pulseFilter {
+  animation: pulseBrightness 2s ease-in-out infinite;
+}
+
+@keyframes pulseBrightness {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+.rotateFilter {
+  animation: hueCycle 5s linear infinite;
+}
+
+@keyframes hueCycle {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.glitchFilter {
+  animation: glitchFilter 0.5s infinite;
+}
+
+@keyframes glitchFilter {
+  0%, 100% {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  20% {
+    filter: hue-rotate(90deg) brightness(1.1);
+  }
+  40% {
+    filter: hue-rotate(-90deg) brightness(0.9);
+  }
+}
+
+/* ─── Text Effects ─── */
+
+.textEffects {
+  background: var(--muted);
+  padding: 2rem;
+  border-radius: 0.75rem;
+  text-align: center;
+}
+
+.textEffects h3 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  font-weight: 800;
+}
+
+.textShadowFilter {
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.5));
+}
+
+.textGlowFilter {
+  filter:
+    drop-shadow(0 0 10px #3b82f6)
+    drop-shadow(0 0 20px #3b82f6)
+    drop-shadow(0 0 30px #3b82f6);
+  color: #3b82f6;
+}
+
+.textBlurFilter {
+  filter: blur(2px);
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+.textBlurFilter:hover {
+  filter: blur(0);
+}
+
+/* ─── Filter Compare ─── */
+
+.filterCompareContainer {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.filterCompareTabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.filterCompareTab {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filterCompareTab:hover {
+  border-color: var(--primary);
+  color: var(--foreground);
+}
+
+.filterCompareTabActive {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.filterCompareDescription {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.filterCompareSlider {
+  position: relative;
+  height: 300px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  cursor: col-resize;
+  user-select: none;
+  margin-bottom: 1rem;
+}
+
+.filterCompareLayer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+}
+
+.filterCompareLayer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 35%, rgba(255, 255, 255, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.15) 0%, transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 30%);
+}
+
+.filterCompareHandle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: white;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.filterCompareHandleGrip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  color: #333;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.filterCompareLabelLeft,
+.filterCompareLabelRight {
+  position: absolute;
+  bottom: 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.filterCompareLabelLeft {
+  left: 0.75rem;
+}
+
+.filterCompareLabelRight {
+  right: 0.75rem;
+}
+
+.filterCompareCode {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  overflow-x: auto;
+  margin: 0;
+}
+
+:global(.dark) .filterCompareLayer {
+  background: linear-gradient(135deg, #1e40af 0%, #4c1d95 50%, #9d174d 100%);
+}
+
+/* ─── Best Practices Tips ─── */
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.tipCard {
+  padding: 1.5rem;
+  background: oklch(from var(--primary) l c h / 0.06);
+  border-radius: var(--radius);
+  border: 1px solid oklch(from var(--primary) l c h / 0.1);
+}
+
+.tipIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+.tipCard h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--foreground);
+}
+
+.tipCard p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.tipCard code {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.8125rem;
+  background: var(--muted);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+}
+
+/* ─── Next Steps ─── */
+
+.nextGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 700px;
+}
+
+.nextLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.nextLink::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--primary), oklch(0.68 0.10 230));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nextLink:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px oklch(0.52 0.12 145 / 0.12), 0 4px 10px oklch(0 0 0 / 0.06);
+}
+
+.nextLink:hover::before {
+  opacity: 1;
+}
+
+.nextIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--primary);
+}
+
+.nextLink h3 {
+  font-size: 1.125rem;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.nextLink p {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+/* ─── Dark Mode Adjustments ─── */
+
+:global(.dark) .filterImage {
+  background: linear-gradient(135deg, #1e40af, #6d28d9);
+}
+
+:global(.dark) .playgroundImage {
+  background: linear-gradient(135deg, #1e40af 0%, #4c1d95 50%, #9d174d 100%);
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 768px) {
+  .filterGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .shadowGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hoverGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .animatedFilters {
+    grid-template-columns: 1fr;
+  }
+
+  .playgroundContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .controlsPanel {
+    order: 2;
+  }
+
+  .playgroundPreview {
+    order: 1;
+  }
+
+  .playgroundImage {
+    height: 280px;
+  }
+
+  .filterCompareSlider {
+    height: 220px;
+  }
+
+  .tipsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .textEffects h3 {
+    font-size: 1.75rem;
+  }
+
+  .nextGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hoverGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .textEffects h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ─── Respect reduced motion ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  .gooBall,
+  .pulseFilter,
+  .rotateFilter,
+  .glitchFilter,
+  .hoverItem,
+  .textBlurFilter,
+  .nextLink {
+    animation: none !important;
+    transition: none !important;
+  }
+}
